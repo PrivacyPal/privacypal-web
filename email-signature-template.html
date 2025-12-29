@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    /* Global Reset for Email Clients */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    
+    /* Vitreous Prism Core Styles */
+    .signature-container {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #0F172A;
+        background-color: #ffffff;
+        max-width: 540px;
+        position: relative;
+        padding: 32px;
+    }
+
+    .prism-accent {
+        width: 4px;
+        background: linear-gradient(180deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        border-radius: 4px;
+    }
+
+    .name-block {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+        margin: 0;
+        color: #0F172A;
+        text-transform: capitalize;
+    }
+
+    .title-block {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #64748B;
+        margin-top: 4px;
+        margin-bottom: 20px;
+    }
+
+    .contact-link {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: #94A3B8;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .contact-link:hover {
+        color: #6366f1;
+    }
+
+    .meta-data {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.6;
+    }
+
+    .logo-frame {
+        border: 1px solid #F1F5F9;
+        border-radius: 12px;
+        padding: 12px;
+        background: #ffffff;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    /* Motion Reveal */
+    @keyframes vitreousReveal {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-reveal {
+        animation: vitreousReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+</style>
+</head>
+<body style="margin: 0; padding: 0;">
+    <div class="signature-container animate-reveal">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <!-- Prismatic Suspension Bar -->
+                <td width="4" class="prism-accent" style="width: 4px; padding: 0;">&nbsp;</td>
+                
+                <td style="padding-left: 28px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td valign="top">
+                                <!-- Identity Section -->
+                                <div class="name-block">Jason Melo</div>
+                                <div class="title-block">Co-Founder</div>
+                                
+                                <!-- Contact Matrix -->
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                    <tr>
+                                        <td style="padding-bottom: 6px;">
+                                            <span style="color: #CBD5E1; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-right: 8px;">M</span>
+                                            <a href="tel:+13478192092" class="contact-link">+1 (347) 819-2092</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 6px;">
+                                            <span style="color: #CBD5E1; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-right: 8px;">W</span>
+                                            <a href="https://privacypal.ai" class="contact-link">www.privacypal.ai</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="color: #CBD5E1; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-right: 8px;">A</span>
+                                            <span class="meta-data" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94A3B8;">2700 North Military Trail, Boca Raton, FL</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td width="100" valign="top" align="right" style="padding-left: 20px;">
+                                <div class="logo-frame">
+                                    <img src="https://www.privacypal.ai/privacypal-logo.png?text=PrivacyPal" alt="PrivacyPal" width="128" style="display: block; border-radius: 4px;">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Vitreous Footer Divider -->
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 24px;">
+                        <tr>
+                            <td height="1" style="background-color: #F1F5F9; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 16px;">
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                    <tr>
+                                        <td style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.2em;">
+                                            Privacy Agents for AI
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
