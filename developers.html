@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrivacyPal SDK - Build Privacy-First AI Applications | Developers</title>
-    <meta name="description" content="Integrate PrivacyPal's streaming Data Twin technology into your applications. Build compliant, multi-tenant AI solutions with our SDK.">
+    <meta name="description" content="Integrate PrivacyPal's streaming Privacy Twin technology into your applications. Build compliant, multi-tenant AI solutions with our SDK.">
     <link rel="icon" type="image/png" href="pp-logo.png">
     
     <style>
@@ -902,7 +902,7 @@
                 </h1>
                 <p>
                     Build secure entry points for AI agents to interact with other agents while protecting sensitive data. 
-                    Enable agentic payments, information flow, and compliant data sharing with PrivacyPal's Data Twin technology.
+                    Enable agentic payments, information flow, and compliant data sharing with PrivacyPal's Privacy Twin technology.
                 </p>
                 <div class="platform-badges">
                     <div class="platform-badge">
@@ -1202,7 +1202,7 @@
   <span class="code-property">accessControl</span>: { <span class="code-property">requirePayment</span>: <span class="code-keyword">true</span> }
 });
 
-<span class="code-comment">// Share Data Twin with other agents - real data stays protected</span>
+<span class="code-comment">// Share Privacy Twin with other agents - real data stays protected</span>
 <span class="code-keyword">await</span> <span class="code-function">sendToExternalAgent</span>(protectedEndpoint.<span class="code-property">anonymized</span>);
 <span class="code-comment">// Your agent maintains control over sensitive data</span>
 </pre>
@@ -1243,13 +1243,13 @@
 <span class="code-comment">// Protect patient data before sending to 3rd party vendor agent</span>
 <span class="code-keyword">const</span> <span class="code-property">protected</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">createStream</span>(patientRecord);
 
-<span class="code-comment">// Send Data Twin to vendor's analysis API/agent</span>
+<span class="code-comment">// Send Privacy Twin to vendor's analysis API/agent</span>
 <span class="code-keyword">const</span> <span class="code-property">analysis</span> = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">'https://vendor-api.com/analyze'</span>, {
   <span class="code-property">method</span>: <span class="code-string">'POST'</span>,
   <span class="code-property">body</span>: <span class="code-function">JSON</span>.<span class="code-function">stringify</span>(protected.<span class="code-property">anonymized</span>)
 });
 
-<span class="code-comment">// Vendor agent processes Data Twin - no real PHI exposed</span>
+<span class="code-comment">// Vendor agent processes Privacy Twin - no real PHI exposed</span>
 <span class="code-comment">// HIPAA compliant ✅</span>
 </pre>
                         </div>
@@ -1284,10 +1284,10 @@
   <span class="code-property">sensitiveInfo</span>: <span class="code-string">'confidential-strategy'</span>
 };
 
-<span class="code-comment">// Protect trade info with Data Twin</span>
+<span class="code-comment">// Protect trade info with Privacy Twin</span>
 <span class="code-keyword">const</span> <span class="code-property">protectedTrade</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">createStream</span>(tradeRequest);
 
-<span class="code-comment">// Match agent shares Data Twin (no real data) to find counterparty</span>
+<span class="code-comment">// Match agent shares Privacy Twin (no real data) to find counterparty</span>
 <span class="code-keyword">const</span> <span class="code-property">match</span> = <span class="code-keyword">await</span> <span class="code-function">findCounterparty</span>(protectedTrade.<span class="code-property">anonymized</span>);
 
 <span class="code-comment">// Future: Counterparty agent receives 402: Payment Required via x402</span>
@@ -1318,7 +1318,7 @@
             <div class="footer-brand">
                 <h3>PrivacyPal</h3>
                 <p>
-                    Build privacy-first AI applications with streaming Data Twin technology. 
+                    Build privacy-first AI applications with streaming Privacy Twin technology. 
                     The developer platform for compliant AI solutions.
                 </p>
                 <div class="social-links">
