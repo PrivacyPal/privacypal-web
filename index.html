@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrivacyPal - Your Private AI Companion | Launch January 2026</title>
     <meta name="description" content="Use ChatGPT, Claude, and any AI tool without exposing your sensitive data. PrivacyPal AI runs in your web browser and keeps your private information private.">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -830,6 +830,201 @@
             box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
 
+        /* Pricing AI Section with Calculator */
+        .pricing-ai-section {
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .pricing-ai-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-ai-card:hover {
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+        }
+
+        .price-calculator {
+            margin-top: 40px;
+        }
+
+        .calculator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .slider-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e6f1ff;
+        }
+
+        .seat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cobalt-light);
+        }
+
+        .slider-container {
+            position: relative;
+            margin: 50px 0;
+            padding: 0;
+        }
+
+        .seat-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+        }
+
+        .seat-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.6);
+            transition: all 0.3s ease;
+            border: 3px solid #050a0f;
+            position: relative;
+        }
+
+        .seat-slider::-webkit-slider-thumb:hover {
+            background: var(--cobalt-light);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.8);
+        }
+
+        .seat-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            cursor: pointer;
+            border: 3px solid #050a0f;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .seat-slider::-moz-range-thumb:hover {
+            background: var(--cobalt-light);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.8);
+        }
+
+        .seat-slider::-moz-range-track {
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .slider-ticks {
+            display: flex;
+            margin-top: 15px;
+            position: relative;
+            width: 100%;
+            height: 32px;
+        }
+
+        .slider-ticks .tick {
+            font-size: 0.9rem;
+            color: rgba(147, 197, 253, 0.5);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: absolute;
+            padding-top: 20px;
+            transform: translateX(-50%);
+        }
+
+        /* Ticks will be positioned dynamically via JavaScript */
+
+        .slider-ticks .tick::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 12px;
+            background: rgba(147, 197, 253, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .slider-ticks .tick:hover {
+            color: var(--cobalt-light);
+        }
+
+        .slider-ticks .tick:hover::before {
+            background: var(--cobalt-light);
+            height: 16px;
+        }
+
+        .price-display {
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .price-main {
+            text-align: center;
+        }
+
+        .price-secondary {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .price-annual {
+            font-size: 1.3rem;
+            color: #99ccff;
+            font-weight: 600;
+        }
+
+        .price-per-seat {
+            font-size: 0.95rem;
+            color: rgba(147, 197, 253, 0.6);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* Pricing Cloud Section */
+        .pricing-cloud-section {
+            padding: 60px 40px;
+            background: transparent;
+        }
+
+        .cloud-card {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         /* Agent-to-Agent Section */
         .agent-to-agent {
             background: linear-gradient(135deg, rgba(51, 102, 153, 0.1) 0%, rgba(26, 58, 90, 0.1) 100%);
@@ -1360,6 +1555,49 @@
             .price-amount {
                 font-size: 3.5rem;
             }
+
+            .pricing-ai-section,
+            .pricing-cloud-section {
+                padding: 40px 20px;
+            }
+
+            .pricing-ai-card {
+                padding: 40px 25px;
+            }
+
+            .calculator-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .seat-value {
+                font-size: 1.8rem;
+            }
+
+            .slider-container {
+                margin: 40px 0;
+            }
+
+            .slider-ticks .tick {
+                font-size: 0.75rem;
+            }
+
+            .price-display {
+                margin: 40px 0;
+            }
+
+            .price-amount {
+                font-size: 3.5rem;
+            }
+
+            .price-annual {
+                font-size: 1.1rem;
+            }
+
+            .price-per-seat {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -1688,29 +1926,67 @@
                     From individual users to enterprise organizations. No hidden fees, just honest pricing.
                 </p>
             </div>
+        </div>
 
-            <div class="pricing-container">
-                <div class="price-card">
+        <!-- PrivacyPal AI Pricing with Calculator -->
+        <div class="pricing-ai-section">
+            <div class="container">
+                <div class="pricing-ai-card">
                     <div class="price-badge">Launch Offer</div>
                     <h3>PrivacyPal AI</h3>
-                    <div class="price-amount">$25<span>/mo</span></div>
-                    <div class="price-period">Billed monthly</div>
-                    <div class="price-save">or $250/year (save 17%)</div>
+                    
+                    <div class="price-calculator">
+                        <div class="calculator-header">
+                            <label for="seat-slider" class="slider-label">Seats</label>
+                            <div class="seat-value" id="seatValue">1</div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <input type="range" id="seat-slider" class="seat-slider" min="0" max="8" value="0" step="1">
+                            <div class="slider-ticks">
+                                <span class="tick" data-value="0">1</span>
+                                <span class="tick" data-value="1">5</span>
+                                <span class="tick" data-value="2">10</span>
+                                <span class="tick" data-value="3">20</span>
+                                <span class="tick" data-value="4">50</span>
+                                <span class="tick" data-value="5">100</span>
+                                <span class="tick" data-value="6">200</span>
+                                <span class="tick" data-value="7">500</span>
+                                <span class="tick" data-value="8">1000</span>
+                            </div>
+                        </div>
 
-                    <div class="price-features">
-                        <div class="price-feature">2,500 Privacy Twins per month</div>
-                        <div class="price-feature">Works with ChatGPT & Claude</div>
-                        <div class="price-feature">Automatic sensitive data detection</div>
-                        <div class="price-feature">Real-time protection</div>
-                        <div class="price-feature">Browser extension</div>
-                        <div class="price-feature">Unlimited AI queries</div>
-                        <div class="price-feature">Email support</div>
+                        <div class="price-display">
+                            <div class="price-main">
+                                <div class="price-amount" id="monthlyPrice">$50<span>/mo</span></div>
+                                <div class="price-period">Billed monthly</div>
+                            </div>
+                            <div class="price-secondary">
+                                <div class="price-annual" id="annualPrice">or $500/year</div>
+                                <div class="price-per-seat" id="perSeatPrice">$50 per seat</div>
+                            </div>
+                        </div>
+
+                        <div class="price-features">
+                            <div class="price-feature">2,500 Privacy Twins per month</div>
+                            <div class="price-feature">Works with ChatGPT & Claude</div>
+                            <div class="price-feature">Automatic sensitive data detection</div>
+                            <div class="price-feature">Real-time protection</div>
+                            <div class="price-feature">Browser extension</div>
+                            <div class="price-feature">Unlimited AI queries</div>
+                            <div class="price-feature">Email support</div>
+                        </div>
+
+                        <a href="install.html" class="price-cta">Install</a>
                     </div>
-
-                    <a href="install.html" class="price-cta">Install</a>
                 </div>
+            </div>
+        </div>
 
-                <div class="price-card featured">
+        <!-- PrivacyPal Cloud Pricing (Static) -->
+        <div class="pricing-cloud-section">
+            <div class="container">
+                <div class="price-card featured cloud-card">
                     <div class="price-badge">Enterprise</div>
                     <h3>PrivacyPal Cloud</h3>
                     <div class="price-amount" style="font-size: 3.5rem;">$12k<span style="font-size: 1.5rem;">/yr</span></div>
@@ -1894,6 +2170,106 @@
         }
 
         createVelocityLines();
+
+        // Price Calculator
+        const pricingData = [
+            { seats: 1, monthly: 50, annual: 500, perSeat: 50 },
+            { seats: 5, monthly: 200, annual: 2000, perSeat: 40 },
+            { seats: 10, monthly: 350, annual: 3500, perSeat: 35 },
+            { seats: 20, monthly: 600, annual: 6000, perSeat: 30 },
+            { seats: 50, monthly: 1200, annual: 12000, perSeat: 24 },
+            { seats: 100, monthly: 2000, annual: 20000, perSeat: 20 },
+            { seats: 200, monthly: 3600, annual: 36000, perSeat: 18 },
+            { seats: 500, monthly: 7500, annual: 75000, perSeat: 15 },
+            { seats: 1000, monthly: 12000, annual: 120000, perSeat: 12 }
+        ];
+
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString();
+        }
+
+        function updatePricing(sliderValue) {
+            const data = pricingData[sliderValue];
+            const seatValueEl = document.getElementById('seatValue');
+            const monthlyPriceEl = document.getElementById('monthlyPrice');
+            const annualPriceEl = document.getElementById('annualPrice');
+            const perSeatPriceEl = document.getElementById('perSeatPrice');
+
+            if (!data || !seatValueEl || !monthlyPriceEl || !annualPriceEl || !perSeatPriceEl) return;
+
+            // Update seat value
+            seatValueEl.textContent = data.seats;
+
+            // Update monthly price
+            monthlyPriceEl.innerHTML = formatCurrency(data.monthly) + '<span>/mo</span>';
+
+            // Update annual price
+            annualPriceEl.textContent = 'or ' + formatCurrency(data.annual) + '/year';
+
+            // Update per-seat price
+            perSeatPriceEl.textContent = '$' + data.perSeat + ' per seat';
+        }
+
+        // Position ticks to align with slider thumb
+        function positionTicks() {
+            const slider = document.getElementById('seat-slider');
+            const ticks = document.querySelectorAll('.slider-ticks .tick');
+            if (!slider || ticks.length === 0) return;
+
+            const sliderRect = slider.getBoundingClientRect();
+            const thumbWidth = 24; // thumb is 24px wide
+            const thumbRadius = thumbWidth / 2;
+            const min = parseInt(slider.min);
+            const max = parseInt(slider.max);
+            const trackWidth = sliderRect.width;
+            const usableWidth = trackWidth - thumbWidth;
+
+            ticks.forEach(tick => {
+                const value = parseInt(tick.getAttribute('data-value'));
+                // Calculate thumb center position
+                // Range sliders position thumb from left edge, accounting for thumb width
+                const percentage = (value - min) / (max - min);
+                const thumbCenterPosition = thumbRadius + (percentage * usableWidth);
+                const leftPercent = (thumbCenterPosition / trackWidth) * 100;
+                tick.style.left = leftPercent + '%';
+            });
+        }
+
+        // Initialize price calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('seat-slider');
+            if (slider) {
+                // Position ticks after a brief delay to ensure layout is complete
+                setTimeout(() => {
+                    positionTicks();
+                }, 10);
+
+                // Reposition ticks on window resize
+                let resizeTimeout;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(positionTicks, 100);
+                });
+
+                // Set initial value
+                updatePricing(0);
+
+                // Update on slider change
+                slider.addEventListener('input', function() {
+                    updatePricing(parseInt(this.value));
+                });
+
+                // Allow clicking on tick marks
+                const ticks = document.querySelectorAll('.slider-ticks .tick');
+                ticks.forEach(tick => {
+                    tick.addEventListener('click', function() {
+                        const value = parseInt(this.getAttribute('data-value'));
+                        slider.value = value;
+                        updatePricing(value);
+                    });
+                });
+            }
+        });
 
         // Modal functions
         function openWaitlistModal(e) {
