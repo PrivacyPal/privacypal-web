@@ -6,6 +6,9 @@
     <title>About Us - PrivacyPal | Our Mission & Values</title>
     <meta name="description" content="Learn about PrivacyPal's mission to safeguard privacy rights and foster trust in AI through transparent, innovative solutions.">
     <link rel="icon" type="image/png" href="pp-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,12 +18,12 @@
         }
 
         :root {
-            --navy: #172446;
-            --primary-blue: #4c49ff;
-            --cyan: #36c0de;
-            --light-gray: #a8acbd;
-            --dark: #191919;
-            --white: #ffffff;
+            --cobalt: #336699;
+            --cobalt-dark: #1a3a5a;
+            --cobalt-light: #4a86c2;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-hover: rgba(51, 102, 153, 0.05);
         }
 
         html {
@@ -28,11 +31,66 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
-            color: var(--dark);
-            background: var(--white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #050a0f;
+            color: #e6f1ff;
             line-height: 1.6;
             overflow-x: hidden;
+            margin: 0;
+        }
+
+        /* Vitreous Velocity Background */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(51, 102, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(51, 102, 153, 0.1) 0%, transparent 50%);
+        }
+
+        #velocity-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .velocity-line {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--cobalt), transparent);
+            opacity: 0.3;
+            animation: moveDown 8s linear infinite;
+        }
+
+        @keyframes moveDown {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Glass Cards */
+        .vitreous-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vitreous-card:hover {
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
         }
 
         /* Navigation */
@@ -42,20 +100,21 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(76, 73, 255, 0.1);
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,15 +124,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
             text-decoration: none;
         }
 
         .logo img {
-            height: 66px;
+            height: 72px;
+            max-height: 72px;
             width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -83,33 +141,35 @@
         }
 
         .nav-links a {
-            color: var(--dark);
+            color: #e6f1ff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary-blue);
+            color: var(--cobalt-light);
         }
 
         .nav-links a.active {
-            color: var(--primary-blue);
+            color: var(--cobalt-light);
             font-weight: 600;
         }
 
         .cta-nav-button {
-            background: linear-gradient(135deg, #4c49ff, #172446);
+            background: var(--cobalt);
             color: white !important;
             padding: 12px 30px;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
 
         .cta-nav-button:hover {
+            background: var(--cobalt-light);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(76, 73, 255, 0.3);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
 
         /* Hero Section */
@@ -118,10 +178,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #172446 0%, #2d3a5f 100%);
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.1) 0%, rgba(26, 58, 90, 0.1) 100%);
             color: white;
             padding: 140px 40px 80px;
             text-align: center;
+            position: relative;
         }
 
         .about-hero h1 {
@@ -129,13 +190,18 @@
             font-weight: 900;
             margin-bottom: 25px;
             line-height: 1.1;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .about-hero p {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
-            opacity: 0.9;
+            color: rgba(147, 197, 253, 0.6);
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
         /* Container */
@@ -147,11 +213,16 @@
 
         section {
             padding: 100px 0;
+            position: relative;
+        }
+
+        .section-light {
+            background: rgba(255, 255, 255, 0.02);
         }
 
         /* Mission Section */
         .mission {
-            background: white;
+            background: transparent;
         }
 
         .mission-content {
@@ -164,45 +235,20 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
             margin-bottom: 30px;
-            color: var(--dark);
+            color: #e6f1ff;
+            line-height: 1.1;
         }
 
         .section-text {
             font-size: 1.2rem;
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
             margin-bottom: 50px;
         }
 
-        .mission-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .mission-card {
-            background: #f8f9ff;
-            padding: 40px;
-            border-radius: 25px;
-            text-align: left;
-        }
-
-        .mission-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .mission-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
         /* Values Section */
         .values {
-            background: #f8f9ff;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .values-grid {
@@ -213,16 +259,22 @@
         }
 
         .value-card {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding: 40px;
             border-radius: 25px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .value-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(76, 73, 255, 0.15);
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
         }
 
         .value-icon {
@@ -232,12 +284,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(51, 102, 153, 0.2);
+            border-radius: 15px;
         }
 
         .value-icon svg {
             width: 100%;
             height: 100%;
-            stroke: var(--primary-blue);
+            stroke: var(--cobalt-light);
             stroke-width: 1.5;
             fill: none;
             opacity: 0.8;
@@ -247,17 +301,17 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: #e6f1ff;
         }
 
         .value-card p {
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.7;
         }
 
         /* Team Section */
         .team {
-            background: white;
+            background: transparent;
         }
 
         .team-intro {
@@ -268,7 +322,7 @@
 
         .team-intro p {
             font-size: 1.2rem;
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
         }
 
@@ -290,8 +344,9 @@
             margin: 0 auto 20px;
             overflow: hidden;
             object-fit: cover;
-            box-shadow: 0 10px 40px rgba(76, 73, 255, 0.15);
+            box-shadow: 0 10px 40px rgba(51, 102, 153, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--glass-border);
         }
 
         .team-member-photo img {
@@ -303,25 +358,26 @@
 
         .team-member:hover .team-member-photo {
             transform: scale(1.05);
-            box-shadow: 0 15px 50px rgba(76, 73, 255, 0.25);
+            box-shadow: 0 15px 50px rgba(51, 102, 153, 0.5);
+            border-color: var(--cobalt);
         }
 
         .team-member h3 {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: var(--dark);
+            color: #e6f1ff;
         }
 
         .team-member-role {
-            color: var(--primary-blue);
+            color: var(--cobalt-light);
             font-weight: 600;
             margin-bottom: 10px;
         }
 
         /* Investors Section */
         .investors {
-            background: #f8f9ff;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .investors-intro {
@@ -332,7 +388,7 @@
 
         .investors-intro p {
             font-size: 1.2rem;
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
         }
 
@@ -352,10 +408,12 @@
             align-items: center;
             justify-content: center;
             padding: 30px;
-            background: white;
+            background: #ffffff;
+            border: 1px solid var(--glass-border);
             border-radius: 15px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             height: 120px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .investor-logo img {
@@ -371,7 +429,9 @@
 
         .investor-logo:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(76, 73, 255, 0.15);
+            border-color: var(--cobalt);
+            background: #ffffff;
+            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
         }
 
         .investor-logo:hover img {
@@ -381,8 +441,10 @@
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid var(--glass-border);
+            color: #e6f1ff;
             padding: 80px 40px 40px;
         }
 
@@ -398,10 +460,11 @@
         .footer-brand h3 {
             font-size: 2rem;
             margin-bottom: 20px;
+            color: #e6f1ff;
         }
 
         .footer-brand p {
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -415,18 +478,20 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #e6f1ff;
             text-decoration: none;
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: #4c49ff;
+            background: var(--cobalt);
+            border-color: var(--cobalt);
             transform: translateY(-3px);
         }
 
@@ -434,6 +499,7 @@
             font-size: 1.2rem;
             margin-bottom: 20px;
             font-weight: 700;
+            color: #e6f1ff;
         }
 
         .footer-links ul {
@@ -445,22 +511,22 @@
         }
 
         .footer-links a {
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--cobalt-light);
         }
 
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--glass-border);
             text-align: center;
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             position: relative;
         }
 
@@ -470,15 +536,157 @@
             right: 0;
             text-align: right;
             font-size: 0.85rem;
-            color: #666;
             line-height: 1.6;
             padding: 20px 0;
         }
 
         .footer-contact strong {
-            color: #999;
+            color: rgba(230, 241, 255, 0.8);
             display: block;
             margin-bottom: 5px;
+        }
+
+        .footer-bottom a {
+            color: var(--cobalt-light);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--cobalt);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--glass);
+            backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            width: 90%;
+            max-width: 700px;
+            height: 85vh;
+            max-height: 900px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.4s ease-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            padding: 40px 40px 30px;
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e6f1ff, var(--cobalt-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            text-align: center;
+        }
+
+        .modal-subtitle {
+            color: rgba(147, 197, 253, 0.6);
+            text-align: center;
+            margin: 15px 0 0;
+            font-size: 1.2rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            color: rgba(147, 197, 253, 0.6);
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--glass);
+            color: #e6f1ff;
+        }
+
+        .modal-body {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .form-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            background: white;
+            min-height: 500px;
+        }
+
+        .modal-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: rgba(147, 197, 253, 0.6);
+            font-size: 1.2rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(51, 102, 153, 0.3);
+            border-top: 4px solid var(--cobalt);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Responsive */
@@ -497,7 +705,10 @@
                 padding: 120px 20px 60px;
             }
 
-            .mission-cards,
+            section {
+                padding: 80px 20px;
+            }
+
             .values-grid,
             .team-grid {
                 grid-template-columns: 1fr;
@@ -522,11 +733,14 @@
     </style>
 </head>
 <body>
+    <div class="bg-mesh"></div>
+    <div id="velocity-lines"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="privacypal-logo-color.png" alt="PrivacyPal">
+                <img src="privacypal-logo-light.png" alt="PrivacyPal">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -570,7 +784,7 @@
     <section class="values">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Our Values</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="text-align: center; font-size: 1.2rem; color: rgba(147, 197, 253, 0.6); margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
                 Our culture is non-negotiable fostering human first innovation at scale
             </p>
             <div class="values-grid">
@@ -745,7 +959,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 PrivacyPal. All rights reserved. | <a href="mailto:hi@privacypal.ai" style="color: #4c49ff;">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>
@@ -784,140 +998,26 @@
         </div>
     </div>
 
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 26, 26, 0.9);
-            backdrop-filter: blur(10px);
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 30px;
-            width: 90%;
-            max-width: 700px;
-            height: 85vh;
-            max-height: 900px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
-            animation: modalSlideIn 0.4s ease-out;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-header {
-            padding: 40px 40px 30px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .modal-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #191919, #4c49ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-            text-align: center;
-        }
-
-        .modal-subtitle {
-            color: #666;
-            text-align: center;
-            margin: 15px 0 0;
-            font-size: 1.2rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: none;
-            border: none;
-            font-size: 2.5rem;
-            color: #999;
-            cursor: pointer;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: rgba(0, 0, 0, 0.05);
-            color: var(--dark);
-        }
-
-        .modal-body {
-            flex: 1;
-            padding: 20px;
-            overflow: auto;
-        }
-
-        .form-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 15px;
-            background: white;
-            min-height: 500px;
-        }
-
-        .modal-loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #666;
-            font-size: 1.2rem;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(76, 73, 255, 0.2);
-            border-top: 4px solid #4c49ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-
     <script>
+        // Create velocity lines animation
+        function createVelocityLines() {
+            const container = document.getElementById('velocity-lines');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 20; i++) {
+                const line = document.createElement('div');
+                line.className = 'velocity-line';
+                line.style.left = Math.random() * 100 + 'vw';
+                line.style.animationDelay = Math.random() * 5 + 's';
+                line.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                container.appendChild(line);
+            }
+        }
+
+        createVelocityLines();
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -985,4 +1085,3 @@
     </script>
 </body>
 </html>
-

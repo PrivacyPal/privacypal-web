@@ -6,6 +6,9 @@
     <title>PrivacyPal - Your Private AI Companion | Launch January 2026</title>
     <meta name="description" content="Use ChatGPT, Claude, and any AI tool without exposing your sensitive data. PrivacyPal AI runs in your web browser and keeps your private information private.">
     <link rel="icon" type="image/png" href="pp-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,12 +18,12 @@
         }
 
         :root {
-            --navy: #172446;
-            --primary-blue: #4c49ff;
-            --cyan: #36c0de;
-            --light-gray: #a8acbd;
-            --dark: #191919;
-            --white: #ffffff;
+            --cobalt: #336699;
+            --cobalt-dark: #1a3a5a;
+            --cobalt-light: #4a86c2;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-hover: rgba(51, 102, 153, 0.05);
         }
 
         html {
@@ -28,11 +31,70 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
-            color: var(--dark);
-            background: var(--white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #050a0f;
+            color: #e6f1ff;
             line-height: 1.6;
             overflow-x: hidden;
+            margin: 0;
+        }
+
+        .mono { 
+            font-family: 'JetBrains Mono', monospace; 
+        }
+
+        /* Vitreous Velocity Background */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(51, 102, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(51, 102, 153, 0.1) 0%, transparent 50%);
+        }
+
+        #velocity-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .velocity-line {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--cobalt), transparent);
+            opacity: 0.3;
+            animation: moveDown 8s linear infinite;
+        }
+
+        @keyframes moveDown {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Glass Cards */
+        .vitreous-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vitreous-card:hover {
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
         }
 
         /* Navigation */
@@ -42,20 +104,21 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(76, 73, 255, 0.1);
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,15 +128,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
             text-decoration: none;
         }
 
         .logo img {
-            height: 66px;
+            height: 72px;
+            max-height: 72px;
             width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -83,7 +145,7 @@
         }
 
         .nav-links a {
-            color: var(--dark);
+            color: #e6f1ff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -91,44 +153,34 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-blue);
+            color: var(--cobalt-light);
         }
 
         .cta-nav-button {
-            background: linear-gradient(135deg, #4c49ff, #172446);
+            background: var(--cobalt);
             color: white !important;
             padding: 12px 30px;
             border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
 
         .cta-nav-button:hover {
+            background: var(--cobalt-light);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(76, 73, 255, 0.3);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
 
-        /* Hero Section - Consumer Focused */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-            padding: 120px 40px 80px;
+            padding: 140px 40px 80px;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(76, 73, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .hero-container {
@@ -143,18 +195,7 @@
         }
 
         .hero-content {
-            animation: fadeInLeft 0.8s ease-out;
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .hero-badge {
@@ -162,35 +203,43 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: rgba(76, 73, 255, 0.1);
-            border: 1px solid rgba(76, 73, 255, 0.2);
+            background: rgba(51, 102, 153, 0.2);
+            border: 1px solid var(--cobalt);
             border-radius: 50px;
             margin-bottom: 30px;
             font-weight: 600;
-            color: var(--primary-blue);
+            color: #99ccff;
             font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            color: var(--dark);
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #4c49ff, #36c0de);
+        .hero-text {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding-bottom: 0.15em;
+            overflow: visible;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, #fff, var(--cobalt-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             margin-bottom: 40px;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         .hero-cta-group {
@@ -213,25 +262,27 @@
         }
 
         .hero-cta-primary {
-            background: linear-gradient(135deg, #4c49ff, #172446);
+            background: var(--cobalt);
             color: white;
-            box-shadow: 0 10px 40px rgba(76, 73, 255, 0.3);
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
 
         .hero-cta-primary:hover {
+            background: var(--cobalt-light);
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(76, 73, 255, 0.4);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
 
         .hero-cta-secondary {
-            background: white;
-            color: var(--navy);
-            border: 2px solid var(--navy);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            color: #e6f1ff;
+            border: 1px solid var(--glass-border);
         }
 
         .hero-cta-secondary:hover {
-            background: var(--navy);
-            color: white;
+            background: var(--glass-hover);
+            border-color: var(--cobalt);
         }
 
         .trust-indicators {
@@ -239,7 +290,7 @@
             gap: 30px;
             align-items: center;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--glass-border);
             margin-top: 20px;
         }
 
@@ -247,55 +298,49 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             font-size: 0.95rem;
         }
 
         .trust-item::before {
             content: '✓';
-            color: #4c49ff;
+            color: var(--cobalt);
             font-weight: bold;
             font-size: 1.2rem;
         }
 
-        /* Hero Visual - Browser Extension Mock */
+        /* Hero Visual */
         .hero-visual {
             position: relative;
-            animation: fadeInRight 0.8s ease-out;
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .browser-mockup {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             overflow: hidden;
             position: relative;
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .browser-mockup:hover {
-            transform: perspective(1000px) rotateY(0deg);
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+            transform: translateY(-5px);
         }
 
         .browser-header {
-            background: #f0f0f0;
+            background: rgba(0, 0, 0, 0.3);
             padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .browser-dot {
@@ -315,12 +360,12 @@
 
         .browser-url {
             flex: 1;
-            background: white;
+            background: rgba(0, 0, 0, 0.3);
             padding: 8px 15px;
             border-radius: 8px;
             margin-left: 10px;
             font-size: 0.85rem;
-            color: #666;
+            color: rgba(230, 241, 255, 0.6);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -337,67 +382,85 @@
         .lock-icon svg {
             width: 100%;
             height: 100%;
-            stroke: #4c49ff;
+            stroke: var(--cobalt);
             stroke-width: 2;
             fill: none;
         }
 
         .browser-content {
             padding: 30px;
-            background: #fafafa;
+            background: rgba(0, 0, 0, 0.2);
             min-height: 400px;
             position: relative;
         }
 
         .chat-interface {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .chat-message {
-            background: #f5f5f5;
+            background: rgba(0, 0, 0, 0.3);
             padding: 15px 20px;
             border-radius: 15px;
             margin-bottom: 15px;
             font-size: 0.95rem;
             line-height: 1.6;
+            color: rgba(230, 241, 255, 0.8);
         }
 
         .chat-message strong {
-            color: var(--primary-blue);
+            color: var(--cobalt-light);
         }
 
         .privacy-shield {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #4c49ff, #36c0de);
-            color: white;
+            background: var(--cobalt);
+            color: #ffffff !important;
             padding: 12px 20px;
             border-radius: 15px;
             font-size: 0.85rem;
             font-weight: 600;
-            box-shadow: 0 10px 30px rgba(76, 73, 255, 0.3);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.5);
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 10px 30px rgba(76, 73, 255, 0.3);
+                box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
             }
             50% {
                 transform: scale(1.05);
-                box-shadow: 0 15px 40px rgba(76, 73, 255, 0.5);
+                box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
             }
         }
 
-        /* How It Works - Visual Steps */
-        .how-it-works {
+        @keyframes revealUp {
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Sections */
+        section {
             padding: 120px 40px;
-            background: white;
+            position: relative;
+        }
+
+        .section-light {
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .container {
@@ -413,9 +476,10 @@
         .section-badge {
             display: inline-block;
             padding: 8px 20px;
-            background: rgba(76, 73, 255, 0.1);
+            background: rgba(51, 102, 153, 0.2);
+            border: 1px solid var(--cobalt);
             border-radius: 50px;
-            color: var(--primary-blue);
+            color: #99ccff;
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 20px;
@@ -427,14 +491,21 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
             margin-bottom: 20px;
-            color: var(--dark);
+            color: #e6f1ff;
+            line-height: 1.1;
         }
 
         .section-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             max-width: 700px;
             margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: transparent;
         }
 
         .steps-grid {
@@ -445,24 +516,29 @@
         }
 
         .step-card {
-            background: #f8f9ff;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding: 40px;
             border-radius: 25px;
             text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .step-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(76, 73, 255, 0.15);
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
         }
 
         .step-number {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #4c49ff, #36c0de);
+            background: var(--cobalt);
             color: white;
             font-size: 1.8rem;
             font-weight: 900;
@@ -470,6 +546,7 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 25px;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
 
         .step-icon {
@@ -484,39 +561,27 @@
         .step-icon svg {
             width: 100%;
             height: 100%;
-            stroke: var(--primary-blue);
+            stroke: var(--cobalt-light);
             stroke-width: 1.5;
             fill: none;
             opacity: 0.8;
-        }
-
-        .icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .icon svg {
-            width: 100%;
-            height: 100%;
         }
 
         .step-card h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: #e6f1ff;
         }
 
         .step-card p {
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.7;
         }
 
-        /* Works With Section - AI Tools */
+        /* Works With */
         .works-with {
-            padding: 120px 40px;
-            background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .tools-grid {
@@ -527,19 +592,22 @@
         }
 
         .tool-card {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .tool-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 20px 60px rgba(76, 73, 255, 0.15);
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
         }
 
         .tool-logo {
@@ -549,48 +617,43 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
         }
 
         .tool-logo svg {
             width: 100%;
             height: 100%;
-            stroke: var(--primary-blue);
+            stroke: var(--cobalt-light);
             stroke-width: 1.5;
             fill: none;
             opacity: 0.6;
+            transition: opacity 0.3s ease;
         }
 
         .tool-card:hover .tool-logo svg {
             opacity: 1;
         }
 
-        .tool-card:hover .tool-logo {
-            filter: grayscale(0%);
-        }
-
         .tool-name {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--dark);
+            color: #e6f1ff;
             margin-bottom: 10px;
         }
 
         .tool-status {
             display: inline-block;
             padding: 5px 15px;
-            background: rgba(76, 73, 255, 0.1);
-            color: var(--primary-blue);
+            background: rgba(51, 102, 153, 0.2);
+            border: 1px solid var(--cobalt);
+            color: #99ccff;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
         }
 
-        /* Features - Icon Based */
+        /* Features */
         .features {
-            padding: 120px 40px;
-            background: white;
+            background: transparent;
         }
 
         .features-grid {
@@ -617,7 +680,7 @@
         .feature-icon svg {
             width: 100%;
             height: 100%;
-            stroke: var(--primary-blue);
+            stroke: var(--cobalt-light);
             stroke-width: 1.5;
             fill: none;
             opacity: 0.8;
@@ -627,51 +690,75 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: #e6f1ff;
         }
 
         .feature-card p {
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.7;
             font-size: 1.05rem;
         }
 
-        /* Pricing - Simple Consumer */
+        /* Pricing */
         .pricing {
-            padding: 120px 40px;
-            background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .pricing-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
         }
 
         .price-card {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 30px;
             padding: 60px;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.08);
-            border: 2px solid var(--primary-blue);
             text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-card:hover {
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+            transform: translateY(-5px);
+        }
+
+        .price-card.featured {
+            border-color: var(--cobalt);
+            box-shadow: 0 30px 100px rgba(51, 102, 153, 0.3);
         }
 
         .price-badge {
             display: inline-block;
             padding: 10px 25px;
-            background: linear-gradient(135deg, #4c49ff, #36c0de);
+            background: var(--cobalt);
             color: white;
             border-radius: 50px;
             font-weight: 600;
             margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #e6f1ff;
         }
 
         .price-amount {
             font-size: 5rem;
             font-weight: 900;
-            color: var(--primary-blue);
+            color: var(--cobalt-light);
             line-height: 1;
             margin-bottom: 15px;
         }
@@ -682,12 +769,12 @@
 
         .price-period {
             font-size: 1.3rem;
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             margin-bottom: 15px;
         }
 
         .price-save {
-            color: #36c0de;
+            color: #99ccff;
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 40px;
@@ -701,23 +788,24 @@
 
         .price-feature {
             padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--glass-border);
             font-size: 1.05rem;
             display: flex;
             align-items: center;
             gap: 15px;
+            color: rgba(230, 241, 255, 0.8);
         }
 
         .price-feature::before {
             content: '✓';
-            color: var(--primary-blue);
+            color: var(--cobalt);
             font-weight: bold;
             font-size: 1.3rem;
             flex-shrink: 0;
         }
 
         .price-cta {
-            background: linear-gradient(135deg, #4c49ff, #172446);
+            background: var(--cobalt);
             color: white;
             padding: 20px 60px;
             font-size: 1.2rem;
@@ -728,17 +816,158 @@
             transition: all 0.3s ease;
             display: inline-block;
             text-decoration: none;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
 
         .price-cta:hover {
+            background: var(--cobalt-light);
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(76, 73, 255, 0.4);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
 
-        /* CTA Section */
+        /* Agent-to-Agent Section */
+        .agent-to-agent {
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.1) 0%, rgba(26, 58, 90, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-to-agent::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(51, 102, 153, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .a2a-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .a2a-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(51, 102, 153, 0.2);
+            border: 1px solid var(--cobalt);
+            border-radius: 50px;
+            color: #99ccff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .a2a-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: #e6f1ff;
+        }
+
+        .a2a-title .highlight {
+            background: linear-gradient(135deg, #fff, var(--cobalt-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .a2a-text {
+            font-size: 1.3rem;
+            color: rgba(147, 197, 253, 0.6);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .a2a-cta {
+            background: var(--cobalt);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
+        }
+
+        .a2a-cta:hover {
+            background: var(--cobalt-light);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
+        }
+
+        .a2a-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .a2a-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 45px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .a2a-card:hover {
+            transform: translateY(-5px);
+            background: rgba(51, 102, 153, 0.08);
+            border-color: var(--cobalt);
+            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
+        }
+
+        .a2a-card-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(51, 102, 153, 0.2);
+            border-radius: 15px;
+        }
+
+        .a2a-card-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--cobalt-light);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .a2a-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #e6f1ff;
+        }
+
+        .a2a-card p {
+            color: rgba(147, 197, 253, 0.6);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Final CTA */
         .final-cta {
-            padding: 120px 40px;
-            background: linear-gradient(135deg, #4c49ff, #172446);
+            background: linear-gradient(135deg, var(--cobalt) 0%, var(--cobalt-dark) 100%);
             color: white;
             text-align: center;
         }
@@ -757,7 +986,7 @@
 
         .final-cta-button {
             background: white;
-            color: var(--primary-blue);
+            color: var(--cobalt);
             padding: 20px 60px;
             font-size: 1.2rem;
             font-weight: 600;
@@ -776,8 +1005,10 @@
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid var(--glass-border);
+            color: #e6f1ff;
             padding: 80px 40px 40px;
         }
 
@@ -793,10 +1024,11 @@
         .footer-brand h3 {
             font-size: 2rem;
             margin-bottom: 20px;
+            color: #e6f1ff;
         }
 
         .footer-brand p {
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -810,18 +1042,20 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #e6f1ff;
             text-decoration: none;
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: #4c49ff;
+            background: var(--cobalt);
+            border-color: var(--cobalt);
             transform: translateY(-3px);
         }
 
@@ -829,6 +1063,7 @@
             font-size: 1.2rem;
             margin-bottom: 20px;
             font-weight: 700;
+            color: #e6f1ff;
         }
 
         .footer-links ul {
@@ -840,22 +1075,22 @@
         }
 
         .footer-links a {
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--cobalt-light);
         }
 
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--glass-border);
             text-align: center;
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             position: relative;
         }
 
@@ -865,15 +1100,23 @@
             right: 0;
             text-align: right;
             font-size: 0.85rem;
-            color: #666;
             line-height: 1.6;
             padding: 20px 0;
         }
 
         .footer-contact strong {
-            color: #999;
+            color: rgba(230, 241, 255, 0.8);
             display: block;
             margin-bottom: 5px;
+        }
+
+        .footer-bottom a {
+            color: var(--cobalt-light);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--cobalt);
         }
 
         /* Modal */
@@ -885,7 +1128,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26, 26, 26, 0.9);
+            background: rgba(5, 10, 15, 0.95);
             backdrop-filter: blur(10px);
         }
 
@@ -896,7 +1139,9 @@
         }
 
         .modal-content {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
             border-radius: 30px;
             width: 90%;
             max-width: 700px;
@@ -912,14 +1157,14 @@
 
         .modal-header {
             padding: 40px 40px 30px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--glass-border);
             position: relative;
         }
 
         .modal-title {
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #191919, #4c49ff);
+            background: linear-gradient(135deg, #e6f1ff, var(--cobalt-light));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -928,7 +1173,7 @@
         }
 
         .modal-subtitle {
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             text-align: center;
             margin: 15px 0 0;
             font-size: 1.2rem;
@@ -941,7 +1186,7 @@
             background: none;
             border: none;
             font-size: 2.5rem;
-            color: #999;
+            color: rgba(147, 197, 253, 0.6);
             cursor: pointer;
             width: 45px;
             height: 45px;
@@ -953,8 +1198,8 @@
         }
 
         .modal-close:hover {
-            background: rgba(0, 0, 0, 0.05);
-            color: var(--dark);
+            background: var(--glass);
+            color: #e6f1ff;
         }
 
         .modal-body {
@@ -978,15 +1223,15 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            color: #666;
+            color: rgba(147, 197, 253, 0.6);
             font-size: 1.2rem;
         }
 
         .loading-spinner {
             width: 50px;
             height: 50px;
-            border: 4px solid rgba(76, 73, 255, 0.2);
-            border-top: 4px solid #4c49ff;
+            border: 4px solid rgba(51, 102, 153, 0.3);
+            border-top: 4px solid var(--cobalt);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
@@ -1020,18 +1265,6 @@
             transform: translateY(0);
         }
 
-        /* A2A Section Card Hover Effects */
-        .agent-to-agent .a2a-grid > div:last-child > div {
-            transition: all 0.3s ease;
-        }
-
-        .agent-to-agent .a2a-grid > div:last-child > div:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.35);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-container {
@@ -1055,10 +1288,6 @@
                 justify-content: center;
             }
 
-            .browser-mockup {
-                transform: none;
-            }
-
             .steps-grid {
                 grid-template-columns: 1fr;
             }
@@ -1075,6 +1304,10 @@
             .a2a-grid > div:first-child {
                 text-align: center;
             }
+
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1084,6 +1317,10 @@
 
             .hero {
                 padding: 100px 20px 60px;
+            }
+
+            section {
+                padding: 80px 20px;
             }
 
             .section-header {
@@ -1122,11 +1359,14 @@
     </style>
 </head>
 <body>
+    <div class="bg-mesh"></div>
+    <div id="velocity-lines"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="privacypal-logo-color.png" alt="PrivacyPal">
+                <img src="privacypal-logo-light.png" alt="PrivacyPal">
             </a>
             <div class="nav-links">
                 <a href="#home">Home</a>
@@ -1148,7 +1388,7 @@
                     </svg>
                     Launching January 2026
                 </div>
-                <h1>  
+                <h1 class="hero-text">
                     Make AI<br>
                     <span class="highlight">Safe for Work.</span><br>
                     Instantly.
@@ -1166,7 +1406,7 @@
                 </div>
                 <div class="trust-indicators">
                     <div class="trust-item">One-click install</div>
-                    <div class="trust-item">Works everywhere</div>
+                    <div class="trust-item">Works with all major LLMs</div>
                     <div class="trust-item">Always private</div>
                 </div>
             </div>
@@ -1198,19 +1438,19 @@
                             <div class="chat-message">
                                 <strong>You:</strong> Can you help me analyze this patient data: John Smith, DOB 03/15/1985...
                             </div>
-                            <div class="chat-message" style="background: #e8f4ff;">
+                            <div class="chat-message" style="background: rgba(51, 102, 153, 0.1);">
                                 <strong>PrivacyPal:</strong> 
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4c49ff" stroke-width="2" style="display: inline-block; vertical-align: middle; margin: 0 4px; opacity: 0.7;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin: 0 4px; opacity: 0.7;">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
                                 Sensitive data protected<br>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4c49ff" stroke-width="1.5" style="display: inline-block; vertical-align: middle; margin: 0 4px; opacity: 0.7;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display: inline-block; vertical-align: middle; margin: 0 4px; opacity: 0.7;">
                                     <polyline points="23 4 23 10 17 10"/>
                                     <polyline points="1 20 1 14 7 14"/>
                                     <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
                                 </svg>
                                 Privacy Twin created<br>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4c49ff" stroke-width="2" style="display: inline-block; vertical-align: middle; margin: 0 4px; opacity: 0.7;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin: 0 4px; opacity: 0.7;">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
                                 Safe to send
@@ -1324,7 +1564,7 @@
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <div class="tool-name">Perplexity</div>
+                    <div class="tool-name">Gemini</div>
                     <div class="tool-status">Coming Soon</div>
                 </div>
 
@@ -1455,10 +1695,10 @@
                 </p>
             </div>
 
-            <div class="pricing-container" style="max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+            <div class="pricing-container">
                 <div class="price-card">
                     <div class="price-badge">Launch Offer</div>
-                    <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 15px; color: var(--dark);">PrivacyPal AI</h3>
+                    <h3>PrivacyPal AI</h3>
                     <div class="price-amount">$25<span>/mo</span></div>
                     <div class="price-period">Billed monthly</div>
                     <div class="price-save">or $250/year (save 17%)</div>
@@ -1476,9 +1716,9 @@
                     <a href="install.html" class="price-cta">Install</a>
                 </div>
 
-                <div class="price-card" style="border-color: var(--primary-blue); box-shadow: 0 30px 100px rgba(76, 73, 255, 0.2);">
-                    <div class="price-badge" style="background: linear-gradient(135deg, #4c49ff, #172446);">Enterprise</div>
-                    <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 15px; color: var(--dark);">PrivacyPal Cloud</h3>
+                <div class="price-card featured">
+                    <div class="price-badge">Enterprise</div>
+                    <h3>PrivacyPal Cloud</h3>
                     <div class="price-amount" style="font-size: 3.5rem;">$12k<span style="font-size: 1.5rem;">/yr</span></div>
                     <div class="price-period">Starting price</div>
                     <div class="price-save">Includes 10 PrivacyPal AI licenses</div>
@@ -1493,72 +1733,57 @@
                         <div class="price-feature">24/7 dedicated support</div>
                     </div>
 
-                    <a href="mailto:enterprise@privacypal.ai" class="price-cta">Contact Sales</a>
+                    <a href="mailto:hi@privacypal.ai" class="price-cta">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Agent-to-Agent Section -->
-    <section class="agent-to-agent scroll-reveal" style="padding: 120px 40px; background: linear-gradient(135deg, #172446 0%, #2d3a5f 100%); color: white; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(76, 73, 255, 0.2) 0%, transparent 70%); border-radius: 50%;"></div>
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="a2a-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1400px; margin: 0 auto;">
-                <!-- Left Side: Main Content -->
+    <section class="agent-to-agent scroll-reveal">
+        <div class="container">
+            <div class="a2a-grid">
                 <div>
-                    <div style="display: inline-block; padding: 8px 20px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50px; color: white; font-weight: 600; font-size: 0.9rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px;">
-                        For Developers
-                    </div>
-                    <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 30px; color: white;">
-                        <span style="background: linear-gradient(135deg, #ffffff, #36c0de); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Agent-to-Agent</span> Workflows
+                    <div class="a2a-badge">For Developers</div>
+                    <h2 class="a2a-title">
+                        <span class="highlight">Agent-to-Agent</span> Workflows
                     </h2>
-                    <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); line-height: 1.8; margin-bottom: 25px;">
+                    <p class="a2a-text">
                         Build secure entry points for AI agents to interact with other agents. Protect sensitive data flow 
                         and create compliant information sharing between agents.
                     </p>
-                    <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.75); line-height: 1.7; margin-bottom: 40px;">
+                    <p class="a2a-text" style="font-size: 1.1rem;">
                         Future capabilities will enable data payment controls, allowing agents to gate access to sensitive information 
                         and create new economic models for agent-to-agent transactions.
                     </p>
-                    <a href="developers.html" style="background: white; color: var(--navy); padding: 18px 40px; font-size: 1.1rem; font-weight: 600; border-radius: 50px; text-decoration: none; display: inline-block; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);">
-                        Explore A2A Capabilities →
-                    </a>
+                    <a href="developers.html" class="a2a-cta">Explore A2A Capabilities →</a>
                 </div>
 
-                <!-- Right Side: Two Vertical Cards -->
-                <div style="display: flex; flex-direction: column; gap: 30px;">
-                    <!-- Card 1: Agent Entry Points -->
-                    <div style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 25px; padding: 45px; transition: all 0.3s ease; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(76, 73, 255, 0.3) 0%, transparent 70%); border-radius: 50%;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <div style="width: 56px; height: 56px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.15); border-radius: 15px;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 32px; height: 32px; stroke: white; opacity: 0.95;">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"/>
-                                </svg>
-                            </div>
-                            <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 15px; color: white;">Agent Entry Points</h3>
-                            <p style="color: rgba(255, 255, 255, 0.85); line-height: 1.7; font-size: 1.05rem;">
-                                Create protected entry points for your agents to interact with other agents while maintaining control over sensitive data.
-                            </p>
+                <div class="a2a-cards">
+                    <div class="a2a-card">
+                        <div class="a2a-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
                         </div>
+                        <h3>Agent Entry Points</h3>
+                        <p>
+                            Create protected entry points for your agents to interact with other agents while maintaining control over sensitive data.
+                        </p>
                     </div>
 
-                    <!-- Card 2: Protected Data Flow -->
-                    <div style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(20px); border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 25px; padding: 45px; transition: all 0.3s ease; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(54, 192, 222, 0.3) 0%, transparent 70%); border-radius: 50%;"></div>
-                        <div style="position: relative; z-index: 1;">
-                            <div style="width: 56px; height: 56px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.15); border-radius: 15px;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 32px; height: 32px; stroke: white; opacity: 0.95;">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 15px; color: white;">Protected Data Flow</h3>
-                            <p style="color: rgba(255, 255, 255, 0.85); line-height: 1.7; font-size: 1.05rem;">
-                                Control information flow between agents. Healthcare AI, financial services, and more—all with privacy built-in.
-                            </p>
+                    <div class="a2a-card">
+                        <div class="a2a-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
                         </div>
+                        <h3>Protected Data Flow</h3>
+                        <p>
+                            Control information flow between agents. Healthcare AI, financial services, and more—all with privacy built-in.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1569,7 +1794,7 @@
     <section class="final-cta" id="download">
         <div class="container">
             <h2>Ready to Use AI Without Worry?</h2>
-            <p>Join thousands of professionals who refuse to choose between AI power and data privacy.</p>
+            <p>Refuse to choose between AI power and data privacy.</p>
             <a href="#" class="final-cta-button" onclick="openWaitlistModal(event)">Join the Waitlist → Launching January 2026</a>
         </div>
     </section>
@@ -1617,7 +1842,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 PrivacyPal. All rights reserved. | <a href="mailto:hi@privacypal.ai" style="color: #4c49ff;">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>
@@ -1657,6 +1882,25 @@
     </div>
 
     <script>
+        // Create velocity lines animation
+        function createVelocityLines() {
+            const container = document.getElementById('velocity-lines');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 20; i++) {
+                const line = document.createElement('div');
+                line.className = 'velocity-line';
+                line.style.left = Math.random() * 100 + 'vw';
+                line.style.animationDelay = Math.random() * 5 + 's';
+                line.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                container.appendChild(line);
+            }
+        }
+
+        createVelocityLines();
+
         // Modal functions
         function openWaitlistModal(e) {
             if (e) e.preventDefault();
