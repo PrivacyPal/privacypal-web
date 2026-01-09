@@ -327,9 +327,9 @@
         .process-flow {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch;
             margin-top: 60px;
-            gap: 20px;
+            gap: 60px;
         }
 
         .process-step {
@@ -338,19 +338,24 @@
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px;
             text-align: center;
             position: relative;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .process-step::after {
             content: '→';
             position: absolute;
-            right: -30px;
+            right: -50px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--cobalt-light);
+            z-index: 10;
         }
 
         .process-step:last-child::after {
@@ -396,18 +401,18 @@
         }
 
         .market-circle.tam {
-            width: 300px;
-            height: 300px;
+            width: 380px;
+            height: 380px;
         }
 
         .market-circle.sam {
-            width: 250px;
-            height: 250px;
+            width: 240px;
+            height: 240px;
         }
 
         .market-circle.som {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
         }
 
         .market-label {
@@ -843,11 +848,11 @@
                             <div class="traction-label">Contract landed with core enterprise ICP for 2025</div>
                         </div>
                         <div class="traction-card">
-                            <div class="traction-amount">✓</div>
-                            <div class="traction-label">Live Product for ChatGPT, Gemini and Claude is built and running with initial customers</div>
+                            <div class="traction-amount" style="font-size: 2.4rem;">Live Product</div>
+                            <div class="traction-label">Available today for ChatGPT, Gemini and Claude</div>
                         </div>
                         <div class="traction-card">
-                            <div class="traction-label">Key Partners</div>
+                            <div class="traction-label">Customers and Partners</div>
                             <div class="partners">
                                 <span class="partner-badge">Fastweb</span>
                                 <span class="partner-badge">CorePLUS</span>
