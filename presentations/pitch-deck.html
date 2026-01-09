@@ -534,6 +534,30 @@
             text-align: center;
         }
 
+        .positioning-statement {
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.2), rgba(51, 102, 153, 0.05));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--cobalt);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0 60px 0;
+            box-shadow: 0 25px 50px -12px rgba(51, 102, 153, 0.3), 0 0 40px rgba(51, 102, 153, 0.2);
+            text-align: left;
+        }
+
+        .positioning-statement p {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            line-height: 1.8;
+            color: rgba(147, 197, 253, 0.9);
+            margin: 0;
+        }
+
+        .positioning-statement strong {
+            color: var(--cobalt-light);
+            font-weight: 700;
+        }
+
         .funds-breakdown {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -560,6 +584,170 @@
         .fund-label {
             font-size: 1.2rem;
             color: rgba(147, 197, 253, 0.7);
+        }
+
+        /* Slide 12: The Liquidity Roadmap */
+        .liquidity-roadmap {
+            text-align: center;
+        }
+
+        .liquidity-roadmap h2 {
+            margin-bottom: 40px;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin-top: 40px;
+            padding: 20px 0 0 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--cobalt), var(--cobalt-light), var(--cobalt));
+            z-index: 1;
+        }
+
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+            gap: 15px;
+        }
+
+        .timeline-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            border: 4px solid var(--cobalt-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.6), 0 0 40px rgba(51, 102, 153, 0.3);
+            z-index: 3;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .timeline-step:last-child .timeline-marker {
+            background: var(--cobalt-light);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.8), 0 0 60px rgba(51, 102, 153, 0.4);
+        }
+
+        .timeline-step-number {
+            font-size: 1.5rem;
+        }
+
+        .timeline-content {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 4px solid var(--cobalt);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .timeline-step:last-child .timeline-content {
+            border-top: 4px solid var(--cobalt-light);
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.2), rgba(51, 102, 153, 0.05));
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--cobalt-light);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .timeline-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e6f1ff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .timeline-description {
+            font-size: 0.85rem;
+            color: rgba(147, 197, 253, 0.8);
+            line-height: 1.5;
+            margin-top: auto;
+        }
+
+        /* Slide 2: The Opportunity */
+        .opportunity-slide {
+            text-align: center;
+        }
+
+        .opportunity-highlight {
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.2), rgba(51, 102, 153, 0.05));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--cobalt);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 25px 50px -12px rgba(51, 102, 153, 0.3), 0 0 40px rgba(51, 102, 153, 0.2);
+        }
+
+        .opportunity-slide h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 50px;
+            background: linear-gradient(180deg, #fff 0%, var(--cobalt-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .opportunity-points {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .opportunity-point {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-left: 4px solid var(--cobalt);
+            border-radius: 15px;
+            padding: 30px;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.8;
+            color: rgba(147, 197, 253, 0.9);
+        }
+
+        .opportunity-point strong {
+            color: var(--cobalt-light);
+            font-weight: 700;
         }
 
         /* Navigation */
@@ -647,6 +835,23 @@
             .market-circles {
                 flex-direction: column;
             }
+
+            .timeline-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .timeline-step {
+                width: 100%;
+            }
+
+            .timeline-content {
+                min-height: auto;
+            }
         }
 
         @media (max-width: 768px) {
@@ -669,7 +874,7 @@
     <div id="velocity-lines"></div>
 
     <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
     </div>
 
     <div class="slide-container">
@@ -681,12 +886,35 @@
                         <img src="../privacypal-logo-light.png" alt="PrivacyPal">
                     </div>
                     <p class="subtitle">Make AI Safe for Work. Instantly.</p>
-                    <p class="footer">Strategic Growth Round 2025/2026</p>
+                    <p class="footer">Strategic Liquidity Offering. Final Private Placement prior to Public Equity Conversion.</p>
                 </div>
             </div>
 
-            <!-- Slide 2: The Problem -->
+            <!-- Slide 2: The Opportunity -->
             <div class="slide" data-slide="2">
+                <div class="slide-content opportunity-slide">
+                    <h2>The Best of Both Worlds: Venture Growth + Public Liquidity</h2>
+                    <div class="opportunity-highlight">
+                        <div class="opportunity-points">
+                            <div class="opportunity-point">
+                                <strong>51% of PrivacyPal is being acquired by Vocodia Holdings</strong>, establishing a valuation floor.
+                            </div>
+                            <div class="opportunity-point">
+                                Investors in this round participate in the <strong>remaining 49% equity</strong>.
+                            </div>
+                            <div class="opportunity-point">
+                                <strong>Clear mechanism for conversion into VHAI shares</strong> within 6 months.
+                            </div>
+                            <div class="opportunity-point">
+                                Capital will be used to <strong>aggressively capture market share</strong> utilizing the Parent Company's distribution channels.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: The Problem -->
+            <div class="slide" data-slide="3">
                 <div class="slide-content">
                     <h2>The "Redaction Tax"</h2>
                     <div class="problem-grid">
@@ -710,8 +938,8 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Enterprise Data Crisis -->
-            <div class="slide" data-slide="3">
+            <!-- Slide 4: Enterprise Data Crisis -->
+            <div class="slide" data-slide="4">
                 <div class="slide-content">
                     <h2>We Are Oversharing Secrets</h2>
                     <div class="stats-grid">
@@ -735,8 +963,8 @@
                 </div>
             </div>
 
-            <!-- Slide 4: Real-World Catastrophes -->
-            <div class="slide" data-slide="4">
+            <!-- Slide 5: Real-World Catastrophes -->
+            <div class="slide" data-slide="5">
                 <div class="slide-content">
                     <h2>The Reality of AI Data Risks</h2>
                     <div class="catastrophe-grid">
@@ -754,8 +982,8 @@
                 </div>
             </div>
 
-            <!-- Slide 5: The Solution -->
-            <div class="slide" data-slide="5">
+            <!-- Slide 6: The Solution -->
+            <div class="slide" data-slide="6">
                 <div class="slide-content">
                     <h2>PrivacyPal AI: Proactive Defense</h2>
                     <div class="solution-features">
@@ -779,8 +1007,8 @@
                 </div>
             </div>
 
-            <!-- Slide 6: How It Works -->
-            <div class="slide" data-slide="6">
+            <!-- Slide 7: How It Works -->
+            <div class="slide" data-slide="7">
                 <div class="slide-content">
                     <h2>Synthetic Data, Real Results</h2>
                     <div class="process-flow">
@@ -808,8 +1036,8 @@
                 </div>
             </div>
 
-            <!-- Slide 7: Market Opportunity -->
-            <div class="slide" data-slide="7">
+            <!-- Slide 8: Market Opportunity -->
+            <div class="slide" data-slide="8">
                 <div class="slide-content">
                     <h2>A Multi-Billion Dollar Gap</h2>
                     <div style="text-align: center; margin-top: 40px;">
@@ -838,8 +1066,8 @@
                 </div>
             </div>
 
-            <!-- Slide 8: Traction -->
-            <div class="slide" data-slide="8">
+            <!-- Slide 9: Traction -->
+            <div class="slide" data-slide="9">
                 <div class="slide-content">
                     <h2>Immediate Market Traction</h2>
                     <div class="traction-grid">
@@ -866,8 +1094,8 @@
                 </div>
             </div>
 
-            <!-- Slide 9: The Team -->
-            <div class="slide" data-slide="9">
+            <!-- Slide 10: The Team -->
+            <div class="slide" data-slide="10">
                 <div class="slide-content">
                     <h2>Proven Unicorn Builders.</h2>
                     <div class="team-grid">
@@ -895,28 +1123,94 @@
                 </div>
             </div>
 
-            <!-- Slide 10: The Ask -->
-            <div class="slide" data-slide="10">
+            <!-- Slide 11: The Ask -->
+            <div class="slide" data-slide="11">
                 <div class="slide-content ask-content">
                     <h2>Join Us to Secure the Future of AI</h2>
                     <div style="margin-top: 60px;">
                         <p style="font-size: 1.8rem; margin-bottom: 20px;"><strong>Round:</strong> Strategic Growth</p>
                         <p style="font-size: 1.8rem; margin-bottom: 20px;"><strong>Raising:</strong> <span style="color: var(--cobalt-light);">$2 Million</span></p>
-                        <p style="font-size: 1.8rem; margin-bottom: 60px;"><strong>Valuation:</strong> <span style="color: var(--cobalt-light);">$7M Post-Money</span></p>
+                        <p style="font-size: 1.8rem; margin-bottom: 40px;"><strong>Valuation:</strong> <span style="color: var(--cobalt-light);">$7M Post-Money</span></p>
+                    </div>
+                    <div class="positioning-statement">
+                        <p>This capital is the <strong>"Fuel on the Fire."</strong> While the acquisition provides the engine, this round provides the fuel to scale R&D and Sales to meet the massive demand from the Parent Company's ecosystem and our aggressive multi-channel distribution GTM plans.</p>
                     </div>
                     <h3 style="margin-top: 40px; margin-bottom: 40px;">Use of Funds:</h3>
                     <div class="funds-breakdown">
                         <div class="fund-item">
-                            <div class="fund-percentage">50%</div>
-                            <div class="fund-label">Accelerate enterprise sales and market penetration</div>
+                            <div class="fund-percentage">40%</div>
+                            <div class="fund-label">Scaling AI Infrastructure for Enterprise-grade volume</div>
                         </div>
                         <div class="fund-item">
-                            <div class="fund-percentage">30%</div>
-                            <div class="fund-label">Expand engineering for additional LLMs and integrations</div>
+                            <div class="fund-percentage">40%</div>
+                            <div class="fund-label">Rapid Integration with the Parent Company's distribution</div>
                         </div>
                         <div class="fund-item">
                             <div class="fund-percentage">20%</div>
-                            <div class="fund-label">Scale PrivacyPal Cloud for major enterprise deployments</div>
+                            <div class="fund-label">Global Regulatory Expansion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: The Liquidity Roadmap -->
+            <div class="slide" data-slide="12">
+                <div class="slide-content liquidity-roadmap">
+                    <h2>The Liquidity Roadmap</h2>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-steps">
+                            <div class="timeline-step">
+                                <div class="timeline-marker">
+                                    <span class="timeline-step-number">1</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Now</div>
+                                    <div class="timeline-title">Strategic Round Closes</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step">
+                                <div class="timeline-marker">
+                                    <span class="timeline-step-number">2</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Q2 2026</div>
+                                    <div class="timeline-title">51% Acquisition Closing</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step">
+                                <div class="timeline-marker">
+                                    <span class="timeline-step-number">3</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Q2 2026</div>
+                                    <div class="timeline-title">Leadership Transition</div>
+                                    <div class="timeline-description">Jason Melo becomes CEO of the new combined public entity</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step">
+                                <div class="timeline-marker">
+                                    <span class="timeline-step-number">4</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Q3 2026</div>
+                                    <div class="timeline-title">Trigger Event for 49% Equity Conversion</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-step">
+                                <div class="timeline-marker">
+                                    <span class="timeline-step-number">5</span>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">Future</div>
+                                    <div class="timeline-title">Full Liquidity</div>
+                                    <div class="timeline-description">OTC markets with dilution protection, planned NASDAQ uplisting</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
