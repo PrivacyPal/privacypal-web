@@ -517,6 +517,73 @@
             line-height: 1.7;
         }
 
+        /* Trusted By Section */
+        .trusted-by {
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.08) 0%, rgba(26, 58, 90, 0.08) 100%);
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trusted-by::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(51, 102, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(51, 102, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .trusted-by-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trusted-by-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .trusted-by-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: rgba(147, 197, 253, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 50px;
+        }
+
+        .trusted-by-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+
+        .trusted-by-logo {
+            height: 60px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .trusted-by-logo:hover {
+            opacity: 1;
+            filter: grayscale(80%);
+            transform: translateY(-3px);
+        }
+
         /* How It Works */
         .how-it-works {
             background: transparent;
@@ -1517,6 +1584,14 @@
             .pricing-container {
                 grid-template-columns: 1fr;
             }
+
+            .trusted-by-logos {
+                gap: 40px;
+            }
+
+            .trusted-by-logo {
+                height: 50px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1607,6 +1682,24 @@
             .price-per-seat {
                 font-size: 0.85rem;
             }
+
+            .trusted-by {
+                padding: 60px 20px;
+            }
+
+            .trusted-by-logos {
+                gap: 30px;
+                padding: 30px 0;
+            }
+
+            .trusted-by-logo {
+                height: 45px;
+                max-width: 150px;
+            }
+
+            .trusted-by-title {
+                margin-bottom: 40px;
+            }
         }
     </style>
 </head>
@@ -1638,7 +1731,7 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display: inline-block; vertical-align: middle; margin-right: 8px; opacity: 0.8;">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
-                    Launching January 2026
+                    Free Trial, No Credit Card
                 </div>
                 <h1 class="hero-text">
                     Make AI<br>
@@ -1713,6 +1806,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by scroll-reveal">
+        <div class="trusted-by-container">
+            <div class="trusted-by-header">
+                <h2 class="trusted-by-title">Trusted By</h2>
+            </div>
+            <div class="trusted-by-logos">
+                <img src="coreplus-logo.png" alt="CorePLUS Technologies" class="trusted-by-logo">
+                <img src="peaq-logo.png" alt="peaq" class="trusted-by-logo">
+                <img src="vocodia-logo.png" alt="VOCODIA" class="trusted-by-logo">
+                <img src="fastweb-logo.png" alt="FASTWEB" class="trusted-by-logo">
             </div>
         </div>
     </section>
@@ -2069,7 +2177,7 @@
         <div class="container">
             <h2>Ready to Use AI Without Worry?</h2>
             <p>Refuse to choose between AI power and data privacy.</p>
-            <a href="#" class="final-cta-button" onclick="openWaitlistModal(event)">Join the Waitlist → Launching January 2026</a>
+            <a href="#" class="final-cta-button" onclick="openWaitlistModal(event)">Free Trial, No Credit Card</a>
         </div>
     </section>
 
@@ -2130,7 +2238,7 @@
     <div id="waitlistModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Join the Waitlist</h2>
+                <h2 class="modal-title">Signup Today</h2>
                 <p class="modal-subtitle">Be first to experience truly private AI</p>
                 <button class="modal-close" onclick="closeWaitlistModal()">&times;</button>
             </div>

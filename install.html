@@ -12,8 +12,8 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Install PrivacyPal - Coming Soon | Browser Extension</title>
-    <meta name="description" content="Install PrivacyPal browser extension to protect your sensitive data when using AI tools. Coming soon - join the waitlist now.">
+    <title>Install PrivacyPal</title>
+    <meta name="description" content="Install PrivacyPal browser extension to protect your sensitive data when using AI tools. Signup now.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -725,17 +725,17 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display: inline-block; vertical-align: middle; opacity: 0.8;">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
-                Coming Soon
+                Free Trial, No Credit Card
             </div>
             <h1>
                 Install <span class="highlight">PrivacyPal</span><br>
                 Browser Extension
             </h1>
             <p>
-                PrivacyPal is launching January 2026. Join the waitlist to be among the first to experience 
+                PrivacyPal is now live! Signup and be among the first to experience 
                 truly private AI interactions. One-click install, zero configuration, complete privacy protection.
             </p>
-            <a href="#" class="hero-cta" onclick="openWaitlistModal(event)">Join the Waitlist</a>
+            <a href="#" class="hero-cta" onclick="openWaitlistModal(event)">Signup Today</a>
         </div>
     </section>
 
@@ -757,7 +757,7 @@
                             <line x1="1" y1="10" x2="23" y2="10"/>
                         </svg>
                     </div>
-                    <h3>Web2 Signup</h3>
+                    <h3>Free Trial Signup</h3>
                     <p>
                         Traditional signup with credit card payment. Simple, secure, and familiar.
                     </p>
@@ -787,7 +787,7 @@
                             <span>Full PrivacyPal features</span>
                         </div>
                     </div>
-                    <a href="#" class="option-cta" onclick="openWaitlistModal(event)">Join Waitlist</a>
+                    <a href="#" class="option-cta" onclick="openWaitlistModal(event)">Signup Today</a>
                 </div>
 
                 <div class="option-card">
@@ -828,7 +828,7 @@
                             <span>Full PrivacyPal features</span>
                         </div>
                     </div>
-                    <a href="#" class="option-cta" onclick="openWaitlistModal(event)">Join Waitlist</a>
+                    <a href="#" class="option-cta" onclick="openWeb3WaitlistModal(event)">Join Waitlist</a>
                 </div>
             </div>
         </div>
@@ -887,16 +887,16 @@
         </div>
     </footer>
 
-    <!-- Waitlist Modal -->
+    <!-- Signup Modal -->
     <div id="waitlistModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Join the Waitlist</h2>
+                <h2 class="modal-title">Signup Today</h2>
                 <p class="modal-subtitle">Be first to experience truly private AI</p>
                 <button class="modal-close" onclick="closeWaitlistModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-loading" id="modalLoading">
+                <div class="modal-loading" id="waitlistModalLoading">
                     <div class="loading-spinner"></div>
                     <div>Loading form...</div>
                 </div>
@@ -904,6 +904,35 @@
                     id="waitlistForm" 
                     class="form-iframe" 
                     src="https://docs.google.com/forms/d/e/1FAIpQLSdVifw1avvSktOoKS8zpmvA0S1vmQfMeopElMvVPPXGQwHk2A/viewform?embedded=true"
+                    width="640" 
+                    height="812" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="display: none;">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Web3 Waitlist Modal -->
+    <div id="web3WaitlistModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Join Web3 Waitlist Today</h2>
+                <p class="modal-subtitle">Be first to experience truly private AI</p>
+                <button class="modal-close" onclick="closeWeb3WaitlistModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-loading" id="web3WaitlistModalLoading">
+                    <div class="loading-spinner"></div>
+                    <div>Loading form...</div>
+                </div>
+                <iframe 
+                    id="web3WaitlistForm" 
+                    class="form-iframe" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfQTGr9Az3z4v13P9eXT83JmacnnvpLTd511GL7xTIT_3RUQg/viewform?usp=dialog"
                     width="640" 
                     height="812" 
                     frameborder="0" 
@@ -951,7 +980,7 @@
             if (e) e.preventDefault();
             const modal = document.getElementById('waitlistModal');
             const iframe = document.getElementById('waitlistForm');
-            const loading = document.getElementById('modalLoading');
+            const loading = document.getElementById('waitlistModalLoading');
             
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
@@ -963,12 +992,12 @@
             
             iframe.onload = function() {
                 iframeLoaded = true;
-                hideModalLoading();
+                hideWaitlistModalLoading();
             };
             
             setTimeout(() => {
                 if (!iframeLoaded) {
-                    hideModalLoading();
+                    hideWaitlistModalLoading();
                 }
             }, 3000);
         }
@@ -979,25 +1008,76 @@
             document.body.style.overflow = '';
         }
         
-        function hideModalLoading() {
-            const loading = document.getElementById('modalLoading');
+        function hideWaitlistModalLoading() {
+            const loading = document.getElementById('waitlistModalLoading');
             const iframe = document.getElementById('waitlistForm');
             loading.style.display = 'none';
             iframe.style.display = 'block';
         }
+
+
+        function openWeb3WaitlistModal(e) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById('web3WaitlistModal');
+            const iframe = document.getElementById('web3WaitlistForm');
+            const loading = document.getElementById('web3WaitlistModalLoading');
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            loading.style.display = 'flex';
+            iframe.style.display = 'none';
+            
+            let iframeLoaded = false;
+            
+            iframe.onload = function() {
+                iframeLoaded = true;
+                hideWeb3WaitlistModalLoading();
+            };
+            
+            setTimeout(() => {
+                if (!iframeLoaded) {
+                    hideWeb3WaitlistModalLoading();
+                }
+            }, 3000);
+        }
         
-        // Close modal on click outside
+        function closeWeb3WaitlistModal() {
+            const modal = document.getElementById('web3WaitlistModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        function hideWeb3WaitlistModalLoading() {
+            const loading = document.getElementById('web3WaitlistModalLoading');
+            const iframe = document.getElementById('web3WaitlistForm');
+            loading.style.display = 'none';
+            iframe.style.display = 'block';
+        }
+        
+        // Close modal on click outside - handle both modals
         window.onclick = function(event) {
-            const modal = document.getElementById('waitlistModal');
-            if (event.target === modal) {
+            const waitlistModal = document.getElementById('waitlistModal');
+            const web3WaitlistModal = document.getElementById('web3WaitlistModal');
+            if (event.target === waitlistModal) {
                 closeWaitlistModal();
+            }
+            if (event.target === web3WaitlistModal) {
+                closeWeb3WaitlistModal();
             }
         }
         
-        // Close modal with Escape key
+        // Close modal with Escape key - handle both modals
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                closeWaitlistModal();
+                const waitlistModal = document.getElementById('waitlistModal');
+                const web3WaitlistModal = document.getElementById('web3WaitlistModal');
+                if (waitlistModal.classList.contains('show')) {
+                    closeWaitlistModal();
+                }
+                if (web3WaitlistModal.classList.contains('show')) {
+                    closeWeb3WaitlistModal();
+                }
             }
         });
     </script>
