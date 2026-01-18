@@ -277,29 +277,40 @@
         .catastrophe-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
+            gap: 25px;
+            margin-top: 25px;
         }
 
         .catastrophe-card {
             background: var(--glass);
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
         }
 
+        .catastrophe-card h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 12px;
+        }
+
+        .catastrophe-card p {
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
         .catastrophe-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 12px;
             background: rgba(51, 102, 153, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
         }
 
         /* Slide 5: Solution */
@@ -323,13 +334,67 @@
             margin-bottom: 15px;
         }
 
+        /* Comparison Layout */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .comparison-column {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .comparison-column.without {
+            border-left: 4px solid rgba(255, 100, 100, 0.6);
+        }
+
+        .comparison-column.with {
+            border-left: 4px solid var(--cobalt-light);
+        }
+
+        .comparison-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-column.without h3 {
+            color: rgba(255, 150, 150, 0.9);
+        }
+
+        .comparison-column.with h3 {
+            color: var(--cobalt-light);
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.8;
+            color: rgba(147, 197, 253, 0.9);
+        }
+
+        .comparison-item .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
         /* Slide 6: How It Works */
         .process-flow {
             display: flex;
             justify-content: space-between;
             align-items: stretch;
-            margin-top: 60px;
-            gap: 60px;
+            margin-top: 30px;
+            gap: 25px;
         }
 
         .process-step {
@@ -337,23 +402,33 @@
             background: var(--glass);
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 15px;
+            padding: 25px 20px;
             text-align: center;
             position: relative;
-            min-height: 280px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
         }
 
+        .process-step h3 {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
         .process-step::after {
             content: '→';
             position: absolute;
-            right: -50px;
+            right: -20px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--cobalt-light);
             z-index: 10;
         }
@@ -363,18 +438,18 @@
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: var(--cobalt);
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 900;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
+            margin: 0 auto 15px;
+            box-shadow: 0 0 15px rgba(51, 102, 153, 0.4);
         }
 
         /* Slide 7: Market */
@@ -382,15 +457,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 60px;
-            gap: 20px;
+            margin-top: 25px;
+            gap: 15px;
         }
 
         .market-circle {
-            width: 200px;
-            height: 200px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            border: 3px solid var(--cobalt);
+            border: 2px solid var(--cobalt);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -401,29 +476,29 @@
         }
 
         .market-circle.tam {
-            width: 380px;
-            height: 380px;
+            width: 260px;
+            height: 260px;
         }
 
         .market-circle.sam {
-            width: 240px;
-            height: 240px;
+            width: 170px;
+            height: 170px;
         }
 
         .market-circle.som {
-            width: 180px;
-            height: 180px;
+            width: 125px;
+            height: 125px;
         }
 
         .market-label {
-            font-size: 1.2rem;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
             font-weight: 700;
             color: var(--cobalt-light);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .market-value {
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             font-weight: 900;
             color: #e6f1ff;
         }
@@ -815,7 +890,8 @@
             .problem-grid,
             .catastrophe-grid,
             .solution-features,
-            .team-grid {
+            .team-grid,
+            .comparison-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -890,35 +966,10 @@
                 </div>
             </div>
 
-            <!-- Slide 2: The Problem -->
+            <!-- Slide 2: Enterprise Data Crisis -->
             <div class="slide" data-slide="2">
                 <div class="slide-content">
-                    <h2>The "Redaction Tax"</h2>
-                    <div class="problem-grid">
-                        <div class="problem-item">
-                            <h4>Meet Linda</h4>
-                            <p>A project manager who uses ChatGPT daily but spends 2 hours every day manually redacting data.</p>
-                        </div>
-                        <div class="problem-item">
-                            <h4>The Manual Workflow</h4>
-                            <p>Read → Redact PII → Prompt</p>
-                        </div>
-                        <div class="problem-item">
-                            <h4>The Hidden Cost</h4>
-                            <p>For a team of 10, manual data sanitizing wastes <strong style="color: var(--cobalt-light);">$275,000 annually</strong>.</p>
-                        </div>
-                        <div class="problem-item">
-                            <h4>The Risk</h4>
-                            <p>One missed redaction means company secrets are permanently in big tech AI models.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Enterprise Data Crisis -->
-            <div class="slide" data-slide="3">
-                <div class="slide-content">
-                    <h2>We Are Oversharing Secrets</h2>
+                    <h2>Companies are Oversharing Sensitive Data</h2>
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-number">96%</div>
@@ -940,20 +991,55 @@
                 </div>
             </div>
 
+            <!-- Slide 3: The Problem -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <h2>Manual Data Sanitizing Wastes Time + Money</h2>
+                    <div class="problem-grid">
+                        <div class="problem-item">
+                            <h4>Meet Linda</h4>
+                            <p>A project manager who uses ChatGPT daily but spends 2 hours every day manually redacting data.</p>
+                        </div>
+                        <div class="problem-item">
+                            <h4>The Manual Workflow</h4>
+                            <p>Employees have to find sensitive information, remove it or cover it up, then send the cleaned text to the AI. This takes forever.</p>
+                        </div>
+                        <div class="problem-item">
+                            <h4>The Hidden Cost</h4>
+                            <p>For a team of 10, manual data sanitizing wastes <strong style="color: var(--cobalt-light);">$275,000 annually</strong>.</p>
+                        </div>
+                        <div class="problem-item">
+                            <h4>The Risk</h4>
+                            <p>One missed redaction means company secrets are permanently in big tech AI models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Slide 4: Real-World Catastrophes -->
             <div class="slide" data-slide="4">
                 <div class="slide-content">
-                    <h2>The Reality of AI Data Risks</h2>
+                    <h2 style="margin-bottom: 25px;">The Real Cost of Data Leakage</h2>
                     <div class="catastrophe-grid">
                         <div class="catastrophe-card">
-                            <div class="catastrophe-icon">🏥</div>
-                            <h3>Healthcare (Privacy Violation)</h3>
-                            <p>Staff frequently paste patient notes into AI for summarization, resulting in daily HIPAA/GDPR violations.</p>
+                            <div class="catastrophe-icon">💰</div>
+                            <h3>Financial Impact</h3>
+                            <p>Millions in fines, settlements, and remediation. Average breach costs millions including incident response, repairs, and lawsuits.</p>
                         </div>
                         <div class="catastrophe-card">
-                            <div class="catastrophe-icon">⚖️</div>
-                            <h3>Legal (Waiving Privilege)</h3>
-                            <p>Lawyers paste confidential contracts into public tools. This legally breaks Attorney-Client Privilege, potentially losing the case in court.</p>
+                            <div class="catastrophe-icon">🏛️</div>
+                            <h3>Regulatory & Legal</h3>
+                            <p>GDPR, HIPAA, CCPA violations bring hefty fines and audits. Organizations face class-action lawsuits and increased scrutiny.</p>
+                        </div>
+                        <div class="catastrophe-card">
+                            <div class="catastrophe-icon">📉</div>
+                            <h3>Reputational Damage</h3>
+                            <p>Trust is hard to rebuild. Customers leave. Brand suffers long-term, especially devastating for healthcare and financial institutions.</p>
+                        </div>
+                        <div class="catastrophe-card">
+                            <div class="catastrophe-icon">⚔️</div>
+                            <h3>Competitive Disadvantage</h3>
+                            <p>Trade secrets, designs, and strategic plans leaked to competitors erode market position and undermine years of R&D investment.</p>
                         </div>
                     </div>
                 </div>
@@ -962,23 +1048,45 @@
             <!-- Slide 5: The Solution -->
             <div class="slide" data-slide="5">
                 <div class="slide-content">
-                    <h2>PrivacyPal AI: Proactive Defense</h2>
-                    <div class="solution-features">
-                        <div class="solution-feature">
-                            <h4>The Difference</h4>
-                            <p>No masking and no redaction used.</p>
+                    <h2>PrivacyPal: The Clear Choice</h2>
+                    <div class="comparison-grid">
+                        <div class="comparison-column without">
+                            <h3>Without PrivacyPal</h3>
+                            <div class="comparison-item">
+                                <span class="icon">❌</span>
+                                <span>Employees Share Sensitive Data</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="icon">❌</span>
+                                <span>Manual Redaction and Sanitization</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="icon">❌</span>
+                                <span>Wasted Time and Money $$$</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="icon">❌</span>
+                                <span>Company At Risk for Lawsuits and Fines</span>
+                            </div>
                         </div>
-                        <div class="solution-feature">
-                            <h4>Unmatched Quality</h4>
-                            <p>100% response quality because the AI sees the context, not the secrets.</p>
-                        </div>
-                        <div class="solution-feature">
-                            <h4>Browser Integration</h4>
-                            <p>Works seamlessly on ChatGPT, Claude, and Perplexity.</p>
-                        </div>
-                        <div class="solution-feature">
-                            <h4>Intercept & Protect</h4>
-                            <p>We find and swap sensitive data before it leaves your network.</p>
+                        <div class="comparison-column with">
+                            <h3>With PrivacyPal</h3>
+                            <div class="comparison-item">
+                                <span class="icon">✅</span>
+                                <span>Private Data is Kept Private</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="icon">✅</span>
+                                <span>No Masking or Redaction</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="icon">✅</span>
+                                <span>LLMs Get Synthetic Data</span>
+                            </div>
+                            <div class="comparison-item">
+                                <span class="icon">✅</span>
+                                <span>Response Quality Improves</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -987,27 +1095,27 @@
             <!-- Slide 6: How It Works -->
             <div class="slide" data-slide="6">
                 <div class="slide-content">
-                    <h2>Synthetic Data, Real Results</h2>
+                    <h2 style="margin-bottom: 25px;">So Easy, Even Linda in HR Can Use It</h2>
                     <div class="process-flow">
                         <div class="process-step">
                             <div class="step-number">1</div>
-                            <h3>Scan</h3>
-                            <p>PrivacyPal instantly scans text for sensitive data.</p>
+                            <h3>Install Plugin in 2 Clicks</h3>
+                            <p>No technical knowledge needed. Install the browser extension and you're ready.</p>
                         </div>
                         <div class="process-step">
                             <div class="step-number">2</div>
-                            <h3>Swap</h3>
-                            <p>Real information is replaced with Data Twins (statistically identical synthetic data).</p>
+                            <h3>Employee Uploads File to ChatGPT</h3>
+                            <p>That's it. PrivacyPal automatically protects sensitive data in the background.</p>
                         </div>
                         <div class="process-step">
                             <div class="step-number">3</div>
-                            <h3>Process</h3>
-                            <p>The AI generates its response using only the synthetic twins.</p>
+                            <h3>PrivacyPal Works Automatically</h3>
+                            <p>Scans, swaps data with synthetic twins, and restores real data locally. Zero effort.</p>
                         </div>
                         <div class="process-step">
                             <div class="step-number">4</div>
-                            <h3>Restore</h3>
-                            <p>PrivacyPal puts your real information back locally. You get the full answer without exposing data.</p>
+                            <h3>Get Perfect Results</h3>
+                            <p>Full AI response with all context, but your sensitive data never left your network.</p>
                         </div>
                     </div>
                 </div>
@@ -1016,30 +1124,30 @@
             <!-- Slide 7: Market Opportunity -->
             <div class="slide" data-slide="7">
                 <div class="slide-content">
-                    <h2>A Multi-Billion Dollar Gap</h2>
-                    <div style="text-align: center; margin-top: 40px;">
-                        <p style="font-size: 1.5rem; margin-bottom: 40px;">We will acquire <strong style="color: var(--cobalt-light);">2,000 users</strong> in the next 3 months yielding <strong style="color: var(--cobalt-light);">$24K MRR</strong></p>
-                        <p style="font-size: 1.5rem; margin-bottom: 40px;">Year 1 customer acquisition of <strong style="color: var(--cobalt-light);">10,000 users</strong> yielding <strong style="color: var(--cobalt-light);">$120,000 MRR</strong></p>
-                        <p style="font-size: 1.5rem; margin-bottom: 60px;">With an additional <strong style="color: var(--cobalt-light);">$1M in Enterprise deals</strong></p>
+                    <h2 style="margin-bottom: 20px;">A Multi-Billion Dollar Gap</h2>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 15px;">We will acquire <strong style="color: var(--cobalt-light);">2,000 users</strong> in the next 3 months yielding <strong style="color: var(--cobalt-light);">$24K MRR</strong></p>
+                        <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 15px;">Year 1 customer acquisition of <strong style="color: var(--cobalt-light);">10,000 users</strong> yielding <strong style="color: var(--cobalt-light);">$120,000 MRR</strong></p>
+                        <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 20px;">With an additional <strong style="color: var(--cobalt-light);">$1M in Enterprise deals</strong></p>
                     </div>
                     <div class="market-circles">
                         <div class="market-circle tam">
                             <div class="market-label">TAM</div>
                             <div class="market-value">1.0B</div>
-                            <div style="font-size: 0.9rem; margin-top: 10px; color: rgba(147, 197, 253, 0.6);">Total AI Users</div>
+                            <div style="font-size: clamp(0.7rem, 1.2vw, 0.8rem); margin-top: 6px; color: rgba(147, 197, 253, 0.6);">Total AI Users</div>
                         </div>
                         <div class="market-circle sam">
                             <div class="market-label">SAM</div>
                             <div class="market-value">378M</div>
-                            <div style="font-size: 0.9rem; margin-top: 10px; color: rgba(147, 197, 253, 0.6);">Professional Users</div>
+                            <div style="font-size: clamp(0.7rem, 1.2vw, 0.8rem); margin-top: 6px; color: rgba(147, 197, 253, 0.6);">Professional Users</div>
                         </div>
                         <div class="market-circle som">
                             <div class="market-label">SOM</div>
                             <div class="market-value">38M</div>
-                            <div style="font-size: 0.9rem; margin-top: 10px; color: rgba(147, 197, 253, 0.6);">10% of Pro Users</div>
+                            <div style="font-size: clamp(0.7rem, 1.2vw, 0.8rem); margin-top: 6px; color: rgba(147, 197, 253, 0.6);">10% of Pro Users</div>
                         </div>
                     </div>
-                    <p style="text-align: center; margin-top: 40px; font-size: 1.2rem;">The Prize: Capturing less than 0.1% of the professional market represents <strong style="color: var(--cobalt-light);">>$30M/year</strong></p>
+                    <p style="text-align: center; margin-top: 20px; font-size: clamp(1rem, 1.8vw, 1.1rem);">The Prize: Capturing less than 0.1% of the professional market represents <strong style="color: var(--cobalt-light);">>$30M/year</strong></p>
                 </div>
             </div>
 
@@ -1107,7 +1215,7 @@
                     <div class="opportunity-highlight">
                         <div class="opportunity-points">
                             <div class="opportunity-point">
-                                <strong>51% of PrivacyPal is being acquired by Vocodia Holdings</strong>, establishing a valuation floor.
+                                <strong>51% of PrivacyPal is being acquired by Vocodia Holdings (Publicly Listed Company)</strong>, establishing a valuation floor.
                             </div>
                             <div class="opportunity-point">
                                 Investors in this round participate in the <strong>remaining 49% equity</strong>.
