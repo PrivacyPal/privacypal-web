@@ -1951,17 +1951,13 @@
                         </div>
                         
                         <div class="slider-container">
-                            <input type="range" id="seat-slider" class="seat-slider" min="0" max="8" value="0" step="1">
+                            <input type="range" id="seat-slider" class="seat-slider" min="0" max="4" value="0" step="1">
                             <div class="slider-ticks">
                                 <span class="tick" data-value="0">1</span>
-                                <span class="tick" data-value="1">5</span>
-                                <span class="tick" data-value="2">10</span>
-                                <span class="tick" data-value="3">20</span>
-                                <span class="tick" data-value="4">50</span>
-                                <span class="tick" data-value="5">100</span>
-                                <span class="tick" data-value="6">200</span>
-                                <span class="tick" data-value="7">500</span>
-                                <span class="tick" data-value="8">1000</span>
+                                <span class="tick" data-value="1">10</span>
+                                <span class="tick" data-value="2">100</span>
+                                <span class="tick" data-value="3">500</span>
+                                <span class="tick" data-value="4">1000</span>
                             </div>
                         </div>
 
@@ -1997,8 +1993,8 @@
                 <div class="price-card featured cloud-card">
                     <div class="price-badge">Enterprise</div>
                     <h3>PrivacyPal Cloud</h3>
-                    <div class="price-amount" style="font-size: 3.5rem;">$12k<span style="font-size: 1.5rem;">/yr</span></div>
-                    <div class="price-period">Starting price</div>
+                    <div class="price-amount" style="font-size: 3.5rem;">$15k<span style="font-size: 1.5rem;">/yr</span></div>
+                    <div class="price-period">Starting price w/addl. setup fees</div>
                     <div class="price-save">Includes 10 PrivacyPal AI licenses</div>
 
                     <div class="price-features">
@@ -2181,15 +2177,11 @@
 
         // Price Calculator
         const pricingData = [
-            { seats: 1, monthly: 50, annual: 500, perSeat: 50 },
-            { seats: 5, monthly: 200, annual: 2000, perSeat: 40 },
-            { seats: 10, monthly: 350, annual: 3500, perSeat: 35 },
-            { seats: 20, monthly: 600, annual: 6000, perSeat: 30 },
-            { seats: 50, monthly: 1200, annual: 12000, perSeat: 24 },
-            { seats: 100, monthly: 2000, annual: 20000, perSeat: 20 },
-            { seats: 200, monthly: 3600, annual: 36000, perSeat: 18 },
-            { seats: 500, monthly: 7500, annual: 75000, perSeat: 15 },
-            { seats: 1000, monthly: 12000, annual: 120000, perSeat: 12 }
+            { seats: 1, monthly: 18, annual: 180, perSeat: 18 },
+            { seats: 10, monthly: 150, annual: 1500, perSeat: 15 },
+            { seats: 100, monthly: 1250, annual: 12500, perSeat: 12.50 },
+            { seats: 500, monthly: 5500, annual: 55000, perSeat: 11 },
+            { seats: 1000, monthly: 10000, annual: 100000, perSeat: 10 }
         ];
 
         function formatCurrency(amount) {
