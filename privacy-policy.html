@@ -230,6 +230,14 @@
             color: #e6f1ff;
         }
 
+        .policy-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            margin-top: 20px;
+            color: #e6f1ff;
+        }
+
         .policy-section p {
             color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
@@ -431,7 +439,7 @@
     <div class="policy-content">
         <div class="policy-header">
             <h1>Privacy Policy</h1>
-            <p class="policy-date">Last updated 12/27/2024</p>
+            <p class="policy-date">Last updated January 17, 2026</p>
         </div>
 
         <div class="policy-section">
@@ -462,6 +470,16 @@
                 <li>Usage data</li>
                 <li>Cookies and tracking technologies</li>
             </ul>
+
+            <h3>Browser Extension</h3>
+            <p>When you use the PrivacyPal browser extension:</p>
+            <ul>
+                <li>The extension intercepts and temporarily processes messages you send to ChatGPT (chatgpt.com) and Claude.ai (claude.ai)</li>
+                <li>Only messages containing potentially sensitive information are processed</li>
+                <li>Configuration data (API endpoint, settings) is stored locally in your browser</li>
+                <li>Usage statistics are stored locally and not transmitted</li>
+                <li>No conversation data is stored permanently</li>
+            </ul>
         </div>
 
         <div class="policy-section">
@@ -477,12 +495,126 @@
                 <li>Contact you about products, services, and promotions</li>
                 <li>Prevent fraud and ensure security</li>
             </ul>
+
+            <h3>Browser Extension</h3>
+            <p>Data collected by the browser extension is used solely for:</p>
+            <ul>
+                <li>Protecting your sensitive information using Privacy Twins technology</li>
+                <li>Encoding/decoding messages in real-time</li>
+                <li>Maintaining extension functionality</li>
+            </ul>
+            <p><strong>Extension data is NOT used for:</strong></p>
+            <ul>
+                <li>Marketing communications</li>
+                <li>Analytics or tracking</li>
+                <li>Third-party advertising</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>PrivacyPal Browser Extension</h2>
+            <p>When you use the PrivacyPal browser extension, the following applies:</p>
+
+            <h3>Data Collection by the Extension</h3>
+            <p>The PrivacyPal browser extension collects and processes the following data:</p>
+
+            <h4>1. Conversation Data (Temporary Processing Only)</h4>
+            <ul>
+                <li>The extension intercepts messages you send to ChatGPT (chatgpt.com) and Claude.ai (claude.ai)</li>
+                <li>Only messages containing potentially sensitive information (PII) are processed</li>
+                <li>Your original messages are analyzed to identify sensitive data</li>
+                <li>Original data is replaced with Privacy Twins (synthetic data) before being sent to AI services</li>
+                <li><strong>Your original data is NOT stored by PrivacyPal</strong> - it is only processed in real-time for encoding/decoding</li>
+                <li>Processing occurs through your configured PrivacyPal API endpoint (see "User Control" below)</li>
+            </ul>
+
+            <h4>2. Configuration Data (Stored Locally Only)</h4>
+            <ul>
+                <li>API endpoint URL (stored in Chrome's local storage on your device)</li>
+                <li>API authentication token (stored in Chrome's encrypted local storage)</li>
+                <li>Extension settings and preferences (on/off, protection level)</li>
+                <li>Protection statistics (number of requests intercepted, last interception time)</li>
+                <li><strong>All configuration data remains on your device and is not transmitted to PrivacyPal servers</strong></li>
+            </ul>
+
+            <h4>3. Usage Statistics (Stored Locally Only)</h4>
+            <ul>
+                <li>Number of requests intercepted</li>
+                <li>Last interception timestamp</li>
+                <li>Platform detection (ChatGPT vs Claude)</li>
+                <li><strong>These statistics are stored locally in your browser and are NOT transmitted</strong></li>
+            </ul>
+
+            <h3>How Your Data is Processed</h3>
+
+            <h4>Privacy Twins Technology</h4>
+            <ul>
+                <li>PrivacyPal uses Privacy Twins (synthetic data) technology to protect your sensitive information</li>
+                <li>Your original sensitive data (names, addresses, SSNs, etc.) is replaced with realistic synthetic alternatives</li>
+                <li>Only the synthetic Privacy Twins are sent to AI services (ChatGPT/Claude)</li>
+                <li>AI responses are automatically decoded to restore your original information</li>
+                <li><strong>Your original data never reaches AI services</strong></li>
+            </ul>
+
+            <h4>Data Transmission</h4>
+            <ul>
+                <li>Conversation data is transmitted <strong>ONLY</strong> to your configured PrivacyPal API endpoint</li>
+                <li><strong>No data is sent to third parties</strong></li>
+                <li><strong>No analytics or tracking data is collected</strong></li>
+                <li>If you use the default endpoint (api.privacypal.ai), data is sent to PrivacyPal servers for processing</li>
+                <li>If you configure a self-hosted endpoint, data is sent only to your own server</li>
+            </ul>
+
+            <h4>Data Storage</h4>
+            <ul>
+                <li>All configuration and statistics are stored locally in your browser</li>
+                <li>No conversation data is stored permanently</li>
+                <li>Original user data is never stored - only Privacy Twins are sent to AI services</li>
+                <li>You can delete all extension data at any time by uninstalling the extension</li>
+            </ul>
+
+            <h3>User Control</h3>
+
+            <h4>API Endpoint Configuration</h4>
+            <ul>
+                <li>You have full control over where your data is processed</li>
+                <li>You can configure the extension to use api.privacypal.ai (default) or your own self-hosted PrivacyPal instance</li>
+                <li>If you use a self-hosted instance, your data never reaches PrivacyPal servers</li>
+                <li>Configuration is stored locally and can be changed at any time</li>
+            </ul>
+
+            <h4>Data Access and Deletion</h4>
+            <ul>
+                <li>All extension data is stored locally in your browser</li>
+                <li>You can view and modify configuration through the extension's settings panel</li>
+                <li>You can delete all extension data by uninstalling the extension</li>
+                <li>Uninstalling the extension removes all locally stored data</li>
+            </ul>
+
+            <h3>Third-Party Sharing</h3>
+            <p><strong>The PrivacyPal browser extension does NOT share your data with third parties.</strong></p>
+            <p>Unlike our website services (which may share data with service providers as described in other sections of this policy), the browser extension:</p>
+            <ul>
+                <li>Does not send data to third-party advertisers</li>
+                <li>Does not share data with service providers (except your configured API endpoint)</li>
+                <li>Does not collect analytics or tracking data</li>
+                <li>Does not use cookies for tracking</li>
+            </ul>
+
+            <h3>Children's Privacy</h3>
+            <p>The browser extension is not intended for children under 13. We do not knowingly collect information from users under 13 through the extension.</p>
+
+            <h3>Changes to This Section</h3>
+            <p>If we make material changes to how the browser extension collects or uses data, we will update this section and notify users through the extension or our website.</p>
         </div>
 
         <div class="policy-section">
             <h2>Marketing Communications</h2>
             <p>
                 By providing your information to PrivacyPal, you expressly consent to receive marketing, sales, and customer support communications through various channels including email, phone, and text messages. You acknowledge that such communications may include promotional content, product updates, and special offers.
+            </p>
+            <p>
+                <strong>Note:</strong> Data collected by the PrivacyPal browser extension is NOT used for marketing communications. The extension data is used solely for the core privacy protection functionality as described in the "PrivacyPal Browser Extension" section above.
             </p>
         </div>
 
@@ -496,6 +628,15 @@
                 <li>Third-party advertisers</li>
                 <li>Potential buyers during a business transaction</li>
             </ul>
+
+            <h3>Browser Extension Exception</h3>
+            <p><strong>Data collected by the PrivacyPal browser extension is NOT shared with:</strong></p>
+            <ul>
+                <li>Third-party advertisers</li>
+                <li>Marketing partners</li>
+                <li>Analytics services</li>
+            </ul>
+            <p>Extension data is only sent to your configured PrivacyPal API endpoint (which you control). See the "PrivacyPal Browser Extension" section above for complete details.</p>
         </div>
 
         <div class="policy-section">
@@ -515,6 +656,16 @@
             <p>
                 We implement reasonable security measures to protect your information. However, no method of transmission over the internet is 100% secure.
             </p>
+
+            <h3>Browser Extension Data Storage</h3>
+            <p>The PrivacyPal browser extension stores data locally in your browser:</p>
+            <ul>
+                <li>All extension configuration data is stored locally in Chrome's encrypted storage</li>
+                <li>Conversation data is processed in real-time and not stored</li>
+                <li>Statistics are stored locally and never transmitted</li>
+                <li>You can delete all extension data by uninstalling the extension</li>
+                <li>API authentication tokens are stored in Chrome's encrypted local storage for security</li>
+            </ul>
         </div>
 
         <div class="policy-section">
@@ -531,7 +682,7 @@
         <div class="policy-section">
             <h2>Children's Privacy</h2>
             <p>
-                Our services are not directed to children under 13. We do not knowingly collect information from children under 13.
+                Our services, including the PrivacyPal browser extension, are not directed to children under 13. We do not knowingly collect information from children under 13 through our website or browser extension.
             </p>
         </div>
 
