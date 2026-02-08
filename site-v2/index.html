@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0QN2Z18HP0');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrivacyPal - Your Private AI Companion | Launch January 2026</title>
+    <meta name="description" content="Use ChatGPT, Claude, and any AI tool without exposing your sensitive data. PrivacyPal AI runs in your web browser and keeps your private information private.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cobalt: #336699;
+            --cobalt-dark: #1a3a5a;
+            --cobalt-light: #4a86c2;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            --card-shadow-hover: 0 10px 40px -10px rgba(51, 102, 153, 0.2);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+        nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 56px; width: auto; display: block; }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--cobalt); }
+        .cta-nav-button {
+            background: var(--cobalt);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .cta-nav-button:hover {
+            background: var(--cobalt-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 24px 80px;
+            background: var(--bg);
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(51, 102, 153, 0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(51, 102, 153, 0.12);
+            border: 1px solid rgba(51, 102, 153, 0.35);
+            border-radius: 50px;
+            margin-bottom: 28px;
+            font-weight: 600;
+            color: var(--cobalt);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .hero-text {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            color: var(--text);
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+        .hero-text .highlight {
+            color: var(--cobalt);
+            display: inline-block;
+        }
+        .hero p {
+            font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .hero-cta-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .hero-cta {
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-cta-primary {
+            background: var(--cobalt);
+            color: white;
+        }
+        .hero-cta-primary:hover {
+            background: var(--cobalt-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px -4px rgba(51, 102, 153, 0.4);
+        }
+        .hero-cta-secondary {
+            background: var(--bg);
+            color: var(--cobalt);
+            border: 1px solid var(--border);
+        }
+        .hero-cta-secondary:hover {
+            border-color: var(--cobalt);
+            background: rgba(51, 102, 153, 0.05);
+        }
+        .trust-indicators {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .trust-item::before {
+            content: '✓';
+            color: var(--cobalt);
+            font-weight: bold;
+        }
+        .hero-visual {
+            position: relative;
+        }
+        .browser-mockup {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .browser-mockup:hover {
+            box-shadow: var(--card-shadow-hover);
+            border-color: rgba(51, 102, 153, 0.3);
+        }
+        .hero-screenshot-wrap {
+            position: relative;
+            line-height: 0;
+        }
+        .hero-screenshot-wrap img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 440px;
+            object-fit: contain;
+        }
+        .privacy-shield {
+            position: absolute;
+            top: 24px;
+            right: 20px;
+            background: var(--cobalt);
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(51, 102, 153, 0.35);
+        }
+
+        /* Trusted By - bold blue section (Wiz-style, logos visible) */
+        .trusted-by {
+            background: linear-gradient(135deg, var(--cobalt) 0%, var(--cobalt-dark) 100%);
+            padding: 64px 24px;
+            position: relative;
+        }
+        .trusted-by-container { max-width: 1100px; margin: 0 auto; }
+        .trusted-by-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .trusted-by-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 56px;
+            flex-wrap: wrap;
+        }
+        .trusted-by-logo {
+            height: 48px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .trusted-by-logo:hover { opacity: 1; transform: scale(1.05); }
+
+        /* Works With - bold blue section (AI logos visible on blue) */
+        .works-with {
+            padding: 96px 24px;
+            background: linear-gradient(180deg, var(--cobalt-dark) 0%, var(--cobalt) 50%, var(--cobalt-dark) 100%);
+            position: relative;
+        }
+        .works-with-container { max-width: 1000px; margin: 0 auto; }
+        .works-with-header { text-align: center; margin-bottom: 56px; }
+        .works-with-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 12px;
+        }
+        .works-with-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .works-with-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .works-with-logos {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .works-with-card {
+            min-width: 200px;
+            max-width: 280px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 16px;
+            padding: 40px 28px;
+            text-align: center;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        .works-with-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.25);
+        }
+        .works-with-logo-wrap {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .works-with-logo {
+            height: 52px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            /* No filter: logos show in brand color on blue for visibility */
+            opacity: 0.98;
+        }
+        .works-with-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* How It Works - Wiz-style section */
+        .how-it-works {
+            padding: 100px 24px;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(51, 102, 153, 0.04) 50%, #ffffff 100%);
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(51, 102, 153, 0.12);
+            border: 1px solid rgba(51, 102, 153, 0.3);
+            border-radius: 50px;
+            color: var(--cobalt);
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .section-title {
+            font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .step-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+        .step-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            border-color: rgba(51, 102, 153, 0.2);
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            color: white;
+            font-size: 1.35rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--cobalt);
+            stroke-width: 1.5;
+            fill: none;
+            opacity: 0.9;
+        }
+        .step-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* Features */
+        .features { padding: 96px 24px; background: var(--bg); }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 32px 24px;
+        }
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--cobalt);
+            stroke-width: 1.5;
+            fill: none;
+            opacity: 0.9;
+        }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 96px 24px;
+            background: var(--bg-alt);
+        }
+        .pricing-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+            align-items: stretch;
+        }
+        .pricing-ai-card,
+        .price-card {
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .pricing-ai-card:hover,
+        .price-card:hover { border-color: rgba(51, 102, 153, 0.35); }
+        .price-card.featured {
+            border-color: #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(51, 102, 153, 0.15);
+        }
+        .price-card.featured:hover { border-color: rgba(51, 102, 153, 0.35); }
+        .price-badge {
+            display: inline-block;
+            width: fit-content;
+            align-self: flex-start;
+            padding: 8px 20px;
+            background: var(--cobalt);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .pricing-ai-card h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+        .price-calculator { margin-top: 24px; }
+        .calculator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .slider-label { font-size: 1rem; font-weight: 600; color: var(--text); }
+        .seat-value { font-size: 1.5rem; font-weight: 800; color: var(--cobalt); }
+        .slider-container { margin: 24px 0; }
+        .seat-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .seat-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            cursor: pointer;
+            border: 3px solid var(--bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .seat-slider::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            cursor: pointer;
+            border: 3px solid var(--bg);
+        }
+        .seat-slider::-moz-range-track { height: 8px; border-radius: 4px; background: var(--border); }
+        .slider-ticks {
+            display: flex;
+            margin-top: 12px;
+            position: relative;
+            width: 100%;
+            height: 28px;
+        }
+        .slider-ticks .tick {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 500;
+            cursor: pointer;
+            position: absolute;
+            padding-top: 16px;
+            transform: translateX(-50%);
+        }
+        .slider-ticks .tick::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 8px;
+            background: var(--border);
+        }
+        .slider-ticks .tick:hover { color: var(--cobalt); }
+        .price-display { margin: 28px 0; text-align: center; }
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--cobalt);
+        }
+        .price-amount span { font-size: 1.25rem; font-weight: 600; color: var(--text-muted); }
+        .price-period { font-size: 0.95rem; color: var(--text-light); margin-top: 4px; }
+        .price-annual { font-size: 1rem; color: var(--text-muted); margin-top: 8px; }
+        .price-per-seat { font-size: 0.85rem; color: var(--text-light); font-style: italic; margin-top: 4px; }
+        .price-features {
+            text-align: left;
+            max-width: 100%;
+            margin: 24px 0 28px;
+            flex: 1;
+        }
+        .pricing-ai-card .price-features { margin-left: auto; margin-right: auto; }
+        .price-feature {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+        }
+        .price-feature::before {
+            content: '✓';
+            color: var(--cobalt);
+            font-weight: bold;
+        }
+        .price-cta {
+            background: var(--cobalt);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+            margin-top: auto;
+            text-align: center;
+        }
+        .pricing-ai-card .price-cta,
+        .price-card .price-cta { width: 100%; box-sizing: border-box; }
+        .price-cta:hover {
+            background: var(--cobalt-dark);
+            transform: translateY(-2px);
+        }
+        .price-card h3 { font-size: 1.75rem; font-weight: 800; color: var(--text); margin-bottom: 16px; }
+        .price-card .price-amount { font-size: 2.25rem; }
+        .price-period { margin-bottom: 8px; }
+        .price-save { color: var(--cobalt); font-weight: 600; margin-bottom: 24px; }
+        .price-card .price-features { margin-bottom: 28px; }
+
+        /* Agent-to-Agent - blue accent band */
+        .agent-to-agent {
+            padding: 100px 24px;
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.06) 0%, rgba(26, 58, 90, 0.08) 100%);
+            position: relative;
+        }
+        .agent-to-agent::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--cobalt), transparent);
+            opacity: 0.5;
+        }
+        .a2a-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .a2a-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(51, 102, 153, 0.1);
+            border-radius: 50px;
+            color: var(--cobalt);
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .a2a-title {
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        .a2a-title .highlight { color: var(--cobalt); }
+        .a2a-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+        .a2a-cta {
+            background: var(--cobalt);
+            color: white;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .a2a-cta:hover {
+            background: var(--cobalt-dark);
+            transform: translateY(-2px);
+        }
+        .a2a-cards { display: flex; flex-direction: column; gap: 24px; }
+        .a2a-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .a2a-card:hover {
+            border-color: rgba(51, 102, 153, 0.25);
+            box-shadow: var(--card-shadow);
+        }
+        .a2a-card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(51, 102, 153, 0.1);
+            border-radius: 10px;
+        }
+        .a2a-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--cobalt);
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .a2a-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+        .a2a-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--cobalt);
+            color: white;
+            text-align: center;
+            padding: 80px 24px;
+        }
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .final-cta p { font-size: 1.15rem; margin-bottom: 32px; opacity: 0.95; }
+        .final-cta-button {
+            background: white;
+            color: var(--cobalt);
+            padding: 16px 40px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            color: var(--text);
+            padding: 64px 24px 32px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--text); }
+        .footer-brand p { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-size: 0.95rem; }
+        .social-links { display: flex; gap: 12px; }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+        .social-links a:hover {
+            background: var(--cobalt);
+            color: white;
+            border-color: var(--cobalt);
+        }
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover { color: var(--cobalt); }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            position: relative;
+        }
+        .footer-contact {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            text-align: right;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .footer-contact strong { color: var(--text); display: block; margin-bottom: 4px; }
+        .footer-bottom a { color: var(--cobalt); text-decoration: none; }
+        .footer-bottom a:hover { text-decoration: underline; }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+        }
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: var(--bg);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 640px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            padding: 28px 28px 20px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .modal-title { font-size: 1.75rem; font-weight: 800; color: var(--text); margin: 0; text-align: center; }
+        .modal-subtitle { color: var(--text-muted); text-align: center; margin: 8px 0 0; font-size: 1rem; }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-light);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover { background: var(--bg-alt); color: var(--text); }
+        .modal-body { flex: 1; padding: 20px; overflow: auto; }
+        .form-iframe { width: 100%; height: 100%; border: none; min-height: 480px; border-radius: 8px; }
+        .modal-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+        }
+        .loading-spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid var(--border);
+            border-top-color: var(--cobalt);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Scroll reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-cta-group { justify-content: center; }
+            .trust-indicators { justify-content: center; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .a2a-grid { grid-template-columns: 1fr; }
+            .a2a-grid > div:first-child { text-align: center; }
+            .pricing-cards-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .logo img { height: 44px; }
+            .hero { padding: 100px 20px 60px; }
+            .hero-screenshot-wrap img { max-height: 320px; }
+            .trusted-by-logos { gap: 32px; }
+            .trusted-by-logo { height: 32px; }
+            .works-with-card { min-width: 160px; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-contact { position: static; text-align: center; margin-top: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="privacypal-logo-color.png" alt="PrivacyPal">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="developers.html">Developers</a>
+                <a href="https://portal.privacypal.ai/signup" class="cta-nav-button">Install Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display: inline-block; vertical-align: middle; margin-right: 8px; opacity: 0.8;">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    Free Trial, No Credit Card
+                </div>
+                <h1 class="hero-text">
+                    Make AI<br>
+                    <span class="highlight">Safe for Work.</span><br>
+                    Instantly.
+                </h1>
+                <p>
+                    Stop the manual redaction. Stop the data leaks. Get 100% accurate results without the risk.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="https://portal.privacypal.ai/signup" class="hero-cta hero-cta-primary">Install Now</a>
+                    <a href="#how-it-works" class="hero-cta hero-cta-secondary">See How It Works</a>
+                </div>
+                <div class="trust-indicators">
+                    <div class="trust-item">One-click install</div>
+                    <div class="trust-item">Works with all major LLMs</div>
+                    <div class="trust-item">Always private</div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="browser-mockup">
+                    <div class="hero-screenshot-wrap">
+                        <img src="ppal-ext-light.png" alt="PrivacyPal Active in the browser">
+                        <div class="privacy-shield">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            PrivacyPal Active
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trusted-by">
+        <div class="trusted-by-container">
+            <h2 class="trusted-by-title">Trusted By</h2>
+            <div class="trusted-by-logos">
+                <img src="coreplus-logo.png" alt="CorePLUS Technologies" class="trusted-by-logo">
+                <img src="peaq-logo.png" alt="peaq" class="trusted-by-logo">
+                <img src="vocodia-logo.png" alt="VOCODIA" class="trusted-by-logo">
+                <img src="fastweb-logo.png" alt="FASTWEB" class="trusted-by-logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="works-with scroll-reveal">
+        <div class="works-with-container">
+            <div class="works-with-header">
+                <span class="works-with-badge">Works with</span>
+                <h2 class="works-with-title">Use your favorite AI—privately</h2>
+                <p class="works-with-subtitle">PrivacyPal works seamlessly with the AI tools you already use. Your data stays in your control.</p>
+            </div>
+            <div class="works-with-logos">
+                <div class="works-with-card">
+                    <div class="works-with-logo-wrap"><img src="gemini-ai.png" alt="Google Gemini" class="works-with-logo"></div>
+                    <span class="works-with-name">Google Gemini</span>
+                </div>
+                <div class="works-with-card">
+                    <div class="works-with-logo-wrap"><img src="claude-ai.png" alt="Claude" class="works-with-logo"></div>
+                    <span class="works-with-name">Claude</span>
+                </div>
+                <div class="works-with-card">
+                    <div class="works-with-logo-wrap"><img src="chatgpt-ai.png" alt="ChatGPT" class="works-with-logo"></div>
+                    <span class="works-with-name">ChatGPT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works scroll-reveal" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">How It Works</div>
+                <h2 class="section-title">Three Steps to Private AI</h2>
+                <p class="section-subtitle">
+                    PrivacyPal works invisibly in the background. You use AI like normal. We handle the privacy automatically.
+                </p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Install Extension</h3>
+                    <p>One-click install from Chrome Web Store. Takes 10 seconds. No configuration needed.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Use AI Normally</h3>
+                    <p>Go to ChatGPT, Claude, or any AI tool. Type your questions like you always do. PrivacyPal works in the background.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Stay Protected</h3>
+                    <p>PrivacyPal automatically detects sensitive data, creates Privacy Twins, and keeps your information private. Always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Features</div>
+                <h2 class="section-title">Simple. Powerful. Private.</h2>
+                <p class="section-subtitle">Everything you need to use AI confidently. Nothing you don't.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <h3>Instant Protection</h3>
+                    <p>PrivacyPal works in real-time. Your sensitive data is protected the moment you type it.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                    <h3>Smart Detection</h3>
+                    <p>Automatically identifies names, emails, financial data, health info, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+                    <h3>Privacy Twins</h3>
+                    <p>Your sensitive data is swapped with synthetic Privacy Twins. Get accurate AI responses without exposing real information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                    <h3>Works Everywhere</h3>
+                    <p>Protects you across ChatGPT, Claude, and any AI tool you use in your browser.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                    <h3>Always Encrypted</h3>
+                    <p>Your data stays encrypted, in your hands, and always private. Even we can't see it.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                    <h3>Zero Learning Curve</h3>
+                    <p>Install once, forget forever. PrivacyPal works silently in the background.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing scroll-reveal" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Pricing</div>
+                <h2 class="section-title">Choose Your Plan</h2>
+                <p class="section-subtitle">From individual users to enterprise. No hidden fees, just honest pricing.</p>
+            </div>
+        </div>
+        <div class="pricing-cards-grid">
+                <div class="pricing-ai-card">
+                    <div class="price-badge">Launch Offer</div>
+                    <h3>PrivacyPal AI</h3>
+                    <div class="price-calculator">
+                        <div class="calculator-header">
+                            <label for="seat-slider" class="slider-label">Seats</label>
+                            <div class="seat-value" id="seatValue">1</div>
+                        </div>
+                        <div class="slider-container">
+                            <input type="range" id="seat-slider" class="seat-slider" min="0" max="4" value="0" step="1">
+                            <div class="slider-ticks">
+                                <span class="tick" data-value="0">1</span>
+                                <span class="tick" data-value="1">10</span>
+                                <span class="tick" data-value="2">100</span>
+                                <span class="tick" data-value="3">500</span>
+                                <span class="tick" data-value="4">1000</span>
+                            </div>
+                        </div>
+                        <div class="price-display">
+                            <div class="price-amount" id="monthlyPrice">$50<span>/mo</span></div>
+                            <div class="price-period">Billed monthly</div>
+                            <div class="price-annual" id="annualPrice">or $500/year</div>
+                            <div class="price-per-seat" id="perSeatPrice">$50 per seat</div>
+                        </div>
+                        <div class="price-features">
+                            <div class="price-feature">Works with ChatGPT & Claude</div>
+                            <div class="price-feature">Automatic sensitive data detection</div>
+                            <div class="price-feature">Real-time protection</div>
+                            <div class="price-feature">Browser extension</div>
+                            <div class="price-feature">Unlimited AI queries</div>
+                            <div class="price-feature">Email support</div>
+                        </div>
+                        <a href="https://portal.privacypal.ai/signup" class="price-cta">Install</a>
+                    </div>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-badge">Enterprise</div>
+                    <h3>PrivacyPal Cloud</h3>
+                    <div class="price-amount" style="font-size: 2rem;">$15k<span style="font-size: 1rem;">/yr</span></div>
+                    <div class="price-period">Starting price w/addl. setup fees</div>
+                    <div class="price-save">Includes 10 PrivacyPal AI licenses</div>
+                    <div class="price-features">
+                        <div class="price-feature">Everything in PrivacyPal AI</div>
+                        <div class="price-feature">Self-host sensitive data & Privacy Twins</div>
+                        <div class="price-feature">Data sovereignty & compliance</div>
+                        <div class="price-feature">Internal database scanning (DSPM)</div>
+                        <div class="price-feature">Process larger data volumes</div>
+                        <div class="price-feature">Additional user seats available</div>
+                        <div class="price-feature">24/7 dedicated support</div>
+                    </div>
+                    <a href="mailto:hi@privacypal.ai" class="price-cta">Contact Sales</a>
+                </div>
+        </div>
+    </section>
+
+    <section class="agent-to-agent scroll-reveal">
+        <div class="container">
+            <div class="a2a-grid">
+                <div>
+                    <div class="a2a-badge">For Developers</div>
+                    <h2 class="a2a-title"><span class="highlight">Agent-to-Agent</span> Workflows</h2>
+                    <p class="a2a-text">
+                        Build secure entry points for AI agents to interact with other agents. Protect sensitive data flow and create compliant information sharing between agents.
+                    </p>
+                    <p class="a2a-text" style="font-size: 1rem;">
+                        Future capabilities will enable data payment controls, allowing agents to gate access to sensitive information and create new economic models for agent-to-agent transactions.
+                    </p>
+                    <a href="developers.html" class="a2a-cta">Explore A2A Capabilities →</a>
+                </div>
+                <div class="a2a-cards">
+                    <div class="a2a-card">
+                        <div class="a2a-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                        <h3>Agent Entry Points</h3>
+                        <p>Create protected entry points for your agents to interact with other agents while maintaining control over sensitive data.</p>
+                    </div>
+                    <div class="a2a-card">
+                        <div class="a2a-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <h3>Protected Data Flow</h3>
+                        <p>Control information flow between agents. Healthcare AI, financial services, and more—all with privacy built-in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="download">
+        <div class="container">
+            <h2>Ready to Use AI Without Worry?</h2>
+            <p>Refuse to choose between AI power and data privacy.</p>
+            <a href="https://portal.privacypal.ai/signup" class="final-cta-button">Free Trial, No Credit Card</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>PrivacyPal</h3>
+                <p>Use ChatGPT, Claude, and any AI tool without exposing your sensitive data.</p>
+                <div class="social-links">
+                    <a href="https://x.com/privacypalai" title="X (Twitter)">𝕏</a>
+                    <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="https://portal.privacypal.ai/signup">Install</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <div class="footer-contact">
+                <strong>PrivacyPal</strong>
+                2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968
+            </div>
+        </div>
+    </footer>
+
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Signup Today</h2>
+                <p class="modal-subtitle">Be first to experience truly private AI</p>
+                <button class="modal-close" onclick="closeWaitlistModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-loading" id="modalLoading">
+                    <div class="loading-spinner"></div>
+                    <div>Loading form...</div>
+                </div>
+                <iframe id="waitlistForm" class="form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdVifw1avvSktOoKS8zpmvA0S1vmQfMeopElMvVPPXGQwHk2A/viewform?embedded=true" width="640" height="812" frameborder="0" marginheight="0" marginwidth="0" style="display: none;">Loading…</iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var pricingData = [
+            { seats: 1, monthly: 9, annual: 180, perSeat: 9 },
+            { seats: 10, monthly: 80, annual: 800, perSeat: 8 },
+            { seats: 100, monthly: 700, annual: 7000, perSeat: 7 },
+            { seats: 500, monthly: 3000, annual: 30000, perSeat: 6 },
+            { seats: 1000, monthly: 5000, annual: 50000, perSeat: 5 }
+        ];
+        function formatCurrency(n) { return '$' + n.toLocaleString(); }
+        function updatePricing(i) {
+            var d = pricingData[i];
+            var el = document.getElementById('seatValue');
+            if (el) el.textContent = d.seats;
+            el = document.getElementById('monthlyPrice');
+            if (el) el.innerHTML = formatCurrency(d.monthly) + '<span>/mo</span>';
+            el = document.getElementById('annualPrice');
+            if (el) el.textContent = 'or ' + formatCurrency(d.annual) + '/year';
+            el = document.getElementById('perSeatPrice');
+            if (el) el.textContent = '$' + d.perSeat + ' per seat';
+        }
+        function positionTicks() {
+            var slider = document.getElementById('seat-slider');
+            var ticks = document.querySelectorAll('.slider-ticks .tick');
+            if (!slider || !ticks.length) return;
+            var r = slider.getBoundingClientRect();
+            var min = parseInt(slider.min), max = parseInt(slider.max);
+            var w = r.width - 22;
+            for (var i = 0; i < ticks.length; i++) {
+                var v = parseInt(ticks[i].getAttribute('data-value'));
+                var pct = (v - min) / (max - min);
+                var pos = 11 + pct * w;
+                ticks[i].style.left = (pos / r.width * 100) + '%';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.getElementById('seat-slider');
+            if (slider) {
+                setTimeout(positionTicks, 10);
+                window.addEventListener('resize', function() { setTimeout(positionTicks, 100); });
+                updatePricing(0);
+                slider.addEventListener('input', function() { updatePricing(parseInt(this.value)); });
+                document.querySelectorAll('.slider-ticks .tick').forEach(function(t) {
+                    t.addEventListener('click', function() {
+                        var v = parseInt(this.getAttribute('data-value'));
+                        slider.value = v;
+                        updatePricing(v);
+                    });
+                });
+            }
+            window.addEventListener('scroll', function() {
+                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+            });
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('revealed'); });
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.scroll-reveal').forEach(function(el) { obs.observe(el); });
+            document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+                a.addEventListener('click', function(e) {
+                    var h = this.getAttribute('href');
+                    if (h && h !== '#' && h.length > 1) {
+                        e.preventDefault();
+                        var t = document.querySelector(h);
+                        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+        function closeWaitlistModal() {
+            document.getElementById('waitlistModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        window.onclick = function(e) {
+            if (e.target.id === 'waitlistModal') closeWaitlistModal();
+        };
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaitlistModal(); });
+    </script>
+</body>
+</html>
