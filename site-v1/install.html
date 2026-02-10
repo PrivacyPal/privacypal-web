@@ -30,11 +30,11 @@
 
         :root {
             --cobalt: #336699;
-            --cobalt-dark: #1a3a5a;
-            --cobalt-light: #4a86c2;
-            --glass: rgba(0, 0, 0, 0.03);
-            --glass-hover: rgba(51, 102, 153, 0.08);
-            --glass-border: #e2e8f0;
+            --cobalt-dark: #1a3a52;
+            --cobalt-light: #4d7fb3;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-hover: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         html {
@@ -43,8 +43,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
-            color: #0f172a;
-            background: #ffffff;
+            color: #e6f1ff;
+            background: #050a0f;
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
@@ -58,7 +58,10 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(51, 102, 153, 0.06) 0%, transparent 55%);
+            background: radial-gradient(circle at 20% 50%, rgba(51, 102, 153, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(51, 102, 153, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(51, 102, 153, 0.1) 0%, transparent 50%);
+            animation: meshMove 20s ease-in-out infinite;
         }
 
         @keyframes meshMove {
@@ -110,9 +113,9 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
@@ -151,7 +154,7 @@
         }
 
         .nav-links a {
-            color: #475569;
+            color: #e6f1ff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -183,7 +186,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f8fafc;
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.1) 0%, rgba(26, 58, 90, 0.1) 100%);
             padding: 140px 40px 80px;
             text-align: center;
             position: relative;
@@ -213,12 +216,12 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: rgba(51, 102, 153, 0.1);
-            border: 1px solid rgba(51, 102, 153, 0.3);
+            background: rgba(51, 102, 153, 0.2);
+            border: 1px solid var(--cobalt);
             border-radius: 50px;
             margin-bottom: 30px;
             font-weight: 600;
-            color: var(--cobalt);
+            color: #99ccff;
             font-size: 0.95rem;
         }
 
@@ -227,16 +230,22 @@
             font-weight: 900;
             margin-bottom: 25px;
             line-height: 1.1;
-            color: #0f172a;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .install-hero h1 .highlight {
-            color: var(--cobalt);
+            background: linear-gradient(135deg, #fff, var(--cobalt-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .install-hero p {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             margin-bottom: 40px;
             line-height: 1.7;
         }
@@ -285,13 +294,13 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
             margin-bottom: 20px;
-            color: #0f172a;
+            color: #e6f1ff;
             line-height: 1.1;
         }
 
         .section-subtitle {
             font-size: 1.2rem;
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.7;
@@ -348,11 +357,11 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #0f172a;
+            color: #e6f1ff;
         }
 
         .option-card p {
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.7;
             font-size: 1.05rem;
             margin-bottom: 30px;
@@ -368,7 +377,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
         }
 
         .option-feature svg {
@@ -385,12 +394,13 @@
             padding: 15px 40px;
             font-size: 1.1rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
-            background: #fff;
-            color: var(--cobalt);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            color: var(--cobalt-light);
             border: 1px solid var(--cobalt);
         }
 
@@ -402,9 +412,10 @@
 
         /* Footer */
         footer {
-            background: #ffffff;
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
             border-top: 1px solid var(--glass-border);
-            color: #0f172a;
+            color: #e6f1ff;
             padding: 80px 40px 40px;
         }
 
@@ -420,11 +431,11 @@
         .footer-brand h3 {
             font-size: 2rem;
             margin-bottom: 20px;
-            color: #0f172a;
+            color: #e6f1ff;
         }
 
         .footer-brand p {
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -437,13 +448,13 @@
         .social-links a {
             width: 45px;
             height: 45px;
-            border-radius: 8px;
-            background: #f8fafc;
+            border-radius: 50%;
+            background: var(--glass);
             border: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #475569;
+            color: #e6f1ff;
             text-decoration: none;
             font-size: 1.2rem;
             transition: all 0.3s ease;
@@ -459,7 +470,7 @@
             font-size: 1.2rem;
             margin-bottom: 20px;
             font-weight: 700;
-            color: #0f172a;
+            color: #e6f1ff;
         }
 
         .footer-links ul {
@@ -471,7 +482,7 @@
         }
 
         .footer-links a {
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -486,7 +497,7 @@
             padding-top: 40px;
             border-top: 1px solid var(--glass-border);
             text-align: center;
-            color: #64748b;
+            color: rgba(147, 197, 253, 0.6);
             position: relative;
         }
 
@@ -501,7 +512,7 @@
         }
 
         .footer-contact strong {
-            color: #0f172a;
+            color: rgba(230, 241, 255, 0.8);
             display: block;
             margin-bottom: 5px;
         }
@@ -524,8 +535,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(8px);
+            background: rgba(5, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         .modal.show {
@@ -535,9 +546,10 @@
         }
 
         .modal-content {
-            background: #ffffff;
+            background: var(--glass);
+            backdrop-filter: blur(24px);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
+            border-radius: 30px;
             width: 90%;
             max-width: 700px;
             height: 85vh;
@@ -559,13 +571,16 @@
         .modal-title {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #0f172a;
+            background: linear-gradient(135deg, #e6f1ff, var(--cobalt-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 0;
             text-align: center;
         }
 
         .modal-subtitle {
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             text-align: center;
             margin: 15px 0 0;
             font-size: 1.2rem;
@@ -578,7 +593,7 @@
             background: none;
             border: none;
             font-size: 2.5rem;
-            color: #64748b;
+            color: rgba(147, 197, 253, 0.6);
             cursor: pointer;
             width: 45px;
             height: 45px;
@@ -590,8 +605,8 @@
         }
 
         .modal-close:hover {
-            background: #f8fafc;
-            color: #0f172a;
+            background: var(--glass);
+            color: #e6f1ff;
         }
 
         .modal-body {
@@ -615,7 +630,7 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             font-size: 1.2rem;
         }
 
@@ -690,7 +705,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="privacypal-logo-color.png" alt="PrivacyPal">
+                <img src="privacypal-logo-light.png" alt="PrivacyPal">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -710,7 +725,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display: inline-block; vertical-align: middle; opacity: 0.8;">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
-                Get Started Free
+                Free Trial, No Credit Card
             </div>
             <h1>
                 Install <span class="highlight">PrivacyPal</span><br>
@@ -862,7 +877,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>

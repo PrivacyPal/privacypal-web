@@ -2,20 +2,29 @@
 
 Landing page for PrivacyPal - AI Without Compromise
 
-## GitHub Pages Setup
+## Site structure
 
-This site is configured for GitHub Pages hosting with custom domain:
-- **Primary Domain**: https://privacypal.ai
-- **Alternate Domain**: https://www.privacypal.ai
+- **Repository root** – Live site (current design). This is what GitHub Pages serves.
+- **site-v1/** – Archived previous site.
+- **site-v2/** – Archived; content was promoted to root. Edit files in the root, not here.
 
-## Files
+## GitHub Pages setup
 
-- `index.html` - Main landing page
-- `pp-logo.png` - PrivacyPal logo
-- `CNAME` - Custom domain configuration for GitHub Pages
-- `robots.txt` - SEO configuration
-- `404.html` - Custom 404 error page
-- `.gitignore` - Git ignore patterns
+This site is configured for GitHub Pages with custom domain:
+- **Primary domain**: https://privacypal.ai
+- **Alternate domain**: https://www.privacypal.ai
+
+**Publish source**: Deploy from branch → main (or master) → **/ (root)**. The root contains `index.html`, `CNAME`, and all pages and assets.
+
+## Key files (at repo root)
+
+- `index.html` – Home page
+- `about.html`, `contact.html`, `developers.html`, `install.html` – Main pages
+- `privacy-policy.html`, `terms-of-service.html` – Legal
+- `404.html` – Custom 404 page
+- `CNAME` – Custom domain (privacypal.ai) for GitHub Pages
+- `robots.txt` – SEO
+- `sitemap.xml` – Sitemap for privacypal.ai
 
 ## Local Development
 

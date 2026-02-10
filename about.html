@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0QN2Z18HP0');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0QN2Z18HP0');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - PrivacyPal | Our Mission & Values</title>
@@ -18,747 +11,70 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --cobalt: #336699;
-            --cobalt-dark: #1a3a5a;
-            --cobalt-light: #4a86c2;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-hover: rgba(51, 102, 153, 0.05);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background-color: #050a0f;
-            color: #e6f1ff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            margin: 0;
-        }
-
-        /* Vitreous Velocity Background */
-        .bg-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(51, 102, 153, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(51, 102, 153, 0.1) 0%, transparent 50%);
-        }
-
-        #velocity-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .velocity-line {
-            position: absolute;
-            width: 1px;
-            height: 100px;
-            background: linear-gradient(to bottom, transparent, var(--cobalt), transparent);
-            opacity: 0.3;
-            animation: moveDown 8s linear infinite;
-        }
-
-        @keyframes moveDown {
-            0% { transform: translateY(-100vh); }
-            100% { transform: translateY(100vh); }
-        }
-
-        /* Glass Cards */
-        .vitreous-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .vitreous-card:hover {
-            border-color: var(--cobalt);
-            background: var(--glass-hover);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(5, 10, 15, 0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 72px;
-            max-height: 72px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #e6f1ff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--cobalt-light);
-        }
-
-        .nav-links a.active {
-            color: var(--cobalt-light);
-            font-weight: 600;
-        }
-
-        .cta-nav-button {
-            background: var(--cobalt);
-            color: white !important;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
-        }
-
-        .cta-nav-button:hover {
-            background: var(--cobalt-light);
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
-        }
-
-        /* Hero Section */
-        .about-hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(51, 102, 153, 0.1) 0%, rgba(26, 58, 90, 0.1) 100%);
-            color: white;
-            padding: 140px 40px 80px;
-            text-align: center;
-            position: relative;
-        }
-
-        .about-hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 25px;
-            line-height: 1.1;
-            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: rgba(147, 197, 253, 0.6);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-light {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        /* Mission Section */
-        .mission {
-            background: transparent;
-        }
-
-        .mission-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 30px;
-            color: #e6f1ff;
-            line-height: 1.1;
-        }
-
-        .section-text {
-            font-size: 1.2rem;
-            color: rgba(147, 197, 253, 0.6);
-            line-height: 1.8;
-            margin-bottom: 50px;
-        }
-
-        /* Values Section */
-        .values {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .value-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--cobalt);
-            background: var(--glass-hover);
-            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
-        }
-
-        .value-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(51, 102, 153, 0.2);
-            border-radius: 15px;
-        }
-
-        .value-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--cobalt-light);
-            stroke-width: 1.5;
-            fill: none;
-            opacity: 0.8;
-        }
-
-        .value-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #e6f1ff;
-        }
-
-        .value-card p {
-            color: rgba(147, 197, 253, 0.6);
-            line-height: 1.7;
-        }
-
-        /* Team Section */
-        .team {
-            background: transparent;
-        }
-
-        .team-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .team-intro p {
-            font-size: 1.2rem;
-            color: rgba(147, 197, 253, 0.6);
-            line-height: 1.8;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .team-member {
-            text-align: center;
-        }
-
-        .team-member-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            overflow: hidden;
-            object-fit: cover;
-            box-shadow: 0 10px 40px rgba(51, 102, 153, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid var(--glass-border);
-        }
-
-        .team-member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .team-member:hover .team-member-photo {
-            transform: scale(1.05);
-            box-shadow: 0 15px 50px rgba(51, 102, 153, 0.5);
-            border-color: var(--cobalt);
-        }
-
-        .team-member h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #e6f1ff;
-        }
-
-        .team-member-role {
-            color: var(--cobalt-light);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        /* Investors Section */
-        .investors {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .investors-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .investors-intro p {
-            font-size: 1.2rem;
-            color: rgba(147, 197, 253, 0.6);
-            line-height: 1.8;
-        }
-
-        .investors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-            align-items: center;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .investor-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            background: #ffffff;
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            height: 120px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .investor-logo img {
-            max-width: 100%;
-            max-height: 80px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .investor-logo:hover {
-            transform: translateY(-5px);
-            border-color: var(--cobalt);
-            background: #ffffff;
-            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
-        }
-
-        .investor-logo:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(5, 10, 15, 0.8);
-            backdrop-filter: blur(24px);
-            border-top: 1px solid var(--glass-border);
-            color: #e6f1ff;
-            padding: 80px 40px 40px;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #e6f1ff;
-        }
-
-        .footer-brand p {
-            color: rgba(147, 197, 253, 0.6);
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e6f1ff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--cobalt);
-            border-color: var(--cobalt);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            color: #e6f1ff;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(147, 197, 253, 0.6);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--cobalt-light);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid var(--glass-border);
-            text-align: center;
-            color: rgba(147, 197, 253, 0.6);
-            position: relative;
-        }
-
-        .footer-contact {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            text-align: right;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            padding: 20px 0;
-        }
-
-        .footer-contact strong {
-            color: rgba(230, 241, 255, 0.8);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .footer-bottom a {
-            color: var(--cobalt-light);
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--cobalt);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 10, 15, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--glass);
-            backdrop-filter: blur(24px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            width: 90%;
-            max-width: 700px;
-            height: 85vh;
-            max-height: 900px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
-            animation: modalSlideIn 0.4s ease-out;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-header {
-            padding: 40px 40px 30px;
-            border-bottom: 1px solid var(--glass-border);
-            position: relative;
-        }
-
-        .modal-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #e6f1ff, var(--cobalt-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-            text-align: center;
-        }
-
-        .modal-subtitle {
-            color: rgba(147, 197, 253, 0.6);
-            text-align: center;
-            margin: 15px 0 0;
-            font-size: 1.2rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: none;
-            border: none;
-            font-size: 2.5rem;
-            color: rgba(147, 197, 253, 0.6);
-            cursor: pointer;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--glass);
-            color: #e6f1ff;
-        }
-
-        .modal-body {
-            flex: 1;
-            padding: 20px;
-            overflow: auto;
-        }
-
-        .form-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 15px;
-            background: white;
-            min-height: 500px;
-        }
-
-        .modal-loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: rgba(147, 197, 253, 0.6);
-            font-size: 1.2rem;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(51, 102, 153, 0.3);
-            border-top: 4px solid var(--cobalt);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .about-hero {
-                padding: 120px 20px 60px;
-            }
-
-            section {
-                padding: 80px 20px;
-            }
-
-            .values-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-contact {
-                position: static;
-                text-align: center;
-                margin-top: 20px;
-                padding: 0;
-            }
-
-            .investors-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        :root{--cobalt:#336699;--cobalt-dark:#1a3a5a;--cobalt-light:#4a86c2;--bg:#ffffff;--bg-alt:#f8fafc;--text:#0f172a;--text-muted:#475569;--border:#e2e8f0;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+        .nav-container{max-width:1200px;margin:0 auto;padding:1rem 24px;display:flex;justify-content:space-between;align-items:center;}
+        .logo{display:flex;align-items:center;text-decoration:none;}
+        .logo img{height:56px;width:auto;}
+        .nav-links{display:flex;gap:32px;align-items:center;}
+        .nav-links a{color:var(--text-muted);text-decoration:none;font-weight:500;font-size:0.95rem;}
+        .nav-links a:hover{color:var(--cobalt);}
+        .nav-links a.active{color:var(--cobalt);font-weight:600;}
+        .cta-nav-button{background:var(--cobalt);color:white!important;padding:10px 24px;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;}
+        .cta-nav-button:hover{background:var(--cobalt-dark);}
+        .about-hero{min-height:50vh;display:flex;align-items:center;justify-content:center;background:var(--bg-alt);padding:120px 24px 80px;text-align:center;}
+        .about-hero h1{font-size:clamp(2.25rem,5vw,3.5rem);font-weight:800;color:var(--text);margin-bottom:20px;line-height:1.15;}
+        .about-hero p{font-size:1.15rem;color:var(--text-muted);max-width:720px;margin:0 auto;line-height:1.75;}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+        section{padding:80px 0;}
+        .section-title{font-size:clamp(2rem,4vw,2.75rem);font-weight:800;color:var(--text);margin-bottom:24px;line-height:1.2;}
+        .section-text{font-size:1.1rem;color:var(--text-muted);line-height:1.8;margin-bottom:40px;}
+        .mission-content{max-width:800px;margin:0 auto;text-align:center;}
+        .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px;}
+        .value-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:32px;text-align:center;transition:box-shadow .3s,border-color .3s;}
+        .value-card:hover{box-shadow:0 10px 40px -10px rgba(51,102,153,.2);border-color:rgba(51,102,153,.25);}
+        .value-icon{width:56px;height:56px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:rgba(51,102,153,.1);border-radius:12px;}
+        .value-icon svg{width:28px;height:28px;stroke:var(--cobalt);stroke-width:1.5;fill:none;}
+        .value-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:var(--text);}
+        .value-card p{color:var(--text-muted);font-size:0.95rem;line-height:1.65;}
+        .team-intro{text-align:center;max-width:720px;margin:0 auto 48px;}
+        .team-intro p{font-size:1.1rem;color:var(--text-muted);line-height:1.75;}
+        .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:48px;}
+        .team-member{text-align:center;}
+        .team-member-photo{width:160px;height:160px;border-radius:50%;margin:0 auto 16px;overflow:hidden;object-fit:cover;border:2px solid var(--border);}
+        .team-member-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+        .team-member h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:var(--text);}
+        .team-member-role{color:var(--cobalt);font-weight:600;font-size:0.9rem;}
+        footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 24px 32px;}
+        .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+        .footer-brand h3{font-size:1.5rem;margin-bottom:12px;color:var(--text);}
+        .footer-brand p{color:var(--text-muted);line-height:1.7;margin-bottom:20px;font-size:0.95rem;}
+        .social-links{display:flex;gap:12px;}
+        .social-links a{width:40px;height:40px;border-radius:8px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;transition:all .2s;}
+        .social-links a:hover{background:var(--cobalt);color:white;border-color:var(--cobalt);}
+        .footer-links h4{font-size:1rem;margin-bottom:16px;font-weight:700;color:var(--text);}
+        .footer-links ul{list-style:none;}
+        .footer-links li{margin-bottom:10px;}
+        .footer-links a{color:var(--text-muted);text-decoration:none;font-size:0.95rem;}
+        .footer-links a:hover{color:var(--cobalt);}
+        .footer-bottom{max-width:1200px;margin:0 auto;padding-top:32px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.9rem;position:relative;}
+        .footer-contact{position:absolute;bottom:0;right:0;text-align:right;font-size:0.85rem;}
+        .footer-contact strong{color:var(--text);}
+        .footer-bottom a{color:var(--cobalt);text-decoration:none;}
+        @media(max-width:768px){.nav-links{display:none;}.logo img{height:44px;}.footer-content{grid-template-columns:1fr;}.footer-contact{position:static;text-align:center;margin-top:16px;}.values-grid,.team-grid{grid-template-columns:1fr;}}
     </style>
 </head>
 <body>
-    <div class="bg-mesh"></div>
-    <div id="velocity-lines"></div>
-
-    <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="privacypal-logo-light.png" alt="PrivacyPal">
-            </a>
+            <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#how-it-works">How It Works</a>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="developers.html">Developers</a>
                 <a href="about.html" class="active">About</a>
@@ -766,148 +82,90 @@
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
     <section class="about-hero">
         <div class="container">
             <h1>Our Mission</h1>
-            <p>
-                The rise of AI brings tremendous opportunities but also significant data privacy and consumer protection concerns. 
-                As AI systems require massive amounts of personal data to train, corporations are amassing troves of sensitive consumer information.
-            </p>
+            <p>The rise of AI brings tremendous opportunities but also significant data privacy and consumer protection concerns. As AI systems require massive amounts of personal data to train, corporations are amassing troves of sensitive consumer information.</p>
         </div>
     </section>
-
-    <!-- Mission Section -->
-    <section class="mission">
-        <div class="container">
-            <div class="mission-content">
-                <h2 class="section-title">Safeguarding Privacy Rights</h2>
-                <p class="section-text">
-                    Consumers must have transparency and control over their personal data.
-                </p>
-                <h2 class="section-title" style="margin-top: 60px;">Fostering Trust</h2>
-                <p class="section-text">
-                    Fostering trust in AI hinges on addressing data privacy concerns head-on.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="values">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Our Values</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: rgba(147, 197, 253, 0.6); margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Our culture is non-negotiable fostering human first innovation at scale
-            </p>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
-                    <h3>Openness</h3>
-                    <p>Our open doors and minds foster an environment of honesty and knowledge sharing.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>Transparency</h3>
-                    <p>Transparent operations build trust through clear and ethical information flow.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3>Team work</h3>
-                    <p>Collaborative teamwork leverages our diverse strengths towards achieving.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>Continuous innovation drives us to challenge norms and create novel solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
     <section class="team">
         <div class="container">
             <div class="team-intro">
                 <h2 class="section-title">Meet the team behind PrivacyPal</h2>
-                <p>
-                    We are democratizing technology, ensuring that it's accessible to everyone, while championing secure, 
-                    transparent, and sustainable solutions that harness the transformative power of AI and the decentralized web.
-                </p>
+                <p>We are democratizing technology, ensuring that it's accessible to everyone, while championing secure, transparent, and sustainable solutions that harness the transformative power of AI and the decentralized web.</p>
             </div>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-member-photo">
-                        <img src="jason-melo.jpg" alt="Jason Melo">
-                    </div>
+                    <div class="team-member-photo"><img src="jason-melo.jpg" alt="Jason Melo"></div>
                     <h3>Jason Melo</h3>
                     <div class="team-member-role">Co-Founder & CEO</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-member-photo">
-                        <img src="shayra-antia.jpg" alt="Shayra Antia">
-                    </div>
+                    <div class="team-member-photo"><img src="shayra-antia.jpg" alt="Shayra Antia"></div>
                     <h3>Shayra Antia</h3>
                     <div class="team-member-role">Co-Founder</div>
-                </div>         
-                <div class="team-member">
-                    <div class="team-member-photo">
-                        <img src="erik-frantzen.jpg" alt="Erik Frantzen">
-                    </div>
-                    <h3>Erik Frantzen</h3>
-                    <div class="team-member-role">Chief Partner Officer</div>
                 </div>
-                
                 <div class="team-member">
-                    <div class="team-member-photo">
-                        <img src="cian-omaidin.jpg" alt="Cian Ó Maidín">
-                    </div>
+                    <div class="team-member-photo"><img src="brandon_turp.png" alt="Brandon Turp"></div>
+                    <h3>Brandon Turp</h3>
+                    <div class="team-member-role">Head of Growth</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-photo"><img src="cian-omaidin.jpg" alt="Cian Ó Maidín"></div>
                     <h3>Cian Ó Maidín</h3>
                     <div class="team-member-role">Advisory Board Member</div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="section-title">Safeguarding Privacy Rights</h2>
+                <p class="section-text">Consumers must have transparency and control over their personal data.</p>
+                <h2 class="section-title" style="margin-top:48px;">Fostering Trust</h2>
+                <p class="section-text">Fostering trust in AI hinges on addressing data privacy concerns head-on.</p>
+            </div>
+        </div>
+    </section>
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title" style="text-align:center;margin-bottom:16px;">Our Values</h2>
+            <p style="text-align:center;font-size:1.1rem;color:var(--text-muted);margin-bottom:24px;">Our culture is non-negotiable fostering human first innovation at scale</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <h3>Openness</h3>
+                    <p>Our open doors and minds foster an environment of honesty and knowledge sharing.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3>Transparency</h3>
+                    <p>Transparent operations build trust through clear and ethical information flow.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h3>Team work</h3>
+                    <p>Collaborative teamwork leverages our diverse strengths towards achieving.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                    <h3>Innovation</h3>
+                    <p>Continuous innovation drives us to challenge norms and create novel solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <h3>PrivacyPal</h3>
-                <p>
-                    Use ChatGPT, Claude, and any AI tool 
-                    without exposing your sensitive data.
-                </p>
+                <p>Use ChatGPT, Claude, and any AI tool without exposing your sensitive data.</p>
                 <div class="social-links">
-                    <a href="https://x.com/privacypalai" title="X (Twitter)">𝕏</a>
+                    <a href="https://x.com/privacypalai" title="X">𝕏</a>
                     <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
                 </div>
             </div>
-
             <div class="footer-links">
                 <h4>Product</h4>
                 <ul>
@@ -917,148 +175,25 @@
                     <li><a href="developers.html">Developers</a></li>
                 </ul>
             </div>
-
             <div class="footer-links">
                 <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
             </div>
-
             <div class="footer-links">
                 <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                </ul>
+                <ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li></ul>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
-                2700 North Military Trail<br>
-                Boca Raton, FL 33431<br>
-                +1 (917) 428-5968
+                2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968
             </div>
         </div>
     </footer>
-
-    <!-- Waitlist Modal -->
-    <div id="waitlistModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Signup Today</h2>
-                <p class="modal-subtitle">Be first to experience truly private AI</p>
-                <button class="modal-close" onclick="closeWaitlistModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-loading" id="modalLoading">
-                    <div class="loading-spinner"></div>
-                    <div>Loading form...</div>
-                </div>
-                <iframe 
-                    id="waitlistForm" 
-                    class="form-iframe" 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSdVifw1avvSktOoKS8zpmvA0S1vmQfMeopElMvVPPXGQwHk2A/viewform?embedded=true"
-                    width="640" 
-                    height="812" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="display: none;">
-                    Loading…
-                </iframe>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Create velocity lines animation
-        function createVelocityLines() {
-            const container = document.getElementById('velocity-lines');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            for (let i = 0; i < 20; i++) {
-                const line = document.createElement('div');
-                line.className = 'velocity-line';
-                line.style.left = Math.random() * 100 + 'vw';
-                line.style.animationDelay = Math.random() * 5 + 's';
-                line.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                container.appendChild(line);
-            }
-        }
-
-        createVelocityLines();
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Modal functions
-        function openWaitlistModal(e) {
-            if (e) e.preventDefault();
-            const modal = document.getElementById('waitlistModal');
-            const iframe = document.getElementById('waitlistForm');
-            const loading = document.getElementById('modalLoading');
-            
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            
-            loading.style.display = 'flex';
-            iframe.style.display = 'none';
-            
-            let iframeLoaded = false;
-            
-            iframe.onload = function() {
-                iframeLoaded = true;
-                hideModalLoading();
-            };
-            
-            setTimeout(() => {
-                if (!iframeLoaded) {
-                    hideModalLoading();
-                }
-            }, 3000);
-        }
-        
-        function closeWaitlistModal() {
-            const modal = document.getElementById('waitlistModal');
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        
-        function hideModalLoading() {
-            const loading = document.getElementById('modalLoading');
-            const iframe = document.getElementById('waitlistForm');
-            loading.style.display = 'none';
-            iframe.style.display = 'block';
-        }
-        
-        // Close modal on click outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('waitlistModal');
-            if (event.target === modal) {
-                closeWaitlistModal();
-            }
-        }
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeWaitlistModal();
-            }
-        });
+        window.addEventListener('scroll',function(){document.querySelector('nav').classList.toggle('scrolled',window.scrollY>50);});
     </script>
 </body>
 </html>

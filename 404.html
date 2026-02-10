@@ -1,101 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0QN2Z18HP0');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - PrivacyPal</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f8f6ff 0%, #f0ebff 25%, #e8deff 50%, #e0d1ff 75%, #d8c4ff 100%);
-            color: #2d1b4e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #0f172a;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .error-container {
             text-align: center;
-            max-width: 600px;
-            padding: 40px;
+            max-width: 560px;
+            padding: 40px 24px;
         }
-
         .logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
-
         .logo img {
-            height: 90px;
+            height: 64px;
             width: auto;
             object-fit: contain;
         }
-
         h1 {
             font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #2d1b4e, #8b66c0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #336699;
         }
-
         p {
-            font-size: 1.2rem;
-            color: #4a3674;
-            margin-bottom: 40px;
+            font-size: 1.15rem;
+            color: #475569;
+            margin-bottom: 32px;
             line-height: 1.6;
         }
-
         .cta-button {
-            background: linear-gradient(135deg, #8b66c0, #c494ff);
+            background: #336699;
             color: white;
-            padding: 15px 30px;
+            padding: 14px 28px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
             text-decoration: none;
             display: inline-block;
         }
-
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(139, 102, 192, 0.4);
+            background: #1a3a5a;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
     <div class="error-container">
         <div class="logo">
-            <img src="pp-logo.png" alt="PrivacyPal Logo">
+            <img src="privacypal-logo-color.png" alt="PrivacyPal Logo">
         </div>
-        
         <h1>404</h1>
         <p>Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.</p>
-        
-        <a href="/" class="cta-button">Go Home</a>
+        <a href="index.html" class="cta-button">Go Home</a>
     </div>
 </body>
 </html>

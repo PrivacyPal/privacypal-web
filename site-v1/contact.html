@@ -12,8 +12,8 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - PrivacyPal</title>
-    <meta name="description" content="PrivacyPal Terms of Service - Read our terms and conditions for using our services.">
+    <title>Contact Us - PrivacyPal | Get in Touch</title>
+    <meta name="description" content="Contact PrivacyPal for sales inquiries, press and investor relations, or customer support. We're here to help.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -43,8 +43,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
-            color: #0f172a;
-            background: #ffffff;
+            color: #e6f1ff;
+            background: #050a0f;
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
@@ -113,10 +113,10 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e2e8f0;
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
 
@@ -154,7 +154,7 @@
         }
 
         .nav-links a {
-            color: #475569;
+            color: #e6f1ff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -180,93 +180,145 @@
             box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
 
-        /* Content */
-        .terms-content {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Hero Section */
+        .contact-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(51, 102, 153, 0.1) 0%, rgba(26, 58, 90, 0.1) 100%);
+            color: white;
             padding: 140px 40px 80px;
+            text-align: center;
+            position: relative;
         }
 
-        .terms-header {
-            margin-bottom: 60px;
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(51, 102, 153, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        .terms-header h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .contact-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 900;
-            margin-bottom: 15px;
-            color: #0f172a;
+            margin-bottom: 25px;
             line-height: 1.1;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .terms-date {
-            color: #475569;
-            font-size: 1rem;
+        .contact-hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(147, 197, 253, 0.6);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .terms-section {
-            margin-bottom: 50px;
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Contact Options */
+        .contact-options {
+            background: transparent;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
             background: var(--glass);
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 20px;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .terms-section h2 {
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cobalt);
+            background: var(--glass-hover);
+            box-shadow: 0 30px 60px rgba(51, 102, 153, 0.2);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cobalt);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
+        }
+
+        .contact-icon svg {
+            width: 50px;
+            height: 50px;
+            stroke: white;
+            stroke-width: 1.5;
+            fill: none;
+            opacity: 0.9;
+        }
+
+        .contact-card h3 {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #0f172a;
-        }
-
-        .terms-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
             margin-bottom: 15px;
-            margin-top: 25px;
-            color: #0f172a;
+            color: #e6f1ff;
         }
 
-        .terms-section p {
-            color: #475569;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .terms-section ul {
-            margin-left: 30px;
-            margin-bottom: 20px;
-            color: #475569;
-        }
-
-        .terms-section li {
-            margin-bottom: 10px;
+        .contact-card p {
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
         }
 
-        .terms-section strong {
-            color: #0f172a;
+        .contact-email {
+            font-size: 1.2rem;
             font-weight: 600;
-        }
-
-        .terms-section a {
             color: var(--cobalt-light);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .terms-section a:hover {
+        .contact-email:hover {
             color: var(--cobalt);
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: #ffffff;
-            border-top: 1px solid #e2e8f0;
-            color: #0f172a;
+            background: rgba(5, 10, 15, 0.8);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid var(--glass-border);
+            color: #e6f1ff;
             padding: 80px 40px 40px;
         }
 
@@ -282,11 +334,11 @@
         .footer-brand h3 {
             font-size: 2rem;
             margin-bottom: 20px;
-            color: #0f172a;
+            color: #e6f1ff;
         }
 
         .footer-brand p {
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -305,7 +357,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0f172a;
+            color: #e6f1ff;
             text-decoration: none;
             font-size: 1.2rem;
             transition: all 0.3s ease;
@@ -321,7 +373,7 @@
             font-size: 1.2rem;
             margin-bottom: 20px;
             font-weight: 700;
-            color: #0f172a;
+            color: #e6f1ff;
         }
 
         .footer-links ul {
@@ -333,7 +385,7 @@
         }
 
         .footer-links a {
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -348,7 +400,7 @@
             padding-top: 40px;
             border-top: 1px solid var(--glass-border);
             text-align: center;
-            color: #475569;
+            color: rgba(147, 197, 253, 0.6);
             position: relative;
         }
 
@@ -389,12 +441,16 @@
                 display: none;
             }
 
-            .terms-content {
+            .contact-hero {
                 padding: 120px 20px 60px;
             }
 
-            .terms-section {
-                padding: 30px 20px;
+            section {
+                padding: 80px 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -418,7 +474,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="privacypal-logo-color.png" alt="PrivacyPal">
+                <img src="privacypal-logo-light.png" alt="PrivacyPal">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -431,117 +487,56 @@
         </div>
     </nav>
 
-    <!-- Terms Content -->
-    <div class="terms-content">
-        <div class="terms-header">
-            <h1>Terms of Service</h1>
-            <p class="terms-date">Last updated: January 2025</p>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Connect with PrivacyPal</h1>
+            <p>Have questions? We're here to help. Reach out to the right team for your needs.</p>
         </div>
+    </section>
 
-        <div class="terms-section">
-            <p>
-                These Terms of Service, published by <strong>PrivacyPal</strong> (the "Supplier") govern the use of and access to our Services by you (the "Customer") and together with any Order Form shall hereafter be referred to as the "Agreement". Each of the Customer and the Supplier shall be a "Party" and together the "Parties".
-            </p>
-            <p>
-                By purchasing, accessing, or using the Services, the Customer acknowledges that Customer has read and understood the terms of the Agreement and agrees to be bound by its terms and conditions. The following terms and conditions shall govern the provision and use of the Services. The Services are intended for business use only.
-            </p>
-        </div>
+    <!-- Contact Options -->
+    <section class="contact-options">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Sales</h3>
+                    <p>Contact our Sales Team directly</p>
+                    <a href="mailto:sales@privacypal.ai" class="contact-email">sales@privacypal.ai</a>
+                </div>
 
-        <div class="terms-section">
-            <h2>1. Definitions and Interpretation</h2>
-            <p>
-                <strong>"Services"</strong> means the PrivacyPal software, platform, and related services provided by PrivacyPal.
-            </p>
-            <p>
-                <strong>"Customer Data"</strong> means any commercial or proprietary data which is uploaded or otherwise submitted to the Services directly by the Customer, its Authorized Users, or by the Supplier on the Customer's behalf.
-            </p>
-            <p>
-                <strong>"Authorized Users"</strong> means those employees and independent contractors of the Customer who are authorized by the Customer to use the Services under this Agreement.
-            </p>
-        </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3>Press & IR</h3>
+                    <p>Press inquiries and Investor Relations</p>
+                    <a href="mailto:press@privacypal.ai" class="contact-email">press@privacypal.ai</a>
+                </div>
 
-        <div class="terms-section">
-            <h2>2. Provision of Services</h2>
-            <p>
-                PrivacyPal shall provide the Services to the Customer in accordance with the terms of this Agreement. The Customer shall be responsible for ensuring that all Authorized Users comply with the terms of this Agreement.
-            </p>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            <line x1="9" y1="10" x2="15" y2="10"/>
+                            <line x1="12" y1="7" x2="12" y2="13"/>
+                        </svg>
+                    </div>
+                    <h3>Help & Support</h3>
+                    <p>Contact our Support and Customer Success Teams 24x7</p>
+                    <a href="mailto:support@privacypal.ai" class="contact-email">support@privacypal.ai</a>
+                </div>
+            </div>
         </div>
-
-        <div class="terms-section">
-            <h2>3. Customer Obligations</h2>
-            <p>The Customer shall:</p>
-            <ul>
-                <li>Use the Services only in accordance with this Agreement and applicable laws</li>
-                <li>Maintain the confidentiality of any access credentials</li>
-                <li>Notify PrivacyPal immediately of any unauthorized use of the Services</li>
-                <li>Be responsible for all activities that occur under the Customer's account</li>
-            </ul>
-        </div>
-
-        <div class="terms-section">
-            <h2>4. Fees and Payment</h2>
-            <p>
-                The Customer shall pay the fees as set forth in the applicable Order Form or pricing page. All fees are non-refundable except as required by law or as otherwise specified in this Agreement.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>5. Intellectual Property</h2>
-            <p>
-                All intellectual property rights in the Services remain the property of PrivacyPal. The Customer retains all rights in Customer Data. PrivacyPal may use aggregated and anonymized data derived from Customer Data for improving the Services.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>6. Data Protection</h2>
-            <p>
-                PrivacyPal shall process Customer Data in accordance with its Privacy Policy and applicable data protection laws. The Customer is responsible for ensuring that it has the necessary rights and consents to provide Customer Data to PrivacyPal.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>7. Confidentiality</h2>
-            <p>
-                Each Party shall keep confidential all confidential information received from the other Party and shall not disclose such information to any third party without the prior written consent of the disclosing Party, except as required by law.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>8. Warranties and Disclaimers</h2>
-            <p>
-                PrivacyPal warrants that the Services will perform substantially in accordance with the documentation. EXCEPT AS EXPRESSLY PROVIDED HEREIN, THE SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>9. Limitation of Liability</h2>
-            <p>
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, PRIVACYPAL SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>10. Term and Termination</h2>
-            <p>
-                This Agreement shall commence on the Effective Date and continue for the Initial Term as specified in the Order Form. Either Party may terminate this Agreement for material breach if the other Party fails to cure such breach within 30 days of written notice.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>11. General</h2>
-            <p>
-                This Agreement constitutes the entire agreement between the Parties. No modification of this Agreement shall be effective unless in writing and signed by both Parties. This Agreement shall be governed by and construed in accordance with the laws of the United States.
-            </p>
-        </div>
-
-        <div class="terms-section">
-            <h2>Contact Us</h2>
-            <p>
-                For questions about these Terms of Service, contact us at:<br>
-                <a href="mailto:legal@privacypal.ai">legal@privacypal.ai</a>
-            </p>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -586,7 +581,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>
@@ -628,7 +623,7 @@
 
         function openWaitlistModal(e) {
             if (e) e.preventDefault();
-            alert('Please use the Signup Today button in the navigation.');
+            alert('Please use the Signup button in the navigation.');
         }
     </script>
 </body>
