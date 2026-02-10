@@ -38,8 +38,8 @@
             --glass: rgba(0, 0, 0, 0.03);
             --glass-border: #e2e8f0;
             --glass-hover: rgba(51, 102, 153, 0.08);
-            --code-bg: #f1f5f9;
-            --code-text: #334155;
+            --code-bg: #1e1e2e;
+            --code-text: #d4d4d8;
         }
 
         html {
@@ -303,19 +303,19 @@
         /* Hero Code Block */
         .hero-code {
             background: var(--code-bg);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
         }
 
         .code-header {
-            background: rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.05);
             padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .code-dot {
@@ -335,7 +335,7 @@
 
         .code-title {
             margin-left: 15px;
-            color: #475569;
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.85rem;
             font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
         }
@@ -459,7 +459,7 @@
 
         .install-code {
             background: var(--code-bg);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 15px;
             padding: 25px 30px;
             margin-bottom: 30px;
@@ -477,9 +477,9 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(51, 102, 153, 0.3);
-            color: #0f172a;
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 8px 16px;
             border-radius: 8px;
             cursor: pointer;
@@ -489,8 +489,9 @@
         }
 
         .copy-button:hover {
-            background: var(--cobalt);
-            border-color: var(--cobalt);
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .install-steps {
@@ -725,7 +726,7 @@
 
         .example-code {
             background: var(--code-bg);
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* Footer */
@@ -1031,7 +1032,6 @@
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#how-it-works">How It Works</a>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="developers.html" class="active">Developers</a>
                 <a href="#" class="cta-nav-button" onclick="openWaitlistModal(event)">Get API Key</a>
@@ -1502,7 +1502,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>

@@ -50,13 +50,6 @@
         .team-member-photo img{width:100%;height:100%;object-fit:cover;display:block;}
         .team-member h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:var(--text);}
         .team-member-role{color:var(--cobalt);font-weight:600;font-size:0.9rem;}
-        .investors-intro{text-align:center;max-width:720px;margin:0 auto 48px;}
-        .investors-intro p{font-size:1.1rem;color:var(--text-muted);line-height:1.75;}
-        .investors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;margin-top:48px;align-items:center;max-width:900px;margin-left:auto;margin-right:auto;}
-        .investor-logo{display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg);border:1px solid var(--border);border-radius:12px;height:100px;transition:border-color .3s,box-shadow .3s;}
-        .investor-logo:hover{border-color:var(--cobalt);box-shadow:0 8px 24px -8px rgba(51,102,153,.25);}
-        .investor-logo img{max-width:100%;max-height:56px;object-fit:contain;filter:grayscale(100%);opacity:.7;}
-        .investor-logo:hover img{filter:grayscale(0%);opacity:1;}
         footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 24px 32px;}
         .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
         .footer-brand h3{font-size:1.5rem;margin-bottom:12px;color:var(--text);}
@@ -82,7 +75,6 @@
             <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#how-it-works">How It Works</a>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="developers.html">Developers</a>
                 <a href="about.html" class="active">About</a>
@@ -94,6 +86,36 @@
         <div class="container">
             <h1>Our Mission</h1>
             <p>The rise of AI brings tremendous opportunities but also significant data privacy and consumer protection concerns. As AI systems require massive amounts of personal data to train, corporations are amassing troves of sensitive consumer information.</p>
+        </div>
+    </section>
+    <section class="team">
+        <div class="container">
+            <div class="team-intro">
+                <h2 class="section-title">Meet the team behind PrivacyPal</h2>
+                <p>We are democratizing technology, ensuring that it's accessible to everyone, while championing secure, transparent, and sustainable solutions that harness the transformative power of AI and the decentralized web.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-photo"><img src="jason-melo.jpg" alt="Jason Melo"></div>
+                    <h3>Jason Melo</h3>
+                    <div class="team-member-role">Co-Founder & CEO</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-photo"><img src="shayra-antia.jpg" alt="Shayra Antia"></div>
+                    <h3>Shayra Antia</h3>
+                    <div class="team-member-role">Co-Founder</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-photo"><img src="brandon_turp.png" alt="Brandon Turp"></div>
+                    <h3>Brandon Turp</h3>
+                    <div class="team-member-role">Head of Growth</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-photo"><img src="cian-omaidin.jpg" alt="Cian Ó Maidín"></div>
+                    <h3>Cian Ó Maidín</h3>
+                    <div class="team-member-role">Advisory Board Member</div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="mission">
@@ -134,49 +156,6 @@
             </div>
         </div>
     </section>
-    <section class="team">
-        <div class="container">
-            <div class="team-intro">
-                <h2 class="section-title">Meet the team behind PrivacyPal</h2>
-                <p>We are democratizing technology, ensuring that it's accessible to everyone, while championing secure, transparent, and sustainable solutions that harness the transformative power of AI and the decentralized web.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="jason-melo.jpg" alt="Jason Melo"></div>
-                    <h3>Jason Melo</h3>
-                    <div class="team-member-role">Co-Founder & CEO</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="shayra-antia.jpg" alt="Shayra Antia"></div>
-                    <h3>Shayra Antia</h3>
-                    <div class="team-member-role">Co-Founder</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="erik-frantzen.jpg" alt="Erik Frantzen"></div>
-                    <h3>Erik Frantzen</h3>
-                    <div class="team-member-role">Chief Partner Officer</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="cian-omaidin.jpg" alt="Cian Ó Maidín"></div>
-                    <h3>Cian Ó Maidín</h3>
-                    <div class="team-member-role">Advisory Board Member</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="investors">
-        <div class="container">
-            <div class="investors-intro">
-                <h2 class="section-title">Our Investors</h2>
-                <p>Backed by investors who believe in privacy-first AI.</p>
-            </div>
-            <div class="investors-grid">
-                <div class="investor-logo"><img src="investor-third.png" alt="Investor"></div>
-                <div class="investor-logo"><img src="investor-ov.png" alt="Investor"></div>
-                <div class="investor-logo"><img src="investor-borderless.png" alt="Investor"></div>
-            </div>
-        </div>
-    </section>
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -206,7 +185,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968

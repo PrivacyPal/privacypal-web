@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -51,8 +51,7 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
+            background: #ffffff;
             border-bottom: 1px solid var(--border);
             transition: box-shadow 0.3s ease;
         }
@@ -96,74 +95,65 @@
 
         /* Hero */
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            padding: 120px 24px 80px;
-            background: var(--bg);
-            position: relative;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(51, 102, 153, 0.12) 0%, transparent 50%);
-            pointer-events: none;
+            justify-content: center;
+            padding: 140px 24px 60px;
+            background: #ffffff;
         }
         .hero-container {
-            max-width: 1200px;
+            max-width: 720px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(51, 102, 153, 0.12);
-            border: 1px solid rgba(51, 102, 153, 0.35);
+            gap: 6px;
+            padding: 8px 20px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 50px;
-            margin-bottom: 28px;
-            font-weight: 600;
-            color: var(--cobalt);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            margin-bottom: 40px;
+            font-weight: 500;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+        }
+        .hero-badge .star {
+            font-size: 1rem;
+            line-height: 1;
         }
         .hero-text {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: 0.95;
-            letter-spacing: -0.04em;
-            color: var(--text);
-            font-weight: 900;
-            margin-bottom: 24px;
-        }
-        .hero-text .highlight {
-            color: var(--cobalt);
-            display: inline-block;
+            font-family: 'Radley', Georgia, 'Times New Roman', serif;
+            font-size: clamp(3rem, 6.5vw, 4.75rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
         .hero p {
-            font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-            color: var(--text-muted);
-            margin-bottom: 32px;
+            font-size: clamp(1rem, 1.4vw, 1.1rem);
+            color: #6b7280;
+            margin-bottom: 36px;
             line-height: 1.7;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .hero-cta-group {
             display: flex;
-            gap: 12px;
+            gap: 14px;
+            justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 32px;
+            margin-bottom: 48px;
         }
         .hero-cta {
-            padding: 16px 32px;
+            padding: 15px 32px;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 50px;
             text-decoration: none;
             transition: all 0.2s ease;
             display: inline-flex;
@@ -172,83 +162,42 @@
         }
         .hero-cta-primary {
             background: var(--cobalt);
-            color: white;
+            color: #ffffff;
         }
         .hero-cta-primary:hover {
             background: var(--cobalt-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px -4px rgba(51, 102, 153, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(51, 102, 153, 0.35);
         }
         .hero-cta-secondary {
-            background: var(--bg);
-            color: var(--cobalt);
-            border: 1px solid var(--border);
+            background: #ffffff;
+            color: #1a1a1a;
+            border: 1.5px solid #d1d5db;
         }
         .hero-cta-secondary:hover {
-            border-color: var(--cobalt);
-            background: rgba(51, 102, 153, 0.05);
+            border-color: #9ca3af;
+            background: #f9fafb;
         }
-        .trust-indicators {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            flex-wrap: wrap;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
+        .works-with-inline {
+            text-align: center;
         }
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        .trust-item::before {
-            content: '✓';
-            color: var(--cobalt);
-            font-weight: bold;
-        }
-        .hero-visual {
-            position: relative;
-        }
-        .browser-mockup {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .browser-mockup:hover {
-            box-shadow: var(--card-shadow-hover);
-            border-color: rgba(51, 102, 153, 0.3);
-        }
-        .hero-screenshot-wrap {
-            position: relative;
-            line-height: 0;
-        }
-        .hero-screenshot-wrap img {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 440px;
-            object-fit: contain;
-        }
-        .privacy-shield {
-            position: absolute;
-            top: 24px;
-            right: 20px;
-            background: var(--cobalt);
-            color: white !important;
-            padding: 10px 18px;
-            border-radius: 8px;
+        .works-with-inline-label {
             font-size: 0.85rem;
-            font-weight: 600;
-            z-index: 10;
+            color: #9ca3af;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+        .works-with-inline-logos {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(51, 102, 153, 0.35);
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .works-with-inline-logos img {
+            height: 36px;
+            width: auto;
+            object-fit: contain;
         }
 
         /* Trusted By - bold blue section (Wiz-style, logos visible) */
@@ -867,6 +816,97 @@
         .footer-bottom a:hover { text-decoration: underline; }
 
         /* Modal */
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(4px);
+        }
+        .modal-overlay.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .demo-modal {
+            background: #ffffff;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 460px;
+            max-height: 88vh;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.25s ease-out;
+        }
+        .demo-modal-header {
+            padding: 20px 20px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .demo-modal-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+        .demo-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: #9ca3af;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        .demo-modal-close:hover { background: #f5f5f5; color: #1a1a1a; }
+        .demo-modal-body {
+            flex: 1;
+            overflow: auto;
+            position: relative;
+        }
+        .demo-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 560px;
+        }
+        .demo-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .demo-spinner {
+            width: 32px;
+            height: 32px;
+            border: 2.5px solid #e5e7eb;
+            border-top-color: #1a1a1a;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin-bottom: 12px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Legacy modal (waitlist) */
         .modal {
             display: none;
             position: fixed;
@@ -936,7 +976,6 @@
             animation: spin 0.8s linear infinite;
             margin-bottom: 16px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Scroll reveal */
         .scroll-reveal {
@@ -947,10 +986,6 @@
         .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 1024px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-cta-group { justify-content: center; }
-            .trust-indicators { justify-content: center; }
-            .steps-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr 1fr; }
             .a2a-grid { grid-template-columns: 1fr; }
             .a2a-grid > div:first-child { text-align: center; }
@@ -959,11 +994,12 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .logo img { height: 44px; }
-            .hero { padding: 100px 20px 60px; }
-            .hero-screenshot-wrap img { max-height: 320px; }
+            .hero { padding: 110px 20px 48px; }
+            .hero-text { font-size: clamp(2.25rem, 8vw, 3rem); }
+            .works-with-inline-logos { gap: 28px; }
+            .works-with-inline-logos img { height: 28px; }
             .trusted-by-logos { gap: 32px; }
             .trusted-by-logo { height: 32px; }
-            .works-with-card { min-width: 160px; }
             .footer-content { grid-template-columns: 1fr; }
             .footer-contact { position: static; text-align: center; margin-top: 16px; }
         }
@@ -977,50 +1013,33 @@
             </a>
             <div class="nav-links">
                 <a href="index.html#home">Home</a>
-                <a href="index.html#how-it-works">How It Works</a>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="developers.html">Developers</a>
-                <a href="https://portal.privacypal.ai/signup" class="cta-nav-button">Install Now</a>
             </div>
         </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display: inline-block; vertical-align: middle; margin-right: 8px; opacity: 0.8;">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    Free Trial, No Credit Card
-                </div>
-                <h1 class="hero-text">
-                    Make AI<br>
-                    <span class="highlight">Safe for Work.</span><br>
-                    Instantly.
-                </h1>
-                <p>
-                    Stop the manual redaction. Stop the data leaks. Get 100% accurate results without the risk.
-                </p>
-                <div class="hero-cta-group">
-                    <a href="https://portal.privacypal.ai/signup" class="hero-cta hero-cta-primary">Install Now</a>
-                    <a href="#how-it-works" class="hero-cta hero-cta-secondary">See How It Works</a>
-                </div>
-                <div class="trust-indicators">
-                    <div class="trust-item">One-click install</div>
-                    <div class="trust-item">Works with all major LLMs</div>
-                    <div class="trust-item">Always private</div>
-                </div>
+            <div class="hero-badge">
+                <span class="star">⭐</span> 5 stars on Google
             </div>
-            <div class="hero-visual">
-                <div class="browser-mockup">
-                    <div class="hero-screenshot-wrap">
-                        <img src="ppal-ext-light.png" alt="PrivacyPal Active in the browser">
-                        <div class="privacy-shield">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            PrivacyPal Active
-                        </div>
-                    </div>
+            <h1 class="hero-text">
+                Use your favorite<br>AI—privately
+            </h1>
+            <p>
+                Protect names, dates, code, financials, and addresses from AI tools — in one click.
+            </p>
+            <div class="hero-cta-group">
+                <a href="https://portal.privacypal.ai/signup" class="hero-cta hero-cta-primary">Get Started Free</a>
+                <a href="#" class="hero-cta hero-cta-secondary" onclick="openDemoModal(event)">Book a Demo</a>
+            </div>
+            <div class="works-with-inline">
+                <div class="works-with-inline-label">works with</div>
+                <div class="works-with-inline-logos">
+                    <img src="chatgpt-logo.png" alt="ChatGPT">
+                    <img src="claude_logo.png" alt="Claude">
+                    <img src="google_gemini_logo.png" alt="Gemini">
                 </div>
             </div>
         </div>
@@ -1038,70 +1057,6 @@
         </div>
     </section>
 
-    <section class="works-with scroll-reveal">
-        <div class="works-with-container">
-            <div class="works-with-header">
-                <span class="works-with-badge">Works with</span>
-                <h2 class="works-with-title">Use your favorite AI—privately</h2>
-                <p class="works-with-subtitle">PrivacyPal works seamlessly with the AI tools you already use. Your data stays in your control.</p>
-            </div>
-            <div class="works-with-logos">
-                <div class="works-with-card">
-                    <div class="works-with-logo-wrap"><img src="gemini-ai.png" alt="Google Gemini" class="works-with-logo"></div>
-                    <span class="works-with-name">Google Gemini</span>
-                </div>
-                <div class="works-with-card">
-                    <div class="works-with-logo-wrap"><img src="claude-ai.png" alt="Claude" class="works-with-logo"></div>
-                    <span class="works-with-name">Claude</span>
-                </div>
-                <div class="works-with-card">
-                    <div class="works-with-logo-wrap"><img src="chatgpt-ai.png" alt="ChatGPT" class="works-with-logo"></div>
-                    <span class="works-with-name">ChatGPT</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works scroll-reveal" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">How It Works</div>
-                <h2 class="section-title">Three Steps to Private AI</h2>
-                <p class="section-subtitle">
-                    PrivacyPal works invisibly in the background. You use AI like normal. We handle the privacy automatically.
-                </p>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3>Install Extension</h3>
-                    <p>One-click install from Chrome Web Store. Takes 10 seconds. No configuration needed.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h3>Use AI Normally</h3>
-                    <p>Go to ChatGPT, Claude, or any AI tool. Type your questions like you always do. PrivacyPal works in the background.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Stay Protected</h3>
-                    <p>PrivacyPal automatically detects sensitive data, creates Privacy Twins, and keeps your information private. Always.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="features scroll-reveal">
         <div class="container">
@@ -1243,7 +1198,7 @@
         <div class="container">
             <h2>Ready to Use AI Without Worry?</h2>
             <p>Refuse to choose between AI power and data privacy.</p>
-            <a href="https://portal.privacypal.ai/signup" class="final-cta-button">Free Trial, No Credit Card</a>
+            <a href="https://portal.privacypal.ai/signup" class="final-cta-button">Get Started Free</a>
         </div>
     </section>
 
@@ -1260,7 +1215,6 @@
             <div class="footer-links">
                 <h4>Product</h4>
                 <ul>
-                    <li><a href="index.html#how-it-works">How It Works</a></li>
                     <li><a href="index.html#pricing">Pricing</a></li>
                     <li><a href="https://portal.privacypal.ai/signup">Install</a></li>
                     <li><a href="developers.html">Developers</a></li>
@@ -1279,13 +1233,29 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 WEB3 REX INC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
             <div class="footer-contact">
                 <strong>PrivacyPal</strong>
                 2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968
             </div>
         </div>
     </footer>
+
+    <div id="demoModal" class="modal-overlay">
+        <div class="demo-modal">
+            <div class="demo-modal-header">
+                <h3 class="demo-modal-title">Book a Demo</h3>
+                <button class="demo-modal-close" onclick="closeDemoModal()">&times;</button>
+            </div>
+            <div class="demo-modal-body">
+                <div class="demo-loading" id="demoLoading">
+                    <div class="demo-spinner"></div>
+                    Loading...
+                </div>
+                <iframe id="demoFrame" src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0en3ttxqL4LChfrMDCbYeqxtKuKXOR4YRnGz0Sfg0RIwh7nO51zW3MqxBnQzAVcSkQoy3_6UJZ?gv=true" style="display: none;"></iframe>
+            </div>
+        </div>
+    </div>
 
     <div id="waitlistModal" class="modal">
         <div class="modal-content">
@@ -1371,14 +1341,43 @@
                 });
             });
         });
+        function openDemoModal(e) {
+            if (e) e.preventDefault();
+            var modal = document.getElementById('demoModal');
+            var iframe = document.getElementById('demoFrame');
+            var loading = document.getElementById('demoLoading');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            loading.style.display = 'flex';
+            iframe.style.display = 'none';
+            var loaded = false;
+            iframe.onload = function() {
+                loaded = true;
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+            };
+            setTimeout(function() {
+                if (!loaded) {
+                    loading.style.display = 'none';
+                    iframe.style.display = 'block';
+                }
+            }, 3000);
+        }
+        function closeDemoModal() {
+            document.getElementById('demoModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
         function closeWaitlistModal() {
             document.getElementById('waitlistModal').classList.remove('show');
             document.body.style.overflow = '';
         }
         window.onclick = function(e) {
             if (e.target.id === 'waitlistModal') closeWaitlistModal();
+            if (e.target.id === 'demoModal') closeDemoModal();
         };
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWaitlistModal(); });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { closeWaitlistModal(); closeDemoModal(); }
+        });
     </script>
 </body>
 </html>
