@@ -252,8 +252,9 @@
             margin-bottom: 12px;
         }
         .works-with-title {
+            font-family: 'Radley', Georgia, 'Times New Roman', serif;
             font-size: clamp(2rem, 4vw, 2.75rem);
-            font-weight: 800;
+            font-weight: 700;
             color: #ffffff;
             margin-bottom: 16px;
             line-height: 1.2;
@@ -328,8 +329,9 @@
             letter-spacing: 0.1em;
         }
         .section-title {
+            font-family: 'Radley', Georgia, 'Times New Roman', serif;
             font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-            font-weight: 900;
+            font-weight: 700;
             color: var(--text);
             margin-bottom: 20px;
             line-height: 1.1;
@@ -617,6 +619,89 @@
         .price-save { color: var(--cobalt); font-weight: 600; margin-bottom: 24px; }
         .price-card .price-features { margin-bottom: 28px; }
 
+        /* Partners - industry leaders (white background for badge) */
+        .partners {
+            padding: 88px 24px;
+            background: #ffffff;
+            position: relative;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .partners::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 10%, var(--cobalt) 50%, transparent 90%);
+            opacity: 0.4;
+        }
+        .partners-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .partners-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--cobalt);
+            margin-bottom: 16px;
+        }
+        .partners-title {
+            font-family: 'Radley', Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .partners-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 48px;
+            line-height: 1.65;
+        }
+        .partners-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 48px 56px;
+        }
+        .partner-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .partner-item:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        .partner-item img {
+            height: 72px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            display: block;
+        }
+        .partner-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .partner-item:hover span {
+            color: var(--cobalt);
+        }
+
         /* Agent-to-Agent - blue accent band */
         .agent-to-agent {
             padding: 100px 24px;
@@ -650,8 +735,9 @@
             letter-spacing: 0.06em;
         }
         .a2a-title {
+            font-family: 'Radley', Georgia, 'Times New Roman', serif;
             font-size: clamp(2rem, 3.5vw, 2.75rem);
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text);
             line-height: 1.15;
             margin-bottom: 24px;
@@ -718,8 +804,9 @@
             padding: 80px 24px;
         }
         .final-cta h2 {
+            font-family: 'Radley', Georgia, 'Times New Roman', serif;
             font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 16px;
         }
         .final-cta p { font-size: 1.15rem; margin-bottom: 32px; opacity: 0.95; }
@@ -1002,6 +1089,9 @@
             .trusted-by-logo { height: 32px; }
             .footer-content { grid-template-columns: 1fr; }
             .footer-contact { position: static; text-align: center; margin-top: 16px; }
+            .partners { padding: 64px 20px; }
+            .partners-logos { gap: 32px; }
+            .partner-item img { height: 64px; }
         }
     </style>
 </head>
@@ -1161,6 +1251,20 @@
                     </div>
                     <a href="mailto:hi@privacypal.ai" class="price-cta">Contact Sales</a>
                 </div>
+        </div>
+    </section>
+
+    <section class="partners scroll-reveal">
+        <div class="partners-container">
+            <div class="partners-badge">Partnerships</div>
+            <h2 class="partners-title">Partnering with industry leaders</h2>
+            <p class="partners-subtitle">PrivacyPal is building the future of private AI alongside trusted names in technology and innovation.</p>
+            <div class="partners-logos">
+                <a href="https://www.nvidia.com/en-us/startups/" class="partner-item" target="_blank" rel="noopener noreferrer" title="NVIDIA Inception Program">
+                    <img src="nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program">
+                    <span>NVIDIA Inception</span>
+                </a>
+            </div>
         </div>
     </section>
 
