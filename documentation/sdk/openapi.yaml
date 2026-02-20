@@ -793,7 +793,7 @@ paths:
       operationId: getUserStats
       summary: Get User Stats
       description: |
-        Get usage statistics for the authenticated user. Optionally filter by number of days.
+        Get usage statistics for the authenticated user, including total prompts, sensitive elements detected, conversations, and a per-platform breakdown. Optionally filter by number of days.
 
         **SDK Usage:**
         ```typescript
@@ -817,8 +817,21 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                description: User statistics object (structure varies by tier)
+                $ref: '#/components/schemas/UserStats'
+              example:
+                totalPrompts: 1284
+                totalSensitiveElements: 3741
+                totalConversations: 312
+                platforms:
+                  chatgpt:
+                    prompts: 520
+                    sensitiveElements: 1580
+                  claude:
+                    prompts: 415
+                    sensitiveElements: 1203
+                  gemini:
+                    prompts: 349
+                    sensitiveElements: 958
         '401':
           $ref: '#/components/responses/Unauthorized'
 
@@ -827,7 +840,7 @@ paths:
       operationId: getUsage
       summary: Get Usage
       description: |
-        Get detailed usage data for the authenticated user.
+        Get daily usage data for the authenticated user, broken down by AI platform. Returns an array of per-day entries sorted by date ascending.
 
         **SDK Usage:**
         ```typescript
@@ -839,18 +852,33 @@ paths:
         - name: days
           in: query
           required: false
-          description: Number of days to look back
+          description: Number of days to look back (default 30)
           schema:
             type: integer
+            default: 30
           example: 30
       responses:
         '200':
-          description: Usage data
+          description: Daily usage data sorted by date ascending
           content:
             application/json:
               schema:
-                type: object
-                description: Usage data object
+                type: array
+                items:
+                  $ref: '#/components/schemas/DailyUsage'
+              example:
+                - date: "2026-02-17"
+                  chatgpt: 12
+                  claude: 8
+                  gemini: 5
+                - date: "2026-02-18"
+                  chatgpt: 15
+                  claude: 11
+                  gemini: 7
+                - date: "2026-02-19"
+                  chatgpt: 9
+                  claude: 6
+                  gemini: 10
         '401':
           $ref: '#/components/responses/Unauthorized'
 
@@ -859,7 +887,7 @@ paths:
       operationId: getCompany
       summary: Get Company
       description: |
-        Get company information for the authenticated user's organization.
+        Get company information for the authenticated user's organization, including subscription and billing details.
 
         **SDK Usage:**
         ```typescript
@@ -873,8 +901,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                description: Company details including name, member count, and plan info
+                $ref: '#/components/schemas/CompanyResponse'
+              example:
+                company:
+                  id: "comp-1234-5678-abcd-ef90"
+                  name: "Acme Corp"
+                  domain: "acme.com"
+                  isPersonal: false
+                  stripeCustomerId: "cus_R4xY7zK9mN2pQ8"
+                  stripeSubscriptionId: "sub_1Abc2Def3Ghi4Jkl"
+                  subscriptionStatus: "active"
         '401':
           $ref: '#/components/responses/Unauthorized'
 
@@ -1652,3 +1688,86 @@ components:
           type: boolean
         companyId:
           type: string
+
+    UserStats:
+      type: object
+      properties:
+        totalPrompts:
+          type: integer
+          description: Total number of prompts across all platforms
+        totalSensitiveElements:
+          type: integer
+          description: Total number of sensitive entities detected
+        totalConversations:
+          type: integer
+          description: Total number of unique conversation sessions
+        platforms:
+          type: object
+          description: Per-platform breakdown
+          properties:
+            chatgpt:
+              $ref: '#/components/schemas/PlatformStats'
+            claude:
+              $ref: '#/components/schemas/PlatformStats'
+            gemini:
+              $ref: '#/components/schemas/PlatformStats'
+
+    PlatformStats:
+      type: object
+      properties:
+        prompts:
+          type: integer
+          description: Number of prompts sent to this platform
+        sensitiveElements:
+          type: integer
+          description: Number of sensitive elements detected in prompts to this platform
+
+    DailyUsage:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          description: Date in YYYY-MM-DD format
+          example: "2026-02-19"
+        chatgpt:
+          type: integer
+          description: Number of ChatGPT prompts on this date
+        claude:
+          type: integer
+          description: Number of Claude prompts on this date
+        gemini:
+          type: integer
+          description: Number of Gemini prompts on this date
+
+    CompanyResponse:
+      type: object
+      properties:
+        company:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: Company ID
+            name:
+              type: string
+              description: Company name
+            domain:
+              type: string
+              description: Company domain
+            isPersonal:
+              type: boolean
+              description: Whether this is a personal (non-team) account
+            stripeCustomerId:
+              type: string
+              nullable: true
+              description: Stripe customer ID for billing
+            stripeSubscriptionId:
+              type: string
+              nullable: true
+              description: Stripe subscription ID
+            subscriptionStatus:
+              type: string
+              nullable: true
+              description: Current subscription status (e.g., active, trialing, canceled)
