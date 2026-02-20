@@ -1,0 +1,1654 @@
+openapi: 3.1.0
+info:
+  title: PrivacyPal API
+  version: 1.0.0
+  description: |
+    The PrivacyPal API enables applications to detect, encode, and decode sensitive data (PII/PHI/PCI) using **Privacy Twins** technology.
+
+    Privacy Twins are synthetic values that replace real sensitive data while preserving format, structure, and utility — allowing your application to safely process, store, and transmit data through third-party services (LLMs, analytics, logs, etc.) without exposing real personal information.
+
+    ## Key Capabilities
+
+    - **Encode** — Detect PII in text and replace it with synthetic Privacy Twins
+    - **Decode** — Restore original values from Privacy Twins with full audit trail
+    - **Batch Processing** — Encode multiple records in a single request
+    - **File Encoding** — Process files (PDF, DOCX, CSV, images) for PII detection
+    - **AI Chat** — Send prompts to LLMs (Gemini, GPT, Claude) with automatic PII protection
+    - **Streaming** — Real-time streaming AI responses with Server-Sent Events
+    - **Multi-Turn Conversations** — Track Privacy Twin mappings across conversation turns
+
+    ## Authentication
+
+    All endpoints (except `/auth/login`, `/auth/register`, and `/health`) require a valid JWT token in the `Authorization` header as a Bearer token.
+
+    ## SDK
+
+    Install the official Node.js SDK:
+
+    ```bash
+    npm install @privacypal/sdk
+    ```
+
+    ```typescript
+    import { PrivacyPalClient } from '@privacypal/sdk';
+
+    const client = new PrivacyPalClient({
+      apiUrl: 'https://api.privacypal.ai',
+      apiKey: 'your-jwt-token'
+    });
+    ```
+  contact:
+    name: PrivacyPal Support
+    url: https://privacypal.ai
+  license:
+    name: MIT
+    identifier: MIT
+
+servers:
+  - url: https://api.privacypal.ai
+    description: Production
+  - url: http://localhost:42026
+    description: Local Development
+
+tags:
+  - name: Health
+    description: API health and connectivity checks
+  - name: Authentication
+    description: User login, registration, and token management
+  - name: Encoding
+    description: Detect and replace PII with Privacy Twins
+  - name: Decoding
+    description: Restore original values from Privacy Twins
+  - name: Dataset
+    description: Retrieve Privacy Twin datasets
+  - name: AI Chat
+    description: LLM interactions with automatic PII protection
+  - name: Account
+    description: User account and statistics
+  - name: Company
+    description: Company and team management
+  - name: Audit
+    description: Audit trail management
+
+security:
+  - BearerAuth: []
+
+paths:
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Health Check
+      description: |
+        Check API connectivity and service availability. This endpoint does not require authentication.
+
+        **SDK Usage:**
+        ```typescript
+        const health = await client.healthCheck();
+        // { success: true, status: 200, data: "success" }
+        ```
+      tags:
+        - Health
+      security: []
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    type: string
+                    example: success
+
+  /auth/login:
+    post:
+      operationId: login
+      summary: Login
+      description: |
+        Authenticate a user and receive a JWT token. Does not require an existing API key.
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.login('user@example.com', 'password123');
+        client.updateApiKey(result.data.token);
+        ```
+      tags:
+        - Authentication
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: user@example.com
+                password:
+                  type: string
+                  format: password
+                  example: password123
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /auth/register:
+    post:
+      operationId: register
+      summary: Register
+      description: |
+        Register a new user account. Does not require an existing API key.
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.register('Jane', 'Smith', 'jane@example.com', 'SecureP@ss1');
+        client.updateApiKey(result.token);
+        ```
+      tags:
+        - Authentication
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - firstName
+                - lastName
+                - email
+                - password
+              properties:
+                firstName:
+                  type: string
+                  example: Jane
+                lastName:
+                  type: string
+                  example: Smith
+                email:
+                  type: string
+                  format: email
+                  example: jane@example.com
+                password:
+                  type: string
+                  format: password
+                  example: SecureP@ss1
+      responses:
+        '200':
+          description: Registration successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponse'
+        '400':
+          description: Invalid input or email already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /auth/refresh:
+    post:
+      operationId: refreshToken
+      summary: Refresh Token
+      description: |
+        Refresh an expired JWT token to obtain a new one.
+
+        **SDK Usage:**
+        ```typescript
+        const refreshResult = await client.refreshUserToken(currentToken);
+        client.updateApiKey(refreshResult.data.token);
+        ```
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+              properties:
+                token:
+                  type: string
+                  description: The current (expired) JWT token
+                  example: eyJhbGciOiJIUzI1NiIs...
+      responses:
+        '200':
+          description: Token refreshed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        description: New JWT token
+        '401':
+          description: Invalid or unrefreshable token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+
+  /encode:
+    post:
+      operationId: encode
+      summary: Encode Text
+      description: |
+        Detect PII in text and replace it with Privacy Twins. Returns the encoded text, a continuation ID for later decoding, and details of each transformation applied.
+
+        **Supported entity types:** `PERSON`, `EMAIL_ADDRESS`, `PHONE_NUMBER`, `US_SSN`, `DATE_TIME`, `LOCATION`, `CREDIT_CARD`, `IP_ADDRESS`, `IBAN_CODE`, `US_PASSPORT`, `US_DRIVER_LICENSE`, `NRP`, `MEDICAL_LICENSE`, `URL`
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.encode({
+          data: 'John Doe, SSN: 123-45-6789, email: john@company.com',
+          sourceContainer: 'customer_db.users',
+          scoreThreshold: 0.35
+        });
+        ```
+      tags:
+        - Encoding
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncodeRequest'
+            examples:
+              simple:
+                summary: Simple text encoding
+                value:
+                  data: "Contact John Doe at john.doe@company.com, SSN: 123-45-6789"
+              withMetadata:
+                summary: With metadata and source tracking
+                value:
+                  data: "John Doe, SSN: 123-45-6789, email: john@company.com"
+                  sourceContainer: "customer_db.users"
+                  sourceElement: "personal_info"
+                  metadata:
+                    rowId: "1001"
+                    source: "crm_system"
+                  scoreThreshold: 0.35
+                  language: "en"
+      responses:
+        '200':
+          description: Text encoded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncodeResponse'
+              example:
+                success: true
+                encodedData: "Maria Garcia, SSN: 987-65-4321, email: maria.garcia@example.net"
+                continuationId: "cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e"
+                transformations:
+                  - originalHash: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+                    twinHash: "f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3"
+                    entityType: "PERSON"
+                    catalogItemId: "cat-001"
+                    position:
+                      start: 0
+                      end: 8
+                    score: 0.95
+                    original: "John Doe"
+                    twin: "Maria Garcia"
+                    components:
+                      - original: "John"
+                        twin: "Maria"
+                        type: "FIRST_NAME"
+                      - original: "Doe"
+                        twin: "Garcia"
+                        type: "LAST_NAME"
+                  - originalHash: "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7"
+                    twinHash: "e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2"
+                    entityType: "US_SSN"
+                    catalogItemId: "cat-002"
+                    score: 1.0
+                  - originalHash: "c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7b8"
+                    twinHash: "d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1"
+                    entityType: "EMAIL_ADDRESS"
+                    catalogItemId: "cat-003"
+                    score: 1.0
+                statistics:
+                  originalLength: 52
+                  encodedLength: 64
+                  piiEntitiesDetected: 3
+                  transformationsApplied: 3
+                  processingTimeMs: 245
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /encode/batch:
+    post:
+      operationId: encodeBatch
+      summary: Batch Encode
+      description: |
+        Encode multiple data items in a single request. All items share one `continuationId` for efficient batch processing.
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.encodeBatch({
+          items: [
+            { data: 'Alice Smith, alice@email.com', sourceContainer: 'users' },
+            { data: 'Bob Jones, 555-123-4567', sourceContainer: 'users' }
+          ]
+        });
+        ```
+      tags:
+        - Encoding
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncodeBatchRequest'
+            example:
+              items:
+                - data: "Alice Smith, alice@email.com"
+                  sourceContainer: "users"
+                  metadata:
+                    rowId: "1"
+                - data: "Bob Jones, 555-123-4567"
+                  sourceContainer: "users"
+                  metadata:
+                    rowId: "2"
+      responses:
+        '200':
+          description: Batch encoded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncodeBatchResponse'
+              example:
+                success: true
+                continuationId: "cont-batch-8a9b-1c2d"
+                results:
+                  - success: true
+                    encodedData: "Clara Johnson, clara.j@sample.net"
+                    continuationId: "cont-batch-8a9b-1c2d"
+                    transformations: []
+                    statistics:
+                      piiEntitiesDetected: 2
+                      processingTimeMs: 180
+                  - success: true
+                    encodedData: "Daniel Rivera, 555-987-6543"
+                    continuationId: "cont-batch-8a9b-1c2d"
+                    transformations: []
+                    statistics:
+                      piiEntitiesDetected: 2
+                      processingTimeMs: 165
+                statistics:
+                  itemsProcessed: 2
+                  totalProcessingTimeMs: 345
+                  averageTimePerItemMs: 172
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /encode/file:
+    post:
+      operationId: encodeFile
+      summary: Encode File
+      description: |
+        Upload and encode a file for PII detection. Supports PDF, DOCX, CSV, images, and more.
+        The file is processed server-side and returned as base64-encoded content with PII replaced by Privacy Twins.
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.encodeFile({
+          file: blob,
+          fileName: 'customer-report.pdf',
+          processImages: true,
+          platform: 'node_sdk'
+        });
+        ```
+      tags:
+        - Encoding
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - fileName
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to encode
+                fileName:
+                  type: string
+                  description: Original file name
+                  example: customer-report.pdf
+                processImages:
+                  type: boolean
+                  default: true
+                  description: Convert images to markdown for PII detection (`true`) or bypass images (`false`)
+                platform:
+                  type: string
+                  description: Platform identifier
+                  example: node_sdk
+                continuationId:
+                  type: string
+                  description: Optional session grouping ID
+      responses:
+        '200':
+          description: File encoded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncodeFileResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /decode:
+    post:
+      operationId: decode
+      summary: Decode Privacy Twins
+      description: |
+        Decode Privacy Twins back to original sensitive values. Creates an audit trail entry recording who accessed the data and for what purpose.
+
+        Requires the `continuationId` from the original encoding, the text containing Privacy Twins, and the hashes of the original values to decode.
+
+        **SDK Usage:**
+        ```typescript
+        const decoded = await client.decode({
+          continuationId: 'cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e',
+          data: 'Maria Garcia, SSN: 987-65-4321',
+          sensitiveHashes: ['a1b2c3d4...'],
+          authorization: {
+            token: 'your-jwt-token',
+            purpose: 'Customer support ticket #12345'
+          }
+        });
+        ```
+      tags:
+        - Decoding
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DecodeRequest'
+            example:
+              continuationId: "cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e"
+              data: "Maria Garcia, SSN: 987-65-4321, email: maria.garcia@example.net"
+              sensitiveHashes:
+                - "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+                - "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7"
+                - "c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7b8"
+              authorization:
+                token: "eyJhbGciOiJIUzI1NiIs..."
+                purpose: "Customer support ticket #12345"
+                type: "jwt"
+      responses:
+        '200':
+          description: Decoded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecodeResponse'
+              example:
+                success: true
+                decodedData: "John Doe, SSN: 123-45-6789, email: john@company.com"
+                transformations:
+                  - twin: "Maria Garcia"
+                    original: "John Doe"
+                    entityType: "PERSON"
+                    decrypted: true
+                  - twin: "987-65-4321"
+                    original: "123-45-6789"
+                    entityType: "US_SSN"
+                    decrypted: true
+                  - twin: "maria.garcia@example.net"
+                    original: "john@company.com"
+                    entityType: "EMAIL_ADDRESS"
+                    decrypted: true
+                continuationId: "cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e"
+                auditLog:
+                  accessedBy: "jane.smith@example.com"
+                  timestamp: "2026-02-12T18:45:00.000Z"
+                  purpose: "Customer support ticket #12345"
+                  transformationsCount: 3
+                statistics:
+                  originalLength: 64
+                  decodedLength: 52
+                  twinsDecoded: 3
+                  processingTimeMs: 120
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /dataset/{continuationId}/twins:
+    get:
+      operationId: getDatasetTwins
+      summary: Get Dataset Twins
+      description: |
+        Retrieve all Privacy Twins for a specific dataset identified by its continuation ID.
+
+        **SDK Usage:**
+        ```typescript
+        const twins = await client.getDatasetTwins('cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e');
+        ```
+      tags:
+        - Dataset
+      parameters:
+        - name: continuationId
+          in: path
+          required: true
+          description: The continuation ID from a previous encoding operation
+          schema:
+            type: string
+          example: cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e
+      responses:
+        '200':
+          description: Dataset twins retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetDatasetTwinsResponse'
+              example:
+                success: true
+                continuationId: "cont-7f3a-4b2c-9d1e-8f6a5c3b2d1e"
+                twins:
+                  - catalogItemId: "cat-001"
+                    originalHash: "a1b2c3d4..."
+                    twinHash: "f6e5d4c3..."
+                    entityType: "PERSON"
+                    category: "PII"
+                    sourceContainer: "customer_db.users"
+                    sourceElement: "personal_info"
+                    timestamp: 1739389500000
+                count: 4
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /ai/chat:
+    post:
+      operationId: chatWithAI
+      summary: AI Chat
+      description: |
+        Send a prompt to an LLM with automatic PII encoding/decoding. The prompt is encoded before reaching the LLM, and the LLM's response is decoded back to original values.
+
+        The full pipeline is:
+        1. Your prompt is scanned for PII
+        2. PII is replaced with Privacy Twins
+        3. The encoded prompt is sent to the LLM
+        4. The LLM response (containing Privacy Twins) is decoded
+        5. You receive both the raw LLM response and the decoded version
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.chatWithAI({
+          prompt: 'Analyze credit history for John Doe at john@company.com',
+          model: 'gemini-2.0-flash-exp',
+          provider: 'vertex'
+        });
+        ```
+      tags:
+        - AI Chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIChatRequest'
+            example:
+              prompt: "Analyze credit history for John Doe at john@company.com"
+              model: "gemini-2.0-flash-exp"
+              provider: "vertex"
+              temperature: 0.7
+              maxTokens: 2048
+      responses:
+        '200':
+          description: AI chat response with decoded PII
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIChatResponse'
+              example:
+                success: true
+                originalPrompt: "Analyze credit history for John Doe at john@company.com"
+                encodedPrompt: "Analyze credit history for Maria Garcia at maria.garcia@example.net"
+                llmResponse: "Based on the credit history for Maria Garcia..."
+                decodedResponse: "Based on the credit history for John Doe..."
+                continuationId: "cont-ai-5f6g-7h8i"
+                encoding:
+                  transformations: []
+                  statistics:
+                    piiEntitiesDetected: 2
+                    processingTimeMs: 180
+                llm:
+                  model: "gemini-2.0-flash-exp"
+                  provider: "vertex"
+                  finishReason: "stop"
+                  metadata:
+                    promptTokens: 245
+                    completionTokens: 512
+                    totalTokens: 757
+                decoding:
+                  twinsDecoded: 2
+                  transformations: []
+                processingTimeMs: 3450
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /ai/chat/stream:
+    post:
+      operationId: chatWithAIStream
+      summary: Streaming AI Chat
+      description: |
+        Streaming AI chat with real-time response chunks via Server-Sent Events (SSE).
+
+        The response is a stream of events with the following types:
+        - `encoding_complete` — PII encoding finished
+        - `llm_chunk` — Partial LLM response text
+        - `llm_complete` — Full LLM response assembled
+        - `complete` — Full processing finished (includes decoded response)
+        - `error` — An error occurred
+
+        **SDK Usage:**
+        ```typescript
+        const result = await client.chatWithAIStream(
+          { prompt: 'Summarize account for Jane Smith', model: 'gemini-2.0-flash-exp' },
+          (update) => {
+            if (update.type === 'llm_chunk') {
+              process.stdout.write(update.data.chunk);
+            }
+          }
+        );
+        ```
+      tags:
+        - AI Chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIChatRequest'
+      responses:
+        '200':
+          description: Server-Sent Events stream
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: |
+                  SSE stream with events of types: `encoding_complete`, `llm_chunk`, `llm_complete`, `complete`, `error`.
+
+                  Each event is a JSON object with `type` and `data` fields.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /ai/providers:
+    get:
+      operationId: getAIProviders
+      summary: Get AI Providers
+      description: |
+        Get the list of available AI providers and their supported models.
+
+        **SDK Usage:**
+        ```typescript
+        const providers = await client.getAIProviders();
+        // { success: true, name: "vertex", models: [...], current: "vertex" }
+        ```
+      tags:
+        - AI Chat
+      responses:
+        '200':
+          description: AI providers list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderInfo'
+              example:
+                success: true
+                name: "vertex"
+                models:
+                  - "gemini-2.0-flash-exp"
+                  - "gemini-1.5-pro"
+                  - "gemini-1.5-flash"
+                current: "vertex"
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /account:
+    get:
+      operationId: getAccount
+      summary: Get Account
+      description: |
+        Get the authenticated user's account information including role, tier, and company details.
+
+        **SDK Usage:**
+        ```typescript
+        const account = await client.getAccount();
+        ```
+      tags:
+        - Account
+      responses:
+        '200':
+          description: Account information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+              example:
+                id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+                email: "jane@example.com"
+                firstName: "Jane"
+                lastName: "Smith"
+                role: "admin"
+                tier: "pro"
+                status: "active"
+                trialActive: false
+                companyId: "comp-1234-5678"
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /account/stats:
+    get:
+      operationId: getUserStats
+      summary: Get User Stats
+      description: |
+        Get usage statistics for the authenticated user. Optionally filter by number of days.
+
+        **SDK Usage:**
+        ```typescript
+        const stats = await client.getUserStats(7);     // Last 7 days
+        const allTime = await client.getUserStats(null); // All time
+        ```
+      tags:
+        - Account
+      parameters:
+        - name: days
+          in: query
+          required: false
+          description: Number of days to look back. Omit or pass `null` for all-time stats.
+          schema:
+            type: integer
+            nullable: true
+          example: 7
+      responses:
+        '200':
+          description: User statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                description: User statistics object (structure varies by tier)
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /account/usage:
+    get:
+      operationId: getUsage
+      summary: Get Usage
+      description: |
+        Get detailed usage data for the authenticated user.
+
+        **SDK Usage:**
+        ```typescript
+        const usage = await client.getUsage(30);
+        ```
+      tags:
+        - Account
+      parameters:
+        - name: days
+          in: query
+          required: false
+          description: Number of days to look back
+          schema:
+            type: integer
+          example: 30
+      responses:
+        '200':
+          description: Usage data
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Usage data object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /company:
+    get:
+      operationId: getCompany
+      summary: Get Company
+      description: |
+        Get company information for the authenticated user's organization.
+
+        **SDK Usage:**
+        ```typescript
+        const company = await client.getCompany();
+        ```
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Company information
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Company details including name, member count, and plan info
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /company/invite:
+    post:
+      operationId: generateInviteLink
+      summary: Generate Invite Link
+      description: |
+        Generate a team invite link that can be shared with new team members.
+
+        **SDK Usage:**
+        ```typescript
+        const invite = await client.generateInviteLink();
+        console.log(invite.inviteLink);
+        ```
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Invite link generated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inviteLink:
+                    type: string
+                    description: URL to share with new team members
+                    example: https://app.privacypal.ai/invite/abc123xyz
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /audit/tokens:
+    put:
+      operationId: updateAuditTokens
+      summary: Update Audit Tokens
+      description: |
+        Update audit log entries with LLM token usage information. Used to track AI cost and usage per encoding session.
+
+        **SDK Usage:**
+        ```typescript
+        await client.updateAuditTokens({
+          continuationId: 'cont-ai-5f6g-7h8i',
+          tokensIn: 245,
+          tokensOut: 512,
+          model: 'gemini-2.0-flash-exp'
+        });
+        ```
+      tags:
+        - Audit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - continuationId
+              properties:
+                continuationId:
+                  type: string
+                  description: The continuation ID from the encoding session
+                  example: cont-ai-5f6g-7h8i
+                tokensIn:
+                  type: integer
+                  description: Number of input/prompt tokens
+                  example: 245
+                tokensOut:
+                  type: integer
+                  description: Number of output/completion tokens
+                  example: 512
+                model:
+                  type: string
+                  nullable: true
+                  description: LLM model name
+                  example: gemini-2.0-flash-exp
+      responses:
+        '200':
+          description: Audit tokens updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        JWT token obtained from the `/auth/login` or `/auth/register` endpoint.
+
+        Use the `login()` or `register()` SDK methods to obtain a token, then pass it to the client configuration.
+
+  responses:
+    Unauthorized:
+      description: Authentication failed or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error: "Authentication failed"
+    Forbidden:
+      description: Trial expired or subscription required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+          example:
+            success: false
+            error: "Access denied"
+            trialExpired: true
+            requiresSubscription: true
+
+  schemas:
+    ApiError:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: string
+          description: Error message
+        message:
+          type: string
+          description: Additional error details
+        trialExpired:
+          type: boolean
+          description: Whether the user's trial has expired
+        requiresSubscription:
+          type: boolean
+          description: Whether a paid subscription is required
+
+    LoginResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+            email:
+              type: string
+              format: email
+              example: user@example.com
+            firstName:
+              type: string
+              example: Jane
+            lastName:
+              type: string
+              example: Smith
+            token:
+              type: string
+              description: JWT token for subsequent API calls
+              example: eyJhbGciOiJIUzI1NiIs...
+
+    RegisterResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT token
+          example: eyJhbGciOiJIUzI1NiIs...
+        newUserId:
+          type: string
+          format: uuid
+          example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+        email:
+          type: string
+          format: email
+          example: jane@example.com
+
+    EncodeRequest:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: string
+          description: Input text containing potential PII
+          example: "John Doe, SSN: 123-45-6789, email: john@company.com"
+        sourceContainer:
+          type: string
+          default: sdk_data
+          description: Source identifier (e.g., database table name)
+          example: customer_db.users
+        sourceElement:
+          type: string
+          default: text_input
+          description: Element identifier (e.g., column name)
+          example: personal_info
+        metadata:
+          $ref: '#/components/schemas/EncodingMetadata'
+        scoreThreshold:
+          type: number
+          format: double
+          default: 0.35
+          minimum: 0.0
+          maximum: 1.0
+          description: PII detection confidence threshold. Lower values detect more entities but may produce false positives.
+          example: 0.35
+        language:
+          type: string
+          default: en
+          description: Language code for PII detection
+          example: en
+        continuationId:
+          type: string
+          description: Optional correlation ID to group related encoding operations
+
+    EncodingMetadata:
+      type: object
+      description: Arbitrary metadata attached to the encoding for audit trail purposes
+      properties:
+        rowId:
+          type: string
+          example: "1001"
+        sourceTable:
+          type: string
+        sourceColumn:
+          type: string
+        recordType:
+          type: string
+        source:
+          type: string
+          example: crm_system
+        sourceDataType:
+          type: string
+        sourceDataKey:
+          type: string
+        sourceDataOutlet:
+          type: string
+      additionalProperties: true
+
+    EncodeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        encodedData:
+          type: string
+          description: Text with PII replaced by Privacy Twins
+        continuationId:
+          type: string
+          description: Unique ID for decoding this data later
+        transformations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transformation'
+        statistics:
+          $ref: '#/components/schemas/EncodingStatistics'
+        message:
+          type: string
+
+    EncodeBatchRequest:
+      type: object
+      required:
+        - items
+      properties:
+        items:
+          type: array
+          description: Array of items to encode (each without continuationId)
+          items:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: string
+                description: Input text containing potential PII
+              sourceContainer:
+                type: string
+                default: sdk_data
+              sourceElement:
+                type: string
+                default: text_input
+              metadata:
+                $ref: '#/components/schemas/EncodingMetadata'
+              scoreThreshold:
+                type: number
+                format: double
+                default: 0.35
+              language:
+                type: string
+                default: en
+
+    EncodeBatchResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        continuationId:
+          type: string
+          description: Shared continuation ID for all batch items
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncodeResponse'
+        statistics:
+          type: object
+          properties:
+            itemsProcessed:
+              type: integer
+            totalProcessingTimeMs:
+              type: number
+            averageTimePerItemMs:
+              type: number
+
+    EncodeFileResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        encodedFile:
+          type: string
+          description: Base64-encoded file content with PII replaced
+        continuationId:
+          type: string
+        transformations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transformation'
+        mimeType:
+          type: string
+          description: MIME type of the processed output
+          example: text/markdown
+        fileName:
+          type: string
+          description: Output file name
+          example: customer-report.pdf.md
+        originalContent:
+          type: string
+          description: Original extracted text content
+        encodedContent:
+          type: string
+          description: Text content with Privacy Twins applied
+        imageBypassed:
+          type: boolean
+          description: Whether image processing was bypassed
+
+    Transformation:
+      type: object
+      description: Details of a single PII detection and twin replacement
+      properties:
+        originalHash:
+          type: string
+          description: Cryptographic hash of the original value
+        twinHash:
+          type: string
+          description: Cryptographic hash of the twin value
+        entityType:
+          type: string
+          description: Type of PII entity detected
+          enum:
+            - PERSON
+            - EMAIL_ADDRESS
+            - PHONE_NUMBER
+            - US_SSN
+            - DATE_TIME
+            - LOCATION
+            - CREDIT_CARD
+            - IP_ADDRESS
+            - IBAN_CODE
+            - US_PASSPORT
+            - US_DRIVER_LICENSE
+            - NRP
+            - MEDICAL_LICENSE
+            - URL
+        catalogItemId:
+          type: string
+          description: Internal catalog item identifier
+        position:
+          type: object
+          properties:
+            start:
+              type: integer
+              description: Start character index in the original text
+            end:
+              type: integer
+              description: End character index in the original text
+        score:
+          type: number
+          format: double
+          description: Detection confidence score (0.0–1.0)
+          minimum: 0.0
+          maximum: 1.0
+        original:
+          type: string
+          description: Original PII value (available for local decoding)
+        twin:
+          type: string
+          description: Synthetic Privacy Twin value
+        components:
+          type: array
+          description: Sub-part breakdowns (e.g., first name, last name)
+          items:
+            $ref: '#/components/schemas/TransformationComponent'
+
+    TransformationComponent:
+      type: object
+      properties:
+        original:
+          type: string
+          description: Original sub-part value
+          example: John
+        twin:
+          type: string
+          description: Twin sub-part value
+          example: Maria
+        type:
+          type: string
+          description: Component type
+          example: FIRST_NAME
+          enum:
+            - FIRST_NAME
+            - LAST_NAME
+            - CITY
+            - STATE
+            - DATE_FULL_FORMAT
+            - MONTH_NAME
+            - DAY
+            - YEAR
+
+    EncodingStatistics:
+      type: object
+      properties:
+        originalLength:
+          type: integer
+          description: Character count of original input
+        encodedLength:
+          type: integer
+          description: Character count of encoded output
+        piiEntitiesDetected:
+          type: integer
+          description: Number of PII entities found
+        transformationsApplied:
+          type: integer
+          description: Number of transformations applied
+        processingTimeMs:
+          type: number
+          description: Server-side processing time in milliseconds
+
+    DecodeRequest:
+      type: object
+      required:
+        - continuationId
+        - data
+        - sensitiveHashes
+        - authorization
+      properties:
+        continuationId:
+          type: string
+          description: Continuation ID from the original encoding operation
+        data:
+          type: string
+          description: Text containing Privacy Twins to decode
+        sensitiveHashes:
+          type: array
+          items:
+            type: string
+          description: Array of original value hashes to decode
+        authorization:
+          $ref: '#/components/schemas/DecodeAuthorization'
+
+    DecodeAuthorization:
+      type: object
+      required:
+        - token
+        - purpose
+      properties:
+        token:
+          type: string
+          description: JWT or authorization token
+        purpose:
+          type: string
+          description: Reason for accessing the sensitive data (recorded in audit trail)
+          example: Customer support ticket #12345
+        type:
+          type: string
+          default: jwt
+          description: Authorization type
+          example: jwt
+
+    DecodeResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        decodedData:
+          type: string
+          description: Text with Privacy Twins replaced by original values
+        transformations:
+          type: array
+          items:
+            $ref: '#/components/schemas/DecodedTransformation'
+        continuationId:
+          type: string
+        auditLog:
+          $ref: '#/components/schemas/AuditLog'
+        statistics:
+          $ref: '#/components/schemas/DecodingStatistics'
+        error:
+          type: string
+
+    DecodedTransformation:
+      type: object
+      properties:
+        twin:
+          type: string
+          description: The Privacy Twin value
+        original:
+          type: string
+          description: The original PII value
+        entityType:
+          type: string
+          description: Type of PII entity
+        decrypted:
+          type: boolean
+          description: Whether decryption was successful
+        catalogItemId:
+          type: string
+
+    AuditLog:
+      type: object
+      description: Record of who accessed the sensitive data and why
+      properties:
+        accessedBy:
+          type: string
+          description: Email of the user who accessed the data
+          example: jane.smith@example.com
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-02-12T18:45:00.000Z"
+        purpose:
+          type: string
+          description: Stated purpose for accessing the data
+          example: Customer support ticket #12345
+        transformationsCount:
+          type: integer
+          description: Number of transformations decoded
+
+    DecodingStatistics:
+      type: object
+      properties:
+        originalLength:
+          type: integer
+        decodedLength:
+          type: integer
+        twinsDecoded:
+          type: integer
+        processingTimeMs:
+          type: number
+
+    AIChatRequest:
+      type: object
+      required:
+        - prompt
+      properties:
+        prompt:
+          type: string
+          description: User prompt (will be automatically encoded to remove PII before reaching the LLM)
+          example: "Analyze credit history for John Doe at john@company.com"
+        conversationHistory:
+          type: array
+          description: Previous messages for multi-turn conversation context
+          items:
+            $ref: '#/components/schemas/ConversationMessage'
+        sessionId:
+          type: string
+          description: Session tracking ID for multi-turn conversations
+        sessionContinuationIds:
+          type: array
+          items:
+            type: string
+          description: Continuation IDs from prior conversation turns (enables cross-turn decoding)
+        model:
+          type: string
+          description: LLM model name
+          example: gemini-2.0-flash-exp
+        provider:
+          type: string
+          description: LLM provider
+          enum:
+            - vertex
+            - aws
+            - mock
+          example: vertex
+        temperature:
+          type: number
+          format: double
+          default: 0.7
+          minimum: 0.0
+          maximum: 1.0
+          description: Generation temperature (higher = more creative)
+        maxTokens:
+          type: integer
+          default: 2048
+          description: Maximum tokens in the LLM response
+
+    ConversationMessage:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+            - user
+            - assistant
+        content:
+          type: string
+        encoded:
+          type: boolean
+          description: Whether this message content contains Privacy Twins (encoded) rather than original PII
+
+    AIChatResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        originalPrompt:
+          type: string
+          description: The original user prompt (with real PII)
+        encodedPrompt:
+          type: string
+          description: The prompt sent to the LLM (PII replaced with Privacy Twins)
+        llmResponse:
+          type: string
+          description: Raw LLM response (contains Privacy Twins)
+        decodedResponse:
+          type: string
+          description: Final response with Privacy Twins decoded back to original values
+        continuationId:
+          type: string
+        encoding:
+          type: object
+          properties:
+            transformations:
+              type: array
+              items:
+                $ref: '#/components/schemas/Transformation'
+            statistics:
+              $ref: '#/components/schemas/EncodingStatistics'
+        llm:
+          type: object
+          properties:
+            model:
+              type: string
+            provider:
+              type: string
+            finishReason:
+              type: string
+            metadata:
+              type: object
+              properties:
+                promptTokens:
+                  type: integer
+                completionTokens:
+                  type: integer
+                totalTokens:
+                  type: integer
+        decoding:
+          type: object
+          properties:
+            twinsDecoded:
+              type: integer
+            transformations:
+              type: array
+              items:
+                $ref: '#/components/schemas/DecodedTransformation'
+        processingTimeMs:
+          type: number
+
+    ProviderInfo:
+      type: object
+      properties:
+        success:
+          type: boolean
+        name:
+          type: string
+          description: Provider name
+          example: vertex
+        models:
+          type: array
+          items:
+            type: string
+          description: Available model names
+          example:
+            - gemini-2.0-flash-exp
+            - gemini-1.5-pro
+            - gemini-1.5-flash
+        current:
+          type: string
+          description: Currently active provider
+          example: vertex
+
+    GetDatasetTwinsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        continuationId:
+          type: string
+        twins:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataTwin'
+        count:
+          type: integer
+
+    DataTwin:
+      type: object
+      properties:
+        catalogItemId:
+          type: string
+        originalHash:
+          type: string
+        twinHash:
+          type: string
+        entityType:
+          type: string
+        category:
+          type: string
+          example: PII
+        sourceContainer:
+          type: string
+        sourceElement:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+          description: Unix timestamp in milliseconds
+
+    AccountInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        role:
+          type: string
+          example: admin
+        tier:
+          type: string
+          example: pro
+        status:
+          type: string
+          example: active
+        trialActive:
+          type: boolean
+        companyId:
+          type: string

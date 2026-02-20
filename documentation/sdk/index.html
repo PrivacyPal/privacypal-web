@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>PrivacyPal SDK — API Reference</title>
+  <meta name="description" content="Interactive API documentation for the PrivacyPal SDK. Detect, encode, and decode sensitive data with Privacy Twins technology.">
+
+  <!-- Stoplight Elements -->
+  <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
+  <script src="https://unpkg.com/@stoplight/elements/web-components.min.js" async></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #0f1117;
+      color: #e1e4e8;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid #2d333b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar-logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+
+    .top-bar-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f0f6fc;
+    }
+
+    .top-bar-version {
+      font-size: 12px;
+      padding: 2px 8px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border-radius: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-bar-links a {
+      color: #8b949e;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .top-bar-links a:hover {
+      color: #f0f6fc;
+    }
+
+    .elements-container {
+      height: calc(100vh - 57px);
+    }
+
+    elements-api {
+      display: block;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="top-bar-logo">P</div>
+      <span class="top-bar-title">PrivacyPal SDK</span>
+      <span class="top-bar-version">v1.0.0</span>
+    </div>
+    <div class="top-bar-links">
+      <a href="/developers.html">Developers</a>
+      <a href="https://www.npmjs.com/package/@privacypal/sdk" target="_blank" rel="noopener">npm</a>
+      <a href="https://github.com/PrivacyPal" target="_blank" rel="noopener">GitHub</a>
+      <a href="/">privacypal.ai</a>
+    </div>
+  </div>
+
+  <div class="elements-container">
+    <elements-api
+      apiDescriptionUrl="openapi.yaml"
+      router="hash"
+      layout="sidebar"
+      tryItCredentialsPolicy="same-origin"
+    />
+  </div>
+</body>
+</html>
