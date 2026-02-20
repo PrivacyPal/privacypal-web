@@ -1131,7 +1131,7 @@
                 <div class="install-card">
                     <h3 class="install-title">Install via npm</h3>
                     <div class="install-code">
-                        <code>npm install privacypal-sdk</code>
+                        <code>npm install @privacypal/sdk</code>
                         <button class="copy-button" onclick="copyInstallCode()">Copy</button>
                     </div>
 
@@ -1554,7 +1554,7 @@
 
         // Copy install code
         function copyInstallCode() {
-            const code = 'npm install privacypal-sdk';
+            const code = 'npm install @privacypal/sdk';
             navigator.clipboard.writeText(code).then(() => {
                 const button = document.querySelector('.copy-button');
                 const originalText = button.textContent;
