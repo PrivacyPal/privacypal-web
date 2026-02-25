@@ -3,32 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PrivacyPal SDK — API Reference</title>
-  <meta name="description" content="Interactive API documentation for the PrivacyPal SDK. Detect, encode, and decode sensitive data with Privacy Twins technology.">
+  <title>PrivacyPal SDK — Documentation</title>
+  <meta name="description" content="Documentation for the PrivacyPal SDK for Node.js and Python. Detect, encode, and decode sensitive data with Privacy Twins technology.">
 
   <!-- Stoplight Elements -->
   <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
   <script src="https://unpkg.com/@stoplight/elements/web-components.min.js" async></script>
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #0f1117;
-      color: #e1e4e8;
+    :root {
+      --cobalt: #336699;
+      --cobalt-dark: #1a3a5a;
+      --cobalt-light: #4a86c2;
+      --code-bg: #1e1e2e;
+      --code-text: #d4d4d8;
+      --border: #2d333b;
+      --bg: #0f1117;
+      --bg2: #1a1d27;
+      --text: #f0f6fc;
+      --text-muted: #8b949e;
+      --teal: #4ec9b0;
+      --purple: #a5b4fc;
     }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Top Bar ── */
     .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 12px 24px;
-      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
-      border-bottom: 1px solid #2d333b;
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
     }
 
     .top-bar-left {
@@ -40,7 +57,7 @@
     .top-bar-logo {
       width: 32px;
       height: 32px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, var(--cobalt), var(--cobalt-light));
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -53,16 +70,41 @@
     .top-bar-title {
       font-size: 18px;
       font-weight: 600;
-      color: #f0f6fc;
+      color: var(--text);
     }
 
     .top-bar-version {
       font-size: 12px;
       padding: 2px 8px;
       background: rgba(99, 102, 241, 0.15);
-      color: #a5b4fc;
+      color: var(--purple);
       border-radius: 12px;
       border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .lang-badges {
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-badge {
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .lang-badge-node {
+      background: rgba(104, 160, 99, 0.15);
+      color: #68a063;
+      border: 1px solid rgba(104, 160, 99, 0.3);
+    }
+
+    .lang-badge-python {
+      background: rgba(55, 118, 171, 0.15);
+      color: #3776ab;
+      border: 1px solid rgba(55, 118, 171, 0.3);
     }
 
     .top-bar-links {
@@ -72,42 +114,739 @@
     }
 
     .top-bar-links a {
-      color: #8b949e;
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 14px;
       transition: color 0.2s;
     }
 
-    .top-bar-links a:hover {
-      color: #f0f6fc;
+    .top-bar-links a:hover { color: var(--text); }
+
+    /* ── Section Nav ── */
+    .section-nav {
+      display: flex;
+      gap: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      overflow-x: auto;
     }
 
-    .elements-container {
-      height: calc(100vh - 57px);
+    .section-nav-tab {
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .section-nav-tab.active {
+      color: var(--cobalt-light);
+      border-bottom-color: var(--cobalt-light);
+    }
+
+    .section-nav-tab:hover:not(.active) {
+      color: var(--text);
+    }
+
+    /* ── Page Layout ── */
+    .doc-section {
+      display: none;
+    }
+
+    .doc-section.active {
+      display: block;
+    }
+
+    /* ── Getting Started Content ── */
+    .gs-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .gs-intro {
+      margin-bottom: 48px;
+    }
+
+    .gs-intro h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .gs-intro p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    .sdk-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .sdk-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    .sdk-card-lang {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .sdk-card-node { color: #68a063; }
+    .sdk-card-python { color: #3776ab; }
+
+    .sdk-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .sdk-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .sdk-card code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--teal);
+      background: rgba(78, 201, 176, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    /* ── Doc Sections ── */
+    .doc-block {
+      margin-bottom: 56px;
+    }
+
+    .doc-block h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-block p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .doc-block ul {
+      color: var(--text-muted);
+      padding-left: 20px;
+      margin-bottom: 16px;
+      line-height: 1.9;
+    }
+
+    .doc-block ul li code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--teal);
+      background: rgba(78, 201, 176, 0.1);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* ── Code Block with Tab Toggle ── */
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .code-block-header {
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 8px;
+    }
+
+    .code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .code-dot:nth-child(1) { background: #ff5f57; }
+    .code-dot:nth-child(2) { background: #ffbd2e; }
+    .code-dot:nth-child(3) { background: #28ca42; }
+
+    .code-block-title {
+      margin-left: 8px;
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(255, 255, 255, 0.4);
+      flex: 1;
+    }
+
+    .lang-tabs {
+      display: flex;
+      gap: 2px;
+    }
+
+    .lang-tab {
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background: transparent;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+    }
+
+    .lang-tab.active {
+      color: var(--teal);
+      background: rgba(78, 201, 176, 0.12);
+      border-color: rgba(78, 201, 176, 0.3);
+    }
+
+    .lang-tab:hover:not(.active) {
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .code-panel { display: none; }
+    .code-panel.active { display: block; }
+
+    .code-block pre {
+      padding: 24px;
+      margin: 0;
+      font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--code-text);
+      overflow-x: auto;
+    }
+
+    .kw { color: #569cd6; }
+    .fn { color: #dcdcaa; }
+    .st { color: #ce9178; }
+    .cm { color: #6a9955; font-style: italic; }
+    .nm { color: #b5cea8; }
+    .pr { color: #9cdcfe; }
+    .tl { color: var(--teal); }
+
+    /* ── Install Block ── */
+    .install-toggle {
+      display: flex;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .install-tab {
+      padding: 8px 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .install-tab.active {
+      background: var(--cobalt);
+      color: white;
+    }
+
+    .install-tab:hover:not(.active) {
+      color: var(--text);
+    }
+
+    .install-panel { display: none; }
+    .install-panel.active { display: block; }
+
+    .install-cmd {
+      background: var(--code-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .install-cmd code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--teal);
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+    }
+
+    .install-note {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Error Table ── */
+    .error-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+    }
+
+    .error-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .error-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .error-table td:first-child {
+      font-family: 'JetBrains Mono', monospace;
+      color: #f97583;
+    }
+
+    /* ── API Reference Section ── */
+    #api-reference-section {
+      height: calc(100vh - 105px);
     }
 
     elements-api {
       display: block;
       height: 100%;
     }
+
+    @media (max-width: 640px) {
+      .sdk-cards { grid-template-columns: 1fr; }
+      .gs-container { padding: 32px 16px 60px; }
+      .doc-block h2 { font-size: 1.3rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="top-bar-left">
       <div class="top-bar-logo">P</div>
       <span class="top-bar-title">PrivacyPal SDK</span>
       <span class="top-bar-version">v1.0.0</span>
+      <div class="lang-badges">
+        <span class="lang-badge lang-badge-node">Node.js</span>
+        <span class="lang-badge lang-badge-python">Python</span>
+      </div>
     </div>
     <div class="top-bar-links">
       <a href="/developers.html">Developers</a>
       <a href="https://www.npmjs.com/package/@privacypal/sdk" target="_blank" rel="noopener">npm</a>
+      <a href="https://pypi.org/project/privacypal-sdk/" target="_blank" rel="noopener">PyPI</a>
       <a href="https://github.com/PrivacyPal" target="_blank" rel="noopener">GitHub</a>
       <a href="/">privacypal.ai</a>
     </div>
   </div>
 
-  <div class="elements-container">
+  <!-- Section Navigation -->
+  <div class="section-nav">
+    <button class="section-nav-tab active" onclick="showSection('getting-started', this)">Getting Started</button>
+    <button class="section-nav-tab" onclick="showSection('api-reference', this)">API Reference</button>
+  </div>
+
+  <!-- Getting Started Section -->
+  <div id="getting-started-section" class="doc-section active">
+    <div class="gs-container">
+
+      <!-- Intro -->
+      <div class="gs-intro">
+        <h1>PrivacyPal SDK</h1>
+        <p>
+          The PrivacyPal SDK lets you encode sensitive data into Privacy Twins before it reaches an AI model,
+          then decode the response to restore original values. Available for both Node.js and Python —
+          identical API surface, same endpoint, same behavior.
+        </p>
+
+        <div class="sdk-cards">
+          <div class="sdk-card">
+            <div class="sdk-card-lang sdk-card-node">Node.js</div>
+            <h3>@privacypal/sdk</h3>
+            <p>Async/await API. Works with Express, Next.js, Fastify, and any Node.js runtime.</p>
+            <code>npm install @privacypal/sdk</code>
+          </div>
+          <div class="sdk-card">
+            <div class="sdk-card-lang sdk-card-python">Python</div>
+            <h3>privacypal-sdk</h3>
+            <p>Synchronous API built on <code style="color:var(--teal);background:rgba(78,201,176,.1);padding:1px 6px;border-radius:4px;">requests</code>. Works with FastAPI, Django, Flask, and any Python 3.10+ runtime.</p>
+            <code>pip install privacypal-sdk</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Installation -->
+      <div class="doc-block">
+        <h2>Installation</h2>
+        <p>Install the SDK for your language. Both packages expose identical functionality.</p>
+
+        <div class="install-toggle">
+          <button class="install-tab active" onclick="switchInstall(this,'node')" data-lang="node">Node.js</button>
+          <button class="install-tab" onclick="switchInstall(this,'python')" data-lang="python">Python</button>
+        </div>
+
+        <div class="install-panel active" data-install="node">
+          <div class="install-cmd">
+            <code>npm install @privacypal/sdk</code>
+            <button class="copy-btn" onclick="copyCmd(this, 'npm install @privacypal/sdk')">Copy</button>
+          </div>
+          <p class="install-note">Requires Node.js 18 or later. TypeScript types are included.</p>
+        </div>
+
+        <div class="install-panel" data-install="python">
+          <div class="install-cmd">
+            <code>pip install privacypal-sdk</code>
+            <button class="copy-btn" onclick="copyCmd(this, 'pip install privacypal-sdk')">Copy</button>
+          </div>
+          <p class="install-note">Requires Python 3.10 or later. Installs <code style="color:var(--teal)">requests</code> as the only dependency.</p>
+        </div>
+      </div>
+
+      <!-- Initialization -->
+      <div class="doc-block">
+        <h2>Initialization</h2>
+        <p>Create a client instance with your API URL and API key. You can obtain an API key from the <a href="https://portal.privacypal.ai/signup" target="_blank" style="color:var(--cobalt-light)">PrivacyPal Portal</a>.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">initialize-client</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','init')" data-group="init" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','init')" data-group="init" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="init" data-lang="node">
+<pre><span class="kw">import</span> { <span class="fn">PrivacyPalClient</span> } <span class="kw">from</span> <span class="st">'@privacypal/sdk'</span>;
+
+<span class="kw">const</span> <span class="pr">client</span> = <span class="kw">new</span> <span class="fn">PrivacyPalClient</span>({
+  <span class="pr">apiUrl</span>: <span class="st">'https://api.privacypal.ai'</span>,
+  <span class="pr">apiKey</span>: process.<span class="pr">env</span>.<span class="pr">PRIVACYPAL_API_KEY</span>,
+});
+
+<span class="cm">// Verify connectivity (optional)</span>
+<span class="kw">const</span> <span class="pr">health</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">healthCheck</span>();
+console.<span class="fn">log</span>(<span class="pr">health</span>.<span class="pr">success</span>); <span class="cm">// true</span></pre>
+          </div>
+          <div class="code-panel" data-group="init" data-lang="python">
+<pre><span class="kw">from</span> <span class="fn">privacypal_sdk</span> <span class="kw">import</span> <span class="fn">PrivacyPalClient</span>
+<span class="kw">import</span> <span class="pr">os</span>
+
+<span class="pr">client</span> = <span class="fn">PrivacyPalClient</span>(
+  <span class="pr">api_url</span>=<span class="st">'https://api.privacypal.ai'</span>,
+  <span class="pr">api_key</span>=<span class="pr">os</span>.<span class="pr">environ</span>[<span class="st">'PRIVACYPAL_API_KEY'</span>],
+)
+
+<span class="cm"># Verify connectivity (optional)</span>
+<span class="pr">health</span> = <span class="pr">client</span>.<span class="fn">health_check</span>()
+<span class="fn">print</span>(<span class="pr">health</span>[<span class="st">'success'</span>])  <span class="cm"># True</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Encode -->
+      <div class="doc-block">
+        <h2>Encoding (Protect Data)</h2>
+        <p>
+          <code style="color:var(--teal)">encode</code> scans a string for PII and replaces sensitive values
+          with Privacy Twins. Returns <code style="color:var(--teal)">encodedData</code> that is safe to pass
+          to AI models, and a <code style="color:var(--teal)">continuationId</code> needed to decode later.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">encode</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','encode')" data-group="encode" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','encode')" data-group="encode" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="encode" data-lang="node">
+<pre><span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'Patient: Jane Doe, DOB: 1985-03-15, SSN: 123-45-6789'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'my-app'</span>,        <span class="cm">// identifies your application</span>
+  <span class="pr">sourceElement</span>: <span class="st">'patient-record'</span>,   <span class="cm">// identifies the data field</span>
+  <span class="pr">scoreThreshold</span>: <span class="nm">0.35</span>,              <span class="cm">// PII confidence threshold (default)</span>
+  <span class="pr">language</span>: <span class="st">'en'</span>,                    <span class="cm">// language hint (default)</span>
+});
+
+console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class="pr">encodedData</span>);    <span class="cm">// "Patient: [TWIN-A1B2], DOB: [TWIN-C3D4]..."</span>
+console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class="pr">continuationId</span>); <span class="cm">// keep this to decode later</span>
+console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class="pr">transformations</span>); <span class="cm">// list of PII replacements made</span></pre>
+          </div>
+          <div class="code-panel" data-group="encode" data-lang="python">
+<pre><span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+  <span class="st">'Patient: Jane Doe, DOB: 1985-03-15, SSN: 123-45-6789'</span>,
+  <span class="pr">source_container</span>=<span class="st">'my-app'</span>,       <span class="cm"># identifies your application</span>
+  <span class="pr">source_element</span>=<span class="st">'patient-record'</span>,  <span class="cm"># identifies the data field</span>
+  <span class="pr">score_threshold</span>=<span class="nm">0.35</span>,             <span class="cm"># PII confidence threshold (default)</span>
+  <span class="pr">language</span>=<span class="st">'en'</span>,                    <span class="cm"># language hint (default)</span>
+)
+
+<span class="fn">print</span>(<span class="pr">encoded</span>[<span class="st">'encodedData'</span>])     <span class="cm"># "Patient: [TWIN-A1B2], DOB: [TWIN-C3D4]..."</span>
+<span class="fn">print</span>(<span class="pr">encoded</span>[<span class="st">'continuationId'</span>])  <span class="cm"># keep this to decode later</span>
+<span class="fn">print</span>(<span class="pr">encoded</span>[<span class="st">'transformations'</span>])  <span class="cm"># list of PII replacements made</span></pre>
+          </div>
+        </div>
+
+        <p>To encode multiple items in one request, use <code style="color:var(--teal)">encodeBatch</code> / <code style="color:var(--teal)">encode_batch</code>. To encode a file (PDF, DOCX, CSV, image), use <code style="color:var(--teal)">encodeFile</code> / <code style="color:var(--teal)">encode_file</code>.</p>
+      </div>
+
+      <!-- Decode -->
+      <div class="doc-block">
+        <h2>Decoding (Restore Data)</h2>
+        <p>
+          Pass the <code style="color:var(--teal)">continuationId</code> from the encode response alongside
+          text containing Privacy Twins to restore original sensitive values.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">decode</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','decode')" data-group="decode" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','decode')" data-group="decode" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="decode" data-lang="node">
+<pre><span class="cm">// Encode first</span>
+<span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'Call me at 555-867-5309, I am Sarah Connor'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'chatbot'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'user-message'</span>
+});
+
+<span class="cm">// Send encoded data to AI, get a response with Privacy Twins</span>
+<span class="kw">const</span> <span class="pr">aiReply</span> = <span class="kw">await</span> <span class="fn">callOpenAI</span>(encoded.<span class="pr">encodedData</span>);
+
+<span class="cm">// Decode the AI response — restore original values</span>
+<span class="kw">const</span> <span class="pr">decoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
+  <span class="pr">continuationId</span>: encoded.<span class="pr">continuationId</span>,
+  <span class="pr">data</span>: aiReply.<span class="pr">content</span>,
+});
+
+console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class="pr">decodedData</span>); <span class="cm">// Real names and numbers restored</span></pre>
+          </div>
+          <div class="code-panel" data-group="decode" data-lang="python">
+<pre><span class="cm"># Encode first</span>
+<span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+  <span class="st">'Call me at 555-867-5309, I am Sarah Connor'</span>,
+  <span class="pr">source_container</span>=<span class="st">'chatbot'</span>,
+  <span class="pr">source_element</span>=<span class="st">'user-message'</span>
+)
+
+<span class="cm"># Send encoded data to AI, get a response with Privacy Twins</span>
+<span class="pr">ai_reply</span> = <span class="fn">call_openai</span>(<span class="pr">encoded</span>[<span class="st">'encodedData'</span>])
+
+<span class="cm"># Decode the AI response — restore original values</span>
+<span class="pr">decoded</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
+  <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
+  <span class="pr">data</span>=<span class="pr">ai_reply</span>[<span class="st">'content'</span>],
+)
+
+<span class="fn">print</span>(<span class="pr">decoded</span>[<span class="st">'decodedData'</span>])  <span class="cm"># Real names and numbers restored</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Chat -->
+      <div class="doc-block">
+        <h2>AI Chat (Built-in Encode/Decode)</h2>
+        <p>
+          Use <code style="color:var(--teal)">chatWithAi</code> / <code style="color:var(--teal)">chat_with_ai</code>
+          to send prompts through PrivacyPal's AI gateway, which automatically encodes PII before forwarding
+          to the LLM and decodes the response.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">chat-with-ai</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','chat')" data-group="chat" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','chat')" data-group="chat" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="chat" data-lang="node">
+<pre><span class="kw">const</span> <span class="pr">result</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">chatWithAi</span>({
+  <span class="pr">message</span>: <span class="st">'Summarise the patient notes for Jane Doe.'</span>,
+  <span class="pr">model</span>: <span class="st">'gpt-4o'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'ehr-chatbot'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'prompt'</span>,
+});
+
+console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="pr">reply</span>); <span class="cm">// Decoded — real names in the answer</span></pre>
+          </div>
+          <div class="code-panel" data-group="chat" data-lang="python">
+<pre><span class="pr">result</span> = <span class="pr">client</span>.<span class="fn">chat_with_ai</span>(
+  <span class="pr">message</span>=<span class="st">'Summarise the patient notes for Jane Doe.'</span>,
+  <span class="pr">model</span>=<span class="st">'gpt-4o'</span>,
+  <span class="pr">source_container</span>=<span class="st">'ehr-chatbot'</span>,
+  <span class="pr">source_element</span>=<span class="st">'prompt'</span>,
+)
+
+<span class="fn">print</span>(<span class="pr">result</span>[<span class="st">'reply'</span>])  <span class="cm"># Decoded — real names in the answer</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Handling -->
+      <div class="doc-block">
+        <h2>Error Handling</h2>
+        <p>The SDK raises typed exceptions so you can handle specific failure scenarios.</p>
+
+        <table class="error-table">
+          <thead>
+            <tr>
+              <th>Exception</th>
+              <th>HTTP Status</th>
+              <th>When it occurs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>AuthenticationError</td><td>401</td><td>Missing, expired, or invalid API key</td></tr>
+            <tr><td>TrialExpiredError</td><td>403</td><td>Trial ended or subscription required</td></tr>
+            <tr><td>NetworkError</td><td>—</td><td>Cannot reach the API (connection refused, DNS failure)</td></tr>
+            <tr><td>RequestError</td><td>—</td><td>Request configuration error</td></tr>
+            <tr><td>PrivacyPalError</td><td>any</td><td>Base class for all SDK errors</td></tr>
+          </tbody>
+        </table>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">error-handling</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','err')" data-group="err" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','err')" data-group="err" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="err" data-lang="node">
+<pre><span class="kw">import</span> {
+  <span class="fn">PrivacyPalClient</span>,
+  <span class="fn">AuthenticationError</span>,
+  <span class="fn">TrialExpiredError</span>,
+  <span class="fn">NetworkError</span>,
+} <span class="kw">from</span> <span class="st">'@privacypal/sdk'</span>;
+
+<span class="kw">try</span> {
+  <span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({ <span class="pr">data</span>: <span class="st">'...'</span> });
+} <span class="kw">catch</span> (<span class="pr">err</span>) {
+  <span class="kw">if</span> (<span class="pr">err</span> <span class="kw">instanceof</span> <span class="fn">AuthenticationError</span>) {
+    console.<span class="fn">error</span>(<span class="st">'Invalid API key'</span>);
+  } <span class="kw">else if</span> (<span class="pr">err</span> <span class="kw">instanceof</span> <span class="fn">TrialExpiredError</span>) {
+    console.<span class="fn">error</span>(<span class="st">'Subscription required'</span>);
+  } <span class="kw">else if</span> (<span class="pr">err</span> <span class="kw">instanceof</span> <span class="fn">NetworkError</span>) {
+    console.<span class="fn">error</span>(<span class="st">'Cannot reach API'</span>);
+  } <span class="kw">else</span> {
+    <span class="kw">throw</span> <span class="pr">err</span>;
+  }
+}</pre>
+          </div>
+          <div class="code-panel" data-group="err" data-lang="python">
+<pre><span class="kw">from</span> <span class="fn">privacypal_sdk</span> <span class="kw">import</span> (
+  <span class="fn">PrivacyPalClient</span>,
+  <span class="fn">AuthenticationError</span>,
+  <span class="fn">TrialExpiredError</span>,
+  <span class="fn">NetworkError</span>,
+)
+
+<span class="kw">try</span>:
+  <span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(<span class="st">'...'</span>)
+<span class="kw">except</span> <span class="fn">AuthenticationError</span>:
+  <span class="fn">print</span>(<span class="st">'Invalid API key'</span>)
+<span class="kw">except</span> <span class="fn">TrialExpiredError</span>:
+  <span class="fn">print</span>(<span class="st">'Subscription required'</span>)
+<span class="kw">except</span> <span class="fn">NetworkError</span>:
+  <span class="fn">print</span>(<span class="st">'Cannot reach API'</span>)
+<span class="kw">except</span> <span class="fn">Exception</span> <span class="kw">as</span> <span class="pr">e</span>:
+  <span class="kw">raise</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- API Reference link -->
+      <div class="doc-block">
+        <h2>Full API Reference</h2>
+        <p>
+          Explore all endpoints, request/response schemas, and try the API interactively.
+          <a href="#" onclick="showSection('api-reference', document.querySelector('.section-nav-tab:nth-child(2)')); return false;" style="color:var(--cobalt-light)">Open API Reference →</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- API Reference Section -->
+  <div id="api-reference-section" class="doc-section" style="height:calc(100vh - 105px)">
     <elements-api
       apiDescriptionUrl="openapi.yaml"
       router="hash"
@@ -115,5 +854,45 @@
       tryItCredentialsPolicy="same-origin"
     />
   </div>
+
+  <script>
+    function showSection(name, tabEl) {
+      document.querySelectorAll('.doc-section').forEach(function(s) {
+        s.classList.remove('active');
+      });
+      document.querySelectorAll('.section-nav-tab').forEach(function(t) {
+        t.classList.remove('active');
+      });
+      document.getElementById(name + '-section').classList.add('active');
+      if (tabEl) tabEl.classList.add('active');
+    }
+
+    function switchLang(el, lang, group) {
+      document.querySelectorAll('.lang-tab[data-group="' + group + '"]').forEach(function(t) {
+        t.classList.toggle('active', t.dataset.lang === lang);
+      });
+      document.querySelectorAll('.code-panel[data-group="' + group + '"]').forEach(function(p) {
+        p.classList.toggle('active', p.dataset.lang === lang);
+      });
+    }
+
+    function switchInstall(el, lang) {
+      document.querySelectorAll('.install-tab').forEach(function(t) {
+        t.classList.toggle('active', t.dataset.lang === lang);
+      });
+      document.querySelectorAll('.install-panel').forEach(function(p) {
+        p.classList.toggle('active', p.dataset.install === lang);
+      });
+    }
+
+    function copyCmd(btn, text) {
+      navigator.clipboard.writeText(text).then(function() {
+        var orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = orig; }, 2000);
+      });
+    }
+  </script>
+
 </body>
 </html>

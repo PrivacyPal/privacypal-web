@@ -379,6 +379,89 @@
             color: #9cdcfe;
         }
 
+        /* Language Toggle Tabs */
+        .lang-tabs {
+            display: flex;
+            margin-left: auto;
+            gap: 2px;
+        }
+
+        .lang-tab {
+            padding: 5px 14px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            background: transparent;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s;
+        }
+
+        .lang-tab.active {
+            color: #4ec9b0;
+            background: rgba(78, 201, 176, 0.12);
+            border-color: rgba(78, 201, 176, 0.3);
+        }
+
+        .lang-tab:hover:not(.active) {
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .code-panel {
+            display: none;
+        }
+
+        .code-panel.active {
+            display: block;
+        }
+
+        /* Install language tabs */
+        .install-lang-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin: 0 auto 24px;
+            background: #f1f5f9;
+            padding: 6px;
+            border-radius: 12px;
+            max-width: 260px;
+        }
+
+        .install-lang-tab {
+            flex: 1;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: #64748b;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .install-lang-tab.active {
+            background: white;
+            color: var(--cobalt);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .install-lang-tab:hover:not(.active) {
+            color: #334155;
+        }
+
+        .install-panel {
+            display: none;
+        }
+
+        .install-panel.active {
+            display: block;
+        }
+
         /* Container */
         .container {
             max-width: 1400px;
@@ -1286,25 +1369,52 @@
                     <div class="code-dot"></div>
                     <div class="code-dot"></div>
                     <div class="code-dot"></div>
-                    <div class="code-title">stream-example.js</div>
+                    <div class="code-title">privacy-example</div>
+                    <div class="lang-tabs">
+                        <button class="lang-tab active" onclick="switchLang(this,'node','hero')" data-group="hero" data-lang="node">Node.js</button>
+                        <button class="lang-tab" onclick="switchLang(this,'python','hero')" data-group="hero" data-lang="python">Python</button>
+                    </div>
                 </div>
                 <div class="code-content">
-<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'privacypal-sdk'</span>;
+                    <div class="code-panel active" data-group="hero" data-lang="node">
+<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'@privacypal/sdk'</span>;
 
 <span class="code-keyword">const</span> <span class="code-property">client</span> = <span class="code-keyword">new</span> <span class="code-function">PrivacyPalClient</span>({
-  <span class="code-property">apiKey</span>: <span class="code-string">'your-api-key'</span>,
-  <span class="code-property">mode</span>: <span class="code-string">'streaming'</span>
+  <span class="code-property">apiUrl</span>: <span class="code-string">'https://api.privacypal.ai'</span>,
+  <span class="code-property">apiKey</span>: process.<span class="code-property">env</span>.<span class="code-property">PRIVACYPAL_API_KEY</span>
 });
 
-<span class="code-comment">// Create secure entry point for agent-to-agent communication</span>
-<span class="code-keyword">const</span> <span class="code-property">agentEndpoint</span> = <span class="code-keyword">await</span> client.<span class="code-function">createAgentEndpoint</span>({
-  <span class="code-property">sensitiveData</span>: agentPayload,
-  <span class="code-property">encoding</span>: <span class="code-string">'two-way'</span>
+<span class="code-comment">// Encode sensitive data — PII replaced with Privacy Twins</span>
+<span class="code-keyword">const</span> <span class="code-property">encoded</span> = <span class="code-keyword">await</span> client.<span class="code-function">encode</span>({
+  <span class="code-property">data</span>: <span class="code-string">'Patient: Jane Doe, DOB: 1985-03-15'</span>,
+  <span class="code-property">sourceContainer</span>: <span class="code-string">'my-app'</span>,
+  <span class="code-property">sourceElement</span>: <span class="code-string">'patient-record'</span>
 });
 
-<span class="code-comment">// Safe to share with other agents - real data stays protected</span>
-<span class="code-keyword">await</span> <span class="code-function">sendToAgent</span>(agentEndpoint.<span class="code-property">protected</span>);
+<span class="code-comment">// Safe to send to AI — real data stays protected</span>
+<span class="code-keyword">await</span> <span class="code-function">sendToAI</span>(encoded.<span class="code-property">encodedData</span>);
 </pre>
+                    </div>
+                    <div class="code-panel" data-group="hero" data-lang="python">
+<pre><span class="code-keyword">from</span> <span class="code-function">privacypal_sdk</span> <span class="code-keyword">import</span> <span class="code-function">PrivacyPalClient</span>
+<span class="code-keyword">import</span> <span class="code-property">os</span>
+
+<span class="code-property">client</span> = <span class="code-function">PrivacyPalClient</span>(
+  <span class="code-property">api_url</span>=<span class="code-string">'https://api.privacypal.ai'</span>,
+  <span class="code-property">api_key</span>=<span class="code-property">os</span>.<span class="code-property">environ</span>[<span class="code-string">'PRIVACYPAL_API_KEY'</span>]
+)
+
+<span class="code-comment"># Encode sensitive data — PII replaced with Privacy Twins</span>
+<span class="code-property">encoded</span> = <span class="code-property">client</span>.<span class="code-function">encode</span>(
+  <span class="code-string">'Patient: Jane Doe, DOB: 1985-03-15'</span>,
+  <span class="code-property">source_container</span>=<span class="code-string">'my-app'</span>,
+  <span class="code-property">source_element</span>=<span class="code-string">'patient-record'</span>
+)
+
+<span class="code-comment"># Safe to send to AI — real data stays protected</span>
+<span class="code-function">send_to_ai</span>(<span class="code-property">encoded</span>[<span class="code-string">'encodedData'</span>])
+</pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1342,17 +1452,29 @@
 
             <div class="install-container">
                 <div class="install-card">
-                    <h3 class="install-title">Install via npm</h3>
-                    <div class="install-code">
-                        <code>npm install @privacypal/sdk</code>
-                        <button class="copy-button" onclick="copyInstallCode()">Copy</button>
+                    <h3 class="install-title">Install the SDK</h3>
+                    <div class="install-lang-tabs">
+                        <button class="install-lang-tab active" onclick="switchInstallLang(this,'node')" data-lang="node">Node.js</button>
+                        <button class="install-lang-tab" onclick="switchInstallLang(this,'python')" data-lang="python">Python</button>
+                    </div>
+                    <div class="install-panel active" data-install-lang="node">
+                        <div class="install-code">
+                            <code>npm install @privacypal/sdk</code>
+                            <button class="copy-button" onclick="copyInstallCode()">Copy</button>
+                        </div>
+                    </div>
+                    <div class="install-panel" data-install-lang="python">
+                        <div class="install-code">
+                            <code>pip install privacypal-sdk</code>
+                            <button class="copy-button" onclick="copyInstallCode()">Copy</button>
+                        </div>
                     </div>
 
                     <div class="install-steps">
                         <div class="install-step">
                             <div class="install-step-number">1</div>
                             <h4>Install SDK</h4>
-                            <p>Add to your project with npm or yarn</p>
+                            <p>Add to your project with npm or pip</p>
                         </div>
                         <div class="install-step">
                             <div class="install-step-number">2</div>
@@ -1361,8 +1483,8 @@
                         </div>
                         <div class="install-step">
                             <div class="install-step-number">3</div>
-                            <h4>Start Streaming</h4>
-                            <p>Create privacy-safe data streams</p>
+                            <h4>Protect Your Data</h4>
+                            <p>Encode PII and build privacy-safe AI apps</p>
                         </div>
                     </div>
                 </div>
@@ -1542,40 +1664,73 @@
                 <div class="example-card">
                     <div class="example-header">
                         <h3>Agent Entry Point for Secure A2A Communication</h3>
-                        <p>Create a protected entry point for your agent to interact with other agents while controlling sensitive data flow</p>
+                        <p>Encode sensitive data before sharing with other agents, then decode results back to original values</p>
                     </div>
                     <div class="example-code">
                         <div class="code-header">
                             <div class="code-dot"></div>
                             <div class="code-dot"></div>
                             <div class="code-dot"></div>
-                            <div class="code-title">agent-entry-point.js</div>
+                            <div class="code-title">agent-entry-point</div>
+                            <div class="lang-tabs">
+                                <button class="lang-tab active" onclick="switchLang(this,'node','ex1')" data-group="ex1" data-lang="node">Node.js</button>
+                                <button class="lang-tab" onclick="switchLang(this,'python','ex1')" data-group="ex1" data-lang="python">Python</button>
+                            </div>
                         </div>
                         <div class="code-content">
-<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'privacypal-sdk'</span>;
+                            <div class="code-panel active" data-group="ex1" data-lang="node">
+<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'@privacypal/sdk'</span>;
 
 <span class="code-keyword">const</span> <span class="code-property">client</span> = <span class="code-keyword">new</span> <span class="code-function">PrivacyPalClient</span>({
+  <span class="code-property">apiUrl</span>: <span class="code-string">'https://api.privacypal.ai'</span>,
   <span class="code-property">apiKey</span>: process.<span class="code-property">env</span>.<span class="code-property">PRIVACYPAL_API_KEY</span>
 });
 
-<span class="code-comment">// Your agent receives sensitive data it's responsible for</span>
-<span class="code-keyword">const</span> <span class="code-property">agentData</span> = {
-  <span class="code-property">userId</span>: <span class="code-string">'user-123'</span>,
-  <span class="code-property">sensitiveInfo</span>: <span class="code-string">'confidential-data'</span>,
-  <span class="code-property">metadata</span>: { <span class="code-property">source</span>: <span class="code-string">'internal'</span> }
-};
-
-<span class="code-comment">// Create protected entry point before sharing with other agents</span>
-<span class="code-keyword">const</span> <span class="code-property">protectedEndpoint</span> = <span class="code-keyword">await</span> client.<span class="code-function">createAgentEndpoint</span>({
-  <span class="code-property">data</span>: agentData,
-  <span class="code-property">encoding</span>: <span class="code-string">'two-way'</span>,
-  <span class="code-property">accessControl</span>: { <span class="code-property">requirePayment</span>: <span class="code-keyword">true</span> }
+<span class="code-comment">// Encode sensitive input — PII replaced with Privacy Twins</span>
+<span class="code-keyword">const</span> <span class="code-property">encoded</span> = <span class="code-keyword">await</span> client.<span class="code-function">encode</span>({
+  <span class="code-property">data</span>: <span class="code-string">'User: John Smith, Email: john@acme.com, ID: user-123'</span>,
+  <span class="code-property">sourceContainer</span>: <span class="code-string">'my-agent'</span>,
+  <span class="code-property">sourceElement</span>: <span class="code-string">'user_input'</span>
 });
 
-<span class="code-comment">// Share Privacy Twin with other agents - real data stays protected</span>
-<span class="code-keyword">await</span> <span class="code-function">sendToExternalAgent</span>(protectedEndpoint.<span class="code-property">anonymized</span>);
-<span class="code-comment">// Your agent maintains control over sensitive data</span>
+<span class="code-comment">// Share encoded data with external agent — real values protected</span>
+<span class="code-keyword">const</span> <span class="code-property">response</span> = <span class="code-keyword">await</span> <span class="code-function">sendToExternalAgent</span>(encoded.<span class="code-property">encodedData</span>);
+
+<span class="code-comment">// Decode the response back to original values</span>
+<span class="code-keyword">const</span> <span class="code-property">decoded</span> = <span class="code-keyword">await</span> client.<span class="code-function">decode</span>({
+  <span class="code-property">continuationId</span>: encoded.<span class="code-property">continuationId</span>,
+  <span class="code-property">data</span>: response.<span class="code-property">text</span>
+});
+console.<span class="code-function">log</span>(decoded.<span class="code-property">decodedData</span>); <span class="code-comment">// Real values restored</span>
 </pre>
+                            </div>
+                            <div class="code-panel" data-group="ex1" data-lang="python">
+<pre><span class="code-keyword">from</span> <span class="code-function">privacypal_sdk</span> <span class="code-keyword">import</span> <span class="code-function">PrivacyPalClient</span>
+<span class="code-keyword">import</span> <span class="code-property">os</span>
+
+<span class="code-property">client</span> = <span class="code-function">PrivacyPalClient</span>(
+  <span class="code-property">api_url</span>=<span class="code-string">'https://api.privacypal.ai'</span>,
+  <span class="code-property">api_key</span>=<span class="code-property">os</span>.<span class="code-property">environ</span>[<span class="code-string">'PRIVACYPAL_API_KEY'</span>]
+)
+
+<span class="code-comment"># Encode sensitive input — PII replaced with Privacy Twins</span>
+<span class="code-property">encoded</span> = <span class="code-property">client</span>.<span class="code-function">encode</span>(
+  <span class="code-string">'User: John Smith, Email: john@acme.com, ID: user-123'</span>,
+  <span class="code-property">source_container</span>=<span class="code-string">'my-agent'</span>,
+  <span class="code-property">source_element</span>=<span class="code-string">'user_input'</span>
+)
+
+<span class="code-comment"># Share encoded data with external agent — real values protected</span>
+<span class="code-property">response</span> = <span class="code-function">send_to_external_agent</span>(<span class="code-property">encoded</span>[<span class="code-string">'encodedData'</span>])
+
+<span class="code-comment"># Decode the response back to original values</span>
+<span class="code-property">decoded</span> = <span class="code-property">client</span>.<span class="code-function">decode</span>(
+  <span class="code-property">continuation_id</span>=<span class="code-property">encoded</span>[<span class="code-string">'continuationId'</span>],
+  <span class="code-property">data</span>=<span class="code-property">response</span>[<span class="code-string">'text'</span>]
+)
+<span class="code-function">print</span>(<span class="code-property">decoded</span>[<span class="code-string">'decodedData'</span>])  <span class="code-comment"># Real values restored</span>
+</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1584,44 +1739,79 @@
                 <div class="example-card">
                     <div class="example-header">
                         <h3>Healthcare AI: Patient Data to 3rd Party Analysis</h3>
-                        <p>Enable healthcare AI agents to send patient data to vendor APIs and agents for analysis while maintaining HIPAA compliance</p>
+                        <p>Encode PHI before sending to vendor APIs, then decode the response — HIPAA compliant by design</p>
                     </div>
                     <div class="example-code">
                         <div class="code-header">
                             <div class="code-dot"></div>
                             <div class="code-dot"></div>
                             <div class="code-dot"></div>
-                            <div class="code-title">healthcare-agent.js</div>
+                            <div class="code-title">healthcare-agent</div>
+                            <div class="lang-tabs">
+                                <button class="lang-tab active" onclick="switchLang(this,'node','ex2')" data-group="ex2" data-lang="node">Node.js</button>
+                                <button class="lang-tab" onclick="switchLang(this,'python','ex2')" data-group="ex2" data-lang="python">Python</button>
+                            </div>
                         </div>
                         <div class="code-content">
-<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'privacypal-sdk'</span>;
+                            <div class="code-panel active" data-group="ex2" data-lang="node">
+<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'@privacypal/sdk'</span>;
 
 <span class="code-keyword">const</span> <span class="code-property">privacypal</span> = <span class="code-keyword">new</span> <span class="code-function">PrivacyPalClient</span>({
-  <span class="code-property">apiKey</span>: process.<span class="code-property">env</span>.<span class="code-property">PRIVACYPAL_API_KEY</span>,
-  <span class="code-property">encoding</span>: <span class="code-string">'two-way'</span>
+  <span class="code-property">apiUrl</span>: <span class="code-string">'https://api.privacypal.ai'</span>,
+  <span class="code-property">apiKey</span>: process.<span class="code-property">env</span>.<span class="code-property">PRIVACYPAL_API_KEY</span>
 });
 
-<span class="code-comment">// Healthcare agent receives patient data</span>
-<span class="code-keyword">const</span> <span class="code-property">patientRecord</span> = {
-  <span class="code-property">patientId</span>: <span class="code-string">'P-12345'</span>,
-  <span class="code-property">name</span>: <span class="code-string">'Jane Doe'</span>,
-  <span class="code-property">dob</span>: <span class="code-string">'1985-03-15'</span>,
-  <span class="code-property">diagnosis</span>: <span class="code-string">'Condition X'</span>,
-  <span class="code-property">labResults</span>: [<span class="code-string">'result1'</span>, <span class="code-string">'result2'</span>]
-};
+<span class="code-comment">// Encode patient record — PHI replaced with Privacy Twins</span>
+<span class="code-keyword">const</span> <span class="code-property">encoded</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">encode</span>({
+  <span class="code-property">data</span>: <span class="code-string">'Patient: Jane Doe, DOB: 1985-03-15, Dx: Condition X'</span>,
+  <span class="code-property">sourceContainer</span>: <span class="code-string">'ehr-system'</span>,
+  <span class="code-property">sourceElement</span>: <span class="code-string">'patient-record'</span>
+});
 
-<span class="code-comment">// Protect patient data before sending to 3rd party vendor agent</span>
-<span class="code-keyword">const</span> <span class="code-property">protected</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">createStream</span>(patientRecord);
-
-<span class="code-comment">// Send Privacy Twin to vendor's analysis API/agent</span>
+<span class="code-comment">// Send Privacy Twin to vendor API — no real PHI exposed</span>
 <span class="code-keyword">const</span> <span class="code-property">analysis</span> = <span class="code-keyword">await</span> <span class="code-function">fetch</span>(<span class="code-string">'https://vendor-api.com/analyze'</span>, {
   <span class="code-property">method</span>: <span class="code-string">'POST'</span>,
-  <span class="code-property">body</span>: <span class="code-function">JSON</span>.<span class="code-function">stringify</span>(protected.<span class="code-property">anonymized</span>)
+  <span class="code-property">body</span>: <span class="code-function">JSON</span>.<span class="code-function">stringify</span>({ <span class="code-property">data</span>: encoded.<span class="code-property">encodedData</span> })
 });
 
-<span class="code-comment">// Vendor agent processes Privacy Twin - no real PHI exposed</span>
+<span class="code-comment">// Decode vendor response — restore real patient values</span>
+<span class="code-keyword">const</span> <span class="code-property">result</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">decode</span>({
+  <span class="code-property">continuationId</span>: encoded.<span class="code-property">continuationId</span>,
+  <span class="code-property">data</span>: (<span class="code-keyword">await</span> analysis.<span class="code-function">json</span>()).<span class="code-property">report</span>
+});
 <span class="code-comment">// HIPAA compliant ✅</span>
 </pre>
+                            </div>
+                            <div class="code-panel" data-group="ex2" data-lang="python">
+<pre><span class="code-keyword">from</span> <span class="code-function">privacypal_sdk</span> <span class="code-keyword">import</span> <span class="code-function">PrivacyPalClient</span>
+<span class="code-keyword">import</span> <span class="code-property">os</span>, <span class="code-property">requests</span>
+
+<span class="code-property">privacypal</span> = <span class="code-function">PrivacyPalClient</span>(
+  <span class="code-property">api_url</span>=<span class="code-string">'https://api.privacypal.ai'</span>,
+  <span class="code-property">api_key</span>=<span class="code-property">os</span>.<span class="code-property">environ</span>[<span class="code-string">'PRIVACYPAL_API_KEY'</span>]
+)
+
+<span class="code-comment"># Encode patient record — PHI replaced with Privacy Twins</span>
+<span class="code-property">encoded</span> = <span class="code-property">privacypal</span>.<span class="code-function">encode</span>(
+  <span class="code-string">'Patient: Jane Doe, DOB: 1985-03-15, Dx: Condition X'</span>,
+  <span class="code-property">source_container</span>=<span class="code-string">'ehr-system'</span>,
+  <span class="code-property">source_element</span>=<span class="code-string">'patient-record'</span>
+)
+
+<span class="code-comment"># Send Privacy Twin to vendor API — no real PHI exposed</span>
+<span class="code-property">response</span> = <span class="code-property">requests</span>.<span class="code-function">post</span>(
+  <span class="code-string">'https://vendor-api.com/analyze'</span>,
+  <span class="code-property">json</span>={<span class="code-string">'data'</span>: <span class="code-property">encoded</span>[<span class="code-string">'encodedData'</span>]}
+)
+
+<span class="code-comment"># Decode vendor response — restore real patient values</span>
+<span class="code-property">result</span> = <span class="code-property">privacypal</span>.<span class="code-function">decode</span>(
+  <span class="code-property">continuation_id</span>=<span class="code-property">encoded</span>[<span class="code-string">'continuationId'</span>],
+  <span class="code-property">data</span>=<span class="code-property">response</span>.<span class="code-function">json</span>()[<span class="code-string">'report'</span>]
+)
+<span class="code-comment"># HIPAA compliant ✅</span>
+</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1630,51 +1820,78 @@
                 <div class="example-card">
                     <div class="example-header">
                         <h3>Financial Services: Decentralized Dark Pool <span style="font-size: 0.6em; background: rgba(76, 73, 255, 0.2); padding: 4px 12px; border-radius: 12px; margin-left: 10px; color: var(--primary-blue);">x402 Coming Soon</span></h3>
-                        <p>Best trade match bot protects trade information and trader identity. Future: Only shares real counterparty data after successful x402 payment request</p>
+                        <p>Encode trade info to protect trader identity, match via Privacy Twins, then decode only after payment (future x402 integration)</p>
                     </div>
                     <div class="example-code">
                         <div class="code-header">
                             <div class="code-dot"></div>
                             <div class="code-dot"></div>
                             <div class="code-dot"></div>
-                            <div class="code-title">dark-pool-agent.js</div>
+                            <div class="code-title">dark-pool-agent</div>
+                            <div class="lang-tabs">
+                                <button class="lang-tab active" onclick="switchLang(this,'node','ex3')" data-group="ex3" data-lang="node">Node.js</button>
+                                <button class="lang-tab" onclick="switchLang(this,'python','ex3')" data-group="ex3" data-lang="python">Python</button>
+                            </div>
                         </div>
                         <div class="code-content">
-<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'privacypal-sdk'</span>;
+                            <div class="code-panel active" data-group="ex3" data-lang="node">
+<pre><span class="code-keyword">import</span> { <span class="code-function">PrivacyPalClient</span> } <span class="code-keyword">from</span> <span class="code-string">'@privacypal/sdk'</span>;
 <span class="code-comment">// Future: import { x402Middleware } from '@x402/payment';</span>
 
 <span class="code-keyword">const</span> <span class="code-property">privacypal</span> = <span class="code-keyword">new</span> <span class="code-function">PrivacyPalClient</span>({
+  <span class="code-property">apiUrl</span>: <span class="code-string">'https://api.privacypal.ai'</span>,
   <span class="code-property">apiKey</span>: process.<span class="code-property">env</span>.<span class="code-property">PRIVACYPAL_API_KEY</span>
 });
 
-<span class="code-comment">// Best trade match agent receives trade request</span>
-<span class="code-keyword">const</span> <span class="code-property">tradeRequest</span> = {
-  <span class="code-property">traderId</span>: <span class="code-string">'trader-789'</span>,
-  <span class="code-property">tradeDetails</span>: { <span class="code-property">symbol</span>: <span class="code-string">'AAPL'</span>, <span class="code-property">quantity</span>: <span class="code-number">1000</span> },
-  <span class="code-property">sensitiveInfo</span>: <span class="code-string">'confidential-strategy'</span>
-};
+<span class="code-comment">// Encode trade info — trader identity and strategy protected</span>
+<span class="code-keyword">const</span> <span class="code-property">encoded</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">encode</span>({
+  <span class="code-property">data</span>: <span class="code-string">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
+  <span class="code-property">sourceContainer</span>: <span class="code-string">'dark-pool'</span>,
+  <span class="code-property">sourceElement</span>: <span class="code-string">'trade-request'</span>
+});
 
-<span class="code-comment">// Protect trade info with Privacy Twin</span>
-<span class="code-keyword">const</span> <span class="code-property">protectedTrade</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">createStream</span>(tradeRequest);
+<span class="code-comment">// Share Privacy Twin — real identity hidden</span>
+<span class="code-keyword">const</span> <span class="code-property">match</span> = <span class="code-keyword">await</span> <span class="code-function">findCounterparty</span>(encoded.<span class="code-property">encodedData</span>);
 
-<span class="code-comment">// Match agent shares Privacy Twin (no real data) to find counterparty</span>
-<span class="code-keyword">const</span> <span class="code-property">match</span> = <span class="code-keyword">await</span> <span class="code-function">findCounterparty</span>(protectedTrade.<span class="code-property">anonymized</span>);
-
-<span class="code-comment">// Future: Counterparty agent receives 402: Payment Required via x402</span>
 <span class="code-keyword">if</span> (match.<span class="code-property">found</span>) {
-  <span class="code-comment">// Future: After successful x402 payment, reveal real counterparty info</span>
-  <span class="code-comment">// await x402Middleware({</span>
-  <span class="code-comment">//   'GET /counterparty': {</span>
-  <span class="code-comment">//     accepts: ['usdc', 'eth'],</span>
-  <span class="code-comment">//     description: 'Counterparty trade information'</span>
-  <span class="code-comment">//   }</span>
-  <span class="code-comment">// });</span>
-  
-  <span class="code-comment">// Only after payment: decode and share real data</span>
-  <span class="code-keyword">const</span> <span class="code-property">realData</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">decode</span>(protectedTrade);
-  <span class="code-keyword">return</span> realData; <span class="code-comment">// Real counterparty info shared</span>
+  <span class="code-comment">// Future: x402 payment required before decode</span>
+  <span class="code-keyword">const</span> <span class="code-property">realData</span> = <span class="code-keyword">await</span> privacypal.<span class="code-function">decode</span>({
+    <span class="code-property">continuationId</span>: encoded.<span class="code-property">continuationId</span>,
+    <span class="code-property">data</span>: match.<span class="code-property">counterpartyData</span>
+  });
+  <span class="code-keyword">return</span> realData.<span class="code-property">decodedData</span>; <span class="code-comment">// Real counterparty info</span>
 }
 </pre>
+                            </div>
+                            <div class="code-panel" data-group="ex3" data-lang="python">
+<pre><span class="code-keyword">from</span> <span class="code-function">privacypal_sdk</span> <span class="code-keyword">import</span> <span class="code-function">PrivacyPalClient</span>
+<span class="code-keyword">import</span> <span class="code-property">os</span>
+<span class="code-comment"># Future: from x402 import middleware</span>
+
+<span class="code-property">privacypal</span> = <span class="code-function">PrivacyPalClient</span>(
+  <span class="code-property">api_url</span>=<span class="code-string">'https://api.privacypal.ai'</span>,
+  <span class="code-property">api_key</span>=<span class="code-property">os</span>.<span class="code-property">environ</span>[<span class="code-string">'PRIVACYPAL_API_KEY'</span>]
+)
+
+<span class="code-comment"># Encode trade info — trader identity and strategy protected</span>
+<span class="code-property">encoded</span> = <span class="code-property">privacypal</span>.<span class="code-function">encode</span>(
+  <span class="code-string">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
+  <span class="code-property">source_container</span>=<span class="code-string">'dark-pool'</span>,
+  <span class="code-property">source_element</span>=<span class="code-string">'trade-request'</span>
+)
+
+<span class="code-comment"># Share Privacy Twin — real identity hidden</span>
+<span class="code-property">match</span> = <span class="code-function">find_counterparty</span>(<span class="code-property">encoded</span>[<span class="code-string">'encodedData'</span>])
+
+<span class="code-keyword">if</span> <span class="code-property">match</span>[<span class="code-string">'found'</span>]:
+  <span class="code-comment"># Future: x402 payment required before decode</span>
+  <span class="code-property">real_data</span> = <span class="code-property">privacypal</span>.<span class="code-function">decode</span>(
+    <span class="code-property">continuation_id</span>=<span class="code-property">encoded</span>[<span class="code-string">'continuationId'</span>],
+    <span class="code-property">data</span>=<span class="code-property">match</span>[<span class="code-string">'counterpartyData'</span>]
+  )
+  <span class="code-keyword">return</span> <span class="code-property">real_data</span>[<span class="code-string">'decodedData'</span>]  <span class="code-comment"># Real counterparty info</span>
+</pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1765,11 +1982,33 @@
             }
         });
 
+        // Language toggle for code examples
+        function switchLang(el, lang, group) {
+            document.querySelectorAll('.lang-tab[data-group="' + group + '"]').forEach(function(t) {
+                t.classList.toggle('active', t.dataset.lang === lang);
+            });
+            document.querySelectorAll('.code-panel[data-group="' + group + '"]').forEach(function(p) {
+                p.classList.toggle('active', p.dataset.lang === lang);
+            });
+        }
+
+        // Language toggle for install section
+        function switchInstallLang(el, lang) {
+            document.querySelectorAll('.install-lang-tab').forEach(function(t) {
+                t.classList.toggle('active', t.dataset.lang === lang);
+            });
+            document.querySelectorAll('.install-panel').forEach(function(p) {
+                p.classList.toggle('active', p.dataset.installLang === lang);
+            });
+        }
+
         // Copy install code
         function copyInstallCode() {
-            const code = 'npm install @privacypal/sdk';
+            var activeCode = document.querySelector('.install-panel.active .install-code code');
+            var code = activeCode ? activeCode.textContent : 'npm install @privacypal/sdk';
             navigator.clipboard.writeText(code).then(() => {
-                const button = document.querySelector('.copy-button');
+                var button = document.querySelector('.install-panel.active .copy-button');
+                if (!button) button = document.querySelector('.copy-button');
                 const originalText = button.textContent;
                 button.textContent = 'Copied!';
                 setTimeout(() => {
