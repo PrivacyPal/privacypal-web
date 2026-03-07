@@ -1,0 +1,322 @@
+# PrivacyPal Ops Runtime API
+# This API is used for on-premises and edge deployments.
+# It is separate from the main api.privacypal.ai (privacypal-api) service.
+#
+# Base path: /api (mounted at server root)
+# Routes: /api/user/*, /api/cloud/*, /api/public-figures/*, /api/auth/*, /api/stripe/*
+
+openapi: 3.1.0
+info:
+  title: PrivacyPal Ops Runtime API
+  version: 1.0.0
+  description: |
+    The Ops Runtime API is used for on-premises and edge deployments of PrivacyPal.
+    It provides user management, cloud/vault configuration, public figures checks, OAuth, and Stripe billing.
+
+    **Note:** This is a separate service from the main PrivacyPal API (api.privacypal.ai).
+    The main API handles encoding, decoding, AI chat, and scanner operations.
+
+servers:
+  - url: https://ops.privacypal.ai
+    description: Ops Runtime (production)
+  - url: http://localhost:3000
+    description: Local development
+
+tags:
+  - name: Health
+  - name: User
+  - name: Cloud
+  - name: Public Figures
+  - name: Auth
+  - name: Stripe
+
+paths:
+  /health:
+    get:
+      summary: Health Check
+      tags: [Health]
+      security: []
+      responses:
+        '200':
+          description: Service is healthy
+
+  /api/user/register:
+    post:
+      summary: Register User
+      tags: [User]
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName: { type: string }
+                lastName: { type: string }
+                email: { type: string, format: email }
+                password: { type: string }
+      responses:
+        '200':
+          description: Registration successful
+
+  /api/user/login:
+    post:
+      summary: Login
+      tags: [User]
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: Login successful
+
+  /api/user/validate-token:
+    post:
+      summary: Validate Cloud Token
+      tags: [User]
+      security: []
+      responses:
+        '200':
+          description: Token validation result
+
+  /api/user/generate-token:
+    post:
+      summary: Generate Cloud Token
+      tags: [User]
+      security: []
+      responses:
+        '200':
+          description: Token generated
+
+  /api/user/refresh-token:
+    post:
+      summary: Refresh Token
+      tags: [User]
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token: { type: string }
+      responses:
+        '200':
+          description: Token refreshed
+
+  /api/user/account:
+    get:
+      summary: Get Account
+      tags: [User]
+      responses:
+        '200':
+          description: Account information
+
+  /api/user/usage:
+    get:
+      summary: Get Usage
+      tags: [User]
+      responses:
+        '200':
+          description: Usage data
+
+  /api/user/audit:
+    post:
+      summary: Create Audit
+      tags: [User]
+      responses:
+        '200':
+          description: Audit created
+
+  /api/user/subscription:
+    get:
+      summary: Get Subscription
+      tags: [User]
+    post:
+      summary: Create Subscription
+      tags: [User]
+
+  /api/cloud/vaults:
+    get:
+      summary: Get Vaults
+      tags: [Cloud]
+    post:
+      summary: Create Vault
+      tags: [Cloud]
+
+  /api/cloud/vaults/{id}:
+    put:
+      summary: Update Vault
+      tags: [Cloud]
+    delete:
+      summary: Delete Vault
+      tags: [Cloud]
+
+  /api/cloud/connections:
+    get:
+      summary: Get Connections
+      tags: [Cloud]
+    post:
+      summary: Create Connection
+      tags: [Cloud]
+
+  /api/cloud/connections/{id}:
+    put:
+      summary: Update Connection
+      tags: [Cloud]
+    delete:
+      summary: Delete Connection
+      tags: [Cloud]
+
+  /api/cloud/datacatalog:
+    get:
+      summary: Get Data Catalog
+      tags: [Cloud]
+    post:
+      summary: Create Data Catalog Entry
+      tags: [Cloud]
+
+  /api/cloud/datacatalog/{id}:
+    put:
+      summary: Update Data Catalog Entry
+      tags: [Cloud]
+    delete:
+      summary: Delete Data Catalog Entry
+      tags: [Cloud]
+
+  /api/cloud/dataid:
+    get:
+      summary: Get Data ID Models
+      tags: [Cloud]
+    post:
+      summary: Create Data ID Model
+      tags: [Cloud]
+
+  /api/cloud/dataid/{id}:
+    put:
+      summary: Update Data ID Model
+      tags: [Cloud]
+    delete:
+      summary: Delete Data ID Model
+      tags: [Cloud]
+
+  /api/cloud/setup/select-model:
+    post:
+      summary: Select Model
+      tags: [Cloud]
+
+  /api/cloud/setup/deselect-model:
+    post:
+      summary: Deselect Model
+      tags: [Cloud]
+
+  /api/cloud/balance:
+    get:
+      summary: Get Cloud Balance
+      tags: [Cloud]
+
+  /api/cloud/stats:
+    get:
+      summary: Get Container Stats
+      tags: [Cloud]
+
+  /api/cloud/license:
+    get:
+      summary: Get License Info
+      tags: [Cloud]
+
+  /api/cloud/datainterfaces:
+    get:
+      summary: Get Data Interfaces
+      tags: [Cloud]
+    post:
+      summary: Create Data Interface
+      tags: [Cloud]
+
+  /api/cloud/datainterfaces/{id}:
+    get:
+      summary: Get Data Interface
+      tags: [Cloud]
+    put:
+      summary: Update Data Interface
+      tags: [Cloud]
+    delete:
+      summary: Delete Data Interface
+      tags: [Cloud]
+
+  /api/public-figures:
+    get:
+      summary: Get Public Figures List
+      tags: [Public Figures]
+
+  /api/public-figures/metadata:
+    get:
+      summary: Get Metadata
+      tags: [Public Figures]
+
+  /api/public-figures/check:
+    post:
+      summary: Check Name
+      tags: [Public Figures]
+
+  /api/public-figures/check-batch:
+    post:
+      summary: Check Batch
+      tags: [Public Figures]
+
+  /api/auth/google:
+    get:
+      summary: Google OAuth
+      tags: [Auth]
+      security: []
+
+  /api/auth/google/callback:
+    get:
+      summary: Google OAuth Callback
+      tags: [Auth]
+      security: []
+
+  /api/auth/microsoft:
+    get:
+      summary: Microsoft OAuth
+      tags: [Auth]
+      security: []
+
+  /api/auth/microsoft/callback:
+    get:
+      summary: Microsoft OAuth Callback
+      tags: [Auth]
+      security: []
+
+  /api/auth/error:
+    get:
+      summary: OAuth Error
+      tags: [Auth]
+      security: []
+
+  /api/stripe/webhook:
+    post:
+      summary: Stripe Webhook
+      tags: [Stripe]
+      security: []
+
+  /api/stripe/config:
+    get:
+      summary: Get Stripe Config
+      tags: [Stripe]
+
+  /api/stripe/payment-method:
+    post:
+      summary: Create Payment Method
+      tags: [Stripe]
+
+  /api/stripe/subscription:
+    delete:
+      summary: Cancel Subscription
+      tags: [Stripe]

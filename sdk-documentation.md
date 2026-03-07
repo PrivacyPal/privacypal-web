@@ -86,7 +86,7 @@ import { PrivacyPalClient } from '@privacypal/sdk';
 
 // 1. Initialize the client with your API URL and user's JWT token
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: 'your-jwt-token'
 });
 
@@ -132,7 +132,7 @@ Use the `login()` or `register()` methods to obtain a JWT:
 ```typescript
 // Create client without apiKey for login/register
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: '' // Empty for unauthenticated endpoints
 });
 
@@ -160,7 +160,7 @@ For automatic token management, provide a callback:
 
 ```typescript
 const client = new PrivacyPalClient(
-  { apiUrl: 'https://api.privacypal.io', apiKey: token },
+  { apiUrl: 'https://api.privacypal.ai', apiKey: token },
   (newToken) => {
     // Called when your app refreshes the token
     console.log('Token updated:', newToken);
@@ -234,7 +234,7 @@ new PrivacyPalClient(config: PrivacyPalConfig, onTokenRefresh?: (newToken: strin
 import { PrivacyPalClient } from '@privacypal/sdk';
 
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: 'eyJhbGciOiJIUzI1NiIs...',
   timeout: 60000
 });
@@ -1040,7 +1040,7 @@ new PrivacyPalClientNLP(config: ExtendedConfig, onTokenRefresh?: (newToken: stri
 import { createPrivacyPalClientWithNLP } from '@privacypal/sdk';
 
 const client = await createPrivacyPalClientWithNLP({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: 'your-jwt-token',
   useClientSideNLP: true,
   detectorConfig: {
@@ -1622,7 +1622,7 @@ The simplest use case: detect and replace PII in text.
 import { PrivacyPalClient } from '@privacypal/sdk';
 
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: 'your-jwt-token'
 });
 
@@ -1779,7 +1779,7 @@ Track Privacy Twin mappings across multiple conversation turns so the AI can ref
 import { PrivacyPalClient, ConversationSession } from '@privacypal/sdk';
 
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: 'your-jwt-token'
 });
 
@@ -1925,7 +1925,7 @@ console.log(decoded);
 
 ```typescript
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: 'your-jwt-token'
 });
 
@@ -1950,7 +1950,7 @@ console.log(`Invite link: ${invite.inviteLink}`);
 
 ```typescript
 const client = new PrivacyPalClient({
-  apiUrl: 'https://api.privacypal.io',
+  apiUrl: 'https://api.privacypal.ai',
   apiKey: ''  // Start without token
 });
 

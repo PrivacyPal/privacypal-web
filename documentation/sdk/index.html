@@ -691,6 +691,8 @@ console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class=
 <span class="kw">const</span> <span class="pr">decoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
   <span class="pr">continuationId</span>: encoded.<span class="pr">continuationId</span>,
   <span class="pr">data</span>: aiReply.<span class="pr">content</span>,
+  <span class="pr">sensitiveHashes</span>: encoded.<span class="pr">transformations</span>.<span class="fn">map</span>(t =&gt; t.<span class="pr">originalHash</span>),
+  <span class="pr">authorization</span>: { <span class="pr">token</span>: <span class="st">'your-jwt'</span>, <span class="pr">purpose</span>: <span class="st">'Display to user'</span> },
 });
 
 console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class="pr">decodedData</span>); <span class="cm">// Real names and numbers restored</span></pre>
@@ -710,6 +712,8 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
 <span class="pr">decoded</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
   <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
   <span class="pr">data</span>=<span class="pr">ai_reply</span>[<span class="st">'content'</span>],
+  <span class="pr">sensitive_hashes</span>=[t[<span class="st">'originalHash'</span>] <span class="kw">for</span> t <span class="kw">in</span> <span class="pr">encoded</span>[<span class="st">'transformations'</span>]],
+  <span class="pr">authorization</span>={<span class="st">'token'</span>: <span class="st">'your-jwt'</span>, <span class="st">'purpose'</span>: <span class="st">'Display to user'</span>},
 )
 
 <span class="fn">print</span>(<span class="pr">decoded</span>[<span class="st">'decodedData'</span>])  <span class="cm"># Real names and numbers restored</span></pre>
@@ -721,8 +725,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
       <div class="doc-block">
         <h2>AI Chat (Built-in Encode/Decode)</h2>
         <p>
-          Use <code style="color:var(--teal)">chatWithAi</code> / <code style="color:var(--teal)">chat_with_ai</code>
-          to send prompts through PrivacyPal's AI gateway, which automatically encodes PII before forwarding
+          Use <code style="color:var(--teal)">chatWithAI</code> to send prompts through PrivacyPal's AI gateway, which automatically encodes PII before forwarding
           to the LLM and decodes the response.
         </p>
 
@@ -736,24 +739,22 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
             </div>
           </div>
           <div class="code-panel active" data-group="chat" data-lang="node">
-<pre><span class="kw">const</span> <span class="pr">result</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">chatWithAi</span>({
-  <span class="pr">message</span>: <span class="st">'Summarise the patient notes for Jane Doe.'</span>,
-  <span class="pr">model</span>: <span class="st">'gpt-4o'</span>,
-  <span class="pr">sourceContainer</span>: <span class="st">'ehr-chatbot'</span>,
-  <span class="pr">sourceElement</span>: <span class="st">'prompt'</span>,
+<pre><span class="kw">const</span> <span class="pr">result</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">chatWithAI</span>({
+  <span class="pr">prompt</span>: <span class="st">'Summarise the patient notes for Jane Doe.'</span>,
+  <span class="pr">model</span>: <span class="st">'gemini-2.0-flash-exp'</span>,
+  <span class="pr">provider</span>: <span class="st">'vertex'</span>,
 });
 
-console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="pr">reply</span>); <span class="cm">// Decoded — real names in the answer</span></pre>
+console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="pr">decodedResponse</span>); <span class="cm">// Decoded — real names in the answer</span></pre>
           </div>
           <div class="code-panel" data-group="chat" data-lang="python">
 <pre><span class="pr">result</span> = <span class="pr">client</span>.<span class="fn">chat_with_ai</span>(
-  <span class="pr">message</span>=<span class="st">'Summarise the patient notes for Jane Doe.'</span>,
-  <span class="pr">model</span>=<span class="st">'gpt-4o'</span>,
-  <span class="pr">source_container</span>=<span class="st">'ehr-chatbot'</span>,
-  <span class="pr">source_element</span>=<span class="st">'prompt'</span>,
+  <span class="pr">prompt</span>=<span class="st">'Summarise the patient notes for Jane Doe.'</span>,
+  <span class="pr">model</span>=<span class="st">'gemini-2.0-flash-exp'</span>,
+  <span class="pr">provider</span>=<span class="st">'vertex'</span>,
 )
 
-<span class="fn">print</span>(<span class="pr">result</span>[<span class="st">'reply'</span>])  <span class="cm"># Decoded — real names in the answer</span></pre>
+<span class="fn">print</span>(<span class="pr">result</span>[<span class="st">'decodedResponse'</span>])  <span class="cm"># Decoded — real names in the answer</span></pre>
           </div>
         </div>
       </div>
@@ -761,22 +762,21 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
       <!-- Error Handling -->
       <div class="doc-block">
         <h2>Error Handling</h2>
-        <p>The SDK raises typed exceptions so you can handle specific failure scenarios.</p>
+        <p><strong>Node.js:</strong> Throws <code style="color:var(--teal)">Error</code> — check <code>err.message</code> for status prefixes. <strong>Python:</strong> Raises typed exceptions (<code>AuthenticationError</code>, <code>TrialExpiredError</code>, <code>NetworkError</code>).</p>
 
         <table class="error-table">
           <thead>
             <tr>
-              <th>Exception</th>
+              <th>Exception / Pattern</th>
               <th>HTTP Status</th>
               <th>When it occurs</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>AuthenticationError</td><td>401</td><td>Missing, expired, or invalid API key</td></tr>
-            <tr><td>TrialExpiredError</td><td>403</td><td>Trial ended or subscription required</td></tr>
-            <tr><td>NetworkError</td><td>—</td><td>Cannot reach the API (connection refused, DNS failure)</td></tr>
-            <tr><td>RequestError</td><td>—</td><td>Request configuration error</td></tr>
-            <tr><td>PrivacyPalError</td><td>any</td><td>Base class for all SDK errors</td></tr>
+            <tr><td>AuthenticationError / "401:"</td><td>401</td><td>Missing, expired, or invalid API key</td></tr>
+            <tr><td>TrialExpiredError / "403:" or "[Trial expired]"</td><td>403</td><td>Trial ended or subscription required</td></tr>
+            <tr><td>NetworkError / "Network Error:"</td><td>—</td><td>Cannot reach the API (connection refused, DNS failure)</td></tr>
+            <tr><td>RequestError / "Request Error:"</td><td>—</td><td>Request configuration error</td></tr>
           </tbody>
         </table>
 
@@ -790,21 +790,14 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
             </div>
           </div>
           <div class="code-panel active" data-group="err" data-lang="node">
-<pre><span class="kw">import</span> {
-  <span class="fn">PrivacyPalClient</span>,
-  <span class="fn">AuthenticationError</span>,
-  <span class="fn">TrialExpiredError</span>,
-  <span class="fn">NetworkError</span>,
-} <span class="kw">from</span> <span class="st">'@privacypal/sdk'</span>;
-
-<span class="kw">try</span> {
+<pre><span class="kw">try</span> {
   <span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({ <span class="pr">data</span>: <span class="st">'...'</span> });
 } <span class="kw">catch</span> (<span class="pr">err</span>) {
-  <span class="kw">if</span> (<span class="pr">err</span> <span class="kw">instanceof</span> <span class="fn">AuthenticationError</span>) {
-    console.<span class="fn">error</span>(<span class="st">'Invalid API key'</span>);
-  } <span class="kw">else if</span> (<span class="pr">err</span> <span class="kw">instanceof</span> <span class="fn">TrialExpiredError</span>) {
+  <span class="kw">if</span> (<span class="pr">err</span>.<span class="pr">message</span>?.<span class="fn">startsWith</span>(<span class="st">'401:'</span>)) {
+    console.<span class="fn">error</span>(<span class="st">'Invalid or expired API key'</span>);
+  } <span class="kw">else if</span> (<span class="pr">err</span>.<span class="pr">message</span>?.<span class="fn">startsWith</span>(<span class="st">'403:'</span>) || <span class="pr">err</span>.<span class="pr">message</span>?.<span class="fn">includes</span>(<span class="st">'Trial expired'</span>)) {
     console.<span class="fn">error</span>(<span class="st">'Subscription required'</span>);
-  } <span class="kw">else if</span> (<span class="pr">err</span> <span class="kw">instanceof</span> <span class="fn">NetworkError</span>) {
+  } <span class="kw">else if</span> (<span class="pr">err</span>.<span class="pr">message</span>?.<span class="fn">includes</span>(<span class="st">'Network Error'</span>)) {
     console.<span class="fn">error</span>(<span class="st">'Cannot reach API'</span>);
   } <span class="kw">else</span> {
     <span class="kw">throw</span> <span class="pr">err</span>;
@@ -822,7 +815,7 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
 <span class="kw">try</span>:
   <span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(<span class="st">'...'</span>)
 <span class="kw">except</span> <span class="fn">AuthenticationError</span>:
-  <span class="fn">print</span>(<span class="st">'Invalid API key'</span>)
+  <span class="fn">print</span>(<span class="st">'Invalid or expired API key'</span>)
 <span class="kw">except</span> <span class="fn">TrialExpiredError</span>:
   <span class="fn">print</span>(<span class="st">'Subscription required'</span>)
 <span class="kw">except</span> <span class="fn">NetworkError</span>:

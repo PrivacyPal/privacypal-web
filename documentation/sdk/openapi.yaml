@@ -19,7 +19,9 @@ info:
 
     ## Authentication
 
-    All endpoints (except `/auth/login`, `/auth/register`, and `/health`) require a valid JWT token in the `Authorization` header as a Bearer token.
+    All endpoints (except `/api/user/login`, `/api/user/register`, and `/health`) require a valid JWT token. Use either:
+    - `Authorization: Bearer <token>`
+    - `x-access-token: <token>`
 
     ## SDK
 
@@ -107,7 +109,7 @@ paths:
                     type: string
                     example: success
 
-  /auth/login:
+  /api/user/login:
     post:
       operationId: login
       summary: Login
@@ -154,7 +156,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiError'
 
-  /auth/register:
+  /api/user/register:
     post:
       operationId: register
       summary: Register
@@ -209,7 +211,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiError'
 
-  /auth/refresh:
+  /api/user/refresh-token:
     post:
       operationId: refreshToken
       summary: Refresh Token
@@ -260,7 +262,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiError'
 
-  /encode:
+  /api/scanner/encode:
     post:
       operationId: encode
       summary: Encode Text
@@ -351,12 +353,14 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /encode/batch:
+  /api/scanner/encode/batch:
     post:
       operationId: encodeBatch
       summary: Batch Encode
       description: |
         Encode multiple data items in a single request. All items share one `continuationId` for efficient batch processing.
+
+        **Request body:** A JSON array of encode items (not an object with an `items` property).
 
         **SDK Usage:**
         ```typescript
@@ -374,17 +378,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EncodeBatchRequest'
-            example:
+              type: array
               items:
-                - data: "Alice Smith, alice@email.com"
-                  sourceContainer: "users"
-                  metadata:
-                    rowId: "1"
-                - data: "Bob Jones, 555-123-4567"
-                  sourceContainer: "users"
-                  metadata:
-                    rowId: "2"
+                $ref: '#/components/schemas/EncodeBatchItem'
+            example:
+              - data: "Alice Smith, alice@email.com"
+                sourceContainer: "users"
+                metadata:
+                  rowId: "1"
+              - data: "Bob Jones, 555-123-4567"
+                sourceContainer: "users"
+                metadata:
+                  rowId: "2"
       responses:
         '200':
           description: Batch encoded successfully
@@ -419,7 +424,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /encode/file:
+  /api/scanner/encode/file:
     post:
       operationId: encodeFile
       summary: Encode File
@@ -479,7 +484,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /decode:
+  /api/scanner/decode:
     post:
       operationId: decode
       summary: Decode Privacy Twins
@@ -558,7 +563,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /dataset/{continuationId}/twins:
+  /api/scanner/twins/{continuationId}:
     get:
       operationId: getDatasetTwins
       summary: Get Dataset Twins
@@ -602,7 +607,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /ai/chat:
+  /api/ai/chat:
     post:
       operationId: chatWithAI
       summary: AI Chat
@@ -674,7 +679,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /ai/chat/stream:
+  /api/ai/chat/stream:
     post:
       operationId: chatWithAIStream
       summary: Streaming AI Chat
@@ -723,7 +728,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /ai/providers:
+  /api/ai/providers:
     get:
       operationId: getAIProviders
       summary: Get AI Providers
@@ -755,7 +760,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /account:
+  /api/user/account:
     get:
       operationId: getAccount
       summary: Get Account
@@ -788,7 +793,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /account/stats:
+  /api/user/stats:
     get:
       operationId: getUserStats
       summary: Get User Stats
@@ -835,7 +840,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /account/usage:
+  /api/user/usage:
     get:
       operationId: getUsage
       summary: Get Usage
@@ -882,7 +887,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /company:
+  /api/company:
     get:
       operationId: getCompany
       summary: Get Company
@@ -914,7 +919,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /company/invite:
+  /api/company/invite:
     post:
       operationId: generateInviteLink
       summary: Generate Invite Link
@@ -945,8 +950,8 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /audit/tokens:
-    put:
+  /api/company/audit-logs/update-tokens:
+    post:
       operationId: updateAuditTokens
       summary: Update Audit Tokens
       description: |
@@ -1012,9 +1017,10 @@ components:
       scheme: bearer
       bearerFormat: JWT
       description: |
-        JWT token obtained from the `/auth/login` or `/auth/register` endpoint.
+        JWT token obtained from `POST /api/user/login` or `POST /api/user/register`.
 
         Use the `login()` or `register()` SDK methods to obtain a token, then pass it to the client configuration.
+        The API also accepts the `x-access-token` header with the same token value.
 
   responses:
     Unauthorized:
@@ -1184,37 +1190,35 @@ components:
         message:
           type: string
 
-    EncodeBatchRequest:
+    EncodeBatchItem:
       type: object
       required:
-        - items
+        - data
       properties:
-        items:
-          type: array
-          description: Array of items to encode (each without continuationId)
-          items:
-            type: object
-            required:
-              - data
-            properties:
-              data:
-                type: string
-                description: Input text containing potential PII
-              sourceContainer:
-                type: string
-                default: sdk_data
-              sourceElement:
-                type: string
-                default: text_input
-              metadata:
-                $ref: '#/components/schemas/EncodingMetadata'
-              scoreThreshold:
-                type: number
-                format: double
-                default: 0.35
-              language:
-                type: string
-                default: en
+        data:
+          type: string
+          description: Input text containing potential PII
+        sourceContainer:
+          type: string
+          default: sdk_data
+        sourceElement:
+          type: string
+          default: text_input
+        metadata:
+          $ref: '#/components/schemas/EncodingMetadata'
+        scoreThreshold:
+          type: number
+          format: double
+          default: 0.35
+        language:
+          type: string
+          default: en
+
+    EncodeBatchRequest:
+      type: array
+      description: Array of items to encode (API accepts raw array, not { items: [...] })
+      items:
+        $ref: '#/components/schemas/EncodeBatchItem'
 
     EncodeBatchResponse:
       type: object
