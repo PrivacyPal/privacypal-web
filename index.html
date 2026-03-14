@@ -11,8 +11,8 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrivacyPal - Your Private AI Agent</title>
-    <meta name="description" content="Use ChatGPT, Claude, and any AI tool without exposing your sensitive data. PrivacyPal AI runs in your web browser and keeps your private information private.">
+    <title>PrivacyPal — The Bridge Between Your Business and the World's LLMs</title>
+    <meta name="description" content="PrivacyPal is the bridge between your business and the world's LLMs — inspecting every prompt, file, and data source in real time to keep your sensitive IP safe.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -434,6 +434,103 @@
         }
         .hero-chat-msg { opacity: 0; transition: opacity 0.3s ease; }
         .hero-chat-msg.visible { opacity: 1; }
+        .hero-file-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 11px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .hero-file-chip.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-file-chip svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            color: #94a3b8;
+        }
+        .hero-file-chip .file-source {
+            display: inline-flex;
+            align-items: center;
+            padding: 1px 6px;
+            background: rgba(0, 161, 224, 0.08);
+            border-radius: 4px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #00A1E0;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .hero-flow-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .hero-flow-line {
+            fill: none;
+            stroke-width: 1.5;
+            stroke-dasharray: 6 4;
+            stroke-linecap: round;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .hero-flow-line.visible {
+            opacity: 1;
+            animation: heroFlowDash 0.8s linear infinite;
+        }
+        .hero-flow-sf { stroke: #00A1E0; }
+        .hero-flow-sl { stroke: #4A154B; }
+
+        .hero-flow-notion { stroke: #000000; }
+        .hero-flow-gdocs { stroke: #4285F4; }
+        .hero-flow-sql { stroke: #CC2927; }
+        @keyframes heroFlowDash {
+            to { stroke-dashoffset: -20; }
+        }
+        .hero-source-node {
+            position: absolute;
+            z-index: 11;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow:
+                0 8px 24px -6px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(51, 102, 153, 0.06);
+            opacity: 0;
+            transform: translateX(12px) scale(0.85);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+        .hero-source-node.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+        .hero-source-node img {
+            height: 36px;
+            width: auto;
+            max-width: 80px;
+            display: block;
+        }
         .hero-chat-input {
             margin: 0 18px 16px;
             padding: 10px 14px;
@@ -1466,6 +1563,7 @@
             .hero-product-collage { width: 100%; min-width: unset; max-width: 100%; margin-left: auto; margin-right: auto; }
             .hero-collage-layout { width: 100%; }
             .hero-chat-mockup { width: 100%; min-width: unset; max-width: 100%; }
+            .hero-flow-svg, .hero-source-node { display: none; }
             .footer-content { grid-template-columns: 1fr 1fr 1fr; }
             .a2a-grid { grid-template-columns: 1fr; }
             .a2a-grid > div:first-child { text-align: center; }
@@ -1488,6 +1586,8 @@
             .hero-works-logo { padding: 12px 14px; }
             .hero-works-logo img { height: 48px; }
             .hero-works-logo.hero-works-copilot img { height: 52px; }
+            .hero-file-chip { font-size: 0.65rem; padding: 5px 8px; }
+            .hero-flow-svg, .hero-source-node { display: none; }
             .hero-chat-msg { font-size: 0.8rem; padding: 10px 12px; }
             .hero-chat-input { font-size: 0.8rem; }
             .ai-works-everywhere { padding: 80px 20px; }
@@ -1583,17 +1683,17 @@
                     <span class="star">⭐</span> 5 stars on Google
                 </div>
                 <h1 class="hero-text">
-                    Use your favorite<br>AI—privately
+                    The Private Bridge<br>to AI Anywhere
                 </h1>
                 <p>
-                    Protect names, dates, code, financials, and addresses from AI tools — in one click.
+                    Every prompt, file, and connected data source — inspected in real time. PrivacyPal creates privacy twins for your sensitive IP so your team can use any LLM without exposing what matters most.
                 </p>
                 <div class="hero-cta-group">
                     <a href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn" target="_blank" class="hero-cta hero-cta-primary">Get Started Free</a>
                     <a href="#" class="hero-cta hero-cta-secondary" onclick="openDemoModal(event)">Book a Demo</a>
                 </div>
             </div>
-            <div class="hero-product-collage" aria-label="Works with ChatGPT, Gemini, Claude, and Copilot — real-time privacy protection">
+            <div class="hero-product-collage" aria-label="PrivacyPal protects data from Salesforce, Slack, and files before it reaches ChatGPT, Claude, or any AI">
                 <div class="hero-collage-layout">
                     <div class="hero-logos-col">
                         <div class="hero-works-logo"><img src="chatgpt-logo.png" alt="ChatGPT"></div>
@@ -1611,6 +1711,11 @@
                             </span>
                         </div>
                         <div class="hero-chat-body" id="heroChatBody">
+                            <div class="hero-file-chip" id="heroFileChip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <span id="heroFileName">Q3-Pipeline-Acme.xlsx</span>
+                                <span class="file-source">via Salesforce</span>
+                            </div>
                             <div class="hero-chat-msg user" id="heroUserMsg"></div>
                             <div class="hero-intercept-bar" id="heroInterceptBar">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -1619,6 +1724,30 @@
                             <div class="hero-chat-msg ai" id="heroAiMsg"></div>
                         </div>
                         <div class="hero-chat-input">Type a message...</div>
+                    </div>
+                    <svg class="hero-flow-svg" id="heroFlowSvg" aria-hidden="true">
+                        <path id="heroLineSf" class="hero-flow-line hero-flow-sf" d=""/>
+                        <path id="heroLineSl" class="hero-flow-line hero-flow-sl" d=""/>
+
+                        <path id="heroLineNotion" class="hero-flow-line hero-flow-notion" d=""/>
+                        <path id="heroLineGdocs" class="hero-flow-line hero-flow-gdocs" d=""/>
+                        <path id="heroLineSql" class="hero-flow-line hero-flow-sql" d=""/>
+                    </svg>
+                    <div class="hero-source-node" id="heroNodeSf">
+                        <img src="salesforce-logo.svg" alt="Salesforce">
+                    </div>
+                    <div class="hero-source-node" id="heroNodeSl">
+                        <img src="slack-logo.svg" alt="Slack">
+                    </div>
+
+                    <div class="hero-source-node" id="heroNodeNotion">
+                        <img src="notion-logo.svg" alt="Notion">
+                    </div>
+                    <div class="hero-source-node" id="heroNodeGdocs">
+                        <img src="gdocs-logo.svg" alt="Google Docs">
+                    </div>
+                    <div class="hero-source-node" id="heroNodeSql">
+                        <img src="sqlserver-logo.svg" alt="SQL Server">
                     </div>
                 </div>
             </div>
@@ -2078,27 +2207,50 @@
             dropdown.classList.toggle('open');
         }
 
-        // Hero chat animation — full lifecycle demo (same as PrivacyPal AI page)
+        // Hero chat animation — enterprise IP protection demo
         (function() {
             var userEl = document.getElementById('heroUserMsg');
             var aiEl = document.getElementById('heroAiMsg');
             var barEl = document.getElementById('heroInterceptBar');
             var barText = document.getElementById('heroInterceptText');
+            var fileChip = document.getElementById('heroFileChip');
+            var fileName = document.getElementById('heroFileName');
+            var flowSvg = document.getElementById('heroFlowSvg');
+
+            var sourceMap = {
+                sf:     { node: document.getElementById('heroNodeSf'),     line: document.getElementById('heroLineSf') },
+                sl:     { node: document.getElementById('heroNodeSl'),     line: document.getElementById('heroLineSl') },
+
+                notion: { node: document.getElementById('heroNodeNotion'), line: document.getElementById('heroLineNotion') },
+                gdocs:  { node: document.getElementById('heroNodeGdocs'),  line: document.getElementById('heroLineGdocs') },
+                sql:    { node: document.getElementById('heroNodeSql'),    line: document.getElementById('heroLineSql') }
+            };
+
+            var allNodes = [], allLines = [];
+            for (var k in sourceMap) {
+                if (sourceMap[k].node) allNodes.push(sourceMap[k].node);
+                if (sourceMap[k].line) allLines.push(sourceMap[k].line);
+            }
+
             if (!userEl || !aiEl || !barEl) return;
 
             var PROMPT_PARTS = [
-                { text: 'Drafting a note for patient ', type: 'plain' },
-                { real: 'Maria Chen', twin: 'Jane Wong', type: 'pii' },
-                { text: ', DOB ', type: 'plain' },
-                { real: '8/22/1985', twin: '9/1/1985', type: 'pii' },
-                { text: ', Patient ID ', type: 'plain' },
-                { real: '746569876', twin: '623456345', type: 'pii' },
-                { text: '. A1C is 7.2, family hx of Type 2. Treatment and follow-up plan?', type: 'plain' }
+                { text: 'Summarize the ', type: 'plain' },
+                { real: 'Acme Corp', twin: 'Vertex Inc', type: 'pii', source: 'sf' },
+                { text: ' deal. Contact: ', type: 'plain' },
+                { real: 'Sarah Mitchell', twin: 'Dana Brooks', type: 'pii', source: 'sl' },
+                { text: ', value: ', type: 'plain' },
+                { real: '$2.4M', twin: '$1.8M', type: 'pii', source: 'sql' },
+                { text: ', per ', type: 'plain' },
+                { real: 'Q3 forecast', twin: 'Doc-7291', type: 'pii', source: 'gdocs' },
+                { text: '. Ref ', type: 'plain' },
+                { real: 'deal notes', twin: 'Ref-5519', type: 'pii', source: 'notion' },
+                { text: '. Key risks?', type: 'plain' }
             ];
 
-            var AI_RESPONSE = 'For Jane Wong (DOB 9/1/1985, ID 623456345): Recommend metformin 500mg BID, titrate to 1000mg as tolerated. Lifestyle modification: balanced diet, 150 min/week moderate activity. Repeat A1C in 3 months. Ophthalmology referral if not done in past year.';
+            var AI_RESPONSE = 'For Vertex Inc: The Dana Brooks deal ($1.8M) per Doc-7291 shows moderate risk. Ref Ref-5519: extended payment terms, custom SLA. Recommend standard terms.';
 
-            var AI_REINJECTED = 'For <span class="pii-reinjected">Maria Chen</span> (DOB <span class="pii-reinjected">8/22/1985</span>, ID <span class="pii-reinjected">746569876</span>): Recommend metformin 500mg BID, titrate to 1000mg as tolerated. Lifestyle modification: balanced diet, 150 min/week moderate activity. Repeat A1C in 3 months. Ophthalmology referral if not done in past year.';
+            var AI_REINJECTED = 'For <span class="pii-reinjected">Acme Corp</span>: The <span class="pii-reinjected">Sarah Mitchell</span> deal (<span class="pii-reinjected">$2.4M</span>) per <span class="pii-reinjected">Q3 forecast</span> shows moderate risk. Ref <span class="pii-reinjected">deal notes</span>: extended payment terms, custom SLA. Recommend standard terms.';
 
             function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
 
@@ -2143,6 +2295,63 @@
                 });
             }
 
+            function showSourceNode(piiSpan, nodeEl, lineEl) {
+                if (!piiSpan || !nodeEl || !lineEl || !flowSvg) return;
+                var layout = document.querySelector('.hero-collage-layout');
+                var chat = document.querySelector('.hero-chat-mockup');
+                if (!layout || !chat) return;
+
+                var layoutRect = layout.getBoundingClientRect();
+                var chatRect = chat.getBoundingClientRect();
+                var spanRect = piiSpan.getBoundingClientRect();
+
+                var nodeH = 56;
+                var gap = 40;
+                var minSpacing = 10;
+                var nodeLeft = chatRect.right - layoutRect.left + gap;
+                var nodeTop = spanRect.top + spanRect.height / 2 - layoutRect.top - nodeH / 2;
+
+                var usedTops = [];
+                for (var i = 0; i < allNodes.length; i++) {
+                    if (allNodes[i] && allNodes[i] !== nodeEl && allNodes[i].classList.contains('visible')) {
+                        usedTops.push(parseFloat(allNodes[i].style.top) || 0);
+                    }
+                }
+                usedTops.sort(function(a, b) { return a - b; });
+                for (var i = 0; i < usedTops.length; i++) {
+                    if (Math.abs(nodeTop - usedTops[i]) < nodeH + minSpacing) {
+                        nodeTop = usedTops[i] + nodeH + minSpacing;
+                    }
+                }
+
+                nodeEl.style.left = nodeLeft + 'px';
+                nodeEl.style.top = nodeTop + 'px';
+
+                var x1 = chatRect.right - layoutRect.left + 2;
+                var y1 = spanRect.top + spanRect.height / 2 - layoutRect.top;
+                var x2 = nodeLeft;
+                var y2 = nodeTop + nodeH / 2;
+                var dx = x2 - x1;
+                lineEl.setAttribute('d',
+                    'M ' + x1 + ' ' + y1 +
+                    ' C ' + (x1 + dx * 0.4) + ' ' + y1 +
+                    ' ' + (x1 + dx * 0.6) + ' ' + y2 +
+                    ' ' + x2 + ' ' + y2
+                );
+
+                requestAnimationFrame(function() {
+                    lineEl.classList.add('visible');
+                    nodeEl.classList.add('visible');
+                });
+            }
+
+            function hideSourceNodes() {
+                allNodes.forEach(function(n) { if (n) n.classList.remove('visible'); });
+                allLines.forEach(function(l) {
+                    if (l) { l.classList.remove('visible'); l.setAttribute('d', ''); }
+                });
+            }
+
             async function runAnimation() {
                 userEl.innerHTML = '';
                 aiEl.innerHTML = '';
@@ -2150,8 +2359,14 @@
                 barText.textContent = 'Scanning...';
                 userEl.classList.remove('visible');
                 aiEl.classList.remove('visible');
+                if (fileChip) fileChip.classList.remove('visible');
+                if (fileName) fileName.textContent = 'Q3-Pipeline-Acme.xlsx';
+                hideSourceNodes();
 
                 await sleep(600);
+
+                if (fileChip) fileChip.classList.add('visible');
+                await sleep(400);
 
                 userEl.classList.add('visible');
                 for (var p = 0; p < PROMPT_PARTS.length; p++) {
@@ -2160,13 +2375,19 @@
                         await typeText(userEl, part.text, 22);
                     } else {
                         await typePii(userEl, part.real, 'pii-real');
+                        if (part.source && sourceMap[part.source]) {
+                            var spans = userEl.querySelectorAll('.pii-real');
+                            var last = spans[spans.length - 1];
+                            showSourceNode(last, sourceMap[part.source].node, sourceMap[part.source].line);
+                        }
+                        await sleep(200);
                     }
                 }
 
                 await sleep(500);
 
                 barEl.classList.add('visible');
-                barText.textContent = 'Scanning for sensitive data...';
+                barText.textContent = 'Scanning prompt and attached files\u2026';
                 await sleep(800);
 
                 var piiSpans = userEl.querySelectorAll('.pii-real');
@@ -2175,18 +2396,27 @@
                     if (PROMPT_PARTS[s].type === 'pii') piiData.push(PROMPT_PARTS[s]);
                 }
                 for (var j = 0; j < piiSpans.length; j++) {
-                    await sleep(350);
+                    await sleep(250);
                     var sp = piiSpans[j];
                     var twin = piiData[j] ? piiData[j].twin : '***';
                     sp.style.transition = 'opacity 0.3s ease';
                     sp.style.opacity = '0';
-                    await sleep(300);
+                    await sleep(250);
                     sp.className = 'pii-twin';
                     sp.textContent = twin;
                     sp.style.opacity = '1';
                 }
 
-                barText.textContent = 'PrivacyPal replaced 3 PII elements';
+                if (fileName) {
+                    await sleep(300);
+                    fileName.style.transition = 'opacity 0.3s ease';
+                    fileName.style.opacity = '0';
+                    await sleep(300);
+                    fileName.textContent = 'Doc-7291.xlsx';
+                    fileName.style.opacity = '1';
+                }
+
+                barText.textContent = 'PrivacyPal protected 5 data points + 1 file';
                 await sleep(700);
 
                 aiEl.classList.add('visible');
@@ -2194,17 +2424,26 @@
 
                 await sleep(800);
 
-                barText.textContent = 'Re-injecting original data for you...';
+                barText.textContent = 'Re-injecting original data for you\u2026';
                 aiEl.style.transition = 'opacity 0.3s ease';
                 aiEl.style.opacity = '0';
                 await sleep(400);
                 aiEl.innerHTML = AI_REINJECTED;
                 aiEl.style.opacity = '1';
 
+                if (fileName) {
+                    fileName.style.opacity = '0';
+                    await sleep(300);
+                    fileName.textContent = 'Q3-Pipeline-Acme.xlsx';
+                    fileName.style.opacity = '1';
+                }
+
                 await sleep(600);
-                barText.textContent = 'Complete — AI never saw your real data';
+                barText.textContent = 'Complete \u2014 your IP never reached AI';
 
                 await sleep(4000);
+                hideSourceNodes();
+                await sleep(400);
                 runAnimation();
             }
 
