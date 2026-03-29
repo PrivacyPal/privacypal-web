@@ -35,8 +35,8 @@
         .nav-item-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px);}
         .nav-dropdown-menu a{display:block;padding:10px 20px;color:var(--text-muted);text-decoration:none;font-size:0.9rem;}
         .nav-dropdown-menu a:hover{color:var(--cobalt);background:rgba(51,102,153,0.06);}
-        .cta-nav-button{background:var(--cobalt);color:white!important;padding:10px 24px;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;}
-        .cta-nav-button:hover{background:var(--cobalt-dark);}
+        .cta-nav-button{background:var(--cobalt);color:white!important;padding:12px 30px;border-radius:50px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.3s ease;box-shadow:0 0 20px rgba(51,102,153,0.4);}
+        .cta-nav-button:hover{background:var(--cobalt-light);transform:translateY(-2px);box-shadow:0 0 30px rgba(51,102,153,0.6);}
         .about-hero{min-height:50vh;display:flex;align-items:center;justify-content:center;background:var(--bg-alt);padding:120px 24px 80px;text-align:center;}
         .about-hero h1{font-family:'Radley',Georgia,'Times New Roman',serif;font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;color:var(--text);margin-bottom:20px;line-height:1.15;}
         .about-hero p{font-size:1.15rem;color:var(--text-muted);max-width:720px;margin:0 auto;line-height:1.75;}
@@ -101,8 +101,8 @@
         .mobile-dropdown.open .mobile-dropdown-menu{max-height:300px;}
         .mobile-dropdown-menu a{display:block;padding:12px 24px;font-size:1.1rem;font-weight:500;color:var(--text-muted);border-bottom:1px solid rgba(0,0,0,0.05);}
         .mobile-dropdown-menu a:hover{color:var(--cobalt);}
-        .mobile-cta{background:var(--cobalt);color:white!important;padding:16px 40px;border-radius:8px;font-weight:600;margin-top:16px;}
-        .mobile-cta:hover{background:var(--cobalt-dark);}
+        .mobile-cta{background:var(--cobalt);color:white!important;padding:16px 40px;border-radius:50px;font-weight:600;margin-top:16px;text-decoration:none;transition:all 0.3s ease;box-shadow:0 0 20px rgba(51,102,153,0.4);}
+        .mobile-cta:hover{background:var(--cobalt-light);transform:translateY(-2px);box-shadow:0 0 30px rgba(51,102,153,0.6);}
         @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.logo img{height:44px;}.footer-content{grid-template-columns:1fr;}.footer-contact{position:static;text-align:center;margin-top:16px;}.values-grid,.team-grid{grid-template-columns:1fr;}}
     </style>
 </head>
@@ -117,12 +117,13 @@
                     <div class="nav-dropdown-menu">
                         <a href="privacypal-ai.html">PrivacyPal AI</a>
                         <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
-                        <a href="ai-dspm.html">AI-(D)SPM</a>
+                        <a href="ai-dspm.html">AI-DSPM</a>
                     </div>
                 </div>
                 <div class="nav-item-dropdown">
                     <span class="nav-dropdown-trigger">Solutions</span>
                     <div class="nav-dropdown-menu">
+                        <a href="banking.html">Banking</a>
                         <a href="telecommunications.html">Telecommunications</a>
                         <a href="healthcare.html">Healthcare</a>
                         <a href="technology.html">Technology</a>
@@ -138,7 +139,7 @@
                 </div>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="developers.html">Developers</a>
-                <a href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn" target="_blank" class="cta-nav-button">Install Now</a>
+                <a href="desktop.html" class="cta-nav-button">Download Now</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
@@ -150,12 +151,13 @@
             <div class="mobile-dropdown-menu">
                 <a href="privacypal-ai.html" onclick="closeMobileMenu()">PrivacyPal AI</a>
                 <a href="privacypal-cloud.html" onclick="closeMobileMenu()">PrivacyPal Cloud</a>
-                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-(D)SPM</a>
+                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-DSPM</a>
             </div>
         </div>
         <div class="mobile-dropdown">
             <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
             <div class="mobile-dropdown-menu">
+                <a href="banking.html" onclick="closeMobileMenu()">Banking</a>
                 <a href="telecommunications.html" onclick="closeMobileMenu()">Telecommunications</a>
                 <a href="healthcare.html" onclick="closeMobileMenu()">Healthcare</a>
                 <a href="technology.html" onclick="closeMobileMenu()">Technology</a>
@@ -171,7 +173,7 @@
         </div>
         <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
         <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-        <a href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn" target="_blank" class="mobile-cta">Install Now</a>
+        <a href="desktop.html" class="mobile-cta">Download Now</a>
     </div>
     <section class="about-hero">
         <div class="container">
@@ -273,15 +275,16 @@
                 <ul>
                     <li><a href="privacypal-ai.html">PrivacyPal AI</a></li>
                     <li><a href="privacypal-cloud.html">PrivacyPal Cloud</a></li>
-                    <li><a href="ai-dspm.html">AI-(D)SPM</a></li>
+                    <li><a href="ai-dspm.html">AI-DSPM</a></li>
                     <li><a href="index.html#pricing">Pricing</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn" target="_blank">Install</a></li>
+                    <li><a href="desktop.html">Install</a></li>
                     <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank">SDK Documentation</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Solutions</h4>
                 <ul>
+                    <li><a href="banking.html">Banking</a></li>
                     <li><a href="telecommunications.html">Telecommunications</a></li>
                     <li><a href="healthcare.html">Healthcare</a></li>
                     <li><a href="technology.html">Technology</a></li>

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0QN2Z18HP0');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download PrivacyPal for Desktop — Windows 11 &amp; macOS</title>
+    <meta name="description" content="Download PrivacyPal for Windows 11 or macOS. Native desktop protection for ChatGPT, Claude, Copilot, and more. Version 1.8.2.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cobalt: #336699;
+            --cobalt-dark: #1a3a5a;
+            --cobalt-light: #4a86c2;
+            --glass: rgba(0, 0, 0, 0.03);
+            --glass-border: #e2e8f0;
+            --glass-hover: rgba(51, 102, 153, 0.08);
+            --win-blue: #0078d4;
+            --win-bg: linear-gradient(145deg, #f0f7ff 0%, #e8f0fa 50%, #dfe9f5 100%);
+            --mac-bg: linear-gradient(145deg, #f5f5f7 0%, #ebebed 50%, #e3e3e8 100%);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #0f172a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .bg-mesh {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(51, 102, 153, 0.07) 0%, transparent 55%);
+        }
+        #velocity-lines {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .velocity-line {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--cobalt), transparent);
+            opacity: 0.25;
+            animation: moveDown 8s linear infinite;
+        }
+        @keyframes moveDown {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: box-shadow 0.3s ease;
+        }
+        nav.scrolled { box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08); }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 56px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 36px; align-items: center; }
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--cobalt-light); }
+        .nav-item-dropdown { position: relative; }
+        .nav-dropdown-trigger {
+            color: #475569;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+        .nav-dropdown-trigger:hover { color: var(--cobalt-light); }
+        .nav-dropdown-trigger::after {
+            content: '';
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+            margin-left: 4px;
+            opacity: 0.7;
+        }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            min-width: 200px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+            z-index: 1001;
+        }
+        .nav-item-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(4px);
+        }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .nav-dropdown-menu a:hover {
+            color: var(--cobalt-light);
+            background: var(--glass-hover);
+        }
+        .cta-nav-button {
+            background: var(--cobalt);
+            color: #fff !important;
+            padding: 11px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .cta-nav-button:hover {
+            background: var(--cobalt-light);
+            transform: translateY(-1px);
+            box-shadow: 0 0 28px rgba(51, 102, 153, 0.45);
+        }
+
+        .dl-hero {
+            padding: 140px 24px 80px;
+            background: #f8fafc;
+            position: relative;
+            overflow: hidden;
+        }
+        .dl-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(51, 102, 153, 0.14) 0%, transparent 68%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .dl-hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dl-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 22px;
+            background: rgba(51, 102, 153, 0.1);
+            border: 1px solid rgba(51, 102, 153, 0.25);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--cobalt);
+            margin-bottom: 40px;
+        }
+        .dl-badge .ver {
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            padding: 4px 10px;
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            color: #0f172a;
+            font-size: 0.8rem;
+        }
+
+        .dl-grid {
+            width: 100%;
+            align-self: stretch;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .dl-card {
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            padding: 40px 36px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        .dl-card.win { background: var(--win-bg); }
+        .dl-card.mac { background: var(--mac-bg); }
+        .dl-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .dl-card.win::after {
+            background-image: radial-gradient(circle at 85% 15%, rgba(0, 120, 212, 0.12) 0%, transparent 45%);
+        }
+        .dl-card.mac::after {
+            background-image: radial-gradient(circle at 85% 15%, rgba(0, 0, 0, 0.06) 0%, transparent 45%);
+        }
+        .dl-card-inner { position: relative; z-index: 1; }
+
+        .dl-brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .dl-msft {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .dl-msft-logo {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+        }
+        .dl-msft-logo span:nth-child(1) { background: #f65314; border-radius: 1px; }
+        .dl-msft-logo span:nth-child(2) { background: #7cbb00; border-radius: 1px; }
+        .dl-msft-logo span:nth-child(3) { background: #00a4ef; border-radius: 1px; }
+        .dl-msft-logo span:nth-child(4) { background: #ffbb00; border-radius: 1px; }
+        .dl-msft span.label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #5a6a7a;
+        }
+        .win-mark {
+            width: 44px;
+            height: 44px;
+            color: var(--win-blue);
+        }
+        .apple-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .apple-logo {
+            width: 40px;
+            height: 40px;
+            color: #1d1d1f;
+        }
+        .apple-logo svg { width: 100%; height: 100%; display: block; }
+        .dl-mac-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6e6e73;
+        }
+        .dl-macos-wordmark {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #1d1d1f;
+            line-height: 1;
+        }
+
+        .dl-card h2 {
+            font-family: 'Radley', Georgia, serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+        .dl-card .sub {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 24px;
+            line-height: 1.55;
+        }
+        .dl-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+        .dl-pill {
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.85);
+            border: 1px solid rgba(0,0,0,0.05);
+            color: #334155;
+        }
+        .dl-card.win .dl-pill { background: rgba(255,255,255,0.9); border-color: rgba(0, 120, 212, 0.15); }
+        .dl-card.mac .dl-pill { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.06); }
+
+        .dl-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .dl-btn svg { flex-shrink: 0; }
+        .dl-btn.win {
+            background: var(--win-blue);
+            color: #fff !important;
+            box-shadow: 0 8px 24px -6px rgba(0, 120, 212, 0.55);
+        }
+        .dl-btn.win:hover {
+            background: #006cbd;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px -8px rgba(0, 120, 212, 0.6);
+        }
+        .dl-btn.mac {
+            background: #1d1d1f;
+            color: #fff !important;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.35);
+        }
+        .dl-btn.mac:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+        .dl-filename {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: #64748b;
+            word-break: break-all;
+            font-family: ui-monospace, 'Cascadia Code', monospace;
+        }
+
+        /* Split download button */
+        .dl-split-group {
+            position: relative;
+            display: flex;
+            border-radius: 14px;
+        }
+        .dl-split-main {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex: 1;
+            padding: 16px 20px;
+            border-radius: 14px 0 0 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s;
+            background: #1d1d1f;
+            color: #fff !important;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.35);
+        }
+        .dl-split-main:hover { background: #000; }
+        .dl-split-main svg { flex-shrink: 0; }
+        .dl-split-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            border: none;
+            border-left: 1px solid rgba(255,255,255,0.18);
+            border-radius: 0 14px 14px 0;
+            background: #1d1d1f;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.35);
+        }
+        .dl-split-toggle:hover { background: #000; }
+        .dl-split-toggle svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s;
+        }
+        .dl-split-group.open .dl-split-toggle svg {
+            transform: rotate(180deg);
+        }
+        .dl-split-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            box-shadow: 0 16px 48px -12px rgba(0,0,0,0.18);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+            z-index: 20;
+            overflow: hidden;
+        }
+        .dl-split-group.open .dl-split-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dl-split-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 18px;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 600;
+            transition: background 0.15s;
+        }
+        .dl-split-option:hover { background: var(--glass-hover); }
+        .dl-split-option + .dl-split-option {
+            border-top: 1px solid var(--glass-border);
+        }
+        .dl-split-option-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .dl-split-option-title { font-size: 0.95rem; }
+        .dl-split-option-sub {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .dl-split-chip {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            color: #475569;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .dl-split-chip.rec {
+            background: rgba(51,102,153,0.1);
+            color: var(--cobalt);
+        }
+
+        /* CLI install section */
+        .dl-cli {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+        .dl-cli-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dl-cli-block {
+            position: relative;
+            background: #f1f5f9;
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+        }
+        .dl-cli-shell-name {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+        }
+        .dl-cli-code {
+            flex: 1;
+            min-width: 0;
+            color: #334155;
+            font-size: 0.88rem;
+            line-height: 1;
+            font-family: ui-monospace, 'Cascadia Code', 'SF Mono', monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .dl-cli-code .prompt {
+            color: #94a3b8;
+            user-select: none;
+        }
+        .dl-cli-copy {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            color: #64748b;
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            flex-shrink: 0;
+        }
+        .dl-cli-copy:hover {
+            background: var(--glass-hover);
+            color: #334155;
+            border-color: var(--cobalt-light);
+        }
+        .dl-cli-copy.copied {
+            background: rgba(34,197,94,0.08);
+            border-color: rgba(34,197,94,0.3);
+            color: #16a34a;
+        }
+
+        @media (max-width: 900px) {
+            .dl-split-main { font-size: 0.9rem; padding: 14px 16px; }
+            .dl-split-toggle { width: 44px; }
+            .dl-cli-code { font-size: 0.82rem; }
+        }
+
+        .dl-notes {
+            max-width: 900px;
+            margin: 48px auto 0;
+            padding: 32px 36px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+        }
+        .dl-notes h3 {
+            font-family: 'Radley', Georgia, serif;
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+        .dl-notes ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            color: #475569;
+            font-size: 0.98rem;
+        }
+        .dl-notes li {
+            padding-left: 28px;
+            position: relative;
+        }
+        .dl-notes li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            opacity: 0.85;
+        }
+
+        footer {
+            background: #fff;
+            border-top: 1px solid var(--glass-border);
+            padding: 64px 24px 32px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 12px; color: #0f172a; }
+        .footer-brand p { color: #64748b; line-height: 1.7; margin-bottom: 20px; font-size: 0.95rem; }
+        .social-links { display: flex; gap: 12px; }
+        .social-links a {
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            text-decoration: none;
+        }
+        .social-links a:hover { background: var(--cobalt); color: #fff; border-color: var(--cobalt); }
+        .footer-links h4 { font-size: 1rem; margin-bottom: 16px; font-weight: 700; color: #0f172a; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #64748b; text-decoration: none; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--cobalt); }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        .footer-bottom a { color: var(--cobalt); text-decoration: none; }
+        .footer-contact {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            text-align: right;
+            font-size: 0.85rem;
+        }
+        .footer-contact strong { color: #0f172a; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            width: 44px;
+            height: 44px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #0f172a;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(24px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu a { color: #0f172a; text-decoration: none; font-size: 1.3rem; font-weight: 600; }
+        .mobile-menu a:hover { color: var(--cobalt); }
+        .mobile-dropdown { width: 100%; text-align: center; }
+        .mobile-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 24px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f172a;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .mobile-dropdown-trigger::after {
+            content: '';
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid currentColor;
+        }
+        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform: rotate(180deg); }
+        .mobile-dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+        .mobile-dropdown.open .mobile-dropdown-menu { max-height: 300px; }
+        .mobile-dropdown-menu a {
+            display: block;
+            padding: 12px 24px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+        .mobile-cta {
+            background: var(--cobalt);
+            color: #fff !important;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
+        }
+        .mobile-cta:hover {
+            background: var(--cobalt-light);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
+        }
+
+        @media (max-width: 900px) {
+            .dl-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-contact { position: static; text-align: center; margin-top: 16px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    <div id="velocity-lines"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="privacypal-logo-color.png" alt="PrivacyPal">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="nav-item-dropdown">
+                    <span class="nav-dropdown-trigger">Products</span>
+                    <div class="nav-dropdown-menu">
+                        <a href="privacypal-ai.html">PrivacyPal AI</a>
+                        <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
+                        <a href="ai-dspm.html">AI-DSPM</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <span class="nav-dropdown-trigger">Solutions</span>
+                    <div class="nav-dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="telecommunications.html">Telecommunications</a>
+                        <a href="healthcare.html">Healthcare</a>
+                        <a href="technology.html">Technology</a>
+                    </div>
+                </div>
+                <div class="nav-item-dropdown">
+                    <span class="nav-dropdown-trigger">Company</span>
+                    <div class="nav-dropdown-menu">
+                        <a href="about.html">About Us</a>
+                        <a href="events.html">Events</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="developers.html">Developers</a>
+                <a href="#downloads" class="cta-nav-button">Download Now</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMobileMenu()">Home</a>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Products</button>
+            <div class="mobile-dropdown-menu">
+                <a href="privacypal-ai.html" onclick="closeMobileMenu()">PrivacyPal AI</a>
+                <a href="privacypal-cloud.html" onclick="closeMobileMenu()">PrivacyPal Cloud</a>
+                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-DSPM</a>
+            </div>
+        </div>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
+            <div class="mobile-dropdown-menu">
+                <a href="banking.html" onclick="closeMobileMenu()">Banking</a>
+                <a href="telecommunications.html" onclick="closeMobileMenu()">Telecommunications</a>
+                <a href="healthcare.html" onclick="closeMobileMenu()">Healthcare</a>
+                <a href="technology.html" onclick="closeMobileMenu()">Technology</a>
+            </div>
+        </div>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Company</button>
+            <div class="mobile-dropdown-menu">
+                <a href="about.html" onclick="closeMobileMenu()">About Us</a>
+                <a href="events.html" onclick="closeMobileMenu()">Events</a>
+                <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
+            </div>
+        </div>
+        <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
+        <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
+        <a href="#downloads" class="mobile-cta" onclick="closeMobileMenu()">Download Now</a>
+    </div>
+
+    <section class="dl-hero" id="downloads">
+        <div class="dl-hero-inner">
+            <div class="dl-badge">
+                <span>PrivacyPal for desktop</span>
+                <span class="ver">v1.8.2</span>
+            </div>
+            <div class="dl-grid">
+            <article class="dl-card win">
+                <div class="dl-card-inner">
+                    <div class="dl-brand-row">
+                        <div class="dl-msft">
+                            <div class="dl-msft-logo" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="label">Microsoft</span>
+                        </div>
+                        <svg class="win-mark" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                            <title>Windows</title>
+                            <path fill="currentColor" d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/>
+                        </svg>
+                    </div>
+                    <h2>Windows 11</h2>
+                    <p class="sub">Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>
+                    <div class="dl-meta">
+                        <span class="dl-pill">64-bit</span>
+                        <span class="dl-pill">.exe installer</span>
+                        <span class="dl-pill">Windows 11</span>
+                    </div>
+                    <a class="dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.2.exe" rel="noopener noreferrer">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
+                        Download for Windows
+                    </a>
+                    <p class="dl-filename">PrivacyPal-Setup-1.8.2.exe</p>
+
+                    <div class="dl-cli">
+                        <div class="dl-cli-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                            Or install via command line
+                        </div>
+                        <div class="dl-cli-block">
+                            <span class="dl-cli-shell-name">PowerShell</span>
+                            <div class="dl-cli-code"><span class="prompt">&gt; </span>winget install PrivacyPal.AI</div>
+                            <button class="dl-cli-copy" onclick="copyCliCommand(this, 'winget install PrivacyPal.AI')">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="dl-card mac">
+                <div class="dl-card-inner">
+                    <div class="dl-brand-row">
+                        <div class="apple-row">
+                            <div class="apple-logo" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor" role="img"><title>Apple</title><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                            </div>
+                            <span class="dl-mac-badge">Apple</span>
+                        </div>
+                        <div class="dl-macos-wordmark" aria-hidden="true">macOS</div>
+                    </div>
+                    <h2>macOS</h2>
+                    <p class="sub">Native support for Apple Silicon and Intel Macs. Choose your chip and install in seconds.</p>
+                    <div class="dl-meta">
+                        <span class="dl-pill">.dmg installer</span>
+                        <span class="dl-pill">Apple Silicon &amp; Intel</span>
+                        <span class="dl-pill">macOS 13+</span>
+                    </div>
+                    <div class="dl-split-group" id="macSplitBtn">
+                        <a class="dl-split-main" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.2-arm64.dmg" rel="noopener noreferrer">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                            Download for Mac
+                        </a>
+                        <button class="dl-split-toggle" onclick="toggleMacDropdown(event)" aria-label="More download options">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="dl-split-menu">
+                            <a class="dl-split-option" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.2-arm64.dmg" rel="noopener noreferrer">
+                                <div class="dl-split-option-info">
+                                    <span class="dl-split-option-title">Apple Silicon</span>
+                                    <span class="dl-split-option-sub">M1, M2, M3, M4 &mdash; arm64</span>
+                                </div>
+                                <span class="dl-split-chip rec">Recommended</span>
+                            </a>
+                            <a class="dl-split-option" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.2-x64.dmg" rel="noopener noreferrer">
+                                <div class="dl-split-option-info">
+                                    <span class="dl-split-option-title">Intel</span>
+                                    <span class="dl-split-option-sub">Older Macs &mdash; x86_64</span>
+                                </div>
+                                <span class="dl-split-chip">x64</span>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="dl-filename">PrivacyPal-1.8.2-arm64.dmg / PrivacyPal-1.8.2-x64.dmg</p>
+
+                    <div class="dl-cli">
+                        <div class="dl-cli-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                            Or install via command line
+                        </div>
+                        <div class="dl-cli-block">
+                            <span class="dl-cli-shell-name">Terminal</span>
+                            <div class="dl-cli-code"><span class="prompt">$ </span>brew install --cask privacypal</div>
+                            <button class="dl-cli-copy" onclick="copyCliCommand(this, 'brew install --cask privacypal')">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            </div>
+        </div>
+
+        <div class="dl-notes">
+            <h3>Before you install</h3>
+            <ul>
+                <li>Close other AI apps if the installer prompts you—PrivacyPal hooks in at the system edge for full coverage.</li>
+                <li>Windows: run the installer as a user with permission to install applications; SmartScreen may ask you to confirm the publisher.</li>
+                <li>macOS: open the .dmg from your Downloads folder; drag PrivacyPal to your Applications folder, then grant any privacy or accessibility permissions PrivacyPal requests.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>PrivacyPal</h3>
+                <p>Use ChatGPT, Claude, and any AI tool without exposing your sensitive data.</p>
+                <div class="social-links">
+                    <a href="https://x.com/privacypalai" title="X (Twitter)">𝕏</a>
+                    <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="privacypal-ai.html">PrivacyPal AI</a></li>
+                    <li><a href="privacypal-cloud.html">PrivacyPal Cloud</a></li>
+                    <li><a href="ai-dspm.html">AI-DSPM</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="desktop.html">Install</a></li>
+                    <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener noreferrer">SDK Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="banking.html">Banking</a></li>
+                    <li><a href="telecommunications.html">Telecommunications</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+            <div class="footer-contact">
+                <strong>PrivacyPal</strong><br>
+                2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function createVelocityLines() {
+            var container = document.getElementById('velocity-lines');
+            if (!container) return;
+            for (var i = 0; i < 18; i++) {
+                var line = document.createElement('div');
+                line.className = 'velocity-line';
+                line.style.left = Math.random() * 100 + 'vw';
+                line.style.animationDelay = Math.random() * 5 + 's';
+                line.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                container.appendChild(line);
+            }
+        })();
+
+        window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        (function() {
+            var hamburger = document.getElementById('hamburger');
+            var mobileMenu = document.getElementById('mobileMenu');
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        })();
+
+        function closeMobileMenu() {
+            var h = document.getElementById('hamburger');
+            var m = document.getElementById('mobileMenu');
+            if (h) h.classList.remove('active');
+            if (m) m.classList.remove('active');
+            document.body.style.overflow = '';
+            document.querySelectorAll('.mobile-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+        }
+        function toggleMobileDropdown(btn) {
+            btn.closest('.mobile-dropdown').classList.toggle('open');
+        }
+
+        function toggleMacDropdown(e) {
+            e.stopPropagation();
+            var group = document.getElementById('macSplitBtn');
+            group.classList.toggle('open');
+        }
+
+        document.addEventListener('click', function(e) {
+            var group = document.getElementById('macSplitBtn');
+            if (group && !group.contains(e.target)) {
+                group.classList.remove('open');
+            }
+        });
+
+        function copyCliCommand(btn, command) {
+            navigator.clipboard.writeText(command).then(function() {
+                var originalText = btn.innerHTML;
+                btn.classList.add('copied');
+                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+                setTimeout(function() {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

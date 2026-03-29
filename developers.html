@@ -1293,16 +1293,19 @@
         .mobile-menu a:hover { color: var(--cobalt); }
         .mobile-menu .mobile-cta {
             background: var(--cobalt);
-            color: white;
+            color: white !important;
             padding: 16px 40px;
             border-radius: 50px;
             font-weight: 600;
             margin-top: 16px;
-            transition: background 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
         .mobile-menu .mobile-cta:hover {
             background: var(--cobalt-light);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
         /* Mobile submenu */
         .mobile-dropdown { width: 100%; text-align: center; }
@@ -1420,12 +1423,13 @@
                     <div class="nav-dropdown-menu">
                         <a href="privacypal-ai.html">PrivacyPal AI</a>
                         <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
-                        <a href="ai-dspm.html">AI-(D)SPM</a>
+                        <a href="ai-dspm.html">AI-DSPM</a>
                     </div>
                 </div>
                 <div class="nav-item-dropdown">
                     <span class="nav-dropdown-trigger">Solutions</span>
                     <div class="nav-dropdown-menu">
+                        <a href="banking.html">Banking</a>
                         <a href="telecommunications.html">Telecommunications</a>
                         <a href="healthcare.html">Healthcare</a>
                         <a href="technology.html">Technology</a>
@@ -1458,12 +1462,13 @@
             <div class="mobile-dropdown-menu">
                 <a href="privacypal-ai.html" onclick="closeMobileMenu()">PrivacyPal AI</a>
                 <a href="privacypal-cloud.html" onclick="closeMobileMenu()">PrivacyPal Cloud</a>
-                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-(D)SPM</a>
+                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-DSPM</a>
             </div>
         </div>
         <div class="mobile-dropdown">
             <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
             <div class="mobile-dropdown-menu">
+                <a href="banking.html" onclick="closeMobileMenu()">Banking</a>
                 <a href="telecommunications.html" onclick="closeMobileMenu()">Telecommunications</a>
                 <a href="healthcare.html" onclick="closeMobileMenu()">Healthcare</a>
                 <a href="technology.html" onclick="closeMobileMenu()">Technology</a>
@@ -2075,9 +2080,9 @@ console.<span class="code-function">log</span>(decoded.<span class="code-propert
                 <ul>
                     <li><a href="privacypal-ai.html">PrivacyPal AI</a></li>
                     <li><a href="privacypal-cloud.html">PrivacyPal Cloud</a></li>
-                    <li><a href="ai-dspm.html">AI-(D)SPM</a></li>
+                    <li><a href="ai-dspm.html">AI-DSPM</a></li>
                     <li><a href="index.html#pricing">Pricing</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn" target="_blank">Install</a></li>
+                    <li><a href="desktop.html">Install</a></li>
                     <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank">SDK Documentation</a></li>
                 </ul>
             </div>
@@ -2085,6 +2090,7 @@ console.<span class="code-function">log</span>(decoded.<span class="code-propert
             <div class="footer-links">
                 <h4>Solutions</h4>
                 <ul>
+                    <li><a href="banking.html">Banking</a></li>
                     <li><a href="telecommunications.html">Telecommunications</a></li>
                     <li><a href="healthcare.html">Healthcare</a></li>
                     <li><a href="technology.html">Technology</a></li>

@@ -12,8 +12,8 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-(D)SPM - Data Security Posture Management | PrivacyPal</title>
-    <meta name="description" content="Know what's in your data before AI does. PrivacyPal AI-(D)SPM scans internal databases with context-aware classification—no regex, no blind spots. Sovereign by design.">
+    <title>AI-DSPM - Data Security Posture Management | PrivacyPal</title>
+    <meta name="description" content="Know what's in your data before AI does. PrivacyPal AI-DSPM scans internal databases with context-aware classification—no regex, no blind spots. Sovereign by design.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -1297,16 +1297,19 @@
         .mobile-menu a:hover { color: var(--cobalt); }
         .mobile-menu .mobile-cta {
             background: var(--cobalt);
-            color: white;
+            color: white !important;
             padding: 16px 40px;
             border-radius: 50px;
             font-weight: 600;
             margin-top: 16px;
-            transition: background 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
         }
         .mobile-menu .mobile-cta:hover {
             background: var(--cobalt-light);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
         }
         /* Mobile submenu */
         .mobile-dropdown { width: 100%; text-align: center; }
@@ -1695,12 +1698,13 @@
                     <div class="nav-dropdown-menu">
                         <a href="privacypal-ai.html">PrivacyPal AI</a>
                         <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
-                        <a href="ai-dspm.html" class="active">AI-(D)SPM</a>
+                        <a href="ai-dspm.html" class="active">AI-DSPM</a>
                     </div>
                 </div>
                 <div class="nav-item-dropdown">
                     <span class="nav-dropdown-trigger">Solutions</span>
                     <div class="nav-dropdown-menu">
+                        <a href="banking.html">Banking</a>
                         <a href="telecommunications.html">Telecommunications</a>
                         <a href="healthcare.html">Healthcare</a>
                         <a href="technology.html">Technology</a>
@@ -1716,7 +1720,7 @@
                 </div>
                 <a href="index.html#pricing">Pricing</a>
                 <a href="developers.html">Developers</a>
-                <a href="https://portal.privacypal.ai/signup" class="cta-nav-button">Get API Key</a>
+                <a href="desktop.html" class="cta-nav-button">Download Now</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -1733,12 +1737,13 @@
             <div class="mobile-dropdown-menu">
                 <a href="privacypal-ai.html" onclick="closeMobileMenu()">PrivacyPal AI</a>
                 <a href="privacypal-cloud.html" onclick="closeMobileMenu()">PrivacyPal Cloud</a>
-                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-(D)SPM</a>
+                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-DSPM</a>
             </div>
         </div>
         <div class="mobile-dropdown">
             <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
             <div class="mobile-dropdown-menu">
+                <a href="banking.html" onclick="closeMobileMenu()">Banking</a>
                 <a href="telecommunications.html" onclick="closeMobileMenu()">Telecommunications</a>
                 <a href="healthcare.html" onclick="closeMobileMenu()">Healthcare</a>
                 <a href="technology.html" onclick="closeMobileMenu()">Technology</a>
@@ -1754,7 +1759,7 @@
         </div>
         <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
         <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-        <a href="https://portal.privacypal.ai/signup" class="mobile-cta">Get API Key</a>
+        <a href="desktop.html" class="mobile-cta">Download Now</a>
     </div>
 
     <!-- Developer Hero -->
@@ -1762,7 +1767,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1>
-                    <span class="highlight">AI-(D)SPM</span><br>
+                    <span class="highlight">AI-DSPM</span><br>
                     Know What's in Your Data—Before AI Does
                 </h1>
                 <p>
@@ -1796,7 +1801,7 @@
                     </p>
                 </div>
                 <div class="dspm-feature-visual">
-                    <img src="product-shot-007.png" alt="AI-(D)SPM fast deployment" loading="lazy">
+                    <img src="product-shot-007.png" alt="AI-DSPM fast deployment" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1938,9 +1943,9 @@
                 <ul>
                     <li><a href="privacypal-ai.html">PrivacyPal AI</a></li>
                     <li><a href="privacypal-cloud.html">PrivacyPal Cloud</a></li>
-                    <li><a href="ai-dspm.html">AI-(D)SPM</a></li>
+                    <li><a href="ai-dspm.html">AI-DSPM</a></li>
                     <li><a href="index.html#pricing">Pricing</a></li>
-                    <li><a href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn" target="_blank">Install</a></li>
+                    <li><a href="desktop.html">Install</a></li>
                     <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank">SDK Documentation</a></li>
                 </ul>
             </div>
@@ -1948,6 +1953,7 @@
             <div class="footer-links">
                 <h4>Solutions</h4>
                 <ul>
+                    <li><a href="banking.html">Banking</a></li>
                     <li><a href="telecommunications.html">Telecommunications</a></li>
                     <li><a href="healthcare.html">Healthcare</a></li>
                     <li><a href="technology.html">Technology</a></li>
