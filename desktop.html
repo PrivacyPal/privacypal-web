@@ -375,6 +375,13 @@
             background: #000;
             transform: translateY(-2px);
         }
+        .dl-btn.dl-coming-soon {
+            background: #94a3b8;
+            cursor: default;
+            box-shadow: none;
+            pointer-events: none;
+            opacity: 0.85;
+        }
         .dl-filename {
             margin-top: 16px;
             font-size: 0.8rem;
@@ -918,46 +925,9 @@
                         <span class="dl-pill">Apple Silicon &amp; Intel</span>
                         <span class="dl-pill">macOS 13+</span>
                     </div>
-                    <div class="dl-split-group" id="macSplitBtn">
-                        <a class="dl-split-main" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.2-arm64.dmg" rel="noopener noreferrer">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-                            Download for Mac
-                        </a>
-                        <button class="dl-split-toggle" onclick="toggleMacDropdown(event)" aria-label="More download options">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                        </button>
-                        <div class="dl-split-menu">
-                            <a class="dl-split-option" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.2-arm64.dmg" rel="noopener noreferrer">
-                                <div class="dl-split-option-info">
-                                    <span class="dl-split-option-title">Apple Silicon</span>
-                                    <span class="dl-split-option-sub">M1, M2, M3, M4 &mdash; arm64</span>
-                                </div>
-                                <span class="dl-split-chip rec">Recommended</span>
-                            </a>
-                            <a class="dl-split-option" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.2-x64.dmg" rel="noopener noreferrer">
-                                <div class="dl-split-option-info">
-                                    <span class="dl-split-option-title">Intel</span>
-                                    <span class="dl-split-option-sub">Older Macs &mdash; x86_64</span>
-                                </div>
-                                <span class="dl-split-chip">x64</span>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="dl-filename">PrivacyPal-1.8.2-arm64.dmg / PrivacyPal-1.8.2-x64.dmg</p>
-
-                    <div class="dl-cli">
-                        <div class="dl-cli-label">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                            Or install via command line
-                        </div>
-                        <div class="dl-cli-block">
-                            <span class="dl-cli-shell-name">Terminal</span>
-                            <div class="dl-cli-code"><span class="prompt">$ </span>brew install --cask privacypal</div>
-                            <button class="dl-cli-copy" onclick="copyCliCommand(this, 'brew install --cask privacypal')">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                                Copy
-                            </button>
-                        </div>
+                    <div class="dl-btn mac dl-coming-soon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                        Coming Soon
                     </div>
                 </div>
             </article>
