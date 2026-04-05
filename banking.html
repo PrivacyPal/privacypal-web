@@ -73,6 +73,18 @@
         .capability-icon svg{width:26px;height:26px;stroke:var(--cobalt);stroke-width:1.5;fill:none;}
         .capability-card h3{font-size:1.2rem;font-weight:700;margin-bottom:12px;color:var(--text);}
         .capability-card p{font-size:0.95rem;color:var(--text-muted);line-height:1.65;}
+        .why-wins{padding:80px 24px;background:var(--bg-alt);}
+        .why-wins .section-header{text-align:center;margin-bottom:40px;}
+        .why-wins .section-title{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.25rem);font-weight:700;color:var(--text);margin-bottom:8px;}
+        .comparison-table{max-width:720px;margin:0 auto;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--bg);}
+        .comparison-table table{width:100%;border-collapse:collapse;}
+        .comparison-table th,.comparison-table td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--border);}
+        .comparison-table th{background:var(--bg-alt);font-weight:600;color:var(--text);font-size:0.9rem;}
+        .comparison-table td{font-size:0.95rem;color:var(--text-muted);}
+        .comparison-table tr:last-child td{border-bottom:none;}
+        .comparison-table .col-legacy{width:35%;}
+        .comparison-table .col-privacypal{width:35%;color:var(--cobalt);font-weight:600;}
+        .comparison-table .col-feature{width:30%;font-weight:600;color:var(--text);}
         .industry-regulatory{padding:80px 24px;background:var(--bg);}
         .industry-regulatory .container{max-width:900px;margin:0 auto;text-align:center;}
         .industry-regulatory h2{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text);margin-bottom:20px;line-height:1.2;}
@@ -275,6 +287,47 @@
                     <h3>Privacy Twins for Financial Data</h3>
                     <p>We replace real client data with synthetic Privacy Twins in real-time. Your teams get accurate, useful AI responses. Client account numbers, balances, and identities never leave your control.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-wins">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why PrivacyPal Wins</h2>
+            </div>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-feature">Feature</th>
+                            <th class="col-legacy">Privately Hosted AI (Onyx/Limina)</th>
+                            <th class="col-privacypal">PrivacyPal.ai</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-feature">Works With</td>
+                            <td class="col-legacy">Proprietary</td>
+                            <td class="col-privacypal">Claude, Gemini, Copilot, ChatGPT, Claude Code, OpenClaw, others</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">AI Privacy</td>
+                            <td class="col-legacy">Locked</td>
+                            <td class="col-privacypal">Intent-aware Privacy</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">AI Agents</td>
+                            <td class="col-legacy">Proprietary Walled-Garden</td>
+                            <td class="col-privacypal">Agent Agnostic, works with any Agent</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">DLP</td>
+                            <td class="col-legacy">Blocks the work</td>
+                            <td class="col-privacypal">Sanitizes the context</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
