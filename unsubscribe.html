@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsubscribe - PrivacyPal</title>
+    <meta name="description" content="Unsubscribe from PrivacyPal email communications.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cobalt: #336699;
+            --cobalt-dark: #1a3a5a;
+            --cobalt-light: #4a86c2;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .unsubscribe-container {
+            text-align: center;
+            max-width: 520px;
+            padding: 40px 24px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .logo img {
+            height: 56px;
+            width: auto;
+            object-fit: contain;
+        }
+        .icon-circle {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+        }
+        .icon-circle svg {
+            width: 32px;
+            height: 32px;
+            color: var(--cobalt);
+        }
+        h1 {
+            font-family: 'Radley', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .email-display {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cobalt);
+            margin-bottom: 32px;
+            word-break: break-all;
+        }
+        .btn-primary {
+            background: var(--cobalt);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            width: 100%;
+            max-width: 320px;
+        }
+        .btn-primary:hover {
+            background: var(--cobalt-dark);
+            transform: translateY(-2px);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .cancel-link {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .cancel-link:hover {
+            color: var(--text-muted);
+        }
+        .fine-print {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Success state */
+        .success-container {
+            display: none;
+            text-align: center;
+            max-width: 520px;
+            padding: 40px 24px;
+        }
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+        }
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #16a34a;
+        }
+        .success-container h1 {
+            margin-bottom: 12px;
+        }
+        .success-container .subtitle {
+            margin-bottom: 32px;
+        }
+        .home-link {
+            background: var(--cobalt);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .home-link:hover {
+            background: var(--cobalt-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Error state */
+        .error-message {
+            display: none;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        /* No email state */
+        .no-email-message {
+            display: none;
+            text-align: center;
+        }
+        .no-email-message .subtitle {
+            margin-bottom: 32px;
+        }
+
+        /* Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+            .unsubscribe-container,
+            .success-container {
+                padding: 32px 20px;
+            }
+            h1 { font-size: 1.5rem; }
+            .logo img { height: 44px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unsubscribe Form -->
+    <div class="unsubscribe-container" id="unsubscribeForm">
+        <div class="logo">
+            <img src="privacypal-logo-color.png" alt="PrivacyPal Logo">
+        </div>
+        <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+            </svg>
+        </div>
+        <h1>Unsubscribe</h1>
+        <p class="subtitle">You're requesting to unsubscribe the following email from PrivacyPal communications:</p>
+        <p class="email-display" id="emailDisplay"></p>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <!-- No email detected -->
+        <div class="no-email-message" id="noEmailMessage">
+            <p class="subtitle">We couldn't detect an email address. Please use the unsubscribe link from your email, or contact us at <a href="mailto:ops@privacypal.ai" style="color: var(--cobalt);">ops@privacypal.ai</a>.</p>
+            <a href="index.html" class="home-link">Visit PrivacyPal</a>
+        </div>
+
+        <form id="unsubForm" style="display: none;">
+            <input type="hidden" name="email" id="emailInput">
+            <input type="hidden" name="_subject" value="Unsubscribe Request">
+            <button type="submit" class="btn-primary" id="submitBtn">
+                <span id="btnText">Yes, unsubscribe me</span>
+                <div class="spinner" id="btnSpinner"></div>
+            </button>
+        </form>
+        <a href="index.html" class="cancel-link" id="cancelLink" style="display: none;">No, keep me subscribed</a>
+        <p class="fine-print" id="finePrint" style="display: none;">Your request will be processed within 48 hours. You may still receive emails that were already scheduled before your request was processed.</p>
+    </div>
+
+    <!-- Success State -->
+    <div class="success-container" id="successState">
+        <div class="logo">
+            <img src="privacypal-logo-color.png" alt="PrivacyPal Logo">
+        </div>
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+        </div>
+        <h1>You've been unsubscribed</h1>
+        <p class="subtitle">Your request has been submitted successfully. You will be removed from our mailing list within 48 hours.</p>
+        <a href="index.html" class="home-link">Visit PrivacyPal</a>
+    </div>
+
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var email = (params.get('email') || '').trim();
+
+            var formEl = document.getElementById('unsubForm');
+            var emailDisplay = document.getElementById('emailDisplay');
+            var emailInput = document.getElementById('emailInput');
+            var noEmailMsg = document.getElementById('noEmailMessage');
+            var cancelLink = document.getElementById('cancelLink');
+            var finePrint = document.getElementById('finePrint');
+            var submitBtn = document.getElementById('submitBtn');
+            var btnText = document.getElementById('btnText');
+            var btnSpinner = document.getElementById('btnSpinner');
+            var errorMessage = document.getElementById('errorMessage');
+            var unsubContainer = document.getElementById('unsubscribeForm');
+            var successState = document.getElementById('successState');
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                noEmailMsg.style.display = 'block';
+                return;
+            }
+
+            emailDisplay.textContent = email;
+            emailInput.value = email;
+            formEl.style.display = 'block';
+            cancelLink.style.display = 'inline-block';
+            finePrint.style.display = 'block';
+
+            formEl.addEventListener('submit', function (e) {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnSpinner.style.display = 'block';
+                errorMessage.style.display = 'none';
+
+                // POST to Formspree — replace YOUR_FORM_ID with your actual Formspree form ID
+                fetch('https://formspree.io/f/mykbaere', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        _subject: 'Unsubscribe Request: ' + email,
+                        message: 'Please remove ' + email + ' from all PrivacyPal email campaigns.'
+                    })
+                })
+                .then(function (response) {
+                    if (response.ok) {
+                        unsubContainer.style.display = 'none';
+                        successState.style.display = 'block';
+                    } else {
+                        return response.json().then(function (data) {
+                            throw new Error(data.error || 'Something went wrong. Please try again.');
+                        });
+                    }
+                })
+                .catch(function (err) {
+                    errorMessage.textContent = err.message || 'Something went wrong. Please try again or email us at ops@privacypal.ai.';
+                    errorMessage.style.display = 'block';
+                    submitBtn.disabled = false;
+                    btnText.style.display = 'inline';
+                    btnSpinner.style.display = 'none';
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
