@@ -36,10 +36,17 @@
             --cobalt-dark: #1a3a5a;
             --cobalt-light: #4a86c2;
             --glass: rgba(0, 0, 0, 0.03);
-            --glass-border: #e2e8f0;
+            --glass-border: #D4D0C8;
             --glass-hover: rgba(51, 102, 153, 0.08);
             --code-bg: #1e1e2e;
             --code-text: #d4d4d8;
+            --bg: #EDEAE2;
+            --bg-alt: #E4E0D7;
+            --bg-card: #ffffff;
+            --text: #111111;
+            --text-muted: #5a5a52;
+            --text-light: #7a7a72;
+            --border: #D4D0C8;
         }
 
         html {
@@ -48,8 +55,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background-color: #ffffff;
-            color: #0f172a;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
             margin: 0;
@@ -111,147 +118,30 @@
             background: var(--glass-hover);
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 72px;
-            max-height: 72px;
-            width: auto;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #475569;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--cobalt-light);
-        }
-
-        /* Nav dropdowns */
-        .nav-item-dropdown { position: relative; }
-        .nav-dropdown-trigger {
-            color: #475569;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: inherit;
-            transition: color 0.3s ease;
-        }
-        .nav-dropdown-trigger:hover { color: var(--cobalt-light); }
-        .nav-dropdown-trigger::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 5px solid currentColor;
-            margin-left: 4px;
-            opacity: 0.7;
-        }
-        .nav-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(8px);
-            min-width: 200px;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-            padding: 8px 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-            z-index: 1001;
-        }
-        .nav-item-dropdown:hover .nav-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(4px);
-        }
-        .nav-dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            color: #475569;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s, background 0.2s;
-        }
-        .nav-dropdown-menu a:hover {
-            color: var(--cobalt-light);
-            background: var(--glass-hover);
-        }
-
-        .nav-links a.active {
-            color: var(--cobalt-light);
-            font-weight: 600;
-        }
-
-        .cta-nav-button {
-            background: var(--cobalt);
-            color: white !important;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
-        }
-
-        .cta-nav-button:hover {
-            background: var(--cobalt-light);
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
-        }
+        /* NAV */
+        nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--bg); border-bottom:1px solid var(--border); transition:box-shadow 0.3s; }
+        nav.scrolled { box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+        .nav-container { max-width:1280px; margin:0 auto; padding:0.85rem 24px; display:flex; justify-content:space-between; align-items:center; }
+        .logo { display:flex; align-items:center; text-decoration:none; }
+        .logo img { height:52px; width:auto; }
+        .nav-links { display:flex; gap:28px; align-items:center; }
+        .nav-links a { color:var(--text-muted); text-decoration:none; font-weight:500; font-size:0.9rem; transition:color 0.2s; }
+        .nav-links a:hover { color:var(--cobalt); }
+        .nav-item-dropdown { position:relative; }
+        .nav-dropdown-trigger { color:var(--text-muted); font-weight:500; font-size:0.9rem; padding:8px 0; display:flex; align-items:center; gap:4px; cursor:pointer; background:none; border:none; font-family:inherit; transition:color 0.2s; }
+        .nav-dropdown-trigger:hover,.nav-dropdown-trigger.nav-active { color:var(--cobalt); font-weight:700; }
+        .nav-dropdown-trigger::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; margin-left:4px; opacity:0.7; }
+        .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); min-width:210px; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.12); padding:8px 0; opacity:0; visibility:hidden; transition:opacity 0.2s,visibility 0.2s,transform 0.2s; z-index:1001; }
+        .nav-item-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
+        .nav-dropdown-menu a { display:block; padding:10px 20px; color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s,background 0.2s; }
+        .nav-dropdown-menu a:hover,.nav-dropdown-menu a.nav-active { color:var(--cobalt); background:rgba(51,102,153,0.06); font-weight:600; }
+        .nav-divider { height:1px; background:var(--border); margin:6px 0; }
+        .nav-home-link { color:#0ea5a0!important; font-weight:600!important; }
+        .nav-cta-group { display:flex; gap:10px; align-items:center; }
+        .nav-login { color:var(--text-muted)!important; font-weight:500; font-size:0.9rem; text-decoration:none; padding:10px 18px; border-radius:8px; transition:color 0.2s,background 0.2s; }
+        .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
+        .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; letter-spacing:0.01em; }
+        .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
 
         /* Developer Hero */
         .dev-hero {
@@ -541,16 +431,16 @@
 
         .section-badge {
             display: inline-block;
-            padding: 8px 20px;
-            background: rgba(51, 102, 153, 0.1);
-            border: 1px solid rgba(51, 102, 153, 0.3);
-            border-radius: 50px;
-            color: var(--cobalt);
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding:0;
+            background:none;
+            border:none;
+            
+            color:var(--text-muted);
+            font-weight:500;
+            font-size:0.68rem;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing:0.18em;
         }
 
         .section-title {
@@ -990,119 +880,25 @@
         }
 
         /* Footer */
-        footer {
-            background: #ffffff;
-            border-top: 1px solid #e2e8f0;
-            color: #0f172a;
-            padding: 80px 40px 40px;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #0f172a;
-        }
-
-        .footer-brand p {
-            color: #475569;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0f172a;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--cobalt);
-            border-color: var(--cobalt);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #475569;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--cobalt-light);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid var(--glass-border);
-            text-align: center;
-            color: #475569;
-            position: relative;
-        }
-
-        .footer-contact {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            text-align: right;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            padding: 20px 0;
-        }
-
-        .footer-contact strong {
-            color: rgba(230, 241, 255, 0.8);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .footer-bottom a {
-            color: var(--cobalt-light);
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--cobalt);
-        }
+        /* FOOTER */
+        footer { background:var(--bg-alt); border-top:1px solid var(--border); padding:72px 24px 36px; }
+        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+        .footer-brand h3 { font-size:1.4rem; margin-bottom:10px; color:var(--text); }
+        .footer-brand p { color:var(--text-muted); line-height:1.7; margin-bottom:20px; font-size:0.9rem; }
+        .social-links { display:flex; gap:10px; }
+        .social-links a { width:38px; height:38px; border-radius:8px; background:var(--bg); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); text-decoration:none; font-size:0.95rem; transition:color 0.2s,background 0.2s,border-color 0.2s; }
+        .social-links a:hover { background:var(--cobalt); color:white; border-color:var(--cobalt); }
+        .footer-links h4 { font-size:0.9rem; margin-bottom:14px; font-weight:700; color:var(--text); text-transform:uppercase; letter-spacing:0.06em; }
+        .footer-links ul { list-style:none; }
+        .footer-links li { margin-bottom:9px; }
+        .footer-links a { color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cobalt); }
+        .footer-family-link { color:var(--cobalt)!important; font-weight:600; }
+        .footer-bottom { max-width:1200px; margin:0 auto; padding-top:28px; border-top:1px solid var(--border); text-align:center; color:var(--text-light); font-size:0.875rem; position:relative; }
+        .footer-contact { position:absolute; bottom:0; right:0; text-align:right; font-size:0.82rem; line-height:1.5; }
+        .footer-contact strong { color:var(--text); display:block; margin-bottom:4px; }
+        .footer-bottom a { color:var(--cobalt); text-decoration:none; }
+        .footer-bottom a:hover { text-decoration:underline; }
 
         /* Modal */
         .modal {
@@ -1238,121 +1034,26 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Mobile Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1002;
-            padding: 0;
-        }
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: #0f172a;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            transform-origin: center;
-        }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-menu {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu a {
-            color: #0f172a;
-            text-decoration: none;
-            font-size: 1.4rem;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-        .mobile-menu a:hover { color: var(--cobalt); }
-        .mobile-menu .mobile-cta {
-            background: var(--cobalt);
-            color: white !important;
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 16px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(51, 102, 153, 0.4);
-        }
-        .mobile-menu .mobile-cta:hover {
-            background: var(--cobalt-light);
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(51, 102, 153, 0.6);
-        }
-        /* Mobile submenu */
-        .mobile-dropdown { width: 100%; text-align: center; }
-        .mobile-dropdown-trigger {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 12px 24px;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #0f172a;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            transition: color 0.2s;
-        }
-        .mobile-dropdown-trigger:hover { color: var(--cobalt); }
-        .mobile-dropdown-trigger::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 6px solid currentColor;
-            transition: transform 0.25s ease;
-        }
-        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform: rotate(180deg); }
-        .mobile-dropdown-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        .mobile-dropdown.open .mobile-dropdown-menu { max-height: 300px; }
-        .mobile-dropdown-menu a {
-            display: block;
-            padding: 12px 24px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #475569;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .mobile-dropdown-menu a:last-child { border-bottom: none; }
-        .mobile-dropdown-menu a:hover { color: var(--cobalt); }
+        /* HAMBURGER & MOBILE MENU */
+        .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
+        .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
+        .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity:0; }
+        .hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+        .mobile-menu { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(237,234,226,0.98); backdrop-filter:blur(24px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; opacity:0; visibility:hidden; transition:opacity 0.3s,visibility 0.3s; }
+        .mobile-menu.active { opacity:1; visibility:visible; }
+        .mobile-menu a { color:#0f172a; text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.2s; }
+        .mobile-menu a:hover { color:var(--cobalt); }
+        .mobile-menu .mobile-cta { background:#111111; color:white!important; padding:14px 32px; border-radius:8px; font-weight:600; }
+        .mobile-dropdown { width:100%; text-align:center; }
+        .mobile-dropdown-trigger { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:10px 24px; font-size:1.3rem; font-weight:600; color:#0f172a; background:none; border:none; cursor:pointer; font-family:inherit; transition:color 0.2s; }
+        .mobile-dropdown-trigger:hover { color:var(--cobalt); }
+        .mobile-dropdown-trigger::after { content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid currentColor; transition:transform 0.25s; }
+        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform:rotate(180deg); }
+        .mobile-dropdown-menu { max-height:0; overflow:hidden; transition:max-height 0.3s; }
+        .mobile-dropdown.open .mobile-dropdown-menu { max-height:400px; }
+        .mobile-dropdown-menu a { display:block; padding:10px 24px; font-size:1rem; font-weight:500; color:var(--text-muted); border-bottom:1px solid rgba(0,0,0,0.05); }
+        .mobile-dropdown-menu a:last-child { border-bottom:none; }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -1367,13 +1068,8 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
+            .nav-links,.nav-cta-group { display: none; }
+            .hamburger { display: flex; }
 
             .dev-hero {
                 padding: 140px 20px 60px;
@@ -1393,16 +1089,7 @@
                 font-size: 0.85rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-contact {
-                position: static;
-                text-align: center;
-                margin-top: 20px;
-                padding: 0;
-            }
+            .footer-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1410,82 +1097,69 @@
     <div class="bg-mesh"></div>
     <div id="velocity-lines"></div>
 
-    <!-- Navigation -->
     <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="privacypal-logo-color.png" alt="PrivacyPal">
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <div class="nav-item-dropdown">
-                    <span class="nav-dropdown-trigger">Products</span>
-                    <div class="nav-dropdown-menu">
-                        <a href="privacypal-ai.html">PrivacyPal AI</a>
-                        <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
-                        <a href="ai-dspm.html">AI-DSPM</a>
-                    </div>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
+        <div class="nav-links">
+            <div class="nav-item-dropdown">
+                <span class="nav-dropdown-trigger">Platform</span>
+                <div class="nav-dropdown-menu">
+                    <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
+                    <a href="privacy-twins.html">Privacy Twins</a>
+                    <a href="device-control.html">Device Control</a>
                 </div>
-                <div class="nav-item-dropdown">
-                    <span class="nav-dropdown-trigger">Solutions</span>
-                    <div class="nav-dropdown-menu">
-                        <a href="banking.html">Banking</a>
-                        <a href="telecommunications.html">Telecommunications</a>
-                        <a href="healthcare.html">Healthcare</a>
-                        <a href="technology.html">Technology</a>
-                    </div>
+            </div>
+            <div class="nav-item-dropdown">
+                <span class="nav-dropdown-trigger">Solutions</span>
+                <div class="nav-dropdown-menu">
+                    <a href="index.html">For SME / SMB</a>
+                    <a href="solutions.html#freelancers">For Freelancers</a>
+                    <a href="privacypal-cloud.html">For Enterprise</a>
+                    <div class="nav-divider"></div>
+                    <a href="family.html" class="nav-home-link">For Home (Family)</a>
                 </div>
-                <div class="nav-item-dropdown">
-                    <span class="nav-dropdown-trigger">Company</span>
-                    <div class="nav-dropdown-menu">
-                        <a href="about.html">About Us</a>
-                        <a href="events.html">Events</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
+            </div>
+            <a href="index.html#pricing">Pricing</a>
+            <div class="nav-item-dropdown">
+                <span class="nav-dropdown-trigger">Resources</span>
+                <div class="nav-dropdown-menu">
+                    <a href="developers.html">Developers</a>
+                    <a href="about.html">About Us</a>
+                    <a href="events.html">Events</a>
+                    <a href="contact.html">Contact</a>
                 </div>
-                <a href="index.html#pricing">Pricing</a>
-                <a href="developers.html" class="active">Developers</a>
-                <a href="https://portal.privacypal.ai/signup" class="cta-nav-button">Get API Key</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html" onclick="closeMobileMenu()">Home</a>
-        <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Products</button>
-            <div class="mobile-dropdown-menu">
-                <a href="privacypal-ai.html" onclick="closeMobileMenu()">PrivacyPal AI</a>
-                <a href="privacypal-cloud.html" onclick="closeMobileMenu()">PrivacyPal Cloud</a>
-                <a href="ai-dspm.html" onclick="closeMobileMenu()">AI-DSPM</a>
             </div>
         </div>
-        <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
-            <div class="mobile-dropdown-menu">
-                <a href="banking.html" onclick="closeMobileMenu()">Banking</a>
-                <a href="telecommunications.html" onclick="closeMobileMenu()">Telecommunications</a>
-                <a href="healthcare.html" onclick="closeMobileMenu()">Healthcare</a>
-                <a href="technology.html" onclick="closeMobileMenu()">Technology</a>
-            </div>
+        <div class="nav-cta-group">
+            <a href="https://portal.privacypal.ai" class="nav-login" target="_blank" rel="noopener">Login</a>
+            <a href="desktop.html" class="cta-nav-button">Start Free Trial</a>
         </div>
-        <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Company</button>
-            <div class="mobile-dropdown-menu">
-                <a href="about.html" onclick="closeMobileMenu()">About Us</a>
-                <a href="events.html" onclick="closeMobileMenu()">Events</a>
-                <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
-            </div>
-        </div>
-        <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
-        <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-        <a href="https://portal.privacypal.ai/signup" class="mobile-cta">Get API Key</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-dropdown">
+        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
+        <div class="mobile-dropdown-menu">
+            <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
+            <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
+            <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
+        </div>
+    </div>
+    <div class="mobile-dropdown">
+        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
+        <div class="mobile-dropdown-menu">
+            <a href="index.html" onclick="closeMobileMenu()">For SME / SMB</a>
+            <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
+            <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
+        </div>
+    </div>
+    <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
+    <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
+    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Login</a>
+    <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
+</div>
 
     <!-- Developer Hero -->
     <section class="dev-hero">
@@ -2060,72 +1734,48 @@ console.<span class="code-function">log</span>(decoded.<span class="code-propert
         </div>
     </section>
 
-    <!-- Footer -->
+    
     <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>PrivacyPal</h3>
-                <p>
-                    Build privacy-first AI applications with streaming Privacy Twin technology. 
-                    The developer platform for compliant AI solutions.
-                </p>
-                <div class="social-links">
-                    <a href="https://x.com/privacypalai" title="X (Twitter)">𝕏</a>
-                    <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Products</h4>
-                <ul>
-                    <li><a href="privacypal-ai.html">PrivacyPal AI</a></li>
-                    <li><a href="privacypal-cloud.html">PrivacyPal Cloud</a></li>
-                    <li><a href="ai-dspm.html">AI-DSPM</a></li>
-                    <li><a href="index.html#pricing">Pricing</a></li>
-                    <li><a href="desktop.html">Install</a></li>
-                    <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank">SDK Documentation</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Solutions</h4>
-                <ul>
-                    <li><a href="banking.html">Banking</a></li>
-                    <li><a href="telecommunications.html">Telecommunications</a></li>
-                    <li><a href="healthcare.html">Healthcare</a></li>
-                    <li><a href="technology.html">Technology</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="developers.html">Developers</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                </ul>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>PrivacyPal</h3>
+            <p>Use ChatGPT, Claude, Copilot, and any AI tool without exposing your sensitive data or IP.</p>
+            <div class="social-links">
+                <a href="https://x.com/privacypalai" title="X">𝕏</a>
+                <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
-            <div class="footer-contact">
-                <strong>PrivacyPal</strong>
-                2700 North Military Trail<br>
-                Boca Raton, FL 33431<br>
-                +1 (917) 428-5968
-            </div>
-        </div>
-    </footer>
+        <div class="footer-links"><h4>Platform</h4><ul>
+            <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
+            <li><a href="privacy-twins.html">Privacy Twins</a></li>
+            <li><a href="device-control.html">Device Control</a></li>
+            <li><a href="ai-dspm.html">AI-DSPM</a></li>
+            <li><a href="desktop.html">Install</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Solutions</h4><ul>
+            <li><a href="index.html">For SME / SMB</a></li>
+            <li><a href="privacypal-cloud.html">For Enterprise</a></li>
+            <li><a href="banking.html">Banking</a></li>
+            <li><a href="healthcare.html">Healthcare</a></li>
+            <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Company</h4><ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Legal</h4><ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul></div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+        <div class="footer-contact"><strong>PrivacyPal</strong>2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968</div>
+    </div>
+</footer>
 
     <script>
         // Create velocity lines animation
@@ -2147,15 +1797,7 @@ console.<span class="code-function">log</span>(decoded.<span class="code-propert
 
         createVelocityLines();
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
 
         // Language toggle for code examples
         function switchLang(el, lang, group) {
@@ -2265,30 +1907,9 @@ console.<span class="code-function">log</span>(decoded.<span class="code-propert
             }
         });
 
-        // Mobile menu toggle
-        (function() {
-            var hamburger = document.getElementById('hamburger');
-            var mobileMenu = document.getElementById('mobileMenu');
-            if (hamburger && mobileMenu) {
-                hamburger.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-                });
-            }
-        })();
-        function closeMobileMenu() {
-            var h = document.getElementById('hamburger');
-            var m = document.getElementById('mobileMenu');
-            if (h) h.classList.remove('active');
-            if (m) m.classList.remove('active');
-            document.body.style.overflow = '';
-            document.querySelectorAll('.mobile-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
-        }
-        function toggleMobileDropdown(btn) {
-            var dropdown = btn.closest('.mobile-dropdown');
-            dropdown.classList.toggle('open');
-        }
+        (function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){this.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});}})();
+        function closeMobileMenu(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h)h.classList.remove('active');if(m)m.classList.remove('active');document.body.style.overflow='';document.querySelectorAll('.mobile-dropdown.open').forEach(function(d){d.classList.remove('open');});}
+        function toggleMobileDropdown(btn){btn.closest('.mobile-dropdown').classList.toggle('open');}
     </script>
 
     <!-- Waitlist Modal -->

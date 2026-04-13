@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0QN2Z18HP0');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Twins — Statistically Identical Synthetic Data | PrivacyPal</title>
+    <meta name="description" content="Privacy Twins are statistically identical synthetic data entities that replace your real IP in AI prompts. Get accurate AI responses without ever exposing client names, financials, or source code.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --cobalt:#336699; --cobalt-dark:#1a3a5a; --cobalt-light:#4a86c2; --bg:#EDEAE2; --bg-alt:#E4E0D7;--bg-card:#ffffff; --text:#111111; --text-muted:#5a5a52; --text-light:#7a7a72; --border:#D4D0C8; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
+
+        /* NAV — identical to privacypal-ai.html */
+        nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--bg); border-bottom:1px solid var(--border); transition:box-shadow 0.3s; }
+        nav.scrolled { box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+        .nav-container { max-width:1280px; margin:0 auto; padding:0.85rem 24px; display:flex; justify-content:space-between; align-items:center; }
+        .logo { display:flex; align-items:center; text-decoration:none; }
+        .logo img { height:52px; width:auto; }
+        .nav-links { display:flex; gap:28px; align-items:center; }
+        .nav-links a { color:var(--text-muted); text-decoration:none; font-weight:500; font-size:0.9rem; transition:color 0.2s; }
+        .nav-links a:hover { color:var(--cobalt); }
+        .nav-item-dropdown { position:relative; }
+        .nav-dropdown-trigger { color:var(--text-muted); font-weight:500; font-size:0.9rem; padding:8px 0; display:flex; align-items:center; gap:4px; cursor:pointer; background:none; border:none; font-family:inherit; transition:color 0.2s; }
+        .nav-dropdown-trigger:hover,.nav-dropdown-trigger.nav-active { color:var(--cobalt); font-weight:700; }
+        .nav-dropdown-trigger::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; margin-left:4px; opacity:0.7; }
+        .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); min-width:210px; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.12); padding:8px 0; opacity:0; visibility:hidden; transition:opacity 0.2s,visibility 0.2s,transform 0.2s; z-index:1001; }
+        .nav-item-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
+        .nav-dropdown-menu a { display:block; padding:10px 20px; color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s,background 0.2s; }
+        .nav-dropdown-menu a:hover,.nav-dropdown-menu a.nav-active { color:var(--cobalt); background:rgba(51,102,153,0.06); font-weight:600; }
+        .nav-divider { height:1px; background:var(--border); margin:6px 0; }
+        .nav-home-link { color:var(--cobalt)!important; font-weight:600!important; }
+        .nav-cta-group { display:flex; gap:10px; align-items:center; }
+        .nav-login { color:var(--text-muted)!important; font-weight:500; font-size:0.9rem; text-decoration:none; padding:10px 18px; border-radius:8px; transition:color 0.2s,background 0.2s; }
+        .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
+        .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
+        .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
+        .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
+        .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
+        .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity:0; }
+        .hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+        .mobile-menu { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(237,234,226,0.98); backdrop-filter:blur(24px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; opacity:0; visibility:hidden; transition:opacity 0.3s,visibility 0.3s; }
+        .mobile-menu.active { opacity:1; visibility:visible; }
+        .mobile-menu a { color:#0f172a; text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.2s; }
+        .mobile-menu a:hover { color:var(--cobalt); }
+        .mobile-menu .mobile-cta { background:#111111; color:white!important; padding:14px 32px; border-radius:8px; font-weight:600; }
+        .mobile-dropdown { width:100%; text-align:center; }
+        .mobile-dropdown-trigger { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:10px 24px; font-size:1.3rem; font-weight:600; color:#0f172a; background:none; border:none; cursor:pointer; font-family:inherit; transition:color 0.2s; }
+        .mobile-dropdown-trigger:hover { color:var(--cobalt); }
+        .mobile-dropdown-trigger::after { content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid currentColor; transition:transform 0.25s; }
+        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform:rotate(180deg); }
+        .mobile-dropdown-menu { max-height:0; overflow:hidden; transition:max-height 0.3s; }
+        .mobile-dropdown.open .mobile-dropdown-menu { max-height:400px; }
+        .mobile-dropdown-menu a { display:block; padding:10px 24px; font-size:1rem; font-weight:500; color:var(--text-muted); border-bottom:1px solid rgba(0,0,0,0.05); }
+        .mobile-dropdown-menu a:last-child { border-bottom:none; }
+
+        /* HERO */
+        .page-hero { padding:120px 24px 80px; background:linear-gradient(160deg,var(--cobalt-dark) 0%,var(--cobalt) 55%,#4a86c2 100%); color:white; text-align:center; }
+        .page-hero-inner { max-width:800px; margin:0 auto; }
+        .page-hero-badge { display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:50px; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:24px; color:rgba(255,255,255,0.9); }
+        .page-hero h1 { font-family:'Radley',Georgia,serif; font-size:clamp(2.4rem,5vw,3.75rem); font-weight:700; line-height:1.1; margin-bottom:20px; color:#fff; }
+        .page-hero .hero-sub { font-size:clamp(1rem,1.5vw,1.15rem); color:rgba(255,255,255,0.88); line-height:1.75; max-width:640px; margin:0 auto 32px; }
+        .hero-def { display:inline-block; padding:16px 28px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); border-radius:12px; font-size:0.95rem; color:rgba(255,255,255,0.92); line-height:1.6; max-width:680px; margin:0 auto 36px; }
+        .hero-def strong { color:#fff; }
+        .page-hero-ctas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+        .btn-white { background:white; color:var(--cobalt); padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all 0.2s; display:inline-block; }
+        .btn-white:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+        .btn-ghost-white { background:transparent; color:white; border:2px solid rgba(255,255,255,0.55); padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all 0.2s; display:inline-block; }
+        .btn-ghost-white:hover { border-color:white; background:rgba(255,255,255,0.08); }
+
+        /* EXPLAINER */
+        .container { max-width:1100px; margin:0 auto; }
+        .section-header { text-align:center; margin-bottom:56px; }
+        .section-badge { display:inline-block; padding:0; background:none; border:none;  color:var(--text-muted); font-weight:500; font-size:0.68rem; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.18em; }
+        .section-title { font-family:'Radley',Georgia,serif; font-size:clamp(2rem,4vw,2.75rem); font-weight:700; color:var(--text); margin-bottom:16px; line-height:1.15; }
+        .section-subtitle { font-size:1.05rem; color:var(--text-muted); max-width:560px; margin:0 auto; line-height:1.7; }
+
+        /* HOW TWINS WORK — visual explainer */
+        .twins-explainer { padding:96px 24px; background:#fff; }
+        .twins-flow { display:grid; grid-template-columns:1fr 60px 1fr 60px 1fr; gap:0; align-items:center; margin-top:48px; max-width:960px; margin-left:auto; margin-right:auto; }
+        .twins-flow-step { background:var(--bg-alt); border:1.5px solid var(--border); border-radius:14px; padding:28px 24px; text-align:center; transition:box-shadow 0.3s,border-color 0.3s; }
+        .twins-flow-step:hover { box-shadow:0 10px 32px -8px rgba(51,102,153,0.15); border-color:rgba(51,102,153,0.2); }
+        .twins-flow-step.highlight { border-color:var(--cobalt); background:rgba(51,102,153,0.04); }
+        .twins-flow-icon { width:52px; height:52px; border-radius:12px; background:rgba(51,102,153,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+        .twins-flow-icon svg { width:26px; height:26px; stroke:var(--cobalt); stroke-width:1.75; fill:none; }
+        .twins-flow-step h3 { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:8px; }
+        .twins-flow-step p { font-size:0.85rem; color:var(--text-muted); line-height:1.6; }
+        .twins-arrow { display:flex; align-items:center; justify-content:center; color:var(--cobalt); font-size:1.5rem; opacity:0.5; }
+
+        /* WHAT MAKES THEM STATISTICALLY IDENTICAL */
+        .stats-science { padding:88px 24px; background:var(--bg-alt); }
+        .stats-science-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; max-width:1060px; margin:0 auto; }
+        .stats-science h2 { font-family:'Radley',Georgia,serif; font-size:clamp(1.75rem,3vw,2.4rem); font-weight:700; color:var(--text); line-height:1.2; margin-bottom:20px; }
+        .stats-science h2 .highlight { color:var(--cobalt); }
+        .stats-science p { font-size:1rem; color:var(--text-muted); line-height:1.75; margin-bottom:16px; }
+        .science-pills { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+        .science-pill { padding:8px 16px; background:rgba(51,102,153,0.08); border:1px solid rgba(51,102,153,0.2); border-radius:50px; font-size:0.82rem; font-weight:600; color:var(--cobalt); }
+        .science-visual { background:linear-gradient(135deg,#f0f7ff,#e8f4ff); border:1.5px solid rgba(51,102,153,0.12); border-radius:16px; padding:32px; }
+        .twin-comparison { display:flex; flex-direction:column; gap:12px; }
+        .twin-row { display:grid; grid-template-columns:80px 1fr 1fr; gap:12px; align-items:center; }
+        .twin-row-label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-light); }
+        .twin-cell { padding:10px 14px; border-radius:8px; font-size:0.82rem; font-weight:600; text-align:center; }
+        .twin-cell.real { background:rgba(239,68,68,0.1); color:#dc2626; border:1px solid rgba(239,68,68,0.2); }
+        .twin-cell.synthetic { background:rgba(34,197,94,0.1); color:#15803d; border:1px solid rgba(34,197,94,0.2); }
+        .twin-header { display:grid; grid-template-columns:80px 1fr 1fr; gap:12px; margin-bottom:8px; }
+        .twin-header span { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-align:center; color:var(--text-light); }
+
+        /* USE CASES — Tailscale-style horizontal scenario cards */
+        .use-cases { padding:96px 24px; background:#fff; }
+        .use-cases-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+        .use-case-card { border:1.5px solid var(--border); border-radius:14px; padding:32px; transition:box-shadow 0.3s,border-color 0.3s,transform 0.2s; }
+        .use-case-card:hover { box-shadow:0 10px 40px -10px rgba(51,102,153,0.18); border-color:rgba(51,102,153,0.25); transform:translateY(-2px); }
+        .use-case-icon { width:48px; height:48px; border-radius:12px; background:rgba(51,102,153,0.08); display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+        .use-case-icon svg { width:24px; height:24px; stroke:var(--cobalt); stroke-width:1.75; fill:none; }
+        .use-case-card h3 { font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:10px; }
+        .use-case-card .scenario { font-size:0.82rem; font-weight:600; color:var(--cobalt); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px; }
+        .use-case-card p { font-size:0.875rem; color:var(--text-muted); line-height:1.65; margin-bottom:12px; }
+        .use-case-example { background:var(--bg-alt); border-radius:8px; padding:12px 14px; font-size:0.8rem; color:var(--text-muted); line-height:1.6; border-left:3px solid var(--cobalt); }
+        .use-case-example strong { color:var(--cobalt); }
+
+        /* TECHNICAL DETAIL */
+        .tech-detail { padding:88px 24px; background:#111111;color:white; }
+        .tech-detail .section-badge { background:none; border-color:var(--text-muted); color:var(--text-muted); }
+        .tech-detail .section-title { color:white; }
+        .tech-detail .section-subtitle { color:rgba(255,255,255,0.85); }
+        .tech-detail-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:48px; max-width:1000px; margin-left:auto; margin-right:auto; }
+        .tech-card { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:28px 20px; text-align:center; }
+        .tech-card-number { font-size:2.2rem; font-weight:800; color:white; margin-bottom:8px; }
+        .tech-card h4 { font-size:0.9rem; font-weight:700; color:white; margin-bottom:8px; }
+        .tech-card p { font-size:0.82rem; color:rgba(255,255,255,0.78); line-height:1.55; }
+
+        /* FEATURE SECTIONS */
+        .feature-section { padding:80px 24px; }
+        .feature-section:nth-child(even) { background:var(--bg-alt); }
+        .feature-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+        .feature-grid.reverse .feature-visual { order:-1; }
+        .feature-badge { display:inline-block; padding:5px 14px; background:rgba(51,102,153,0.1); border-radius:50px; color:var(--cobalt); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; }
+        .feature-grid h2 { font-family:'Radley',Georgia,serif; font-size:clamp(1.75rem,3vw,2.4rem); font-weight:700; color:var(--text); line-height:1.2; margin-bottom:16px; }
+        .feature-grid h2 .highlight { color:var(--cobalt); }
+        .feature-grid p { font-size:1rem; color:var(--text-muted); line-height:1.75; margin-bottom:14px; }
+        .feature-bullets { list-style:none; margin:20px 0 0; }
+        .feature-bullets li { display:flex; align-items:flex-start; gap:10px; padding:8px 0; font-size:0.9rem; color:var(--text-muted); border-bottom:1px solid #f1f5f9; }
+        .feature-bullets li:last-child { border-bottom:none; }
+        .feature-bullets li::before { content:''; width:18px; height:18px; border-radius:50%; background:rgba(51,102,153,0.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23336699' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat; flex-shrink:0; margin-top:2px; }
+        .feature-visual { border-radius:14px; overflow:hidden; box-shadow:0 20px 48px -12px rgba(51,102,153,0.2),0 0 0 1px rgba(0,0,0,0.04); }
+        .feature-visual img { width:100%; display:block; }
+
+        /* FINAL CTA */
+        .final-cta { background:#111111; color:white; text-align:center; padding:88px 24px; }
+        .final-cta h2 { font-family:'Radley',Georgia,serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:16px; max-width:640px; margin-left:auto; margin-right:auto; }
+        .final-cta p { font-size:1.1rem; margin-bottom:36px; opacity:0.92; }
+        .final-cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+        .btn-white-cta { background:white; color:var(--cobalt); padding:15px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1rem; transition:all 0.2s; display:inline-block; }
+        .btn-white-cta:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.15); }
+        .btn-outline-cta { background:transparent; color:white; border:2px solid rgba(255,255,255,0.6); padding:15px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1rem; transition:all 0.2s; display:inline-block; }
+        .btn-outline-cta:hover { border-color:white; background:rgba(255,255,255,0.08); }
+
+        /* FOOTER */
+        footer { background:var(--bg-alt); border-top:1px solid var(--border); padding:72px 24px 36px; }
+        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
+        .footer-brand h3 { font-size:1.4rem; margin-bottom:10px; color:var(--text); }
+        .footer-brand p { color:var(--text-muted); line-height:1.7; margin-bottom:20px; font-size:0.9rem; }
+        .social-links { display:flex; gap:10px; }
+        .social-links a { width:38px; height:38px; border-radius:8px; background:var(--bg-alt); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); text-decoration:none; font-size:0.95rem; transition:color 0.2s,background 0.2s,border-color 0.2s; }
+        .social-links a:hover { background:var(--cobalt); color:white; border-color:var(--cobalt); }
+        .footer-links h4 { font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; color:var(--text); }
+        .footer-links ul { list-style:none; }
+        .footer-links li { margin-bottom:9px; }
+        .footer-links a { color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cobalt); }
+        .footer-family-link { color:var(--cobalt)!important; font-weight:600; }
+        .footer-bottom { max-width:1200px; margin:0 auto; padding-top:28px; border-top:1px solid var(--border); text-align:center; color:var(--text-light); font-size:0.875rem; position:relative; }
+        .footer-contact { position:absolute; bottom:0; right:0; text-align:right; font-size:0.82rem; line-height:1.5; }
+        .footer-contact strong { color:var(--text); display:block; margin-bottom:4px; }
+        .footer-bottom a { color:var(--cobalt); text-decoration:none; }
+
+        /* SCROLL REVEAL */
+        .scroll-reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease-out,transform 0.6s ease-out; }
+        .scroll-reveal.revealed { opacity:1; transform:translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width:1024px) {
+            .twins-flow { grid-template-columns:1fr; gap:16px; }
+            .twins-arrow { transform:rotate(90deg); }
+            .stats-science-grid { grid-template-columns:1fr; }
+            .use-cases-grid { grid-template-columns:1fr 1fr; }
+            .tech-detail-grid { grid-template-columns:1fr 1fr; }
+            .feature-grid { grid-template-columns:1fr; gap:40px; }
+            .feature-grid.reverse .feature-visual { order:0; }
+            .footer-content { grid-template-columns:1fr 1fr 1fr; }
+        }
+        @media (max-width:768px) {
+            .nav-links,.nav-cta-group { display:none; }
+            .hamburger { display:flex; }
+            .logo img { height:44px; }
+            .use-cases-grid { grid-template-columns:1fr; }
+            .tech-detail-grid { grid-template-columns:1fr 1fr; }
+            .footer-content { grid-template-columns:1fr; }
+            .footer-contact { position:static; text-align:center; margin-top:16px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
+        <div class="nav-links">
+            <div class="nav-item-dropdown">
+                <span class="nav-dropdown-trigger nav-active">Platform</span>
+                <div class="nav-dropdown-menu">
+                    <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
+                    <a href="privacy-twins.html" class="nav-active">Privacy Twins</a>
+                    <a href="device-control.html">Device Control</a>
+                </div>
+            </div>
+            <div class="nav-item-dropdown">
+                <span class="nav-dropdown-trigger">Solutions</span>
+                <div class="nav-dropdown-menu">
+                    <a href="index.html">For SME / SMB</a>
+                    <a href="solutions.html#freelancers">For Freelancers</a>
+                    <a href="privacypal-cloud.html">For Enterprise</a>
+                    <div class="nav-divider"></div>
+                    <a href="family.html" class="nav-home-link">For Home (Family)</a>
+                </div>
+            </div>
+            <a href="index.html#pricing">Pricing</a>
+            <div class="nav-item-dropdown">
+                <span class="nav-dropdown-trigger">Resources</span>
+                <div class="nav-dropdown-menu">
+                    <a href="developers.html">Developers</a>
+                    <a href="about.html">About Us</a>
+                    <a href="events.html">Events</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-cta-group">
+            <a href="https://portal.privacypal.ai" class="nav-login" target="_blank" rel="noopener">Login</a>
+            <a href="desktop.html" class="cta-nav-button">Start Free Trial</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-dropdown">
+        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
+        <div class="mobile-dropdown-menu">
+            <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
+            <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
+            <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
+        </div>
+    </div>
+    <div class="mobile-dropdown">
+        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
+        <div class="mobile-dropdown-menu">
+            <a href="index.html" onclick="closeMobileMenu()">For SME / SMB</a>
+            <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
+            <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
+        </div>
+    </div>
+    <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
+    <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
+    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Login</a>
+    <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <div class="page-hero-badge">PrivacyPal Platform</div>
+        <h1>Privacy Twins</h1>
+        <p class="hero-sub">Control what data AI can see — without losing any of its power. Privacy Twins replace your real data with synthetic equivalents before anything reaches an AI, so your team gets full AI capability while you retain complete control over your actual information.</p>
+        <div class="hero-def">
+            <strong>Privacy Twins</strong> are statistically identical synthetic data entities generated in real time. They preserve the contextual meaning, structure, and relationships of your real data — so AI models respond with the same accuracy — while containing zero actual information about your business, clients, or people.
+        </div>
+        <div class="page-hero-ctas">
+            <a href="desktop.html" class="btn-white">Start Free Trial</a>
+            <a href="#how-twins-work" class="btn-ghost-white">How It Works</a>
+        </div>
+    </div>
+</section>
+
+<!-- HOW TWINS WORK -->
+<section class="twins-explainer scroll-reveal" id="how-twins-work">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">The Process</div>
+            <h2 class="section-title">Real Data In. Privacy Twin Out. Real Answer Back.</h2>
+            <p class="section-subtitle">The full process happens in under 50 milliseconds — completely invisible to the user. You type normally. PrivacyPal handles the rest.</p>
+        </div>
+        <div class="twins-flow">
+            <div class="twins-flow-step">
+                <div class="twins-flow-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+                <h3>You Type Normally</h3>
+                <p>Your team uses AI exactly as they always have — no changed workflows, no prompts to remember, no extra steps.</p>
+            </div>
+            <div class="twins-arrow">→</div>
+            <div class="twins-flow-step highlight">
+                <div class="twins-flow-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+                <h3>Privacy Twins Swap In</h3>
+                <p>PrivacyPal detects every sensitive entity and replaces each one with a statistically identical synthetic equivalent before the prompt is sent.</p>
+            </div>
+            <div class="twins-arrow">→</div>
+            <div class="twins-flow-step">
+                <div class="twins-flow-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>You See Real Answers</h3>
+                <p>The AI's response uses the synthetic data. PrivacyPal re-injects your real data so you see the answer with your actual names, figures, and context — only for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATISTICALLY IDENTICAL -->
+<section class="stats-science scroll-reveal">
+    <div class="stats-science-grid">
+        <div>
+            <div class="section-badge" style="margin-bottom:20px;">The Science</div>
+            <h2>What Makes a Privacy Twin <span class="highlight">Statistically Identical</span>?</h2>
+            <p>A simple data mask replaces "Acme Corp" with "COMPANY." A Privacy Twin replaces it with "Nexus Solutions" — a synthetic entity with consistent industry type, revenue range, legal structure, and relationship context.</p>
+            <p>The AI model receives a prompt that is structurally and semantically equivalent to the original. It reasons about the same relationships, dependencies, and patterns — and returns an answer that is just as accurate and useful as if it had seen the real data.</p>
+            <p>Your real data never leaves your device. The synthetic data has zero information value to anyone who intercepts it.</p>
+            <div class="science-pills">
+                <span class="science-pill">Structural equivalence</span>
+                <span class="science-pill">Semantic preservation</span>
+                <span class="science-pill">Relationship consistency</span>
+                <span class="science-pill">Domain-appropriate values</span>
+                <span class="science-pill">Zero real data exposure</span>
+            </div>
+        </div>
+        <div class="science-visual">
+            <div class="section-badge" style="margin-bottom:20px; text-align:center;">Real vs. Privacy Twin</div>
+            <div class="twin-header">
+                <span></span>
+                <span>Your Real Data</span>
+                <span>Privacy Twin Sent to AI</span>
+            </div>
+            <div class="twin-comparison">
+                <div class="twin-row">
+                    <div class="twin-row-label">Client</div>
+                    <div class="twin-cell real">Acme Corp</div>
+                    <div class="twin-cell synthetic">Nexus Solutions</div>
+                </div>
+                <div class="twin-row">
+                    <div class="twin-row-label">Contact</div>
+                    <div class="twin-cell real">Sarah Mitchell</div>
+                    <div class="twin-cell synthetic">Dana Brooks</div>
+                </div>
+                <div class="twin-row">
+                    <div class="twin-row-label">Deal Value</div>
+                    <div class="twin-cell real">$2,400,000</div>
+                    <div class="twin-cell synthetic">$1,800,000</div>
+                </div>
+                <div class="twin-row">
+                    <div class="twin-row-label">Document</div>
+                    <div class="twin-cell real">Q3-Pipeline.xlsx</div>
+                    <div class="twin-cell synthetic">Doc-7291.xlsx</div>
+                </div>
+                <div class="twin-row">
+                    <div class="twin-row-label">Project</div>
+                    <div class="twin-cell real">Project Orion</div>
+                    <div class="twin-cell synthetic">Project Kepler</div>
+                </div>
+            </div>
+            <p style="font-size:0.75rem;color:var(--text-light);text-align:center;margin-top:16px;">AI responses are equally accurate for both columns. Only you see the real version.</p>
+        </div>
+    </div>
+</section>
+
+<!-- USE CASES — Tailscale style -->
+<section class="use-cases scroll-reveal">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Use Cases</div>
+            <h2 class="section-title">Every Department. Every Workflow. Protected.</h2>
+            <p class="section-subtitle">Privacy Twins work silently across every role in your organization — from sales to engineering to legal.</p>
+        </div>
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <div class="use-case-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="scenario">Sales &amp; Business Development</div>
+                <h3>Client Data &amp; Deal Intelligence</h3>
+                <p>Sales teams frequently ask AI to analyze CRM data, draft proposals, and summarize pipeline reports — all containing real client names and deal values.</p>
+                <div class="use-case-example">Ask AI to <strong>"Summarize the Acme Corp deal risks"</strong> and Privacy Twins ensure Acme Corp and all associated contacts are never exposed — while the AI's risk analysis is just as accurate.</div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <div class="scenario">Engineering &amp; Development</div>
+                <h3>Source Code &amp; API Secrets</h3>
+                <p>Developers routinely paste proprietary code, architecture diagrams, and API specifications into AI coding assistants. This is the single largest IP leak vector in modern businesses.</p>
+                <div class="use-case-example">Paste a function containing <strong>real database credentials or proprietary logic</strong> into Copilot — Privacy Twins replace sensitive identifiers before any data is transmitted.</div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                <div class="scenario">Legal &amp; Compliance</div>
+                <h3>Contracts &amp; NDA-Protected Content</h3>
+                <p>Legal teams ask AI to draft responses, summarize agreements, or check contract language — often pasting actual terms that can't leave the firm.</p>
+                <div class="use-case-example">Upload a <strong>client NDA for AI review</strong> — Privacy Twins replace all party names, dollar amounts, and identifying terms before the document is processed.</div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <div class="scenario">Finance &amp; Accounting</div>
+                <h3>Financial Models &amp; Forecasts</h3>
+                <p>Finance teams use AI to spot anomalies, generate narratives, and model scenarios — often uploading actual budget spreadsheets with real revenue data.</p>
+                <div class="use-case-example">Upload a <strong>Q3 financial model</strong> — Privacy Twins scale all figures proportionally so AI analysis is identical without exposing actual revenues or targets.</div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <div class="scenario">HR &amp; People Operations</div>
+                <h3>Employee Data &amp; Performance</h3>
+                <p>HR teams ask AI to draft performance reviews, analyze compensation data, or summarize feedback — all highly sensitive and personally identifiable.</p>
+                <div class="use-case-example">Ask AI to <strong>"Draft a performance review for Jane Smith"</strong> — Privacy Twins replace the real employee name, salary, and department before the request is processed.</div>
+            </div>
+            <div class="use-case-card">
+                <div class="use-case-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div class="scenario">Executive &amp; Strategy</div>
+                <h3>Board Materials &amp; M&amp;A Data</h3>
+                <p>Executives use AI to prepare board presentations, analyze competitive intelligence, and draft acquisition rationale — some of the most sensitive data in any organization.</p>
+                <div class="use-case-example">Paste a <strong>confidential term sheet</strong> into Claude for analysis — Privacy Twins replace all entity names, valuations, and deal structures before any data leaves the device.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TECHNICAL STATS -->
+<section class="tech-detail scroll-reveal">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Technical Performance</div>
+            <h2 class="section-title">Built for Accuracy at Scale</h2>
+            <p class="section-subtitle">Privacy Twins aren't just a privacy shield — they're engineered to preserve the quality of your AI outputs.</p>
+        </div>
+        <div class="tech-detail-grid">
+            <div class="tech-card">
+                <div class="tech-card-number">100%</div>
+                <h4>Redaction accuracy</h4>
+                <p>In independent testing, zero real data entities passed through in over 10,000 test prompts.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-number">&lt;50ms</div>
+                <h4>Twin generation latency</h4>
+                <p>The swap happens entirely on-device and completes before the prompt is ready to send.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-number">98.6%</div>
+                <h4>Response equivalence</h4>
+                <p>AI responses using Privacy Twins are rated equivalent in accuracy to responses using real data.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-number">∞</div>
+                <h4>Unique twin pairs</h4>
+                <p>Each Privacy Twin is generated fresh per session — no reuse, no pattern inference possible.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURE: Re-injection -->
+<section class="feature-section scroll-reveal">
+    <div class="feature-grid">
+        <div>
+            <div class="feature-badge">Re-injection</div>
+            <h2>You Always See <span class="highlight">Your Real Data</span> in the Answer</h2>
+            <p>The AI's response comes back using the Privacy Twin names and values. PrivacyPal then re-injects your actual data on your device — so the answer you read is fully in context with your real situation.</p>
+            <p>No manual translation. No cross-referencing a "fake" answer back to reality. You get the full power of AI plus the full context of your real business — simultaneously.</p>
+            <ul class="feature-bullets">
+                <li>Automatic re-injection of real values on response receipt</li>
+                <li>Highlighted in your interface so you always know what was protected</li>
+                <li>Works across all supported AI platforms identically</li>
+            </ul>
+        </div>
+        <div class="feature-visual">
+            <img src="product-shot-005.png" alt="Privacy Twins re-injection in action" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+    <h2>Give Your Team the Full Power of AI — Without the Risk</h2>
+    <p>5-day free trial. 30-day money-back guarantee.</p>
+    <div class="final-cta-buttons">
+        <a href="desktop.html" class="btn-white-cta">Start Free Trial</a>
+        <a href="privacypal-ai.html" class="btn-outline-cta">Explore the Full Platform</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>PrivacyPal</h3>
+            <p>Use ChatGPT, Claude, Copilot, and any AI tool without exposing your sensitive data or IP.</p>
+            <div class="social-links">
+                <a href="https://x.com/privacypalai" title="X">𝕏</a>
+                <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
+            </div>
+        </div>
+        <div class="footer-links"><h4>Platform</h4><ul>
+            <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
+            <li><a href="privacy-twins.html">Privacy Twins</a></li>
+            <li><a href="device-control.html">Device Control</a></li>
+            <li><a href="ai-dspm.html">AI-DSPM</a></li>
+            <li><a href="desktop.html">Install</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Solutions</h4><ul>
+            <li><a href="index.html">For SME / SMB</a></li>
+            <li><a href="privacypal-cloud.html">For Enterprise</a></li>
+            <li><a href="banking.html">Banking</a></li>
+            <li><a href="healthcare.html">Healthcare</a></li>
+            <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Company</h4><ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Legal</h4><ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul></div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
+        <div class="footer-contact"><strong>PrivacyPal</strong>2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968</div>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
+document.addEventListener('DOMContentLoaded',function(){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.scroll-reveal').forEach(function(el){obs.observe(el);});
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(h&&h!=='#'&&h.length>1){e.preventDefault();var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+});
+(function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){this.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});}})();
+function closeMobileMenu(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h)h.classList.remove('active');if(m)m.classList.remove('active');document.body.style.overflow='';document.querySelectorAll('.mobile-dropdown.open').forEach(function(d){d.classList.remove('open');});}
+function toggleMobileDropdown(btn){btn.closest('.mobile-dropdown').classList.toggle('open');}
+</script>
+</body>
+</html>
