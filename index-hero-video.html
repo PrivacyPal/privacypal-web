@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PrivacyPal — Video hero variation</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .hero-video{
+    position:relative; min-height:100vh; padding:140px 28px 100px;
+    display:flex; align-items:center; overflow:hidden;
+    background:#000; color:#fff;
+  }
+  .hero-video video, .hero-video .bg-placeholder{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+  }
+  .hero-video video{opacity:.75}
+  .hero-video .bg-placeholder{
+    background:
+      radial-gradient(circle at 30% 40%, rgba(74,134,194,.4), transparent 60%),
+      radial-gradient(circle at 70% 60%, rgba(233,164,88,.25), transparent 55%),
+      linear-gradient(135deg,#0b1220 0%, #1e2c4a 50%, #0b1220 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:.85rem; color:rgba(255,255,255,.4);
+    letter-spacing:.12em; text-transform:uppercase;
+    animation:slowPan 40s linear infinite;
+  }
+  @keyframes slowPan{
+    0%{background-position:0% 50%, 100% 50%, 0% 0%}
+    50%{background-position:100% 50%, 0% 50%, 100% 100%}
+    100%{background-position:0% 50%, 100% 50%, 0% 0%}
+  }
+  .hero-video::after{
+    content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:
+      linear-gradient(90deg, rgba(11,18,32,.85) 0%, rgba(11,18,32,.55) 45%, rgba(11,18,32,.15) 100%),
+      linear-gradient(180deg, rgba(11,18,32,.2) 0%, transparent 30%, rgba(11,18,32,.85) 100%);
+  }
+  .hero-video .wrap{
+    position:relative; z-index:3; max-width:var(--maxw); margin:0 auto; width:100%;
+    display:grid; grid-template-columns:1.5fr 1fr; gap:80px; align-items:end;
+    min-height:calc(100vh - 240px);
+  }
+  .hero-video .left{padding-bottom:40px}
+  .hero-video .eyebrow{color:var(--cobalt-glow)}
+  .hero-video h1{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(3.2rem,7.5vw,7rem); line-height:.95; letter-spacing:-.03em;
+    color:#fff; margin:22px 0 28px;
+  }
+  .hero-video h1 em{font-style:italic; color:var(--cobalt-glow); font-weight:400}
+  .hero-video p.lede{font-size:1.2rem; line-height:1.6; max-width:56ch; color:rgba(255,255,255,.82); font-weight:300}
+  .hero-video .cta-row{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap}
+  .hero-video .right{
+    padding-bottom:60px; display:flex; flex-direction:column; gap:18px;
+    border-left:1px solid rgba(255,255,255,.18); padding-left:28px;
+  }
+  .hero-video .stat .n{
+    display:block; font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(2.2rem,4vw,3.4rem); line-height:1; color:#fff;
+  }
+  .hero-video .stat .l{
+    display:block; margin-top:8px; font-family:var(--mono); font-size:.74rem;
+    letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55);
+  }
+  .hero-video .topbar{
+    position:absolute; top:110px; left:28px; right:28px; z-index:3;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(255,255,255,.55); max-width:var(--maxw); margin:0 auto; padding:0 28px;
+  }
+  .hero-video .topbar .live::before{
+    content:""; width:8px;height:8px;background:#ff5c5c;border-radius:50%;display:inline-block;margin-right:8px;
+    box-shadow:0 0 12px #ff5c5c; animation:blink 1.4s infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  @media(max-width:900px){
+    .hero-video .wrap{grid-template-columns:1fr;gap:40px;align-items:start}
+    .hero-video .right{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-left:0;padding-top:28px;flex-direction:row;flex-wrap:wrap;gap:32px}
+    .hero-video .topbar{display:none}
+  }
+</style>
+</head><body class="nav-on-dark">
+<div id="site-nav-slot"></div>
+
+<section class="hero-video">
+  <!-- Sweeping video background. Swap the <video> for your real footage.
+       Suggestion: slow cinematic macro — ink in water, light through fabric,
+       aerial city at blue hour, or data-center corridor sweep. -->
+  <video autoplay muted loop playsinline poster="" id="heroVid">
+    <source src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_5MB.mp4" type="video/mp4">
+    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+  </video>
+  <div class="bg-placeholder" id="vidFallback">
+    Cinematic video loading…
+  </div>
+
+  <div class="topbar">
+    <span class="live">Live demo · protecting 400,212 users right now</span>
+    <span>PrivacyPal / 2026</span>
+  </div>
+
+  <div class="wrap">
+    <div class="left reveal in">
+      <span class="eyebrow on-dark">Safe AI, anywhere</span>
+      <h1>Use any AI.<br>Keep what's <em>yours</em>, yours.</h1>
+      <p class="lede">PrivacyPal creates Privacy Twins for your sensitive data before it reaches ChatGPT, Claude, Gemini or Copilot. You get the answer. The AI never gets your secrets.</p>
+      <div class="cta-row">
+        <a class="btn btn-cobalt" href="#download" style="background:var(--cobalt-glow);color:var(--ink)">Download for Mac & Windows
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14M5 10l7 7 7-7M4 21h16"/></svg>
+        </a>
+        <a class="btn btn-outline-light" href="#how">Watch the 90-second demo</a>
+      </div>
+    </div>
+    <div class="right reveal in reveal-delay-2">
+      <div class="stat"><span class="n">400K+</span><span class="l">Protected users</span></div>
+      <div class="stat"><span class="n">17 of 50</span><span class="l">US banks using PrivacyPal</span></div>
+      <div class="stat"><span class="n">Zero</span><span class="l">Prompts stored, ever</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg)">
+  <div class="container" style="text-align:center;max-width:720px;margin:0 auto">
+    <p style="color:var(--text-muted)">This is the <b>Sweeping Video</b> hero variation. The background is cinematic footage with a gradient scrim; left-weighted layout puts the serif headline forward, with a vertical rail of stats on the right. Drop in your own MP4 via the <code>&lt;video&gt;</code> source.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="index.html">← Current hero (mockup)</a>
+      <a class="btn btn-ghost" href="index-hero-fluid.html">Fluid animation variation →</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+<script src="assets/site.js"></script>
+</body></html>

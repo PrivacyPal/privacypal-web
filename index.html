@@ -1,2168 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0QN2Z18HP0');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrivacyPal Pro — Take Control of AI in Your Business</title>
-    <meta name="description" content="Control which AI tools your team uses, what data they can access, and who uses them. Block unapproved AI and redirect to sanctioned tools. Try free for 15 days.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --cobalt: #336699;
-            --cobalt-dark: #1a3a5a;
-            --cobalt-light: #4a86c2;
-            --bg: #EDEAE2;
-            --bg-alt: #E4E0D7;
-            --bg-card: #ffffff;
-            --text: #111111;
-            --text-muted: #5a5a52;
-            --text-light: #7a7a72;
-            --border: #D4D0C8;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.07);
-            --card-shadow-hover: 0 12px 40px -8px rgba(0,0,0,0.12);
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PrivacyPal — Use any AI. Keep what's yours, yours.</title>
+<meta name="description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI. Available for SME teams, homes, and cloud infrastructure." />
+<link rel="icon" href="assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"/>
+<style>
+  /* ========= HERO ========= */
+  .hero{
+    position:relative; min-height:100vh;
+    padding:140px 28px 80px;
+    display:flex; align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(900px 600px at 75% 15%, rgba(74,134,194,.12), transparent 60%),
+      radial-gradient(700px 500px at 10% 85%, rgba(233,164,88,.10), transparent 60%),
+      var(--bg);
+  }
+  .hero-grid{
+    max-width:var(--maxw); margin:0 auto;
+    display:grid; grid-template-columns:1.05fr 1fr; gap:80px;
+    align-items:center; width:100%; position:relative; z-index:2;
+  }
+  .hero-title{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(3rem,7vw,6.2rem); line-height:.98;
+    letter-spacing:-.03em; color:var(--ink);
+  }
+  .hero-title em{
+    font-style:italic; color:var(--cobalt); font-weight:400;
+    background:linear-gradient(90deg,var(--cobalt),var(--cobalt-bright));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .hero-sub{
+    margin-top:28px; font-size:clamp(1.05rem,1.3vw,1.2rem); max-width:48ch;
+    color:var(--text-muted); line-height:1.65;
+  }
+  .hero-cta{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap}
+  .hero-meta{
+    margin-top:44px; display:flex; gap:24px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:.78rem; color:var(--text-soft);
+    letter-spacing:.06em; text-transform:uppercase;
+  }
+  .hero-meta span{display:inline-flex;align-items:center;gap:8px}
+  .hero-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cobalt)}
 
-        /* ── Nav ── */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            transition: box-shadow 0.3s ease;
-        }
-        nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0.85rem 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo img { height: 52px; width: auto; display: block; }
-        .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-        .nav-links a:hover { color: var(--cobalt); }
-        .nav-item-dropdown { position: relative; }
-        .nav-dropdown-trigger {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: inherit;
-            transition: color 0.2s ease;
-        }
-        .nav-dropdown-trigger:hover { color: var(--cobalt); }
-        .nav-dropdown-trigger::after {
-            content: '';
-            width: 0; height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 5px solid currentColor;
-            margin-left: 4px;
-            opacity: 0.7;
-        }
-        .nav-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(8px);
-            min-width: 210px;
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-            padding: 8px 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-            z-index: 1001;
-        }
-        .nav-item-dropdown:hover .nav-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(4px);
-        }
-        .nav-dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.2s, background 0.2s;
-        }
-        .nav-dropdown-menu a:hover {
-            color: var(--cobalt);
-            background: rgba(51, 102, 153, 0.06);
-        }
-        .nav-divider { height: 1px; background: var(--border); margin: 6px 0; }
-        .nav-dropdown-menu .nav-home-link {
-            color: var(--cobalt);
-            font-weight: 600;
-        }
-        /* Nav right CTAs */
-        .nav-cta-group { display: flex; gap: 10px; align-items: center; }
-        .nav-login {
-            color: var(--text-muted) !important;
-            font-weight: 500;
-            font-size: 0.875rem;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            transition: color 0.2s;
-        }
-        .nav-login:hover { color: var(--text) !important; }
-        .cta-nav-button {
-            background: #111111;
-            color: #ffffff !important;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            letter-spacing: 0.01em;
-        }
-        .cta-nav-button:hover {
-            background: #2a2a2a;
-            transform: translateY(-1px);
-        }
+  /* ========= LIVE PRODUCT MOCK ========= */
+  .mock-stage{
+    position:relative; height:620px;
+    perspective:1400px;
+  }
+  .mock-chat{
+    position:absolute; inset:0;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    box-shadow:
+      0 50px 100px -30px rgba(15,23,42,.32),
+      0 20px 40px -20px rgba(51,102,153,.2),
+      inset 0 1px 0 rgba(255,255,255,.7);
+    overflow:hidden;
+    transform-style:preserve-3d;
+    transform: rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .mock-bar{
+    display:flex; align-items:center; gap:10px;
+    padding:14px 18px; border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#fff,#f9f7f1);
+  }
+  .mock-dots{display:flex;gap:6px}
+  .mock-dots i{width:10px;height:10px;border-radius:50%}
+  .mock-dots i:nth-child(1){background:#ff5f57}
+  .mock-dots i:nth-child(2){background:#febb2d}
+  .mock-dots i:nth-child(3){background:#28c940}
+  .mock-app{font-family:var(--mono); font-size:.76rem; color:var(--text-soft); letter-spacing:.04em}
+  .mock-shield{
+    margin-left:auto; display:inline-flex; align-items:center; gap:6px;
+    padding:4px 10px; background:rgba(47,158,107,.12);
+    border:1px solid rgba(47,158,107,.28); color:#238156;
+    border-radius:999px; font-size:.72rem; font-weight:600;
+  }
+  .mock-shield::before{content:"";width:6px;height:6px;border-radius:50%;background:#2f9e6b;box-shadow:0 0 10px #2f9e6b;animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .mock-body{padding:22px; display:flex; flex-direction:column; gap:16px; height:calc(100% - 52px); overflow:hidden; position:relative}
 
-        /* ── Hero ── */
-        .hero {
-            padding: 140px 24px 96px;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-        }
-        .hero-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 64px;
-            align-items: center;
-        }
-        .hero-content { min-width: 0; }
-        .hero-top-row {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-bottom: 28px;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0;
-            background: none;
-            border: none;
-            font-weight: 500;
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-        }
-        .hero-stars-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 7px 14px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: border-color 0.2s;
-        }
-        .hero-stars-badge:hover {
-            border-color: #aaa;
-        }
-        .hero-stars-badge .stars {
-            color: #f59e0b;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        .hero-text {
-            font-family: 'Radley', Georgia, 'Times New Roman', serif;
-            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-            line-height: 1.05;
-            letter-spacing: -0.02em;
-            color: var(--text);
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        .hero p {
-            font-size: clamp(1rem, 1.3vw, 1.15rem);
-            color: var(--text-muted);
-            margin-bottom: 36px;
-            line-height: 1.8;
-            max-width: 540px;
-        }
-        /* Trust badges row */
-        .hero-trust-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 36px;
-        }
-        .hero-trust-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 8px 14px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-        .hero-trust-badge .badge-icon {
-            width: 15px;
-            height: 15px;
-            color: var(--cobalt);
-            flex-shrink: 0;
-        }
-        .hero-cta-group {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .hero-cta {
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .hero-cta-primary {
-            background: #111111;
-            color: #ffffff;
-        }
-        .hero-cta-primary:hover {
-            background: #2a2a2a;
-            transform: translateY(-1px);
-        }
-        .hero-cta-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 1.5px solid var(--border);
-        }
-        .hero-cta-secondary:hover {
-            border-color: #888;
-            background: rgba(0,0,0,0.04);
-        }
+  .chip{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:10px 14px; background:#f7f5ef; border:1px solid var(--border);
+    border-radius:12px; font-size:.8rem; color:var(--text); width:fit-content;
+    opacity:0; transform:translateY(8px); transition:opacity .5s, transform .5s;
+  }
+  .chip.show{opacity:1; transform:none}
+  .chip .src{font-family:var(--mono); font-size:.68rem; color:var(--cobalt); padding:2px 8px; background:rgba(51,102,153,.08); border-radius:6px; letter-spacing:.04em}
+  .bubble{
+    max-width:82%; padding:14px 18px; border-radius:18px;
+    font-size:.95rem; line-height:1.5;
+    opacity:0; transform:translateY(10px); transition:opacity .5s, transform .5s;
+  }
+  .bubble.show{opacity:1; transform:none}
+  .bubble.user{align-self:flex-end; background:var(--ink); color:#fff; border-bottom-right-radius:6px}
+  .bubble.ai{align-self:flex-start; background:#f3f0e8; color:var(--text); border-bottom-left-radius:6px; border:1px solid var(--border)}
+  .pii-raw{background:rgba(220,62,62,.22); padding:1px 6px; border-radius:4px; text-decoration:line-through; text-decoration-color:rgba(220,62,62,.55)}
+  .pii-twin{background:rgba(47,158,107,.18); color:#1f6d4e; padding:1px 6px; border-radius:4px; font-weight:600}
+  .pii-back{background:rgba(51,102,153,.16); color:var(--cobalt-deep); padding:1px 6px; border-radius:4px; font-weight:600}
+  .intercept{
+    align-self:center; display:inline-flex; align-items:center; gap:10px;
+    padding:6px 14px; border-radius:999px;
+    background:linear-gradient(90deg,rgba(220,62,62,.08),rgba(47,158,107,.12));
+    border:1px solid rgba(47,158,107,.3); color:#238156;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    opacity:0; transform:translateY(6px); transition:.4s;
+  }
+  .intercept.show{opacity:1; transform:none}
+  .intercept svg{width:12px;height:12px}
 
-        /* Hero Pricing Card */
-        .hero-pricing-card {
-            background: var(--bg-card);
-            border: 1.5px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.12);
-            position: relative;
-            flex-shrink: 0;
-        }
-        .hero-card-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--cobalt);
-            margin-bottom: 4px;
-        }
-        .hero-card-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 20px;
-        }
-        .hero-billing-toggle {
-            display: flex;
-            background: #f0ede6;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 3px;
-            margin-bottom: 24px;
-        }
-        .toggle-btn {
-            flex: 1;
-            padding: 8px 12px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            border: none;
-            background: none;
-            border-radius: 6px;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: all 0.2s ease;
-            font-family: inherit;
-        }
-        .toggle-btn.active {
-            background: #ffffff;
-            color: #111111;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-        .hero-price-amount {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--cobalt);
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        .hero-price-amount span { font-size: 1rem; font-weight: 600; color: var(--text-muted); }
-        .hero-price-note {
-            font-size: 0.78rem;
-            color: var(--text-light);
-            margin-bottom: 6px;
-        }
-        .hero-price-save {
-            display: inline-block;
-            padding: 3px 10px;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.25);
-            border-radius: 50px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #16a34a;
-            margin-bottom: 20px;
-        }
-        .hero-card-features {
-            margin-bottom: 24px;
-        }
-        .hero-card-feature {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .hero-card-feature:last-child { border-bottom: none; }
-        .hero-card-feature::before {
-            content: '';
-            width: 16px;
-            height: 16px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23336699' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
-            flex-shrink: 0;
-        }
-        .hero-card-btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: 8px;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
-        .hero-card-btn-primary {
-            background: #111111;
-            color: white;
-            margin-bottom: 10px;
-        }
-        .hero-card-btn-primary:hover {
-            background: #2a2a2a;
-            transform: translateY(-1px);
-        }
-        .hero-card-btn-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 1.5px solid var(--border);
-        }
-        .hero-card-btn-secondary:hover {
-            border-color: #888;
-            background: rgba(0,0,0,0.04);
-        }
-        .hero-card-disclaimer {
-            font-size: 0.72rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 12px;
-        }
+  /* floating source nodes */
+  .src-node{
+    position:absolute; z-index:3;
+    width:64px;height:64px;border-radius:16px;
+    background:#fff;border:1px solid var(--border);
+    box-shadow:var(--shadow-md);
+    display:flex;align-items:center;justify-content:center;
+    transform:translateY(20px);opacity:0;
+    transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .src-node.show{opacity:1;transform:translateY(0)}
+  .src-node img{width:34px;height:34px;object-fit:contain}
+  .src-node.n1{top:-28px; left:8%}
+  .src-node.n2{top:18%; left:-42px}
+  .src-node.n3{top:60%; left:-34px}
+  .src-node.n4{top:8%; right:-30px}
+  .src-node.n5{bottom:-24px; right:18%}
 
-        /* ── Trust Strip ── */
-        .trust-strip {
-            padding: 80px 24px;
-            background: var(--bg-alt);
-            border-bottom: 1px solid var(--border);
-        }
-        .trust-strip-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-        }
-        .trust-item {
-            display: flex;
-            gap: 18px;
-            align-items: flex-start;
-        }
-        .trust-icon-wrap {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(51, 102, 153, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .trust-icon-wrap svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--cobalt);
-            stroke-width: 1.75;
-            fill: none;
-        }
-        .trust-item h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 6px;
-        }
-        .trust-item p {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+  /* floating AI chips on right */
+  .ai-chip{
+    position:absolute; z-index:4;
+    padding:10px 14px 10px 10px;
+    background:#fff;border:1px solid var(--border);
+    border-radius:999px; box-shadow:var(--shadow-md);
+    display:flex;align-items:center;gap:8px;
+    font-size:.82rem; font-weight:600;
+    opacity:0; transform:translateX(20px);
+    transition:opacity .7s,transform .7s;
+  }
+  .ai-chip.show{opacity:1;transform:none}
+  .ai-chip img{width:22px;height:22px;object-fit:contain}
+  .ai-chip.a1{top:12%; right:-80px}
+  .ai-chip.a2{top:40%; right:-120px}
+  .ai-chip.a3{top:70%; right:-80px}
 
-        /* ── Trusted By ── */
-        .trusted-by {
-            background: var(--bg-alt);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 56px 24px;
-        }
-        .trusted-by-container { max-width: 1100px; margin: 0 auto; }
-        .trusted-by-title {
-            font-size: 0.68rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .trusted-by-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 56px;
-            flex-wrap: wrap;
-        }
-        .trusted-by-logo {
-            height: 40px;
-            width: auto;
-            max-width: 140px;
-            object-fit: contain;
-            filter: brightness(0);
-            opacity: 0.35;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .trusted-by-logo:hover { opacity: 0.65; transform: scale(1.04); }
+  /* scroll arrow */
+  .scroll-hint{
+    position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--text-soft); display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .scroll-hint::after{content:"";width:1px;height:40px;background:currentColor;opacity:.3;animation:dropline 2s ease-in-out infinite}
+  @keyframes dropline{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
 
-        /* ── Live Demo ── */
-        .live-demo {
-            padding: 120px 24px;
-            background: var(--bg);
-        }
-        .live-demo-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 480px;
-            gap: 72px;
-            align-items: center;
-        }
-        .live-demo-content .section-badge { margin-bottom: 20px; }
-        .live-demo-content h2 {
-            font-family: 'Radley', Georgia, serif;
-            font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 20px;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-        .live-demo-content p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-            margin-bottom: 16px;
-        }
-        .live-demo-stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 32px;
-            flex-wrap: wrap;
-        }
-        .demo-stat { }
-        .demo-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--cobalt);
-            line-height: 1;
-        }
-        .demo-stat-label {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
+  /* ========= VIDEO/DARK SIGNATURE MOMENT ========= */
+  .signature{
+    position:relative; min-height:100vh; color:#fff;
+    padding:120px 28px;
+    overflow:hidden;
+    background:#060912;
+  }
+  .sig-bg{
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(1100px 700px at 30% 20%, rgba(74,134,194,.28), transparent 55%),
+      radial-gradient(900px 600px at 80% 80%, rgba(94,164,224,.18), transparent 55%),
+      linear-gradient(180deg,#060912 0%,#0b1424 100%);
+  }
+  .sig-grid{
+    position:absolute; inset:0; z-index:1; opacity:.35;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse at center, #000 40%, transparent 80%);
+  }
+  /* flowing particles */
+  .sig-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
+  .sig-particles .p{
+    position:absolute; width:2px; height:80px;
+    background:linear-gradient(180deg,transparent,var(--cobalt-glow),transparent);
+    opacity:.5; animation:pfall linear infinite;
+  }
+  @keyframes pfall{from{transform:translateY(-120px)}to{transform:translateY(120vh)}}
 
-        /* Hero chat mockup (reused for live demo) */
-        .hero-chat-mockup {
-            position: relative;
-            z-index: 2;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.14);
-        }
-        .hero-chat-header {
-            padding: 12px 18px;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .hero-chat-dots { display: flex; gap: 6px; }
-        .hero-chat-dots span { width: 8px; height: 8px; border-radius: 50%; }
-        .hero-chat-dots span:nth-child(1) { background: #ff5f57; }
-        .hero-chat-dots span:nth-child(2) { background: #ffbd2e; }
-        .hero-chat-dots span:nth-child(3) { background: #28ca42; }
-        .hero-chat-title { font-size: 0.82rem; font-weight: 600; color: #64748b; margin-left: 8px; }
-        .hero-chat-shield {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.25);
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #16a34a;
-        }
-        .hero-chat-body { padding: 20px 18px 16px; overflow: hidden; }
-        .hero-chat-msg {
-            max-width: 92%;
-            padding: 11px 14px;
-            border-radius: 14px;
-            font-size: 0.85rem;
-            line-height: 1.55;
-            margin-bottom: 12px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .hero-chat-msg.visible { opacity: 1; }
-        .hero-chat-msg.user {
-            margin-left: auto;
-            background: var(--cobalt);
-            color: white;
-            border-bottom-right-radius: 4px;
-        }
-        .hero-chat-msg.ai {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            color: #334155;
-            border-bottom-left-radius: 4px;
-        }
-        .pii-real { background: rgba(239,68,68,0.35); border-radius: 3px; padding: 0 3px; transition: all 0.4s ease; }
-        .pii-twin { background: rgba(34,197,94,0.4); border-radius: 3px; padding: 0 3px; font-weight: 600; }
-        .pii-reinjected { background: rgba(51,102,153,0.25); border-radius: 3px; padding: 0 3px; }
-        .hero-intercept-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px 14px;
-            margin: 0 auto 12px;
-            width: fit-content;
-            background: linear-gradient(90deg, rgba(239,68,68,0.06) 0%, rgba(34,197,94,0.1) 100%);
-            border: 1px solid rgba(34,197,94,0.25);
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #16a34a;
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .hero-intercept-bar.visible { opacity: 1; transform: translateY(0); }
-        .hero-intercept-bar svg { width: 14px; height: 14px; flex-shrink: 0; }
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1em;
-            background: rgba(255,255,255,0.8);
-            margin-left: 1px;
-            vertical-align: text-bottom;
-            animation: blink 0.6s step-end infinite;
-        }
-        .hero-chat-msg.ai .typing-cursor { background: #64748b; }
-        @keyframes blink { 50% { opacity: 0; } }
-        .hero-file-chip {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 11px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 0.73rem;
-            font-weight: 500;
-            color: #475569;
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(4px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .hero-file-chip.visible { opacity: 1; transform: translateY(0); }
-        .hero-file-chip svg { width: 14px; height: 14px; flex-shrink: 0; color: #94a3b8; }
-        .hero-file-chip .file-source {
-            display: inline-flex;
-            align-items: center;
-            padding: 1px 6px;
-            background: rgba(0,161,224,0.08);
-            border-radius: 4px;
-            font-size: 0.6rem;
-            font-weight: 600;
-            color: #00A1E0;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .hero-chat-input {
-            margin: 0 18px 16px;
-            padding: 10px 14px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 0.82rem;
-            color: #94a3b8;
-        }
+  .sig-inner{position:relative; z-index:3; max-width:var(--maxw); margin:0 auto}
+  .sig-kicker{color:var(--cobalt-glow);font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
+  .sig-kicker::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+  .sig-title{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(2.75rem,6vw,5.5rem); line-height:1.0; letter-spacing:-.02em;
+    margin:26px 0 28px; max-width:18ch;
+  }
+  .sig-title .glow{color:var(--cobalt-glow)}
+  .sig-sub{color:rgba(255,255,255,.72); max-width:56ch; font-size:1.1rem; line-height:1.7}
 
-        /* ── Features (What's Included) ── */
-        .features {
-            padding: 120px 24px;
-            background: var(--bg-alt);
-        }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 56px; }
-        .section-badge {
-            display: inline-block;
-            padding: 0;
-            background: none;
-            border: none;
-            border-radius: 0;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.68rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-        }
-        .section-title {
-            font-family: 'Radley', Georgia, 'Times New Roman', serif;
-            font-size: clamp(2.4rem, 4.5vw, 3.5rem);
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 20px;
-            line-height: 1.08;
-            letter-spacing: -0.025em;
-        }
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.75;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-            margin-top: 48px;
-        }
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 36px 28px;
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
-            box-shadow: var(--card-shadow);
-        }
-        .feature-card:hover {
-            box-shadow: var(--card-shadow-hover);
-            transform: translateY(-2px);
-        }
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(51, 102, 153, 0.08);
-            border-radius: 12px;
-        }
-        .feature-icon svg {
-            width: 26px;
-            height: 26px;
-            stroke: var(--cobalt);
-            stroke-width: 1.75;
-            fill: none;
-        }
-        .feature-card h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            line-height: 1.65;
-        }
+  /* big stat strip */
+  .sig-stats{
+    margin-top:80px; display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .sig-stats .s{padding:36px 24px; border-right:1px solid rgba(255,255,255,.08)}
+  .sig-stats .s:last-child{border-right:0}
+  .sig-stats .n{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(2rem,4.5vw,3.6rem); line-height:1; color:#fff;
+    display:flex; align-items:baseline; gap:6px;
+  }
+  .sig-stats .n small{font-size:.4em; color:var(--cobalt-glow); font-family:var(--mono); font-weight:500}
+  .sig-stats .l{margin-top:12px;color:rgba(255,255,255,.6);font-size:.92rem;line-height:1.45}
 
-        /* ── Why Choose ── */
-        .why-choose {
-            padding: 120px 24px;
-            background: var(--bg);
-        }
-        .why-choose-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            margin-top: 48px;
-        }
-        .why-card {
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            background: var(--bg-card);
-        }
-        .why-card:hover {
-            box-shadow: var(--card-shadow-hover);
-        }
-        .why-card-header {
-            padding: 28px 28px 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            background: var(--bg-card);
-        }
-        .why-card-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(51, 102, 153, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .why-card-icon svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--cobalt);
-            stroke-width: 1.75;
-            fill: none;
-        }
-        .why-card-header h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1.4;
-        }
-        .why-card-body {
-            padding: 0 28px 28px;
-        }
-        .why-card-body p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-        .why-card-body p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
+  /* the "twin reveal" visual — the scroll-pinned moment */
+  .twin-stage{
+    margin-top:120px; position:relative;
+    min-height:640px;
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  }
+  .twin-doc{
+    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12);
+    border-radius:16px; padding:36px; font-family:var(--mono);
+    font-size:.86rem; line-height:1.9; color:rgba(255,255,255,.85);
+    backdrop-filter:blur(6px);
+    position:relative; overflow:hidden;
+  }
+  .twin-doc h4{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--cobalt-glow); margin-bottom:18px; font-weight:500;
+  }
+  .twin-doc .red{background:rgba(220,62,62,.25); padding:2px 6px; border-radius:4px; color:#ffb3b3}
+  .twin-doc .green{background:rgba(47,158,107,.25); padding:2px 6px; border-radius:4px; color:#9ef0c6}
+  .twin-arrow{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:64px; height:64px; border-radius:50%;
+    background:var(--cobalt-glow); color:#060912;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 10px rgba(94,164,224,.15), 0 0 60px rgba(94,164,224,.5);
+    z-index:5;
+  }
+  @media (max-width:900px){
+    .twin-stage{grid-template-columns:1fr}
+    .twin-arrow{position:static; transform:none; margin:-30px auto; rotate:90deg}
+  }
 
-        /* ── Pricing Tiers ── */
-        .pricing {
-            padding: 120px 24px;
-            background: var(--bg-alt);
-        }
-        .pricing-toggle-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 48px;
-        }
-        .pricing-toggle {
-            display: flex;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 4px;
-            gap: 4px;
-        }
-        .pricing-toggle-btn {
-            padding: 10px 24px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 7px;
-            cursor: pointer;
-            background: none;
-            color: var(--text-muted);
-            font-family: inherit;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .pricing-toggle-btn.active {
-            background: #111111;
-            color: white;
-        }
-        .save-badge {
-            padding: 2px 8px;
-            background: rgba(34, 197, 94, 0.2);
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #16a34a;
-        }
-        .pricing-toggle-btn.active .save-badge {
-            background: rgba(255,255,255,0.2);
-            color: #ffffff;
-        }
-        .pricing-tiers {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 1060px;
-            margin: 0 auto;
-        }
-        .tier-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 36px 32px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.3s ease;
-        }
-        .tier-card:hover {
-            box-shadow: var(--card-shadow-hover);
-        }
-        .tier-card.popular {
-            border-color: #111111;
-            box-shadow: 0 0 0 1.5px #111111, 0 16px 40px -8px rgba(0,0,0,0.12);
-        }
-        .tier-popular-badge {
-            position: absolute;
-            top: -13px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 5px 18px;
-            background: #111111;
-            color: white;
-            border-radius: 4px;
-            font-size: 0.68rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            white-space: nowrap;
-        }
-        .tier-name {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--cobalt);
-            margin-bottom: 4px;
-        }
-        .tier-product {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 20px;
-        }
-        .tier-price {
-            margin-bottom: 6px;
-        }
-        .tier-price-amount {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--text);
-            line-height: 1;
-        }
-        .tier-price-amount span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-        .tier-price-note {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-bottom: 24px;
-        }
-        .tier-divider {
-            height: 1px;
-            background: var(--border);
-            margin-bottom: 24px;
-        }
-        .tier-features {
-            flex: 1;
-            margin-bottom: 28px;
-        }
-        .tier-feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .tier-feature:last-child { border-bottom: none; }
-        .tier-check {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: rgba(51, 102, 153, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-        .tier-check svg {
-            width: 10px;
-            height: 10px;
-            stroke: var(--cobalt);
-            stroke-width: 3;
-            fill: none;
-        }
-        .tier-card.popular .tier-check {
-            background: rgba(51, 102, 153, 0.15);
-        }
-        .tier-cta {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: 8px;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            border: 1.5px solid var(--cobalt);
-            background: transparent;
-            color: var(--cobalt);
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
-        .tier-cta:hover {
-            background: var(--cobalt);
-            color: white;
-        }
-        .tier-card.popular .tier-cta {
-            background: #111111;
-            color: white;
-        }
-        .tier-card.popular .tier-cta:hover {
-            background: #2a2a2a;
-        }
-        .tier-all-features { font-size: 0.78rem; font-weight: 600; color: var(--cobalt); padding: 8px 0; }
+  /* ========= PRODUCTS TRIPTYCH ========= */
+  .triptych{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px}
+  .prod-card{
+    position:relative; overflow:hidden;
+    padding:44px 36px 36px;
+    border-radius:20px; border:1px solid var(--border);
+    background:#fff; transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+    min-height:480px; display:flex; flex-direction:column;
+  }
+  .prod-card::before{
+    content:""; position:absolute; inset:auto 0 0 0; height:3px;
+    background:var(--grad, linear-gradient(90deg,var(--cobalt),var(--cobalt-bright)));
+    transform:scaleX(.18); transform-origin:left; transition:transform .45s;
+  }
+  .prod-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:transparent}
+  .prod-card:hover::before{transform:scaleX(1)}
+  .prod-card .tag{font-family:var(--mono); font-size:.72rem; color:var(--cobalt); letter-spacing:.18em; text-transform:uppercase}
+  .prod-card h3{font-family:var(--serif); font-size:2.2rem; font-weight:700; margin:14px 0 8px; letter-spacing:-.02em}
+  .prod-card .for{font-family:var(--mono); font-size:.82rem; color:var(--text-soft); margin-bottom:20px}
+  .prod-card p{color:var(--text-muted); font-size:.98rem; line-height:1.65; margin-bottom:24px; flex:1}
+  .prod-card ul{list-style:none; padding:0; margin:0 0 28px 0; display:flex; flex-direction:column; gap:10px}
+  .prod-card li{font-size:.9rem; color:var(--text); display:flex; align-items:flex-start; gap:10px}
+  .prod-card li::before{content:""; width:6px;height:6px;border-radius:50%;background:var(--cobalt); margin-top:8px; flex-shrink:0}
+  .prod-card a.go{
+    font-family:var(--mono); font-size:.82rem; font-weight:500;
+    color:var(--ink); text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    letter-spacing:.04em; padding-bottom:6px; border-bottom:1px solid var(--ink);
+    align-self:flex-start; transition:gap .2s, color .2s, border-color .2s;
+  }
+  .prod-card a.go:hover{gap:14px; color:var(--cobalt); border-color:var(--cobalt)}
+  .prod-card .illus{
+    position:absolute; top:36px; right:36px;
+    width:72px;height:72px; border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--chip-bg, rgba(51,102,153,.08));
+    color:var(--cobalt);
+  }
+  .prod-card .illus svg{width:34px;height:34px}
+  .prod-card.pro{--grad:linear-gradient(90deg,var(--cobalt),var(--cobalt-bright)); --chip-bg:rgba(51,102,153,.08)}
+  .prod-card.home{--grad:linear-gradient(90deg,var(--amber),#f0c280); --chip-bg:rgba(233,164,88,.14)}
+  .prod-card.home .tag,.prod-card.home .illus,.prod-card.home li::before{color:#b5772a; background-color:rgba(233,164,88,.14)}
+  .prod-card.home li::before{background:#b5772a}
+  .prod-card.cloud{--grad:linear-gradient(90deg,#1a3a5a,#4a86c2); --chip-bg:rgba(11,18,32,.08)}
+  .prod-card.cloud .tag{color:var(--ink)}
+  .prod-card.cloud .illus{background:rgba(11,18,32,.07); color:var(--ink)}
 
-        /* ── Final CTA ── */
-        .final-cta {
-            background: #111111;
-            color: white;
-            text-align: center;
-            padding: 128px 24px;
-        }
-        .final-cta h2 {
-            font-family: 'Radley', Georgia, serif;
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .final-cta p {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            opacity: 0.75;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .final-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .final-cta-button {
-            padding: 15px 32px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s ease;
-        }
-        .final-cta-primary {
-            background: white;
-            color: #111111;
-        }
-        .final-cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-        }
-        .final-cta-secondary {
-            background: transparent;
-            color: rgba(255,255,255,0.85);
-            border: 1.5px solid rgba(255,255,255,0.3);
-        }
-        .final-cta-secondary:hover {
-            border-color: rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.06);
-        }
+  /* ========= HOW IT WORKS (horizontal) ========= */
+  .flow{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+    margin-top:56px; position:relative;
+  }
+  .flow::before{
+    content:""; position:absolute; top:40px; left:8%; right:8%; height:1px;
+    background:repeating-linear-gradient(90deg,var(--cobalt) 0 6px,transparent 6px 12px);
+    opacity:.5; z-index:0;
+  }
+  .flow-step{position:relative; z-index:1; background:var(--bg); padding:0 12px}
+  .flow-num{
+    width:80px;height:80px;border-radius:50%;
+    background:#fff; border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif); font-size:2rem; font-weight:700;
+    color:var(--cobalt); margin-bottom:22px;
+    box-shadow:var(--shadow-md);
+  }
+  .flow-step h4{font-size:1.15rem; font-weight:700; margin-bottom:8px}
+  .flow-step p{color:var(--text-muted); font-size:.93rem; line-height:1.6}
 
-        /* ── Partners ── */
-        .partners {
-            padding: 96px 24px;
-            background: var(--bg);
-            border-top: 1px solid var(--border);
-        }
-        .partners-container { max-width: 900px; margin: 0 auto; text-align: center; }
-        .partners-badge {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--cobalt);
-            margin-bottom: 16px;
-            display: block;
-        }
-        .partners-title {
-            font-family: 'Radley', Georgia, serif;
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-        .partners-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 480px; margin: 0 auto 40px; line-height: 1.65; }
-        .partners-logos { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; align-items: center; }
-        .partner-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .partner-item img { height: 72px; width: auto; max-width: 200px; object-fit: contain; }
-        .partner-item span { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); }
+  /* ========= SOLUTIONS GRID ========= */
+  .sol-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:48px}
+  .sol-card{
+    position:relative; overflow:hidden;
+    padding:28px 24px 80px; min-height:240px;
+    background:#fff; border:1px solid var(--border); border-radius:16px;
+    text-decoration:none; color:inherit;
+    transition:transform .3s, box-shadow .3s, border-color .3s;
+  }
+  .sol-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--cobalt)}
+  .sol-card .sol-ico{width:40px;height:40px; color:var(--cobalt); margin-bottom:20px}
+  .sol-card h4{font-size:1.15rem; font-weight:700; margin-bottom:6px}
+  .sol-card p{font-size:.88rem; color:var(--text-muted); line-height:1.5}
+  .sol-card::after{
+    content:"→"; position:absolute; bottom:24px; left:24px;
+    width:32px;height:32px;border-radius:50%;
+    background:var(--bg-alt); display:flex;align-items:center;justify-content:center;
+    font-size:1rem; color:var(--cobalt); transition:transform .3s, background .3s, color .3s;
+  }
+  .sol-card:hover::after{background:var(--cobalt); color:#fff; transform:translateX(6px)}
 
-        /* ── Footer ── */
-        footer {
-            background: var(--bg-alt);
-            border-top: 1px solid var(--border);
-            padding: 72px 24px 36px;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 48px;
-        }
-        .footer-brand h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--text); }
-        .footer-brand p { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-size: 0.9rem; }
-        .social-links { display: flex; gap: 10px; }
-        .social-links a {
-            width: 38px; height: 38px;
-            border-radius: 8px;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s, background 0.2s, border-color 0.2s;
-        }
-        .social-links a:hover { background: var(--cobalt); color: white; border-color: var(--cobalt); }
-        .footer-links h4 { font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.06em; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 9px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--cobalt); }
-        .footer-family-link { color: var(--cobalt) !important; font-weight: 600; }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 28px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.875rem;
-            position: relative;
-        }
-        .footer-contact {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            text-align: right;
-            font-size: 0.82rem;
-            line-height: 1.5;
-        }
-        .footer-contact strong { color: var(--text); display: block; margin-bottom: 4px; }
-        .footer-bottom a { color: var(--cobalt); text-decoration: none; }
-        .footer-bottom a:hover { text-decoration: underline; }
+  /* ========= STORY / ETHOS ========= */
+  .ethos{
+    padding:140px 28px;
+    background:var(--bg-alt); position:relative;
+  }
+  .ethos-inner{max-width:960px; margin:0 auto; text-align:center}
+  .ethos h2{
+    font-family:var(--serif); font-weight:400; font-style:italic;
+    font-size:clamp(2rem,3.6vw,3.2rem); line-height:1.25;
+    letter-spacing:-.01em; color:var(--ink);
+  }
+  .ethos h2 b{font-style:normal; font-weight:700; color:var(--cobalt)}
+  .ethos .sig{
+    margin-top:40px; display:inline-flex; align-items:center; gap:14px;
+    font-family:var(--mono); font-size:.78rem; color:var(--text-soft);
+    letter-spacing:.1em; text-transform:uppercase;
+  }
+  .ethos .sig::before, .ethos .sig::after{content:"";width:40px;height:1px;background:var(--border-strong)}
 
-        /* ── Modals ── */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.25);
-            backdrop-filter: blur(4px);
-        }
-        .modal-overlay.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.2s ease-out;
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-        .demo-modal {
-            background: #ffffff;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 460px;
-            max-height: 88vh;
-            overflow: hidden;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
-            display: flex;
-            flex-direction: column;
-            animation: slideUp 0.25s ease-out;
-        }
-        .demo-modal-header {
-            padding: 20px 20px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .demo-modal-title { font-size: 1rem; font-weight: 600; color: #1a1a1a; margin: 0; }
-        .demo-modal-close {
-            background: none; border: none;
-            font-size: 1.25rem; color: #9ca3af;
-            cursor: pointer;
-            width: 32px; height: 32px;
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.15s ease;
-        }
-        .demo-modal-close:hover { background: #f5f5f5; color: #1a1a1a; }
-        .demo-modal-body { flex: 1; overflow: auto; position: relative; }
-        .demo-modal-body iframe { width: 100%; height: 100%; border: none; min-height: 560px; }
-        .demo-loading {
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 60px 20px;
-            color: #9ca3af; font-size: 0.9rem;
-        }
-        .demo-spinner {
-            width: 32px; height: 32px;
-            border: 2.5px solid #e5e7eb;
-            border-top-color: #1a1a1a;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            margin-bottom: 12px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+  /* ========= PRICING ========= */
+  .pricing-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px;
+  }
+  .price-card{
+    background:#fff; border:1px solid var(--border); border-radius:20px;
+    padding:36px 32px 32px; display:flex; flex-direction:column;
+    transition:border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .price-card:hover{border-color:var(--cobalt); box-shadow:var(--shadow-md); transform:translateY(-4px)}
+  .price-card.feat{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .price-card.feat .price-name, .price-card.feat .price-tagline{color:#fff}
+  .price-card.feat .price-amt small{color:rgba(255,255,255,.6)}
+  .price-card.feat li{color:rgba(255,255,255,.85)}
+  .price-card.feat li::before{color:var(--cobalt-glow)}
+  .price-name{font-family:var(--serif); font-size:1.75rem; font-weight:700; color:var(--ink)}
+  .price-tagline{font-size:.92rem; color:var(--text-muted); margin-top:6px}
+  .price-amt{margin:28px 0 20px}
+  .price-amt .big{font-family:var(--serif); font-size:3rem; font-weight:700; line-height:1}
+  .price-amt small{font-size:.92rem; color:var(--text-muted); margin-left:6px}
+  .price-card ul{list-style:none; padding:0; margin:20px 0 32px; display:flex; flex-direction:column; gap:12px}
+  .price-card li{font-size:.93rem; padding-left:26px; position:relative; line-height:1.5}
+  .price-card li::before{content:"✓"; position:absolute; left:0; color:var(--cobalt); font-weight:700}
+  .price-card .btn{margin-top:auto; justify-content:center}
+  .price-badge{
+    display:inline-block; padding:4px 12px; border-radius:999px;
+    background:var(--cobalt-glow); color:var(--ink);
+    font-family:var(--mono); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    margin-bottom:14px;
+  }
 
-        /* ── Scroll reveal ── */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+  /* ========= FINAL CTA ========= */
+  .final-cta{
+    padding:160px 28px; text-align:center; position:relative; overflow:hidden;
+    background:
+      radial-gradient(900px 600px at 50% 20%, rgba(51,102,153,.14), transparent 60%),
+      var(--bg-alt);
+  }
+  .final-cta h2{
+    font-family:var(--serif); font-size:clamp(2.5rem,6vw,5rem); font-weight:700;
+    line-height:1; letter-spacing:-.02em; color:var(--ink);
+    max-width:18ch; margin:0 auto 24px;
+  }
+  .final-cta p{max-width:52ch; margin:0 auto 36px; color:var(--text-muted); font-size:1.1rem}
 
-        /* ── Mobile Menu ── */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            width: 44px; height: 44px;
-            background: none; border: none;
-            cursor: pointer;
-            z-index: 1002; padding: 0;
-        }
-        .hamburger span {
-            display: block;
-            width: 24px; height: 2px;
-            background: #0f172a;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            transform-origin: center;
-        }
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-menu {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(237, 234, 226, 0.98);
-            backdrop-filter: blur(24px);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 28px;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu a {
-            color: #0f172a; text-decoration: none;
-            font-size: 1.35rem; font-weight: 600;
-            transition: color 0.2s;
-        }
-        .mobile-menu a:hover { color: var(--cobalt); }
-        .mobile-menu .mobile-cta {
-            background:#111111;
-            color: white !important;
-            padding:14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            
-        }
-        .mobile-dropdown { width: 100%; text-align: center; }
-        .mobile-dropdown-trigger {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 10px 24px;
-            font-size: 1.35rem; font-weight: 600;
-            color: #0f172a;
-            background: none; border: none;
-            cursor: pointer;
-            font-family: inherit;
-            transition: color 0.2s;
-        }
-        .mobile-dropdown-trigger:hover { color: var(--cobalt); }
-        .mobile-dropdown-trigger::after {
-            content: '';
-            width: 0; height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 6px solid currentColor;
-            transition: transform 0.25s ease;
-        }
-        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform: rotate(180deg); }
-        .mobile-dropdown-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-        .mobile-dropdown.open .mobile-dropdown-menu { max-height: 400px; }
-        .mobile-dropdown-menu a {
-            display: block;
-            padding: 10px 24px;
-            font-size: 1rem; font-weight: 500;
-            color: var(--text-muted);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .mobile-dropdown-menu a:last-child { border-bottom: none; }
-        .mobile-dropdown-menu a:hover { color: var(--cobalt); }
+  /* ========= TRUST STRIP ========= */
+  .trust{padding:64px 28px; background:#fff; border-block:1px solid var(--rule)}
+  .trust-inner{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; gap:60px}
+  .trust-label{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--text-soft); flex-shrink:0; max-width:12ch; line-height:1.6;
+  }
+  .trust-logos{display:flex; align-items:center; gap:60px; flex:1; flex-wrap:wrap; justify-content:space-around}
+  .trust-logos img{height:36px; width:auto; opacity:.55; filter:grayscale(1); transition:opacity .3s, filter .3s}
+  .trust-logos img:hover{opacity:1; filter:none}
 
-        /* ── Responsive ── */
-        @media (max-width: 1100px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .live-demo-container { grid-template-columns: 1fr; }
-            .live-demo-container .hero-chat-mockup { max-width: 480px; margin: 0 auto; }
-        }
-        @media (max-width: 1024px) {
-            .hero-container { grid-template-columns: 1fr; gap: 48px; }
-            .hero-pricing-card { max-width: 400px; }
-            .trust-strip-grid { grid-template-columns: 1fr; gap: 28px; }
-            .why-choose-grid { grid-template-columns: 1fr; }
-            .pricing-tiers { grid-template-columns: 1fr; max-width: 440px; }
-            .footer-content { grid-template-columns: 1fr 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .nav-cta-group { display: none; }
-            .hamburger { display: flex; }
-            .logo img { height: 44px; }
-            .hero { padding: 110px 20px 56px; }
-            .hero-text { font-size: clamp(2rem, 7vw, 2.8rem); }
-            .trust-strip-grid { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
-            .why-choose-grid { grid-template-columns: 1fr; }
-            .pricing-tiers { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-contact { position: static; text-align: center; margin-top: 16px; }
-            .final-cta-buttons { flex-direction: column; align-items: center; }
-        }
-    </style>
+  /* ========= RESPONSIVE ========= */
+  @media (max-width:1100px){
+    .hero-grid{grid-template-columns:1fr; gap:60px}
+    .mock-stage{height:520px; max-width:560px; margin:0 auto}
+    .src-node.n4,.src-node.n5,.ai-chip{display:none}
+    .triptych,.flow,.sol-grid,.pricing-grid{grid-template-columns:1fr 1fr}
+    .sol-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .triptych,.flow,.sol-grid,.pricing-grid{grid-template-columns:1fr}
+    .flow::before{display:none}
+    .sig-stats{grid-template-columns:1fr 1fr}
+    .sig-stats .s:nth-child(2){border-right:0}
+    .sig-stats .s:nth-child(3){border-top:1px solid rgba(255,255,255,.08)}
+    .sig-stats .s:nth-child(4){border-top:1px solid rgba(255,255,255,.08)}
+    .hero{padding-top:110px}
+  }
+</style>
 </head>
 <body>
 
-    <!-- ── Navigation ── -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="privacypal-logo-color.png" alt="PrivacyPal">
-            </a>
-            <div class="nav-links">
-                <!-- Platform -->
-                <div class="nav-item-dropdown">
-                    <span class="nav-dropdown-trigger">Platform</span>
-                    <div class="nav-dropdown-menu">
-                        <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
-                        <a href="privacy-twins.html">Privacy Twins</a>
-                        <a href="device-control.html">Device Control</a>
-                    </div>
-                </div>
-                <!-- Solutions -->
-                <div class="nav-item-dropdown">
-                    <span class="nav-dropdown-trigger">Solutions</span>
-                    <div class="nav-dropdown-menu">
-                        <a href="index.html">For SME / SMB</a>
-                        <a href="solutions.html#freelancers">For Freelancers</a>
-                        <a href="privacypal-cloud.html">For Enterprise</a>
-                        <div class="nav-divider"></div>
-                        <a href="family.html" class="nav-home-link">For Home (Family)</a>
-                    </div>
-                </div>
-                <a href="#pricing">Pricing</a>
-                <!-- Resources -->
-                <div class="nav-item-dropdown">
-                    <span class="nav-dropdown-trigger">Resources</span>
-                    <div class="nav-dropdown-menu">
-                        <a href="developers.html">Developers</a>
-                        <a href="privacypal-ai.html">Data Sheets</a>
-                        <a href="about.html">About Us</a>
-                        <a href="events.html">Events</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                </div>
-            </div>
-            <div class="nav-cta-group">
-                <a href="https://portal.privacypal.ai" class="nav-login" target="_blank" rel="noopener">Login</a>
-                <a href="desktop.html" class="cta-nav-button">Start Free Trial</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+<div id="site-nav-slot"></div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
-            <div class="mobile-dropdown-menu">
-                <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
-                <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
-                <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
-            </div>
-        </div>
-        <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
-            <div class="mobile-dropdown-menu">
-                <a href="index.html" onclick="closeMobileMenu()">For Small Business</a>
-                <a href="solutions.html#freelancers" onclick="closeMobileMenu()">For Freelancers</a>
-                <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
-                <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
-            </div>
-        </div>
-        <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-        <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Resources</button>
-            <div class="mobile-dropdown-menu">
-                <a href="developers.html" onclick="closeMobileMenu()">AI Security 101</a>
-                <a href="about.html" onclick="closeMobileMenu()">About Us</a>
-                <a href="contact.html" onclick="closeMobileMenu()">Contact</a>
-            </div>
-        </div>
-        <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Login</a>
-        <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
+<!-- ============== HERO ============== -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-left reveal in">
+      <div class="eyebrow">Safe AI, anywhere</div>
+      <h1 class="hero-title" style="margin-top:18px">
+        Use any AI.<br/>
+        Keep what's <em>yours</em>, yours.
+      </h1>
+      <p class="hero-sub">
+        PrivacyPal watches every prompt, file, and connected source — and creates a Privacy Twin
+        of your sensitive data before it ever reaches ChatGPT, Claude, Gemini, or Copilot.
+        You get the answer. The AI never gets your secrets.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-cobalt" href="#download">Download for Mac & Windows
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14M5 10l7 7 7-7M4 21h16"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <div class="hero-meta">
+        <span>Control your data</span>
+        <span>Works on-device</span>
+        <span>⭐ 5.0 on Google</span>
+      </div>
     </div>
 
-    <!-- ────────────────────────────────────────────────────────
-         Section 1: Hero
-    ──────────────────────────────────────────────────────────── -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <!-- Left: Content -->
-            <div class="hero-content">
-                <div class="hero-top-row">
-                    <div class="hero-badge">For SME / SMB</div>
-                    <a href="#" target="_blank" rel="noopener" class="hero-stars-badge">
-                        <span class="stars">★★★★★</span>
-                        <span>5 stars on Google</span>
-                    </a>
-                </div>
-                <h1 class="hero-text">Take Control of the AI Running Your Business.</h1>
-                <p>AI tools are everywhere in your business — and most of them are running without your permission. PrivacyPal lets you decide which AI tools are approved, what data they can see, and who can use them. When someone tries an unapproved tool, we redirect them to one you've sanctioned.</p>
+    <!-- RIGHT: live chat mockup -->
+    <div class="mock-stage reveal in" id="mockStage">
+      <!-- source nodes -->
+      <div class="src-node n1" data-delay="400"><img src="assets/salesforce.svg" alt="Salesforce"></div>
+      <div class="src-node n2" data-delay="700"><img src="assets/slack.svg" alt="Slack"></div>
+      <div class="src-node n3" data-delay="1000"><img src="assets/notion.svg" alt="Notion"></div>
+      <div class="src-node n4" data-delay="1300"><img src="assets/gdocs.svg" alt="Google Docs"></div>
+      <div class="src-node n5" data-delay="1600"><img src="assets/sqlserver.svg" alt="SQL Server"></div>
 
-                <div class="hero-trust-row">
-                    <span class="hero-trust-badge">
-                        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        You decide which AI tools are approved
-                    </span>
-                    <span class="hero-trust-badge">
-                        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                        30-Day Money-Back Assurance
-                    </span>
-                </div>
+      <!-- AI chips -->
+      <div class="ai-chip a1" data-delay="500"><img src="assets/chatgpt.png" alt="ChatGPT">ChatGPT</div>
+      <div class="ai-chip a2" data-delay="900"><img src="assets/claude.png" alt="Claude">Claude</div>
+      <div class="ai-chip a3" data-delay="1300"><img src="assets/gemini.png" alt="Gemini">Gemini</div>
 
-                <div class="hero-cta-group">
-                    <a href="desktop.html" class="hero-cta hero-cta-primary">Start Free Trial</a>
-                    <a href="#" class="hero-cta hero-cta-secondary" onclick="openDemoModal(event)">Book a Demo</a>
-                </div>
-            </div>
-
-            <!-- Right: Pricing Card -->
-            <div class="hero-pricing-card">
-                <div class="hero-card-label">PrivacyPal Pro</div>
-                <div class="hero-card-title">Start Protecting Today</div>
-
-                <div class="hero-billing-toggle">
-                    <button class="toggle-btn" id="heroToggleMonthly" onclick="setHeroBilling('monthly')">Monthly</button>
-                    <button class="toggle-btn active" id="heroToggleAnnual" onclick="setHeroBilling('annual')">Annually</button>
-                </div>
-
-                <div class="hero-price-amount" id="heroPriceAmount">$9.00<span>/device/mo</span></div>
-                <div class="hero-price-note" id="heroPriceNote">Billed annually ($108/device/yr)</div>
-                <div class="hero-price-save" id="heroPriceSave" style="display:inline-block;">Save 20% vs. monthly</div>
-
-                <div class="hero-card-features">
-                    <div class="hero-card-feature">AI Tool Governance</div>
-                    <div class="hero-card-feature">Data Access Control (Privacy Twins)</div>
-                    <div class="hero-card-feature">Desktop &amp; Browser AI Coverage</div>
-                    <div class="hero-card-feature">Usage Visibility Dashboard</div>
-                    <div class="hero-card-feature">Express Support</div>
-                </div>
-
-                <a href="desktop.html" class="hero-card-btn hero-card-btn-primary">Buy Now</a>
-                <a href="desktop.html" class="hero-card-btn hero-card-btn-secondary">Try Free for 15 Days</a>
-                <p class="hero-card-disclaimer">5-day free trial · 30-day money-back guarantee</p>
-            </div>
+      <div class="mock-chat" id="mockChat">
+        <div class="mock-bar">
+          <div class="mock-dots"><i></i><i></i><i></i></div>
+          <div class="mock-app">chat.openai.com</div>
+          <div class="mock-shield">Protected by PrivacyPal</div>
         </div>
-    </section>
-
-    <!-- ────────────────────────────────────────────────────────
-         Section 2: Trust & Validation
-    ──────────────────────────────────────────────────────────── -->
-    <section class="trust-strip scroll-reveal">
-        <div class="trust-strip-grid">
-            <div class="trust-item">
-                <div class="trust-icon-wrap">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                    <h3>30-Day Money-Back Assurance</h3>
-                    <p>Try PrivacyPal and cancel within 30 days for a full refund. No questions asked.</p>
-                </div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon-wrap">
-                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div>
-                    <h3>A Leader in AI Governance & Control</h3>
-                    <p>Recognized as the essential AI control layer for modern businesses deploying GenAI across their teams.</p>
-                </div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon-wrap">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                </div>
-                <div>
-                    <h3>Third-Party Validated Security</h3>
-                    <p>SOC 2 Type II certified platform with 99.99% guaranteed uptime and independent data-redaction testing.</p>
-                </div>
-            </div>
+        <div class="mock-body">
+          <div class="chip" id="c1">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Q3-pipeline-Acme.xlsx
+            <span class="src">via Salesforce</span>
+          </div>
+          <div class="bubble user" id="b1">
+            Summarize the deal with <span class="pii-raw">Jane Thompson at Acme</span> — total is <span class="pii-raw">$2,340,500</span>.
+          </div>
+          <div class="intercept" id="i1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            PrivacyPal → swapping to twin
+          </div>
+          <div class="bubble user" id="b2" style="background:var(--cobalt)">
+            Summarize the deal with <span class="pii-twin">Evelyn Ward at Orion Mfg</span> — total is <span class="pii-twin">$2,112,800</span>.
+          </div>
+          <div class="bubble ai" id="b3">
+            The deal with <span class="pii-back">Jane Thompson at Acme</span> is in late-stage negotiation at <span class="pii-back">$2.34M</span>. Three items remain: redlines on the SLA, a security review, and the signing date.
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
 
-    <!-- ── Trusted By ── -->
-    <section class="trusted-by">
-        <div class="trusted-by-container">
-            <p class="trusted-by-title">Trusted By</p>
-            <div class="trusted-by-logos">
-                <img src="coreplus-logo.png" alt="CorePLUS Technologies" class="trusted-by-logo">
-                <img src="peaq-logo.png" alt="peaq" class="trusted-by-logo">
-                <img src="vocodia-logo.png" alt="VOCODIA" class="trusted-by-logo">
-                <img src="fastweb-logo.png" alt="FASTWEB" class="trusted-by-logo">
-            </div>
-        </div>
-    </section>
+<!-- ============== TRUST ============== -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-label">Trusted by teams at</div>
+    <div class="trust-logos">
+      <img src="assets/coreplus.png" alt="CorePLUS">
+      <img src="assets/peaq.png" alt="peaq">
+      <img src="assets/vocodia.png" alt="Vocodia">
+      <img src="assets/fastweb.png" alt="Fastweb">
+    </div>
+  </div>
+</section>
 
-    <!-- ────────────────────────────────────────────────────────
-         Live Demo: See It in Action
-    ──────────────────────────────────────────────────────────── -->
-    <section class="live-demo scroll-reveal">
-        <div class="live-demo-container">
-            <div class="live-demo-content">
-                <div class="section-badge">Live Demo</div>
-                <h2>See Who's Using AI, What They're Sharing, and Protect Data in Real Time</h2>
-                <p>Before any prompt reaches ChatGPT, Copilot, or an unauthorized AI tool, PrivacyPal intercepts it — checking whether the tool is approved, what data is being shared, and whether the user has permission.</p>
-                <p>Unapproved tools get blocked and redirected to your sanctioned AI stack. Sensitive data gets swapped with synthetic Privacy Twins. You stay in control. Always.</p>
-                <div class="live-demo-stats">
-                    <div class="demo-stat">
-                        <div class="demo-stat-number">100%</div>
-                        <div class="demo-stat-label">Sensitive data blocked from reaching AI</div>
-                    </div>
-                    <div class="demo-stat">
-                        <div class="demo-stat-number">&lt;50ms</div>
-                        <div class="demo-stat-label">Control latency — invisible to users, instant for you</div>
-                    </div>
-                    <div class="demo-stat">
-                        <div class="demo-stat-number">5 min</div>
-                        <div class="demo-stat-label">Average time to deploy control across your whole team</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Animated Chat Demo (preserved from original) -->
-            <div class="hero-chat-mockup">
-                <div class="hero-chat-header">
-                    <div class="hero-chat-dots"><span></span><span></span><span></span></div>
-                    <span class="hero-chat-title">AI Chat</span>
-                    <span class="hero-chat-shield">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        Protected
-                    </span>
-                </div>
-                <div class="hero-chat-body" id="heroChatBody">
-                    <div class="hero-file-chip" id="heroFileChip">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <span id="heroFileName">Q3-Pipeline-Acme.xlsx</span>
-                        <span class="file-source">via Salesforce</span>
-                    </div>
-                    <div class="hero-chat-msg user" id="heroUserMsg"></div>
-                    <div class="hero-intercept-bar" id="heroInterceptBar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        <span id="heroInterceptText">Scanning...</span>
-                    </div>
-                    <div class="hero-chat-msg ai" id="heroAiMsg"></div>
-                </div>
-                <div class="hero-chat-input">Type a message...</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ────────────────────────────────────────────────────────
-         Section 3: What's Included
-    ──────────────────────────────────────────────────────────── -->
-    <section class="features scroll-reveal" id="features">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">What's Included</div>
-                <h2 class="section-title">Everything You Need to Control AI in Your Business</h2>
-                <p class="section-subtitle">Four pillars of AI governance — covering web browsers, desktop apps, and AI coding agents — built for teams of any size, deployed in minutes.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>AI Tool Governance</h3>
-                    <p>Define which AI tools are approved for your team. When someone tries to use an unauthorized tool, PrivacyPal blocks it and redirects them to your sanctioned AI stack — silently, in real time. Governance covers web browsers, desktop apps, and AI coding agents — including Claude Code and OpenClaw.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-                    </div>
-                    <h3>Data Access Control</h3>
-                    <p>Decide exactly what data AI tools can see. Sensitive data — client names, financials, source code — gets swapped with synthetic stand-ins. Applies equally to chat interfaces, IDE-based agents, and autonomous coding workflows. The AI gets what it needs; your real data stays yours.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3>AI Usage Visibility</h3>
-                    <p>See exactly who on your team is using AI, which tools they're using, and what they're doing with them — across every browser, desktop app, and AI coding agent. One dashboard, total visibility.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
-                    <h3>Express Support</h3>
-                    <p>Always available to ensure installation and management issues are resolved quickly. Dedicated onboarding guidance so your team is up and running in minutes, not days.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ────────────────────────────────────────────────────────
-         Section 4: Why Choose PrivacyPal Pro
-    ──────────────────────────────────────────────────────────── -->
-    <section class="why-choose scroll-reveal">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Why PrivacyPal Pro</div>
-                <h2 class="section-title">You Set the Rules. AI Follows Them.</h2>
-                <p class="section-subtitle">No enterprise IT team required. No complex configuration. Just clear, simple control over every AI tool in your business — from day one.</p>
-            </div>
-            <div class="why-choose-grid">
-                <div class="why-card">
-                    <div class="why-card-header">
-                        <div class="why-card-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        </div>
-                        <h3>You're in Charge — Not the AI</h3>
-                    </div>
-                    <div class="why-card-body">
-                        <p>Approve tools, set data rules, and manage who has AI access — all from a single dashboard. Add new employee devices as your team grows. No IT department, no complexity. Just control.</p>
-                    </div>
-                </div>
-                <div class="why-card">
-                    <div class="why-card-header">
-                        <div class="why-card-icon">
-                            <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-                        </div>
-                        <h3>Control That Keeps Up With AI</h3>
-                    </div>
-                    <div class="why-card-body">
-                        <p>New AI tools launch every week — from chat assistants to autonomous coding agents. PrivacyPal continuously updates its tool registry so your policies always apply to the latest AI apps, desktop agents, and CLI tools — automatically, with no manual updates required.</p>
-                    </div>
-                </div>
-                <div class="why-card">
-                    <div class="why-card-header">
-                        <div class="why-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                        </div>
-                        <h3>Unapproved AI? Redirected Instantly.</h3>
-                    </div>
-                    <div class="why-card-body">
-                        <p>When an employee or team member tries to use an AI tool you haven't sanctioned, PrivacyPal doesn't just block it — it redirects them to an approved tool that does the same job. No friction. No workarounds. Just governance that works.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ────────────────────────────────────────────────────────
-         Section 5: Compare Pricing Bundles
-    ──────────────────────────────────────────────────────────── -->
-    <section class="pricing scroll-reveal" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Pricing</div>
-                <h2 class="section-title">Simple, Transparent Pricing</h2>
-                <p class="section-subtitle">Pick the plan that fits your team. No hidden fees, no long-term commitment required.</p>
-            </div>
-        </div>
-
-        <div class="pricing-toggle-wrap">
-            <div class="pricing-toggle">
-                <button class="pricing-toggle-btn" id="pricingToggleMonthly" onclick="setPricingBilling('monthly')">Monthly</button>
-                <button class="pricing-toggle-btn active" id="pricingToggleAnnual" onclick="setPricingBilling('annual')">
-                    Annually
-                    <span class="save-badge">Save 20%</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="pricing-tiers">
-            <!-- Starter -->
-            <div class="tier-card">
-                <div class="tier-name">Starter</div>
-                <div class="tier-product">PrivacyPal Starter</div>
-                <div class="tier-price">
-                    <span class="tier-price-amount" data-monthly="$7.50" data-annual="$6.00">$6.00<span>/device/mo</span></span>
-                </div>
-                <div class="tier-price-note" data-monthly="Billed monthly" data-annual="Billed annually">Billed annually</div>
-                <div class="tier-divider"></div>
-                <div class="tier-features">
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        AI Tool Governance
-                    </div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        Web Browser AI Control (ChatGPT, Gemini, Claude)
-                    </div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        Express Support
-                    </div>
-                </div>
-                <a href="desktop.html" class="tier-cta">Get Started</a>
-            </div>
-
-            <!-- Pro (Most Popular) -->
-            <div class="tier-card popular">
-                <div class="tier-popular-badge">Most Popular</div>
-                <div class="tier-name">Pro</div>
-                <div class="tier-product">PrivacyPal Pro</div>
-                <div class="tier-price">
-                    <span class="tier-price-amount" data-monthly="$11.25" data-annual="$9.00">$9.00<span>/device/mo</span></span>
-                </div>
-                <div class="tier-price-note" data-monthly="Billed monthly" data-annual="Billed annually">Billed annually</div>
-                <div class="tier-divider"></div>
-                <div class="tier-features">
-                    <div class="tier-all-features">Everything in Starter, plus:</div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        Desktop AI Control (Copilot, Claude Desktop)
-                    </div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        Data Access Control — Privacy Twins
-                    </div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        AI Usage &amp; Governance Dashboard
-                    </div>
-                </div>
-                <a href="desktop.html" class="tier-cta">Start Free Trial</a>
-            </div>
-
-            <!-- Advanced -->
-            <div class="tier-card">
-                <div class="tier-name">Advanced</div>
-                <div class="tier-product">PrivacyPal Advanced</div>
-                <div class="tier-price">
-                    <span class="tier-price-amount" data-monthly="$15.00" data-annual="$12.00">$12.00<span>/device/mo</span></span>
-                </div>
-                <div class="tier-price-note" data-monthly="Billed monthly" data-annual="Billed annually">Billed annually</div>
-                <div class="tier-divider"></div>
-                <div class="tier-features">
-                    <div class="tier-all-features">Everything in Pro, plus:</div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        AI Agent &amp; Robot Governance
-                    </div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        Audit Logs — Full AI Usage History
-                    </div>
-                    <div class="tier-feature">
-                        <div class="tier-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                        API &amp; Integration Governance
-                    </div>
-                </div>
-                <a href="#" class="tier-cta" onclick="openDemoModal(event)">Contact Sales</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Partners ── -->
-    <section class="partners scroll-reveal">
-        <div class="partners-container">
-            <span class="partners-badge">Partnerships</span>
-            <h2 class="partners-title">Partnering with Industry Leaders</h2>
-            <p class="partners-subtitle">PrivacyPal is building the future of responsible, human-controlled AI alongside trusted names in technology and innovation.</p>
-            <div class="partners-logos">
-                <div class="partner-item">
-                    <img src="nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program">
-                    <span>NVIDIA Inception</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ────────────────────────────────────────────────────────
-         Section 6: Final CTA
-    ──────────────────────────────────────────────────────────── -->
-    <section class="final-cta">
-        <h2>AI is running your business. Isn't it time you controlled it?</h2>
-        <p>Take back control with PrivacyPal Pro. Free for 5 days. 30-day money-back guarantee.</p>
-        <div class="final-cta-buttons">
-            <a href="desktop.html" class="final-cta-button final-cta-primary">Start Free Trial</a>
-            <a href="#" class="final-cta-button final-cta-secondary" onclick="openDemoModal(event)">Book a Demo</a>
-        </div>
-    </section>
-
-    <!-- ── Footer ── -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>PrivacyPal</h3>
-                <p>Control which AI tools your team uses, what data they can access, and who gets to use them. You're in charge.</p>
-                <div class="social-links">
-                    <a href="https://x.com/privacypalai" title="X (Twitter)">𝕏</a>
-                    <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h4>Platform</h4>
-                <ul>
-                    <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
-                    <li><a href="privacy-twins.html">Privacy Twins</a></li>
-                    <li><a href="device-control.html">Device Control</a></li>
-                    <li><a href="ai-dspm.html">AI-DSPM</a></li>
-                    <li><a href="desktop.html">Install</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Solutions</h4>
-                <ul>
-                    <li><a href="index.html">For Small Business</a></li>
-                    <li><a href="solutions.html#freelancers">For Freelancers</a></li>
-                    <li><a href="privacypal-cloud.html">For Enterprise</a></li>
-                    <li><a href="banking.html">Banking</a></li>
-                    <li><a href="healthcare.html">Healthcare</a></li>
-                    <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="developers.html">Developers</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
-            <div class="footer-contact">
-                <strong>PrivacyPal</strong>
-                2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968
-            </div>
-        </div>
-    </footer>
-
-    <!-- ── Demo Modal ── -->
-    <div id="demoModal" class="modal-overlay">
-        <div class="demo-modal">
-            <div class="demo-modal-header">
-                <h3 class="demo-modal-title">Book a Demo</h3>
-                <button class="demo-modal-close" onclick="closeDemoModal()">&times;</button>
-            </div>
-            <div class="demo-modal-body">
-                <div class="demo-loading" id="demoLoading">
-                    <div class="demo-spinner"></div>
-                    Loading...
-                </div>
-                <iframe id="demoFrame" src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0en3ttxqL4LChfrMDCbYeqxtKuKXOR4YRnGz0Sfg0RIwh7nO51zW3MqxBnQzAVcSkQoy3_6UJZ?gv=true" style="display:none;"></iframe>
-            </div>
-        </div>
+<!-- ============== SIGNATURE DARK MOMENT ============== -->
+<section class="signature" id="how">
+  <div class="sig-bg"></div>
+  <div class="sig-grid"></div>
+  <div class="sig-particles" id="sigParticles"></div>
+  <div class="sig-inner">
+    <div class="reveal">
+      <span class="sig-kicker">The Privacy Twin</span>
+      <h2 class="sig-title">Every prompt gets a <span class="glow">body double</span> before it leaves your machine.</h2>
+      <p class="sig-sub">
+        PrivacyPal sits quietly between you and the AI. The moment sensitive data appears — a client name, an account number, a patient record — we create a convincing stand-in. The AI sees the twin and answers normally. You see the real answer, seamlessly stitched back together.
+      </p>
     </div>
 
-    <script>
-    // ── Hero Billing Toggle ──
-    var heroIsAnnual = true;
-    function setHeroBilling(mode) {
-        heroIsAnnual = (mode === 'annual');
-        document.getElementById('heroToggleMonthly').classList.toggle('active', !heroIsAnnual);
-        document.getElementById('heroToggleAnnual').classList.toggle('active', heroIsAnnual);
-        document.getElementById('heroPriceAmount').innerHTML = heroIsAnnual
-            ? '$9.00<span>/device/mo</span>'
-            : '$11.25<span>/device/mo</span>';
-        document.getElementById('heroPriceNote').textContent = heroIsAnnual
-            ? 'Billed annually ($108/device/yr)'
-            : 'Billed monthly';
-        var saveEl = document.getElementById('heroPriceSave');
-        saveEl.style.display = heroIsAnnual ? 'inline-block' : 'none';
-    }
+    <!-- stats -->
+    <div class="sig-stats reveal">
+      <div class="s"><div class="n">340<small>ms</small></div><div class="l">Average interception latency. Faster than a keystroke.</div></div>
+      <div class="s"><div class="n">0<small>bytes</small></div><div class="l">Sensitive data sent to AI providers. Ever.</div></div>
+      <div class="s"><div class="n">47<small>types</small></div><div class="l">PII, PHI, PCI and IP classes detected out of the box.</div></div>
+      <div class="s"><div class="n">100<small>%</small></div><div class="l">On-device processing. No cloud required.</div></div>
+    </div>
 
-    // ── Pricing Tiers Toggle ──
-    var pricingIsAnnual = true;
-    function setPricingBilling(mode) {
-        pricingIsAnnual = (mode === 'annual');
-        document.getElementById('pricingToggleMonthly').classList.toggle('active', !pricingIsAnnual);
-        document.getElementById('pricingToggleAnnual').classList.toggle('active', pricingIsAnnual);
-        document.querySelectorAll('.tier-price-amount').forEach(function(el) {
-            var val = pricingIsAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
-            var suffix = pricingIsAnnual ? '/device/mo' : '/device/mo';
-            el.innerHTML = val + '<span>' + suffix + '</span>';
-        });
-        document.querySelectorAll('.tier-price-note').forEach(function(el) {
-            el.textContent = pricingIsAnnual
-                ? el.getAttribute('data-annual')
-                : el.getAttribute('data-monthly');
-        });
-    }
+    <!-- twin reveal -->
+    <div class="twin-stage reveal">
+      <div class="twin-doc">
+        <h4>01 — What you type</h4>
+        Hi ChatGPT, draft an email to
+        <span class="red">Jane Thompson</span>
+        at <span class="red">Acme Corp</span> about our upcoming
+        $<span class="red">2,340,500</span> renewal —
+        her SSN on file is <span class="red">412-88-9120</span>
+        and we should mention the
+        <span class="red">Q4 expansion in Dallas</span>.
+      </div>
+      <div class="twin-arrow">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="twin-doc">
+        <h4>02 — What the AI sees</h4>
+        Hi ChatGPT, draft an email to
+        <span class="green">Evelyn Ward</span>
+        at <span class="green">Orion Mfg</span> about our upcoming
+        $<span class="green">2,112,800</span> renewal —
+        her SSN on file is <span class="green">603-14-7298</span>
+        and we should mention the
+        <span class="green">Q4 expansion in Phoenix</span>.
+      </div>
+    </div>
+  </div>
+</section>
 
-    // ── Why Choose Accordion ──
-    function toggleWhyCard(card) {
-        var isOpen = card.classList.contains('open');
-        document.querySelectorAll('.why-card').forEach(function(c) { c.classList.remove('open'); });
-        if (!isOpen) card.classList.add('open');
-    }
+<!-- ============== PRODUCTS TRIPTYCH ============== -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Three ways to use PrivacyPal</span>
+      <h2 class="display display-lg" style="margin-top:18px; max-width:16ch">One engine. Three homes for it.</h2>
+      <p class="lede" style="margin-top:22px">Pick the PrivacyPal that fits your life. They all share the same Privacy Twin engine — what changes is where it runs and who it's built for.</p>
+    </div>
 
-    // ── Demo Modal ──
-    function openDemoModal(e) {
-        if (e) e.preventDefault();
-        var modal = document.getElementById('demoModal');
-        var iframe = document.getElementById('demoFrame');
-        var loading = document.getElementById('demoLoading');
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        loading.style.display = 'flex';
-        iframe.style.display = 'none';
-        var loaded = false;
-        iframe.onload = function() {
-            loaded = true;
-            loading.style.display = 'none';
-            iframe.style.display = 'block';
-        };
-        setTimeout(function() {
-            if (!loaded) { loading.style.display = 'none'; iframe.style.display = 'block'; }
-        }, 3000);
-    }
-    function closeDemoModal() {
-        document.getElementById('demoModal').classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    window.onclick = function(e) {
-        if (e.target.id === 'demoModal') closeDemoModal();
-    };
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeDemoModal();
+    <div class="triptych">
+      <div class="prod-card pro reveal reveal-delay-1">
+        <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/><path d="M7 10l3 3 7-7"/></svg></div>
+        <div class="tag">PrivacyPal Pro</div>
+        <h3>Pro</h3>
+        <div class="for">For SME teams, firms & agencies</div>
+        <p>A desktop app that rides along with every AI interaction. Connect Salesforce, Slack, Notion, SQL — and let your team use ChatGPT, Claude, Gemini or Copilot without ever leaking a client file.</p>
+        <ul>
+          <li>Desktop app for Mac & Windows</li>
+          <li>Connect your CRM, drive & data lake</li>
+          <li>Team policies, audit log, SSO</li>
+        </ul>
+        <a class="go" href="privacypal-pro.html">Explore Pro →</a>
+      </div>
+
+      <div class="prod-card home reveal reveal-delay-2">
+        <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <div class="tag">PrivacyPal Home</div>
+        <h3>Home</h3>
+        <div class="for">For families, freelancers & curious people</div>
+        <p>The first AI privacy layer built for the kitchen table. Ask ChatGPT to help with taxes, medical letters, kids' homework — without handing a tech giant your paper trail.</p>
+        <ul>
+          <li>One-click install, no configuration</li>
+          <li>Family plan — up to 5 devices</li>
+          <li>Works with every major AI app</li>
+        </ul>
+        <a class="go" href="privacypal-home.html">Explore Home →</a>
+      </div>
+
+      <div class="prod-card cloud reveal reveal-delay-3">
+        <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16a5 5 0 0 1 2-9.6A7 7 0 0 1 19 9.4 4.5 4.5 0 0 1 18 18H7a4 4 0 0 1-3-2z"/><path d="M9 14l3 3 3-3M12 17V9"/></svg></div>
+        <div class="tag">PrivacyPal Cloud</div>
+        <h3>Cloud</h3>
+        <div class="for">Self-hosted gateway for your infrastructure</div>
+        <p>Drop PrivacyPal between your apps and any LLM provider. API-compatible with OpenAI, Anthropic and Google — so your services keep their shape, but your data never leaves your VPC.</p>
+        <ul>
+          <li>Self-host on AWS, Azure, GCP or bare metal</li>
+          <li>OpenAI-compatible API</li>
+          <li>Air-gapped deployment option</li>
+        </ul>
+        <a class="go" href="privacypal-cloud.html">Explore Cloud →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HOW IT WORKS ============== -->
+<section class="section section-alt" id="flow">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:720px; margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">How it works</span>
+      <h2 class="display display-md" style="margin-top:18px">Four quiet steps. Then AI you can trust.</h2>
+    </div>
+    <div class="flow">
+      <div class="flow-step reveal reveal-delay-1"><div class="flow-num">01</div><h4>Install, anywhere</h4><p>Drop PrivacyPal on your Mac, PC, phone, or cloud. It quietly sits between you and every AI.</p></div>
+      <div class="flow-step reveal reveal-delay-2"><div class="flow-num">02</div><h4>Detect, on-device</h4><p>Every prompt, file and connected source is scanned before it leaves. Names, numbers, IP — we know.</p></div>
+      <div class="flow-step reveal reveal-delay-3"><div class="flow-num">03</div><h4>Swap with a twin</h4><p>Sensitive values are replaced with a convincing double — Evelyn instead of Jane. The AI never notices.</p></div>
+      <div class="flow-step reveal reveal-delay-3"><div class="flow-num">04</div><h4>Stitch back for you</h4><p>When the answer returns, we seamlessly restore your real data. You get the answer. Your secrets stay home.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOLUTIONS ============== -->
+<section class="section" id="solutions">
+  <div class="container">
+    <div class="reveal" style="display:flex; justify-content:space-between; align-items:end; gap:40px; flex-wrap:wrap">
+      <div style="max-width:640px">
+        <span class="eyebrow">Built for the real work</span>
+        <h2 class="display display-md" style="margin-top:18px">Industries where every word matters.</h2>
+      </div>
+      <p class="lede" style="max-width:36ch">Whether you run a 40-person law firm or a community bank with 1,200 employees — PrivacyPal speaks your regulations.</p>
+    </div>
+
+    <div class="sol-grid">
+      <a class="sol-card reveal reveal-delay-1" href="banking.html">
+        <svg class="sol-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10l9-6 9 6M4 10v9h16v-9M8 19v-6M12 19v-6M16 19v-6"/></svg>
+        <h4>Banking</h4>
+        <p>For community banks, credit unions & wealth advisors.</p>
+      </a>
+      <a class="sol-card reveal reveal-delay-1" href="healthcare.html">
+        <svg class="sol-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.5-8 11-8 11z"/><path d="M12 8v6M9 11h6"/></svg>
+        <h4>Healthcare</h4>
+        <p>For clinics, therapists & specialist practices.</p>
+      </a>
+      <a class="sol-card reveal reveal-delay-2" href="legal.html">
+        <svg class="sol-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 8h14M4 13l4-8 4 8M12 13l4-8 4 8M4 13a4 4 0 0 0 8 0M12 13a4 4 0 0 0 8 0"/></svg>
+        <h4>Legal</h4>
+        <p>For law firms, in-house counsel & paralegals.</p>
+      </a>
+      <a class="sol-card reveal reveal-delay-2" href="telco.html">
+        <svg class="sol-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 15a13 13 0 0 1 14 0M8 12a8 8 0 0 1 8 0M11 9a3 3 0 0 1 2 0M12 18h.01"/></svg>
+        <h4>Telco</h4>
+        <p>For regional carriers & MSPs working with subscriber data.</p>
+      </a>
+      <a class="sol-card reveal reveal-delay-3" href="technology.html">
+        <svg class="sol-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 10h4M13 8l3 2-3 2"/></svg>
+        <h4>Technology</h4>
+        <p>For SaaS teams shipping AI features on customer data.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ETHOS ============== -->
+<section class="ethos" id="story">
+  <div class="ethos-inner reveal">
+    <h2>
+      We built PrivacyPal for the <b>loan officer</b> pasting a client file into ChatGPT.
+      For the <b>family doctor</b> asking Claude about a prescription. For the <b>shop owner</b>
+      drafting a letter to her landlord. Because AI isn't going anywhere — and neither should the trust
+      they've spent a lifetime earning.
+    </h2>
+    <div class="sig">Palvinder, Brandon & the PrivacyPal team</div>
+  </div>
+</section>
+
+<!-- ============== PRICING ============== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Pricing</span>
+      <h2 class="display display-md" style="margin-top:18px">Pay for your people. Not your paranoia.</h2>
+      <p class="lede" style="margin:22px auto 0">Cancel anytime. Every plan includes on-device Privacy Twins and every major AI provider.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-name">Home</div>
+        <div class="price-tagline">For you, your family, your side-gig.</div>
+        <div class="price-amt"><span class="big">$9</span><small>/mo · per device</small></div>
+        <ul>
+          <li>Up to 5 devices (family plan)</li>
+          <li>All major AI apps covered</li>
+          <li>On-device detection, no cloud</li>
+          <li>Personal data library</li>
+        </ul>
+        <a class="btn btn-ghost" href="privacypal-home.html">Start free</a>
+      </div>
+
+      <div class="price-card feat reveal reveal-delay-2">
+        <span class="price-badge">Most popular</span>
+        <div class="price-name">Pro</div>
+        <div class="price-tagline">For teams from 5 to 500.</div>
+        <div class="price-amt"><span class="big">$24</span><small>/mo · per seat</small></div>
+        <ul>
+          <li>Everything in Home</li>
+          <li>CRM, Slack, Notion, SQL connectors</li>
+          <li>Team policies & role-based rules</li>
+          <li>Audit log + SSO + SCIM</li>
+          <li>Priority human support</li>
+        </ul>
+        <a class="btn btn-cobalt" href="privacypal-pro.html">Start 14-day trial</a>
+      </div>
+
+      <div class="price-card reveal reveal-delay-3">
+        <div class="price-name">Cloud</div>
+        <div class="price-tagline">Self-hosted gateway for your infra.</div>
+        <div class="price-amt"><span class="big">Talk</span><small>custom, annual</small></div>
+        <ul>
+          <li>Self-host on your cloud or on-prem</li>
+          <li>OpenAI-compatible API</li>
+          <li>Air-gapped deployment option</li>
+          <li>Dedicated engineer on onboarding</li>
+        </ul>
+        <a class="btn btn-ghost" href="privacypal-cloud.html">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final-cta" id="download">
+  <div class="reveal">
+    <h2>Your AI deserves a good friend.</h2>
+    <p>Install PrivacyPal today. Use every AI tomorrow. Keep what's yours, yours.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="#">Download for Mac</a>
+      <a class="btn btn-ghost" href="#">Download for Windows</a>
+      <a class="btn btn-ghost" href="privacypal-cloud.html">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/site.js"></script>
+<script>
+/* ---- hero chat mockup timeline ---- */
+(function(){
+  const stage = document.getElementById('mockStage');
+  if (!stage) return;
+  const steps = [
+    ['c1', 300], ['b1', 700], ['i1', 1400], ['b2', 2100], ['b3', 2900]
+  ];
+  function run(){
+    steps.forEach(([id, t]) => {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('show');
+      }, t);
     });
-
-    // ── Mobile Menu ──
-    (function() {
-        var hamburger = document.getElementById('hamburger');
-        var mobileMenu = document.getElementById('mobileMenu');
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-            });
-        }
-    })();
-    function closeMobileMenu() {
-        var h = document.getElementById('hamburger');
-        var m = document.getElementById('mobileMenu');
-        if (h) h.classList.remove('active');
-        if (m) m.classList.remove('active');
-        document.body.style.overflow = '';
-        document.querySelectorAll('.mobile-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
-    }
-    function toggleMobileDropdown(btn) {
-        btn.closest('.mobile-dropdown').classList.toggle('open');
-    }
-
-    // ── Scroll Reveal + Navbar ──
-    document.addEventListener('DOMContentLoaded', function() {
-        window.addEventListener('scroll', function() {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('revealed'); });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.scroll-reveal').forEach(function(el) { obs.observe(el); });
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-            a.addEventListener('click', function(e) {
-                var h = this.getAttribute('href');
-                if (h && h !== '#' && h.length > 1) {
-                    e.preventDefault();
-                    var t = document.querySelector(h);
-                    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+    // source nodes + ai chips
+    stage.querySelectorAll('[data-delay]').forEach(el=>{
+      setTimeout(()=>el.classList.add('show'), parseInt(el.dataset.delay));
     });
+  }
+  // kick off when near viewport
+  const io = new IntersectionObserver((entries, o)=>{
+    entries.forEach(e=>{if(e.isIntersecting){run(); o.unobserve(e.target);}});
+  }, {threshold: .2});
+  io.observe(stage);
 
-    // ── Hero Chat Animation ──
-    (function() {
-        var userEl = document.getElementById('heroUserMsg');
-        var aiEl = document.getElementById('heroAiMsg');
-        var barEl = document.getElementById('heroInterceptBar');
-        var barText = document.getElementById('heroInterceptText');
-        var fileChip = document.getElementById('heroFileChip');
-        var fileName = document.getElementById('heroFileName');
+  // parallax tilt on mouse
+  const chat = document.getElementById('mockChat');
+  stage.addEventListener('mousemove', (e)=>{
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    chat.style.setProperty('--ry', (x * 8) + 'deg');
+    chat.style.setProperty('--rx', (-y * 6) + 'deg');
+  });
+  stage.addEventListener('mouseleave', ()=>{
+    chat.style.setProperty('--ry', '0deg');
+    chat.style.setProperty('--rx', '0deg');
+  });
+})();
 
-        if (!userEl || !aiEl || !barEl) return;
+/* ---- signature particles ---- */
+(function(){
+  const wrap = document.getElementById('sigParticles');
+  if(!wrap) return;
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('span');
+    p.className = 'p';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (-Math.random() * 14) + 's';
+    p.style.opacity = (.2 + Math.random() * .5).toFixed(2);
+    wrap.appendChild(p);
+  }
+})();
 
-        var PROMPT_PARTS = [
-            { text: 'Summarize the ', type: 'plain' },
-            { real: 'Acme Corp', twin: 'Vertex Inc', type: 'pii' },
-            { text: ' deal. Contact: ', type: 'plain' },
-            { real: 'Sarah Mitchell', twin: 'Dana Brooks', type: 'pii' },
-            { text: ', value: ', type: 'plain' },
-            { real: '$2.4M', twin: '$1.8M', type: 'pii' },
-            { text: '. Key risks?', type: 'plain' }
-        ];
+/* ---- subtle parallax on source nodes ---- */
+(function(){
+  const nodes = document.querySelectorAll('.src-node, .ai-chip');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nodes.forEach((n, i) => {
+      const factor = (i % 2 === 0 ? 1 : -1) * (0.05 + (i % 3) * 0.02);
+      n.style.transform = `translateY(${y * factor}px)`;
+    });
+  }, { passive:true });
+})();
+</script>
 
-        var AI_RESPONSE = 'For Vertex Inc: The Dana Brooks deal ($1.8M) shows moderate risk. Extended payment terms, custom SLA. Recommend standard terms.';
-        var AI_REINJECTED = 'For <span class="pii-reinjected">Acme Corp</span>: The <span class="pii-reinjected">Sarah Mitchell</span> deal (<span class="pii-reinjected">$2.4M</span>) shows moderate risk. Extended payment terms, custom SLA. Recommend standard terms.';
-
-        function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }
-
-        function typeText(el, text, speed) {
-            return new Promise(function(resolve) {
-                var i = 0;
-                var cursor = document.createElement('span');
-                cursor.className = 'typing-cursor';
-                el.appendChild(cursor);
-                var iv = setInterval(function() {
-                    if (i < text.length) { cursor.before(document.createTextNode(text[i])); i++; }
-                    else { clearInterval(iv); if (cursor.parentNode) cursor.remove(); resolve(); }
-                }, speed);
-            });
-        }
-
-        function typePii(el, text) {
-            return new Promise(function(resolve) {
-                var span = document.createElement('span');
-                span.className = 'pii-real';
-                el.appendChild(span);
-                var i = 0;
-                var cursor = document.createElement('span');
-                cursor.className = 'typing-cursor';
-                span.appendChild(cursor);
-                var iv = setInterval(function() {
-                    if (i < text.length) { cursor.before(document.createTextNode(text[i])); i++; }
-                    else { clearInterval(iv); if (cursor.parentNode) cursor.remove(); resolve(); }
-                }, 30);
-            });
-        }
-
-        async function runAnimation() {
-            userEl.innerHTML = '';
-            aiEl.innerHTML = '';
-            barEl.classList.remove('visible');
-            barText.textContent = 'Scanning...';
-            userEl.classList.remove('visible');
-            aiEl.classList.remove('visible');
-            if (fileChip) fileChip.classList.remove('visible');
-            if (fileName) fileName.textContent = 'Q3-Pipeline-Acme.xlsx';
-
-            await sleep(600);
-            if (fileChip) fileChip.classList.add('visible');
-            await sleep(400);
-
-            userEl.classList.add('visible');
-            for (var p = 0; p < PROMPT_PARTS.length; p++) {
-                var part = PROMPT_PARTS[p];
-                if (part.type === 'plain') { await typeText(userEl, part.text, 22); }
-                else { await typePii(userEl, part.real); await sleep(150); }
-            }
-
-            await sleep(500);
-            barEl.classList.add('visible');
-            barText.textContent = 'Scanning prompt and attached files\u2026';
-            await sleep(800);
-
-            var piiSpans = userEl.querySelectorAll('.pii-real');
-            var piiData = PROMPT_PARTS.filter(function(p) { return p.type === 'pii'; });
-            for (var j = 0; j < piiSpans.length; j++) {
-                await sleep(250);
-                var sp = piiSpans[j];
-                var twin = piiData[j] ? piiData[j].twin : '***';
-                sp.style.transition = 'opacity 0.3s ease';
-                sp.style.opacity = '0';
-                await sleep(250);
-                sp.className = 'pii-twin';
-                sp.textContent = twin;
-                sp.style.opacity = '1';
-            }
-
-            barText.textContent = 'PrivacyPal protected 3 data points';
-            await sleep(700);
-
-            aiEl.classList.add('visible');
-            await typeText(aiEl, AI_RESPONSE, 12);
-            await sleep(800);
-
-            barText.textContent = 'Re-injecting original data for you\u2026';
-            aiEl.style.transition = 'opacity 0.3s ease';
-            aiEl.style.opacity = '0';
-            await sleep(400);
-            aiEl.innerHTML = AI_REINJECTED;
-            aiEl.style.opacity = '1';
-
-            await sleep(600);
-            barText.textContent = 'Complete \u2014 your IP never reached AI';
-            await sleep(4000);
-            runAnimation();
-        }
-
-        runAnimation();
-    })();
-    </script>
 </body>
 </html>

@@ -1,446 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0QN2Z18HP0');</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecommunications - PrivacyPal | AI Governance for Telecom</title>
-    <meta name="description" content="Control which AI tools your telecom teams use and govern access to subscriber PII and network data. Full audit trails, approved AI tools, and automatic redirection to sanctioned alternatives.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>        *{margin:0;padding:0;box-sizing:border-box;}
-        :root{--cobalt:#336699;--cobalt-dark:#1a3a5a;--cobalt-light:#4a86c2;--bg:#EDEAE2;--bg-alt:#E4E0D7;--bg-card:#ffffff;--text:#111111;--text-muted:#5a5a52;--text-light:#7a7a72;--border:#D4D0C8;}
-        html{scroll-behavior:smooth;}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-        /* NAV */
-        nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--bg); border-bottom:1px solid var(--border); transition:box-shadow 0.3s; }
-        nav.scrolled { box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-        .nav-container { max-width:1280px; margin:0 auto; padding:0.85rem 24px; display:flex; justify-content:space-between; align-items:center; }
-        .logo { display:flex; align-items:center; text-decoration:none; }
-        .logo img { height:52px; width:auto; }
-        .nav-links { display:flex; gap:28px; align-items:center; }
-        .nav-links a { color:var(--text-muted); text-decoration:none; font-weight:500; font-size:0.9rem; transition:color 0.2s; }
-        .nav-links a:hover { color:var(--cobalt); }
-        .nav-item-dropdown { position:relative; }
-        .nav-dropdown-trigger { color:var(--text-muted); font-weight:500; font-size:0.9rem; padding:8px 0; display:flex; align-items:center; gap:4px; cursor:pointer; background:none; border:none; font-family:inherit; transition:color 0.2s; }
-        .nav-dropdown-trigger:hover,.nav-dropdown-trigger.nav-active { color:var(--cobalt); font-weight:700; }
-        .nav-dropdown-trigger::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; margin-left:4px; opacity:0.7; }
-        .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); min-width:210px; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.12); padding:8px 0; opacity:0; visibility:hidden; transition:opacity 0.2s,visibility 0.2s,transform 0.2s; z-index:1001; }
-        .nav-item-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
-        .nav-dropdown-menu a { display:block; padding:10px 20px; color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s,background 0.2s; }
-        .nav-dropdown-menu a:hover,.nav-dropdown-menu a.nav-active { color:var(--cobalt); background:rgba(51,102,153,0.06); font-weight:600; }
-        .nav-divider { height:1px; background:var(--border); margin:6px 0; }
-        .nav-home-link { color:#0ea5a0!important; font-weight:600!important; }
-        .nav-cta-group { display:flex; gap:10px; align-items:center; }
-        .nav-login { color:var(--text-muted)!important; font-weight:500; font-size:0.9rem; text-decoration:none; padding:10px 18px; border-radius:8px; transition:color 0.2s,background 0.2s; }
-        .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
-        .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
-        .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
-        .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
-        .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
-        .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity:0; }
-        .hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(237,234,226,0.98); backdrop-filter:blur(24px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; opacity:0; visibility:hidden; transition:opacity 0.3s,visibility 0.3s; }
-        .mobile-menu.active { opacity:1; visibility:visible; }
-        .mobile-menu a { color:#0f172a; text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.2s; }
-        .mobile-menu a:hover { color:var(--cobalt); }
-        .mobile-menu .mobile-cta { background:#111111; color:white!important; padding:14px 32px; border-radius:8px; font-weight:600; }
-        .mobile-dropdown { width:100%; text-align:center; }
-        .mobile-dropdown-trigger { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:10px 24px; font-size:1.3rem; font-weight:600; color:#0f172a; background:none; border:none; cursor:pointer; font-family:inherit; transition:color 0.2s; }
-        .mobile-dropdown-trigger:hover { color:var(--cobalt); }
-        .mobile-dropdown-trigger::after { content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid currentColor; transition:transform 0.25s; }
-        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform:rotate(180deg); }
-        .mobile-dropdown-menu { max-height:0; overflow:hidden; transition:max-height 0.3s; }
-        .mobile-dropdown.open .mobile-dropdown-menu { max-height:400px; }
-        .mobile-dropdown-menu a { display:block; padding:10px 24px; font-size:1rem; font-weight:500; color:var(--text-muted); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .mobile-dropdown-menu a:last-child { border-bottom:none; }
-        /* FOOTER */
-        footer { background:var(--bg-alt); border-top:1px solid var(--border); padding:72px 24px 36px; }
-        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
-        .footer-brand h3 { font-size:1.4rem; margin-bottom:10px; color:var(--text); }
-        .footer-brand p { color:var(--text-muted); line-height:1.7; margin-bottom:20px; font-size:0.9rem; }
-        .social-links { display:flex; gap:10px; }
-        .social-links a { width:38px; height:38px; border-radius:8px; background:var(--bg); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); text-decoration:none; font-size:0.95rem; transition:color 0.2s,background 0.2s,border-color 0.2s; }
-        .social-links a:hover { background:var(--cobalt); color:white; border-color:var(--cobalt); }
-        .footer-links h4 { font-size:0.9rem; margin-bottom:14px; font-weight:700; color:var(--text); text-transform:uppercase; letter-spacing:0.06em; }
-        .footer-links ul { list-style:none; }
-        .footer-links li { margin-bottom:9px; }
-        .footer-links a { color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
-        .footer-links a:hover { color:var(--cobalt); }
-        .footer-family-link { color:var(--cobalt)!important; font-weight:600; }
-        .footer-bottom { max-width:1200px; margin:0 auto; padding-top:28px; border-top:1px solid var(--border); text-align:center; color:var(--text-light); font-size:0.875rem; position:relative; }
-        .footer-contact { position:absolute; bottom:0; right:0; text-align:right; font-size:0.82rem; line-height:1.5; }
-        .footer-contact strong { color:var(--text); display:block; margin-bottom:4px; }
-        .footer-bottom a { color:var(--cobalt); text-decoration:none; }
-        .footer-bottom a:hover { text-decoration:underline; }
-        /* PAGE-SPECIFIC */
-        .container{max-width:1200px;margin:0 auto;padding:0 24px;}
-        /* Industry Hero - template section */
-        .industry-hero{min-height:55vh;display:flex;align-items:center;justify-content:center;background:var(--bg-alt);padding:120px 24px 80px;text-align:center;}
-        .industry-hero .container{max-width:800px;}
-        .industry-hero-badge{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--cobalt);margin-bottom:20px;}
-        .industry-hero h1{font-family:'Radley',Georgia,'Times New Roman',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.15;}
-        .industry-hero p{font-size:1.15rem;color:var(--text-muted);max-width:640px;margin:0 auto 32px;line-height:1.75;}
-        .industry-hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-        .industry-hero-cta a{padding:14px 28px;font-size:1rem;font-weight:600;border-radius:8px;text-decoration:none;transition:all 0.2s;}
-        .industry-hero-cta .btn-primary{background:var(--cobalt);color:white;}
-        .industry-hero-cta .btn-primary:hover{background:var(--cobalt-dark);transform:translateY(-1px);}
-        .industry-hero-cta .btn-secondary{background:white;color:var(--text);border:1.5px solid var(--border);}
-        .industry-hero-cta .btn-secondary:hover{border-color:var(--cobalt);color:var(--cobalt);}
-        /* Trusted By - industry social proof */
-        .industry-trusted{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 24px;}
-        .industry-trusted-container{max-width:1000px;margin:0 auto;text-align:center;}
-        .industry-trusted-label{font-size:0.8rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:24px;}
-        .industry-trusted-logos{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;}
-        .industry-trusted-logos img{height:44px;width:auto;max-width:140px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9;}
-        .industry-trusted-plus{color:rgba(255,255,255,0.95);font-weight:600;font-size:1.1rem;}
-        .industry-trusted-quote{font-size:1rem;color:var(--text-muted);margin-top:20px;font-style:italic;max-width:520px;margin-left:auto;margin-right:auto;}
-        /* Challenge / Problem - template section */
-        .industry-challenge{padding:80px 24px;background:var(--bg);}
-        .industry-challenge .container{max-width:900px;margin:0 auto;}
-        .industry-challenge h2{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.2;}
-        .industry-challenge p{font-size:1.1rem;color:var(--text-muted);line-height:1.75;margin-bottom:16px;}
-        .industry-challenge .highlight{color:var(--text);font-weight:600;}
-        /* Capabilities - 3-column cards, template */
-        .industry-capabilities{padding:80px 24px;background:var(--bg);}
-        .industry-capabilities .section-header{text-align:center;margin-bottom:48px;}
-        .industry-capabilities .section-badge{display:inline-block;padding:0;background:none;border:none;color:var(--text-muted);font-weight:500;font-size:0.68rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.18em;}
-        .industry-capabilities .section-title{font-family:'Radley',Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;color:var(--text);margin-bottom:12px;}
-        .industry-capabilities .section-subtitle{font-size:1.05rem;color:var(--text-muted);max-width:560px;margin:0 auto;}
-        .capabilities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;}
-        .capability-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:36px 28px;transition:box-shadow 0.3s,border-color 0.3s;box-shadow:var(--card-shadow);}
-        .capability-card:hover{box-shadow:var(--card-shadow-hover);border-color:rgba(51,102,153,0.2);}
-        .capability-icon{width:52px;height:52px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;background:rgba(51,102,153,0.1);border-radius:10px;}
-        .capability-icon svg{width:26px;height:26px;stroke:var(--cobalt);stroke-width:1.5;fill:none;}
-        .capability-card h3{font-size:1.2rem;font-weight:700;margin-bottom:12px;color:var(--text);}
-        .capability-card p{font-size:0.95rem;color:var(--text-muted);line-height:1.65;}
-        /* Why PrivacyPal Wins - comparison table */
-        .why-wins{padding:80px 24px;background:var(--bg-alt);}
-        .why-wins .section-header{text-align:center;margin-bottom:40px;}
-        .why-wins .section-title{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.25rem);font-weight:700;color:var(--text);margin-bottom:8px;}
-        .comparison-table{max-width:720px;margin:0 auto;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--bg);}
-        .comparison-table table{width:100%;border-collapse:collapse;}
-        .comparison-table th,.comparison-table td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--border);}
-        .comparison-table th{background:var(--bg-alt);font-weight:600;color:var(--text);font-size:0.9rem;}
-        .comparison-table td{font-size:0.95rem;color:var(--text-muted);}
-        .comparison-table tr:last-child td{border-bottom:none;}
-        .comparison-table .col-legacy{width:35%;}
-        .comparison-table .col-privacypal{width:35%;color:var(--cobalt);font-weight:600;}
-        .comparison-table .col-feature{width:30%;font-weight:600;color:var(--text);}
-        /* Regulatory / Compliance - template section */
-        .industry-regulatory{padding:80px 24px;background:var(--bg-alt);}
-        .industry-regulatory .container{max-width:900px;margin:0 auto;text-align:center;}
-        .industry-regulatory h2{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text);margin-bottom:20px;line-height:1.2;}
-        .industry-regulatory p{font-size:1.1rem;color:var(--text-muted);line-height:1.75;margin-bottom:16px;}
-        .industry-regulatory .stat{font-size:1.5rem;font-weight:700;color:var(--cobalt);margin-top:24px;}
-        /* Sovereign-by-Design - value prop block */
-        .industry-sovereign{padding:80px 24px;background:linear-gradient(135deg,rgba(51,102,153,0.06) 0%,rgba(26,58,90,0.08) 100%);}
-        .industry-sovereign .container{max-width:900px;margin:0 auto;}
-        .industry-sovereign h2{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.2;}
-        .industry-sovereign p{font-size:1.1rem;color:var(--text-muted);line-height:1.75;margin-bottom:16px;}
-        .sovereign-list{list-style:none;margin-top:24px;}
-        .sovereign-list li{padding:12px 0;padding-left:32px;position:relative;font-size:1rem;color:var(--text-muted);line-height:1.6;}
-        .sovereign-list li::before{content:'✓';position:absolute;left:0;color:var(--cobalt);font-weight:700;}
-        /* Final CTA - template section */
-        .industry-cta{background:#111111;color:white;text-align:center;padding:80px 24px;}
-        .industry-cta h2{font-family:'Radley',Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;margin-bottom:16px;}
-        .industry-cta p{font-size:1.15rem;margin-bottom:32px;opacity:0.95;}
-        .industry-cta .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-        .industry-cta .cta-btn{background:white;color:var(--cobalt);padding:16px 36px;font-size:1.05rem;font-weight:600;border-radius:8px;text-decoration:none;display:inline-block;transition:transform 0.2s,box-shadow 0.2s;}
-        .industry-cta .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
-        .industry-cta .cta-btn-outline{background:transparent;color:white;border:2px solid white;}
-        .industry-cta .cta-btn-outline:hover{background:rgba(255,255,255,0.15);}
-        /* Demo Modal */
-        .modal-overlay{display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.25);backdrop-filter:blur(4px);}
-        .modal-overlay.show{display:flex;align-items:center;justify-content:center;animation:fadeIn 0.2s ease-out;}
-        @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-        @keyframes slideUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-        .demo-modal{background:#fff;border-radius:16px;width:90%;max-width:460px;max-height:88vh;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,0.12);display:flex;flex-direction:column;animation:slideUp 0.25s ease-out;}
-        .demo-modal-header{padding:20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f0f0f0;}
-        .demo-modal-title{font-size:1rem;font-weight:600;color:#1a1a1a;margin:0;}
-        .demo-modal-close{background:none;border:none;font-size:1.25rem;color:#9ca3af;cursor:pointer;width:32px;height:32px;border-radius:8px;}
-        .demo-modal-close:hover{background:#f5f5f5;color:#1a1a1a;}
-        .demo-modal-body{flex:1;overflow:auto;position:relative;}
-        .demo-modal-body iframe{width:100%;height:100%;border:none;min-height:560px;}
-        .demo-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;color:#9ca3af;font-size:0.9rem;}
-        .demo-spinner{width:32px;height:32px;border:2.5px solid #e5e7eb;border-top-color:#1a1a1a;border-radius:50%;animation:spin 0.7s linear infinite;margin-bottom:12px;}
-        @keyframes spin{to{transform:rotate(360deg);}}
-        @media(max-width:768px){.nav-links,.nav-cta-group{display:none;}.hamburger{display:flex;}.footer-content{grid-template-columns:1fr;}}
-        @media(max-width:1024px){.footer-content{grid-template-columns:1fr 1fr 1fr;}}
-    </style>
-</head>
-<body>
-    <nav id="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
-        <div class="nav-links">
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Platform</span>
-                <div class="nav-dropdown-menu">
-                    <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
-                    <a href="privacy-twins.html">Privacy Twins</a>
-                    <a href="device-control.html">Device Control</a>
-                </div>
-            </div>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Solutions</span>
-                <div class="nav-dropdown-menu">
-                    <a href="index.html">For SME / SMB</a>
-                    <a href="solutions.html#freelancers">For Freelancers</a>
-                    <a href="privacypal-cloud.html">For Enterprise</a>
-                    <div class="nav-divider"></div>
-                    <a href="family.html" class="nav-home-link">For Home (Family)</a>
-                </div>
-            </div>
-            <a href="index.html#pricing">Pricing</a>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Resources</span>
-                <div class="nav-dropdown-menu">
-                    <a href="developers.html">Developers</a>
-                    <a href="about.html">About Us</a>
-                    <a href="events.html">Events</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Telecommunications — PrivacyPal for carriers</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
+</head><body>
+<div id="site-nav-slot"></div>
+
+<section class="sub-hero">
+  <div class="container">
+    <div class="sub-hero-grid">
+      <div class="reveal in">
+        <span class="eyebrow">For telecommunications</span>
+        <h1>Billions of records.<br>One <em>safe</em> path to AI.</h1>
+        <p class="lede">Call records, CPNI, subscriber metadata — the most heavily-regulated data in the country. PrivacyPal lets your engineers, analysts, and customer-care teams use AI on it without violating 47 CFR §64.</p>
+        <div class="cta-row">
+          <a class="btn btn-cobalt" href="#">Book a telco demo</a>
+          <a class="btn btn-ghost" href="#">See CPNI coverage</a>
         </div>
-        <div class="nav-cta-group">
-            <a href="https://portal.privacypal.ai" class="nav-login" target="_blank" rel="noopener">Login</a>
-            <a href="desktop.html" class="cta-nav-button">Start Free Trial</a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+      <div class="hero-visual reveal in"><div class="ph">Hero image<br>Network operations center with monitors<br>[1400 × 1680]</div></div>
     </div>
-</nav>
+  </div>
+</section>
 
-<div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
-        <div class="mobile-dropdown-menu">
-            <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
-            <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
-            <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
-        </div>
+<section class="section">
+  <div class="container">
+    <div class="split reverse">
+      <div class="reveal">
+        <span class="eyebrow">CPNI, decoded</span>
+        <h2 class="display display-md" style="margin-top:18px">The FCC doesn't care how good your AI is.</h2>
+        <p class="lede" style="margin-top:20px">Customer Proprietary Network Information covers almost everything interesting: numbers dialed, duration, location, services purchased. Unauthorized disclosure means seven-figure fines and a consent decree that can last years.</p>
+        <p style="margin-top:16px;color:var(--text-muted)">PrivacyPal strips CPNI at the moment of use — across Slack, ChatGPT, Claude, internal copilots. Your compliance team sees every touch. The FCC sees a squeaky-clean posture.</p>
+      </div>
+      <div class="reveal reveal-delay-2"><div class="ph" style="aspect-ratio:1/1;min-height:420px">Diagram<br>CPNI fields: CDR / location / plan / usage — all swapped<br>[900 × 900]</div></div>
     </div>
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
-        <div class="mobile-dropdown-menu">
-            <a href="index.html" onclick="closeMobileMenu()">For SME / SMB</a>
-            <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
-            <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
-        </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Carrier workflows</span>
+      <h2 class="display display-md" style="margin-top:18px">Where the volume actually is.</h2>
     </div>
-    <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
-    <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Login</a>
-    <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
-</div>
-
-<section class="industry-hero">
-        <div class="container">
-            <span class="industry-hero-badge">Solutions for Telecommunications</span>
-            <h1>You've secured the network. Now govern the AI running on top of it.</h1>
-            <p>While your team secures the core network, AI tools are running unseen across every browser and desktop. Every employee using an unsanctioned AI with subscriber PII or network data is a compliance exposure you can't currently see, stop, or audit. PrivacyPal gives you that control.</p>
-            <div class="industry-hero-cta">
-                <a href="#" class="btn-primary" onclick="openDemoModal(event)">Book a Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trusted By -->
-    <section class="industry-trusted">
-        <div class="industry-trusted-container">
-            <div class="industry-trusted-label">Trusted by leaders in Sovereign AI</div>
-            <div class="industry-trusted-logos">
-                <img src="fastweb-logo.png" alt="FASTWEB">
-            </div>
-            <p class="industry-trusted-quote">PrivacyPal works with some of the largest telecommunications companies in the world to secure the AI data exchange layer. Critical subscriber and network data powers agentic workflows while remaining strictly segregated and fully compliant with the European AI Act.</p>
-        </div>
-    </section>
-
-    <!-- The Challenge -->
-    <section class="industry-challenge">
-        <div class="container">
-            <h2>The AI governance gap is your largest unmonitored compliance risk</h2>
-            <p>Your team secured the network perimeter. But AI tools have created a new gap — one at the browser, where employees interact with AI daily using data you haven't authorized for that purpose.</p>
-            <p>In the current regulatory climate, <span class="highlight">"I didn't know they were pasting that into ChatGPT"</span> is no longer a valid defense. You need to control which AI tools are approved, what data they can access, and get a full audit trail of every interaction — or your compliance posture is incomplete.</p>
-        </div>
-    </section>
-
-    <section class="why-wins">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why PrivacyPal Wins</h2>
-            </div>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="col-feature">Feature</th>
-                            <th class="col-legacy">Privately Hosted AI (Onyx/Limina)</th>
-                            <th class="col-privacypal">PrivacyPal.ai</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-feature">Works With</td>
-                            <td class="col-legacy">Proprietary</td>
-                            <td class="col-privacypal">Claude, Gemini, Copilot, ChatGPT, Claude Code, OpenClaw, others</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">AI Privacy</td>
-                            <td class="col-legacy">Locked</td>
-                            <td class="col-privacypal">Intent-aware Privacy</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">AI Agents</td>
-                            <td class="col-legacy">Proprietary Walled-Garden</td>
-                            <td class="col-privacypal">Agent Agnostic, works with any Agent</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">DLP</td>
-                            <td class="col-legacy">Blocks the work</td>
-                            <td class="col-privacypal">Sanitizes the context</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Capabilities -->
-    <section class="industry-capabilities">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">How We Help</div>
-                <h2 class="section-title">Sovereign AI by design</h2>
-                <p class="section-subtitle">PrivacyPal protects every AI interaction on the user's device—stopping sensitive data before it ever reaches a 3rd-party server.</p>
-            </div>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3>Edge-Level Protection</h3>
-                    <p>We protect every AI interaction on the user's device, stopping the data from ever reaching a 3rd-party server. The security boundary moves to the keyboard.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-                    <h3>Total Sovereignty</h3>
-                    <p>Deployed in your data centers. You own the logs, the audits, and the control—no 3rd-party cloud required. All protection logic and audit trails live in your own trusted infrastructure.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-                    <h3>Zero-Exposure Workflow</h3>
-                    <p>We swap sensitive data for synthetic Privacy Twins in real-time. Your team gets AI results; you get zero risk. We don't just block—we sanitize.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Regulatory -->
-    <section class="industry-regulatory">
-        <div class="container">
-            <h2>Infrastructure neutrality. Your rules, everywhere.</h2>
-            <p>Whether your teams use ChatGPT, Claude, or internal models, we enforce your privacy rules at the point of interaction. Audit at the edge—if it's sensitive, it stays inside your perimeter.</p>
-            <p class="stat">Absolute data residency. Sovereign enforcement.</p>
-        </div>
-    </section>
-
-    <!-- Sovereign-by-Design -->
-    <section class="industry-sovereign">
-        <div class="container">
-            <h2>You shouldn't have to choose between AI productivity and privacy</h2>
-            <p>Right now, your proprietary data is being shared with 3rd-party AI providers every minute. PrivacyPal ensures your AI-native future is sovereign by design.</p>
-            <ul class="sovereign-list">
-                <li><strong>On-Device Security:</strong> We move the security boundary to the user's device, protecting interactions before they ever leave the machine.</li>
-                <li><strong>Your Data Center, Your Rules:</strong> Unlike cloud-based filters, PrivacyPal is controlled sovereignly within your own infrastructure.</li>
-                <li><strong>Interaction Protection:</strong> We don't just block; we sanitize. Privacy Twins ensure sensitive data is never exposed to external AI tools.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="industry-cta">
-        <div class="container">
-            <h2>Take the fear out of AI</h2>
-            <p>See how we're helping telecom leaders eliminate AI data exposure. A 10-minute call is all it takes.</p>
-            <div class="cta-buttons">
-                <a href="#" class="cta-btn" onclick="openDemoModal(event)">Book a Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h3>PrivacyPal</h3>
-            <p>Use ChatGPT, Claude, Copilot, and any AI tool without exposing your sensitive data or IP.</p>
-            <div class="social-links">
-                <a href="https://x.com/privacypalai" title="X">𝕏</a>
-                <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
-            </div>
-        </div>
-        <div class="footer-links"><h4>Platform</h4><ul>
-            <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
-            <li><a href="privacy-twins.html">Privacy Twins</a></li>
-            <li><a href="device-control.html">Device Control</a></li>
-            <li><a href="ai-dspm.html">AI-DSPM</a></li>
-            <li><a href="desktop.html">Install</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Solutions</h4><ul>
-            <li><a href="index.html">For SME / SMB</a></li>
-            <li><a href="privacypal-cloud.html">For Enterprise</a></li>
-            <li><a href="banking.html">Banking</a></li>
-            <li><a href="healthcare.html">Healthcare</a></li>
-            <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Company</h4><ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="developers.html">Developers</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Legal</h4><ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-        </ul></div>
+    <div class="ucases">
+      <div class="ucase reveal reveal-delay-1"><div class="n">01</div><div><h4>Care & billing</h4><p>AI-assisted agent support. Account numbers, IMEIs, and billing history never leave your perimeter.</p></div></div>
+      <div class="ucase reveal reveal-delay-1"><div class="n">02</div><div><h4>Network engineering</h4><p>Copilots on real configs, real traces, real outage data — with subscriber identifiers and tower locations swapped out.</p></div></div>
+      <div class="ucase reveal reveal-delay-2"><div class="n">03</div><div><h4>Fraud & churn modeling</h4><p>Analysts prototype against production CDRs in AI notebooks. Phone numbers and MSISDNs are tokenized end-to-end.</p></div></div>
+      <div class="ucase reveal reveal-delay-2"><div class="n">04</div><div><h4>Retail & field ops</h4><p>Store reps use AI for plan recommendations and device troubleshooting without pasting customer details into public chat.</p></div></div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
-        <div class="footer-contact"><strong>PrivacyPal</strong>2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968</div>
-    </div>
-</footer>
+  </div>
+</section>
 
-    <div id="demoModal" class="modal-overlay">
-        <div class="demo-modal">
-            <div class="demo-modal-header">
-                <h3 class="demo-modal-title">Book a Demo</h3>
-                <button class="demo-modal-close" onclick="closeDemoModal()">&times;</button>
-            </div>
-            <div class="demo-modal-body">
-                <div class="demo-loading" id="demoLoading">
-                    <div class="demo-spinner"></div>
-                    Loading...
-                </div>
-                <iframe id="demoFrame" src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0en3ttxqL4LChfrMDCbYeqxtKuKXOR4YRnGz0Sfg0RIwh7nO51zW3MqxBnQzAVcSkQoy3_6UJZ?gv=true" style="display: none;"></iframe>
-            </div>
-        </div>
-    </div>
+<section class="pullquote">
+  <blockquote>"We process 40 billion CDRs a month. PrivacyPal made AI viable against them without a single CPNI ticket."</blockquote>
+  <cite>— VP Data Platform, Tier-1 US wireless carrier</cite>
+</section>
 
-    <script>
-        window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
-        (function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){this.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});}})();
-        function closeMobileMenu(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h)h.classList.remove('active');if(m)m.classList.remove('active');document.body.style.overflow='';document.querySelectorAll('.mobile-dropdown.open').forEach(function(d){d.classList.remove('open');});}
-        function toggleMobileDropdown(btn){btn.closest('.mobile-dropdown').classList.toggle('open');}
-        function openDemoModal(e){if(e)e.preventDefault();var modal=document.getElementById('demoModal');var iframe=document.getElementById('demoFrame');var loading=document.getElementById('demoLoading');modal.classList.add('show');document.body.style.overflow='hidden';loading.style.display='flex';iframe.style.display='none';var loaded=false;iframe.onload=function(){loaded=true;loading.style.display='none';iframe.style.display='block';};setTimeout(function(){if(!loaded){loading.style.display='none';iframe.style.display='block';}},3000);}
-        function closeDemoModal(){document.getElementById('demoModal').classList.remove('show');document.body.style.overflow='';}
-        window.onclick=function(e){if(e.target.id==='demoModal')closeDemoModal();};
-        document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDemoModal();});
-    </script>
-</body>
-</html>
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="max-width:900px; margin:0 auto; text-align:center">
+      <span class="eyebrow" style="justify-content:center">Scale and regulation</span>
+      <h2 class="display display-md" style="margin-top:18px">CPNI · CALEA · Section 222 · GDPR for mobile roaming.</h2>
+      <p class="lede" style="margin-top:20px">Deployed at carrier-scale: hundreds of thousands of employees, thousands of transactions per second, hard real-time SLAs on the customer care path. PrivacyPal sits inline without adding perceptible latency.</p>
+      <p style="font-family:var(--mono);color:var(--cobalt);font-size:1.4rem;font-weight:700;margin-top:32px">Under 40ms added latency at p99.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="reveal">
+    <h2>Carrier-grade AI.<br>Carrier-grade privacy.</h2>
+    <p>Talk to a deployment architect who's run PrivacyPal at a Tier-1 carrier.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="#">Book a telco demo</a>
+      <a class="btn btn-ghost" href="#">See CPNI coverage</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+<script src="assets/site.js"></script>
+</body></html>

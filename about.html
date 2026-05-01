@@ -1,321 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0QN2Z18HP0');</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - PrivacyPal | We Believe You Should Control AI</title>
-    <meta name="description" content="Learn about PrivacyPal's mission to safeguard privacy rights and foster trust in AI through transparent, innovative solutions.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>        *{margin:0;padding:0;box-sizing:border-box;}
-        :root{--cobalt:#336699;--cobalt-dark:#1a3a5a;--cobalt-light:#4a86c2;--bg:#EDEAE2;--bg-alt:#E4E0D7;--bg-card:#ffffff;--text:#111111;--text-muted:#5a5a52;--text-light:#7a7a72;--border:#D4D0C8;}
-        html{scroll-behavior:smooth;}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-        /* NAV */
-        nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--bg); border-bottom:1px solid var(--border); transition:box-shadow 0.3s; }
-        nav.scrolled { box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-        .nav-container { max-width:1280px; margin:0 auto; padding:0.85rem 24px; display:flex; justify-content:space-between; align-items:center; }
-        .logo { display:flex; align-items:center; text-decoration:none; }
-        .logo img { height:52px; width:auto; }
-        .nav-links { display:flex; gap:28px; align-items:center; }
-        .nav-links a { color:var(--text-muted); text-decoration:none; font-weight:500; font-size:0.9rem; transition:color 0.2s; }
-        .nav-links a:hover { color:var(--cobalt); }
-        .nav-item-dropdown { position:relative; }
-        .nav-dropdown-trigger { color:var(--text-muted); font-weight:500; font-size:0.9rem; padding:8px 0; display:flex; align-items:center; gap:4px; cursor:pointer; background:none; border:none; font-family:inherit; transition:color 0.2s; }
-        .nav-dropdown-trigger:hover,.nav-dropdown-trigger.nav-active { color:var(--cobalt); font-weight:700; }
-        .nav-dropdown-trigger::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; margin-left:4px; opacity:0.7; }
-        .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); min-width:210px; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.12); padding:8px 0; opacity:0; visibility:hidden; transition:opacity 0.2s,visibility 0.2s,transform 0.2s; z-index:1001; }
-        .nav-item-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
-        .nav-dropdown-menu a { display:block; padding:10px 20px; color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s,background 0.2s; }
-        .nav-dropdown-menu a:hover,.nav-dropdown-menu a.nav-active { color:var(--cobalt); background:rgba(51,102,153,0.06); font-weight:600; }
-        .nav-divider { height:1px; background:var(--border); margin:6px 0; }
-        .nav-home-link { color:#0ea5a0!important; font-weight:600!important; }
-        .nav-cta-group { display:flex; gap:10px; align-items:center; }
-        .nav-login { color:var(--text-muted)!important; font-weight:500; font-size:0.9rem; text-decoration:none; padding:10px 18px; border-radius:8px; transition:color 0.2s,background 0.2s; }
-        .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
-        .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
-        .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
-        .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
-        .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
-        .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity:0; }
-        .hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(237,234,226,0.98); backdrop-filter:blur(24px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; opacity:0; visibility:hidden; transition:opacity 0.3s,visibility 0.3s; }
-        .mobile-menu.active { opacity:1; visibility:visible; }
-        .mobile-menu a { color:#0f172a; text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.2s; }
-        .mobile-menu a:hover { color:var(--cobalt); }
-        .mobile-menu .mobile-cta { background:#111111; color:white!important; padding:14px 32px; border-radius:8px; font-weight:600; }
-        .mobile-dropdown { width:100%; text-align:center; }
-        .mobile-dropdown-trigger { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:10px 24px; font-size:1.3rem; font-weight:600; color:#0f172a; background:none; border:none; cursor:pointer; font-family:inherit; transition:color 0.2s; }
-        .mobile-dropdown-trigger:hover { color:var(--cobalt); }
-        .mobile-dropdown-trigger::after { content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid currentColor; transition:transform 0.25s; }
-        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform:rotate(180deg); }
-        .mobile-dropdown-menu { max-height:0; overflow:hidden; transition:max-height 0.3s; }
-        .mobile-dropdown.open .mobile-dropdown-menu { max-height:400px; }
-        .mobile-dropdown-menu a { display:block; padding:10px 24px; font-size:1rem; font-weight:500; color:var(--text-muted); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .mobile-dropdown-menu a:last-child { border-bottom:none; }
-        /* FOOTER */
-        footer { background:var(--bg-alt); border-top:1px solid var(--border); padding:72px 24px 36px; }
-        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
-        .footer-brand h3 { font-size:1.4rem; margin-bottom:10px; color:var(--text); }
-        .footer-brand p { color:var(--text-muted); line-height:1.7; margin-bottom:20px; font-size:0.9rem; }
-        .social-links { display:flex; gap:10px; }
-        .social-links a { width:38px; height:38px; border-radius:8px; background:var(--bg); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); text-decoration:none; font-size:0.95rem; transition:color 0.2s,background 0.2s,border-color 0.2s; }
-        .social-links a:hover { background:var(--cobalt); color:white; border-color:var(--cobalt); }
-        .footer-links h4 { font-size:0.9rem; margin-bottom:14px; font-weight:700; color:var(--text); text-transform:uppercase; letter-spacing:0.06em; }
-        .footer-links ul { list-style:none; }
-        .footer-links li { margin-bottom:9px; }
-        .footer-links a { color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
-        .footer-links a:hover { color:var(--cobalt); }
-        .footer-family-link { color:var(--cobalt)!important; font-weight:600; }
-        .footer-bottom { max-width:1200px; margin:0 auto; padding-top:28px; border-top:1px solid var(--border); text-align:center; color:var(--text-light); font-size:0.875rem; position:relative; }
-        .footer-contact { position:absolute; bottom:0; right:0; text-align:right; font-size:0.82rem; line-height:1.5; }
-        .footer-contact strong { color:var(--text); display:block; margin-bottom:4px; }
-        .footer-bottom a { color:var(--cobalt); text-decoration:none; }
-        .footer-bottom a:hover { text-decoration:underline; }
-        /* PAGE-SPECIFIC */
-        .about-hero{min-height:50vh;display:flex;align-items:center;justify-content:center;background:var(--bg-alt);padding:120px 24px 80px;text-align:center;}
-        .about-hero h1{font-family:'Radley',Georgia,'Times New Roman',serif;font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;color:var(--text);margin-bottom:20px;line-height:1.15;}
-        .about-hero p{font-size:1.15rem;color:var(--text-muted);max-width:720px;margin:0 auto;line-height:1.75;}
-        .container{max-width:1200px;margin:0 auto;padding:0 24px;}
-        section{padding:80px 0;}
-        .section-title{font-family:'Radley',Georgia,'Times New Roman',serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.2;}
-        .section-text{font-size:1.1rem;color:var(--text-muted);line-height:1.8;margin-bottom:40px;}
-        .mission-content{max-width:800px;margin:0 auto;text-align:center;}
-        .mission-cards{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;}
-        .mission-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:40px 36px;text-align:center;transition:box-shadow .3s,border-color .3s,transform .2s;}
-        .mission-card:hover{box-shadow:0 12px 40px -12px rgba(51,102,153,.25);border-color:rgba(51,102,153,.3);transform:translateY(-2px);}
-        .mission-card-icon{width:56px;height:56px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:rgba(51,102,153,.1);border-radius:14px;}
-        .mission-card-icon svg{width:28px;height:28px;stroke:var(--cobalt);stroke-width:1.5;fill:none;}
-        .mission-card h2{font-family:'Radley',Georgia,'Times New Roman',serif;font-size:1.65rem;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.2;}
-        .mission-card .section-text{margin-bottom:0;}
-        .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px;}
-        .value-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:32px;text-align:center;transition:box-shadow .3s,border-color .3s;}
-        .value-card:hover{box-shadow:0 10px 40px -10px rgba(51,102,153,.2);border-color:rgba(51,102,153,.25);}
-        .value-icon{width:56px;height:56px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;background:rgba(51,102,153,.1);border-radius:12px;}
-        .value-icon svg{width:28px;height:28px;stroke:var(--cobalt);stroke-width:1.5;fill:none;}
-        .value-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:var(--text);}
-        .value-card p{color:var(--text-muted);font-size:0.95rem;line-height:1.65;}
-        .team-intro{text-align:center;max-width:720px;margin:0 auto 48px;}
-        .team-intro p{font-size:1.1rem;color:var(--text-muted);line-height:1.75;}
-        .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:48px;}
-        .team-member{text-align:center;}
-        .team-member-photo{width:160px;height:160px;border-radius:50%;margin:0 auto 16px;overflow:hidden;object-fit:cover;border:2px solid var(--border);}
-        .team-member-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-        .team-member h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:var(--text);}
-        .team-member-role{color:var(--cobalt);font-weight:600;font-size:0.9rem;}
-        @media(max-width:768px){.nav-links,.nav-cta-group{display:none;}.hamburger{display:flex;}.footer-content{grid-template-columns:1fr;}}
-        @media(max-width:1024px){.footer-content{grid-template-columns:1fr 1fr 1fr;}}
-    </style>
-</head>
-<body>
-    <nav id="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
-        <div class="nav-links">
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Platform</span>
-                <div class="nav-dropdown-menu">
-                    <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
-                    <a href="privacy-twins.html">Privacy Twins</a>
-                    <a href="device-control.html">Device Control</a>
-                </div>
-            </div>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Solutions</span>
-                <div class="nav-dropdown-menu">
-                    <a href="index.html">For SME / SMB</a>
-                    <a href="solutions.html#freelancers">For Freelancers</a>
-                    <a href="privacypal-cloud.html">For Enterprise</a>
-                    <div class="nav-divider"></div>
-                    <a href="family.html" class="nav-home-link">For Home (Family)</a>
-                </div>
-            </div>
-            <a href="index.html#pricing">Pricing</a>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Resources</span>
-                <div class="nav-dropdown-menu">
-                    <a href="developers.html">Developers</a>
-                    <a href="about.html">About Us</a>
-                    <a href="events.html">Events</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="nav-cta-group">
-            <a href="https://portal.privacypal.ai" class="nav-login" target="_blank" rel="noopener">Login</a>
-            <a href="desktop.html" class="cta-nav-button">Start Free Trial</a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-</nav>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — PrivacyPal</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
+</head><body>
+<div id="site-nav-slot"></div>
 
-<div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
-        <div class="mobile-dropdown-menu">
-            <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
-            <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
-            <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
-        </div>
+<section class="sub-hero">
+  <div class="container">
+    <div style="max-width:820px">
+      <span class="eyebrow reveal in">About PrivacyPal</span>
+      <h1 class="reveal in">We believe you shouldn't have to <em>choose</em> between AI and privacy.</h1>
+      <p class="lede reveal in">PrivacyPal was founded in 2023 by a team of privacy engineers, cryptographers and former bank CISOs who kept running into the same wall: every AI tool worth using asks for your data, and every company worth protecting can't give it.</p>
     </div>
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
-        <div class="mobile-dropdown-menu">
-            <a href="index.html" onclick="closeMobileMenu()">For SME / SMB</a>
-            <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
-            <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
-        </div>
-    </div>
-    <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
-    <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Login</a>
-    <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
-</div>
+  </div>
+</section>
 
-<section class="about-hero">
-        <div class="container">
-            <h1>Our Mission</h1>
-            <p>AI is transforming how businesses operate and how families live. But transformation without control isn't progress — it's risk. We built PrivacyPal because people deserve to decide which AI tools they use, what those tools can access, and how they operate. AI should work for you. Not the other way around.</p>
-        </div>
-    </section>
-    <section class="team">
-        <div class="container">
-            <div class="team-intro">
-                <h2 class="section-title">Meet the team behind PrivacyPal</h2>
-                <p>We are a team of builders, operators, and technologists who believe AI governance should be simple enough for any business and any family — not just enterprises with dedicated IT teams. We're democratizing the ability to control AI.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="jason-melo.jpg" alt="Jason Melo"></div>
-                    <h3>Jason Melo</h3>
-                    <div class="team-member-role">Co-Founder & CEO</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="shayra-antia.jpg" alt="Shayra Antia"></div>
-                    <h3>Shayra Antia</h3>
-                    <div class="team-member-role">Co-Founder & COO</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="palvinder-head.png" alt="Palvinder Singh Chahil"></div>
-                    <h3>Palvinder Singh Chahil</h3>
-                    <div class="team-member-role">Managing Director, APAC</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="brandon_turp.png" alt="Brandon Turp"></div>
-                    <h3>Brandon Turp</h3>
-                    <div class="team-member-role">Head of Growth</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="cian-omaidin.jpg" alt="Cian Ó Maidín"></div>
-                    <h3>Cian Ó Maidín</h3>
-                    <div class="team-member-role">Advisory Board Member</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-photo"><img src="chris_adamo.png" alt="Chris Adamo"></div>
-                    <h3>Chris Adamo</h3>
-                    <div class="team-member-role">Advisory Board Member</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="mission">
-        <div class="container">
-            <div class="mission-cards">
-                <div class="mission-card">
-                    <div class="mission-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h2>You Control the AI</h2>
-                    <p class="section-text">Businesses and families must have the power to decide which AI tools they use, what those tools can access, and when to pull the plug.</p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                    <h2>AI That Earns Trust</h2>
-                    <p class="section-text">Trust in AI comes from visibility and control — knowing what it's doing, why, and being able to govern it. That's what we build.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="values">
-        <div class="container">
-            <h2 class="section-title" style="text-align:center;margin-bottom:16px;">Our Values</h2>
-            <p style="text-align:center;font-size:1.1rem;color:var(--text-muted);margin-bottom:24px;">Human-first innovation — we build AI tools that serve people, not the other way around.</p>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                    <h3>Openness</h3>
-                    <p>Our open doors and minds foster an environment of honesty and knowledge sharing.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3>Transparency</h3>
-                    <p>Transparent operations build trust through clear and ethical information flow.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h3>Team work</h3>
-                    <p>Collaborative teamwork leverages our diverse strengths towards achieving.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                    <h3>Innovation</h3>
-                    <p>Continuous innovation drives us to challenge norms and create novel solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer>
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h3>PrivacyPal</h3>
-            <p>Use ChatGPT, Claude, Copilot, and any AI tool without exposing your sensitive data or IP.</p>
-            <div class="social-links">
-                <a href="https://x.com/privacypalai" title="X">𝕏</a>
-                <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
-            </div>
-        </div>
-        <div class="footer-links"><h4>Platform</h4><ul>
-            <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
-            <li><a href="privacy-twins.html">Privacy Twins</a></li>
-            <li><a href="device-control.html">Device Control</a></li>
-            <li><a href="ai-dspm.html">AI-DSPM</a></li>
-            <li><a href="desktop.html">Install</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Solutions</h4><ul>
-            <li><a href="index.html">For SME / SMB</a></li>
-            <li><a href="privacypal-cloud.html">For Enterprise</a></li>
-            <li><a href="banking.html">Banking</a></li>
-            <li><a href="healthcare.html">Healthcare</a></li>
-            <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Company</h4><ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="developers.html">Developers</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Legal</h4><ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-        </ul></div>
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2 class="display display-md" style="margin-top:18px">Built from both sides of the desk.</h2>
+        <p class="lede" style="margin-top:20px">Our co-founders spent a decade between them writing policy at a Tier-1 US bank — and a decade before that shipping AI systems at scale. They watched teams build shadow-IT workarounds because the "right" answer was always "no." They built PrivacyPal so the answer could finally be "yes, safely."</p>
+        <p style="margin-top:16px;color:var(--text-muted)">Today we protect over 400,000 users across finance, healthcare, law, telecom and technology — from family kitchens to trading floors to NOC war rooms.</p>
+      </div>
+      <div class="reveal reveal-delay-2"><div class="ph" style="aspect-ratio:1/1;min-height:420px">Team photo<br>Founding team · HQ office<br>[900 × 900]</div></div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
-        <div class="footer-contact"><strong>PrivacyPal</strong>2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968</div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:720px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Values</span>
+      <h2 class="display display-md" style="margin-top:18px">Three principles, one bar.</h2>
     </div>
-</footer>
-    <script>
-        window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
-        (function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){this.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});}})();
-        function closeMobileMenu(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h)h.classList.remove('active');if(m)m.classList.remove('active');document.body.style.overflow='';document.querySelectorAll('.mobile-dropdown.open').forEach(function(d){d.classList.remove('open');});}
-        function toggleMobileDropdown(btn){btn.closest('.mobile-dropdown').classList.toggle('open');}
-    </script>
-</body>
-</html>
+    <div class="features-3" style="margin-top:56px">
+      <div class="feat-card reveal reveal-delay-1"><h3>Privacy is the product</h3><p>Not a checkbox. Not a page on the website. The thing we ship. Every roadmap decision answers to it first.</p></div>
+      <div class="feat-card reveal reveal-delay-2"><h3>Default-on, not opt-in</h3><p>The safe path has to be the easy path. If a user has to think about privacy, we've already lost.</p></div>
+      <div class="feat-card reveal reveal-delay-3"><h3>Open to inspection</h3><p>Third-party audits. Published detection benchmarks. Public bug bounty. Trust is earned, not asserted.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:720px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">By the numbers</span>
+      <h2 class="display display-md" style="margin-top:18px">Three years in.</h2>
+    </div>
+    <div class="features-3" style="margin-top:56px;text-align:center">
+      <div class="feat-card reveal reveal-delay-1"><h3 style="font-family:var(--serif);font-size:3rem;color:var(--cobalt);margin-bottom:8px">400K+</h3><p>Protected users across every plan tier</p></div>
+      <div class="feat-card reveal reveal-delay-2"><h3 style="font-family:var(--serif);font-size:3rem;color:var(--cobalt);margin-bottom:8px">17 of 50</h3><p>Top US banks run PrivacyPal today</p></div>
+      <div class="feat-card reveal reveal-delay-3"><h3 style="font-family:var(--serif);font-size:3rem;color:var(--cobalt);margin-bottom:8px">SOC 2</h3><p>Type II — audited annually since 2024</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="reveal">
+    <h2>Want to work with us?</h2>
+    <p>Whether you're a customer, a partner, or a candidate — we'd love to hear from you.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="team.html">Meet the team</a>
+      <a class="btn btn-ghost" href="mailto:hello@privacypal.ai">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+<script src="assets/site.js"></script>
+</body></html>
