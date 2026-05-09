@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
 <style>
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,200px);gap:24px;margin-top:48px;justify-content:center}
 .team-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .team-photo{aspect-ratio:1/1;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);overflow:hidden}
@@ -15,7 +15,7 @@
 .team-body{padding:22px 20px}
 .team-body h3{font-size:1.05rem;font-weight:700;margin-bottom:2px}
 .team-role{font-family:var(--mono);font-size:.72rem;color:var(--cobalt);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
-@media (max-width:560px){.team-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.team-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
 </style>
 </head><body>
 <div id="site-nav-slot"></div>
@@ -60,6 +60,14 @@
         <div class="team-photo"><img src="brandon_turp.png" alt="Brandon Turp"></div>
         <div class="team-body"><h3>Brandon Turp</h3><div class="team-role">Head of Growth</div></div>
       </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-photo"><img src="erik-frantzen.jpg" alt="Erik Frantzen"></div>
+        <div class="team-body"><h3>Erik Frantzen</h3><div class="team-role">Head of Partnerships</div></div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-photo"><img src="ralph_vetsch.jpeg" alt="Ralph Vetsch"></div>
+        <div class="team-body"><h3>Ralph Vetsch</h3><div class="team-role">Enterprise Accounts</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -74,16 +82,12 @@
         <div class="team-body"><h3>Cian Ó Maidín</h3><div class="team-role">Advisory Board Member</div></div>
       </div>
       <div class="team-card reveal reveal-delay-2">
-        <div class="team-photo"><img src="chris_adamo.png" alt="Chris Adamo"></div>
+        <div class="team-photo"><img src="chris-adamo.jpeg" alt="Chris Adamo"></div>
         <div class="team-body"><h3>Chris Adamo</h3><div class="team-role">Advisory Board Member</div></div>
       </div>
       <div class="team-card reveal reveal-delay-3">
-        <div class="team-photo"></div>
+        <div class="team-photo"><img src="jordan_serlin.jpg" alt="Jordan Serlin" style="object-position:center top"></div>
         <div class="team-body"><h3>Jordan Serlin</h3><div class="team-role">Advisory Board Member</div></div>
-      </div>
-      <div class="team-card reveal reveal-delay-3">
-        <div class="team-photo"></div>
-        <div class="team-body"><h3>John Moyer</h3><div class="team-role">Advisory Board Member</div></div>
       </div>
     </div>
   </div>
