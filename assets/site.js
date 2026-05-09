@@ -6,13 +6,12 @@
   const navHTML = `
   <nav class="site-nav ${onDark ? 'on-dark' : ''}" id="siteNav">
     <div class="nav-inner">
-      <a class="nav-logo" href="index.html"><img src="assets/logo-color.png" alt="PrivacyPal" class="logo-light-img"><img src="assets/logo-light.png" alt="PrivacyPal" class="logo-dark-img" style="display:none"></a>
+      <a class="nav-logo" href="index.html"><img src="assets/logo-color.png" alt="PrivacyPal" class="logo-light-img"><img src="privacypal-logo-light.png" alt="PrivacyPal" class="logo-dark-img" style="display:none"></a>
       <div class="nav-links">
         <div class="dropdown">
           <span>Products</span>
           <div class="dropdown-menu">
             <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>For SME teams, firms & agencies</small></a>
-            <a href="privacypal-home.html"><b>PrivacyPal Home</b><small>AI privacy for families & individuals</small></a>
             <a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for your infra</small></a>
           </div>
         </div>
@@ -42,7 +41,6 @@
   </nav>
   <div class="mobile-menu" id="mmenu">
     <a href="privacypal-pro.html">PrivacyPal Pro</a>
-    <a href="privacypal-home.html">PrivacyPal Home</a>
     <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
     <a href="banking.html">Solutions</a>
     <a href="about.html">About</a>
@@ -63,7 +61,6 @@
         <div class="footer-col">
           <h5>Products</h5>
           <a href="privacypal-pro.html">PrivacyPal Pro</a>
-          <a href="privacypal-home.html">PrivacyPal Home</a>
           <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
         </div>
         <div class="footer-col">

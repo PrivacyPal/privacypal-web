@@ -11,158 +11,75 @@
 <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css"/>
 <style>
-  /* ========= HERO ========= */
-  .hero{
-    position:relative; min-height:100vh;
-    padding:140px 28px 80px;
-    display:flex; align-items:center;
-    overflow:hidden;
+  /* ========= HERO (VIDEO) ========= */
+  .hero-video{
+    position:relative; min-height:100vh; padding:140px 28px 100px;
+    display:flex; align-items:center; overflow:hidden;
+    background:#000; color:#fff;
+  }
+  .hero-video video, .hero-video .bg-placeholder{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+  }
+  .hero-video video{opacity:.75}
+  .hero-video .bg-placeholder{
     background:
-      radial-gradient(900px 600px at 75% 15%, rgba(74,134,194,.12), transparent 60%),
-      radial-gradient(700px 500px at 10% 85%, rgba(233,164,88,.10), transparent 60%),
-      var(--bg);
+      radial-gradient(circle at 30% 40%, rgba(74,134,194,.4), transparent 60%),
+      radial-gradient(circle at 70% 60%, rgba(233,164,88,.25), transparent 55%),
+      linear-gradient(135deg,#0b1220 0%, #1e2c4a 50%, #0b1220 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:.85rem; color:rgba(255,255,255,.4);
+    letter-spacing:.12em; text-transform:uppercase;
+    animation:slowPan 40s linear infinite;
   }
-  .hero-grid{
-    max-width:var(--maxw); margin:0 auto;
-    display:grid; grid-template-columns:1.05fr 1fr; gap:80px;
-    align-items:center; width:100%; position:relative; z-index:2;
+  @keyframes slowPan{
+    0%{background-position:0% 50%, 100% 50%, 0% 0%}
+    50%{background-position:100% 50%, 0% 50%, 100% 100%}
+    100%{background-position:0% 50%, 100% 50%, 0% 0%}
   }
-  .hero-title{
+  .hero-video::after{
+    content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:
+      linear-gradient(90deg, rgba(11,18,32,.85) 0%, rgba(11,18,32,.55) 45%, rgba(11,18,32,.15) 100%),
+      linear-gradient(180deg, rgba(11,18,32,.2) 0%, transparent 30%, rgba(11,18,32,.85) 100%);
+  }
+  .hero-video .wrap{
+    position:relative; z-index:3; max-width:var(--maxw); margin:0 auto; width:100%;
+    display:grid; grid-template-columns:1.5fr 1fr; gap:80px; align-items:end;
+    min-height:calc(100vh - 240px);
+  }
+  .hero-video .left{padding-bottom:40px}
+  .hero-video .eyebrow{color:var(--cobalt-glow)}
+  .hero-video h1{
     font-family:var(--serif); font-weight:700;
-    font-size:clamp(3rem,7vw,6.2rem); line-height:.98;
-    letter-spacing:-.03em; color:var(--ink);
+    font-size:clamp(3.2rem,7.5vw,7rem); line-height:.95; letter-spacing:-.03em;
+    color:#fff; margin:22px 0 28px;
   }
-  .hero-title em{
-    font-style:italic; color:var(--cobalt); font-weight:400;
-    background:linear-gradient(90deg,var(--cobalt),var(--cobalt-bright));
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  .hero-video h1 em{font-style:italic; color:var(--cobalt-glow); font-weight:400}
+  .hero-video p.lede{font-size:1.2rem; line-height:1.6; max-width:56ch; color:rgba(255,255,255,.82); font-weight:300}
+  .hero-video .cta-row{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap}
+  .hero-video .right{
+    padding-bottom:60px; display:flex; flex-direction:column; gap:18px;
+    border-left:1px solid rgba(255,255,255,.18); padding-left:28px;
   }
-  .hero-sub{
-    margin-top:28px; font-size:clamp(1.05rem,1.3vw,1.2rem); max-width:48ch;
-    color:var(--text-muted); line-height:1.65;
+  .hero-video .stat .n{
+    display:block; font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(2.2rem,4vw,3.4rem); line-height:1; color:#fff;
   }
-  .hero-cta{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap}
-  .hero-meta{
-    margin-top:44px; display:flex; gap:24px; flex-wrap:wrap;
-    font-family:var(--mono); font-size:.78rem; color:var(--text-soft);
-    letter-spacing:.06em; text-transform:uppercase;
+  .hero-video .stat .l{
+    display:block; margin-top:8px; font-family:var(--mono); font-size:.74rem;
+    letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55);
   }
-  .hero-meta span{display:inline-flex;align-items:center;gap:8px}
-  .hero-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cobalt)}
-
-  /* ========= LIVE PRODUCT MOCK ========= */
-  .mock-stage{
-    position:relative; height:620px;
-    perspective:1400px;
+  .hero-video .topbar{
+    position:absolute; top:110px; left:28px; right:28px; z-index:3;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(255,255,255,.55); max-width:var(--maxw); margin:0 auto; padding:0 28px;
   }
-  .mock-chat{
-    position:absolute; inset:0;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:20px;
-    box-shadow:
-      0 50px 100px -30px rgba(15,23,42,.32),
-      0 20px 40px -20px rgba(51,102,153,.2),
-      inset 0 1px 0 rgba(255,255,255,.7);
-    overflow:hidden;
-    transform-style:preserve-3d;
-    transform: rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
-    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  .hero-video .topbar .live::before{
+    content:""; width:8px;height:8px;background:#ff5c5c;border-radius:50%;display:inline-block;margin-right:8px;
+    box-shadow:0 0 12px #ff5c5c; animation:blink 1.4s infinite;
   }
-  .mock-bar{
-    display:flex; align-items:center; gap:10px;
-    padding:14px 18px; border-bottom:1px solid var(--border);
-    background:linear-gradient(180deg,#fff,#f9f7f1);
-  }
-  .mock-dots{display:flex;gap:6px}
-  .mock-dots i{width:10px;height:10px;border-radius:50%}
-  .mock-dots i:nth-child(1){background:#ff5f57}
-  .mock-dots i:nth-child(2){background:#febb2d}
-  .mock-dots i:nth-child(3){background:#28c940}
-  .mock-app{font-family:var(--mono); font-size:.76rem; color:var(--text-soft); letter-spacing:.04em}
-  .mock-shield{
-    margin-left:auto; display:inline-flex; align-items:center; gap:6px;
-    padding:4px 10px; background:rgba(47,158,107,.12);
-    border:1px solid rgba(47,158,107,.28); color:#238156;
-    border-radius:999px; font-size:.72rem; font-weight:600;
-  }
-  .mock-shield::before{content:"";width:6px;height:6px;border-radius:50%;background:#2f9e6b;box-shadow:0 0 10px #2f9e6b;animation:pulse 2s infinite}
-  @keyframes pulse{50%{opacity:.35}}
-  .mock-body{padding:22px; display:flex; flex-direction:column; gap:16px; height:calc(100% - 52px); overflow:hidden; position:relative}
-
-  .chip{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:10px 14px; background:#f7f5ef; border:1px solid var(--border);
-    border-radius:12px; font-size:.8rem; color:var(--text); width:fit-content;
-    opacity:0; transform:translateY(8px); transition:opacity .5s, transform .5s;
-  }
-  .chip.show{opacity:1; transform:none}
-  .chip .src{font-family:var(--mono); font-size:.68rem; color:var(--cobalt); padding:2px 8px; background:rgba(51,102,153,.08); border-radius:6px; letter-spacing:.04em}
-  .bubble{
-    max-width:82%; padding:14px 18px; border-radius:18px;
-    font-size:.95rem; line-height:1.5;
-    opacity:0; transform:translateY(10px); transition:opacity .5s, transform .5s;
-  }
-  .bubble.show{opacity:1; transform:none}
-  .bubble.user{align-self:flex-end; background:var(--ink); color:#fff; border-bottom-right-radius:6px}
-  .bubble.ai{align-self:flex-start; background:#f3f0e8; color:var(--text); border-bottom-left-radius:6px; border:1px solid var(--border)}
-  .pii-raw{background:rgba(220,62,62,.22); padding:1px 6px; border-radius:4px; text-decoration:line-through; text-decoration-color:rgba(220,62,62,.55)}
-  .pii-twin{background:rgba(47,158,107,.18); color:#1f6d4e; padding:1px 6px; border-radius:4px; font-weight:600}
-  .pii-back{background:rgba(51,102,153,.16); color:var(--cobalt-deep); padding:1px 6px; border-radius:4px; font-weight:600}
-  .intercept{
-    align-self:center; display:inline-flex; align-items:center; gap:10px;
-    padding:6px 14px; border-radius:999px;
-    background:linear-gradient(90deg,rgba(220,62,62,.08),rgba(47,158,107,.12));
-    border:1px solid rgba(47,158,107,.3); color:#238156;
-    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
-    opacity:0; transform:translateY(6px); transition:.4s;
-  }
-  .intercept.show{opacity:1; transform:none}
-  .intercept svg{width:12px;height:12px}
-
-  /* floating source nodes */
-  .src-node{
-    position:absolute; z-index:3;
-    width:64px;height:64px;border-radius:16px;
-    background:#fff;border:1px solid var(--border);
-    box-shadow:var(--shadow-md);
-    display:flex;align-items:center;justify-content:center;
-    transform:translateY(20px);opacity:0;
-    transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1);
-  }
-  .src-node.show{opacity:1;transform:translateY(0)}
-  .src-node img{width:34px;height:34px;object-fit:contain}
-  .src-node.n1{top:-28px; left:8%}
-  .src-node.n2{top:18%; left:-42px}
-  .src-node.n3{top:60%; left:-34px}
-  .src-node.n4{top:8%; right:-30px}
-  .src-node.n5{bottom:-24px; right:18%}
-
-  /* floating AI chips on right */
-  .ai-chip{
-    position:absolute; z-index:4;
-    padding:10px 14px 10px 10px;
-    background:#fff;border:1px solid var(--border);
-    border-radius:999px; box-shadow:var(--shadow-md);
-    display:flex;align-items:center;gap:8px;
-    font-size:.82rem; font-weight:600;
-    opacity:0; transform:translateX(20px);
-    transition:opacity .7s,transform .7s;
-  }
-  .ai-chip.show{opacity:1;transform:none}
-  .ai-chip img{width:22px;height:22px;object-fit:contain}
-  .ai-chip.a1{top:12%; right:-80px}
-  .ai-chip.a2{top:40%; right:-120px}
-  .ai-chip.a3{top:70%; right:-80px}
-
-  /* scroll arrow */
-  .scroll-hint{
-    position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
-    font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
-    color:var(--text-soft); display:flex;flex-direction:column;align-items:center;gap:8px;
-  }
-  .scroll-hint::after{content:"";width:1px;height:40px;background:currentColor;opacity:.3;animation:dropline 2s ease-in-out infinite}
-  @keyframes dropline{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
   /* ========= VIDEO/DARK SIGNATURE MOMENT ========= */
   .signature{
@@ -419,11 +336,13 @@
 
   /* ========= RESPONSIVE ========= */
   @media (max-width:1100px){
-    .hero-grid{grid-template-columns:1fr; gap:60px}
-    .mock-stage{height:520px; max-width:560px; margin:0 auto}
-    .src-node.n4,.src-node.n5,.ai-chip{display:none}
     .triptych,.flow,.sol-grid,.pricing-grid{grid-template-columns:1fr 1fr}
     .sol-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:900px){
+    .hero-video .wrap{grid-template-columns:1fr;gap:40px;align-items:start}
+    .hero-video .right{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-left:0;padding-top:28px;flex-direction:row;flex-wrap:wrap;gap:32px}
+    .hero-video .topbar{display:none}
   }
   @media (max-width:640px){
     .triptych,.flow,.sol-grid,.pricing-grid{grid-template-columns:1fr}
@@ -432,7 +351,6 @@
     .sig-stats .s:nth-child(2){border-right:0}
     .sig-stats .s:nth-child(3){border-top:1px solid rgba(255,255,255,.08)}
     .sig-stats .s:nth-child(4){border-top:1px solid rgba(255,255,255,.08)}
-    .hero{padding-top:110px}
   }
 </style>
 </head>
@@ -440,77 +358,39 @@
 
 <div id="site-nav-slot"></div>
 
-<!-- ============== HERO ============== -->
-<section class="hero" id="home">
-  <div class="hero-grid">
-    <div class="hero-left reveal in">
-      <div class="eyebrow">Safe AI, anywhere</div>
-      <h1 class="hero-title" style="margin-top:18px">
-        Use any AI.<br/>
-        Keep what's <em>yours</em>, yours.
-      </h1>
-      <p class="hero-sub">
-        PrivacyPal watches every prompt, file, and connected source — and creates a Privacy Twin
-        of your sensitive data before it ever reaches ChatGPT, Claude, Gemini, or Copilot.
-        You get the answer. The AI never gets your secrets.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-cobalt" href="#download">Download for Mac & Windows
+<!-- ============== HERO (Video) ============== -->
+<section class="hero-video" id="home">
+  <video autoplay muted loop playsinline poster="" id="heroVid">
+    <source src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_5MB.mp4" type="video/mp4">
+    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+  </video>
+  <div class="bg-placeholder" id="vidFallback">
+    Cinematic video loading…
+  </div>
+
+  <div class="topbar">
+    <span class="live">Live demo · protecting 400,212 users right now</span>
+    <span>PrivacyPal / 2026</span>
+  </div>
+
+  <div class="wrap">
+    <div class="left reveal in">
+      <span class="eyebrow on-dark">Safe AI, anywhere</span>
+      <h1>Use any AI.<br>Keep what's <em>yours</em>, yours.</h1>
+      <p class="lede">PrivacyPal creates Privacy Twins for your sensitive data before it reaches ChatGPT, Claude, Gemini or Copilot. You get the answer. The AI never gets your secrets.</p>
+      <div class="cta-row">
+        <a class="btn btn-cobalt" href="#download" style="background:var(--cobalt-glow);color:var(--ink)">Download for Mac & Windows
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14M5 10l7 7 7-7M4 21h16"/></svg>
         </a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
-      </div>
-      <div class="hero-meta">
-        <span>Control your data</span>
-        <span>Works on-device</span>
-        <span>⭐ 5.0 on Google</span>
+        <a class="btn btn-outline-light" href="#how">Watch the 90-second demo</a>
       </div>
     </div>
-
-    <!-- RIGHT: live chat mockup -->
-    <div class="mock-stage reveal in" id="mockStage">
-      <!-- source nodes -->
-      <div class="src-node n1" data-delay="400"><img src="assets/salesforce.svg" alt="Salesforce"></div>
-      <div class="src-node n2" data-delay="700"><img src="assets/slack.svg" alt="Slack"></div>
-      <div class="src-node n3" data-delay="1000"><img src="assets/notion.svg" alt="Notion"></div>
-      <div class="src-node n4" data-delay="1300"><img src="assets/gdocs.svg" alt="Google Docs"></div>
-      <div class="src-node n5" data-delay="1600"><img src="assets/sqlserver.svg" alt="SQL Server"></div>
-
-      <!-- AI chips -->
-      <div class="ai-chip a1" data-delay="500"><img src="assets/chatgpt.png" alt="ChatGPT">ChatGPT</div>
-      <div class="ai-chip a2" data-delay="900"><img src="assets/claude.png" alt="Claude">Claude</div>
-      <div class="ai-chip a3" data-delay="1300"><img src="assets/gemini.png" alt="Gemini">Gemini</div>
-
-      <div class="mock-chat" id="mockChat">
-        <div class="mock-bar">
-          <div class="mock-dots"><i></i><i></i><i></i></div>
-          <div class="mock-app">chat.openai.com</div>
-          <div class="mock-shield">Protected by PrivacyPal</div>
-        </div>
-        <div class="mock-body">
-          <div class="chip" id="c1">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Q3-pipeline-Acme.xlsx
-            <span class="src">via Salesforce</span>
-          </div>
-          <div class="bubble user" id="b1">
-            Summarize the deal with <span class="pii-raw">Jane Thompson at Acme</span> — total is <span class="pii-raw">$2,340,500</span>.
-          </div>
-          <div class="intercept" id="i1">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            PrivacyPal → swapping to twin
-          </div>
-          <div class="bubble user" id="b2" style="background:var(--cobalt)">
-            Summarize the deal with <span class="pii-twin">Evelyn Ward at Orion Mfg</span> — total is <span class="pii-twin">$2,112,800</span>.
-          </div>
-          <div class="bubble ai" id="b3">
-            The deal with <span class="pii-back">Jane Thompson at Acme</span> is in late-stage negotiation at <span class="pii-back">$2.34M</span>. Three items remain: redlines on the SLA, a security review, and the signing date.
-          </div>
-        </div>
-      </div>
+    <div class="right reveal in reveal-delay-2">
+      <div class="stat"><span class="n">400K+</span><span class="l">Protected users</span></div>
+      <div class="stat"><span class="n">17 of 50</span><span class="l">US banks using PrivacyPal</span></div>
+      <div class="stat"><span class="n">Zero</span><span class="l">Prompts stored, ever</span></div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
 </section>
 
 <!-- ============== TRUST ============== -->
@@ -581,13 +461,13 @@
 <section class="section">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Three ways to use PrivacyPal</span>
-      <h2 class="display display-lg" style="margin-top:18px; max-width:16ch">One engine. Three homes for it.</h2>
-      <p class="lede" style="margin-top:22px">Pick the PrivacyPal that fits your life. They all share the same Privacy Twin engine — what changes is where it runs and who it's built for.</p>
+      <span class="eyebrow">Two ways to use PrivacyPal</span>
+      <h2 class="display display-lg" style="margin-top:18px; max-width:16ch">One engine. Two homes for it.</h2>
+      <p class="lede" style="margin-top:22px">Pick the PrivacyPal that fits your team. They share the same Privacy Twin engine — what changes is where it runs and who it's built for.</p>
     </div>
 
-    <div class="triptych">
-      <div class="prod-card pro reveal reveal-delay-1">
+    <div class="triptych" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:56px">
+      <div class="prod-card pro reveal reveal-delay-1" style="flex:1;max-width:420px">
         <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/><path d="M7 10l3 3 7-7"/></svg></div>
         <div class="tag">PrivacyPal Pro</div>
         <h3>Pro</h3>
@@ -601,7 +481,8 @@
         <a class="go" href="privacypal-pro.html">Explore Pro →</a>
       </div>
 
-      <div class="prod-card home reveal reveal-delay-2">
+      <!-- Family/Home hidden until launch -->
+      <div class="prod-card home reveal reveal-delay-2" style="display:none">
         <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
         <div class="tag">PrivacyPal Home</div>
         <h3>Home</h3>
@@ -615,7 +496,7 @@
         <a class="go" href="privacypal-home.html">Explore Home →</a>
       </div>
 
-      <div class="prod-card cloud reveal reveal-delay-3">
+      <div class="prod-card cloud reveal reveal-delay-3" style="flex:1;max-width:420px">
         <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16a5 5 0 0 1 2-9.6A7 7 0 0 1 19 9.4 4.5 4.5 0 0 1 18 18H7a4 4 0 0 1-3-2z"/><path d="M9 14l3 3 3-3M12 17V9"/></svg></div>
         <div class="tag">PrivacyPal Cloud</div>
         <h3>Cloud</h3>
@@ -698,7 +579,7 @@
       drafting a letter to her landlord. Because AI isn't going anywhere — and neither should the trust
       they've spent a lifetime earning.
     </h2>
-    <div class="sig">Palvinder, Brandon & the PrivacyPal team</div>
+    <div class="sig">Jason, Shayra & the PrivacyPal team</div>
   </div>
 </section>
 
@@ -711,8 +592,9 @@
       <p class="lede" style="margin:22px auto 0">Cancel anytime. Every plan includes on-device Privacy Twins and every major AI provider.</p>
     </div>
 
-    <div class="pricing-grid">
-      <div class="price-card reveal reveal-delay-1">
+    <div class="pricing-grid" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:56px">
+      <!-- Family/Home hidden until launch -->
+      <div class="price-card reveal reveal-delay-1" style="display:none">
         <div class="price-name">Home</div>
         <div class="price-tagline">For you, your family, your side-gig.</div>
         <div class="price-amt"><span class="big">$9</span><small>/mo · per device</small></div>
@@ -725,13 +607,12 @@
         <a class="btn btn-ghost" href="privacypal-home.html">Start free</a>
       </div>
 
-      <div class="price-card feat reveal reveal-delay-2">
+      <div class="price-card feat reveal reveal-delay-2" style="flex:1;max-width:380px">
         <span class="price-badge">Most popular</span>
         <div class="price-name">Pro</div>
         <div class="price-tagline">For teams from 5 to 500.</div>
         <div class="price-amt"><span class="big">$24</span><small>/mo · per seat</small></div>
         <ul>
-          <li>Everything in Home</li>
           <li>CRM, Slack, Notion, SQL connectors</li>
           <li>Team policies & role-based rules</li>
           <li>Audit log + SSO + SCIM</li>
@@ -740,7 +621,7 @@
         <a class="btn btn-cobalt" href="privacypal-pro.html">Start 14-day trial</a>
       </div>
 
-      <div class="price-card reveal reveal-delay-3">
+      <div class="price-card reveal reveal-delay-3" style="flex:1;max-width:380px">
         <div class="price-name">Cloud</div>
         <div class="price-tagline">Self-hosted gateway for your infra.</div>
         <div class="price-amt"><span class="big">Talk</span><small>custom, annual</small></div>
@@ -773,44 +654,41 @@
 
 <script src="assets/site.js"></script>
 <script>
-/* ---- hero chat mockup timeline ---- */
+/* ---- nav dark/light toggle based on hero scroll ---- */
 (function(){
-  const stage = document.getElementById('mockStage');
-  if (!stage) return;
-  const steps = [
-    ['c1', 300], ['b1', 700], ['i1', 1400], ['b2', 2100], ['b3', 2900]
-  ];
-  function run(){
-    steps.forEach(([id, t]) => {
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('show');
-      }, t);
-    });
-    // source nodes + ai chips
-    stage.querySelectorAll('[data-delay]').forEach(el=>{
-      setTimeout(()=>el.classList.add('show'), parseInt(el.dataset.delay));
-    });
-  }
-  // kick off when near viewport
-  const io = new IntersectionObserver((entries, o)=>{
-    entries.forEach(e=>{if(e.isIntersecting){run(); o.unobserve(e.target);}});
-  }, {threshold: .2});
-  io.observe(stage);
+  const nav = document.getElementById('siteNav');
+  const hero = document.querySelector('.hero-video');
+  if (!nav || !hero) return;
+  nav.classList.add('on-dark');
+  var logoLight = nav.querySelector('.logo-light-img');
+  var logoDark = nav.querySelector('.logo-dark-img');
+  if (logoLight) logoLight.style.display = 'none';
+  if (logoDark) logoDark.style.display = 'block';
 
-  // parallax tilt on mouse
-  const chat = document.getElementById('mockChat');
-  stage.addEventListener('mousemove', (e)=>{
-    const r = stage.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - .5;
-    const y = (e.clientY - r.top) / r.height - .5;
-    chat.style.setProperty('--ry', (x * 8) + 'deg');
-    chat.style.setProperty('--rx', (-y * 6) + 'deg');
-  });
-  stage.addEventListener('mouseleave', ()=>{
-    chat.style.setProperty('--ry', '0deg');
-    chat.style.setProperty('--rx', '0deg');
-  });
+  function check(){
+    var bottom = hero.getBoundingClientRect().bottom;
+    if (bottom < 80) {
+      nav.classList.remove('on-dark');
+      if (logoLight) logoLight.style.display = 'block';
+      if (logoDark) logoDark.style.display = 'none';
+    } else {
+      nav.classList.add('on-dark');
+      if (logoLight) logoLight.style.display = 'none';
+      if (logoDark) logoDark.style.display = 'block';
+    }
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  check();
+})();
+
+/* ---- video hero fallback ---- */
+(function(){
+  const vid = document.getElementById('heroVid');
+  const fb = document.getElementById('vidFallback');
+  if (vid && fb) {
+    vid.addEventListener('canplay', () => { fb.style.display = 'none'; });
+    vid.addEventListener('error', () => { vid.style.display = 'none'; });
+  }
 })();
 
 /* ---- signature particles ---- */
@@ -826,18 +704,6 @@
     p.style.opacity = (.2 + Math.random() * .5).toFixed(2);
     wrap.appendChild(p);
   }
-})();
-
-/* ---- subtle parallax on source nodes ---- */
-(function(){
-  const nodes = document.querySelectorAll('.src-node, .ai-chip');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    nodes.forEach((n, i) => {
-      const factor = (i % 2 === 0 ? 1 : -1) * (0.05 + (i % 3) * 0.02);
-      n.style.transform = `translateY(${y * factor}px)`;
-    });
-  }, { passive:true });
 })();
 </script>
 
