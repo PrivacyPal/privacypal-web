@@ -382,7 +382,7 @@
         <a class="btn btn-cobalt" href="#download" style="background:var(--cobalt-glow);color:var(--ink)">Download for Mac & Windows
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14M5 10l7 7 7-7M4 21h16"/></svg>
         </a>
-        <a class="btn btn-outline-light" href="#how">Watch the 90-second demo</a>
+        <a class="btn btn-outline-light" href="#how">Watch the Product Intro Video</a>
       </div>
     </div>
     <div class="right reveal in reveal-delay-2">
@@ -556,7 +556,7 @@
         <h4>Legal</h4>
         <p>For law firms, in-house counsel & paralegals.</p>
       </a>
-      <a class="sol-card reveal reveal-delay-2" href="telco.html">
+      <a class="sol-card reveal reveal-delay-2" href="telecommunications.html">
         <svg class="sol-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 15a13 13 0 0 1 14 0M8 12a8 8 0 0 1 8 0M11 9a3 3 0 0 1 2 0M12 18h.01"/></svg>
         <h4>Telco</h4>
         <p>For regional carriers & MSPs working with subscriber data.</p>
@@ -575,8 +575,8 @@
   <div class="ethos-inner reveal">
     <h2>
       We built PrivacyPal for the <b>loan officer</b> pasting a client file into ChatGPT.
-      For the <b>family doctor</b> asking Claude about a prescription. For the <b>shop owner</b>
-      drafting a letter to her landlord. Because AI isn't going anywhere — and neither should the trust
+      For the <b>family doctor</b> asking Claude about a prescription. For the <b>wealth manager</b>
+      drafting an investment memo. Because AI isn't going anywhere — and neither should the trust
       they've spent a lifetime earning.
     </h2>
     <div class="sig">Jason, Shayra & the PrivacyPal team</div>
@@ -618,7 +618,7 @@
           <li>Audit log + SSO + SCIM</li>
           <li>Priority human support</li>
         </ul>
-        <a class="btn btn-cobalt" href="privacypal-pro.html">Start 14-day trial</a>
+        <a class="btn btn-cobalt" href="privacypal-pro.html">Start 5-day trial</a>
       </div>
 
       <div class="price-card reveal reveal-delay-3" style="flex:1;max-width:380px">
@@ -631,7 +631,7 @@
           <li>Air-gapped deployment option</li>
           <li>Dedicated engineer on onboarding</li>
         </ul>
-        <a class="btn btn-ghost" href="privacypal-cloud.html">Talk to us</a>
+        <a class="btn btn-ghost" href="#" data-cta="demo">Talk to us</a>
       </div>
     </div>
   </div>
@@ -643,9 +643,7 @@
     <h2>Your AI deserves a good friend.</h2>
     <p>Install PrivacyPal today. Use every AI tomorrow. Keep what's yours, yours.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-cobalt" href="#">Download for Mac</a>
-      <a class="btn btn-ghost" href="#">Download for Windows</a>
-      <a class="btn btn-ghost" href="privacypal-cloud.html">Talk to sales</a>
+      <a class="btn btn-cobalt" href="#" data-cta="download">Download for Mac &amp; Windows</a>
     </div>
   </div>
 </section>
@@ -660,22 +658,10 @@
   const hero = document.querySelector('.hero-video');
   if (!nav || !hero) return;
   nav.classList.add('on-dark');
-  var logoLight = nav.querySelector('.logo-light-img');
-  var logoDark = nav.querySelector('.logo-dark-img');
-  if (logoLight) logoLight.style.display = 'none';
-  if (logoDark) logoDark.style.display = 'block';
-
   function check(){
     var bottom = hero.getBoundingClientRect().bottom;
-    if (bottom < 80) {
-      nav.classList.remove('on-dark');
-      if (logoLight) logoLight.style.display = 'block';
-      if (logoDark) logoDark.style.display = 'none';
-    } else {
-      nav.classList.add('on-dark');
-      if (logoLight) logoLight.style.display = 'none';
-      if (logoDark) logoDark.style.display = 'block';
-    }
+    if (bottom < 80) nav.classList.remove('on-dark');
+    else nav.classList.add('on-dark');
   }
   window.addEventListener('scroll', check, {passive:true});
   check();

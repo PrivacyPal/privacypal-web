@@ -5,7 +5,12 @@
       "Bash(where python3:*)",
       "Bash(where py:*)",
       "Bash(C:\\\\Python314\\\\python.exe -)",
-      "Bash(/c/Python314/python.exe -c ':*)"
+      "Bash(/c/Python314/python.exe -c ':*)",
+      "Bash(git -C /Users/jason/dev/PrivacyPal/privacypal-web/ branch -a)",
+      "Bash(git -C /Users/jason/dev/PrivacyPal/privacypal-web/ status)",
+      "Bash(git -C /Users/jason/dev/PrivacyPal/privacypal-web/ log --oneline -20 main)",
+      "Bash(git -C /Users/jason/dev/PrivacyPal/privacypal-web/ show main:developers.html)",
+      "Bash(perl -i -pe 's|<a class=\"btn btn-\\(cobalt|ghost\\)\" href=\"#\">Install \\(on|for\\) your Mac</a>|<a class=\"btn btn-$1\" href=\"#\" data-cta=\"download\">Install for Mac</a>|g; s|<a class=\"btn btn-\\(cobalt|ghost\\)\" href=\"#\">Install \\(on|for\\) Windows</a>|<a class=\"btn btn-$1\" href=\"#\" data-cta=\"download\">Install for Windows</a>|g' privacypal-home.html)"
     ]
   }
 }
