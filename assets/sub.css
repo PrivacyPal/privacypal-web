@@ -57,6 +57,65 @@
 }
 .dark .ph{background:repeating-linear-gradient(135deg, rgba(94,164,224,.08) 0 14px, transparent 14px 28px); border-color:rgba(255,255,255,.12); color:rgba(255,255,255,.5)}
 
+/* real image inside hero-visual frame */
+.hero-visual.has-image{padding:0; background:#fff}
+.hero-visual .hv-img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+  border-radius:inherit; display:block;
+}
+.hero-visual .hv-img.contain{object-fit:contain; background:linear-gradient(160deg,#fff,#f4f2ec)}
+.hero-visual::after{
+  content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background:linear-gradient(180deg, rgba(11,18,32,0) 55%, rgba(11,18,32,.18) 100%);
+}
+.hero-visual.has-image{box-shadow:var(--shadow-lg), inset 0 0 0 1px rgba(255,255,255,.6)}
+
+/* real image inside split-visual frame (1:1 by default) */
+.split-visual.has-image{position:relative; padding:0; overflow:hidden; background:#fff}
+.split-visual .hv-img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+  border-radius:inherit; display:block;
+}
+.split-visual.has-image::after{
+  content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background:linear-gradient(180deg, rgba(11,18,32,0) 60%, rgba(11,18,32,.20) 100%);
+}
+
+/* diagram frame (square in split section) */
+.diagram-frame{
+  position:relative; aspect-ratio:1/1; width:100%; min-height:420px;
+  border-radius:22px; overflow:hidden;
+  background:linear-gradient(160deg,#ffffff 0%,#f6f3ec 100%);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
+  padding:28px;
+}
+.diagram-frame::before{
+  content:""; position:absolute; inset:0; opacity:.5; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(51,102,153,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51,102,153,.06) 1px, transparent 1px);
+  background-size:36px 36px;
+  mask-image:radial-gradient(ellipse at center, #000 30%, transparent 80%);
+}
+.diagram-frame svg{position:relative; width:100%; height:100%; display:block}
+
+/* wider stacked diagram (text above, diagram below, full container width) */
+.diagram-stack{display:flex; flex-direction:column; align-items:center; gap:48px}
+.diagram-stack .diagram-intro{max-width:780px; text-align:center}
+.diagram-stack .diagram-intro .eyebrow{justify-content:center}
+.diagram-frame.diagram-wide{
+  width:100%; max-width:1040px; aspect-ratio: 12 / 9; min-height:0;
+  padding:32px;
+}
+.diagram-frame.diagram-tall{
+  width:100%; max-width:980px; aspect-ratio: 1/1; min-height:0;
+  padding:32px;
+}
+@media (max-width:900px){
+  .diagram-frame.diagram-wide, .diagram-frame.diagram-tall{padding:20px}
+}
+
 /* feature 3-col */
 .features-3{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:56px}
 .feat-card{

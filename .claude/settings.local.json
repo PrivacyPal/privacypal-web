@@ -29,7 +29,15 @@
       "Bash(aws s3 *)",
       "Bash(python3 -m json.tool)",
       "Bash(curl -sI \"https://d1fvqdveubpy4w.cloudfront.net/streaming/PrivacyPal-Promo-Video-Q2-2026_faststart.mp4\")",
-      "Bash(curl -sI \"https://privacypal-media.s3.us-east-1.amazonaws.com/PrivacyPal-Promo-Video-Q2-2026.mp4\")"
+      "Bash(curl -sI \"https://privacypal-media.s3.us-east-1.amazonaws.com/PrivacyPal-Promo-Video-Q2-2026.mp4\")",
+      "Bash(curl -s \"http://localhost:8765/banking.html\")",
+      "Bash(curl -s \"http://localhost:8765/privacypal-pro.html\")",
+      "Bash(curl -s \"http://localhost:8765/healthcare.html\")",
+      "Bash(curl -s \"http://localhost:8765/legal.html\")",
+      "Bash(curl -s \"http://localhost:8765/telecommunications.html\")",
+      "Bash(curl -s \"http://localhost:8765/technology.html\")",
+      "Bash(command -v sips python3)",
+      "Bash(python3 -)"
     ]
   }
 }

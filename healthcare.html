@@ -18,24 +18,145 @@
         <p class="lede">PrivacyPal is the HIPAA-aligned privacy layer between your staff and every AI tool they already want to use — from ambient note-taking to prior-auth drafting. No BAA with OpenAI required.</p>
         <div class="cta-row">
           <a class="btn btn-cobalt" href="#" data-cta="demo">Book a healthcare demo</a>
-          <a class="btn btn-ghost" href="#">See HIPAA posture</a>
+          <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
         </div>
       </div>
-      <div class="hero-visual reveal in"><div class="ph">Hero image<br>Clinician at workstation reviewing chart<br>[1400 × 1680]</div></div>
+      <div class="hero-visual has-image reveal in">
+        <img class="hv-img" src="assets/hero-shot-healthcare.png" alt="Clinician working with PrivacyPal-protected AI">
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="split reverse">
-      <div class="reveal">
+    <div class="diagram-stack">
+      <div class="diagram-intro reveal">
         <span class="eyebrow">Why this is hard</span>
         <h2 class="display display-md" style="margin-top:18px">PHI lives in sentences, not columns.</h2>
         <p class="lede" style="margin-top:20px">Classical DLP catches "SSN: 123-45-6789." It misses "My 68-year-old patient with a recent MI who lives alone on Oak Street." PrivacyPal's models understand context — they swap identifiers in prose, not just in tagged fields.</p>
         <p style="margin-top:16px; color:var(--text-muted)">18 HIPAA identifiers, fully supported. Plus facility names, provider NPIs, device serials, and the long tail of quasi-identifiers that re-enable reidentification.</p>
       </div>
-      <div class="reveal reveal-delay-2"><div class="ph" style="aspect-ratio:1/1;min-height:420px">Diagram<br>PHI sentence → swapped sentence (before/after)<br>[900 × 900]</div></div>
+      <div class="reveal reveal-delay-1" style="width:100%; display:flex; justify-content:center">
+        <div class="diagram-frame diagram-wide">
+          <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hc-diagram-title">
+            <title id="hc-diagram-title">A clinical sentence is shown before and after PrivacyPal swaps PHI to context-preserving tokens.</title>
+            <defs>
+              <linearGradient id="hc-paper" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#faf7f0"/>
+              </linearGradient>
+              <linearGradient id="hc-ink" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1b2436"/><stop offset="1" stop-color="#0b1220"/>
+              </linearGradient>
+              <filter id="hc-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+              </filter>
+              <marker id="hc-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#336699"/>
+              </marker>
+            </defs>
+
+            <!-- Header -->
+            <text x="600" y="46" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">PRIVACY TWIN · 18 HIPAA IDENTIFIERS · CONTEXTUAL SWAP</text>
+            <text x="600" y="76" text-anchor="middle" font-family="Radley, Georgia, serif" font-size="22" font-style="italic" fill="#0f172a">A clinical sentence, re-cast in coherent synthetic terms.</text>
+
+            <!-- BEFORE (top-left) -->
+            <g filter="url(#hc-shadow)">
+              <rect x="40" y="110" width="560" height="270" rx="18" fill="url(#hc-paper)" stroke="#e6e2d8"/>
+            </g>
+            <g transform="translate(70,146)">
+              <rect width="86" height="24" rx="12" fill="#fff4ec" stroke="#e9bda6"/>
+              <text x="43" y="17" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#b9472a" font-weight="700">BEFORE</text>
+              <text x="100" y="17" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b7589">IN THE PATIENT CHART</text>
+            </g>
+            <g font-family="Radley, Georgia, serif" font-size="17" fill="#0f172a">
+              <text x="70" y="218">"My 68-year-old patient</text>
+              <text x="70" y="244"><tspan font-weight="700" fill="#b9472a" text-decoration="underline">Margaret Chen</tspan> with a recent MI</text>
+              <text x="70" y="270">who lives alone on <tspan font-weight="700" fill="#b9472a" text-decoration="underline">Oak Street</tspan></text>
+              <text x="70" y="296">in <tspan font-weight="700" fill="#b9472a" text-decoration="underline">Lakewood</tspan>, MRN <tspan font-weight="700" fill="#b9472a" text-decoration="underline">4471-8829</tspan>,</text>
+              <text x="70" y="322">presented to the ED on <tspan font-weight="700" fill="#b9472a" text-decoration="underline">March 14</tspan></text>
+              <text x="70" y="348">with chest pain..."</text>
+            </g>
+
+            <!-- AFTER (top-right, dark) -->
+            <g filter="url(#hc-shadow)">
+              <rect x="640" y="110" width="520" height="270" rx="18" fill="url(#hc-ink)"/>
+            </g>
+            <g transform="translate(670,146)">
+              <rect width="86" height="24" rx="12" fill="rgba(94,164,224,.18)" stroke="#5ea4e0"/>
+              <text x="43" y="17" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#5ea4e0" font-weight="700">AFTER</text>
+              <text x="100" y="17" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="rgba(255,255,255,.55)">WHAT THE LLM RECEIVES</text>
+            </g>
+            <g font-family="Radley, Georgia, serif" font-size="17" fill="#ffffff">
+              <text x="670" y="218">"My 68-year-old patient</text>
+              <text x="670" y="244"><tspan font-weight="700" fill="#5ea4e0">Nancy Grace</tspan> with a recent MI</text>
+              <text x="670" y="270">who lives alone on <tspan font-weight="700" fill="#5ea4e0">Pine Avenue</tspan></text>
+              <text x="670" y="296">in <tspan font-weight="700" fill="#5ea4e0">Brookside</tspan>, MRN <tspan font-weight="700" fill="#5ea4e0">8826-3142</tspan>,</text>
+              <text x="670" y="322">presented to the ED on <tspan font-weight="700" fill="#5ea4e0">April 22</tspan></text>
+              <text x="670" y="348">with chest pain..."</text>
+            </g>
+
+            <!-- arrow between BEFORE and AFTER -->
+            <line x1="610" y1="245" x2="640" y2="245" stroke="#336699" stroke-width="2.5" marker-end="url(#hc-arr)"/>
+
+            <!-- PrivacyPal swap engine (full-width, below) -->
+            <g filter="url(#hc-shadow)">
+              <rect x="40" y="420" width="1120" height="440" rx="18" fill="url(#hc-paper)" stroke="#336699" stroke-opacity=".3"/>
+            </g>
+            <text x="70" y="458" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">PRIVACYPAL · PRIVACY-TWIN MAPPING</text>
+            <text x="70" y="490" font-family="Radley, Georgia, serif" font-size="20" font-style="italic" fill="#0f172a">Real PHI → realistic synthetic. Held on-device, never on the wire.</text>
+
+            <g font-family="JetBrains Mono, monospace" font-size="14" transform="translate(70,520)">
+              <g>
+                <rect width="220" height="32" rx="8" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="21" fill="#b9472a" font-weight="700" text-decoration="line-through">Margaret Chen</text>
+                <text x="240" y="22" font-size="18" fill="#336699">→</text>
+                <rect x="270" width="220" height="32" rx="8" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="284" y="21" fill="#336699" font-weight="700">Nancy Grace</text>
+                <rect x="540" width="120" height="32" rx="8" fill="#fdfcfa" stroke="#e6e2d8"/>
+                <text x="600" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6b7589">NAME · §164.514(b)(1)</text>
+              </g>
+              <g transform="translate(0,46)">
+                <rect width="220" height="32" rx="8" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="21" fill="#b9472a" font-weight="700" text-decoration="line-through">Oak Street</text>
+                <text x="240" y="22" font-size="18" fill="#336699">→</text>
+                <rect x="270" width="220" height="32" rx="8" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="284" y="21" fill="#336699" font-weight="700">Pine Avenue</text>
+                <rect x="540" width="120" height="32" rx="8" fill="#fdfcfa" stroke="#e6e2d8"/>
+                <text x="600" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6b7589">ADDRESS · §164.514(b)(2)</text>
+              </g>
+              <g transform="translate(0,92)">
+                <rect width="220" height="32" rx="8" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="21" fill="#b9472a" font-weight="700" text-decoration="line-through">Lakewood</text>
+                <text x="240" y="22" font-size="18" fill="#336699">→</text>
+                <rect x="270" width="220" height="32" rx="8" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="284" y="21" fill="#336699" font-weight="700">Brookside</text>
+                <rect x="540" width="120" height="32" rx="8" fill="#fdfcfa" stroke="#e6e2d8"/>
+                <text x="600" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6b7589">CITY · §164.514(b)(2)</text>
+              </g>
+              <g transform="translate(0,138)">
+                <rect width="220" height="32" rx="8" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="21" fill="#b9472a" font-weight="700" text-decoration="line-through">MRN 4471-8829</text>
+                <text x="240" y="22" font-size="18" fill="#336699">→</text>
+                <rect x="270" width="220" height="32" rx="8" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="284" y="21" fill="#336699" font-weight="700">MRN 8826-3142</text>
+                <rect x="540" width="120" height="32" rx="8" fill="#fdfcfa" stroke="#e6e2d8"/>
+                <text x="600" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6b7589">MRN · §164.514(b)(8)</text>
+              </g>
+              <g transform="translate(0,184)">
+                <rect width="220" height="32" rx="8" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="21" fill="#b9472a" font-weight="700" text-decoration="line-through">March 14</text>
+                <text x="240" y="22" font-size="18" fill="#336699">→</text>
+                <rect x="270" width="220" height="32" rx="8" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="284" y="21" fill="#336699" font-weight="700">April 22</text>
+                <rect x="540" width="120" height="32" rx="8" fill="#fdfcfa" stroke="#e6e2d8"/>
+                <text x="600" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.4" fill="#6b7589">DATE · §164.514(b)(3)</text>
+              </g>
+            </g>
+            <text x="70" y="840" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#6b7589">CLINICAL CONTEXT INTACT · ZERO PHI ON THE WIRE · NO BAA WITH OPENAI</text>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -64,7 +185,7 @@
   <div class="container">
     <div class="reveal" style="max-width:900px; margin:0 auto; text-align:center">
       <span class="eyebrow" style="justify-content:center">Compliance posture</span>
-      <h2 class="display display-md" style="margin-top:18px">HIPAA · HITECH · 42 CFR Part 2 · state privacy laws.</h2>
+      <h2 class="display display-md" style="margin-top:18px">HIPAA · HITECH · CFR · state privacy laws.</h2>
       <p class="lede" style="margin-top:20px">Because PHI never reaches the LLM, you don't need a BAA with OpenAI, Anthropic or Google. Your existing covered-entity contracts already cover PrivacyPal — we sign a BAA, nobody downstream needs to.</p>
     </div>
     <div class="features-3" style="margin-top:64px">
@@ -81,7 +202,7 @@
     <p>Talk to a solution architect who's been on the hospital side of this conversation.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-cobalt" href="#" data-cta="demo">Book a healthcare demo</a>
-      <a class="btn btn-ghost" href="#">See HIPAA posture</a>
+      <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
     </div>
   </div>
 </section>

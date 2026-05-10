@@ -18,23 +18,149 @@
         <p class="lede">From wealth management to commercial lending — PrivacyPal keeps client PII, account numbers and proprietary models out of every third-party AI you use. GLBA, SOX, and FINRA stop being blockers.</p>
         <div class="cta-row">
           <a class="btn btn-cobalt" href="#" data-cta="demo">Book a banking demo</a>
-          <a class="btn btn-ghost" href="#">Read the whitepaper</a>
+          <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
         </div>
       </div>
-      <div class="hero-visual reveal in"><div class="ph">Hero image<br>Trading floor · analysts at laptops<br>[1400 × 1680]</div></div>
+      <div class="hero-visual has-image reveal in">
+        <img class="hv-img" src="assets/hero-shot-banking.png" alt="Banking analysts working with PrivacyPal-protected AI">
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="split">
-      <div class="reveal"><div class="ph" style="aspect-ratio:1/1;min-height:420px">Diagram<br>AI flow: client data → PrivacyPal → LLM → response<br>[900 × 900]</div></div>
-      <div class="reveal reveal-delay-2">
+    <div class="diagram-stack">
+      <div class="diagram-intro reveal">
         <span class="eyebrow">The $180B problem</span>
         <h2 class="display display-md" style="margin-top:18px">Your analysts are already using AI. Your risk team just doesn't know.</h2>
         <p class="lede" style="margin-top:20px">McKinsey estimates banking stands to capture up to $340B in annual value from generative AI. The catch: 68% of bank employees already paste sensitive data into public chatbots, and most institutions have no visibility into what leaves the building.</p>
         <p style="margin-top:16px; color:var(--text-muted)">PrivacyPal closes the gap without banning the tools. Your analysts get the productivity lift. Your CISO gets the audit trail. Your regulators get a straight answer.</p>
+      </div>
+      <div class="reveal reveal-delay-1" style="width:100%; display:flex; justify-content:center">
+        <div class="diagram-frame diagram-wide">
+          <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bk-diagram-title">
+            <title id="bk-diagram-title">A client query is rewritten with a Privacy Twin — realistic synthetic data — before reaching the LLM, and restored to real values on return.</title>
+            <defs>
+              <linearGradient id="bk-paper" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#faf7f0"/>
+              </linearGradient>
+              <linearGradient id="bk-ink" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1b2436"/><stop offset="1" stop-color="#0b1220"/>
+              </linearGradient>
+              <filter id="bk-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+              </filter>
+              <marker id="bk-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#336699"/>
+              </marker>
+              <marker id="bk-arr-light" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#5ea4e0"/>
+              </marker>
+            </defs>
+
+            <!-- Header -->
+            <text x="600" y="46" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">PRIVACY TWIN · ROUND TRIP</text>
+            <text x="600" y="76" text-anchor="middle" font-family="Radley, Georgia, serif" font-size="22" font-style="italic" fill="#0f172a">Real values out. Realistic twins to the model. Real values back.</text>
+
+            <!-- =================== CELL 1: CLIENT DATA (top-left) =================== -->
+            <g filter="url(#bk-shadow)">
+              <rect x="40" y="110" width="540" height="340" rx="18" fill="url(#bk-paper)" stroke="#e6e2d8"/>
+            </g>
+            <text x="70" y="148" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">01 · INSIDE THE BANK</text>
+            <text x="70" y="180" font-family="Radley, Georgia, serif" font-size="20" fill="#0f172a">The analyst writes:</text>
+            <g font-family="JetBrains Mono, monospace" font-size="14" transform="translate(70,210)">
+              <text y="22"><tspan fill="#6b7589">CLIENT     </tspan><tspan dx="6" fill="#b9472a" font-weight="700">Margaret Chen</tspan></text>
+              <text y="52"><tspan fill="#6b7589">ACCOUNT    </tspan><tspan dx="6" fill="#b9472a" font-weight="700">4521-8893-2204</tspan></text>
+              <text y="82"><tspan fill="#6b7589">POSITION   </tspan><tspan dx="6" fill="#b9472a" font-weight="700">$4,238,000 AAPL</tspan></text>
+              <text y="138" font-family="Radley, Georgia, serif" font-size="14" font-style="italic" fill="#0f172a">"Draft a Q3 narrative for this client..."</text>
+            </g>
+
+            <!-- =================== CELL 2: PRIVACYPAL SWAP (top-right) =================== -->
+            <g filter="url(#bk-shadow)">
+              <rect x="620" y="110" width="540" height="340" rx="18" fill="url(#bk-paper)" stroke="#336699" stroke-opacity=".3"/>
+            </g>
+            <text x="650" y="148" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">02 · PRIVACYPAL · PRIVACY TWIN</text>
+            <text x="650" y="180" font-family="Radley, Georgia, serif" font-size="20" font-style="italic" fill="#0f172a">Real → realistic. Same shape, fake content.</text>
+            <g font-family="JetBrains Mono, monospace" font-size="13" transform="translate(650,210)">
+              <g>
+                <rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">Margaret Chen</text>
+                <text x="234" y="20" font-size="17" fill="#336699">→</text>
+                <rect x="260" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="274" y="19" fill="#336699" font-weight="700">Nancy Grace</text>
+              </g>
+              <g transform="translate(0,38)">
+                <rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">4521-8893-2204</text>
+                <text x="234" y="20" font-size="17" fill="#336699">→</text>
+                <rect x="260" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="274" y="19" fill="#336699" font-weight="700">7912-4408-3617</text>
+              </g>
+              <g transform="translate(0,76)">
+                <rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/>
+                <text x="14" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">$4,238,000 AAPL</text>
+                <text x="234" y="20" font-size="17" fill="#336699">→</text>
+                <rect x="260" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/>
+                <text x="274" y="19" fill="#336699" font-weight="700">$3,815,000 MSFT</text>
+              </g>
+              <text y="148" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="#6b7589">MAPPING HELD ON-DEVICE · NEVER LEAVES THE BANK</text>
+            </g>
+
+            <!-- horizontal flow arrow: cell 1 → cell 2 -->
+            <line x1="580" y1="280" x2="620" y2="280" stroke="#336699" stroke-width="2.5" marker-end="url(#bk-arr)"/>
+
+            <!-- =================== BANK PERIMETER (between top + bottom rows) =================== -->
+            <g transform="translate(40,470)">
+              <line x1="0" y1="0" x2="1120" y2="0" stroke="#336699" stroke-width="1" stroke-dasharray="4 6"/>
+              <rect x="490" y="-15" width="180" height="30" rx="15" fill="#fdfcfa" stroke="#336699"/>
+              <text x="580" y="5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#336699" font-weight="700">BANK PERIMETER</text>
+            </g>
+
+            <!-- arrow from cell 2 down to cell 3 (twins crossing perimeter) -->
+            <line x1="890" y1="450" x2="890" y2="490" stroke="#336699" stroke-width="2.5" marker-end="url(#bk-arr)"/>
+            <!-- arrow from cell 3 up to cell 4 (twin response returning) -->
+            <line x1="310" y1="490" x2="310" y2="450" stroke="#5ea4e0" stroke-width="2.5" marker-end="url(#bk-arr-light)"/>
+
+            <!-- =================== CELL 3: LLM (bottom-right, dark) =================== -->
+            <g filter="url(#bk-shadow)">
+              <rect x="620" y="490" width="540" height="370" rx="18" fill="url(#bk-ink)"/>
+            </g>
+            <text x="650" y="528" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#5ea4e0">03 · LLM · WHAT IT SEES</text>
+            <text x="650" y="558" font-family="Radley, Georgia, serif" font-size="18" font-style="italic" fill="rgba(255,255,255,.85)">A coherent, fully synthetic prompt.</text>
+            <g font-family="JetBrains Mono, monospace" font-size="14" fill="#ffffff">
+              <text x="650" y="606">"Draft a Q3 narrative for</text>
+              <text x="650" y="630"><tspan fill="#5ea4e0" font-weight="700">Nancy Grace</tspan>, account</text>
+              <text x="650" y="654"><tspan fill="#5ea4e0" font-weight="700">7912-4408-3617</tspan>, currently</text>
+              <text x="650" y="678">holding <tspan fill="#5ea4e0" font-weight="700">$3,815,000</tspan> in</text>
+              <text x="650" y="702"><tspan fill="#5ea4e0" font-weight="700">MSFT</tspan>."</text>
+            </g>
+            <g transform="translate(650,750)">
+              <rect width="180" height="26" rx="13" fill="rgba(94,164,224,.18)" stroke="#5ea4e0"/>
+              <text x="90" y="17" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#5ea4e0" font-weight="700">FAKE BUT REAL-LOOKING</text>
+            </g>
+            <text x="650" y="816" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="rgba(255,255,255,.45)">ZERO REAL CLIENT, ACCOUNT, OR POSITION ON THE WIRE.</text>
+
+            <!-- =================== CELL 4: RESTORED RESPONSE (bottom-left) =================== -->
+            <g filter="url(#bk-shadow)">
+              <rect x="40" y="490" width="540" height="370" rx="18" fill="url(#bk-paper)" stroke="#e6e2d8"/>
+            </g>
+            <text x="70" y="528" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">04 · RESPONSE · RESTORED FOR THE ANALYST</text>
+            <text x="70" y="558" font-family="Radley, Georgia, serif" font-size="18" font-style="italic" fill="#0f172a">The twin is swapped back for the real values.</text>
+            <g font-family="Radley, Georgia, serif" font-size="16" fill="#0f172a">
+              <text x="70" y="606">"In Q3, <tspan font-weight="700" fill="#b9472a">Margaret Chen</tspan>'s</text>
+              <text x="70" y="630"><tspan font-weight="700" fill="#b9472a">$4,238,000</tspan> position in <tspan font-weight="700" fill="#b9472a">AAPL</tspan></text>
+              <text x="70" y="654">across account <tspan font-weight="700" fill="#b9472a">4521-8893-2204</tspan></text>
+              <text x="70" y="678">posted gains of 7.4%, outpacing</text>
+              <text x="70" y="702">the S&amp;P by 230 bps..."</text>
+            </g>
+            <g transform="translate(70,750)">
+              <rect width="180" height="26" rx="13" fill="#fff4ec" stroke="#e9bda6"/>
+              <text x="90" y="17" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#b9472a" font-weight="700">REAL CLIENT, REAL DATA</text>
+            </g>
+            <text x="70" y="816" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="#6b7589">TWIN → REAL ON RETURN · EVERY HOP LOGGED TO SIEM</text>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -75,7 +201,7 @@
 </section>
 
 <section class="pullquote">
-  <blockquote>"We went from a blanket 'no AI' memo to onboarding 2,100 users in four weeks. Exam went fine."</blockquote>
+  <blockquote>"We went from a blanket 'no AI' memo to onboarding all our users in two weeks."</blockquote>
   <cite>— Chief Information Security Officer, top-50 US bank</cite>
 </section>
 
@@ -96,7 +222,7 @@
     <p>Talk to a banker on our team — yes, we hire from the industry on purpose.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-cobalt" href="#" data-cta="demo">Book a banking demo</a>
-      <a class="btn btn-ghost" href="#">Read the whitepaper</a>
+      <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
     </div>
   </div>
 </section>

@@ -18,23 +18,139 @@
         <p class="lede">Use ChatGPT, Harvey, Copilot — on actual matters. PrivacyPal keeps client names, matter numbers, deal terms, and privileged content out of every LLM, every time. Waiver risk: zero.</p>
         <div class="cta-row">
           <a class="btn btn-cobalt" href="#" data-cta="demo">Book a firm demo</a>
-          <a class="btn btn-ghost" href="#">Download ABA brief</a>
+          <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
         </div>
       </div>
-      <div class="hero-visual reveal in"><div class="ph">Hero image<br>Associate at desk, dual monitors with contract + AI<br>[1400 × 1680]</div></div>
+      <div class="hero-visual has-image reveal in">
+        <img class="hv-img" src="assets/hero-shot-legal.png" alt="Associate reviewing contracts with PrivacyPal-protected AI">
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="split">
-      <div class="reveal"><div class="ph" style="aspect-ratio:1/1;min-height:420px">Diagram<br>Contract redlining with PII swap overlay<br>[900 × 900]</div></div>
-      <div class="reveal reveal-delay-2">
+    <div class="diagram-stack">
+      <div class="diagram-intro reveal">
         <span class="eyebrow">The privilege problem</span>
         <h2 class="display display-md" style="margin-top:18px">One paste is all it takes to waive.</h2>
         <p class="lede" style="margin-top:20px">ABA Formal Opinion 512 is clear: lawyers using generative AI must protect client confidentiality. But a single associate dropping a draft settlement into a public chatbot can, under the right reading, waive privilege for the entire matter.</p>
         <p style="margin-top:16px;color:var(--text-muted)">PrivacyPal makes the safe path the default path. Associates keep their AI workflows. Your matter data never leaves the firm's control.</p>
+      </div>
+      <div class="reveal reveal-delay-1" style="width:100%; display:flex; justify-content:center">
+        <div class="diagram-frame diagram-wide">
+          <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lg-diagram-title">
+            <title id="lg-diagram-title">The firm's privileged contract is shown next to the synthetic Privacy Twin that the LLM actually sees.</title>
+            <defs>
+              <linearGradient id="lg-paper" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#faf7f0"/>
+              </linearGradient>
+              <pattern id="lg-rules" width="1" height="22" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="21.5" x2="1200" y2="21.5" stroke="#efebde" stroke-width="0.6"/>
+              </pattern>
+              <pattern id="lg-rules-dark" width="1" height="22" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="21.5" x2="1200" y2="21.5" stroke="rgba(255,255,255,.05)" stroke-width="0.6"/>
+              </pattern>
+              <filter id="lg-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+              </filter>
+              <marker id="lg-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#336699"/>
+              </marker>
+            </defs>
+
+            <!-- Title -->
+            <text x="600" y="46" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">PRIVACY TWIN · ATTORNEY WORK PRODUCT, PRESERVED</text>
+            <text x="600" y="76" text-anchor="middle" font-family="Radley, Georgia, serif" font-size="22" font-style="italic" fill="#0f172a">The same agreement, in two views.</text>
+
+            <!-- ============== LEFT: ORIGINAL DOCUMENT ============== -->
+            <g filter="url(#lg-shadow)">
+              <rect x="40" y="100" width="560" height="620" rx="18" fill="url(#lg-paper)" stroke="#e6e2d8"/>
+            </g>
+            <rect x="40" y="100" width="6" height="620" rx="3" fill="#b9472a"/>
+            <path d="M64 100 H584 a16 16 0 0 1 16 16 V150 H48 V116 a16 16 0 0 1 16 -16 Z" fill="#0b1220"/>
+            <text x="72" y="130" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.2" fill="#e9bda6">PRIVILEGED · INSIDE THE FIRM</text>
+            <text x="588" y="130" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="rgba(255,255,255,.5)">v0.3</text>
+
+            <text x="64" y="184" font-family="Radley, Georgia, serif" font-size="22" font-style="italic" fill="#0f172a">Share Purchase Agreement</text>
+            <line x1="64" y1="204" x2="576" y2="204" stroke="#e6e2d8"/>
+            <rect x="64" y="214" width="512" height="484" fill="url(#lg-rules)" opacity=".7"/>
+
+            <g font-family="Radley, Georgia, serif" font-size="13" fill="#0f172a">
+              <text x="64" y="234">This Agreement, dated as of <tspan font-weight="700" fill="#b9472a">February 22, 2026</tspan>,</text>
+              <text x="64" y="256">is entered into by and between</text>
+              <text x="64" y="278"><tspan font-weight="700" fill="#b9472a">Northbridge Holdings, Inc.</tspan>, a Delaware</text>
+              <text x="64" y="300">corporation ("Buyer"), and</text>
+              <text x="64" y="322"><tspan font-weight="700" fill="#b9472a">Sentinel Partners LLC</tspan>, a Nevada limited</text>
+              <text x="64" y="344">liability company ("Seller"), in respect of</text>
+              <text x="64" y="366">the purchase of <tspan font-weight="700" fill="#b9472a">3,275,000</tspan> Class A Shares for</text>
+              <text x="64" y="388">total consideration of <tspan font-weight="700" fill="#b9472a">$134,800,000</tspan>.</text>
+
+              <text x="64" y="432" font-style="italic" fill="#4b5568">§ 12.3 — Representation.</text>
+              <text x="64" y="458">The Seller is represented by</text>
+              <text x="64" y="480"><tspan font-weight="700" fill="#b9472a">Sullivan &amp; Cromwell LLP</tspan>; the Buyer by</text>
+              <text x="64" y="502"><tspan font-weight="700" fill="#b9472a">Davis Polk &amp; Wardwell LLP</tspan>. MAC determinations</text>
+              <text x="64" y="524">shall be made jointly by <tspan font-weight="700" fill="#b9472a">Daniel Pryce</tspan></text>
+              <text x="64" y="546">and <tspan font-weight="700" fill="#b9472a">Dr. Helen Tate</tspan> on or before</text>
+              <text x="64" y="568"><tspan font-weight="700" fill="#b9472a">May 18, 2026</tspan>, per Schedule 3.1.</text>
+            </g>
+            <text x="64" y="678" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#b9472a" font-weight="700">REAL PARTIES · REAL TERMS · REAL CONSIDERATION</text>
+
+            <!-- arrow between docs -->
+            <g transform="translate(605,395)">
+              <line x1="0" y1="0" x2="20" y2="0" stroke="#336699" stroke-width="2.5" marker-end="url(#lg-arr)"/>
+              <rect x="-18" y="14" width="56" height="22" rx="11" fill="#fdfcfa" stroke="#336699"/>
+              <text x="10" y="29" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="1.4" fill="#336699" font-weight="700">SWAP</text>
+            </g>
+
+            <!-- ============== RIGHT: LLM-SAFE TWIN DOCUMENT ============== -->
+            <g filter="url(#lg-shadow)">
+              <rect x="640" y="100" width="520" height="620" rx="18" fill="#0b1220"/>
+            </g>
+            <rect x="640" y="100" width="6" height="620" rx="3" fill="#5ea4e0"/>
+            <path d="M664 100 H1144 a16 16 0 0 1 16 16 V150 H648 V116 a16 16 0 0 1 16 -16 Z" fill="#1b2436"/>
+            <text x="672" y="130" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.2" fill="#5ea4e0">PRIVACY TWIN · WHAT THE LLM SEES</text>
+            <text x="1148" y="130" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="rgba(255,255,255,.5)">v0.3-twin</text>
+
+            <text x="664" y="184" font-family="Radley, Georgia, serif" font-size="22" font-style="italic" fill="#ffffff">Share Purchase Agreement</text>
+            <line x1="664" y1="204" x2="1136" y2="204" stroke="rgba(255,255,255,.1)"/>
+            <rect x="664" y="214" width="472" height="484" fill="url(#lg-rules-dark)" opacity=".7"/>
+
+            <g font-family="Radley, Georgia, serif" font-size="13" fill="#ffffff">
+              <text x="664" y="234">This Agreement, dated as of <tspan font-weight="700" fill="#5ea4e0">August 09, 2026</tspan>,</text>
+              <text x="664" y="256">is entered into by and between</text>
+              <text x="664" y="278"><tspan font-weight="700" fill="#5ea4e0">Quartermast Industries Co.</tspan>, a Delaware</text>
+              <text x="664" y="300">corporation ("Buyer"), and</text>
+              <text x="664" y="322"><tspan font-weight="700" fill="#5ea4e0">Beacon Crest Capital LP</tspan>, a Nevada limited</text>
+              <text x="664" y="344">liability company ("Seller"), in respect of</text>
+              <text x="664" y="366">the purchase of <tspan font-weight="700" fill="#5ea4e0">2,180,000</tspan> Class A Shares for</text>
+              <text x="664" y="388">total consideration of <tspan font-weight="700" fill="#5ea4e0">$96,420,000</tspan>.</text>
+
+              <text x="664" y="432" font-style="italic" fill="rgba(255,255,255,.7)">§ 12.3 — Representation.</text>
+              <text x="664" y="458">The Seller is represented by</text>
+              <text x="664" y="480"><tspan font-weight="700" fill="#5ea4e0">Harlow &amp; Renwick LLP</tspan>; the Buyer by</text>
+              <text x="664" y="502"><tspan font-weight="700" fill="#5ea4e0">Cresswell, Tate &amp; Moss LLP</tspan>. MAC determinations</text>
+              <text x="664" y="524">shall be made jointly by <tspan font-weight="700" fill="#5ea4e0">Adrian Westbrook</tspan></text>
+              <text x="664" y="546">and <tspan font-weight="700" fill="#5ea4e0">Dr. Elena Borovsky</tspan> on or before</text>
+              <text x="664" y="568"><tspan font-weight="700" fill="#5ea4e0">October 14, 2026</tspan>, per Schedule 3.1.</text>
+            </g>
+            <text x="664" y="678" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.8" fill="#5ea4e0" font-weight="700">SYNTHETIC TWIN · FULLY COHERENT · ZERO REAL DATA</text>
+
+            <!-- Bottom strip: PrivacyPal indicator + counts -->
+            <g filter="url(#lg-shadow)">
+              <rect x="40" y="740" width="1120" height="120" rx="14" fill="url(#lg-paper)" stroke="#336699" stroke-opacity=".3"/>
+            </g>
+            <text x="64" y="776" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">PRIVACYPAL · MAPPING HELD IN-FIRM</text>
+            <text x="64" y="804" font-family="Radley, Georgia, serif" font-size="17" font-style="italic" fill="#0f172a">11 swaps across this excerpt — names, entities, amounts, dates, counsel.</text>
+            <g transform="translate(64,820)" font-family="JetBrains Mono, monospace" font-size="11" fill="#0f172a">
+              <g><rect width="170" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700">2 parties</text></g>
+              <g transform="translate(180,0)"><rect width="170" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700">2 counsel</text></g>
+              <g transform="translate(360,0)"><rect width="170" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700">2 named persons</text></g>
+              <g transform="translate(540,0)"><rect width="170" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700">2 dates · 1 share ct · 1 $</text></g>
+              <g transform="translate(740,0)"><rect width="240" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="120" y="19" text-anchor="middle" fill="#336699" font-weight="700">→ 11 Privacy Twins generated</text></g>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -80,7 +196,7 @@
     <p>40-minute walkthrough with a former BigLaw partner turned PrivacyPal deployment lead.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-cobalt" href="#" data-cta="demo">Book a firm demo</a>
-      <a class="btn btn-ghost" href="#">Download ABA brief</a>
+      <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
     </div>
   </div>
 </section>

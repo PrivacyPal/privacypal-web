@@ -18,24 +18,156 @@
         <p class="lede">Call records, CPNI, subscriber metadata — the most heavily-regulated data in the country. PrivacyPal lets your engineers, analysts, and customer-care teams use AI on it without violating 47 CFR §64.</p>
         <div class="cta-row">
           <a class="btn btn-cobalt" href="#" data-cta="demo">Book a telco demo</a>
-          <a class="btn btn-ghost" href="#">See CPNI coverage</a>
+          <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
         </div>
       </div>
-      <div class="hero-visual reveal in"><div class="ph">Hero image<br>Network operations center with monitors<br>[1400 × 1680]</div></div>
+      <div class="hero-visual has-image reveal in">
+        <img class="hv-img" src="assets/hero-shot-telecommunications.png" alt="Telecom NOC with PrivacyPal-protected AI">
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="split reverse">
-      <div class="reveal">
+    <div class="diagram-stack">
+      <div class="diagram-intro reveal">
         <span class="eyebrow">CPNI, decoded</span>
         <h2 class="display display-md" style="margin-top:18px">The FCC doesn't care how good your AI is.</h2>
         <p class="lede" style="margin-top:20px">Customer Proprietary Network Information covers almost everything interesting: numbers dialed, duration, location, services purchased. Unauthorized disclosure means seven-figure fines and a consent decree that can last years.</p>
         <p style="margin-top:16px;color:var(--text-muted)">PrivacyPal strips CPNI at the moment of use — across Slack, ChatGPT, Claude, internal copilots. Your compliance team sees every touch. The FCC sees a squeaky-clean posture.</p>
       </div>
-      <div class="reveal reveal-delay-2"><div class="ph" style="aspect-ratio:1/1;min-height:420px">Diagram<br>CPNI fields: CDR / location / plan / usage — all swapped<br>[900 × 900]</div></div>
+      <div class="reveal reveal-delay-1" style="width:100%; display:flex; justify-content:center">
+        <div class="diagram-frame diagram-wide">
+          <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tc-diagram-title">
+            <title id="tc-diagram-title">All four classes of CPNI — call detail records, location, plan, and usage — are swapped to realistic Privacy Twins before any AI sees them.</title>
+            <defs>
+              <linearGradient id="tc-paper" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#faf7f0"/>
+              </linearGradient>
+              <linearGradient id="tc-ink" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1b2436"/><stop offset="1" stop-color="#0b1220"/>
+              </linearGradient>
+              <filter id="tc-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+              </filter>
+            </defs>
+
+            <!-- Title block -->
+            <text x="600" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">CPNI · 47 CFR §64 · FOUR PROTECTED CLASSES · ALL PRIVACY-TWINNED</text>
+            <text x="600" y="82" text-anchor="middle" font-family="Radley, Georgia, serif" font-size="22" font-style="italic" fill="#0f172a">Real subscribers in. Realistic synthetic out. Every field, every class.</text>
+
+            <!-- ============== CARD: CDR (top-left) ============== -->
+            <g filter="url(#tc-shadow)">
+              <rect x="40" y="110" width="560" height="350" rx="18" fill="url(#tc-paper)" stroke="#e6e2d8"/>
+            </g>
+            <g transform="translate(64,134)" stroke="#336699" stroke-width="1.8" fill="none" stroke-linecap="round">
+              <rect x="0" y="0" width="42" height="42" rx="10" fill="#ecf2f9" stroke="none"/>
+              <path d="M26 12 a9 9 0 0 1 7 7" stroke="#336699"/>
+              <path d="M26 7 a14 14 0 0 1 11 11" stroke="#336699"/>
+              <path d="M13 14 v4 c0 7 5 12 12 12 h4 l-3 3 v3 h-3 c-9 0 -16 -7 -16 -16 v-3 l3 -3 z" fill="#336699" stroke="none"/>
+            </g>
+            <text x="120" y="148" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b7589">01 · CDR</text>
+            <text x="120" y="174" font-family="Radley, Georgia, serif" font-size="22" fill="#0f172a">Call Detail Records</text>
+            <g font-family="JetBrains Mono, monospace" font-size="13" transform="translate(64,206)">
+              <g><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">+1-415-555-8492</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">+1-628-555-2103</text></g>
+              <g transform="translate(0,38)"><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">→ +1-202-555-1130</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">→ +1-617-555-3447</text></g>
+              <g transform="translate(0,76)"><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">14:22:08 · 312s</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">09:48:31 · 187s</text></g>
+            </g>
+            <g transform="translate(440,418)"><rect width="140" height="26" rx="13" fill="#ecf2f9" stroke="#336699"/>
+              <text x="70" y="18" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="#336699" font-weight="700">✓ TWIN GENERATED</text></g>
+
+            <!-- ============== CARD: LOCATION (top-right) ============== -->
+            <g filter="url(#tc-shadow)">
+              <rect x="620" y="110" width="540" height="350" rx="18" fill="url(#tc-paper)" stroke="#e6e2d8"/>
+            </g>
+            <g transform="translate(644,134)">
+              <rect x="0" y="0" width="42" height="42" rx="10" fill="#ecf2f9"/>
+              <path d="M21 36 c-7 -10 -12 -14 -12 -22 a12 12 0 0 1 24 0 c0 8 -5 12 -12 22 z" fill="none" stroke="#336699" stroke-width="2"/>
+              <circle cx="21" cy="16" r="4" fill="#336699"/>
+            </g>
+            <text x="700" y="148" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b7589">02 · LOCATION</text>
+            <text x="700" y="174" font-family="Radley, Georgia, serif" font-size="22" fill="#0f172a">Tower / Cell / GPS</text>
+            <g font-family="JetBrains Mono, monospace" font-size="13" transform="translate(644,206)">
+              <g><rect width="210" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">cell 311480-22B</text>
+                 <text x="222" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="242" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="254" y="19" fill="#336699" font-weight="700">cell 220981-44A</text></g>
+              <g transform="translate(0,38)"><rect width="210" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">37.7749, -122.419</text>
+                 <text x="222" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="242" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="254" y="19" fill="#336699" font-weight="700">41.8819, -87.6278</text></g>
+              <g transform="translate(0,76)"><rect width="210" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">LAC 4421 · sector C</text>
+                 <text x="222" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="242" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="254" y="19" fill="#336699" font-weight="700">LAC 7732 · sector B</text></g>
+            </g>
+            <g transform="translate(1010,418)"><rect width="140" height="26" rx="13" fill="#ecf2f9" stroke="#336699"/>
+              <text x="70" y="18" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="#336699" font-weight="700">✓ TWIN GENERATED</text></g>
+
+            <!-- ============== CARD: PLAN (bottom-left) ============== -->
+            <g filter="url(#tc-shadow)">
+              <rect x="40" y="480" width="560" height="350" rx="18" fill="url(#tc-paper)" stroke="#e6e2d8"/>
+            </g>
+            <g transform="translate(64,504)">
+              <rect x="0" y="0" width="42" height="42" rx="10" fill="#ecf2f9"/>
+              <rect x="10" y="11" width="22" height="22" rx="3" fill="none" stroke="#336699" stroke-width="2"/>
+              <line x1="10" y1="18" x2="32" y2="18" stroke="#336699" stroke-width="2"/>
+              <line x1="10" y1="25" x2="26" y2="25" stroke="#336699" stroke-width="2"/>
+            </g>
+            <text x="120" y="518" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b7589">03 · PLAN</text>
+            <text x="120" y="544" font-family="Radley, Georgia, serif" font-size="22" fill="#0f172a">Subscriber &amp; Services</text>
+            <g font-family="JetBrains Mono, monospace" font-size="13" transform="translate(64,576)">
+              <g><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">subscriber 9482214</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">subscriber 6315827</text></g>
+              <g transform="translate(0,38)"><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">Magenta Max 5G</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">Ultra Connect 5G</text></g>
+              <g transform="translate(0,76)"><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">IMEI 35-99820..2</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">IMEI 35-44781..5</text></g>
+            </g>
+            <g transform="translate(440,788)"><rect width="140" height="26" rx="13" fill="#ecf2f9" stroke="#336699"/>
+              <text x="70" y="18" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="#336699" font-weight="700">✓ TWIN GENERATED</text></g>
+
+            <!-- ============== CARD: USAGE (bottom-right) ============== -->
+            <g filter="url(#tc-shadow)">
+              <rect x="620" y="480" width="540" height="350" rx="18" fill="url(#tc-paper)" stroke="#e6e2d8"/>
+            </g>
+            <g transform="translate(644,504)">
+              <rect x="0" y="0" width="42" height="42" rx="10" fill="#ecf2f9"/>
+              <rect x="11" y="26" width="5" height="11" fill="#336699"/>
+              <rect x="19" y="20" width="5" height="17" fill="#336699"/>
+              <rect x="27" y="14" width="5" height="23" fill="#336699"/>
+            </g>
+            <text x="700" y="518" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b7589">04 · USAGE</text>
+            <text x="700" y="544" font-family="Radley, Georgia, serif" font-size="22" fill="#0f172a">Voice / Data / SMS</text>
+            <g font-family="JetBrains Mono, monospace" font-size="13" transform="translate(644,576)">
+              <g><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">214 calls · 18,420 SMS</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">187 calls · 14,205 SMS</text></g>
+              <g transform="translate(0,38)"><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">42.8 GB · roaming MX</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">38.2 GB · roaming CA</text></g>
+              <g transform="translate(0,76)"><rect width="220" height="28" rx="7" fill="#fff4ec" stroke="#e9bda6"/><text x="12" y="19" fill="#b9472a" font-weight="700" text-decoration="line-through">$184.22 billed</text>
+                 <text x="232" y="20" font-size="16" fill="#336699">→</text>
+                 <rect x="252" width="220" height="28" rx="7" fill="#ecf2f9" stroke="#bcd1e6"/><text x="264" y="19" fill="#336699" font-weight="700">$162.40 billed</text></g>
+            </g>
+            <g transform="translate(1010,788)"><rect width="140" height="26" rx="13" fill="#ecf2f9" stroke="#336699"/>
+              <text x="70" y="18" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.6" fill="#336699" font-weight="700">✓ TWIN GENERATED</text></g>
+
+            <!-- Footer / perimeter ribbon -->
+            <g transform="translate(40,852)" filter="url(#tc-shadow)">
+              <rect width="1120" height="0" rx="14" fill="url(#tc-ink)"/>
+            </g>
+            <text x="600" y="876" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2.4" fill="#336699">CARRIER PERIMETER · EVERY CPNI TOUCH LOGGED · ZERO RAW VALUES CROSS THE LINE</text>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -57,7 +189,7 @@
 
 <section class="pullquote">
   <blockquote>"We process 40 billion CDRs a month. PrivacyPal made AI viable against them without a single CPNI ticket."</blockquote>
-  <cite>— VP Data Platform, Tier-1 US wireless carrier</cite>
+  <cite>— VP of AI, Tier-1 EU wireless carrier</cite>
 </section>
 
 <section class="section">
@@ -66,7 +198,7 @@
       <span class="eyebrow" style="justify-content:center">Scale and regulation</span>
       <h2 class="display display-md" style="margin-top:18px">CPNI · CALEA · Section 222 · GDPR for mobile roaming.</h2>
       <p class="lede" style="margin-top:20px">Deployed at carrier-scale: hundreds of thousands of employees, thousands of transactions per second, hard real-time SLAs on the customer care path. PrivacyPal sits inline without adding perceptible latency.</p>
-      <p style="font-family:var(--mono);color:var(--cobalt);font-size:1.4rem;font-weight:700;margin-top:32px">Under 40ms added latency at p99.</p>
+      <p style="font-family:var(--mono);color:var(--cobalt);font-size:1.4rem;font-weight:700;margin-top:32px">Under 200ms added latency for most all AI prompts and Agent chats.</p>
     </div>
   </div>
 </section>
@@ -77,7 +209,7 @@
     <p>Talk to a deployment architect who's run PrivacyPal at a Tier-1 carrier.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-cobalt" href="#" data-cta="demo">Book a telco demo</a>
-      <a class="btn btn-ghost" href="#">See CPNI coverage</a>
+      <a class="btn btn-ghost" href="#" data-cta="download">Start 5-day trial</a>
     </div>
   </div>
 </section>
