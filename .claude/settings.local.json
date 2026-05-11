@@ -40,7 +40,9 @@
       "Bash(python3 -)",
       "Bash(grep -nA6 'h4>Platform</h4' /Users/jason/dev/PrivacyPal/privacypal-web/__TRACKED_VAR__)",
       "Bash(sed -n '40,90p' /Users/jason/dev/PrivacyPal/privacypal-web/events.html)",
-      "Bash(sed -n '220,240p' /Users/jason/dev/PrivacyPal/privacypal-web/privacy-policy.html)"
+      "Bash(sed -n '220,240p' /Users/jason/dev/PrivacyPal/privacypal-web/privacy-policy.html)",
+      "Bash(python3 add_social_meta.py)",
+      "Bash(git -C /Users/jason/dev/PrivacyPal/privacypal-web mv add_social_meta.py batch_update.py update_complex.py update_complex2.py update_nav.py update_remaining4.py scripts/)"
     ]
   }
 }
