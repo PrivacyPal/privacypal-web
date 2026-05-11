@@ -37,7 +37,10 @@
       "Bash(curl -s \"http://localhost:8765/telecommunications.html\")",
       "Bash(curl -s \"http://localhost:8765/technology.html\")",
       "Bash(command -v sips python3)",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(grep -nA6 'h4>Platform</h4' /Users/jason/dev/PrivacyPal/privacypal-web/__TRACKED_VAR__)",
+      "Bash(sed -n '40,90p' /Users/jason/dev/PrivacyPal/privacypal-web/events.html)",
+      "Bash(sed -n '220,240p' /Users/jason/dev/PrivacyPal/privacypal-web/privacy-policy.html)"
     ]
   }
 }

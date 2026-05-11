@@ -42,6 +42,10 @@
         .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
         .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
         .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
+        .nav-signin-btn { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
+        .nav-signin-btn:hover { background:#2a2a2a; transform:translateY(-1px); }
+        .cta-nav-button.cta-nav-button-blue { background:var(--cobalt); }
+        .cta-nav-button.cta-nav-button-blue:hover { background:var(--cobalt-dark); }
         .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
         .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
         .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
@@ -126,8 +130,8 @@
             </div>
         </div>
         <div class="nav-cta-group">
-            <a href="https://portal.privacypal.ai" class="nav-login" target="_blank" rel="noopener">Login</a>
-            <a href="desktop.html" class="cta-nav-button">Start Free Trial</a>
+            <a href="https://portal.privacypal.ai" class="nav-signin-btn" target="_blank" rel="noopener">Sign In</a>
+            <a href="desktop.html" class="cta-nav-button cta-nav-button-blue">Start Free Trial</a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -152,7 +156,7 @@
     </div>
     <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
     <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Login</a>
+    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Sign In</a>
     <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
 </div>
 
@@ -178,6 +182,7 @@
             <li><a href="device-control.html">Device Control</a></li>
             <li><a href="ai-dspm.html">AI-DSPM</a></li>
             <li><a href="desktop.html">Install</a></li>
+            <li><a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a></li>
         </ul></div>
         <div class="footer-links"><h4>Solutions</h4><ul>
             <li><a href="index.html">For SME / SMB</a></li>

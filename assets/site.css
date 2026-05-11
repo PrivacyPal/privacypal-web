@@ -162,6 +162,8 @@ nav.site-nav.on-dark .logo-dark-img{display:block}
   text-decoration:none;transition:transform .2s,background .2s;
 }
 .nav-cta:hover{transform:translateY(-1px);background:#000}
+.nav-cta-blue{background:var(--cobalt)}
+.nav-cta-blue:hover{background:var(--cobalt-deep)}
 
 .hamburger{display:none;width:40px;height:40px;background:none;border:0;flex-direction:column;gap:5px;align-items:center;justify-content:center;cursor:pointer}
 .hamburger span{width:22px;height:2px;background:var(--ink);transition:transform .3s,opacity .3s}

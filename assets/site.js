@@ -34,7 +34,8 @@
         </div>
         <a class="nav-link" href="index.html#pricing">Pricing</a>
         <a class="nav-link" href="developers.html">Developers</a>
-        <a class="nav-cta" href="index.html#download">Download</a>
+        <a class="nav-cta" href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
+        <a class="nav-cta nav-cta-blue" href="index.html#download">Download</a>
       </div>
       <button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -47,6 +48,7 @@
     <a href="team.html">Team</a>
     <a href="index.html#pricing">Pricing</a>
     <a href="developers.html">Developers</a>
+    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
     <a href="index.html#download">Download</a>
   </div>`;
 
@@ -62,6 +64,7 @@
           <h5>Products</h5>
           <a href="privacypal-pro.html">PrivacyPal Pro</a>
           <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
+          <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a>
         </div>
         <div class="footer-col">
           <h5>Solutions</h5>
