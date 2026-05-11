@@ -30,10 +30,10 @@
           <div class="dropdown-menu">
             <a href="about.html"><b>About</b><small>Our story & mission</small></a>
             <a href="team.html"><b>Team</b><small>The people behind PrivacyPal</small></a>
-            <a href="developers.html"><b>Developers</b><small>Docs, SDKs, API reference</small></a>
           </div>
         </div>
         <a class="nav-link" href="index.html#pricing">Pricing</a>
+        <a class="nav-link" href="developers.html">Developers</a>
         <a class="nav-cta" href="index.html#download">Download</a>
       </div>
       <button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -45,8 +45,8 @@
     <a href="banking.html">Solutions</a>
     <a href="about.html">About</a>
     <a href="team.html">Team</a>
-    <a href="developers.html">Developers</a>
     <a href="index.html#pricing">Pricing</a>
+    <a href="developers.html">Developers</a>
     <a href="index.html#download">Download</a>
   </div>`;
 
@@ -75,9 +75,13 @@
           <h5>Company</h5>
           <a href="about.html">About</a>
           <a href="team.html">Team</a>
-          <a href="developers.html">Developers</a>
           <a href="index.html#pricing">Pricing</a>
           <a href="mailto:hello@privacypal.ai">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Developers</h5>
+          <a href="developers.html">SDK Overview</a>
+          <a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Documentation</a>
         </div>
         <div class="footer-col">
           <h5>Legal</h5>
