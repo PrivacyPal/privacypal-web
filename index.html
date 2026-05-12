@@ -309,6 +309,48 @@
     margin-bottom:14px;
   }
 
+  /* ========= PARTNERS ========= */
+  .partners{
+    padding:120px 28px; position:relative;
+    background:var(--bg-alt);
+    border-top:1px solid var(--rule);
+  }
+  .partners::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:1px;
+    background:linear-gradient(90deg, transparent 10%, var(--cobalt) 50%, transparent 90%);
+    opacity:.35;
+  }
+  .partners-inner{max-width:960px; margin:0 auto; text-align:center; position:relative; z-index:1}
+  .partners h2{margin:18px 0 14px}
+  .partners h2 em{font-family:var(--serif); font-style:italic; font-weight:400; color:var(--cobalt)}
+  .partners .lede{margin:0 auto 56px}
+  .partners-grid{
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch;
+    gap:24px;
+  }
+  .partner-card{
+    background:var(--bg-card); border:1px solid var(--border); border-radius:20px;
+    padding:36px 40px; display:flex; flex-direction:column; align-items:center; gap:18px;
+    text-decoration:none; color:inherit; min-width:260px;
+    transition:border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .partner-card:hover{
+    border-color:var(--cobalt); box-shadow:var(--shadow-md); transform:translateY(-4px);
+  }
+  .partner-card img{
+    height:92px; width:auto; max-width:220px; object-fit:contain; display:block;
+  }
+  .partner-card .partner-name{
+    font-family:var(--mono); font-size:.72rem; font-weight:600;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--text-soft);
+  }
+  .partner-card:hover .partner-name{color:var(--cobalt)}
+  @media (max-width:640px){
+    .partners{padding:80px 20px}
+    .partner-card{padding:28px 32px}
+    .partner-card img{height:76px}
+  }
+
   /* ========= FINAL CTA ========= */
   .final-cta{
     padding:160px 28px; text-align:center; position:relative; overflow:hidden;
@@ -934,6 +976,21 @@
         </ul>
         <a class="btn btn-ghost" href="#" data-cta="demo">Talk to us</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PARTNERSHIPS ============== -->
+<section class="partners" id="partners">
+  <div class="partners-inner reveal">
+    <span class="eyebrow" style="justify-content:center">Partnerships</span>
+    <h2 class="display display-md">In <em>good</em> company.</h2>
+    <p class="lede">We're building the future of private AI alongside trusted names in technology and innovation.</p>
+    <div class="partners-grid">
+      <a class="partner-card" href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener noreferrer" title="NVIDIA Inception Program member">
+        <img src="nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program">
+        <span class="partner-name">NVIDIA Inception</span>
+      </a>
     </div>
   </div>
 </section>
