@@ -1182,6 +1182,17 @@
   }
 
   btn.addEventListener('click', (e) => { e.preventDefault(); open(); });
+
+  const videoParam = new URLSearchParams(window.location.search).get('video');
+  if (videoParam) {
+    requestAnimationFrame(() => {
+      video.muted = true;
+      setVolumeIcon();
+      open();
+      history.replaceState({}, '', window.location.pathname + window.location.hash);
+    });
+  }
+
   closeBtn.addEventListener('click', close);
   modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
   document.addEventListener('keydown', (e) => {
