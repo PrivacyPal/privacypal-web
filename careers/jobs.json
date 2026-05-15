@@ -1,0 +1,326 @@
+{
+  "meta": {
+    "updated": "2026-05-13",
+    "applicationsEmail": "ops@privacypal.ai"
+  },
+  "teams": [
+    { "id": "engineering", "label": "Engineering" },
+    { "id": "gtm",         "label": "Sales & GTM" },
+    { "id": "ops",         "label": "Operations" }
+  ],
+  "locations": [
+    { "id": "sunnyvale",   "label": "Sunnyvale, CA" },
+    { "id": "miami",       "label": "Miami, FL" },
+    { "id": "wpalm",       "label": "W. Palm Beach, FL" },
+    { "id": "remote",      "label": "Remote (Americas)" },
+    { "id": "remote-apac", "label": "Remote (APAC)" }
+  ],
+  "jobs": [
+    {
+      "id": "vp-sales-enterprise",
+      "title": "VP of Sales, Enterprise",
+      "team": "gtm",
+      "location": "miami",
+      "type": "Full-time",
+      "level": "VP",
+      "comp": "$120K base / $325K OTE + equity",
+      "summary": "Build and run the enterprise sales motion for the privacy infrastructure every Fortune 500 will eventually need.",
+      "about": "We sell into the most regulated, most paranoid, hardest-to-sell buyers on the planet — and we win. You'll inherit a short bench, a strong pipeline, and a founder who knows you have to close the first ten deals yourself before you build the team that closes the next hundred. Reports directly to the COO.",
+      "responsibilities": [
+        "Carry the team quota. Build pipeline, run the playbook, and personally close at the top of the funnel.",
+        "Hire AEs, Sales Engineers, and BDRs; build the leveling, ramp, and comp plans that hold up under scrutiny.",
+        "Partner with the CEO and COO on pricing, packaging, and segmentation.",
+        "Stand up the enterprise GTM stack: outbound, deal desk, partner program, executive sponsors.",
+        "Run forecasting that the board trusts the first time you present it."
+      ],
+      "qualifications": [
+        "12+ years in enterprise software sales; 5+ years as a frontline manager or VP carrying a team quota.",
+        "Track record of taking a team from $0 → $20M+ ARR in security, infra, or data — and the receipts to prove it.",
+        "You've personally closed $1M+ ACV deals to CISOs, CIOs, or CDOs at Fortune 1000 logos.",
+        "MEDDPICC, Force Management, or equivalent rigor — and you've taught it to others.",
+        "You write your own outbound. You don't delegate strategy to slide decks."
+      ],
+      "nicetohave": [
+        "Built a sales org through a category-creation phase.",
+        "Existing CISO or CDO Rolodex in financial services, healthcare, or federal.",
+        "Comfort with channel and SI motions — we'll build both within 18 months."
+      ]
+    },
+    {
+      "id": "chief-of-staff",
+      "title": "Chief of Staff",
+      "team": "ops",
+      "location": "miami",
+      "type": "Full-time",
+      "level": "Senior / Director",
+      "comp": "$85K–$110K + equity",
+      "summary": "Be the force multiplier the CEO and COO can't function without. Run the operating rhythm of the company so the founders can spend their time on the work nobody else can do.",
+      "about": "This is a company that wants to be the most important software company of the AI decade. To get there, the founders need someone who can carry the weight of everything that isn't sales, code, or product — and turn it into leverage. You'll be deep in board prep, fundraising, hiring, internal comms, and the dozen weekly fires the CEO would otherwise carry alone. Reports to the COO with a dotted line to the CEO.",
+      "responsibilities": [
+        "Run the executive operating rhythm: leadership team meeting, all-hands, board cadence, company OKRs.",
+        "Drive special projects end-to-end — fundraising materials, strategic partnerships, market entries.",
+        "Be the second-pair-of-eyes on every important external document the CEO or COO sends.",
+        "Write internal comms in the founders' voice. Edit, condense, sharpen everything.",
+        "Recruit your own replacement within 18 months as you grow into something bigger."
+      ],
+      "qualifications": [
+        "6+ years across some combination of chief of staff, top-tier consulting, banking, or BizOps at a hyper-growth startup.",
+        "You read a 50-page doc, find the one sentence that matters, and rewrite it twice as well.",
+        "Discretion. You'll sit in every conversation in the company.",
+        "You'd rather be in the room than on the stage. The work is the reward.",
+        "Operator's instinct: you'd rather fix the broken process than write the deck about it."
+      ],
+      "nicetohave": [
+        "Past life as a founder, early employee at a top-tier startup, or an IC engineer pulled into ops.",
+        "Experience producing venture fundraising materials and running board operating cadences.",
+        "A demonstrably better-than-anyone-else writing voice."
+      ]
+    },
+    {
+      "id": "senior-engineer-ai",
+      "title": "Senior Software Engineer, AI",
+      "team": "engineering",
+      "location": "sunnyvale",
+      "type": "Full-time",
+      "level": "Senior / L5",
+      "comp": "$160K–$215K + equity",
+      "summary": "Own the AI that makes PrivacyPal smart — from on-device detection models to the LLM-powered features that make using AI safely feel effortless.",
+      "about": "AI is in every layer of this product. Small, fast models run on-device to spot what's sensitive. Larger models — locally and in the cloud — classify intent, summarize policy decisions, and power agentic flows for customers. As a Senior Engineer on AI you'll own the model stack end-to-end: selection, fine-tuning, prompting, evals, serving, latency, and the privacy guarantees that have to hold up under audit. Reports to the Head of Engineering.",
+      "responsibilities": [
+        "Own the on-device inference stack: ONNX, quantization, latency budgets, memory limits.",
+        "Build AI features end-to-end — corpus, fine-tuning, prompt design, eval harness, shipped binary, telemetry, regression alerting.",
+        "Pick the right model for the right job: small/fast on-device, frontier in the cloud, agentic when it earns its keep.",
+        "Partner with the platform team on the contract between AI and policy enforcement.",
+        "Write the customer-facing docs for what our AI does, what it doesn't, and why.",
+        "Take part in the on-call rotation for the AI and inference pipeline."
+      ],
+      "qualifications": [
+        "6+ years writing production code in Python and at least one of Rust, Go, or C++.",
+        "Hands-on with at least one of: applied NLP, transformer inference, LLM-powered systems, RAG, or agent frameworks.",
+        "You've shipped AI features with hard latency or privacy constraints — and the evals to prove they work.",
+        "Comfortable building with both frontier APIs (OpenAI, Anthropic, Google) and small open models you run yourself.",
+        "Strong writing voice. Our PRs read like papers.",
+        "You think about correctness, then performance, then ergonomics — in that order."
+      ],
+      "nicetohave": [
+        "Open-source contributions to ML infra, tokenizers, inference engines, or agent frameworks.",
+        "Experience with privacy-preserving ML: DP-SGD, federated training, secure enclaves.",
+        "You've built an LLM eval harness you'd actually defend in front of a customer.",
+        "Past life as a researcher who decided shipping was more fun than publishing."
+      ]
+    },
+    {
+      "id": "senior-engineer-platform",
+      "title": "Senior Software Engineer, Platform",
+      "team": "engineering",
+      "location": "sunnyvale",
+      "type": "Full-time",
+      "level": "Senior / L5",
+      "comp": "$160K–$215K + equity",
+      "summary": "Build the platform that the rest of engineering — and eventually every customer — builds on top of.",
+      "about": "The PrivacyPal platform is the spine of our product: the gateway, the policy engine, the audit pipeline, the SDK. As a Senior Engineer on Platform, you'll own the parts of the system that have to be fast, safe, and so well-designed that nobody else on the team ever has to think about them. Reports to the Head of Engineering.",
+      "responsibilities": [
+        "Own the request path of the gateway: routing, policy evaluation, audit, telemetry.",
+        "Design the SDK surface that customer engineering teams build against in production.",
+        "Push p95 overhead under 10ms with full policy enforcement and audit on.",
+        "Be the engineer customers' SREs respect on a Zoom call. Write runbooks they actually read.",
+        "Mentor engineers more junior than you — code review, design review, the works."
+      ],
+      "qualifications": [
+        "6+ years building backend systems in Rust, Go, or modern Java/Kotlin.",
+        "You've owned a service with real availability SLOs and lived through the incidents.",
+        "Deep familiarity with at least one of: proxy internals, service mesh, Kubernetes data plane, message queues.",
+        "You think about security primitives — TLS, mTLS, KMS, key rotation — without flinching.",
+        "Strong written communication. We default to async, and writing well isn't optional."
+      ],
+      "nicetohave": [
+        "Open-source contributions to proxy, observability, or data-plane projects.",
+        "Built something audited by a Big Four firm.",
+        "Familiarity with FedRAMP, HIPAA, or SOC 2 in production."
+      ]
+    },
+    {
+      "id": "senior-engineer-devices",
+      "title": "Senior Software Engineer, Devices",
+      "team": "engineering",
+      "location": "sunnyvale",
+      "type": "Full-time",
+      "level": "Senior / L5",
+      "comp": "$160K–$215K + equity",
+      "summary": "Ship PrivacyPal on every phone and tablet on earth — and go as close to the OS as we have to so on-device privacy is real, not marketing.",
+      "about": "Most of the prompts our customers worry about start on a phone. The mobile build of PrivacyPal isn't a port of the desktop client — it's its own product, with its own constraints (battery, thermals, sandboxing, App Store review, enterprise MDM fleets) and its own opportunities (Keychain, Secure Enclave, on-device inference accelerators, system extensions). As Senior Engineer on Devices you own the iOS, iPadOS, and Android clients end-to-end, set the bar for what 'native' means here, and ship the parts of the product that actually live on the device. Reports to the Head of Engineering.",
+      "responsibilities": [
+        "Own the iOS, iPadOS, and Android clients end-to-end — architecture, performance, distribution, support.",
+        "Go as close to the OS as the work demands: keyboard extensions, share targets, file providers, accessibility services, system intents, broadcast receivers.",
+        "Ship on-device inference with the right accelerator for the right device — Core ML and the Apple Neural Engine on iOS; NNAPI, ExecuTorch, and the Hexagon NPU on Android.",
+        "Hold the line on battery, memory, and thermal budgets. We measure it. We publish it. We don't ship regressions.",
+        "Wire detection into Keychain, Keystore, Secure Enclave, and StrongBox so customer secrets never leave the device.",
+        "Own the release train: TestFlight, App Store review, Play Console staged rollouts, MDM-distributed enterprise builds (Intune, Jamf, Kandji, Knox).",
+        "Take part in the on-call rotation for mobile."
+      ],
+      "qualifications": [
+        "6+ years writing production mobile code — deep expertise in at least one of iOS (Swift, Objective-C) or Android (Kotlin, Java), and working command of the other.",
+        "You've shipped at scale and lived with the consequences — crash-free rates, App Store rejections, OEM-specific surprises at 2am.",
+        "Comfort below the framework: NDK and C/C++ on Android, Objective-C++ and C on iOS, JNI, and IPC primitives (Binder, XPC, Mach ports) — or the equivalent stack on another platform.",
+        "A real opinion on at least one of: kernel, HAL, BSP, device drivers, custom ROM work, secure boot, TEE, or mobile cryptography APIs.",
+        "Comfort owning the developer experience: build systems (Xcode, Gradle, Bazel), code signing, provisioning, and the failure modes that only show up on a real device.",
+        "Strong writing voice. Our PRs read like papers."
+      ],
+      "nicetohave": [
+        "Past life on a phone-maker or platform team — Apple iOS/Darwin, Android Framework / AOSP / Pixel, Samsung Mobile R&D, OnePlus, Meta Reality Labs, Qualcomm, ARM.",
+        "Built or maintained a custom kernel, HAL, or device driver in production.",
+        "Shipped on-device ML in a real app with Core ML, MLC, Hexagon, or NNAPI/ExecuTorch — and can talk about what didn't work.",
+        "Wrote a keyboard extension, share extension, or accessibility service that millions of people used without noticing.",
+        "Familiarity with enterprise mobile distribution: MDM/UEM, Jamf, Intune, Kandji, Samsung Knox.",
+        "Contributed to AOSP, WebKit, Chromium, or any other open mobile codebase."
+      ]
+    },
+    {
+      "id": "sales-engineer",
+      "title": "Sales Engineer",
+      "team": "gtm",
+      "location": "miami",
+      "type": "Full-time",
+      "level": "Senior",
+      "comp": "$145K base / $225K OTE + equity",
+      "summary": "The technical anchor in every deal cycle — POCs, security reviews, architecture deep dives, and the conversations that turn a curious VP into a champion.",
+      "about": "We have demand we can't keep up with. Banks, healthcare systems, and Fortune 500s want PrivacyPal in their VPC yesterday. As our Sales Engineer you sit between the AEs, the customer's security team, and our engineering org — translating each side to the other and making the deal close on technical merit, every time. Reports to the VP of Sales, Enterprise.",
+      "responsibilities": [
+        "Run technical discovery and architecture sessions with security and data leadership.",
+        "Own POCs end-to-end: scope, environment, success criteria, executive readout.",
+        "Become the customer-facing expert on the gateway, Privacy Twins, and the policy model.",
+        "Translate field feedback into the product roadmap — you sit between sales and engineering.",
+        "Help build the SE playbook: demo scripts, POC SOWs, objection library, security-questionnaire bank."
+      ],
+      "qualifications": [
+        "5+ years as an SE selling technical infrastructure, security, or data platforms to enterprise buyers.",
+        "Comfortable in front of a CISO, in a SOC 2 review, and in a Slack debug thread.",
+        "Hands-on with at least one of: Kubernetes, AWS/GCP/Azure security, SIEM, or data pipelines.",
+        "You close. You don't just demo.",
+        "You can write a clean RFP response and a clean Python script in the same week."
+      ],
+      "nicetohave": [
+        "Past life as an IC engineer at a security or infra company.",
+        "Sold into financial services, healthcare, or federal customers.",
+        "Built an SE function from scratch before."
+      ]
+    },
+    {
+      "id": "bdr",
+      "title": "Business Development Representative",
+      "team": "gtm",
+      "location": "miami",
+      "type": "Full-time",
+      "level": "IC / Mid",
+      "comp": "$55K base / $90K OTE + equity",
+      "summary": "Open the doors the AEs walk through. Own outbound to the security and data leaders at the most important companies in the world — and turn cold lists into hot pipeline.",
+      "about": "We're early. Pipeline is the constraint, and you're the team's leverage on it. As one of our first BDRs you'll work directly with the VP of Sales on target lists, messaging, and the sequences that get a CISO to take a 15-minute meeting. Top performers here have a clear path to AE inside 18 months — and we mean it. Reports to the VP of Sales, Enterprise.",
+      "responsibilities": [
+        "Run outbound across email, LinkedIn, phone, and conferences into a tight list of target accounts.",
+        "Book 8–12 qualified meetings per month with security, privacy, or data leadership.",
+        "Own your data hygiene: CRM accuracy, contact enrichment, sequence performance.",
+        "Partner with marketing on the messages that work — and bury the ones that don't.",
+        "Earn the AE seat in 12–18 months by being undeniable."
+      ],
+      "qualifications": [
+        "1–3 years in a sales-development role at a B2B software company — ideally infra, security, or data.",
+        "You write outbound nobody mistakes for a template.",
+        "Comfortable on the phone. Comfortable being told no. More comfortable being told yes.",
+        "You hit your number. You don't ask for credit for the activity that didn't.",
+        "Hungry for the AE seat and willing to work for it — but you also like the BDR craft right now."
+      ],
+      "nicetohave": [
+        "Past performance: top quartile, President's Club, fastest BDR to promo, etc.",
+        "Experience selling into security or compliance personas specifically.",
+        "Bilingual is a plus (Spanish or Portuguese — we sell into LATAM)."
+      ]
+    },
+    {
+      "id": "sme-account-executive",
+      "title": "SME Account Executive",
+      "team": "gtm",
+      "location": "miami",
+      "type": "Future hire · opens Q4 2026",
+      "level": "Senior IC",
+      "comp": "$120K base / $240K OTE + equity",
+      "summary": "The first AE for our SMB / mid-market motion — own deals cold-to-closed in a faster, higher-velocity cycle than enterprise.",
+      "about": "We're posting this role 6 months early because we'd rather meet the right person now than rush the wrong one later. You'll own a high-volume pipeline of $30K–$300K ACV deals into SMB and mid-market customers, run the full cycle yourself, and help us build the SMB playbook from scratch. Conversations begin immediately; the seat opens in Q4 2026. Reports to the VP of Sales, Enterprise.",
+      "responsibilities": [
+        "Own pipeline build, qualification, and close for a list of 200–400 SMB / mid-market accounts.",
+        "Run a faster cycle than enterprise: 30–60 day deals, self-serve POCs, fewer cooks in the kitchen.",
+        "Hit a $800K+ annual quota — uncapped accelerators above plan.",
+        "Partner with marketing on the inbound motion and BDRs on outbound coverage.",
+        "Help build the SMB playbook — discovery, demo, pricing, expansion — from the deals you close."
+      ],
+      "qualifications": [
+        "4+ years closing SMB or mid-market SaaS deals — ideally infrastructure, security, or developer tools.",
+        "Quota over-attainment in at least two of the last three years.",
+        "You know how to run a self-serve POC without it becoming a 90-day enterprise cycle.",
+        "Comfort owning the full cycle: outbound, demo, negotiation, close, expansion.",
+        "You write your own outbound and you don't wait for SDR coverage."
+      ],
+      "nicetohave": [
+        "Past life at a product-led growth company where you closed the deals the funnel surfaced.",
+        "Sold into engineering, security, or compliance buyers specifically.",
+        "Experience with usage-based or seat-hybrid pricing models."
+      ]
+    },
+    {
+      "id": "growth-marketing-intern",
+      "title": "Growth Marketing Intern (Summer 2026)",
+      "team": "gtm",
+      "location": "miami",
+      "type": "Internship · Summer 2026",
+      "level": "Intern · 12 weeks",
+      "comp": "$25/hr + equity grant",
+      "summary": "Run real growth experiments — paid, owned, in front of real customers — at a privacy-infra startup the moment it's breaking out.",
+      "about": "This isn't a coffee-fetching internship. You'll own one or two measurable growth surfaces — outbound, lifecycle email, landing pages, paid experiments, partner co-marketing — and we'll grade you on the deltas you ship. The COO runs this directly: no bureaucracy, no chain of command, no PowerPoint reviews. The best interns here come back full-time after graduation. In-person at our Florida HQ.",
+      "responsibilities": [
+        "Own a growth surface end-to-end for 12 weeks — pick it with the COO in week one, ship it by week twelve.",
+        "Build and analyze experiments: paid acquisition tests, landing-page A/Bs, lifecycle sequences, partner co-marketing plays.",
+        "Sit in customer conversations and product reviews. Steal what you learn.",
+        "Write the weekly growth memo. Read like a founder, not a student."
+      ],
+      "qualifications": [
+        "Current undergraduate in CS, marketing, business, economics, or any major you can pair with a real quant track record.",
+        "You can run a SQL query and a Google Ads campaign in the same day.",
+        "Writing that doesn't read like a marketing template.",
+        "A side project, a club, or a prior internship that proves you'd already be doing this on your own."
+      ],
+      "nicetohave": [
+        "Hands-on with one or more of: HubSpot, Mixpanel/Amplitude, SQL, Webflow, Figma.",
+        "Previous startup, agency, or media internship.",
+        "Built or grown something you can talk about for fifteen minutes straight."
+      ]
+    },
+    {
+      "id": "content-marketing-intern",
+      "title": "Content Marketing Intern (Summer 2026)",
+      "team": "gtm",
+      "location": "miami",
+      "type": "Internship · Summer 2026",
+      "level": "Intern · 12 weeks",
+      "comp": "$25/hr + equity grant",
+      "summary": "Help us tell the most important software story of the AI decade. Write essays, ship case studies, and build the editorial drumbeat behind PrivacyPal.",
+      "about": "We need someone who can write like an editor, not a marketer. You'll spend the summer producing content the people we want to hire and sell to actually read — not LinkedIn vomit, not SEO chum. The COO runs this directly. We share bylines, we publish what you write, and the best interns walk into full-time roles next spring. In-person at our Florida HQ.",
+      "responsibilities": [
+        "Draft 6–10 long-form posts, case studies, or research notes you'd be proud to put your name on.",
+        "Interview customers and engineers; turn the calls into stories someone actually wants to read.",
+        "Build the editorial calendar with the COO and own its execution.",
+        "Edit. We rewrite everything three times.",
+        "Pitch the writing — Hacker News, r/security, podcast bookings, your personal LinkedIn."
+      ],
+      "qualifications": [
+        "Current undergraduate in journalism, communications, English, CS, marketing, or any major you can pair with a real writing track record.",
+        "A portfolio: campus paper, personal blog, Substack, college lit-mag, anything.",
+        "Taste. You know what good copy looks like and won't ship anything that isn't.",
+        "Comfortable interviewing a senior engineer or CISO without flinching."
+      ],
+      "nicetohave": [
+        "Previous editorial, journalism, or content-marketing internship.",
+        "Worked with privacy, security, AI, or developer-tools content specifically.",
+        "Comfortable on camera — video and podcast experiments live in this seat."
+      ]
+    }
+  ]
+}

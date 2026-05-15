@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PrivacyPal Max — Privacy Agents for AI-native teams</title>
+<meta name="description" content="PrivacyPal Max is everything in Pro, plus on-device Privacy Agents, organization-wide AI controls, Private MCP and on-device DSPM. Built for AI-native cultures operating at agentic scale.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
+<!-- social-share-meta:start -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/privacypal-max.html" />
+<meta property="og:title" content="PrivacyPal Max — Privacy Agents for AI-native teams" />
+<meta property="og:description" content="Everything in Pro, plus on-device Privacy Agents, organization-wide AI controls, Private MCP and on-device DSPM. For AI-native cultures operating at agentic scale." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PrivacyPal Max — Privacy Agents for AI-native teams" />
+<meta name="twitter:description" content="Everything in Pro, plus on-device Privacy Agents, organization-wide AI controls, Private MCP and on-device DSPM." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<!-- social-share-meta:end -->
+<style>
+  /* ========= MAX HERO ========= */
+  .max-hero{
+    position:relative; padding:200px 28px 120px;
+    background:
+      radial-gradient(1000px 600px at 80% 20%, rgba(94,164,224,.28), transparent 55%),
+      radial-gradient(700px 500px at 10% 90%, rgba(233,164,88,.16), transparent 60%),
+      linear-gradient(160deg,#0a1020 0%, #14223a 60%, #0b1220 100%);
+    color:#fff; overflow:hidden;
+  }
+  .max-hero::before{
+    content:""; position:absolute; inset:0; opacity:.45; z-index:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse at top right, #000 25%, transparent 75%);
+  }
+  .max-hero .container{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto}
+  .max-hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center}
+  .max-eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:6px 14px; border-radius:999px;
+    background:linear-gradient(90deg, rgba(94,164,224,.18), rgba(233,164,88,.14));
+    border:1px solid rgba(94,164,224,.32);
+    font-family:var(--mono); font-size:.7rem; font-weight:600;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--cobalt-glow);
+  }
+  .max-eyebrow::before{
+    content:""; width:8px; height:8px; border-radius:999px;
+    background:var(--cobalt-glow); box-shadow:0 0 12px var(--cobalt-glow);
+    animation:maxPulse 2.2s ease-in-out infinite;
+  }
+  @keyframes maxPulse{50%{opacity:.4; box-shadow:0 0 4px var(--cobalt-glow)}}
+  .max-hero h1{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(2.8rem,6.5vw,5.5rem); line-height:1; letter-spacing:-.025em;
+    margin:24px 0 22px; color:#fff;
+  }
+  .max-hero h1 em{
+    font-style:italic;
+    background:linear-gradient(95deg, var(--cobalt-glow) 0%, #c7e2ff 35%, var(--amber-soft) 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .max-hero .lede{color:rgba(255,255,255,.78); font-size:1.18rem; max-width:60ch}
+  .max-hero .lede b{color:#fff}
+  .max-hero .cta-row{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap}
+  .max-hero .btn-light{background:#fff; color:var(--ink); font-weight:700}
+  .max-hero .btn-light:hover{background:var(--cobalt-glow); transform:translateY(-1px)}
+  .max-hero .btn-outline-light{background:rgba(255,255,255,.04); color:#fff; border-color:rgba(255,255,255,.35); backdrop-filter:blur(8px)}
+  .max-hero .price-strip{
+    display:flex; gap:24px; flex-wrap:wrap; align-items:center;
+    margin-top:36px; padding-top:24px; border-top:1px solid rgba(255,255,255,.12);
+    font-family:var(--mono); font-size:.78rem; color:rgba(255,255,255,.6); letter-spacing:.08em;
+  }
+  .max-hero .price-strip b{font-family:var(--serif); font-size:1.15rem; font-weight:700; color:#fff; letter-spacing:0; margin-right:6px}
+
+  /* Hero visual: orbital agents */
+  .agent-orbit{
+    position:relative; aspect-ratio:1/1; min-height:480px;
+    border-radius:28px;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(94,164,224,.18), transparent 65%),
+      linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.08);
+    overflow:hidden;
+  }
+  .agent-orbit::before, .agent-orbit::after{
+    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    border:1px dashed rgba(94,164,224,.2);
+    margin:14%;
+    animation:orbitSpin 38s linear infinite;
+  }
+  .agent-orbit::after{margin:28%; animation-duration:24s; animation-direction:reverse; border-color:rgba(233,164,88,.18)}
+  @keyframes orbitSpin{to{transform:rotate(360deg)}}
+  .agent-core{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:140px; height:140px; border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 30%, rgba(255,255,255,.4), transparent 50%),
+      linear-gradient(140deg, var(--cobalt-bright), var(--cobalt-deep));
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.18) inset,
+      0 0 60px rgba(94,164,224,.45),
+      0 28px 60px -20px rgba(0,0,0,.55);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-weight:700; font-size:1.4rem; color:#fff; text-align:center; line-height:1.1;
+  }
+  .agent-core small{display:block; font-family:var(--mono); font-size:.6rem; font-weight:500; letter-spacing:.18em; opacity:.7; margin-top:4px; text-transform:uppercase}
+  .agent-node{
+    position:absolute; padding:10px 14px;
+    background:rgba(11,18,32,.78); border:1px solid rgba(94,164,224,.3);
+    border-radius:999px; color:#fff; font-family:var(--mono); font-size:.72rem;
+    letter-spacing:.06em; backdrop-filter:blur(8px);
+    box-shadow:0 14px 36px -12px rgba(0,0,0,.5);
+    display:inline-flex; align-items:center; gap:8px; white-space:nowrap;
+  }
+  .agent-node::before{
+    content:""; width:8px; height:8px; border-radius:999px;
+    background:var(--cobalt-glow); box-shadow:0 0 10px var(--cobalt-glow);
+  }
+  .agent-node.amber::before{background:var(--amber); box-shadow:0 0 10px var(--amber)}
+  .agent-node.n1{top:10%; left:14%}
+  .agent-node.n2{top:18%; right:8%}
+  .agent-node.n3{bottom:18%; left:6%}
+  .agent-node.n4{bottom:10%; right:14%}
+  .agent-node.n5{top:50%; right:-2%; transform:translateY(-50%)}
+  .agent-node.n6{top:50%; left:-2%; transform:translateY(-50%)}
+
+  /* ========= COMPARE STRIP ========= */
+  .max-compare-strip{
+    position:relative; padding:36px 28px; margin-top:-1px;
+    background:linear-gradient(180deg, #0b1220 0%, var(--ink) 100%);
+    color:#fff;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .max-compare-strip .row{
+    max-width:var(--maxw); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  .max-compare-strip .label{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:rgba(255,255,255,.55);
+  }
+  .max-compare-strip .pills{display:flex; gap:10px; flex-wrap:wrap}
+  .max-compare-strip .pill{
+    padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.04); font-size:.85rem; color:rgba(255,255,255,.85);
+    font-family:var(--mono); letter-spacing:.04em;
+  }
+  .max-compare-strip .pill svg{display:inline-block; width:14px; height:14px; vertical-align:-2px; margin-right:6px; color:var(--cobalt-glow)}
+
+  /* ========= ATMOSPHERIC SECTIONS (dark + translucent) ========= */
+  /* override flat dark fill so translucent cards have depth to sit on */
+  body.nav-on-dark .section.section-atmo{
+    background:
+      radial-gradient(900px 600px at 85% 0%, rgba(94,164,224,.14), transparent 55%),
+      radial-gradient(700px 500px at 0% 100%, rgba(233,164,88,.08), transparent 60%),
+      linear-gradient(170deg, #0a1020 0%, #11192c 55%, #0a1020 100%);
+    position:relative; overflow:hidden;
+  }
+  body.nav-on-dark .section.section-atmo::before{
+    content:""; position:absolute; inset:0; opacity:.35; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse at center, #000 25%, transparent 80%);
+  }
+  body.nav-on-dark .section.section-atmo .container{position:relative; z-index:1}
+  body.nav-on-dark .section.section-atmo .lede{color:rgba(255,255,255,.74)}
+
+  /* warmer atmospheric for the section-alt (day in the life) */
+  body.nav-on-dark .section-alt.section-atmo{
+    background:
+      radial-gradient(800px 500px at 15% 10%, rgba(94,164,224,.10), transparent 55%),
+      radial-gradient(700px 500px at 95% 90%, rgba(233,164,88,.10), transparent 60%),
+      linear-gradient(180deg, #0d1426 0%, #11192c 100%);
+  }
+
+  /* ========= PILLAR CARDS (4 features) ========= */
+  .pillar-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:56px;
+  }
+  .pillar-card{
+    position:relative; padding:38px 34px;
+    border-radius:20px;
+    background:linear-gradient(160deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+    border:1px solid rgba(255,255,255,.09);
+    backdrop-filter:blur(14px) saturate(120%);
+    -webkit-backdrop-filter:blur(14px) saturate(120%);
+    overflow:hidden;
+    transition:transform .35s ease, border-color .35s ease, background .35s ease, box-shadow .35s ease;
+  }
+  .pillar-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(94,164,224,.45);
+    background:linear-gradient(160deg, rgba(94,164,224,.10), rgba(255,255,255,.015));
+    box-shadow:0 28px 60px -28px rgba(0,0,0,.6);
+  }
+  .pillar-card .num{
+    font-family:var(--mono); font-size:.7rem; font-weight:600;
+    letter-spacing:.22em; text-transform:uppercase;
+    color:var(--cobalt-glow); margin-bottom:20px;
+    display:inline-flex; align-items:center; gap:10px;
+  }
+  .pillar-card .num::before{
+    content:""; width:24px; height:1px; background:currentColor; opacity:.5;
+  }
+  .pillar-card h3{
+    font-family:var(--serif); font-size:1.72rem; font-weight:700;
+    line-height:1.12; letter-spacing:-.015em;
+    color:#fff; margin-bottom:14px;
+  }
+  .pillar-card p{
+    color:rgba(255,255,255,.74); font-size:1rem; line-height:1.7;
+    font-feature-settings:"ss01","ss02","cv11";
+  }
+  .pillar-card .corner{
+    position:absolute; top:-40px; right:-40px; width:200px; height:200px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(94,164,224,.22), transparent 70%);
+    pointer-events:none; opacity:.7;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .pillar-card:hover .corner{opacity:1; transform:translate(-6px,6px) scale(1.08)}
+
+  /* ========= AGENTS SHOWCASE (the marquee section) ========= */
+  .agents-showcase{
+    position:relative; padding:140px 28px;
+    background:
+      radial-gradient(900px 600px at 80% 0%, rgba(94,164,224,.18), transparent 55%),
+      radial-gradient(700px 500px at 0% 100%, rgba(233,164,88,.10), transparent 60%),
+      linear-gradient(170deg, #0a1020 0%, #14223a 55%, #0b1220 100%);
+    color:#fff; overflow:hidden;
+  }
+  .agents-showcase::before{
+    content:""; position:absolute; inset:0; opacity:.4;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  }
+  .agents-showcase .container{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto}
+  .agents-showcase h2{
+    font-family:var(--serif); font-weight:700; color:#fff;
+    font-size:clamp(2.2rem, 4.5vw, 3.75rem); line-height:1.05; letter-spacing:-.02em;
+  }
+  .agents-showcase h2 em{font-style:italic; color:var(--cobalt-glow)}
+  .agents-showcase .eyebrow{color:var(--cobalt-glow)}
+  .agents-showcase .lede{color:rgba(255,255,255,.74); margin-top:20px}
+
+  .agent-cards{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:64px;
+  }
+  .agent-card{
+    position:relative; padding:34px 30px;
+    border-radius:18px;
+    background:linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    transition:transform .3s, border-color .3s, background .3s;
+  }
+  .agent-card:hover{transform:translateY(-3px); border-color:var(--cobalt-glow); background:linear-gradient(160deg, rgba(94,164,224,.10), rgba(255,255,255,.02))}
+  .agent-card .glyph{
+    width:48px; height:48px; border-radius:12px;
+    background:linear-gradient(135deg, rgba(94,164,224,.25), rgba(94,164,224,.08));
+    border:1px solid rgba(94,164,224,.3);
+    display:flex; align-items:center; justify-content:center; color:var(--cobalt-glow);
+    margin-bottom:18px;
+  }
+  .agent-card .glyph svg{width:24px; height:24px}
+  .agent-card .tag{
+    display:inline-block; font-family:var(--mono); font-size:.66rem;
+    letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.55);
+    margin-bottom:10px;
+  }
+  .agent-card h4{
+    font-family:var(--serif); font-size:1.4rem; font-weight:700;
+    color:#fff; line-height:1.15; margin-bottom:12px;
+  }
+  .agent-card p{color:rgba(255,255,255,.72); font-size:.97rem; line-height:1.65}
+
+  /* customize/marketplace cta inside dark section */
+  .agents-cta{
+    margin-top:64px; padding:40px 36px; border-radius:22px;
+    background:linear-gradient(110deg, rgba(94,164,224,.16), rgba(233,164,88,.12));
+    border:1px solid rgba(255,255,255,.12);
+    display:flex; align-items:center; gap:32px; flex-wrap:wrap;
+  }
+  .agents-cta .blurb{flex:1; min-width:260px}
+  .agents-cta h3{font-family:var(--serif); font-size:1.55rem; font-weight:700; color:#fff; line-height:1.15; margin-bottom:8px}
+  .agents-cta p{color:rgba(255,255,255,.78); line-height:1.6}
+  .agents-cta .providers{
+    display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+    font-family:var(--mono); font-size:.78rem; color:rgba(255,255,255,.65); letter-spacing:.06em;
+  }
+  .agents-cta .providers span{padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12)}
+
+  /* ========= UCASES on Max page (override sub.css white) ========= */
+  body.nav-on-dark .ucases{margin-top:56px}
+  body.nav-on-dark .ucase{
+    background:linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:16px; padding:28px 30px;
+    backdrop-filter:blur(14px) saturate(120%);
+    -webkit-backdrop-filter:blur(14px) saturate(120%);
+    transition:border-color .3s ease, background .3s ease, transform .3s ease;
+  }
+  body.nav-on-dark .ucase:hover{
+    border-color:rgba(94,164,224,.35);
+    background:linear-gradient(160deg, rgba(94,164,224,.08), rgba(255,255,255,.015));
+    transform:translateY(-2px);
+  }
+  body.nav-on-dark .ucase .n{
+    color:var(--cobalt-glow); font-family:var(--mono); font-size:.82rem;
+    font-weight:600; letter-spacing:.06em;
+  }
+  body.nav-on-dark .ucase h4{
+    font-family:var(--serif); font-size:1.12rem; font-weight:700;
+    color:#fff; line-height:1.25; margin-bottom:8px; letter-spacing:-.005em;
+  }
+  body.nav-on-dark .ucase p{color:rgba(255,255,255,.7); font-size:.95rem; line-height:1.65}
+
+  /* ========= MAX vs PRO COMPARE (translucent) ========= */
+  .max-compare{
+    max-width:980px; margin:64px auto 0;
+    background:linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px; overflow:hidden;
+    backdrop-filter:blur(16px) saturate(125%);
+    -webkit-backdrop-filter:blur(16px) saturate(125%);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.55);
+  }
+  .max-compare table{width:100%; border-collapse:collapse}
+  .max-compare th, .max-compare td{
+    padding:22px 30px; text-align:left;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    font-size:.96rem; color:rgba(255,255,255,.82);
+  }
+  .max-compare thead th{
+    background:rgba(255,255,255,.04);
+    font-family:var(--mono); font-size:.72rem; font-weight:600;
+    letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(255,255,255,.55);
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .max-compare thead th.max-col{
+    background:linear-gradient(135deg, rgba(94,164,224,.22), rgba(233,164,88,.12));
+    color:#fff;
+    position:relative;
+    border-bottom-color:rgba(94,164,224,.35);
+  }
+  .max-compare thead th.max-col::after{
+    content:"Max"; display:block;
+    font-family:var(--serif); font-size:1.18rem; font-weight:700;
+    text-transform:none; letter-spacing:-.015em;
+    color:#fff; margin-top:2px;
+  }
+  .max-compare thead th.max-col span{display:none}
+  .max-compare td{vertical-align:top}
+  .max-compare td:first-child{
+    font-family:var(--serif); font-weight:600;
+    color:#fff; font-size:1rem; letter-spacing:-.005em;
+  }
+  .max-compare td:first-child small{
+    display:block; font-family:var(--sans); font-weight:400;
+    color:rgba(255,255,255,.5); font-size:.84rem; margin-top:4px;
+    letter-spacing:0;
+  }
+  .max-compare td.pro{color:var(--cobalt-glow); font-weight:600; font-family:var(--mono); font-size:.85rem; letter-spacing:.04em}
+  .max-compare td.max{
+    background:rgba(94,164,224,.08);
+    color:#fff; font-weight:600;
+    font-family:var(--mono); font-size:.85rem; letter-spacing:.04em;
+    box-shadow:inset 1px 0 0 rgba(94,164,224,.18), inset -1px 0 0 rgba(94,164,224,.18);
+  }
+  .max-compare td.dash{color:rgba(255,255,255,.3); font-family:var(--mono); font-size:1.1rem}
+  .max-compare tbody tr:hover{background:rgba(255,255,255,.025)}
+  .max-compare tr:last-child td{border-bottom:0}
+  .max-compare tfoot td{
+    background:rgba(255,255,255,.04);
+    font-family:var(--mono); font-size:.78rem;
+    color:rgba(255,255,255,.65); letter-spacing:.04em;
+    border-top:1px solid rgba(255,255,255,.12);
+    border-bottom:0;
+  }
+  .max-compare tfoot td b{
+    color:#fff; font-family:var(--serif); font-size:1.05rem;
+    font-weight:700; letter-spacing:0; margin-right:4px;
+  }
+  .max-compare tfoot td.max b{
+    background:linear-gradient(95deg, var(--cobalt-glow), var(--amber-soft));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+
+  /* ========= MAX FINAL CTA ========= */
+  .max-final{
+    position:relative; padding:140px 28px;
+    background:
+      radial-gradient(900px 600px at 50% 0%, rgba(94,164,224,.25), transparent 55%),
+      radial-gradient(700px 500px at 50% 100%, rgba(233,164,88,.16), transparent 60%),
+      linear-gradient(180deg, #0a1020 0%, #14223a 50%, #0a1020 100%);
+    color:#fff; overflow:hidden; text-align:center;
+  }
+  .max-final::before{
+    content:""; position:absolute; inset:0; opacity:.45;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  }
+  .max-final > *{position:relative; z-index:1}
+  .max-final h2{
+    font-family:var(--serif); font-weight:700; color:#fff;
+    font-size:clamp(2.4rem,5.5vw,4.6rem); line-height:1.02; letter-spacing:-.02em;
+    max-width:22ch; margin:0 auto 22px;
+  }
+  .max-final h2 em{
+    font-style:italic;
+    background:linear-gradient(95deg, var(--cobalt-glow), var(--amber-soft));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .max-final p{color:rgba(255,255,255,.78); max-width:54ch; margin:0 auto 36px; font-size:1.1rem}
+  .max-final .btn-light{background:#fff; color:var(--ink); font-weight:700}
+  .max-final .btn-light:hover{background:var(--cobalt-glow)}
+  .max-final .btn-outline-light{color:#fff; border-color:rgba(255,255,255,.35)}
+  .max-final .pro-link{
+    display:block; margin-top:32px; font-family:var(--mono); font-size:.78rem;
+    letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55);
+  }
+  .max-final .pro-link a{color:var(--cobalt-glow); text-decoration:none; border-bottom:1px solid rgba(94,164,224,.35); padding-bottom:1px}
+  .max-final .pro-link a:hover{color:#fff; border-color:#fff}
+
+  @media (max-width:900px){
+    .max-hero{padding:140px 20px 80px}
+    .max-hero-grid{grid-template-columns:1fr; gap:48px}
+    .agent-orbit{min-height:380px}
+    .pillar-grid, .agent-cards{grid-template-columns:1fr}
+    .max-compare th, .max-compare td{padding:16px 18px; font-size:.9rem}
+    .agents-showcase{padding:96px 20px}
+    .max-final{padding:96px 20px}
+  }
+</style>
+</head><body class="nav-on-dark">
+<div id="site-nav-slot"></div>
+
+<!-- ============== HERO ============== -->
+<section class="max-hero">
+  <div class="container">
+    <div class="max-hero-grid">
+      <div class="reveal in">
+        <span class="max-eyebrow">PrivacyPal Max · Privacy Agents</span>
+        <h1>AI at the <em>edge</em> of what's possible — protected by agents of your own.</h1>
+        <p class="lede">PrivacyPal Max is for the teams running ahead. The ones shipping <b>agentic workflows</b>, wiring up MCP, and giving every employee a copilot. Max gives you back the controls — on every prompt, every agent, every model — and pairs them with a swarm of on-device Privacy Agents that think alongside you.</p>
+        <div class="cta-row">
+          <a class="btn btn-light" href="#" data-cta="demo">Talk to us about Max</a>
+          <a class="btn btn-outline-light" href="#pillars">See what's inside →</a>
+        </div>
+        <div class="price-strip">
+          <span><b>$50</b>per seat / month</span>
+          <span><b>$500</b>per seat / year</span>
+          <span>Includes everything in Pro</span>
+        </div>
+      </div>
+
+      <div class="reveal in">
+        <div class="agent-orbit" role="img" aria-label="Privacy Agents orbiting the PrivacyPal core">
+          <div class="agent-core">Max<small>Privacy Core</small></div>
+          <div class="agent-node n1">Intent Detection</div>
+          <div class="agent-node n2 amber">Prompt Injection Guard</div>
+          <div class="agent-node n3">Legal Enrichment</div>
+          <div class="agent-node n4 amber">Financial Enrichment</div>
+          <div class="agent-node n5">Marketplace Agent</div>
+          <div class="agent-node n6">Custom Agent</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== COMPARE STRIP ============== -->
+<section class="max-compare-strip">
+  <div class="row">
+    <span class="label">Everything in Pro, plus</span>
+    <div class="pills">
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12l5 5L20 6"/></svg>Organization AI controls</span>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12l5 5L20 6"/></svg>Private MCP</span>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12l5 5L20 6"/></svg>On-device DSPM</span>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12l5 5L20 6"/></svg>Privacy Agents</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOUR PILLARS ============== -->
+<section class="section section-atmo" id="pillars">
+  <div class="container">
+    <div class="reveal" style="max-width:680px">
+      <span class="eyebrow">What's in Max</span>
+      <h2 class="display display-md" style="margin-top:18px">Four pillars built for the agentic era.</h2>
+      <p class="lede" style="margin-top:18px">Max keeps everything you love about Pro — Privacy Twins, connectors, SSO, audit — then adds four things only the leading edge needs.</p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar-card reveal reveal-delay-1">
+        <div class="corner"></div>
+        <div class="num">01 · Org-wide controls</div>
+        <h3>Govern every AI interaction in your company.</h3>
+        <p>Block models, gate access behind training paths or certifications, intercept and steer prompts, redact at the wire. Define what your employees can do with AI — and prove it to your auditors with one click.</p>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-1">
+        <div class="corner"></div>
+        <div class="num">02 · Private MCP</div>
+        <h3>Your own Model Context Protocol — on your terms.</h3>
+        <p>Run a Private MCP that lets your team's agents reach internal tools, data and APIs without those connections leaking back to a public host. Your context. Your tools. Your control plane.</p>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-2">
+        <div class="corner"></div>
+        <div class="num">03 · On-device DSPM</div>
+        <h3>Data Security Posture Management, on the endpoint.</h3>
+        <p>Every device becomes its own DSPM sensor. Discover, classify and continuously monitor sensitive data where it actually lives — on your team's laptops — without a single byte phoning home.</p>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-2">
+        <div class="corner"></div>
+        <div class="num">04 · Privacy Agents</div>
+        <h3>Autonomous agents that think alongside the platform.</h3>
+        <p>Max's headline. A swarm of on-device agents augmenting PrivacyPal with intelligent detection, analysis and decision-making — across Claude, ChatGPT, Gemini, Copilot and anything you wire up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AGENTS DEEP DIVE ============== -->
+<section class="agents-showcase">
+  <div class="container">
+    <div class="reveal" style="max-width:720px">
+      <span class="eyebrow">The main event</span>
+      <h2 style="margin-top:18px">Meet your <em>Privacy Agents</em>.</h2>
+      <p class="lede">On-device, autonomous, and purpose-built to reason about privacy, intent and risk — in real time, across every AI your team touches. Mix the agents we ship, the agents you build, and agents from the marketplace.</p>
+    </div>
+
+    <div class="agent-cards">
+      <div class="agent-card reveal reveal-delay-1">
+        <div class="glyph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+        </div>
+        <span class="tag">Detection & Authorization</span>
+        <h4>Agent & prompt intent detection.</h4>
+        <p>Understand what an agent is actually trying to do before it does it. Authorize, alert or quietly redact based on intent — not just keywords.</p>
+      </div>
+
+      <div class="agent-card reveal reveal-delay-1">
+        <div class="glyph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <span class="tag">Adversarial defense</span>
+        <h4>Prompt injection prevention.</h4>
+        <p>Catch jailbreaks, tool-call hijacks and exfiltration patterns at the endpoint. The agent reasons about adversarial intent so your humans don't have to.</p>
+      </div>
+
+      <div class="agent-card reveal reveal-delay-2">
+        <div class="glyph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h18M3 12h18M3 20h18"/><circle cx="6" cy="4" r="1.4" fill="currentColor"/><circle cx="14" cy="12" r="1.4" fill="currentColor"/><circle cx="10" cy="20" r="1.4" fill="currentColor"/></svg>
+        </div>
+        <span class="tag">Vertical enrichment</span>
+        <h4>Legal, Financial &amp; domain agents.</h4>
+        <p>Drop in a Legal Agent that knows privilege, or a Financial Agent that knows MNPI. Agents bring vertical intelligence to every interaction — without retraining a model.</p>
+      </div>
+
+      <div class="agent-card reveal reveal-delay-2">
+        <div class="glyph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
+        </div>
+        <span class="tag">Build &amp; marketplace</span>
+        <h4>Bring your own — or pick from the shelf.</h4>
+        <p>Customize and ship your own agents, or enable privacy, security and AI agents from the marketplace. Enrich any AI conversation across Claude, ChatGPT, Gemini, Copilot and more.</p>
+      </div>
+    </div>
+
+    <div class="agents-cta reveal">
+      <div class="blurb">
+        <h3>Agents that travel with you to every model.</h3>
+        <p>Privacy Agents run on the device — so the same protections apply whether your team is in Claude, ChatGPT, Gemini, Copilot or a custom stack.</p>
+      </div>
+      <div class="providers">
+        <span>Claude</span><span>ChatGPT</span><span>Gemini</span><span>Copilot</span><span>+ any LLM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HOW IT FEELS ============== -->
+<section class="section section-alt section-atmo">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Day in the life</span>
+      <h2 class="display display-md" style="margin-top:18px">What Max looks like in practice.</h2>
+    </div>
+    <div class="ucases">
+      <div class="ucase reveal reveal-delay-1"><div class="n">01</div><div><h4>Your sales engineer pastes a customer architecture into Claude.</h4><p>Intent Detection recognizes the workflow, the Legal Agent flags an NDA clause, and the Privacy Twin scrubs vendor names — all before the request leaves the laptop.</p></div></div>
+      <div class="ucase reveal reveal-delay-1"><div class="n">02</div><div><h4>An autonomous agent tries to read the CRM.</h4><p>Org-wide controls require the agent's caller to be in the "client-facing" training cohort. Not enrolled? The request is blocked, the user is nudged to the training, and audit fires.</p></div></div>
+      <div class="ucase reveal reveal-delay-2"><div class="n">03</div><div><h4>A prompt arrives with a hidden instruction in a PDF.</h4><p>Prompt Injection Prevention catches it on-device, quarantines the file, and lets the user continue their actual task. Your incident channel gets a one-line note instead of an outage.</p></div></div>
+      <div class="ucase reveal reveal-delay-2"><div class="n">04</div><div><h4>Finance wires up a Private MCP for the GL.</h4><p>Engineers, analysts and a custom Financial Agent all share the same internal context — without that context ever leaving the org. Same fluency. Zero exfiltration.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== COMPARE PRO vs MAX ============== -->
+<section class="section section-atmo">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Pro vs Max</span>
+      <h2 class="display display-md" style="margin-top:18px">Pick the one that matches your AI ambition.</h2>
+      <p class="lede" style="margin:18px auto 0">Max is a strict superset of Pro. If you're still rolling out copilots, start with <a href="privacypal-pro.html" style="color:var(--cobalt-glow); text-decoration:none; border-bottom:1px solid rgba(94,164,224,.4)">Pro</a>. If your roadmap already says "agentic," start with Max.</p>
+    </div>
+
+    <div class="max-compare reveal">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:42%">Capability</th>
+            <th>Pro · <span>$18/mo</span></th>
+            <th class="max-col"><span>$50/mo</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Privacy Twins on-device</td><td class="pro">Included</td><td class="max">Included</td></tr>
+          <tr><td>Connectors (CRM, Drive, Slack, SQL)</td><td class="pro">Included</td><td class="max">Included</td></tr>
+          <tr><td>Team policies, SSO, SCIM, audit</td><td class="pro">Included</td><td class="max">Included</td></tr>
+          <tr><td>Organization AI controls<small>Block, require training paths, certify, intercept</small></td><td class="dash">—</td><td class="max">Max only</td></tr>
+          <tr><td>Private MCP</td><td class="dash">—</td><td class="max">Max only</td></tr>
+          <tr><td>On-device DSPM</td><td class="dash">—</td><td class="max">Max only</td></tr>
+          <tr><td>Privacy Agents (intent, injection, vertical, custom)</td><td class="dash">—</td><td class="max">Max only</td></tr>
+          <tr><td>Agent marketplace</td><td class="dash">—</td><td class="max">Max only</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Pricing</td>
+            <td><b>$18</b>/mo · <b>$180</b>/yr</td>
+            <td><b>$50</b>/mo · <b>$500</b>/yr</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="max-final">
+  <div class="reveal">
+    <h2>For teams who refuse to slow down to stay <em>safe</em>.</h2>
+    <p>If your culture is AI-native, your roadmap is agentic, and your competitive edge is speed — Max was built for you. Let's show you what it looks like inside.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-light" href="#" data-cta="demo">Talk to us about Max</a>
+      <a class="btn btn-outline-light" href="#" data-cta="download">Start with Pro today</a>
+    </div>
+    <span class="pro-link">Not at agentic scale yet? <a href="privacypal-pro.html">Start with PrivacyPal Pro →</a></span>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+<script src="assets/site.js"></script>
+</body></html>
