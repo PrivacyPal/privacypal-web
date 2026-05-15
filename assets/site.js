@@ -12,6 +12,7 @@
           <span>Products</span>
           <div class="dropdown-menu">
             <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>For SME teams, firms & agencies</small></a>
+            <a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Privacy Agents for AI-native teams</small></a>
             <a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for your infra</small></a>
           </div>
         </div>
@@ -30,6 +31,7 @@
           <div class="dropdown-menu">
             <a href="about.html"><b>About</b><small>Our story & mission</small></a>
             <a href="team.html"><b>Team</b><small>The people behind PrivacyPal</small></a>
+            <a href="careers.html"><b>Careers</b><small>We're hiring — join us</small></a>
           </div>
         </div>
         <a class="nav-link" href="index.html#pricing">Pricing</a>
@@ -42,10 +44,12 @@
   </nav>
   <div class="mobile-menu" id="mmenu">
     <a href="privacypal-pro.html">PrivacyPal Pro</a>
+    <a href="privacypal-max.html">PrivacyPal Max</a>
     <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
     <a href="banking.html">Solutions</a>
     <a href="about.html">About</a>
     <a href="team.html">Team</a>
+    <a href="careers.html">Careers</a>
     <a href="index.html#pricing">Pricing</a>
     <a href="developers.html">Developers</a>
     <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
@@ -63,6 +67,7 @@
         <div class="footer-col">
           <h5>Products</h5>
           <a href="privacypal-pro.html">PrivacyPal Pro</a>
+          <a href="privacypal-max.html">PrivacyPal Max</a>
           <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
           <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a>
         </div>
@@ -78,6 +83,7 @@
           <h5>Company</h5>
           <a href="about.html">About</a>
           <a href="team.html">Team</a>
+          <a href="careers.html">Careers</a>
           <a href="index.html#pricing">Pricing</a>
           <a href="mailto:hello@privacypal.ai">Contact</a>
         </div>

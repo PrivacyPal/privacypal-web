@@ -215,6 +215,10 @@
   .prod-card.cloud{--grad:linear-gradient(90deg,#1a3a5a,#4a86c2); --chip-bg:rgba(11,18,32,.08)}
   .prod-card.cloud .tag{color:var(--ink)}
   .prod-card.cloud .illus{background:rgba(11,18,32,.07); color:var(--ink)}
+  .prod-card.max{--grad:linear-gradient(95deg,var(--cobalt-glow) 0%,#c7e2ff 45%,var(--amber-soft) 100%); --chip-bg:rgba(94,164,224,.12)}
+  .prod-card.max .tag{color:var(--cobalt-bright)}
+  .prod-card.max .illus{background:linear-gradient(135deg,rgba(94,164,224,.18),rgba(244,213,166,.22)); color:var(--cobalt-bright)}
+  .prod-card.max li::before{background:var(--cobalt-bright)}
 
   /* ========= HOW IT WORKS (horizontal) ========= */
   .flow{
@@ -280,12 +284,13 @@
 
   /* ========= PRICING ========= */
   .pricing-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:40px;
   }
   .price-card{
     background:#fff; border:1px solid var(--border); border-radius:20px;
     padding:36px 32px 32px; display:flex; flex-direction:column;
     transition:border-color .3s, box-shadow .3s, transform .3s;
+    position:relative;
   }
   .price-card:hover{border-color:var(--cobalt); box-shadow:var(--shadow-md); transform:translateY(-4px)}
   .price-card.feat{background:var(--ink); color:#fff; border-color:var(--ink)}
@@ -293,12 +298,58 @@
   .price-card.feat .price-amt small{color:rgba(255,255,255,.6)}
   .price-card.feat li{color:rgba(255,255,255,.85)}
   .price-card.feat li::before{color:var(--cobalt-glow)}
+  .price-card.max-card{
+    background:
+      radial-gradient(700px 400px at 110% -10%, rgba(94,164,224,.22), transparent 55%),
+      radial-gradient(500px 300px at -10% 110%, rgba(233,164,88,.16), transparent 60%),
+      linear-gradient(160deg,#0b1220 0%, #1a2a44 100%);
+    color:#fff; border-color:transparent;
+    box-shadow:0 24px 60px -20px rgba(15,23,42,.55), inset 0 0 0 1px rgba(94,164,224,.25);
+    overflow:hidden;
+  }
+  .price-card.max-card::before{
+    content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+    background:linear-gradient(135deg, rgba(94,164,224,.6), transparent 35%, transparent 65%, rgba(233,164,88,.45));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    padding:1px; opacity:.7;
+  }
+  .price-card.max-card::after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.45;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse at top right, #000 30%, transparent 75%);
+  }
+  .price-card.max-card > *{position:relative; z-index:1}
+  .price-card.max-card .price-name{color:#fff; background:linear-gradient(90deg,#fff 0%,#5ea4e0 60%,#e9a458 110%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .price-card.max-card .price-tagline{color:rgba(255,255,255,.72)}
+  .price-card.max-card .price-amt small{color:rgba(255,255,255,.6)}
+  .price-card.max-card li{color:rgba(255,255,255,.88)}
+  .price-card.max-card li::before{color:var(--cobalt-glow)}
+  .price-card.max-card .price-badge{background:linear-gradient(90deg, var(--cobalt-glow), var(--amber)); color:var(--ink)}
+  .price-card.max-card .btn-cobalt{background:#fff; color:var(--ink)}
+  .price-card.max-card .btn-cobalt:hover{background:var(--cobalt-glow); color:var(--ink)}
   .price-name{font-family:var(--serif); font-size:1.75rem; font-weight:700; color:var(--ink)}
   .price-tagline{font-size:.92rem; color:var(--text-muted); margin-top:6px}
-  .price-amt{margin:28px 0 20px}
+  .price-amt{margin:24px 0 8px; display:flex; align-items:baseline; flex-wrap:wrap; gap:6px}
   .price-amt .big{font-family:var(--serif); font-size:3rem; font-weight:700; line-height:1}
-  .price-amt small{font-size:.92rem; color:var(--text-muted); margin-left:6px}
-  .price-card ul{list-style:none; padding:0; margin:20px 0 32px; display:flex; flex-direction:column; gap:12px}
+  .price-amt small{font-size:.92rem; color:var(--text-muted)}
+  .price-amt .annual-save{
+    display:inline-block; margin-left:6px; font-family:var(--mono);
+    font-size:.66rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ok); background:rgba(47,158,107,.12); padding:3px 8px; border-radius:999px;
+  }
+  .price-card.max-card .annual-save{color:var(--cobalt-glow); background:rgba(94,164,224,.16)}
+  .price-amt[data-billing]{position:relative}
+  .price-amt .billing-note{
+    font-family:var(--mono); font-size:.7rem; color:var(--text-soft);
+    letter-spacing:.06em; margin-top:6px; flex-basis:100%;
+  }
+  .price-card.feat .billing-note,
+  .price-card.max-card .billing-note{color:rgba(255,255,255,.55)}
+  .price-card ul{list-style:none; padding:0; margin:18px 0 32px; display:flex; flex-direction:column; gap:12px}
   .price-card li{font-size:.93rem; padding-left:26px; position:relative; line-height:1.5}
   .price-card li::before{content:"✓"; position:absolute; left:0; color:var(--cobalt); font-weight:700}
   .price-card .btn{margin-top:auto; justify-content:center}
@@ -308,6 +359,28 @@
     font-family:var(--mono); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
     margin-bottom:14px;
   }
+
+  /* ========= BILLING TOGGLE ========= */
+  .billing-toggle{
+    display:inline-flex; align-items:center; gap:10px; margin-top:32px;
+    padding:6px; border-radius:999px; background:var(--bg-alt);
+    border:1px solid var(--border);
+  }
+  .billing-toggle button{
+    appearance:none; border:0; background:transparent; cursor:pointer;
+    padding:9px 20px; border-radius:999px;
+    font-family:var(--mono); font-size:.72rem; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted);
+    transition:background .25s, color .25s, box-shadow .25s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .billing-toggle button.active{background:#fff; color:var(--ink); box-shadow:var(--shadow-sm)}
+  .billing-toggle .save-tag{
+    display:inline-block; font-family:var(--mono); font-size:.6rem;
+    padding:2px 7px; border-radius:999px; letter-spacing:.06em;
+    background:rgba(47,158,107,.14); color:var(--ok); font-weight:700;
+  }
+  .billing-toggle button.active .save-tag{background:rgba(47,158,107,.18)}
 
   /* ========= PARTNERS ========= */
   .partners{
@@ -804,9 +877,9 @@
 <section class="section">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Two ways to use PrivacyPal</span>
-      <h2 class="display display-lg" style="margin-top:18px; max-width:16ch">One engine. Two homes for it.</h2>
-      <p class="lede" style="margin-top:22px">Pick the PrivacyPal that fits your team. They share the same Privacy Twin engine — what changes is where it runs and who it's built for.</p>
+      <span class="eyebrow">Three ways to use PrivacyPal</span>
+      <h2 class="display display-lg" style="margin-top:18px; max-width:16ch">One engine. Three homes for it.</h2>
+      <p class="lede" style="margin-top:22px">Pick the PrivacyPal that fits your team. They share the same Privacy Twin engine — what changes is where it runs, how far it scales, and who it's built for.</p>
     </div>
 
     <div class="triptych" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:56px">
@@ -822,6 +895,20 @@
           <li>Team policies, audit log, SSO</li>
         </ul>
         <a class="go" href="privacypal-pro.html">Explore Pro →</a>
+      </div>
+
+      <div class="prod-card max reveal reveal-delay-2" style="flex:1;max-width:420px">
+        <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="2 3"/><circle cx="12" cy="4" r="1.4" fill="currentColor"/><circle cx="20" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="20" r="1.4" fill="currentColor"/><circle cx="4" cy="12" r="1.4" fill="currentColor"/></svg></div>
+        <div class="tag">PrivacyPal Max</div>
+        <h3>Max</h3>
+        <div class="for">For AI-native teams running agentic workflows</div>
+        <p>Everything in Pro, plus on-device Privacy Agents that travel with every employee. Built for organizations standardizing on MCP, copilots and autonomous workflows — where governance has to move at agentic speed.</p>
+        <ul>
+          <li>On-device Privacy Agents</li>
+          <li>Org-wide AI governance & Private MCP</li>
+          <li>On-device DSPM across every endpoint</li>
+        </ul>
+        <a class="go" href="privacypal-max.html">Explore Max →</a>
       </div>
 
       <!-- Family/Home hidden until launch -->
@@ -933,9 +1020,14 @@
       <span class="eyebrow" style="justify-content:center">Pricing</span>
       <h2 class="display display-md" style="margin-top:18px">Pay for your people. Not your paranoia.</h2>
       <p class="lede" style="margin:22px auto 0">Cancel anytime. Every plan includes on-device Privacy Twins and every major AI provider.</p>
+
+      <div class="billing-toggle" id="billingToggle" role="tablist" aria-label="Billing period">
+        <button type="button" role="tab" data-billing="monthly" class="active" aria-selected="true">Monthly</button>
+        <button type="button" role="tab" data-billing="annual" aria-selected="false">Annual <span class="save-tag">Save up to 17%</span></button>
+      </div>
     </div>
 
-    <div class="pricing-grid" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:56px">
+    <div class="pricing-grid" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:48px">
       <!-- Family/Home hidden until launch -->
       <div class="price-card reveal reveal-delay-1" style="display:none">
         <div class="price-name">Home</div>
@@ -950,11 +1042,13 @@
         <a class="btn btn-ghost" href="privacypal-home.html">Start free</a>
       </div>
 
-      <div class="price-card feat reveal reveal-delay-2" style="flex:1;max-width:380px">
+      <div class="price-card feat reveal reveal-delay-1" style="flex:1;min-width:280px;max-width:360px">
         <span class="price-badge">Most popular</span>
         <div class="price-name">Pro</div>
         <div class="price-tagline">For teams from 5 to 500.</div>
-        <div class="price-amt"><span class="big">$18</span><small>/mo · per seat</small></div>
+        <div class="price-amt" data-monthly="$18|/mo · per seat" data-annual="$15|/mo · per seat · billed $180/yr" data-annual-save="Save 17%">
+          <span class="big">$18</span><small>/mo · per seat</small>
+        </div>
         <ul>
           <li>CRM, Slack, Notion, SQL connectors</li>
           <li>Team policies & role-based rules</li>
@@ -964,10 +1058,27 @@
         <a class="btn btn-cobalt" href="privacypal-pro.html">Start 5-day trial</a>
       </div>
 
-      <div class="price-card reveal reveal-delay-3" style="flex:1;max-width:380px">
+      <div class="price-card max-card reveal reveal-delay-2" style="flex:1;min-width:280px;max-width:360px">
+        <span class="price-badge">For AI-native teams</span>
+        <div class="price-name">Max</div>
+        <div class="price-tagline">Everything in Pro, plus Privacy Agents.</div>
+        <div class="price-amt" data-monthly="$50|/mo · per seat" data-annual="$41.67|/mo · per seat · billed $500/yr" data-annual-save="Save 17%">
+          <span class="big">$50</span><small>/mo · per seat</small>
+        </div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>On-device Privacy Agents</li>
+          <li>Org-wide AI controls & interception</li>
+          <li>Private MCP &amp; on-device DSPM</li>
+          <li>Agent marketplace access</li>
+        </ul>
+        <a class="btn btn-cobalt" href="privacypal-max.html">Explore Max</a>
+      </div>
+
+      <div class="price-card reveal reveal-delay-3" style="flex:1;min-width:280px;max-width:360px">
         <div class="price-name">Cloud</div>
         <div class="price-tagline">Self-hosted gateway for your infra.</div>
-        <div class="price-amt"><span class="big">Talk</span><small>custom, annual</small></div>
+        <div class="price-amt"><span class="big">Talk</span><small>&nbsp;custom, annual</small></div>
         <ul>
           <li>Self-host on your cloud or on-prem</li>
           <li>OpenAI-compatible API</li>
@@ -979,6 +1090,31 @@
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  const toggle = document.getElementById('billingToggle');
+  if (!toggle) return;
+  const buttons = toggle.querySelectorAll('button[data-billing]');
+  const amounts = document.querySelectorAll('.price-amt[data-monthly]');
+  function setBilling(mode){
+    buttons.forEach(b => {
+      const on = b.dataset.billing === mode;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    amounts.forEach(el => {
+      const raw = el.dataset[mode];
+      if (!raw) return;
+      const [big, small] = raw.split('|');
+      const save = el.dataset.annualSave;
+      el.innerHTML = '<span class="big">' + big + '</span><small>' + (small || '') + '</small>' +
+        (mode === 'annual' && save ? ' <span class="annual-save">' + save + '</span>' : '');
+    });
+  }
+  buttons.forEach(b => b.addEventListener('click', () => setBilling(b.dataset.billing)));
+})();
+</script>
 
 <!-- ============== PARTNERSHIPS ============== -->
 <section class="partners" id="partners">
