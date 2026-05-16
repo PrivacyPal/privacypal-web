@@ -6,14 +6,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
-<link rel="stylesheet" href="assets/careers.css">
-<meta name="description" content="Join PrivacyPal — we're hiring the best engineers, architects, sales team, and storytellers in the world to make AI safe for everyone.">
+<meta name="description" content="Careers at PrivacyPal — coming soon. We're building the privacy layer for every AI on earth, and the team that gets to build it.">
 <!-- social-share-meta:start -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/careers.html" />
 <meta property="og:title" content="Careers — PrivacyPal" />
-<meta property="og:description" content="Join PrivacyPal — we're hiring the best engineers, architects, sales team, and storytellers in the world to make AI safe for everyone." />
+<meta property="og:description" content="Careers at PrivacyPal — coming soon. We're building the privacy layer for every AI on earth, and the team that gets to build it." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta property="og:image:secure_url" content="https://privacypal.ai/assets/logo-color.png" />
 <meta property="og:image:type" content="image/png" />
@@ -22,155 +21,580 @@
 <meta property="og:image:alt" content="PrivacyPal" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Careers — PrivacyPal" />
-<meta name="twitter:description" content="Join PrivacyPal — we're hiring the best engineers, architects, sales team, and storytellers in the world to make AI safe for everyone." />
+<meta name="twitter:description" content="Careers at PrivacyPal — coming soon. We're building the privacy layer for every AI on earth, and the team that gets to build it." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:image:alt" content="PrivacyPal" />
 <link rel="image_src" href="https://privacypal.ai/assets/logo-color.png" />
 <!-- social-share-meta:end -->
+<style>
+  /* ========= COMING SOON HERO ========= */
+  .cs-hero{position:relative; overflow:hidden}
+  .cs-eyebrow-pulse{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:7px 14px; border-radius:99px;
+    background:rgba(74,134,194,.08);
+    border:1px solid rgba(74,134,194,.22);
+    color:var(--cobalt);
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.14em;
+    text-transform:uppercase; font-weight:500;
+  }
+  .cs-eyebrow-pulse::before{
+    content:""; width:8px; height:8px; border-radius:50%;
+    background:var(--cobalt);
+    box-shadow:0 0 0 0 rgba(74,134,194,.6);
+    animation:csPulse 2.2s ease-out infinite;
+  }
+  @keyframes csPulse{
+    0%   {box-shadow:0 0 0 0 rgba(74,134,194,.55)}
+    70%  {box-shadow:0 0 0 14px rgba(74,134,194,0)}
+    100% {box-shadow:0 0 0 0 rgba(74,134,194,0)}
+  }
+  .cs-hero h1{
+    margin-top:22px;
+    font-family:var(--serif);
+    font-size:clamp(2.6rem, 6.5vw, 5rem);
+    line-height:1.04; letter-spacing:-.01em;
+  }
+  .cs-hero h1 em{font-style:italic; color:var(--cobalt); font-weight:400}
+  .cs-hero .lede{margin-top:26px; max-width:62ch}
+
+  /* ========= TEASE CARDS ========= */
+  .tease-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr);
+    gap:20px; margin-top:64px;
+  }
+  .tease-card{
+    position:relative;
+    padding:30px 26px;
+    border:1px solid rgba(74,134,194,.16);
+    border-radius:14px;
+    background:linear-gradient(180deg, rgba(74,134,194,.04), rgba(74,134,194,0));
+    transition:transform .3s, border-color .3s, background .3s;
+  }
+  .tease-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(74,134,194,.42);
+    background:linear-gradient(180deg, rgba(74,134,194,.09), rgba(74,134,194,.01));
+  }
+  .tease-card .mark{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.18em;
+    color:var(--cobalt); opacity:.7;
+  }
+  .tease-card h3{
+    margin-top:16px;
+    font-family:var(--serif); font-style:italic;
+    font-size:1.55rem; line-height:1.2; color:var(--ink);
+  }
+  .tease-card p{
+    margin-top:12px; color:var(--text-muted);
+    font-size:.96rem; line-height:1.55;
+  }
+  @media (max-width:1000px){
+    .tease-grid{grid-template-columns:repeat(2, 1fr)}
+  }
+  @media (max-width:540px){
+    .tease-grid{grid-template-columns:1fr; gap:14px; margin-top:42px}
+  }
+
+  /* ========= CULTURE STRIP ========= */
+  .culture-quote{
+    max-width:880px; margin:0 auto;
+    font-family:var(--serif); font-style:italic;
+    font-size:clamp(1.6rem, 3vw, 2.4rem);
+    line-height:1.35; text-align:center;
+    color:var(--ink);
+  }
+  .culture-quote span{color:var(--cobalt)}
+  .culture-attr{
+    display:block; margin-top:24px; text-align:center;
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--text-muted);
+  }
+  .culture-marquee{
+    margin-top:64px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:10px 14px;
+  }
+  .culture-chip{
+    padding:10px 18px; border-radius:99px;
+    border:1px solid rgba(74,134,194,.2);
+    background:#fff;
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.06em;
+    color:var(--ink);
+  }
+  .culture-chip em{color:var(--cobalt); font-style:normal; font-weight:600}
+
+  /* ========= VIDEO PLAYER MODAL ========= */
+  .vp-modal{
+    position:fixed; inset:0; z-index:9999;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(4,7,14,.92);
+    backdrop-filter:blur(28px) saturate(120%);
+    -webkit-backdrop-filter:blur(28px) saturate(120%);
+    opacity:0; pointer-events:none;
+    transition:opacity .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .vp-modal.open{opacity:1; pointer-events:auto}
+  .vp-modal::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(800px 500px at 25% 20%, rgba(74,134,194,.18), transparent 60%),
+      radial-gradient(700px 500px at 75% 80%, rgba(94,164,224,.12), transparent 60%);
+  }
+  .vp-stage{
+    position:relative; width:min(94vw, 1400px);
+    aspect-ratio:16/9; max-height:88vh;
+    transform:scale(.96) translateY(12px);
+    transition:transform .55s cubic-bezier(.2,.8,.2,1);
+    border-radius:14px; overflow:hidden;
+    background:#000;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.06),
+      0 30px 100px rgba(0,0,0,.7),
+      0 0 120px rgba(94,164,224,.15);
+  }
+  .vp-modal.open .vp-stage{transform:scale(1) translateY(0)}
+  .vp-stage video{width:100%; height:100%; display:block; background:#000; cursor:pointer}
+
+  .vp-loader{
+    position:absolute; top:50%; left:50%;
+    width:54px; height:54px; margin:-27px 0 0 -27px;
+    border-radius:50%; pointer-events:none;
+    border:2px solid rgba(255,255,255,.12);
+    border-top-color:var(--cobalt-glow);
+    animation:vpspin .9s linear infinite;
+    opacity:0; transition:opacity .25s;
+  }
+  .vp-stage.loading .vp-loader{opacity:1}
+  @keyframes vpspin{to{transform:rotate(360deg)}}
+
+  .vp-center-play{
+    position:absolute; top:50%; left:50%;
+    width:96px; height:96px; margin:-48px 0 0 -48px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; cursor:pointer;
+    opacity:0; transform:scale(.85);
+    transition:opacity .35s, transform .35s, background .25s, border-color .25s;
+    pointer-events:none;
+  }
+  .vp-stage.paused:not(.loading) .vp-center-play{opacity:1; transform:scale(1); pointer-events:auto}
+  .vp-center-play:hover{background:rgba(94,164,224,.22); border-color:rgba(94,164,224,.55)}
+  .vp-center-play svg{width:34px; height:34px; margin-left:4px}
+
+  .vp-close{
+    position:absolute; top:18px; right:18px; z-index:6;
+    width:42px; height:42px; border-radius:50%;
+    background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.12);
+    color:#fff; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    transition:background .25s, border-color .25s, transform .25s, opacity .35s;
+    opacity:0;
+  }
+  .vp-stage.show-ui .vp-close,
+  .vp-stage.paused .vp-close{opacity:1}
+  .vp-close:hover{background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.28); transform:rotate(90deg)}
+  .vp-close svg{width:18px; height:18px}
+
+  .vp-controls{
+    position:absolute; left:0; right:0; bottom:0; z-index:5;
+    padding:36px 22px 18px;
+    background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.78) 100%);
+    opacity:0; transform:translateY(8px);
+    transition:opacity .35s, transform .35s;
+    pointer-events:none;
+  }
+  .vp-stage.show-ui .vp-controls,
+  .vp-stage.paused .vp-controls{opacity:1; transform:translateY(0); pointer-events:auto}
+
+  .vp-scrub{position:relative; width:100%; height:18px; cursor:pointer; touch-action:none; display:flex; align-items:center}
+  .vp-scrub-track{position:relative; width:100%; height:3px; background:rgba(255,255,255,.18); border-radius:99px; overflow:hidden; transition:height .2s}
+  .vp-scrub:hover .vp-scrub-track,
+  .vp-scrub.dragging .vp-scrub-track{height:5px}
+  .vp-buffered{position:absolute; left:0; top:0; height:100%; width:0%; background:rgba(255,255,255,.28); border-radius:99px; transition:width .25s linear}
+  .vp-progress{position:absolute; left:0; top:0; height:100%; width:0%; background:linear-gradient(90deg, var(--cobalt-glow), #a8d4ff); border-radius:99px; box-shadow:0 0 12px rgba(94,164,224,.5)}
+  .vp-thumb{position:absolute; top:50%; left:0%; width:13px; height:13px; border-radius:50%; background:#fff; transform:translate(-50%, -50%) scale(0); box-shadow:0 0 0 4px rgba(94,164,224,.25), 0 2px 8px rgba(0,0,0,.4); transition:transform .2s; pointer-events:none}
+  .vp-scrub:hover .vp-thumb,
+  .vp-scrub.dragging .vp-thumb{transform:translate(-50%, -50%) scale(1)}
+
+  .vp-row{margin-top:10px; display:flex; align-items:center; gap:14px; color:rgba(255,255,255,.92)}
+  .vp-btn{appearance:none; background:transparent; border:0; padding:0; width:36px; height:36px; border-radius:50%; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s, color .2s, transform .15s}
+  .vp-btn:hover{background:rgba(255,255,255,.12); color:#fff}
+  .vp-btn:active{transform:scale(.92)}
+  .vp-btn svg{width:20px; height:20px}
+  .vp-btn.play svg{width:22px; height:22px}
+
+  .vp-time{font-family:var(--mono); font-size:.78rem; letter-spacing:.04em; color:rgba(255,255,255,.78); font-variant-numeric:tabular-nums; user-select:none}
+  .vp-time .sep{margin:0 6px; opacity:.4}
+  .vp-spacer{flex:1}
+
+  .vp-vol{display:flex; align-items:center; gap:0; overflow:hidden}
+  .vp-vol-slider{width:0; height:3px; background:rgba(255,255,255,.18); border-radius:99px; position:relative; transition:width .35s cubic-bezier(.2,.8,.2,1), margin .35s; cursor:pointer; touch-action:none; margin-left:0}
+  .vp-vol:hover .vp-vol-slider,
+  .vp-vol-slider.active{width:80px; margin-left:6px; margin-right:8px}
+  .vp-vol-fill{position:absolute; left:0; top:0; height:100%; background:#fff; border-radius:99px; width:100%}
+
+  .vp-stage.hide-cursor{cursor:none}
+  .vp-stage.hide-cursor video{cursor:none}
+
+  @media (max-width:640px){
+    .vp-stage{width:96vw; border-radius:10px}
+    .vp-close{top:10px; right:10px; width:36px; height:36px}
+    .vp-controls{padding:28px 12px 12px}
+    .vp-row{gap:8px}
+    .vp-vol{display:none}
+    .vp-time{font-size:.72rem}
+    .vp-center-play{width:78px; height:78px; margin:-39px 0 0 -39px}
+    .vp-center-play svg{width:28px; height:28px}
+  }
+</style>
 </head><body>
 <div id="site-nav-slot"></div>
 
-<section class="sub-hero careers-hero">
+<!-- ============== HERO ============== -->
+<section class="sub-hero cs-hero">
   <div class="container">
-    <div style="max-width:880px">
-      <span class="eyebrow reveal in">Careers at PrivacyPal</span>
-      <h1 class="reveal in">Build the privacy layer for <em>every AI</em> on earth.</h1>
-      <p class="lede reveal in">We're hiring the best engineers, architects, sellers and storytellers in the world. If you'd rather work on something that matters than something that doesn't — keep reading.</p>
-      <div class="cta-row reveal in" style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
-        <a class="btn btn-cobalt" href="#open-roles">See open roles</a>
-        <a class="btn btn-ghost" href="#why">Why PrivacyPal</a>
+    <div style="max-width:900px">
+      <span class="cs-eyebrow-pulse reveal in">Careers · Coming soon</span>
+      <h1 class="reveal in">Stay tuned. We're <em>almost</em> ready to open the doors.</h1>
+      <p class="lede reveal in">PrivacyPal is building the privacy layer for every AI on earth — and the team that gets to build it. Public roles are landing in the next few weeks. Until then, here's a look at the work and the people behind it.</p>
+      <div class="cta-row reveal in" style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+        <a class="btn btn-cobalt" href="#" id="watchIntroBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;margin-right:2px"><path d="M8 5v14l11-7z"/></svg>
+          Watch the product intro from our CEO
+        </a>
+        <a class="btn btn-ghost" href="mailto:careers@privacypal.ai?subject=Keep%20me%20posted%20on%20PrivacyPal%20careers">Get on the list</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== WHY PRIVACYPAL ============== -->
-<section class="section" id="why">
+<!-- ============== ROLE TEASE ============== -->
+<section class="section">
   <div class="container">
     <div class="reveal" style="max-width:760px">
-      <span class="eyebrow">Why us</span>
-      <h2 class="display display-md" style="margin-top:14px">The most important software<br>story of the AI decade.</h2>
-      <p class="lede" style="margin-top:20px">Every meaningful AI tool asks for your data. Every meaningful company can't give it. We are the company building the layer that lets the answer finally be "yes, safely." That's the work. That's the bet.</p>
+      <span class="eyebrow">Who we're looking for</span>
+      <h2 class="display display-md" style="margin-top:14px">A small number of <em>extraordinary</em> people, across a few familiar shapes.</h2>
+      <p class="lede" style="margin-top:20px">We won't list titles yet — the team will form around the people, not the org chart. But if any of these sound like you, you'll know.</p>
     </div>
 
-    <div class="features-3" style="margin-top:64px">
-      <div class="feat-card reveal reveal-delay-1">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg></div>
-        <h3>The hardest problem worth solving</h3>
-        <p>Detection that's faster than the prompt. Cryptography that survives the audit. Policy that a regulator can read. We're hiring the rare engineers who treat this like the privilege it is.</p>
+    <div class="tease-grid">
+      <div class="tease-card reveal reveal-delay-1">
+        <span class="mark">— 01</span>
+        <h3>The people who build the impossible thing.</h3>
+        <p>You've shipped systems that survive scale, audit, and adversaries. Cryptography, distributed systems, detection at the speed of a keystroke — the deep work.</p>
       </div>
-      <div class="feat-card reveal reveal-delay-2">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
-        <h3>Silicon Valley pace, regulated-industry depth</h3>
-        <p>We move at AI-startup speed but ship to banks, hospitals, and law firms. The work is real. The customers tell you so on every QBR. The standard is whatever the most serious buyer in the room demands.</p>
+      <div class="tease-card reveal reveal-delay-1">
+        <span class="mark">— 02</span>
+        <h3>The people who explain it to the room.</h3>
+        <p>Sellers, solutions architects, and customer leaders who can walk into a regulated industry and earn the trust of the most serious buyer in the building.</p>
       </div>
-      <div class="feat-card reveal reveal-delay-3">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
-        <h3>The strongest team you'll ever join</h3>
-        <p>Founders who've shipped at scale. Architects who set standards. Sellers who close at the seven-figure mark. Storytellers from rooms most companies will never get into. Everyone here got in on talent.</p>
+      <div class="tease-card reveal reveal-delay-2">
+        <span class="mark">— 03</span>
+        <h3>The people who tell the story.</h3>
+        <p>Writers, designers, brand leaders, and storytellers from rooms most companies will never get into. Privacy deserves a voice worth listening to.</p>
+      </div>
+      <div class="tease-card reveal reveal-delay-2">
+        <span class="mark">— 04</span>
+        <h3>The people who make it land.</h3>
+        <p>Operators, GTM minds, finance and people leaders who turn a hot idea into a company customers can bet a decade on.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== BENEFITS ============== -->
+<!-- ============== CULTURE TEASE ============== -->
 <section class="section section-alt">
   <div class="container">
-    <div class="reveal" style="text-align:center;max-width:720px;margin:0 auto">
-      <span class="eyebrow" style="justify-content:center">Compensation & benefits</span>
-      <h2 class="display display-md" style="margin-top:18px">Pay the best, treat them better.</h2>
-      <p class="lede" style="margin-top:18px;margin-left:auto;margin-right:auto">Top-of-band cash. Real equity in a company we believe in. The infrastructure of a Valley-grade workplace, without the parts nobody asked for.</p>
+    <div class="reveal">
+      <p class="culture-quote">
+        We pay the best <span>and</span> treat them better. We move at AI-startup speed <span>and</span> ship to banks, hospitals, and law firms. We answer to the work <span>and</span> the people doing it.
+      </p>
+      <span class="culture-attr">— how we work</span>
     </div>
 
-    <div class="perks-grid" style="margin-top:56px">
-      <div class="perk-card reveal reveal-delay-1">
-        <div class="perk-ico">$</div>
-        <h4>Top-decile cash & equity</h4>
-        <p>We benchmark to the 90th percentile of Valley comp for every role. Meaningful equity at every level, on a four-year vest, with refreshes that work.</p>
-      </div>
-      <div class="perk-card reveal reveal-delay-1">
-        <div class="perk-ico">+</div>
-        <h4>Health that just works</h4>
-        <p>100% premiums covered for you and partial coverage for dependents. Best-in-class medical, dental, vision. Fertility, mental-health and family-planning support from day one.</p>
-      </div>
-      <div class="perk-card reveal reveal-delay-2">
-        <div class="perk-ico">↗</div>
-        <h4>Career, not just a job</h4>
-        <p>Annual learning budget, conference travel, and a leveling framework that tells you exactly how to grow — not a vibes-based "talk to your manager."</p>
-      </div>
-      <div class="perk-card reveal reveal-delay-2">
-        <div class="perk-ico">⌂</div>
-        <h4>Hybrid that respects your time</h4>
-        <p>Offices available in Sunnyvale or Miami for the people who want a desk and a whiteboard. Fully remote for the people who don't. Either way, fly in for the moments that matter.</p>
-      </div>
-      <div class="perk-card reveal reveal-delay-3">
-        <div class="perk-ico">◐</div>
-        <h4>Unlimited paid time off — that we mean</h4>
-        <p>2-week minimum. A holiday week between Christmas and New Year's that's actually closed.</p>
-      </div>
+    <div class="culture-marquee reveal reveal-delay-2">
+      <span class="culture-chip"><em>Top-decile</em> cash & equity</span>
+      <span class="culture-chip"><em>100%</em> health premiums covered</span>
+      <span class="culture-chip"><em>Hybrid</em> Silicon Valley · Florida · Remote</span>
+      <span class="culture-chip">A standard <em>regulators</em> read out loud</span>
+      <span class="culture-chip">A team you'll <em>brag</em> about</span>
+      <span class="culture-chip">Work that <em>matters</em></span>
     </div>
-  </div>
-</section>
-
-<!-- ============== OPEN ROLES ============== -->
-<section class="section" id="open-roles">
-  <div class="container">
-    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
-      <div>
-        <span class="eyebrow">Open roles</span>
-        <h2 class="display display-md" style="margin-top:14px">Now hiring.</h2>
-      </div>
-      <div class="filters" id="roleFilters" aria-label="Filter roles">
-        <button class="chip active" data-team="all" type="button">All teams</button>
-        <!-- team chips injected -->
-      </div>
-    </div>
-
-    <div class="roles-loading reveal" id="rolesLoading">
-      <div class="pp-spinner" style="margin:60px auto"></div>
-    </div>
-
-    <div class="roles-grid" id="rolesGrid" hidden></div>
-
-    <div class="roles-empty reveal" id="rolesEmpty" hidden>
-      <p>No roles match that filter just yet.</p>
-      <a class="btn btn-ghost" href="mailto:careers@privacypal.ai">Send us your story anyway →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============== PROCESS ============== -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:720px;margin:0 auto">
-      <span class="eyebrow" style="justify-content:center">The process</span>
-      <h2 class="display display-md" style="margin-top:18px">Fast, fair, real.</h2>
-      <p class="lede" style="margin-top:18px;margin-left:auto;margin-right:auto">We aim to make a decision inside 14 days from your first conversation. No homework that takes a weekend. No panels of seven. No ghosting.</p>
-    </div>
-
-    <ol class="process-list" style="margin-top:56px">
-      <li class="reveal reveal-delay-1"><span class="step">01</span><h4>Apply</h4><p>Submit the form on the role page. We read every application — yes, even the founders' inbox.</p></li>
-      <li class="reveal reveal-delay-1"><span class="step">02</span><h4>Intro call</h4><p>30 minutes with the hiring manager. Why this. Why now. What you'd want to own.</p></li>
-      <li class="reveal reveal-delay-2"><span class="step">03</span><h4>Working session</h4><p>One or two sessions on real work. We share the prompt 48 hours ahead. We pay for your time on extended exercises.</p></li>
-      <li class="reveal reveal-delay-2"><span class="step">04</span><h4>Team conversations</h4><p>You meet two-to-four future teammates. We learn how you collaborate. You learn what you'd actually be saying yes to.</p></li>
-      <li class="reveal reveal-delay-3"><span class="step">05</span><h4>Founder &amp; offer</h4><p>Final conversation with a founder. References. Offer letter. Real numbers, no negotiation games.</p></li>
-    </ol>
   </div>
 </section>
 
 <!-- ============== FINAL CTA ============== -->
 <section class="final-cta">
   <div class="reveal">
-    <h2>Don't see your role?</h2>
-    <p>If you'd be a 10/10 hire and we just haven't written the JD yet — write us anyway. We've created roles for people. We will again.</p>
+    <h2>The doors open soon.</h2>
+    <p>Be the first to see roles when they go live. One note, no spam — just the list of openings the day they're posted.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-cobalt" href="mailto:careers@privacypal.ai?subject=I%20should%20work%20at%20PrivacyPal">Email careers@privacypal.ai</a>
+      <a class="btn btn-cobalt" href="mailto:careers@privacypal.ai?subject=Keep%20me%20posted%20on%20PrivacyPal%20careers&body=Hi%20PrivacyPal%20team%20%E2%80%94%20please%20let%20me%20know%20when%20careers%20go%20live.">Email careers@privacypal.ai</a>
       <a class="btn btn-ghost" href="about.html">About PrivacyPal</a>
     </div>
   </div>
 </section>
 
 <div id="site-footer-slot"></div>
+
+<!-- ============== VIDEO PLAYER MODAL ============== -->
+<div class="vp-modal" id="vpModal" role="dialog" aria-modal="true" aria-label="Careers intro video" hidden>
+  <div class="vp-stage paused" id="vpStage">
+    <video id="vpVideo" preload="metadata" playsinline>
+      <source src="https://d1fvqdveubpy4w.cloudfront.net/streaming/PrivacyPal-Promo-Video-Q2-2026_faststart.mp4" type="video/mp4">
+    </video>
+
+    <div class="vp-loader" aria-hidden="true"></div>
+
+    <button class="vp-center-play" id="vpCenterPlay" aria-label="Play video">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+
+    <button class="vp-close" id="vpClose" aria-label="Close video">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <div class="vp-controls">
+      <div class="vp-scrub" id="vpScrub" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+        <div class="vp-scrub-track">
+          <div class="vp-buffered" id="vpBuffered"></div>
+          <div class="vp-progress" id="vpProgress"></div>
+        </div>
+        <div class="vp-thumb" id="vpThumb"></div>
+      </div>
+      <div class="vp-row">
+        <button class="vp-btn play" id="vpPlay" aria-label="Play">
+          <svg id="vpPlayIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div class="vp-time">
+          <span id="vpCurrent">0:00</span><span class="sep">/</span><span id="vpDuration">0:00</span>
+        </div>
+        <div class="vp-spacer"></div>
+        <div class="vp-vol">
+          <button class="vp-btn" id="vpMute" aria-label="Mute">
+            <svg id="vpVolIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 5L6 9H3v6h3l5 4V5z"/>
+              <path d="M15.5 8.5a4 4 0 010 7"/>
+              <path d="M18.5 5.5a8 8 0 010 13"/>
+            </svg>
+          </button>
+          <div class="vp-vol-slider" id="vpVolSlider" role="slider" aria-label="Volume" tabindex="0">
+            <div class="vp-vol-fill" id="vpVolFill"></div>
+          </div>
+        </div>
+        <button class="vp-btn" id="vpFs" aria-label="Fullscreen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="assets/site.js"></script>
-<script src="assets/careers.js?v=2026-05-13b"></script>
+<script>
+/* ---- product intro video player (mirrors index.html) ---- */
+(function(){
+  const btn      = document.getElementById('watchIntroBtn');
+  const modal    = document.getElementById('vpModal');
+  if (!btn || !modal) return;
+
+  const stage    = document.getElementById('vpStage');
+  const video    = document.getElementById('vpVideo');
+  const closeBtn = document.getElementById('vpClose');
+  const playBtn  = document.getElementById('vpPlay');
+  const playIcon = document.getElementById('vpPlayIcon');
+  const centerPlay = document.getElementById('vpCenterPlay');
+  const scrub    = document.getElementById('vpScrub');
+  const progress = document.getElementById('vpProgress');
+  const buffered = document.getElementById('vpBuffered');
+  const thumb    = document.getElementById('vpThumb');
+  const curEl    = document.getElementById('vpCurrent');
+  const durEl    = document.getElementById('vpDuration');
+  const muteBtn  = document.getElementById('vpMute');
+  const volIcon  = document.getElementById('vpVolIcon');
+  const volSlider= document.getElementById('vpVolSlider');
+  const volFill  = document.getElementById('vpVolFill');
+  const fsBtn    = document.getElementById('vpFs');
+
+  const ICON_PLAY   = '<path d="M8 5v14l11-7z"/>';
+  const ICON_PAUSE  = '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+  const ICON_VOL_HI = '<path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a4 4 0 010 7"/><path d="M18.5 5.5a8 8 0 010 13"/>';
+  const ICON_VOL_LO = '<path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a4 4 0 010 7"/>';
+  const ICON_MUTE   = '<path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/>';
+
+  function fmt(t){
+    if (!isFinite(t) || t < 0) t = 0;
+    const m = Math.floor(t/60), s = Math.floor(t%60);
+    return m + ':' + (s < 10 ? '0'+s : s);
+  }
+
+  let hideTimer = null;
+  function showUi(){
+    stage.classList.add('show-ui');
+    stage.classList.remove('hide-cursor');
+    clearTimeout(hideTimer);
+    if (!video.paused) {
+      hideTimer = setTimeout(() => {
+        stage.classList.remove('show-ui');
+        stage.classList.add('hide-cursor');
+      }, 2200);
+    }
+  }
+  function setPlayIcon(playing){
+    playIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    playBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+  }
+
+  function open(){
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add('open'));
+    document.body.style.overflow = 'hidden';
+    stage.classList.add('loading');
+    video.play().catch(() => {/* user can press play */});
+    showUi();
+  }
+  function close(){
+    modal.classList.remove('open');
+    video.pause();
+    document.body.style.overflow = '';
+    if (document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+    setTimeout(() => { modal.hidden = true; }, 450);
+  }
+
+  btn.addEventListener('click', (e) => { e.preventDefault(); open(); });
+
+  const videoParam = new URLSearchParams(window.location.search).get('video');
+  if (videoParam) {
+    requestAnimationFrame(() => {
+      video.muted = true;
+      setVolumeIcon();
+      open();
+      history.replaceState({}, '', window.location.pathname + window.location.hash);
+    });
+  }
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (modal.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === ' ' || e.key === 'k') { e.preventDefault(); togglePlay(); }
+    else if (e.key === 'm') toggleMute();
+    else if (e.key === 'f') toggleFs();
+    else if (e.key === 'ArrowLeft')  { video.currentTime = Math.max(0, video.currentTime - 5); showUi(); }
+    else if (e.key === 'ArrowRight') { video.currentTime = Math.min(video.duration||0, video.currentTime + 5); showUi(); }
+  });
+
+  function togglePlay(){
+    if (video.paused) video.play(); else video.pause();
+  }
+  playBtn.addEventListener('click', togglePlay);
+  centerPlay.addEventListener('click', togglePlay);
+  video.addEventListener('click', togglePlay);
+
+  video.addEventListener('play', () => {
+    stage.classList.remove('paused');
+    setPlayIcon(true); showUi();
+  });
+  video.addEventListener('pause', () => {
+    stage.classList.add('paused');
+    setPlayIcon(false);
+    stage.classList.remove('hide-cursor');
+    clearTimeout(hideTimer);
+  });
+  video.addEventListener('waiting', () => stage.classList.add('loading'));
+  video.addEventListener('playing', () => stage.classList.remove('loading'));
+  video.addEventListener('canplay', () => stage.classList.remove('loading'));
+  video.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(video.duration); });
+  video.addEventListener('ended', () => { stage.classList.add('paused'); setPlayIcon(false); });
+
+  video.addEventListener('timeupdate', () => {
+    const d = video.duration || 0;
+    const pct = d ? (video.currentTime / d) * 100 : 0;
+    progress.style.width = pct + '%';
+    thumb.style.left = pct + '%';
+    curEl.textContent = fmt(video.currentTime);
+    scrub.setAttribute('aria-valuenow', Math.round(pct));
+  });
+  video.addEventListener('progress', () => {
+    if (!video.buffered.length || !video.duration) return;
+    const end = video.buffered.end(video.buffered.length - 1);
+    buffered.style.width = (end / video.duration) * 100 + '%';
+  });
+
+  let dragging = false;
+  function seekFromEvent(e){
+    const r = scrub.getBoundingClientRect();
+    const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const pct = Math.max(0, Math.min(1, x / r.width));
+    if (video.duration) video.currentTime = pct * video.duration;
+    progress.style.width = (pct*100) + '%';
+    thumb.style.left = (pct*100) + '%';
+  }
+  scrub.addEventListener('pointerdown', (e) => {
+    dragging = true; scrub.classList.add('dragging');
+    scrub.setPointerCapture(e.pointerId);
+    seekFromEvent(e);
+  });
+  scrub.addEventListener('pointermove', (e) => { if (dragging) seekFromEvent(e); });
+  scrub.addEventListener('pointerup', (e) => {
+    dragging = false; scrub.classList.remove('dragging');
+    try { scrub.releasePointerCapture(e.pointerId); } catch(_) {}
+  });
+
+  function setVolumeIcon(){
+    if (video.muted || video.volume === 0) volIcon.innerHTML = ICON_MUTE;
+    else if (video.volume < 0.5) volIcon.innerHTML = ICON_VOL_LO;
+    else volIcon.innerHTML = ICON_VOL_HI;
+    volFill.style.width = (video.muted ? 0 : video.volume * 100) + '%';
+  }
+  function toggleMute(){ video.muted = !video.muted; setVolumeIcon(); }
+  muteBtn.addEventListener('click', toggleMute);
+
+  let volDragging = false;
+  function setVolFromEvent(e){
+    const r = volSlider.getBoundingClientRect();
+    if (r.width === 0) return;
+    const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const pct = Math.max(0, Math.min(1, x / r.width));
+    video.volume = pct;
+    video.muted = pct === 0;
+    setVolumeIcon();
+  }
+  volSlider.addEventListener('pointerdown', (e) => {
+    volDragging = true;
+    volSlider.classList.add('active');
+    volSlider.setPointerCapture(e.pointerId);
+    setVolFromEvent(e);
+  });
+  volSlider.addEventListener('pointermove', (e) => { if (volDragging) setVolFromEvent(e); });
+  volSlider.addEventListener('pointerup', (e) => {
+    volDragging = false;
+    volSlider.classList.remove('active');
+    try { volSlider.releasePointerCapture(e.pointerId); } catch(_) {}
+  });
+  video.volume = 1;
+  setVolumeIcon();
+
+  function toggleFs(){
+    if (!document.fullscreenElement) stage.requestFullscreen?.().catch(()=>{});
+    else document.exitFullscreen?.().catch(()=>{});
+  }
+  fsBtn.addEventListener('click', toggleFs);
+
+  ['mousemove','pointermove','touchstart'].forEach(ev => stage.addEventListener(ev, showUi));
+  stage.addEventListener('mouseleave', () => {
+    if (!video.paused) {
+      stage.classList.remove('show-ui');
+      stage.classList.add('hide-cursor');
+    }
+  });
+})();
+</script>
 </body></html>

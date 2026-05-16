@@ -116,7 +116,7 @@
             <h2>That role couldn't be found.</h2>
             <p>It may have closed, or the link may be wrong. Browse our current open roles or send us a note directly.</p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <a class="btn btn-cobalt" href="careers.html">See open roles</a>
+              <a class="btn btn-cobalt" href="careers-full.html">See open roles</a>
               <a class="btn btn-ghost" href="mailto:careers@privacypal.ai">Email us</a>
             </div>
           </div>`;
@@ -132,7 +132,7 @@
         <section class="sub-hero careers-hero job-hero">
           <div class="container">
             <div class="crumbs reveal in">
-              <a href="careers.html">Careers</a>
+              <a href="careers-full.html">Careers</a>
               <span> / ${escape(teamName)}</span>
             </div>
             <span class="eyebrow reveal in">${escape(teamName)} · ${escape(locName)}</span>
@@ -300,7 +300,7 @@
         <div class="job-missing">
           <h2>We couldn't load that role.</h2>
           <p>Email careers@privacypal.ai and we'll send the description over directly.</p>
-          <a class="btn btn-cobalt" href="careers.html">Back to careers</a>
+          <a class="btn btn-cobalt" href="careers-full.html">Back to careers</a>
         </div>`;
     });
 
@@ -420,7 +420,7 @@
           <h3>Application received</h3>
           <p>Thanks — we've got it. A real human on our team will read it inside the next few business days, and we'll get back to you either way.</p>
           <div class="apply-success-actions">
-            <a class="btn btn-cobalt" href="careers.html">See other roles</a>
+            <a class="btn btn-cobalt" href="careers-full.html">See other roles</a>
           </div>
         </div>
       `;
