@@ -19,8 +19,11 @@
   }
   .hero-video video, .hero-video .bg-placeholder{
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
+    pointer-events:none;
   }
   .hero-video video{opacity:.75}
+  .hero-video video.is-hidden{display:none}
+  .hero-video .bg-placeholder.is-hidden{opacity:0; transition:opacity .4s ease}
   .hero-video .bg-placeholder{
     background:
       radial-gradient(circle at 30% 40%, rgba(74,134,194,.4), transparent 60%),
@@ -767,12 +770,10 @@
 
 <!-- ============== HERO (Video) ============== -->
 <section class="hero-video" id="home">
-  <video autoplay muted loop playsinline poster="" id="heroVid">
+  <video autoplay muted loop playsinline preload="auto" id="heroVid" aria-hidden="true" tabindex="-1">
     <source src="privacypal-product-intro-clip-web640 - SD 480p-Broadband High.mp4" type="video/mp4">
   </video>
-  <div class="bg-placeholder" id="vidFallback">
-    product video loading…
-  </div>
+  <div class="bg-placeholder" id="vidFallback" aria-hidden="true"></div>
 
   <div class="topbar">
     <span class="live">Live · 10M+ sensitive elements protected</span>
@@ -1022,8 +1023,8 @@
       <p class="lede" style="margin:22px auto 0">Cancel anytime. Every plan includes on-device Privacy Twins and every major AI provider.</p>
 
       <div class="billing-toggle" id="billingToggle" role="tablist" aria-label="Billing period">
-        <button type="button" role="tab" data-billing="monthly" class="active" aria-selected="true">Monthly</button>
-        <button type="button" role="tab" data-billing="annual" aria-selected="false">Annual <span class="save-tag">Save up to 17%</span></button>
+        <button type="button" role="tab" data-billing="monthly" aria-selected="false">Monthly</button>
+        <button type="button" role="tab" data-billing="annual" class="active" aria-selected="true">Annual <span class="save-tag">Save up to 17%</span></button>
       </div>
     </div>
 
@@ -1045,9 +1046,9 @@
       <div class="price-card feat reveal reveal-delay-1" style="flex:1;min-width:280px;max-width:360px">
         <span class="price-badge">Most popular</span>
         <div class="price-name">Pro</div>
-        <div class="price-tagline">For teams from 5 to 500.</div>
+        <div class="price-tagline">For teams from 1 to 100.</div>
         <div class="price-amt" data-monthly="$18|/mo · per seat" data-annual="$15|/mo · per seat · billed $180/yr" data-annual-save="Save 17%">
-          <span class="big">$18</span><small>/mo · per seat</small>
+          <span class="big">$15</span><small>/mo · per seat · billed $180/yr</small> <span class="annual-save">Save 17%</span>
         </div>
         <ul>
           <li>CRM, Slack, Notion, SQL connectors</li>
@@ -1061,9 +1062,9 @@
       <div class="price-card max-card reveal reveal-delay-2" style="flex:1;min-width:280px;max-width:360px">
         <span class="price-badge">For AI-native teams</span>
         <div class="price-name">Max</div>
-        <div class="price-tagline">Everything in Pro, plus Privacy Agents.</div>
-        <div class="price-amt" data-monthly="$50|/mo · per seat" data-annual="$41.67|/mo · per seat · billed $500/yr" data-annual-save="Save 17%">
-          <span class="big">$50</span><small>/mo · per seat</small>
+        <div class="price-tagline">Everything in Pro, built for SME &amp; Enterprise.</div>
+        <div class="price-amt" data-monthly="$60|/mo · per seat" data-annual="$50|/mo · per seat · billed $600/yr" data-annual-save="Save 17%">
+          <span class="big">$50</span><small>/mo · per seat · billed $600/yr</small> <span class="annual-save">Save 17%</span>
         </div>
         <ul>
           <li>Everything in Pro</li>
@@ -1221,16 +1222,29 @@
   const vid = document.getElementById('heroVid');
   const fb = document.getElementById('vidFallback');
   if (!vid || !fb) return;
-  const mobileMQ = window.matchMedia('(max-width: 900px)');
-  if (mobileMQ.matches) {
+
+  function abandonVideo(){
+    vid.classList.add('is-hidden');
+    vid.pause();
     vid.removeAttribute('autoplay');
     vid.querySelectorAll('source').forEach(s => s.remove());
     vid.removeAttribute('src');
-    vid.load();
-    return;
+    try { vid.load(); } catch(_) {}
   }
-  vid.addEventListener('canplay', () => { fb.style.display = 'none'; });
-  vid.addEventListener('error', () => { vid.style.display = 'none'; });
+
+  const mobileMQ = window.matchMedia('(max-width: 900px)');
+  if (mobileMQ.matches) { abandonVideo(); return; }
+
+  vid.addEventListener('playing', () => fb.classList.add('is-hidden'), { once:true });
+  vid.addEventListener('error', abandonVideo);
+
+  // Try to start playback. If autoplay is blocked (Safari, Low Power Mode,
+  // some Chrome configs), abandon the video so it can't suddenly start playing
+  // later when the user clicks something unrelated on the page.
+  const tryPlay = vid.play();
+  if (tryPlay && typeof tryPlay.then === 'function') {
+    tryPlay.catch(abandonVideo);
+  }
 })();
 
 /* ---- signature particles ---- */

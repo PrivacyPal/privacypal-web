@@ -3,6 +3,9 @@
   const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const onDark = document.body.classList.contains('nav-on-dark');
 
+  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.3-arm64.dmg';
+  const DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.3-x64.dmg';
+
   const navHTML = `
   <nav class="site-nav ${onDark ? 'on-dark' : ''}" id="siteNav">
     <div class="nav-inner">
@@ -124,7 +127,7 @@
   <div class="pp-modal" id="ppDownloadModal" aria-hidden="true">
     <div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Download PrivacyPal">
       <div class="pp-modal-head">
-        <h3>Download PrivacyPal · v1.8.2</h3>
+        <h3>Download PrivacyPal · v1.8.3</h3>
         <button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button>
       </div>
       <div class="pp-modal-body">
@@ -137,11 +140,11 @@
             <h4>Windows 11</h4>
             <p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>
             <div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>
-            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.2.exe" rel="noopener noreferrer">
+            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.3.exe" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
               Download for Windows
             </a>
-            <p class="pp-dl-filename">PrivacyPal-Setup-1.8.2.exe</p>
+            <p class="pp-dl-filename">PrivacyPal-Setup-1.8.3.exe</p>
             <div class="pp-dl-cli">
               <div class="cli-label">Or install via PowerShell</div>
               <div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>
@@ -155,13 +158,38 @@
               <span class="label">Apple · macOS</span>
             </div>
             <h4>macOS</h4>
-            <p>Native support for Apple Silicon and Intel Macs. Choose your chip and install in seconds.</p>
-            <div class="pp-dl-pills"><span class="pp-dl-pill">.dmg installer</span><span class="pp-dl-pill">Apple Silicon &amp; Intel</span><span class="pp-dl-pill">macOS 13+</span></div>
-            <div class="pp-dl-btn mac coming">
+            <p>Native builds for Apple Silicon and Intel Macs. Pick the architecture that matches your chip.</p>
+            <div class="pp-dl-pills"><span class="pp-dl-pill">.dmg installer</span><span class="pp-dl-pill">Universal binaries</span><span class="pp-dl-pill">macOS 13+</span></div>
+            <a class="pp-dl-btn mac" href="${DOWNLOAD_MACOS_ARM64}" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-              Coming Soon
+              Apple Silicon
+            </a>
+            <a class="pp-dl-btn mac mac-secondary" href="${DOWNLOAD_MACOS_X64}" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              Intel Mac
+            </a>
+            <p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line — anything M-series is Apple Silicon.</p>
+            <p class="pp-dl-filename">PrivacyPal-1.8.3-{arm64,x64}.dmg</p>
+          </div>
+        </div>
+        <div class="pp-dl-trust">
+          <div class="pp-dl-trust-card">
+            <span class="pp-dl-trust-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <div class="pp-dl-trust-body">
+              <h5>Signed &amp; notarized</h5>
+              <p>Notarized by Apple. Trusted publisher on Windows. No scary first‑launch dialogs.</p>
             </div>
-            <p class="pp-dl-filename" style="opacity:.7">PrivacyPal.dmg — landing soon</p>
+          </div>
+          <div class="pp-dl-trust-card">
+            <span class="pp-dl-trust-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            </span>
+            <div class="pp-dl-trust-body">
+              <h5>Live in a minute</h5>
+              <p>Drop into Applications, sign in, and your AI guardrails work everywhere — no setup.</p>
+            </div>
           </div>
         </div>
       </div>

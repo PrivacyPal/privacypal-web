@@ -411,6 +411,13 @@ body.nav-on-dark .eyebrow{color:var(--cobalt-glow)}
 .pp-dl-btn.win:hover{background:#106ebe; transform:translateY(-1px); box-shadow:0 10px 24px -10px rgba(0,120,212,.55)}
 .pp-dl-btn.mac{background:var(--ink); color:#fff}
 .pp-dl-btn.mac:hover{background:#000; transform:translateY(-1px)}
+.pp-dl-btn.mac.mac-secondary{background:transparent; color:var(--ink); border-color:var(--ink)}
+.pp-dl-btn.mac.mac-secondary:hover{background:var(--ink); color:#fff; transform:translateY(-1px)}
+.pp-dl-arch-hint{
+  font-size:.78rem; line-height:1.45; color:var(--text-soft);
+  margin:2px 0 0;
+}
+.pp-dl-arch-hint b{color:var(--ink); font-weight:600}
 .pp-dl-btn.coming{background:#e5e7eb; color:#6b7280; cursor:default}
 .pp-dl-btn.coming:hover{transform:none; box-shadow:none}
 .pp-dl-filename{
@@ -438,3 +445,40 @@ body.nav-on-dark .eyebrow{color:var(--cobalt-glow)}
   padding:4px 10px; border-radius:6px; cursor:pointer;
 }
 .pp-dl-cli .cli-copy:hover{background:rgba(255,255,255,.14)}
+.pp-dl-trust{
+  display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  padding:4px 28px 28px;
+}
+@media(max-width:720px){.pp-dl-trust{grid-template-columns:1fr}}
+.pp-dl-trust-card{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:18px 20px;
+  background:var(--bg-alt);
+  border:1px solid var(--border);
+  border-radius:14px;
+  transition:border-color .2s, transform .2s;
+}
+.pp-dl-trust-card:hover{border-color:var(--border-strong); transform:translateY(-1px)}
+.pp-dl-trust-ico{
+  flex-shrink:0;
+  width:42px; height:42px;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#fff;
+  color:var(--cobalt);
+  border-radius:11px;
+  border:1px solid var(--border);
+  box-shadow:0 1px 2px rgba(11,18,32,.04);
+}
+.pp-dl-trust-ico svg{width:21px; height:21px}
+.pp-dl-trust-body{min-width:0}
+.pp-dl-trust-body h5{
+  margin:0 0 4px;
+  font-family:var(--serif);
+  font-size:1.02rem; font-weight:600; line-height:1.3;
+  color:var(--ink); letter-spacing:.005em;
+}
+.pp-dl-trust-body p{
+  margin:0;
+  font-size:.85rem; line-height:1.55;
+  color:var(--text-muted);
+}
