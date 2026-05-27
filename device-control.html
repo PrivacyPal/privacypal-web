@@ -18,59 +18,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css"/>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         :root { --cobalt:#336699; --cobalt-dark:#1a3a5a; --cobalt-light:#4a86c2; --bg:#EDEAE2; --bg-alt:#E4E0D7;--bg-card:#ffffff; --text:#111111; --text-muted:#5a5a52; --text-light:#7a7a72; --border:#D4D0C8; }
         html { scroll-behavior:smooth; }
         body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
-
-        /* NAV */
-        nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--bg); border-bottom:1px solid var(--border); transition:box-shadow 0.3s; }
-        nav.scrolled { box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-        .nav-container { max-width:1280px; margin:0 auto; padding:0.85rem 24px; display:flex; justify-content:space-between; align-items:center; }
-        .logo { display:flex; align-items:center; text-decoration:none; }
-        .logo img { height:52px; width:auto; }
-        .nav-links { display:flex; gap:28px; align-items:center; }
-        .nav-links a { color:var(--text-muted); text-decoration:none; font-weight:500; font-size:0.9rem; transition:color 0.2s; }
-        .nav-links a:hover { color:var(--cobalt); }
-        .nav-item-dropdown { position:relative; }
-        .nav-dropdown-trigger { color:var(--text-muted); font-weight:500; font-size:0.9rem; padding:8px 0; display:flex; align-items:center; gap:4px; cursor:pointer; background:none; border:none; font-family:inherit; transition:color 0.2s; }
-        .nav-dropdown-trigger:hover,.nav-dropdown-trigger.nav-active { color:var(--cobalt); font-weight:700; }
-        .nav-dropdown-trigger::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; margin-left:4px; opacity:0.7; }
-        .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); min-width:210px; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.12); padding:8px 0; opacity:0; visibility:hidden; transition:opacity 0.2s,visibility 0.2s,transform 0.2s; z-index:1001; }
-        .nav-item-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
-        .nav-dropdown-menu a { display:block; padding:10px 20px; color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s,background 0.2s; }
-        .nav-dropdown-menu a:hover,.nav-dropdown-menu a.nav-active { color:var(--cobalt); background:rgba(51,102,153,0.06); font-weight:600; }
-        .nav-divider { height:1px; background:var(--border); margin:6px 0; }
-        .nav-home-link { color:var(--cobalt)!important; font-weight:600!important; }
-        .nav-cta-group { display:flex; gap:10px; align-items:center; }
-        .nav-login { color:var(--text-muted)!important; font-weight:500; font-size:0.9rem; text-decoration:none; padding:10px 18px; border-radius:8px; transition:color 0.2s,background 0.2s; }
-        .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
-        .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
-        .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
-        .nav-signin-btn { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
-        .nav-signin-btn:hover { background:#2a2a2a; transform:translateY(-1px); }
-        .cta-nav-button.cta-nav-button-blue { background:var(--cobalt); }
-        .cta-nav-button.cta-nav-button-blue:hover { background:var(--cobalt-dark); }
-        .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
-        .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
-        .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity:0; }
-        .hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(237,234,226,0.98); backdrop-filter:blur(24px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; opacity:0; visibility:hidden; transition:opacity 0.3s,visibility 0.3s; }
-        .mobile-menu.active { opacity:1; visibility:visible; }
-        .mobile-menu a { color:#0f172a; text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.2s; }
-        .mobile-menu a:hover { color:var(--cobalt); }
-        .mobile-menu .mobile-cta { background:#111111; color:white!important; padding:14px 32px; border-radius:8px; font-weight:600; }
-        .mobile-dropdown { width:100%; text-align:center; }
-        .mobile-dropdown-trigger { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:10px 24px; font-size:1.3rem; font-weight:600; color:#0f172a; background:none; border:none; cursor:pointer; font-family:inherit; transition:color 0.2s; }
-        .mobile-dropdown-trigger:hover { color:var(--cobalt); }
-        .mobile-dropdown-trigger::after { content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid currentColor; transition:transform 0.25s; }
-        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform:rotate(180deg); }
-        .mobile-dropdown-menu { max-height:0; overflow:hidden; transition:max-height 0.3s; }
-        .mobile-dropdown.open .mobile-dropdown-menu { max-height:400px; }
-        .mobile-dropdown-menu a { display:block; padding:10px 24px; font-size:1rem; font-weight:500; color:var(--text-muted); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .mobile-dropdown-menu a:last-child { border-bottom:none; }
 
         /* HERO */
         .page-hero { padding:120px 24px 80px; background:linear-gradient(160deg,var(--cobalt-dark) 0%,var(--cobalt) 55%,#4a86c2 100%); color:white; text-align:center; }
@@ -85,8 +38,8 @@
         .btn-ghost-white:hover { border-color:white; background:rgba(255,255,255,0.08); }
 
         /* HERO SCREENSHOT */
-        .hero-screenshot { max-width:1100px; margin:0 auto; padding:0 24px; transform:translateY(-48px); }
-        .hero-screenshot img { width:100%; border-radius:16px; box-shadow:0 32px 80px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.12); display:block; }
+        .hero-screenshot { max-width:420px; margin:0 auto; padding:0 24px; transform:translateY(-48px); }
+        .hero-screenshot img { width:100%; border-radius:16px; box-shadow:0 32px 80px rgba(0,0,0,0.25); display:block; }
 
         /* STATS STRIP */
         .stats-strip { background:var(--cobalt-dark); color:white; padding:32px 24px; }
@@ -126,6 +79,15 @@
         .feature-bullets li { display:flex; align-items:flex-start; gap:10px; font-size:0.92rem; color:var(--text-muted); line-height:1.5; }
         .feature-bullets li::before { content:'✓'; color:var(--cobalt); font-weight:700; font-size:0.95rem; flex-shrink:0; margin-top:1px; }
         .feature-visual img { width:100%; border-radius:14px; box-shadow:0 16px 48px -12px rgba(0,0,0,0.15); display:block; }
+        /* Stacked variant for wide/short images */
+        .feature-grid-stacked { max-width:1100px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:48px; }
+        .feature-grid-stacked .feature-copy { max-width:760px; text-align:center; }
+        .feature-grid-stacked .feature-copy .feature-bullets { display:inline-flex; text-align:left; }
+        .feature-grid-stacked .feature-visual { width:100%; max-width:1100px; }
+        .feature-grid-stacked .feature-visual img { width:100%; border-radius:14px; box-shadow:0 16px 48px -12px rgba(0,0,0,0.15); display:block; }
+        /* Text-only feature section */
+        .feature-grid-textonly { max-width:760px; margin:0 auto; text-align:center; }
+        .feature-grid-textonly .feature-bullets { display:inline-flex; text-align:left; margin-top:28px; }
 
         /* USE CASES — Tailscale style */
         .use-cases { padding:96px 24px; background:var(--bg); }
@@ -145,14 +107,15 @@
         .coverage .section-badge { background:none; border-color:var(--text-muted); color:var(--text-muted); }
         .coverage .section-title { color:#fff; }
         .coverage .section-subtitle { color:rgba(255,255,255,0.8); }
-        .coverage-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; max-width:900px; margin-left:auto; margin-right:auto; }
-        .coverage-card { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:24px; text-align:center; transition:background 0.2s; }
-        .coverage-card:hover { background:rgba(255,255,255,0.15); }
-        .coverage-card-icon { font-size:2rem; margin-bottom:12px; }
-        .coverage-card h4 { color:#fff; font-size:1rem; font-weight:700; margin-bottom:6px; }
-        .coverage-card p { color:rgba(255,255,255,0.75); font-size:0.83rem; line-height:1.55; }
-        .coverage-card.coming-soon { opacity:0.6; }
-        .coverage-card.coming-soon h4::after { content:' — Coming Soon'; font-size:0.72rem; font-weight:500; }
+        .coverage-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; max-width:960px; margin-left:auto; margin-right:auto; }
+        .coverage-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.16); border-radius:14px; padding:28px 24px; text-align:left; transition:background 0.25s, border-color 0.25s, transform 0.25s; position:relative; }
+        .coverage-card:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.32); transform:translateY(-2px); }
+        .coverage-card-icon { width:44px; height:44px; border-radius:10px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+        .coverage-card-icon svg { width:22px; height:22px; stroke:#fff; stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+        .coverage-card h4 { color:#fff; font-size:1rem; font-weight:700; margin-bottom:8px; letter-spacing:-0.005em; }
+        .coverage-card p { color:rgba(255,255,255,0.72); font-size:0.85rem; line-height:1.6; }
+        .coverage-card .coverage-tag { position:absolute; top:18px; right:18px; font-size:0.62rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:4px 8px; border-radius:50px; }
+        .coverage-card.coming-soon { opacity:0.85; }
 
         /* TECH STATS */
         .tech-detail { padding:80px 24px; background:var(--bg-alt); }
@@ -176,29 +139,8 @@
         .scroll-reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
         .scroll-reveal.revealed { opacity:1; transform:none; }
 
-        /* FOOTER */
-        footer { background:var(--bg-alt); border-top:1px solid var(--border); padding:72px 24px 36px; }
-        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
-        .footer-brand h3 { font-size:1.4rem; margin-bottom:10px; color:var(--text); }
-        .footer-brand p { color:var(--text-muted); line-height:1.7; margin-bottom:20px; font-size:0.9rem; }
-        .social-links { display:flex; gap:12px; margin-top:20px; }
-        .social-links a { width:38px; height:38px; border-radius:8px; background:var(--bg); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); text-decoration:none; font-size:0.95rem; transition:color 0.2s,background 0.2s,border-color 0.2s; }
-        .social-links a:hover { background:var(--cobalt); color:#fff; }
-        .footer-links h4 { font-size:0.9rem; margin-bottom:14px; font-weight:700; color:var(--text); text-transform:uppercase; letter-spacing:0.06em; }
-        .footer-links ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
-        .footer-links li { margin-bottom:9px; }
-        .footer-links a { color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
-        .footer-links a:hover { color:var(--cobalt); }
-        .footer-family-link { color:var(--cobalt)!important; font-weight:600; }
-        .footer-bottom { max-width:1200px; margin:0 auto; padding-top:28px; border-top:1px solid var(--border); text-align:center; color:var(--text-light); font-size:0.875rem; position:relative; }
-        
-        .footer-bottom a { color:var(--cobalt); text-decoration:none; }
-        .footer-bottom a:hover { text-decoration:underline; }
-        .footer-contact { position:absolute; bottom:0; right:0; text-align:right; font-size:0.82rem; line-height:1.5; }
-        .footer-contact strong { color:var(--text); display:block; margin-bottom:4px; }
-
         /* RESPONSIVE */
-        @media (max-width:1024px) {
+        @media (max-width:1024px){
             .steps-grid { grid-template-columns:1fr 1fr; }
             .feature-grid { grid-template-columns:1fr; gap:40px; }
             .feature-grid.reverse { direction:ltr; }
@@ -207,19 +149,12 @@
             .stats-strip-inner { grid-template-columns:repeat(2,1fr); }
             .stats-strip-inner .stat-item:nth-child(2) { border-right:none; }
             .coverage-grid { grid-template-columns:1fr 1fr; }
-            .footer-content { grid-template-columns:1fr 1fr 1fr; }
         }
-        @media (max-width:768px) {
-            .nav-links,.nav-cta-group { display:none; }
-            .hamburger { display:flex; }
-            .logo img { height:44px; }
+        @media (max-width:768px){
             .steps-grid { grid-template-columns:1fr; }
             .use-cases-grid { grid-template-columns:1fr; }
             .tech-detail-grid { grid-template-columns:1fr 1fr; }
             .coverage-grid { grid-template-columns:1fr; }
-            .footer-content { grid-template-columns:1fr; }
-            .footer-contact { position:static; text-align:center; margin-top:16px; }
-            .footer-bottom { flex-direction:column; align-items:center; text-align:center; }
         }
     </style>
 <!-- social-share-meta:start -->
@@ -244,69 +179,7 @@
 </head>
 <body>
 
-<nav id="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
-        <div class="nav-links">
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger nav-active">Platform</span>
-                <div class="nav-dropdown-menu">
-                    <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
-                    <a href="privacy-twins.html">Privacy Twins</a>
-                    <a href="device-control.html" class="nav-active">Device Control</a>
-                </div>
-            </div>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Solutions</span>
-                <div class="nav-dropdown-menu">
-                    <a href="index.html">For SME / SMB</a>
-                    <a href="solutions.html#freelancers">For Freelancers</a>
-                    <a href="privacypal-cloud.html">For Enterprise</a>
-                    <div class="nav-divider"></div>
-                    <a href="family.html" class="nav-home-link">For Home (Family)</a>
-                </div>
-            </div>
-            <a href="index.html#pricing">Pricing</a>
-            <a href="developers.html">Developers</a>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Company</span>
-                <div class="nav-dropdown-menu">
-                    <a href="about.html">About Us</a>
-                    <a href="events.html">Events</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="nav-cta-group">
-            <a href="https://portal.privacypal.ai" class="nav-signin-btn" target="_blank" rel="noopener">Sign In</a>
-            <a href="desktop.html" class="cta-nav-button cta-nav-button-blue">Start Free Trial</a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
-        <div class="mobile-dropdown-menu">
-            <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
-            <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
-            <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
-        </div>
-    </div>
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
-        <div class="mobile-dropdown-menu">
-            <a href="index.html" onclick="closeMobileMenu()">For SME / SMB</a>
-            <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
-            <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
-        </div>
-    </div>
-    <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
-    <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Sign In</a>
-    <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
-</div>
+<div id="site-nav-slot"></div>
 
 <!-- HERO -->
 <section class="page-hero">
@@ -323,7 +196,7 @@
 
 <!-- HERO SCREENSHOT -->
 <div class="hero-screenshot">
-    <img src="product-shot-007.png" alt="PrivacyPal Device Control dashboard" loading="eager">
+    <img src="assets/gemini-protected-card.png" alt="PrivacyPal Gemini protection card" loading="eager">
 </div>
 
 <!-- STATS STRIP -->
@@ -378,8 +251,8 @@
 
 <!-- FEATURE 1: Unified Dashboard -->
 <section class="feature-section scroll-reveal alt-bg">
-    <div class="feature-grid">
-        <div>
+    <div class="feature-grid-stacked">
+        <div class="feature-copy">
             <div class="feature-badge">Admin Dashboard</div>
             <h2>One Dashboard for <span class="highlight">Every Device</span> in Your Organization</h2>
             <p>The PrivacyPal Device Control dashboard gives IT and security teams a single pane of glass across all enrolled devices — Mac, Windows, browser, and desktop apps — with no agents to manage per-platform.</p>
@@ -392,7 +265,7 @@
             </ul>
         </div>
         <div class="feature-visual">
-            <img src="product-shot-007.png" alt="PrivacyPal unified admin dashboard" loading="lazy">
+            <img src="assets/activity-feed-wide.png" alt="PrivacyPal real-time AI activity feed" loading="lazy">
         </div>
     </div>
 </section>
@@ -413,7 +286,7 @@
             </ul>
         </div>
         <div class="feature-visual">
-            <img src="product-shot-003.png" alt="Browser and desktop AI coverage" loading="lazy">
+            <img src="assets/privacypal-desktop-claude-example.png" alt="PrivacyPal protecting a Claude desktop conversation" loading="lazy">
         </div>
     </div>
 </section>
@@ -441,22 +314,17 @@
 
 <!-- FEATURE 4: Audit & Compliance -->
 <section class="feature-section scroll-reveal">
-    <div class="feature-grid reverse">
-        <div>
-            <div class="feature-badge">Audit &amp; Compliance</div>
-            <h2>Audit-Ready Logs. <span class="highlight">Always On.</span></h2>
-            <p>Every AI interaction is timestamped, attributed to a user, and tagged with the data types detected. When a compliance review or security audit comes up, your logs are already organized and ready to export.</p>
-            <p>PrivacyPal Device Control makes it easy to demonstrate exactly what your team has and hasn't sent to AI tools — with the granularity your auditors actually need.</p>
-            <ul class="feature-bullets">
-                <li>Immutable log storage with configurable retention</li>
-                <li>SOC 2 and HIPAA-aligned audit trail format</li>
-                <li>CSV and JSON export for third-party SIEM integration</li>
-                <li>Data residency controls for EU and other regulated regions</li>
-            </ul>
-        </div>
-        <div class="feature-visual">
-            <img src="product-shot-006.png" alt="PrivacyPal audit and compliance logs" loading="lazy">
-        </div>
+    <div class="feature-grid-textonly">
+        <div class="feature-badge">Audit &amp; Compliance</div>
+        <h2>Audit-Ready Logs. <span class="highlight">Always On.</span></h2>
+        <p>Every AI interaction is timestamped, attributed to a user, and tagged with the data types detected. When a compliance review or security audit comes up, your logs are already organized and ready to export.</p>
+        <p>PrivacyPal Device Control makes it easy to demonstrate exactly what your team has and hasn't sent to AI tools — with the granularity your auditors actually need.</p>
+        <ul class="feature-bullets">
+            <li>Immutable log storage with configurable retention</li>
+            <li>SOC 2 and HIPAA-aligned audit trail format</li>
+            <li>CSV and JSON export for third-party SIEM integration</li>
+            <li>Data residency controls for EU and other regulated regions</li>
+        </ul>
     </div>
 </section>
 
@@ -537,32 +405,45 @@
         </div>
         <div class="coverage-grid">
             <div class="coverage-card">
-                <div class="coverage-card-icon">🌐</div>
+                <div class="coverage-card-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+                </div>
                 <h4>Web Browsers</h4>
                 <p>Chrome, Edge, Firefox, and Safari. Every web-based AI tool is monitored via the browser extension.</p>
             </div>
             <div class="coverage-card">
-                <div class="coverage-card-icon">🖥️</div>
+                <div class="coverage-card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
                 <h4>Desktop Apps</h4>
                 <p>Native apps including GitHub Copilot, Cursor, Codeium, and Microsoft Copilot for M365.</p>
             </div>
             <div class="coverage-card">
-                <div class="coverage-card-icon">📁</div>
+                <div class="coverage-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6M9 17h6"/></svg>
+                </div>
                 <h4>File Uploads</h4>
                 <p>Documents, spreadsheets, and PDFs uploaded to AI tools are scanned for sensitive data before transmission.</p>
             </div>
             <div class="coverage-card">
-                <div class="coverage-card-icon">🔌</div>
+                <div class="coverage-card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M8 6L2 12l6 6M16 6l6 6-6 6M14 4l-4 16"/></svg>
+                </div>
                 <h4>API Calls</h4>
                 <p>Developer API calls to OpenAI, Anthropic, and other AI providers are logged and classified.</p>
             </div>
             <div class="coverage-card">
-                <div class="coverage-card-icon">💬</div>
+                <div class="coverage-card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </div>
                 <h4>SaaS Integrations</h4>
                 <p>AI features embedded in Salesforce, HubSpot, Notion, Slack, and other business tools.</p>
             </div>
             <div class="coverage-card coming-soon">
-                <div class="coverage-card-icon">📱</div>
+                <span class="coverage-tag">Coming Soon</span>
+                <div class="coverage-card-icon">
+                    <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+                </div>
                 <h4>Mobile</h4>
                 <p>iOS and Android coverage for on-the-go AI usage across company-managed mobile devices.</p>
             </div>
@@ -613,63 +494,15 @@
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h3>PrivacyPal</h3>
-            <p>Use ChatGPT, Claude, Copilot, and any AI tool without exposing your sensitive data or IP.</p>
-            <div class="social-links">
-                <a href="https://x.com/privacypalai" title="X">𝕏</a>
-                <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
-            </div>
-        </div>
-        <div class="footer-links"><h4>Platform</h4><ul>
-            <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
-            <li><a href="privacy-twins.html">Privacy Twins</a></li>
-            <li><a href="device-control.html">Device Control</a></li>
-            <li><a href="ai-dspm.html">AI-DSPM</a></li>
-            <li><a href="desktop.html">Install</a></li>
-            <li><a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Solutions</h4><ul>
-            <li><a href="index.html">For SME / SMB</a></li>
-            <li><a href="privacypal-cloud.html">For Enterprise</a></li>
-            <li><a href="banking.html">Banking</a></li>
-            <li><a href="healthcare.html">Healthcare</a></li>
-            <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Company</h4><ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Developers</h4><ul>
-            <li><a href="developers.html">SDK Overview</a></li>
-            <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Documentation</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Legal</h4><ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-        </ul></div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
-        <div class="footer-contact"><strong>PrivacyPal</strong>2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968</div>
-    </div>
-</footer>
+<div id="site-footer-slot"></div>
 
 <script>
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
 document.addEventListener('DOMContentLoaded',function(){
     var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.scroll-reveal').forEach(function(el){obs.observe(el);});
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(h&&h!=='#'&&h.length>1){e.preventDefault();var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 });
-(function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){this.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});}})();
-function closeMobileMenu(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h)h.classList.remove('active');if(m)m.classList.remove('active');document.body.style.overflow='';document.querySelectorAll('.mobile-dropdown.open').forEach(function(d){d.classList.remove('open');});}
-function toggleMobileDropdown(btn){btn.closest('.mobile-dropdown').classList.toggle('open');}
 </script>
+<script src="assets/site.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>PrivacyPal — Use any AI. Keep what's yours, yours.</title>
-<meta name="description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI. Available for SME teams, homes, and cloud infrastructure." />
+<title>PrivacyPal — Govern every AI. Without blocking a single user.</title>
+<meta name="description" content="PrivacyPal is the on-device governance and enablement layer for the Age of AI. Real-time Privacy Twins protect sensitive IP and PII before it ever reaches an LLM — across ChatGPT, Claude, Gemini, Copilot, Claude Code and every agent on every device." />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
   .hero-video .eyebrow{color:var(--cobalt-glow)}
   .hero-video h1{
     font-family:var(--serif); font-weight:700;
-    font-size:clamp(3.2rem,7.5vw,7rem); line-height:.95; letter-spacing:-.03em;
+    font-size:clamp(2.8rem,5.8vw,4.8rem); line-height:.95; letter-spacing:-.03em; white-space:nowrap;
     color:#fff; margin:22px 0 28px;
   }
   .hero-video h1 em{font-style:italic; color:var(--cobalt-glow); font-weight:400}
@@ -440,6 +440,11 @@
     max-width:18ch; margin:0 auto 24px;
   }
   .final-cta p{max-width:52ch; margin:0 auto 36px; color:var(--text-muted); font-size:1.1rem}
+  /* Light-bg final-cta needs dark-on-light buttons (override the global dark-bg styles) */
+  .final-cta .btn-cobalt{background:var(--cobalt);color:#fff}
+  .final-cta .btn-cobalt:hover{background:var(--cobalt-deep);color:#fff}
+  .final-cta .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .final-cta .btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
   /* ========= TRUST STRIP (TICKER) ========= */
   .trust{
@@ -750,8 +755,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/" />
-<meta property="og:title" content="PrivacyPal — Use any AI. Keep what's yours, yours." />
-<meta property="og:description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI. Available for SME teams, homes, and cloud infrastructure." />
+<meta property="og:title" content="PrivacyPal — Govern every AI. Without blocking a single user." />
+<meta property="og:description" content="The on-device governance and enablement layer for the Age of AI. Real-time Privacy Twins protect IP and PII before it ever reaches an LLM — across every AI app, agent and copilot on every device." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta property="og:image:secure_url" content="https://privacypal.ai/assets/logo-color.png" />
 <meta property="og:image:type" content="image/png" />
@@ -759,8 +764,8 @@
 <meta property="og:image:height" content="1108" />
 <meta property="og:image:alt" content="PrivacyPal" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PrivacyPal — Use any AI. Keep what's yours, yours." />
-<meta name="twitter:description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI. Available for SME teams, homes, and cloud infrastructure." />
+<meta name="twitter:title" content="PrivacyPal — Govern every AI. Without blocking a single user." />
+<meta name="twitter:description" content="The on-device governance and enablement layer for the Age of AI. Real-time Privacy Twins protect IP and PII before it ever reaches an LLM — across every AI app, agent and copilot on every device." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:image:alt" content="PrivacyPal" />
 <link rel="image_src" href="https://privacypal.ai/assets/logo-color.png" />
@@ -778,33 +783,34 @@
   <div class="bg-placeholder" id="vidFallback" aria-hidden="true"></div>
 
   <div class="topbar">
-    <span class="live">Live · 10M+ sensitive elements protected</span>
+    <span class="live">Live · Governing 10M+ sensitive elements across customer endpoints</span>
     <span>PrivacyPal / 2026</span>
   </div>
 
   <div class="wrap">
     <div class="left reveal in">
-      <span class="eyebrow on-dark">Safe AI, anywhere</span>
-      <h1>Use any AI.<br>Keep what's <em>yours</em>, yours.</h1>
-      <p class="lede">PrivacyPal creates Privacy Twins for your sensitive data before it reaches ChatGPT, Claude, Gemini or Copilot. You get the answer. The AI never gets your secrets.</p>
+      <span class="eyebrow on-dark">Governance for the Age of AI</span>
+      <h1>Govern <em>every</em> AI.</h1>
+      <p class="lede">PrivacyPal is the on-device governance and enablement layer for AI. Real-time Privacy Twins intercept sensitive IP and PII before it reaches an LLM — across ChatGPT, Claude, Gemini, Copilot, Claude Code and every agent on every device. Your CISO stops being the blocker. Your team moves at AI speed.</p>
       <div class="cta-row">
-        <a class="btn btn-cobalt" href="#download" style="background:var(--cobalt-glow);color:var(--ink)">Download for Mac & Windows
+        <a class="btn btn-cobalt" href="#download" style="background:var(--cobalt-glow);color:var(--ink)">Install once. Get protected.
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14M5 10l7 7 7-7M4 21h16"/></svg>
         </a>
-        <a class="btn btn-outline-light" href="#" id="watchIntroBtn">Watch the Product Intro Video</a>
+        <a class="btn btn-outline-light" href="#" data-cta="demo">Book a demo.</a>
+        <a class="btn btn-outline-light" href="#" id="watchIntroBtn">Watch the Product Intro</a>
       </div>
     </div>
     <div class="right reveal in reveal-delay-2">
-      <div class="stat"><span class="n">10M+</span><span class="l">Sensitive elements protected</span></div>
-      <div class="stat"><span class="n">100+</span><span class="l">Companies trust PrivacyPal</span></div>
-      <div class="stat"><span class="n">Zero</span><span class="l">Sensitive data leaves your network</span></div>
+      <div class="stat"><span class="n">10M+</span><span class="l">Sensitive elements governed in real time</span></div>
+      <div class="stat"><span class="n">Every</span><span class="l">AI app, copilot &amp; agent — covered out of the box</span></div>
+      <div class="stat"><span class="n">Zero</span><span class="l">Sensitive data leaves your endpoints. Ever.</span></div>
     </div>
   </div>
 </section>
 
 <!-- ============== TRUST ============== -->
 <section class="trust" aria-label="Trusted by">
-  <div class="trust-label"><span>Trusted by teams at</span></div>
+  <div class="trust-label"><span>Governing AI inside teams at</span></div>
   <div class="ticker">
     <div class="ticker-track" aria-hidden="false">
       <!-- Set A -->
@@ -832,10 +838,10 @@
   <div class="sig-particles" id="sigParticles"></div>
   <div class="sig-inner">
     <div class="reveal">
-      <span class="sig-kicker">The Privacy Twin</span>
-      <h2 class="sig-title">Every prompt gets a <span class="glow">privacy twin</span> before it leaves your machine.</h2>
+      <span class="sig-kicker">The Mechanism · Privacy Twins</span>
+      <h2 class="sig-title">Language-based privacy for a <span class="glow">language-based</span> threat.</h2>
       <p class="sig-sub">
-        PrivacyPal sits quietly between you and the AI. The moment sensitive data appears — a client name, an account number, a patient record — we create a convincing stand-in. The AI sees the twin and answers normally. You see the real answer, seamlessly stitched back together.
+        LLMs are language. So we govern them with language. The moment sensitive data appears in any prompt, file or agent call — a client name, an account number, a patient record — PrivacyPal substitutes a <b style="color:#fff">Privacy Twin</b>: statistically accurate, context-preserving synthetic data. The LLM gets a high-quality answer. Your IP never leaves the device. No blunt redaction. No broken UX. The only approach built for how AI actually works.
       </p>
     </div>
 
@@ -843,8 +849,8 @@
     <div class="sig-stats reveal">
       <div class="s"><div class="n">340<small>ms</small></div><div class="l">Average interception latency. Faster than a keystroke.</div></div>
       <div class="s"><div class="n">0<small>bytes</small></div><div class="l">Sensitive data sent to AI providers. Ever.</div></div>
-      <div class="s"><div class="n">47<small>types</small></div><div class="l">PII, PHI, PCI and IP classes detected out of the box.</div></div>
-      <div class="s"><div class="n">100<small>%</small></div><div class="l">On-device processing. No cloud required.</div></div>
+      <div class="s"><div class="n">47<small>types</small></div><div class="l">PII, PHI, PCI &amp; IP classes governed out of the box.</div></div>
+      <div class="s"><div class="n">100<small>%</small></div><div class="l">On-device. Zero-knowledge. No cloud required.</div></div>
     </div>
 
     <!-- twin reveal -->
@@ -880,9 +886,9 @@
 <section class="section">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Three ways to use PrivacyPal</span>
-      <h2 class="display display-lg" style="margin-top:18px; max-width:16ch">One engine. Three homes for it.</h2>
-      <p class="lede" style="margin-top:22px">Pick the PrivacyPal that fits your team. They share the same Privacy Twin engine — what changes is where it runs, how far it scales, and who it's built for.</p>
+      <span class="eyebrow">The product ecosystem</span>
+      <h2 class="display display-lg" style="margin-top:18px; max-width:18ch">One governance engine. Every footprint your team needs.</h2>
+      <p class="lede" style="margin-top:22px">From a single-seat install to sovereign self-hosted deployments — same Privacy Twin engine, same on-device DSPM, same agent governance. Start small. Scale to the whole org. Build agent-to-agent flows on top. The shift is here.</p>
     </div>
 
     <div class="triptych" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:56px">
@@ -890,26 +896,26 @@
         <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/><path d="M7 10l3 3 7-7"/></svg></div>
         <div class="tag">PrivacyPal Pro</div>
         <h3>Pro</h3>
-        <div class="for">For SME teams, firms & agencies</div>
-        <p>A desktop app that rides along with every AI interaction. Connect Salesforce, Slack, Notion, SQL — and let your team use ChatGPT, Claude, Gemini or Copilot without ever leaking a client file.</p>
+        <div class="for">SME governance · install once, secure every AI</div>
+        <p>The on-ramp for individuals, firms and growing teams. Desktop and browser agents intercept sensitive data the moment it's typed — across ChatGPT, Claude, Gemini, Copilot. Connect Salesforce, Slack, Notion, SQL. Zero learning curve.</p>
         <ul>
-          <li>Desktop app for Mac & Windows</li>
-          <li>Connect your CRM, drive & data lake</li>
-          <li>Team policies, audit log, SSO</li>
+          <li>Real-time on-device interception across every AI app</li>
+          <li>Prompt-level DSPM with team policies, audit &amp; SSO</li>
+          <li>Connect CRM, drive, data lake — keep data sovereign</li>
         </ul>
         <a class="go" href="privacypal-pro.html">Explore Pro →</a>
       </div>
 
       <div class="prod-card max reveal reveal-delay-2" style="flex:1;max-width:420px">
         <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="2 3"/><circle cx="12" cy="4" r="1.4" fill="currentColor"/><circle cx="20" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="20" r="1.4" fill="currentColor"/><circle cx="4" cy="12" r="1.4" fill="currentColor"/></svg></div>
-        <div class="tag">PrivacyPal Max</div>
+        <div class="tag">PrivacyPal Max · Enterprise governance</div>
         <h3>Max</h3>
-        <div class="for">For AI-native teams running agentic workflows</div>
-        <p>Everything in Pro, plus on-device Privacy Agents that travel with every employee. Built for organizations standardizing on MCP, copilots and autonomous workflows — where governance has to move at agentic speed.</p>
+        <div class="for">For AI-native enterprises &amp; agentic workflows</div>
+        <p>Everything in Pro, plus the world's first <b>on-device DSPM</b> across every endpoint, Privacy Agents that travel with every employee, and governance for Claude Code, Microsoft Copilot &amp; the MCP layer. Built for orgs where AI moves at agentic speed.</p>
         <ul>
-          <li>On-device Privacy Agents</li>
-          <li>Org-wide AI governance & Private MCP</li>
-          <li>On-device DSPM across every endpoint</li>
+          <li>On-device DSPM — visibility &amp; control across every staff device</li>
+          <li>Agent governance for Claude Code, Copilot &amp; Private MCP</li>
+          <li>Org-wide AI policy, interception &amp; shadow-AI discovery</li>
         </ul>
         <a class="go" href="privacypal-max.html">Explore Max →</a>
       </div>
@@ -931,14 +937,14 @@
 
       <div class="prod-card cloud reveal reveal-delay-3" style="flex:1;max-width:420px">
         <div class="illus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16a5 5 0 0 1 2-9.6A7 7 0 0 1 19 9.4 4.5 4.5 0 0 1 18 18H7a4 4 0 0 1-3-2z"/><path d="M9 14l3 3 3-3M12 17V9"/></svg></div>
-        <div class="tag">PrivacyPal Cloud</div>
+        <div class="tag">PrivacyPal Cloud · Sovereign</div>
         <h3>Cloud</h3>
-        <div class="for">Self-hosted gateway for your infrastructure</div>
-        <p>Drop PrivacyPal between your apps and any LLM provider. API-compatible with OpenAI, Anthropic and Google — so your services keep their shape, but your data never leaves your VPC.</p>
+        <div class="for">Network DSPM &amp; sovereign LLM gateway</div>
+        <p>The first-of-its-kind network DSPM plus a self-hosted gateway you drop between your apps and any LLM provider. API-compatible with OpenAI, Anthropic &amp; Google — your services keep their shape, your data never leaves your VPC. Full data sovereignty for the regulated enterprise.</p>
         <ul>
-          <li>Self-host on AWS, Azure, GCP or bare metal</li>
-          <li>OpenAI-compatible API</li>
-          <li>Air-gapped deployment option</li>
+          <li>Self-host on AWS, Azure, GCP or bare metal — air-gap option</li>
+          <li>Network DSPM scanning across databases &amp; data lakes</li>
+          <li>OpenAI-compatible API · zero-knowledge by design</li>
         </ul>
         <a class="go" href="privacypal-cloud.html">Explore Cloud →</a>
       </div>
@@ -950,14 +956,15 @@
 <section class="section section-alt" id="flow">
   <div class="container">
     <div class="reveal" style="text-align:center; max-width:760px; margin:0 auto">
-      <span class="eyebrow" style="justify-content:center">The foundation</span>
+      <span class="eyebrow" style="justify-content:center">The 4 pillars of AI governance</span>
       <h2 class="display display-md" style="margin-top:18px">The trust layer beneath the AI Operating System.</h2>
+      <p class="lede" style="margin:18px auto 0">Invisible protection. Total visibility. True privacy. Ecosystem-wide control. The mechanisms a modern CISO needs to greenlight AI — and the friction-free UX every employee needs to actually use it.</p>
     </div>
     <div class="flow">
-      <div class="flow-step reveal reveal-delay-1"><div class="flow-num">01</div><h4>Personal secrets, protected</h4><p>Your identity, your conversations, your private life — kept yours across every AI you choose to use.</p></div>
-      <div class="flow-step reveal reveal-delay-2"><div class="flow-num">02</div><h4>Company secrets, contained</h4><p>Customer records, strategy, code and IP stay inside the business — even as every employee moves at AI speed.</p></div>
-      <div class="flow-step reveal reveal-delay-3"><div class="flow-num">03</div><h4>The AI-native security stack</h4><p>Built from the ground up for how AI actually works — prompts, context, models, agents — not legacy filters bolted onto a new world.</p></div>
-      <div class="flow-step reveal reveal-delay-3"><div class="flow-num">04</div><h4>Foundation for the AI OS</h4><p>As agents and AI-driven automation become the standard of computing, PrivacyPal is the trust substrate the AI Operating System runs on.</p></div>
+      <div class="flow-step reveal reveal-delay-1"><div class="flow-num">01</div><h4>Invisible protection</h4><p>Real-time on-device interception across Mac, PC, iOS, Android &amp; browser. Zero learning curve. The moment data is typed, it's governed.</p></div>
+      <div class="flow-step reveal reveal-delay-2"><div class="flow-num">02</div><h4>Total governance</h4><p>Full visibility into LLM usage, intercepted data, shadow AI &amp; agent calls across every endpoint and every app. One pane of glass for the whole org.</p></div>
+      <div class="flow-step reveal reveal-delay-3"><div class="flow-num">03</div><h4>True privacy</h4><p>Zero-knowledge architecture. PrivacyPal never sees your unencrypted data. Privacy Twins keep statistical bandwidth without ever surfacing the original.</p></div>
+      <div class="flow-step reveal reveal-delay-3"><div class="flow-num">04</div><h4>Ecosystem-deep integration</h4><p>Native to ChatGPT, Claude, Gemini, Copilot, Claude Code, MCP &amp; agent frameworks. CRMs, data lakes, SDKs. Built for the AI OS that's emerging.</p></div>
     </div>
   </div>
 </section>
@@ -967,10 +974,10 @@
   <div class="container">
     <div class="reveal" style="display:flex; justify-content:space-between; align-items:end; gap:40px; flex-wrap:wrap">
       <div style="max-width:640px">
-        <span class="eyebrow">Built for the real work</span>
-        <h2 class="display display-md" style="margin-top:18px">Industries where every word matters.</h2>
+        <span class="eyebrow">Governance, by industry</span>
+        <h2 class="display display-md" style="margin-top:18px">Built for regulated work. Spoken in your compliance language.</h2>
       </div>
-      <p class="lede" style="max-width:36ch">Whether you run a 40-person law firm or a community bank with 1,200 employees — PrivacyPal speaks your regulations.</p>
+      <p class="lede" style="max-width:36ch">From a 40-seat law firm to a community bank with 1,200 employees — PrivacyPal ships with the policy packs, detection types and audit posture your sector demands. Healthcare, FSI, B2B tech. Day one.</p>
     </div>
 
     <div class="sol-grid">
@@ -1009,8 +1016,9 @@
     <h2>
       We built PrivacyPal for the <b>loan officer</b> pasting a client file into ChatGPT.
       For the <b>family doctor</b> asking Claude about a prescription. For the <b>wealth manager</b>
-      drafting an investment memo. Because AI isn't going anywhere — and neither should the trust
-      they've spent a lifetime earning.
+      drafting an investment memo. For the <b>CISO</b> asked to greenlight AI without putting
+      a lifetime of customer trust on the line. AI isn't going anywhere. Neither is the trust
+      they've spent a lifetime earning. We protect both.
     </h2>
     <div class="sig">Jason, Shayra & the PrivacyPal team</div>
   </div>
@@ -1020,9 +1028,9 @@
 <section class="section" id="pricing">
   <div class="container">
     <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto">
-      <span class="eyebrow" style="justify-content:center">Pricing</span>
-      <h2 class="display display-md" style="margin-top:18px">Pay for your people. Not your paranoia.</h2>
-      <p class="lede" style="margin:22px auto 0">Cancel anytime. Every plan includes on-device Privacy Twins and every major AI provider.</p>
+      <span class="eyebrow" style="justify-content:center">Pricing · attainable governance</span>
+      <h2 class="display display-md" style="margin-top:18px">Enterprise-grade governance. SME-friendly pricing.</h2>
+      <p class="lede" style="margin:22px auto 0">Cancel anytime. Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box. Start on a single seat. Scale to the whole org.</p>
 
       <div class="billing-toggle" id="billingToggle" role="tablist" aria-label="Billing period">
         <button type="button" role="tab" data-billing="monthly" aria-selected="false">Monthly</button>
@@ -1046,9 +1054,9 @@
       </div>
 
       <div class="price-card feat reveal reveal-delay-1" style="flex:1;min-width:280px;max-width:360px">
-        <span class="price-badge">Most popular</span>
+        <span class="price-badge">SME on-ramp · most popular</span>
         <div class="price-name">Pro</div>
-        <div class="price-tagline">For teams from 1 to 100.</div>
+        <div class="price-tagline">Governance for teams from 1 to 100.</div>
         <div class="price-amt" data-monthly="$18|/mo · per seat" data-annual="$15|/mo · per seat · billed $180/yr" data-annual-save="Save 17%">
           <span class="big">$15</span><small>/mo · per seat · billed $180/yr</small> <span class="annual-save">Save 17%</span>
         </div>
@@ -1062,9 +1070,9 @@
       </div>
 
       <div class="price-card max-card reveal reveal-delay-2" style="flex:1;min-width:280px;max-width:360px">
-        <span class="price-badge">For AI-native teams</span>
+        <span class="price-badge">Enterprise governance</span>
         <div class="price-name">Max</div>
-        <div class="price-tagline">Everything in Pro, built for SME &amp; Enterprise.</div>
+        <div class="price-tagline">Everything in Pro + on-device DSPM &amp; agent governance.</div>
         <div class="price-amt" data-monthly="$60|/mo · per seat" data-annual="$50|/mo · per seat · billed $600/yr" data-annual-save="Save 17%">
           <span class="big">$50</span><small>/mo · per seat · billed $600/yr</small> <span class="annual-save">Save 17%</span>
         </div>
@@ -1080,15 +1088,15 @@
 
       <div class="price-card reveal reveal-delay-3" style="flex:1;min-width:280px;max-width:360px">
         <div class="price-name">Cloud</div>
-        <div class="price-tagline">Self-hosted gateway for your infra.</div>
-        <div class="price-amt"><span class="big">Talk</span><small>&nbsp;custom, annual</small></div>
+        <div class="price-tagline">Sovereign deployment + network DSPM.</div>
+        <div class="price-amt"><span class="big">Talk</span><small>&nbsp;custom · annual</small></div>
         <ul>
-          <li>Self-host on your cloud or on-prem</li>
-          <li>OpenAI-compatible API</li>
-          <li>Air-gapped deployment option</li>
-          <li>Dedicated engineer on onboarding</li>
+          <li>Self-host on your cloud, on-prem or air-gapped</li>
+          <li>Network DSPM across databases &amp; data lakes</li>
+          <li>OpenAI / Anthropic / Google compatible gateway</li>
+          <li>Dedicated solution engineer · 24/7 support</li>
         </ul>
-        <a class="btn btn-ghost" href="#" data-cta="demo">Talk to us</a>
+        <a class="btn btn-ghost" href="#" data-cta="demo">Talk to us.</a>
       </div>
     </div>
   </div>
@@ -1123,8 +1131,8 @@
 <section class="partners" id="partners">
   <div class="partners-inner reveal">
     <span class="eyebrow" style="justify-content:center">Partnerships</span>
-    <h2 class="display display-md">In <em>good</em> company.</h2>
-    <p class="lede">We're building the future of private AI alongside trusted names in technology and innovation.</p>
+    <h2 class="display display-md">Off to the races with <em>NVIDIA</em>.</h2>
+    <p class="lede">PrivacyPal is a proud member of NVIDIA Inception — optimizing on-device protection for the next generation of edge AI hardware and on-device language models. The shift is here.</p>
     <div class="partners-grid">
       <a class="partner-card" href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener noreferrer" title="NVIDIA Inception Program member">
         <img src="nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program">
@@ -1137,10 +1145,11 @@
 <!-- ============== FINAL CTA ============== -->
 <section class="final-cta" id="download">
   <div class="reveal">
-    <h2>Your AI deserves a good friend.</h2>
-    <p>Install PrivacyPal today. Use every AI tomorrow. Keep what's yours, yours.</p>
+    <h2>Stop blocking AI. Start governing it.</h2>
+    <p>Install once. Run silently. Get total governance across every AI app, copilot and agent your team touches. The shift is here — don't get lapped.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-cobalt" href="#" data-cta="download">Download for Mac &amp; Windows</a>
+      <a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>
     </div>
   </div>
 </section>

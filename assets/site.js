@@ -3,8 +3,8 @@
   const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const onDark = document.body.classList.contains('nav-on-dark');
 
-  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.4-arm64.dmg';
-  const DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.4-x64.dmg';
+  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.6-arm64.dmg';
+  const DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.6-x64.dmg';
 
   const navHTML = `
   <nav class="site-nav ${onDark ? 'on-dark' : ''}" id="siteNav">
@@ -12,11 +12,21 @@
       <a class="nav-logo" href="index.html"><img src="assets/logo-color.png" alt="PrivacyPal" class="logo-light-img"><img src="privacypal-logo-light.png" alt="PrivacyPal" class="logo-dark-img"></a>
       <div class="nav-links">
         <div class="dropdown">
+          <span>Platform</span>
+          <div class="dropdown-menu dropdown-wide">
+            <a href="device-control.html"><b>On-Device Protection</b><small>Real-time interception across every AI app</small></a>
+            <a href="ai-dspm.html"><b>AI-DSPM</b><small>On-device + network data security posture</small></a>
+            <a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic data substitution — no blunt redaction</small></a>
+            <a href="privacypal-ai.html"><b>Agent Governance</b><small>Visibility &amp; control across Claude Code, Copilot, MCP</small></a>
+          </div>
+        </div>
+        <div class="dropdown">
           <span>Products</span>
           <div class="dropdown-menu">
-            <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>For SME teams, firms & agencies</small></a>
-            <a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Privacy Agents for AI-native teams</small></a>
-            <a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for your infra</small></a>
+            <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>For SME teams, firms &amp; agencies</small></a>
+            <a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Enterprise governance for AI-native teams</small></a>
+            <a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>
+            <a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>
           </div>
         </div>
         <div class="dropdown">
@@ -29,16 +39,16 @@
             <a href="technology.html">Technology</a>
           </div>
         </div>
+        <a class="nav-link nav-enterprise" href="privacypal-cloud.html">For Enterprise</a>
+        <a class="nav-link" href="index.html#pricing">Pricing</a>
         <div class="dropdown">
           <span>Company</span>
           <div class="dropdown-menu">
-            <a href="about.html"><b>About</b><small>Our story & mission</small></a>
+            <a href="about.html"><b>About</b><small>Mission &amp; the AI OS vision</small></a>
             <a href="team.html"><b>Team</b><small>The people behind PrivacyPal</small></a>
             <a href="careers.html"><b>Careers</b><small>We're hiring — join us</small></a>
           </div>
         </div>
-        <a class="nav-link" href="index.html#pricing">Pricing</a>
-        <a class="nav-link" href="developers.html">Developers</a>
         <a class="nav-cta" href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
         <a class="nav-cta nav-cta-blue" href="index.html#download">Download</a>
       </div>
@@ -46,15 +56,20 @@
     </div>
   </nav>
   <div class="mobile-menu" id="mmenu">
+    <a href="device-control.html">On-Device Protection</a>
+    <a href="ai-dspm.html">AI-DSPM</a>
+    <a href="privacy-twins.html">Privacy Twins</a>
+    <a href="privacypal-ai.html">Agent Governance</a>
     <a href="privacypal-pro.html">PrivacyPal Pro</a>
     <a href="privacypal-max.html">PrivacyPal Max</a>
     <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
+    <a href="developers.html">Developers / SDK</a>
     <a href="banking.html">Solutions</a>
+    <a href="privacypal-cloud.html">For Enterprise</a>
     <a href="about.html">About</a>
     <a href="team.html">Team</a>
     <a href="careers.html">Careers</a>
     <a href="index.html#pricing">Pricing</a>
-    <a href="developers.html">Developers</a>
     <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
     <a href="index.html#download">Download</a>
   </div>`;
@@ -65,13 +80,21 @@
       <div class="footer-top">
         <div class="footer-brand">
           <img src="assets/logo-color.png" alt="PrivacyPal">
-          <p>Use any AI. Keep what's yours, yours. PrivacyPal creates Privacy Twins for your sensitive data — so every prompt, file, and connected source is safe before it ever leaves your device.</p>
+          <p>Govern every AI. Without blocking a single user. PrivacyPal is the on-device governance and enablement layer for the Age of AI — real-time Privacy Twins protect sensitive IP and PII before it ever reaches an LLM.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <a href="device-control.html">On-Device Protection</a>
+          <a href="ai-dspm.html">AI-DSPM</a>
+          <a href="privacy-twins.html">Privacy Twins</a>
+          <a href="privacypal-ai.html">Agent Governance</a>
         </div>
         <div class="footer-col">
           <h5>Products</h5>
           <a href="privacypal-pro.html">PrivacyPal Pro</a>
           <a href="privacypal-max.html">PrivacyPal Max</a>
           <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
+          <a href="developers.html">PrivacyPal SDK</a>
           <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a>
         </div>
         <div class="footer-col">
@@ -81,6 +104,7 @@
           <a href="legal.html">Legal</a>
           <a href="telecommunications.html">Telco</a>
           <a href="technology.html">Technology</a>
+          <a href="privacypal-cloud.html">For Enterprise</a>
         </div>
         <div class="footer-col">
           <h5>Company</h5>
@@ -88,12 +112,8 @@
           <a href="team.html">Team</a>
           <a href="careers.html">Careers</a>
           <a href="index.html#pricing">Pricing</a>
-          <a href="mailto:hello@privacypal.ai">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h5>Developers</h5>
-          <a href="developers.html">SDK Overview</a>
           <a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Documentation</a>
+          <a href="mailto:hello@privacypal.ai">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Legal</h5>
@@ -104,7 +124,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 PrivacyPal — Safe AI, Anywhere.</span>
+        <span>© 2026 PrivacyPal — Governance for the AI Operating System.</span>
         <span><a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></span>
       </div>
     </div>
@@ -127,7 +147,7 @@
   <div class="pp-modal" id="ppDownloadModal" aria-hidden="true">
     <div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Download PrivacyPal">
       <div class="pp-modal-head">
-        <h3>Download PrivacyPal · v1.8.4</h3>
+        <h3>Download PrivacyPal · v1.8.6</h3>
         <button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button>
       </div>
       <div class="pp-modal-body">
@@ -140,11 +160,11 @@
             <h4>Windows 11</h4>
             <p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>
             <div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>
-            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.4.exe" rel="noopener noreferrer">
+            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.6.exe" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
               Download for Windows
             </a>
-            <p class="pp-dl-filename">PrivacyPal-Setup-1.8.4.exe</p>
+            <p class="pp-dl-filename">PrivacyPal-Setup-1.8.6.exe</p>
             <div class="pp-dl-cli">
               <div class="cli-label">Or install via PowerShell</div>
               <div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>
@@ -169,7 +189,7 @@
               Intel Mac
             </a>
             <p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line — anything M-series is Apple Silicon.</p>
-            <p class="pp-dl-filename">PrivacyPal-1.8.4-{arm64,x64}.dmg</p>
+            <p class="pp-dl-filename">PrivacyPal-1.8.6-{arm64,x64}.dmg</p>
           </div>
         </div>
         <div class="pp-dl-trust">

@@ -273,6 +273,37 @@
       border-radius: 4px;
     }
 
+    .doc-block h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 32px;
+      margin-bottom: 6px;
+    }
+
+    .doc-block h3:first-of-type { margin-top: 0; }
+
+    .doc-block .example-desc {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .future-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(165, 180, 252, 0.14);
+      color: var(--purple);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
     /* ── Code Block with Tab Toggle ── */
     .code-block {
       background: var(--code-bg);
@@ -822,6 +853,163 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
   <span class="fn">print</span>(<span class="st">'Cannot reach API'</span>)
 <span class="kw">except</span> <span class="fn">Exception</span> <span class="kw">as</span> <span class="pr">e</span>:
   <span class="kw">raise</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examples -->
+      <div class="doc-block">
+        <h2>Examples</h2>
+        <p>Real workflows from production deployments — encode at the boundary, hand twins to an external agent or API, decode the response back to real values.</p>
+
+        <h3>Agent entry point for secure A2A communication</h3>
+        <p class="example-desc">Encode the sensitive input, hand the twins off to an external agent, then decode the response back to original values.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">agent-a2a</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','ex-a2a')" data-group="ex-a2a" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','ex-a2a')" data-group="ex-a2a" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="ex-a2a" data-lang="node">
+<pre><span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'User: John Smith, Email: john@acme.com, ID: user-123'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'my-agent'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'user_input'</span>,
+});
+
+<span class="cm">// Share encoded data with an external agent</span>
+<span class="kw">const</span> <span class="pr">response</span> = <span class="kw">await</span> <span class="fn">sendToExternalAgent</span>(<span class="pr">encoded</span>.<span class="pr">encodedData</span>);
+
+<span class="cm">// Decode the response back to real values</span>
+<span class="kw">const</span> <span class="pr">decoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
+  <span class="pr">continuationId</span>: <span class="pr">encoded</span>.<span class="pr">continuationId</span>,
+  <span class="pr">data</span>: <span class="pr">response</span>.<span class="pr">text</span>,
+});
+
+console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class="pr">decodedData</span>);</pre>
+          </div>
+          <div class="code-panel" data-group="ex-a2a" data-lang="python">
+<pre><span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+  <span class="st">'User: John Smith, Email: john@acme.com, ID: user-123'</span>,
+  <span class="pr">source_container</span>=<span class="st">'my-agent'</span>,
+  <span class="pr">source_element</span>=<span class="st">'user_input'</span>,
+)
+
+<span class="cm"># Share encoded data with an external agent</span>
+<span class="pr">response</span> = <span class="fn">send_to_external_agent</span>(<span class="pr">encoded</span>[<span class="st">'encodedData'</span>])
+
+<span class="cm"># Decode the response back to real values</span>
+<span class="pr">decoded</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
+  <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
+  <span class="pr">data</span>=<span class="pr">response</span>[<span class="st">'text'</span>],
+)
+
+<span class="fn">print</span>(<span class="pr">decoded</span>[<span class="st">'decodedData'</span>])</pre>
+          </div>
+        </div>
+
+        <h3>Healthcare AI: patient data to a 3rd-party analyzer</h3>
+        <p class="example-desc">Encode PHI before sending to a vendor API, decode the analysis on the way back — HIPAA-compliant by design.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">healthcare-ai</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','ex-hc')" data-group="ex-hc" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','ex-hc')" data-group="ex-hc" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="ex-hc" data-lang="node">
+<pre><span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'Patient: Jane Doe, DOB: 1985-03-15, Dx: Condition X'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'ehr-system'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'patient-record'</span>,
+});
+
+<span class="kw">const</span> <span class="pr">analysis</span> = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="st">'https://vendor-api.com/analyze'</span>, {
+  <span class="pr">method</span>: <span class="st">'POST'</span>,
+  <span class="pr">body</span>: JSON.<span class="fn">stringify</span>({ <span class="pr">data</span>: <span class="pr">encoded</span>.<span class="pr">encodedData</span> }),
+});
+
+<span class="kw">const</span> <span class="pr">result</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
+  <span class="pr">continuationId</span>: <span class="pr">encoded</span>.<span class="pr">continuationId</span>,
+  <span class="pr">data</span>: (<span class="kw">await</span> <span class="pr">analysis</span>.<span class="fn">json</span>()).<span class="pr">report</span>,
+});</pre>
+          </div>
+          <div class="code-panel" data-group="ex-hc" data-lang="python">
+<pre><span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+  <span class="st">'Patient: Jane Doe, DOB: 1985-03-15, Dx: Condition X'</span>,
+  <span class="pr">source_container</span>=<span class="st">'ehr-system'</span>,
+  <span class="pr">source_element</span>=<span class="st">'patient-record'</span>,
+)
+
+<span class="pr">response</span> = <span class="pr">requests</span>.<span class="fn">post</span>(
+  <span class="st">'https://vendor-api.com/analyze'</span>,
+  <span class="pr">json</span>={<span class="st">'data'</span>: <span class="pr">encoded</span>[<span class="st">'encodedData'</span>]},
+)
+
+<span class="pr">result</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
+  <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
+  <span class="pr">data</span>=<span class="pr">response</span>.<span class="fn">json</span>()[<span class="st">'report'</span>],
+)</pre>
+          </div>
+        </div>
+
+        <h3>Financial services: decentralized dark pool <span class="future-tag">x402 coming soon</span></h3>
+        <p class="example-desc">Encode trade info to protect trader identity, match through Privacy Twins, and (in a future release) decode only after x402 payment is settled.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">dark-pool</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','ex-fin')" data-group="ex-fin" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','ex-fin')" data-group="ex-fin" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="ex-fin" data-lang="node">
+<pre><span class="cm">// Future: import { x402Middleware } from '@x402/payment';</span>
+
+<span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'dark-pool'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'trade-request'</span>,
+});
+
+<span class="kw">const</span> <span class="pr">match</span> = <span class="kw">await</span> <span class="fn">findCounterparty</span>(<span class="pr">encoded</span>.<span class="pr">encodedData</span>);
+
+<span class="kw">if</span> (<span class="pr">match</span>.<span class="pr">found</span>) {
+  <span class="cm">// Future: x402 payment required before decode</span>
+  <span class="kw">const</span> <span class="pr">realData</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
+    <span class="pr">continuationId</span>: <span class="pr">encoded</span>.<span class="pr">continuationId</span>,
+    <span class="pr">data</span>: <span class="pr">match</span>.<span class="pr">counterpartyData</span>,
+  });
+  <span class="kw">return</span> <span class="pr">realData</span>.<span class="pr">decodedData</span>;
+}</pre>
+          </div>
+          <div class="code-panel" data-group="ex-fin" data-lang="python">
+<pre><span class="cm"># Future: from x402 import middleware</span>
+
+<span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+  <span class="st">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
+  <span class="pr">source_container</span>=<span class="st">'dark-pool'</span>,
+  <span class="pr">source_element</span>=<span class="st">'trade-request'</span>,
+)
+
+<span class="pr">match</span> = <span class="fn">find_counterparty</span>(<span class="pr">encoded</span>[<span class="st">'encodedData'</span>])
+
+<span class="kw">if</span> <span class="pr">match</span>[<span class="st">'found'</span>]:
+  <span class="cm"># Future: x402 payment required before decode</span>
+  <span class="pr">real_data</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
+    <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
+    <span class="pr">data</span>=<span class="pr">match</span>[<span class="st">'counterpartyData'</span>],
+  )
+  <span class="kw">return</span> <span class="pr">real_data</span>[<span class="st">'decodedData'</span>]</pre>
           </div>
         </div>
       </div>

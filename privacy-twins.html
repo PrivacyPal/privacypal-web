@@ -10,67 +10,20 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Twins — Statistically Identical Synthetic Data | PrivacyPal</title>
-    <meta name="description" content="Privacy Twins are statistically identical synthetic data entities that replace your real IP in AI prompts. Get accurate AI responses without ever exposing client names, financials, or source code.">
+    <title>Privacy Twins — Language-based privacy for a language-based threat | PrivacyPal</title>
+    <meta name="description" content="The core mechanism behind PrivacyPal's governance layer. Privacy Twins are statistically accurate synthetic data — preserving statistical bandwidth without ever exposing IP, PII or PHI. No blunt redaction. No broken UX.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css"/>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         :root { --cobalt:#336699; --cobalt-dark:#1a3a5a; --cobalt-light:#4a86c2; --bg:#EDEAE2; --bg-alt:#E4E0D7;--bg-card:#ffffff; --text:#111111; --text-muted:#5a5a52; --text-light:#7a7a72; --border:#D4D0C8; }
         html { scroll-behavior:smooth; }
         body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
-
-        /* NAV — identical to privacypal-ai.html */
-        nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--bg); border-bottom:1px solid var(--border); transition:box-shadow 0.3s; }
-        nav.scrolled { box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-        .nav-container { max-width:1280px; margin:0 auto; padding:0.85rem 24px; display:flex; justify-content:space-between; align-items:center; }
-        .logo { display:flex; align-items:center; text-decoration:none; }
-        .logo img { height:52px; width:auto; }
-        .nav-links { display:flex; gap:28px; align-items:center; }
-        .nav-links a { color:var(--text-muted); text-decoration:none; font-weight:500; font-size:0.9rem; transition:color 0.2s; }
-        .nav-links a:hover { color:var(--cobalt); }
-        .nav-item-dropdown { position:relative; }
-        .nav-dropdown-trigger { color:var(--text-muted); font-weight:500; font-size:0.9rem; padding:8px 0; display:flex; align-items:center; gap:4px; cursor:pointer; background:none; border:none; font-family:inherit; transition:color 0.2s; }
-        .nav-dropdown-trigger:hover,.nav-dropdown-trigger.nav-active { color:var(--cobalt); font-weight:700; }
-        .nav-dropdown-trigger::after { content:''; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; margin-left:4px; opacity:0.7; }
-        .nav-dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); min-width:210px; background:#fff; border:1px solid var(--border); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,0.12); padding:8px 0; opacity:0; visibility:hidden; transition:opacity 0.2s,visibility 0.2s,transform 0.2s; z-index:1001; }
-        .nav-item-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
-        .nav-dropdown-menu a { display:block; padding:10px 20px; color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s,background 0.2s; }
-        .nav-dropdown-menu a:hover,.nav-dropdown-menu a.nav-active { color:var(--cobalt); background:rgba(51,102,153,0.06); font-weight:600; }
-        .nav-divider { height:1px; background:var(--border); margin:6px 0; }
-        .nav-home-link { color:var(--cobalt)!important; font-weight:600!important; }
-        .nav-cta-group { display:flex; gap:10px; align-items:center; }
-        .nav-login { color:var(--text-muted)!important; font-weight:500; font-size:0.9rem; text-decoration:none; padding:10px 18px; border-radius:8px; transition:color 0.2s,background 0.2s; }
-        .nav-login:hover { color:var(--cobalt)!important; background:var(--bg-alt); }
-        .cta-nav-button { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
-        .cta-nav-button:hover { background:#2a2a2a; transform:translateY(-1px); }
-        .nav-signin-btn { background:#111111; color:#ffffff!important; padding:10px 22px; border-radius:8px; font-weight:600; font-size:0.875rem; text-decoration:none; transition:all 0.2s ease; white-space:nowrap; }
-        .nav-signin-btn:hover { background:#2a2a2a; transform:translateY(-1px); }
-        .cta-nav-button.cta-nav-button-blue { background:var(--cobalt); }
-        .cta-nav-button.cta-nav-button-blue:hover { background:var(--cobalt-dark); }
-        .hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; z-index:1002; padding:0; }
-        .hamburger span { display:block; width:24px; height:2px; background:#0f172a; border-radius:2px; transition:all 0.3s; transform-origin:center; }
-        .hamburger.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity:0; }
-        .hamburger.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
-        .mobile-menu { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(237,234,226,0.98); backdrop-filter:blur(24px); z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; opacity:0; visibility:hidden; transition:opacity 0.3s,visibility 0.3s; }
-        .mobile-menu.active { opacity:1; visibility:visible; }
-        .mobile-menu a { color:#0f172a; text-decoration:none; font-size:1.3rem; font-weight:600; transition:color 0.2s; }
-        .mobile-menu a:hover { color:var(--cobalt); }
-        .mobile-menu .mobile-cta { background:#111111; color:white!important; padding:14px 32px; border-radius:8px; font-weight:600; }
-        .mobile-dropdown { width:100%; text-align:center; }
-        .mobile-dropdown-trigger { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:10px 24px; font-size:1.3rem; font-weight:600; color:#0f172a; background:none; border:none; cursor:pointer; font-family:inherit; transition:color 0.2s; }
-        .mobile-dropdown-trigger:hover { color:var(--cobalt); }
-        .mobile-dropdown-trigger::after { content:''; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid currentColor; transition:transform 0.25s; }
-        .mobile-dropdown.open .mobile-dropdown-trigger::after { transform:rotate(180deg); }
-        .mobile-dropdown-menu { max-height:0; overflow:hidden; transition:max-height 0.3s; }
-        .mobile-dropdown.open .mobile-dropdown-menu { max-height:400px; }
-        .mobile-dropdown-menu a { display:block; padding:10px 24px; font-size:1rem; font-weight:500; color:var(--text-muted); border-bottom:1px solid rgba(0,0,0,0.05); }
-        .mobile-dropdown-menu a:last-child { border-bottom:none; }
 
         /* HERO */
         .page-hero { padding:120px 24px 80px; background:linear-gradient(160deg,var(--cobalt-dark) 0%,var(--cobalt) 55%,#4a86c2 100%); color:white; text-align:center; }
@@ -173,31 +126,12 @@
         .btn-outline-cta { background:transparent; color:white; border:2px solid rgba(255,255,255,0.6); padding:15px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1rem; transition:all 0.2s; display:inline-block; }
         .btn-outline-cta:hover { border-color:white; background:rgba(255,255,255,0.08); }
 
-        /* FOOTER */
-        footer { background:var(--bg-alt); border-top:1px solid var(--border); padding:72px 24px 36px; }
-        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px; }
-        .footer-brand h3 { font-size:1.4rem; margin-bottom:10px; color:var(--text); }
-        .footer-brand p { color:var(--text-muted); line-height:1.7; margin-bottom:20px; font-size:0.9rem; }
-        .social-links { display:flex; gap:10px; }
-        .social-links a { width:38px; height:38px; border-radius:8px; background:var(--bg-alt); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); text-decoration:none; font-size:0.95rem; transition:color 0.2s,background 0.2s,border-color 0.2s; }
-        .social-links a:hover { background:var(--cobalt); color:white; border-color:var(--cobalt); }
-        .footer-links h4 { font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; color:var(--text); }
-        .footer-links ul { list-style:none; }
-        .footer-links li { margin-bottom:9px; }
-        .footer-links a { color:var(--text-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
-        .footer-links a:hover { color:var(--cobalt); }
-        .footer-family-link { color:var(--cobalt)!important; font-weight:600; }
-        .footer-bottom { max-width:1200px; margin:0 auto; padding-top:28px; border-top:1px solid var(--border); text-align:center; color:var(--text-light); font-size:0.875rem; position:relative; }
-        .footer-contact { position:absolute; bottom:0; right:0; text-align:right; font-size:0.82rem; line-height:1.5; }
-        .footer-contact strong { color:var(--text); display:block; margin-bottom:4px; }
-        .footer-bottom a { color:var(--cobalt); text-decoration:none; }
-
         /* SCROLL REVEAL */
         .scroll-reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease-out,transform 0.6s ease-out; }
         .scroll-reveal.revealed { opacity:1; transform:translateY(0); }
 
         /* RESPONSIVE */
-        @media (max-width:1024px) {
+        @media (max-width:1024px){
             .twins-flow { grid-template-columns:1fr; gap:16px; }
             .twins-arrow { transform:rotate(90deg); }
             .stats-science-grid { grid-template-columns:1fr; }
@@ -205,16 +139,10 @@
             .tech-detail-grid { grid-template-columns:1fr 1fr; }
             .feature-grid { grid-template-columns:1fr; gap:40px; }
             .feature-grid.reverse .feature-visual { order:0; }
-            .footer-content { grid-template-columns:1fr 1fr 1fr; }
         }
-        @media (max-width:768px) {
-            .nav-links,.nav-cta-group { display:none; }
-            .hamburger { display:flex; }
-            .logo img { height:44px; }
+        @media (max-width:768px){
             .use-cases-grid { grid-template-columns:1fr; }
             .tech-detail-grid { grid-template-columns:1fr 1fr; }
-            .footer-content { grid-template-columns:1fr; }
-            .footer-contact { position:static; text-align:center; margin-top:16px; }
         }
     </style>
 <!-- social-share-meta:start -->
@@ -239,82 +167,19 @@
 </head>
 <body>
 
-<nav id="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo"><img src="privacypal-logo-color.png" alt="PrivacyPal"></a>
-        <div class="nav-links">
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger nav-active">Platform</span>
-                <div class="nav-dropdown-menu">
-                    <a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a>
-                    <a href="privacy-twins.html" class="nav-active">Privacy Twins</a>
-                    <a href="device-control.html">Device Control</a>
-                </div>
-            </div>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Solutions</span>
-                <div class="nav-dropdown-menu">
-                    <a href="index.html">For SME / SMB</a>
-                    <a href="solutions.html#freelancers">For Freelancers</a>
-                    <a href="privacypal-cloud.html">For Enterprise</a>
-                    <div class="nav-divider"></div>
-                    <a href="family.html" class="nav-home-link">For Home (Family)</a>
-                </div>
-            </div>
-            <a href="index.html#pricing">Pricing</a>
-            <a href="developers.html">Developers</a>
-            <div class="nav-item-dropdown">
-                <span class="nav-dropdown-trigger">Company</span>
-                <div class="nav-dropdown-menu">
-                    <a href="about.html">About Us</a>
-                    <a href="events.html">Events</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="nav-cta-group">
-            <a href="https://portal.privacypal.ai" class="nav-signin-btn" target="_blank" rel="noopener">Sign In</a>
-            <a href="desktop.html" class="cta-nav-button cta-nav-button-blue">Start Free Trial</a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Platform</button>
-        <div class="mobile-dropdown-menu">
-            <a href="privacypal-ai.html" onclick="closeMobileMenu()">Next-Gen AI Anti-Virus</a>
-            <a href="privacy-twins.html" onclick="closeMobileMenu()">Privacy Twins</a>
-            <a href="device-control.html" onclick="closeMobileMenu()">Device Control</a>
-        </div>
-    </div>
-    <div class="mobile-dropdown">
-        <button class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this)">Solutions</button>
-        <div class="mobile-dropdown-menu">
-            <a href="index.html" onclick="closeMobileMenu()">For SME / SMB</a>
-            <a href="privacypal-cloud.html" onclick="closeMobileMenu()">For Enterprise</a>
-            <a href="family.html" onclick="closeMobileMenu()">For Home (Family)</a>
-        </div>
-    </div>
-    <a href="index.html#pricing" onclick="closeMobileMenu()">Pricing</a>
-    <a href="developers.html" onclick="closeMobileMenu()">Developers</a>
-    <a href="https://portal.privacypal.ai" target="_blank" rel="noopener" onclick="closeMobileMenu()">Sign In</a>
-    <a href="desktop.html" class="mobile-cta" onclick="closeMobileMenu()">Start Free Trial</a>
-</div>
-
+<div id="site-nav-slot"></div>
 <!-- HERO -->
 <section class="page-hero">
     <div class="page-hero-inner">
-        <div class="page-hero-badge">PrivacyPal Platform</div>
+        <div class="page-hero-badge">PrivacyPal Platform · the mechanism</div>
         <h1>Privacy Twins</h1>
-        <p class="hero-sub">Control what data AI can see — without losing any of its power. Privacy Twins replace your real data with synthetic equivalents before anything reaches an AI, so your team gets full AI capability while you retain complete control over your actual information.</p>
+        <p class="hero-sub"><b>Language-based privacy for a language-based threat.</b> Redaction and masking blind the AI and break the user experience. Privacy Twins do the opposite — preserving the <em>statistical bandwidth</em> the LLM needs while ensuring sensitive IP and PII never reach it. The only approach built for how AI actually works.</p>
         <div class="hero-def">
-            <strong>Privacy Twins</strong> are statistically identical synthetic data entities generated in real time. They preserve the contextual meaning, structure, and relationships of your real data — so AI models respond with the same accuracy — while containing zero actual information about your business, clients, or people.
+            <strong>Privacy Twins</strong> are statistically accurate synthetic data entities generated in real time on-device. They preserve the contextual meaning, structure and relationships of your real data — so AI models respond with the same accuracy — while containing zero actual information about your business, clients, or people. Zero-knowledge by design.
         </div>
         <div class="page-hero-ctas">
-            <a href="desktop.html" class="btn-white">Start Free Trial</a>
-            <a href="#how-twins-work" class="btn-ghost-white">How It Works</a>
+            <a href="desktop.html" class="btn-white">Install once. Get protected.</a>
+            <a href="#how-twins-work" class="btn-ghost-white">See the mechanism</a>
         </div>
     </div>
 </section>
@@ -324,8 +189,8 @@
     <div class="container">
         <div class="section-header">
             <div class="section-badge">The Process</div>
-            <h2 class="section-title">Real Data In. Privacy Twin Out. Real Answer Back.</h2>
-            <p class="section-subtitle">The full process happens in under 50 milliseconds — completely invisible to the user. You type normally. PrivacyPal handles the rest.</p>
+            <h2 class="section-title">Real data in. Privacy Twin out. Real answer back.</h2>
+            <p class="section-subtitle">The full process happens in under 50 milliseconds on-device. Zero learning curve. The moment you type it, we protect it. The moment the answer arrives, your real values are stitched back in.</p>
         </div>
         <div class="twins-flow">
             <div class="twins-flow-step">
@@ -410,8 +275,8 @@
     <div class="container">
         <div class="section-header">
             <div class="section-badge">Use Cases</div>
-            <h2 class="section-title">Every Department. Every Workflow. Protected.</h2>
-            <p class="section-subtitle">Privacy Twins work silently across every role in your organization — from sales to engineering to legal.</p>
+            <h2 class="section-title">Every department. Every AI surface. Governed.</h2>
+            <p class="section-subtitle">Privacy Twins run silently across every role and every AI — ChatGPT, Claude, Gemini, Copilot, Claude Code, MCP agents. Same governance plane, every workflow.</p>
         </div>
         <div class="use-cases-grid">
             <div class="use-case-card">
@@ -508,78 +373,30 @@
             </ul>
         </div>
         <div class="feature-visual">
-            <img src="product-shot-005.png" alt="Privacy Twins re-injection in action" loading="lazy">
+            <img src="assets/claude-processing-banner.png" alt="PrivacyPal processing a Claude prompt" loading="lazy">
         </div>
     </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-    <h2>Give Your Team the Full Power of AI — Without the Risk</h2>
-    <p>5-day free trial. 30-day money-back guarantee.</p>
+    <h2>Stop choosing between AI speed and data safety.</h2>
+    <p>Privacy Twins are the only privacy mechanism built for how AI actually works. Install once. Get protected. 5-day free trial. 30-day money-back guarantee.</p>
     <div class="final-cta-buttons">
-        <a href="desktop.html" class="btn-white-cta">Start Free Trial</a>
-        <a href="privacypal-ai.html" class="btn-outline-cta">Explore the Full Platform</a>
+        <a href="desktop.html" class="btn-white-cta">Install once. Get protected.</a>
+        <a href="privacypal-ai.html" class="btn-outline-cta">Explore the full platform</a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h3>PrivacyPal</h3>
-            <p>Use ChatGPT, Claude, Copilot, and any AI tool without exposing your sensitive data or IP.</p>
-            <div class="social-links">
-                <a href="https://x.com/privacypalai" title="X">𝕏</a>
-                <a href="https://www.linkedin.com/company/privacypalai/" title="LinkedIn">in</a>
-            </div>
-        </div>
-        <div class="footer-links"><h4>Platform</h4><ul>
-            <li><a href="privacypal-ai.html">Next-Gen AI Anti-Virus</a></li>
-            <li><a href="privacy-twins.html">Privacy Twins</a></li>
-            <li><a href="device-control.html">Device Control</a></li>
-            <li><a href="ai-dspm.html">AI-DSPM</a></li>
-            <li><a href="desktop.html">Install</a></li>
-            <li><a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Solutions</h4><ul>
-            <li><a href="index.html">For SME / SMB</a></li>
-            <li><a href="privacypal-cloud.html">For Enterprise</a></li>
-            <li><a href="banking.html">Banking</a></li>
-            <li><a href="healthcare.html">Healthcare</a></li>
-            <li><a href="family.html" class="footer-family-link">PrivacyPal Family</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Company</h4><ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Developers</h4><ul>
-            <li><a href="developers.html">SDK Overview</a></li>
-            <li><a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Documentation</a></li>
-        </ul></div>
-        <div class="footer-links"><h4>Legal</h4><ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-        </ul></div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 PrivacyPal LLC. All rights reserved. | <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></p>
-        <div class="footer-contact"><strong>PrivacyPal</strong>2700 North Military Trail<br>Boca Raton, FL 33431<br>+1 (917) 428-5968</div>
-    </div>
-</footer>
-
+<div id="site-footer-slot"></div>
 <script>
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
 document.addEventListener('DOMContentLoaded',function(){
     var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.scroll-reveal').forEach(function(el){obs.observe(el);});
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(h&&h!=='#'&&h.length>1){e.preventDefault();var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 });
-(function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){this.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'';});}})();
-function closeMobileMenu(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h)h.classList.remove('active');if(m)m.classList.remove('active');document.body.style.overflow='';document.querySelectorAll('.mobile-dropdown.open').forEach(function(d){d.classList.remove('open');});}
-function toggleMobileDropdown(btn){btn.closest('.mobile-dropdown').classList.toggle('open');}
 </script>
+<script src="assets/site.js"></script>
 </body>
 </html>

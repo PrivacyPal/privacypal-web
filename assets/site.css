@@ -124,14 +124,30 @@ nav.site-nav.on-dark .logo-dark-img{display:block}
 }
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo img{height:40px;width:auto}
-.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;align-items:center;gap:22px}
 .nav-link,.dropdown>span{
-  font-size:.92rem;font-weight:500;color:var(--text-muted);
+  font-size:.9rem;font-weight:500;color:var(--text-muted);
   text-decoration:none;cursor:pointer;
   display:inline-flex;align-items:center;gap:6px;
   transition:color .2s;
 }
 .nav-link:hover,.dropdown:hover>span{color:var(--cobalt)}
+.nav-enterprise{
+  position:relative; padding:6px 12px; border-radius:999px;
+  border:1px solid var(--border);
+  background:linear-gradient(95deg, rgba(51,102,153,.06), rgba(233,164,88,.04));
+  font-family:var(--mono); font-size:.74rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink)!important;
+  transition:border-color .2s, background .2s, color .2s;
+}
+.nav-enterprise:hover{border-color:var(--cobalt); color:var(--cobalt)!important}
+nav.site-nav.on-dark .nav-enterprise{
+  border-color:rgba(94,164,224,.32);
+  background:linear-gradient(95deg, rgba(94,164,224,.14), rgba(233,164,88,.08));
+  color:#fff!important;
+}
+nav.site-nav.on-dark .nav-enterprise:hover{border-color:var(--cobalt-glow); color:var(--cobalt-glow)!important}
+.dropdown-menu.dropdown-wide{min-width:340px}
 .dropdown{position:relative}
 .dropdown>span::after{
   content:"";width:0;height:0;
@@ -199,8 +215,11 @@ footer.site-footer::before{
 }
 .footer-inner{max-width:var(--maxw);margin:0 auto}
 .footer-top{
-  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;
+  display:grid;grid-template-columns:1.7fr .9fr .9fr .9fr .9fr .7fr;gap:40px;
   padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+@media (max-width:1180px){
+  .footer-top{grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
 }
 .footer-brand img{height:40px;filter:brightness(0) invert(1);opacity:.95;margin-bottom:18px}
 .footer-brand p{max-width:38ch;line-height:1.7;font-size:.95rem}
@@ -301,8 +320,8 @@ footer.site-footer::before{
 }
 .final-cta .btn-cobalt{background:var(--cobalt-glow);color:var(--ink)}
 .final-cta .btn-cobalt:hover{background:#fff;color:var(--ink)}
-.final-cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-.final-cta .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:#fff;color:#fff}
+.final-cta .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.55)}
+.final-cta .btn-ghost:hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff}
 
 /* Cloud page: keep body black between dark hero and final CTA so it doesn't flash white */
 body.nav-on-dark{background:var(--ink)}
