@@ -45,36 +45,6 @@
       ]
     },
     {
-      "id": "chief-of-staff",
-      "title": "Chief of Staff",
-      "team": "ops",
-      "location": "wpalm",
-      "type": "Full-time",
-      "level": "Senior / Director",
-      "comp": "$85K–$110K + equity",
-      "summary": "Be the force multiplier the CEO and COO can't function without. Run the operating rhythm of the company so the founders can spend their time on the work nobody else can do.",
-      "about": "This is a company that wants to be the most important software company of the AI decade. To get there, the founders need someone who can carry the weight of everything that isn't sales, code, or product — and turn it into leverage. You'll be deep in board prep, fundraising, hiring, internal comms, and the dozen weekly fires the CEO would otherwise carry alone. Reports to the COO with a dotted line to the CEO.",
-      "responsibilities": [
-        "Run the executive operating rhythm: leadership team meeting, all-hands, board cadence, company OKRs.",
-        "Drive special projects end-to-end — fundraising materials, strategic partnerships, market entries.",
-        "Be the second-pair-of-eyes on every important external document the CEO or COO sends.",
-        "Write internal comms in the founders' voice. Edit, condense, sharpen everything.",
-        "Recruit your own replacement within 18 months as you grow into something bigger."
-      ],
-      "qualifications": [
-        "6+ years across some combination of chief of staff, top-tier consulting, banking, or BizOps at a hyper-growth startup.",
-        "You read a 50-page doc, find the one sentence that matters, and rewrite it twice as well.",
-        "Discretion. You'll sit in every conversation in the company.",
-        "You'd rather be in the room than on the stage. The work is the reward.",
-        "Operator's instinct: you'd rather fix the broken process than write the deck about it."
-      ],
-      "nicetohave": [
-        "Past life as a founder, early employee at a top-tier startup, or an IC engineer pulled into ops.",
-        "Experience producing venture fundraising materials and running board operating cadences.",
-        "A demonstrably better-than-anyone-else writing voice."
-      ]
-    },
-    {
       "id": "senior-engineer-ai",
       "title": "Senior Software Engineer, AI",
       "team": "engineering",
@@ -171,36 +141,6 @@
         "Wrote a keyboard extension, share extension, or accessibility service that millions of people used without noticing.",
         "Familiarity with enterprise mobile distribution: MDM/UEM, Jamf, Intune, Kandji, Samsung Knox.",
         "Contributed to AOSP, WebKit, Chromium, or any other open mobile codebase."
-      ]
-    },
-    {
-      "id": "sales-engineer",
-      "title": "Sales Engineer",
-      "team": "gtm",
-      "location": "wpalm",
-      "type": "Full-time",
-      "level": "Senior",
-      "comp": "$145K base / $225K OTE + equity",
-      "summary": "The technical anchor in every deal cycle — POCs, security reviews, architecture deep dives, and the conversations that turn a curious VP into a champion.",
-      "about": "We have demand we can't keep up with. Banks, healthcare systems, and Fortune 500s want PrivacyPal in their VPC yesterday. As our Sales Engineer you sit between the AEs, the customer's security team, and our engineering org — translating each side to the other and making the deal close on technical merit, every time. Reports to the VP of Sales, Enterprise.",
-      "responsibilities": [
-        "Run technical discovery and architecture sessions with security and data leadership.",
-        "Own POCs end-to-end: scope, environment, success criteria, executive readout.",
-        "Become the customer-facing expert on the gateway, Privacy Twins, and the policy model.",
-        "Translate field feedback into the product roadmap — you sit between sales and engineering.",
-        "Help build the SE playbook: demo scripts, POC SOWs, objection library, security-questionnaire bank."
-      ],
-      "qualifications": [
-        "5+ years as an SE selling technical infrastructure, security, or data platforms to enterprise buyers.",
-        "Comfortable in front of a CISO, in a SOC 2 review, and in a Slack debug thread.",
-        "Hands-on with at least one of: Kubernetes, AWS/GCP/Azure security, SIEM, or data pipelines.",
-        "You close. You don't just demo.",
-        "You can write a clean RFP response and a clean Python script in the same week."
-      ],
-      "nicetohave": [
-        "Past life as an IC engineer at a security or infra company.",
-        "Sold into financial services, healthcare, or federal customers.",
-        "Built an SE function from scratch before."
       ]
     },
     {
