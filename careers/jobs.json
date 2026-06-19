@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-05-13",
+    "updated": "2026-06-19",
     "applicationsEmail": "careers@privacypal.ai"
   },
   "teams": [
@@ -9,9 +9,7 @@
     { "id": "ops",         "label": "Operations" }
   ],
   "locations": [
-    { "id": "sunnyvale",   "label": "Sunnyvale, CA" },
-    { "id": "miami",       "label": "Miami, FL" },
-    { "id": "wpalm",       "label": "W. Palm Beach, FL" },
+    { "id": "wpalm",       "label": "West Palm Beach, FL" },
     { "id": "remote",      "label": "Remote (Americas)" },
     { "id": "remote-apac", "label": "Remote (APAC)" }
   ],
@@ -20,7 +18,7 @@
       "id": "vp-sales-enterprise",
       "title": "VP of Sales, Enterprise",
       "team": "gtm",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "VP",
       "comp": "$120K base / $325K OTE + equity",
@@ -50,7 +48,7 @@
       "id": "chief-of-staff",
       "title": "Chief of Staff",
       "team": "ops",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "Senior / Director",
       "comp": "$85K–$110K + equity",
@@ -80,7 +78,7 @@
       "id": "senior-engineer-ai",
       "title": "Senior Software Engineer, AI",
       "team": "engineering",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "Senior / L5",
       "comp": "$160K–$215K + equity",
@@ -113,7 +111,7 @@
       "id": "senior-engineer-platform",
       "title": "Senior Software Engineer, Platform",
       "team": "engineering",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "Senior / L5",
       "comp": "$160K–$215K + equity",
@@ -143,7 +141,7 @@
       "id": "senior-engineer-devices",
       "title": "Senior Software Engineer, Devices",
       "team": "engineering",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "Senior / L5",
       "comp": "$160K–$215K + equity",
@@ -179,7 +177,7 @@
       "id": "sales-engineer",
       "title": "Sales Engineer",
       "team": "gtm",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "Senior",
       "comp": "$145K base / $225K OTE + equity",
@@ -209,7 +207,7 @@
       "id": "bdr",
       "title": "Business Development Representative",
       "team": "gtm",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Full-time",
       "level": "IC / Mid",
       "comp": "$55K base / $90K OTE + equity",
@@ -239,7 +237,7 @@
       "id": "sme-account-executive",
       "title": "SME Account Executive",
       "team": "gtm",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Future hire · opens Q4 2026",
       "level": "Senior IC",
       "comp": "$120K base / $240K OTE + equity",
@@ -269,7 +267,7 @@
       "id": "growth-marketing-intern",
       "title": "Growth Marketing Intern (Summer 2026)",
       "team": "gtm",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Internship · Summer 2026",
       "level": "Intern · 12 weeks",
       "comp": "$25/hr + equity grant",
@@ -297,7 +295,7 @@
       "id": "content-marketing-intern",
       "title": "Content Marketing Intern (Summer 2026)",
       "team": "gtm",
-      "location": "sunnyvale",
+      "location": "wpalm",
       "type": "Internship · Summer 2026",
       "level": "Intern · 12 weeks",
       "comp": "$25/hr + equity grant",
@@ -320,6 +318,37 @@
         "Previous editorial, journalism, or content-marketing internship.",
         "Worked with privacy, security, AI, or developer-tools content specifically.",
         "Comfortable on camera — video and podcast experiments live in this seat."
+      ]
+    },
+    {
+      "id": "ai-devices-intern",
+      "title": "AI Devices Engineering Intern (Summer 2026)",
+      "team": "engineering",
+      "location": "wpalm",
+      "type": "Internship · Summer 2026",
+      "level": "Intern · 12 weeks",
+      "comp": "$50/hr + equity grant",
+      "summary": "An engineering internship for students living at the intersection of AI and hardware — Silicon Valley-level exposure, building real models that run on real devices.",
+      "about": "This is the internship for the student who can't decide between AI and hardware — so they chose both. PrivacyPal runs real models on real devices: small, fast networks that have to live inside the battery, memory, and thermal budget of a phone, tablet, or laptop while the cloud never sees a thing. You'll spend twelve weeks shipping at that intersection — quantizing models, wiring them to on-device accelerators, and measuring every millisecond and milliwatt — with the kind of mentorship and ambition you'd expect from a top Silicon Valley lab, from a desk at our Florida HQ. You'll be paired with the engineers who own our AI and Devices stacks, your PRs will get reviewed like a full-timer's, and the best interns here get the first full-time offer. In-person at our West Palm Beach HQ.",
+      "responsibilities": [
+        "Own a real on-device AI feature end-to-end for the summer — scope it with your mentor in week one, ship it to a device by week twelve.",
+        "Get models onto the hardware: quantization, conversion, and the right accelerator for the right chip — Core ML and the Apple Neural Engine on iOS, NNAPI and ExecuTorch on Android, the NPU when it earns its keep.",
+        "Measure everything you ship — latency, memory, battery, thermals — and defend the tradeoffs you made.",
+        "Pair with senior AI and Devices engineers; sit in design reviews, on-call readouts, and customer conversations.",
+        "Present your work to the whole company at the end of the summer — demo on a real device, not a slide."
+      ],
+      "qualifications": [
+        "Currently pursuing a BS, MS, or PhD in CS, computer engineering, electrical engineering, or a related field — and studying at the intersection of AI/ML and hardware or devices.",
+        "You write real code in Python plus at least one of Swift, Kotlin, C++, or Rust.",
+        "Hands-on with at least one of: on-device or embedded ML, mobile development, model quantization, computer architecture, or DSP — a course, a research project, or a weekend hack all count.",
+        "You measure before you optimize, and you can explain the bottleneck you found and the tradeoff you took.",
+        "You can pick up an unfamiliar stack over a weekend and have something running by Monday."
+      ],
+      "nicetohave": [
+        "A project that put a model on a phone, microcontroller, Jetson, Raspberry Pi, or FPGA — and you can talk about what didn't work.",
+        "Coursework or research in computer architecture, compilers, ML systems, or signal processing.",
+        "Contributions to open-source ML, mobile, or embedded projects.",
+        "You've competed and have the scars — hackathons, robotics, Kaggle, CTFs, or a personal build you won't shut up about."
       ]
     }
   ]
