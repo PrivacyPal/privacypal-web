@@ -1,0 +1,19 @@
+{
+      "id": "west-palm-beach-hq",
+      "title": "PrivacyPal opens its new headquarters in West Palm Beach",
+      "category": "company",
+      "date": "2026-06-18",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "2 min read",
+      "thumb": "news/images/west-palm-beach-hq.jpg",
+      "hero": "news/images/west-palm-beach-hq.jpg",
+      "excerpt": "PrivacyPal's new home base is in West Palm Beach, Florida — anchoring the company on the stretch of coast from West Palm Beach to Miami that we call the Silicon Coast, where we keep investing in events, talent, and the South Florida startup community.",
+      "body": [
+        { "type": "p", "text": "PrivacyPal has opened a new headquarters in West Palm Beach, Florida. The move gives the team a permanent home base in the heart of South Florida's fast-growing market for finance, healthcare, and technology — and puts us closer to many of the customers who trust us with their most sensitive AI workflows." },
+        { "type": "p", "text": "Miami remains every bit as central to who we are. We'll keep hosting events in the city, backing its founders, and investing in the startup ecosystem and talent community across both Miami and West Palm Beach. The two cities were never an either/or for us — they're two ends of the same home." },
+        { "type": "h2", "text": "Welcome to the Silicon Coast" },
+        { "type": "p", "text": "The stretch of Atlantic coastline running from West Palm Beach down through Boca Raton and Fort Lauderdale into Miami has been known for a century as the Gold Coast. We think it's earning a second name. That same corridor now holds one of the densest concentrations of founders, engineers, capital, and ambition anywhere in the country — and we're proud to build at both ends of it. Call it the Silicon Coast." },
+        { "type": "quote", "text": "We didn't have to choose between West Palm Beach and Miami. The whole Gold Coast is becoming the Silicon Coast — and we intend to help build it, end to end.", "cite": "Jason Melo, CEO of PrivacyPal" },
+        { "type": "p", "text": "Our new West Palm Beach headquarters is built for the way we work: deep focus, real whiteboards, and the in-person moments that make a hard problem feel like a privilege. We're hybrid by design — a desk for the people who want one, fully remote for the people who don't — and we're hiring across the company. If you'd rather work on something that matters, come build with us on the Silicon Coast." }
+      ]
+    }
