@@ -436,8 +436,10 @@
         if (smooth === false){ void track.offsetWidth; track.style.transition = ''; }
         curEl.textContent = idx + 1;
         thumbs.forEach((t, n) => t.classList.toggle('active', n === idx));
+        // only center the active thumb on user navigation — doing it on the
+        // initial render scrolls the whole page down to the album on load
         const at = thumbs[idx];
-        if (at) at.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+        if (at && smooth !== false) at.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
       }
 
       root.querySelector('.album-prev').addEventListener('click', () => go(idx - 1));
