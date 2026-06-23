@@ -238,6 +238,37 @@
           </div>
         </section>` : '';
 
+      // ---- full-event album carousel ----
+      const album = (Array.isArray(ev.album) ? ev.album : [])
+        .map(a => typeof a === 'string' ? { src: a } : a)
+        .filter(a => a && a.src);
+      const albumHTML = album.length ? `
+        <section class="event-section reveal event-album-section">
+          <div class="album-head">
+            <h2>Walk through the event</h2>
+            <span class="album-total">${album.length} photos</span>
+          </div>
+          <div class="album-carousel">
+            <div class="album-viewport">
+              <div class="album-track">
+                ${album.map((a, i) => `
+                  <figure class="album-slide" data-index="${i}">
+                    <img src="${escape(a.src)}" alt="${escape(a.alt || ev.title)}" loading="${i < 2 ? 'eager' : 'lazy'}" draggable="false">
+                  </figure>`).join('')}
+              </div>
+              <button class="album-arrow album-prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="album-arrow album-next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+              <span class="album-counter"><span class="album-cur">1</span> / ${album.length}</span>
+            </div>
+            <div class="album-strip">
+              ${album.map((a, i) => `
+                <button class="album-thumb${i === 0 ? ' active' : ''}" type="button" data-index="${i}" aria-label="Go to photo ${i + 1}">
+                  <img src="${escape(a.src)}" alt="" loading="lazy" draggable="false">
+                </button>`).join('')}
+            </div>
+          </div>
+        </section>` : '';
+
       // ---- CTAs ----
       const ctas = Array.isArray(ev.ctas) ? ev.ctas : [];
       const ctaButtons = ctas.map(c =>
@@ -280,13 +311,16 @@
               ${highlightsHTML}
               ${videosHTML}
               ${galleryHTML}
+              ${albumHTML}
               ${closingCtaHTML}
             </div>
           </div>
         </section>`;
 
       observeReveal(root);
-      if (gallery.length) wireLightbox(gallery, ev.title);
+      const lightbox = createLightbox();
+      if (gallery.length) wireGalleryGrid(gallery, ev.title, lightbox);
+      if (album.length)   wireCarousel(album, ev.title, lightbox);
     }).catch(err => {
       console.error(err);
       root.innerHTML = `
@@ -297,9 +331,9 @@
         </div>`;
     });
 
-    /* ---------- lightbox ---------- */
-    function wireLightbox(gallery, eventTitle){
-      let current = 0;
+    /* ---------- shared lightbox (used by the highlights grid and the album) ---------- */
+    function createLightbox(){
+      let photos = [], current = 0, title = '';
       const box = document.createElement('div');
       box.className = 'lightbox';
       box.setAttribute('aria-hidden', 'true');
@@ -323,45 +357,116 @@
       const titleEl = box.querySelector('.cap-title');
       const descEl  = box.querySelector('.cap-desc');
       const countEl = box.querySelector('.lightbox-count');
-      const single  = gallery.length < 2;
-      box.querySelector('.lb-prev').style.display = single ? 'none' : '';
-      box.querySelector('.lb-next').style.display = single ? 'none' : '';
+      const prevBtn = box.querySelector('.lb-prev');
+      const nextBtn = box.querySelector('.lb-next');
 
       function show(i){
-        current = (i + gallery.length) % gallery.length;
-        const g = gallery[current];
+        current = (i + photos.length) % photos.length;
+        const g = photos[current];
+        const single = photos.length < 2;
         imgEl.src = g.src;
-        imgEl.alt = g.alt || g.caption || eventTitle;
+        imgEl.alt = g.alt || g.caption || title;
         titleEl.textContent = g.caption || '';
         titleEl.style.display = g.caption ? '' : 'none';
         descEl.textContent  = g.description || '';
         descEl.style.display = g.description ? '' : 'none';
-        countEl.textContent = single ? '' : (current + 1) + ' / ' + gallery.length;
+        countEl.textContent = single ? '' : (current + 1) + ' / ' + photos.length;
+        prevBtn.style.display = single ? 'none' : '';
+        nextBtn.style.display = single ? 'none' : '';
       }
-      function open(i){ show(i); box.classList.add('show'); box.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
       function close(){ box.classList.remove('show'); box.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
 
-      const galleryEl = document.getElementById('eventGallery');
-      galleryEl.addEventListener('click', e => {
-        const fig = e.target.closest('.gallery-figure');
-        if (fig) open(+fig.dataset.index);
-      });
-      galleryEl.addEventListener('keydown', e => {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        const fig = e.target.closest('.gallery-figure');
-        if (fig){ e.preventDefault(); open(+fig.dataset.index); }
-      });
-
       box.querySelector('.lb-close').addEventListener('click', close);
-      box.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
-      box.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+      prevBtn.addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+      nextBtn.addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
       box.addEventListener('click', e => { if (e.target === box) close(); });
       document.addEventListener('keydown', e => {
         if (!box.classList.contains('show')) return;
         if (e.key === 'Escape') close();
-        else if (e.key === 'ArrowLeft' && !single) show(current - 1);
-        else if (e.key === 'ArrowRight' && !single) show(current + 1);
+        else if (e.key === 'ArrowLeft'  && photos.length > 1) show(current - 1);
+        else if (e.key === 'ArrowRight' && photos.length > 1) show(current + 1);
       });
+
+      return {
+        open(list, i, t){
+          photos = list; title = t || '';
+          show(i || 0);
+          box.classList.add('show'); box.setAttribute('aria-hidden','false');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+    }
+
+    /* ---------- highlights grid -> lightbox ---------- */
+    function wireGalleryGrid(gallery, title, lb){
+      const galleryEl = document.getElementById('eventGallery');
+      if (!galleryEl) return;
+      galleryEl.addEventListener('click', e => {
+        const fig = e.target.closest('.gallery-figure');
+        if (fig) lb.open(gallery, +fig.dataset.index, title);
+      });
+      galleryEl.addEventListener('keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const fig = e.target.closest('.gallery-figure');
+        if (fig){ e.preventDefault(); lb.open(gallery, +fig.dataset.index, title); }
+      });
+    }
+
+    /* ---------- full-event album carousel ---------- */
+    function wireCarousel(album, title, lb){
+      const root = document.querySelector('.album-carousel');
+      if (!root) return;
+      const track  = root.querySelector('.album-track');
+      const slides = Array.from(root.querySelectorAll('.album-slide'));
+      const thumbs = Array.from(root.querySelectorAll('.album-thumb'));
+      const curEl  = root.querySelector('.album-cur');
+      const vp     = root.querySelector('.album-viewport');
+      let idx = 0;
+
+      function go(i, smooth){
+        idx = (i + album.length) % album.length;
+        // fetch the current slide and its neighbours promptly (the rest stay lazy)
+        [idx - 1, idx, idx + 1].forEach(n => {
+          const s = slides[(n + album.length) % album.length];
+          const im = s && s.querySelector('img');
+          if (im && im.loading === 'lazy') im.loading = 'eager';
+        });
+        if (smooth === false) track.style.transition = 'none';
+        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        if (smooth === false){ void track.offsetWidth; track.style.transition = ''; }
+        curEl.textContent = idx + 1;
+        thumbs.forEach((t, n) => t.classList.toggle('active', n === idx));
+        const at = thumbs[idx];
+        if (at) at.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+      }
+
+      root.querySelector('.album-prev').addEventListener('click', () => go(idx - 1));
+      root.querySelector('.album-next').addEventListener('click', () => go(idx + 1));
+      thumbs.forEach(t => t.addEventListener('click', () => go(+t.dataset.index)));
+
+      // swipe — and suppress the click -> lightbox that would follow a drag
+      let x0 = null, moved = false;
+      vp.addEventListener('pointerdown', e => { x0 = e.clientX; moved = false; });
+      vp.addEventListener('pointermove', e => { if (x0 !== null && Math.abs(e.clientX - x0) > 8) moved = true; });
+      vp.addEventListener('pointerup',   e => {
+        if (x0 === null) return;
+        const dx = e.clientX - x0; x0 = null;
+        if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
+      });
+      slides.forEach(s => s.addEventListener('click', () => {
+        if (moved){ moved = false; return; }
+        lb.open(album, +s.dataset.index, title);
+      }));
+
+      // keyboard when the carousel has focus
+      root.setAttribute('tabindex', '0');
+      root.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft'){ e.preventDefault(); go(idx - 1); }
+        else if (e.key === 'ArrowRight'){ e.preventDefault(); go(idx + 1); }
+        else if (e.key === 'Enter'){ lb.open(album, idx, title); }
+      });
+
+      go(0, false);
     }
   }
 })();
