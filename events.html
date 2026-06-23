@@ -1,89 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0QN2Z18HP0');</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - PrivacyPal | Conferences & Webinars</title>
-    <meta name="description" content="Join PrivacyPal at industry events, conferences, and webinars.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/site.css"/>
-    <style>        *{margin:0;padding:0;box-sizing:border-box;}
-        :root{--cobalt:#336699;--cobalt-dark:#1a3a5a;--cobalt-light:#4a86c2;--bg:#EDEAE2;--bg-alt:#E4E0D7;--bg-card:#ffffff;--text:#111111;--text-muted:#5a5a52;--text-light:#7a7a72;--border:#D4D0C8;}
-        html{scroll-behavior:smooth;}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-        .page-hero{min-height:50vh;display:flex;align-items:center;justify-content:center;background:var(--bg-alt);padding:120px 24px 80px;text-align:center;}
-        .page-hero h1{font-family:'Radley',Georgia,'Times New Roman',serif;font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;color:var(--text);margin-bottom:20px;line-height:1.15;}
-        .page-hero p{font-size:1.15rem;color:var(--text-muted);max-width:720px;margin:0 auto;line-height:1.75;}
-        .container{max-width:1200px;margin:0 auto;padding:0 24px;}
-        /* Events list – built to scale for multiple events */
-        .events-list{max-width:1000px;margin:0 auto;padding:48px 24px 100px;}
-        .event-entry{background:var(--bg);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:64px;box-shadow:0 4px 24px rgba(0,0,0,0.04);transition:box-shadow .3s,border-color .3s;}
-        .event-entry:hover{box-shadow:0 12px 48px -12px rgba(51,102,153,0.15);border-color:rgba(51,102,153,0.2);}
-        .event-header{padding:40px 40px 24px;}
-        .event-badge{display:inline-block;background:rgba(51,102,153,0.1);color:var(--cobalt);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:6px 14px;border-radius:100px;margin-bottom:16px;}
-        .event-badge.past{background:var(--bg-alt);color:var(--text-muted);}
-        .event-entry h2{font-family:'Radley',Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.2;}
-        .event-meta{display:flex;flex-wrap:wrap;gap:20px 32px;color:var(--text-muted);font-size:0.95rem;margin-bottom:24px;}
-        .event-meta span{display:flex;align-items:center;gap:8px;}
-        .event-meta svg{width:18px;height:18px;flex-shrink:0;stroke:var(--cobalt);stroke-width:1.5;fill:none;}
-        .event-description{font-size:1.05rem;color:var(--text-muted);line-height:1.75;}
-        .event-description strong{color:var(--text);}
-        .event-body{padding:0 40px 40px;}
-        /* Minimal video player */
-        .video-wrap{position:relative;width:100%;border-radius:12px;overflow:hidden;background:#0a0a0a;}
-        .video-wrap.aspect-16x9{aspect-ratio:16/9;}
-        .video-wrap video{display:block;width:100%;height:100%;object-fit:cover;}
-        .video-wrap.video-wrap-embed{position:relative;}
-        .video-wrap.video-wrap-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-        .video-wrap.video-wrap-link{position:relative;display:block;text-decoration:none;color:inherit;}
-        .video-wrap.video-wrap-link img{display:block;width:100%;height:100%;object-fit:cover;}
-        .video-wrap.video-wrap-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,0.35);color:#fff;font-weight:600;font-size:1rem;transition:background .2s;}
-        .video-wrap.video-wrap-link:hover .video-wrap-play{background:rgba(0,0,0,0.5);}
-        .video-wrap.video-wrap-play svg{width:56px;height:56px;}
-        .video-wrap .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);cursor:pointer;transition:opacity .25s;}
-        .video-wrap .play-overlay:hover{background:rgba(0,0,0,0.45);}
-        .video-wrap .play-overlay.hidden{opacity:0;pointer-events:none;}
-        .video-wrap .play-btn{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.95);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,0.3);transition:transform .2s,background .2s;}
-        .video-wrap .play-btn:hover{transform:scale(1.08);background:#fff;}
-        .video-wrap .play-btn svg{width:28px;height:28px;margin-left:4px;fill:var(--cobalt-dark);}
-        .video-wrap video::-webkit-media-controls-panel{background:linear-gradient(transparent,rgba(0,0,0,.6));}
-        .video-label{font-size:0.85rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px;}
-        /* Media grid */
-        .event-media{margin-top:40px;}
-        .event-trailer{margin-bottom:40px;}
-        .event-gallery{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-bottom:40px;}
-        .event-gallery .gallery-a{grid-column:1;grid-row:1 / 3;border-radius:12px;overflow:hidden;}
-        .event-gallery .gallery-b,.event-gallery .gallery-c{border-radius:12px;overflow:hidden;}
-        .event-gallery img{width:100%;height:100%;object-fit:cover;display:block;vertical-align:middle;}
-        .event-gallery .gallery-a img{min-height:280px;}
-        .event-gallery .gallery-b img,.event-gallery .gallery-c img{min-height:132px;}
-        .event-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px;}
-        .event-ctas a{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:10px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all .2s;}
-        .event-ctas .btn-primary{background:var(--cobalt);color:#fff;}
-        .event-ctas .btn-primary:hover{background:var(--cobalt-dark);}
-        .event-ctas .btn-secondary{border:1px solid var(--border);color:var(--text);}
-        .event-ctas .btn-secondary:hover{border-color:var(--cobalt);color:var(--cobalt);}
-            .event-header,.event-body{padding:28px 20px;}
-            .event-gallery{grid-template-columns:1fr;grid-template-rows:auto;}
-            .event-gallery .gallery-a{grid-row:auto;}
-            .event-gallery .gallery-a img{min-height:220px;}
-        }
-        @media(max-width:768px){.nav-links,.nav-cta-group{display:none;}.hamburger{display:flex;}.footer-content{grid-template-columns:1fr;}}
-    </style>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Events — PrivacyPal</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
+<link rel="stylesheet" href="assets/events.css">
+<meta name="description" content="Where to find PrivacyPal — launches, conferences, webinars and meetups. Browse upcoming events and relive the recaps, photos and highlights.">
+<link rel="canonical" href="https://privacypal.ai/events.html">
 <!-- social-share-meta:start -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/events.html" />
-<meta property="og:title" content="Events - PrivacyPal | Conferences & Webinars" />
-<meta property="og:description" content="Join PrivacyPal at industry events, conferences, and webinars." />
+<meta property="og:title" content="Events — PrivacyPal" />
+<meta property="og:description" content="Where to find PrivacyPal — launches, conferences, webinars and meetups. Browse upcoming events and relive the recaps, photos and highlights." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta property="og:image:secure_url" content="https://privacypal.ai/assets/logo-color.png" />
 <meta property="og:image:type" content="image/png" />
@@ -91,63 +22,65 @@
 <meta property="og:image:height" content="1108" />
 <meta property="og:image:alt" content="PrivacyPal" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Events - PrivacyPal | Conferences & Webinars" />
-<meta name="twitter:description" content="Join PrivacyPal at industry events, conferences, and webinars." />
+<meta name="twitter:title" content="Events — PrivacyPal" />
+<meta name="twitter:description" content="Where to find PrivacyPal — launches, conferences, webinars and meetups." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:image:alt" content="PrivacyPal" />
 <link rel="image_src" href="https://privacypal.ai/assets/logo-color.png" />
 <!-- social-share-meta:end -->
-</head>
-<body>
+</head><body>
 <div id="site-nav-slot"></div>
-<section class="page-hero">
-        <div class="container">
-            <h1>Events</h1>
-            <p>Join us at conferences, webinars, and industry events.</p>
-        </div>
-    </section>
-    <div class="events-list">
-        <article class="event-entry">
-            <div class="event-header">
-                <span class="event-badge past">Past Event</span>
-                <h2>PrivacyPal Launch</h2>
-                <div class="event-meta">
-                    <span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> The LAB Miami</span>
-                    <span><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Miami, Florida</span>
-                </div>
-            </div>
-            <div class="event-body">
-                <div class="event-media">
-                    <div class="event-trailer">
-                        <p class="video-label">Event trailer</p>
-                        <a href="https://youtube.com/shorts/OBpJpRSEEPA" target="_blank" rel="noopener" class="video-wrap aspect-16x9 video-wrap-link">
-                            <img src="https://img.youtube.com/vi/OBpJpRSEEPA/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://img.youtube.com/vi/OBpJpRSEEPA/hqdefault.jpg'">
-                            <span class="video-wrap-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z" fill="currentColor"/></svg> Watch on YouTube</span>
-                        </a>
-                    </div>
-                    <div class="event-gallery">
-                        <div class="gallery-a"><img src="1-5.jpg" alt="PrivacyPal Launch at The LAB Miami" loading="lazy"></div>
-                        <div class="gallery-b"><img src="1-12.jpg" alt="PrivacyPal Launch event" loading="lazy"></div>
-                        <div class="gallery-c"><img src="1-10.jpg" alt="PrivacyPal Launch" loading="lazy"></div>
-                    </div>
-                    <p class="video-label">Event highlights</p>
-                    <a href="https://youtube.com/shorts/qdkl3z9N-FU" target="_blank" rel="noopener" class="video-wrap aspect-16x9 video-wrap-link">
-                        <img src="https://img.youtube.com/vi/qdkl3z9N-FU/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://img.youtube.com/vi/qdkl3z9N-FU/hqdefault.jpg'">
-                        <span class="video-wrap-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z" fill="currentColor"/></svg> Watch on YouTube</span>
-                    </a>
-                </div>
-                <div class="event-ctas">
-                    <a href="https://www.linkedin.com/company/privacypalai/" target="_blank" rel="noopener" class="btn-primary">Follow us on LinkedIn</a>
-                    <a href="https://luma.com/g03rbtsh" target="_blank" rel="noopener" class="btn-secondary">View on Luma</a>
-                    <a href="https://privacypal.ai" target="_blank" rel="noopener" class="btn-secondary">Share privacypal.ai</a>
-                </div>
-            </div>
-        </article>
-    </div>
-    <div id="site-footer-slot"></div>
-    <script>
 
-        </script>
+<section class="sub-hero events-hero">
+  <div class="container">
+    <div style="max-width:880px">
+      <span class="eyebrow reveal in">Events</span>
+      <h1 class="reveal in">Where to find <em>PrivacyPal</em>.</h1>
+      <p class="lede reveal in">Launches, conferences, webinars and meetups. See where we'll be next — and relive the rooms we've already been in, with photos, highlights and the full recap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== EVENTS GRID ============== -->
+<section class="section" id="all-events">
+  <div class="container">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
+      <div>
+        <span class="eyebrow">The calendar</span>
+        <h2 class="display display-md" style="margin-top:14px">Upcoming &amp; past.</h2>
+      </div>
+      <div class="events-filters" id="eventFilters" aria-label="Filter events">
+        <button class="chip active" data-cat="all" type="button">All</button>
+        <!-- category chips injected -->
+      </div>
+    </div>
+
+    <div class="events-loading reveal" id="eventsLoading">
+      <div class="pp-spinner" style="margin:60px auto"></div>
+    </div>
+
+    <div class="events-grid" id="eventsGrid" hidden></div>
+
+    <div class="events-empty reveal" id="eventsEmpty" hidden>
+      <p>No events in this category just yet.</p>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/company/privacypalai/" target="_blank" rel="noopener">Follow us on LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final-cta">
+  <div class="reveal">
+    <h2>Want us at your event?</h2>
+    <p>We love a good room — panels, podcasts, conferences and customer days. If you're putting something together on AI, privacy or security, let's talk.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="mailto:hello@privacypal.ai?subject=Event%20invitation%20for%20PrivacyPal">Invite the team</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/company/privacypalai/" target="_blank" rel="noopener">Follow on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
 <script src="assets/site.js"></script>
-</body>
-</html>
+<script src="assets/events.js?v=2026-06-21"></script>
+</body></html>

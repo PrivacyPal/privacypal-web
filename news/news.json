@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "updated": "2026-06-23",
+    "pressEmail": "press@privacypal.ai"
+  },
+  "categories": [
+    { "id": "press-release", "label": "Press Releases" },
+    { "id": "product",       "label": "Product" },
+    { "id": "press",         "label": "Press" },
+    { "id": "funding",       "label": "Funding" },
+    { "id": "partnerships",  "label": "Partnerships" },
+    { "id": "awards",        "label": "Awards" },
+    { "id": "company",       "label": "Company" }
+  ],
+  "articles": [
+    {
+      "id": "web3rex-acquisition",
+      "title": "PrivacyPal acquires WEB3 REX Inc., accelerating enterprise AI governance",
+      "category": "press-release",
+      "date": "2026-06-23",
+      "featured": true,
+      "author": "PrivacyPal Newsroom",
+      "readTime": "3 min read",
+      "thumb": "news/images/web3rex-acquisition.jpg",
+      "hero": "news/images/web3rex-acquisition.jpg",
+      "excerpt": "PrivacyPal LLC has acquired and integrated WEB3 REX Inc., adding specialized technical talent and an intellectual-property portfolio across advanced data synthetics and decentralized blockchain technologies.",
+      "body": [
+        { "type": "kicker", "text": "For immediate release" },
+        { "type": "p", "text": "BOCA RATON, FL — June 23, 2026 — PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced the successful acquisition and corporate integration of WEB3 REX INC." },
+        { "type": "h2", "text": "Strategic Acquisition and IP Expansion" },
+        { "type": "p", "text": "Through this definitive acquisition, PrivacyPal integrates WEB3 REX INC.’s highly specialized technical talent and robust intellectual property portfolio into its core infrastructure. This strategic transaction equips PrivacyPal with pioneering capabilities across advanced data synthetics and decentralized blockchain technologies. The addition of these crucial technological assets exponentially strengthens PrivacyPal’s competitive moat, deepens its IP portfolio, and dramatically accelerates its product expansion roadmap to meet the rapidly evolving demands of enterprise AI." },
+        { "type": "quote", "text": "We are thrilled to officially integrate WEB3 REX INC. into our corporate ecosystem. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System—one that provides absolute, ecosystem-wide control without fracturing the user experience. By incorporating these next-generation synthetics and blockchain frameworks, we are uniquely positioned to rapidly scale our on-device governance models and proprietary synthetic data engines, securing the AI frontier for enterprises globally.", "cite": "Jason Melo, CEO of PrivacyPal" },
+        { "type": "h2", "text": "About PrivacyPal LLC" },
+        { "type": "p", "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai." },
+        { "type": "h2", "text": "Forward-Looking Statements" },
+        { "type": "p", "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law." }
+      ]
+    },
+    {
+      "id": "vocodia-termination",
+      "title": "PrivacyPal and WEB3 REX Inc. terminate definitive agreement with Vocodia Holdings Corp.",
+      "category": "press-release",
+      "date": "2026-06-22",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "3 min read",
+      "thumb": "news/images/vocodia-termination.jpg",
+      "hero": "news/images/vocodia-termination.jpg",
+      "excerpt": "PrivacyPal LLC and WEB3 REX Inc. have formally terminated their Securities Purchase and Share Exchange Agreement with Vocodia Holdings Corp. (OTC: VHAI). CEO Jason Melo remains fully focused on PrivacyPal.",
+      "body": [
+        { "type": "kicker", "text": "For immediate release" },
+        { "type": "p", "text": "BOCA RATON, FL — June 22, 2026 — PrivacyPal LLC and WEB3 REX INC. today announced the formal termination of their definitive Securities Purchase and Share Exchange Agreement (the “Agreement”) with Vocodia Holdings Corp. (OTC: VHAI)." },
+        { "type": "h2", "text": "Termination of the Definitive Agreement with Vocodia" },
+        { "type": "p", "text": "The termination of the proposed transaction was effectuated due to Vocodia’s inability to satisfy essential closing conditions necessary to consummate the acquisition under the terms of the Agreement dated January 13, 2026. Pursuant to the provisions of the Agreement, WEB3 REX INC. has formally exercised its right to terminate the transaction. While the strategic combination will not be consummated, PrivacyPal and WEB3 REX INC. express their appreciation to the Vocodia team for their collaboration during the negotiation process and extend their best wishes for Vocodia’s future corporate endeavors." },
+        { "type": "p", "text": "Consequently, Jason Melo will not be joining Vocodia Holdings Corp. as Chief Executive Officer. Mr. Melo will remain fully dedicated to his role as Chief Executive Officer of PrivacyPal, advancing its strategic enterprise initiatives alongside the other high-growth companies within his corporate portfolio." },
+        { "type": "quote", "text": "While our prospective path with Vocodia has concluded, our fundamental corporate trajectory has never been stronger or more sharply focused. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System—one that provides absolute, ecosystem-wide control without fracturing the user experience.", "cite": "Jason Melo, CEO of PrivacyPal" },
+        { "type": "h2", "text": "About PrivacyPal LLC" },
+        { "type": "p", "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai." },
+        { "type": "h2", "text": "Forward-Looking Statements" },
+        { "type": "p", "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law." }
+      ]
+    },
+    {
+      "id": "privacy-twins-2",
+      "title": "Introducing Privacy Twins 2.0: synthetic substitution in real time",
+      "category": "product",
+      "date": "2026-05-20",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "4 min read",
+      "thumb": "news/images/privacy-twins-2.jpg",
+      "hero": "news/images/privacy-twins-2.jpg",
+      "excerpt": "A new generation of on-device models replaces sensitive values with coherent, context-preserving synthetic data — so the model still understands the prompt, and the secret never leaves.",
+      "body": [
+        { "type": "p", "text": "Redaction breaks the prompt. Replace a customer's name with [REDACTED] and the model loses the thread; replace a transaction with black bars and the analysis falls apart. Privacy Twins 2.0 takes a different path: it substitutes sensitive values with coherent synthetic equivalents that preserve meaning, structure, and relationships — so the model still does its job, and the real data never crosses the boundary." },
+        { "type": "h2", "text": "What's new" },
+        { "type": "list", "items": [
+          "Context-aware substitution that keeps entities consistent across a whole conversation.",
+          "A faster on-device detection model with broader coverage of regulated data types.",
+          "Reversible mapping under policy, so authorized workflows can re-link results downstream.",
+          "Full audit of every substitution — what was detected, what was swapped, and why."
+        ] },
+        { "type": "quote", "text": "The goal was never to hide data from the model. It was to give the model something just as useful that happens to be safe.", "cite": "PrivacyPal Product Team" },
+        { "type": "p", "text": "Privacy Twins 2.0 is rolling out to all customers over the coming weeks, on by default for new policies." }
+      ]
+    },
+    {
+      "id": "desktop-launch",
+      "title": "PrivacyPal launches on Windows 11 and macOS",
+      "category": "product",
+      "date": "2026-05-01",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "3 min read",
+      "thumb": "news/images/desktop-launch.jpg",
+      "hero": "news/images/desktop-launch.jpg",
+      "excerpt": "On-device protection arrives natively on the desktop — real-time Privacy Twins on Windows 11 and macOS, governed by a single policy and live in about a minute.",
+      "body": [
+        { "type": "p", "text": "Today PrivacyPal is available natively on Windows 11 and macOS. The same real-time Privacy Twins that protect every AI interaction now run on the desktop — substituting sensitive data on-device, before a single token ever reaches a model." },
+        { "type": "p", "text": "Both builds are signed and notarized — a trusted publisher on Windows, notarized by Apple — so there are no scary first-launch dialogs. Drop it in, sign in, and your AI guardrails work everywhere in about a minute." },
+        { "type": "h2", "text": "What you get on day one" },
+        { "type": "list", "items": [
+          "Native builds for Windows 11 and macOS — Apple Silicon and Intel.",
+          "Real-time, on-device Privacy Twins across every AI app and browser tab.",
+          "One policy for the whole fleet — write it once, enforce it on every endpoint.",
+          "Zero-touch distribution through your existing MDM, with sub-10ms p95 overhead and full audit on."
+        ] },
+        { "type": "quote", "text": "Protection has to live where the work happens. For most teams that's the desktop — so that's where we made it effortless.", "cite": "PrivacyPal Product Team" },
+        { "type": "p", "text": "Download for Windows or macOS from the home page, or roll it out across your organization from the admin console today." }
+      ]
+    },
+    {
+      "id": "west-palm-beach-hq",
+      "title": "PrivacyPal opens its new headquarters in West Palm Beach",
+      "category": "company",
+      "date": "2026-06-18",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "2 min read",
+      "thumb": "news/images/west-palm-beach-hq.jpg",
+      "hero": "news/images/west-palm-beach-hq.jpg",
+      "excerpt": "PrivacyPal's new home base is in West Palm Beach, Florida — anchoring the company on the stretch of coast from West Palm Beach to Miami that we call the Silicon Coast, where we keep investing in events, talent, and the South Florida startup community.",
+      "body": [
+        { "type": "p", "text": "PrivacyPal has opened a new headquarters in West Palm Beach, Florida. The move gives the team a permanent home base in the heart of South Florida's fast-growing market for finance, healthcare, and technology — and puts us closer to many of the customers who trust us with their most sensitive AI workflows." },
+        { "type": "p", "text": "Miami remains every bit as central to who we are. We'll keep hosting events in the city, backing its founders, and investing in the startup ecosystem and talent community across both Miami and West Palm Beach. The two cities were never an either/or for us — they're two ends of the same home." },
+        { "type": "h2", "text": "Welcome to the Silicon Coast" },
+        { "type": "p", "text": "The stretch of Atlantic coastline running from West Palm Beach down through Boca Raton and Fort Lauderdale into Miami has been known for a century as the Gold Coast. We think it's earning a second name. That same corridor now holds one of the densest concentrations of founders, engineers, capital, and ambition anywhere in the country — and we're proud to build at both ends of it. Call it the Silicon Coast." },
+        { "type": "quote", "text": "We didn't have to choose between West Palm Beach and Miami. The whole Gold Coast is becoming the Silicon Coast — and we intend to help build it, end to end.", "cite": "Jason Melo, CEO of PrivacyPal" },
+        { "type": "p", "text": "Our new West Palm Beach headquarters is built for the way we work: deep focus, real whiteboards, and the in-person moments that make a hard problem feel like a privilege. We're hybrid by design — a desk for the people who want one, fully remote for the people who don't — and we're hiring across the company. If you'd rather work on something that matters, come build with us on the Silicon Coast." }
+      ]
+    }
+  ]
+}

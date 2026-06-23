@@ -46,6 +46,8 @@
           <div class="dropdown-menu">
             <a href="about.html"><b>About</b><small>Mission &amp; the AI OS vision</small></a>
             <a href="team.html"><b>Team</b><small>The people behind PrivacyPal</small></a>
+            <a href="news.html"><b>Newsroom</b><small>News, press &amp; happenings</small></a>
+            <a href="events.html"><b>Events</b><small>Where to find us next</small></a>
             <a href="careers.html"><b>Careers</b><small>We're hiring — join us</small></a>
           </div>
         </div>
@@ -68,6 +70,8 @@
     <a href="privacypal-cloud.html">For Enterprise</a>
     <a href="about.html">About</a>
     <a href="team.html">Team</a>
+    <a href="news.html">Newsroom</a>
+    <a href="events.html">Events</a>
     <a href="careers.html">Careers</a>
     <a href="index.html#pricing">Pricing</a>
     <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
@@ -110,6 +114,8 @@
           <h5>Company</h5>
           <a href="about.html">About</a>
           <a href="team.html">Team</a>
+          <a href="news.html">Newsroom</a>
+          <a href="events.html">Events</a>
           <a href="careers.html">Careers</a>
           <a href="index.html#pricing">Pricing</a>
           <a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Documentation</a>

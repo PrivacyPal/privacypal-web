@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "updated": "2026-06-22",
+    "note": "Each object in `events` powers one card on events.html and one detail page at event.html?id=<id>. Photo galleries support per-photo caption + description and open in a lightbox.",
+    "linkedin": "https://www.linkedin.com/company/privacypalai/"
+  },
+  "categories": [
+    { "id": "launch",     "label": "Launch" },
+    { "id": "conference", "label": "Conferences" },
+    { "id": "webinar",    "label": "Webinars" },
+    { "id": "meetup",     "label": "Meetups" }
+  ],
+  "events": [
+    {
+      "id": "trusted-ai-executive-forum",
+      "title": "The Trusted AI Executive Forum",
+      "status": "past",
+      "category": "conference",
+      "date": "2026-06-16",
+      "dateDisplay": "June 16, 2026",
+      "time": "2:00 – 5:00 PM",
+      "city": "Miami, Florida",
+      "venue": "Miami DDA · Citigroup Center",
+      "thumb": "events/images/2-63.jpg",
+      "summary": "Privacy, security and scalable innovation — an afternoon high above Biscayne Bay with the executives deciding how AI actually ships inside the enterprise.",
+      "tagline": "Innovation moves fast. Trust moves markets.",
+      "description": [
+        "High above Biscayne Bay, in the Miami Downtown Development Authority's offices at the Citigroup Center, we gathered a room of CISOs, chief privacy and data officers, and compliance leaders for an afternoon built around one question: how do you scale AI without losing the trust of your customers, your team and your board?",
+        "The answer ran through every conversation. A keynote from <strong>Patrick Doliny</strong>, the 2026 CSO Cybersecurity Award recipient, set the tone, and the sessions that followed — with voices from PrivacyPal, Key Focus Group, Plug and Play Ventures and the Miami DDA — got specific fast about where AI quietly breaks on sensitive data, and what it takes to put it to work anyway. PrivacyPal CEO <strong>Jason Melo</strong> made the case for treating privacy as the thing that <em>unlocks</em> AI rather than the thing that blocks it.",
+        "It was an intentionally small room — around fifty senior leaders who stayed for the part that doesn't fit on a slide: the introductions, the side conversations, and the partnerships that started taking shape over the skyline. Proof that in Miami, trust really does move markets."
+      ],
+      "highlights": [
+        "Keynote from Patrick Doliny, 2026 CSO Cybersecurity Award recipient",
+        "Sessions on privacy, security and scaling AI with trust intact — including PrivacyPal CEO Jason Melo",
+        "An intimate room of around fifty CISOs, privacy, data and compliance leaders",
+        "Hosted high above Biscayne Bay at the Miami DDA in the Citigroup Center",
+        "In partnership with Key Focus Group and the Miami Downtown Development Authority"
+      ],
+      "gallery": [
+        {
+          "src": "events/images/2-63.jpg",
+          "alt": "Jason Melo, CEO of PrivacyPal, presenting at the Trusted AI Executive Forum",
+          "caption": "Scaling AI without losing trust",
+          "description": "PrivacyPal CEO Jason Melo on the idea at the heart of the afternoon — that privacy is what lets a company say yes to AI, not the thing that holds it back."
+        },
+        {
+          "src": "events/images/2-64.jpg",
+          "alt": "Host Shayra Antia addressing the room at the Trusted AI Executive Forum",
+          "caption": "Setting the tone",
+          "description": "Shayra Antia works the front of the room, framing the trust question that ran through every session of the forum."
+        },
+        {
+          "src": "events/images/2-65.jpg",
+          "alt": "Keynote speaker Patrick Doliny presenting a cybersecurity framework",
+          "caption": "The keynote",
+          "description": "Keynote speaker Patrick Doliny, the 2026 CSO Cybersecurity Award recipient, on treating security as a living system rather than a checklist."
+        },
+        {
+          "src": "events/images/2-50.jpg",
+          "alt": "Executives seated around the conference table with the Miami skyline behind them",
+          "caption": "The room",
+          "description": "Senior security, privacy and data leaders gathered high above Biscayne Bay, with the forum up on the screen."
+        },
+        {
+          "src": "events/images/2-66.jpg",
+          "alt": "Jason Melo presenting beside the Alyce M. Robertson Conference Room sign",
+          "caption": "Taking it to the room",
+          "description": "Back and forth with the audience — the kind of candid, peer-level exchange these afternoons are built for."
+        },
+        {
+          "src": "events/images/2-13.jpg",
+          "alt": "An executive gesturing while making a point at the conference table",
+          "caption": "Peer to peer",
+          "description": "Executives trading what's actually working, and what isn't, straight across the table."
+        },
+        {
+          "src": "events/images/2-19.jpg",
+          "alt": "Two guests in conversation during the networking portion of the forum",
+          "caption": "Between the sessions",
+          "description": "The conversations that kept going long after the sessions wrapped."
+        },
+        {
+          "src": "events/images/2-35.jpg",
+          "alt": "Two guests posing in front of a wall-sized aerial map of Miami",
+          "caption": "Miami, on the wall",
+          "description": "Good energy in front of the room's floor-to-ceiling map of the city the forum calls home."
+        },
+        {
+          "src": "events/images/2-51.jpg",
+          "alt": "The Alyce M. Robertson Conference Room moss wall framed by windows over Biscayne Bay",
+          "caption": "High over the bay",
+          "description": "The Alyce M. Robertson Conference Room at the Miami Downtown Development Authority — living wall, glass, and the whole of Biscayne Bay behind it."
+        }
+      ],
+      "ctas": [
+        { "label": "Follow us on LinkedIn", "href": "https://www.linkedin.com/company/privacypalai/", "style": "primary" },
+        { "label": "View on Luma", "href": "https://luma.com/jbky8oyk", "style": "secondary" }
+      ]
+    },
+    {
+      "id": "privacypal-launch",
+      "title": "PrivacyPal Launch",
+      "status": "past",
+      "category": "launch",
+      "date": "2025-05-01",
+      "dateDisplay": "May 2025",
+      "city": "Miami, Florida",
+      "venue": "The LAB Miami",
+      "thumb": "events/images/1-5-shayra.jpg",
+      "summary": "We took the wraps off PrivacyPal in front of founders, operators and the South Florida tech community — the night the privacy layer for AI went public.",
+      "tagline": "The night the privacy layer for AI went public.",
+      "description": [
+        "PrivacyPal launched at The LAB Miami in front of a packed room of founders, operators, investors and the South Florida tech community. After months of heads-down building, it was the first time we showed the product live: real prompts, real sensitive data, and Privacy Twins swapping it out in real time before it ever reached a model.",
+        "The energy in the room said everything. People don't get excited about privacy software very often — but they get excited about finally being able to say <strong>yes</strong> to AI without handing over the keys. That's the night we knew we'd built something people had been waiting for."
+      ],
+      "highlights": [
+        "First public, live demo of on-device Privacy Twins",
+        "Founders, operators and investors from across South Florida",
+        "Hosted at The LAB Miami in Wynwood"
+      ],
+      "videos": [
+        { "type": "youtube", "id": "OBpJpRSEEPA", "label": "Event trailer", "title": "PrivacyPal Launch — trailer" },
+        { "type": "youtube", "id": "qdkl3z9N-FU", "label": "Event highlights", "title": "PrivacyPal Launch — highlights" }
+      ],
+      "gallery": [
+        {
+          "src": "events/images/1-5-shayra.jpg",
+          "alt": "PrivacyPal Launch at The LAB Miami",
+          "caption": "Launch night at The LAB",
+          "description": "The room filled up early — founders, operators and friends of the team came out to see the privacy layer for AI go live for the first time."
+        },
+        {
+          "src": "events/images/1-12.jpg",
+          "alt": "PrivacyPal Launch event in Miami",
+          "caption": "Live on stage",
+          "description": "Walking the audience through a real prompt, with real sensitive data, and Privacy Twins doing the work in real time."
+        },
+        {
+          "src": "events/images/1-10.jpg",
+          "alt": "Guests at the PrivacyPal Launch",
+          "caption": "The after-party conversations",
+          "description": "The best part of any launch — the conversations that keep going long after the demo ends."
+        }
+      ],
+      "ctas": [
+        { "label": "Follow us on LinkedIn", "href": "https://www.linkedin.com/company/privacypalai/", "style": "primary" },
+        { "label": "View on Luma", "href": "https://luma.com/g03rbtsh", "style": "secondary" }
+      ]
+    }
+  ]
+}
