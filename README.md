@@ -28,15 +28,44 @@ This site is configured for GitHub Pages with custom domain:
 
 ## Local Development
 
-To run locally, simply open `index.html` in a web browser or serve it with a local web server:
+**Use a local web server — do not open the `.html` files directly (`file://`).**
+Data-driven pages (the Privacy Log and the Newsroom) load their content with
+`fetch()`, which browsers block on `file://`. Serve over HTTP instead:
 
 ```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js
-npx serve .
+npm run serve            # → http://localhost:8000
+npm run serve -- 3000    # custom port
 ```
+
+`npm run serve` (aliases: `npm run dev`, `npm start`) runs a tiny zero-dependency
+static server (`scripts/serve.js`). Any static server works too, e.g.
+`python3 -m http.server 8000` or `npx serve .`.
+
+Then visit:
+- Home — http://localhost:8000/
+- The Privacy Log — http://localhost:8000/blog.html
+- RSS feed — http://localhost:8000/blog/rss.xml
+
+## The Privacy Log (blog)
+
+PrivacyPal's blog, built the same way as the Newsroom — one JSON file is the
+source of truth for the pages **and** the RSS feed.
+
+- `blog.html` / `blog-article.html` — listing + article pages (client-rendered)
+- `blog/blog.json` — authors + posts (title, author, date, tags, excerpt, body blocks)
+- `blog/images/` — hero / thumbnail photography
+- `assets/blog.css`, `assets/blog.js` — styles + rendering, search, and the
+  author / month / tag filters
+- `blog/rss.xml` — the published RSS 2.0 feed
+
+**Adding or editing a post:** edit `blog/blog.json` (add an entry to `articles`,
+drop its hero image in `blog/images/`), then regenerate the feed:
+
+```bash
+npm run rss              # rebuilds blog/rss.xml from blog/blog.json
+```
+
+Also bump the post in `sitemap.xml` if you want it indexed.
 
 ## Deployment
 

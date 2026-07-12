@@ -3,8 +3,8 @@
   const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const onDark = document.body.classList.contains('nav-on-dark');
 
-  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.6-arm64.dmg';
-  const DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.6-x64.dmg';
+  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.9-arm64.dmg';
+  const DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.9-x64.dmg';
 
   const navHTML = `
   <nav class="site-nav ${onDark ? 'on-dark' : ''}" id="siteNav">
@@ -46,13 +46,14 @@
           <div class="dropdown-menu">
             <a href="about.html"><b>About</b><small>Mission &amp; the AI OS vision</small></a>
             <a href="team.html"><b>Team</b><small>The people behind PrivacyPal</small></a>
+            <a href="blog.html"><b>The Privacy Log</b><small>Our blog on AI, privacy &amp; governance</small></a>
             <a href="news.html"><b>Newsroom</b><small>News, press &amp; happenings</small></a>
             <a href="events.html"><b>Events</b><small>Where to find us next</small></a>
             <a href="careers.html"><b>Careers</b><small>We're hiring — join us</small></a>
           </div>
         </div>
         <a class="nav-cta" href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
-        <a class="nav-cta nav-cta-blue" href="index.html#download">Download</a>
+        <a class="nav-cta nav-cta-blue" href="index.html#download" data-cta="download">Download</a>
       </div>
       <button class="hamburger" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -70,12 +71,13 @@
     <a href="privacypal-cloud.html">For Enterprise</a>
     <a href="about.html">About</a>
     <a href="team.html">Team</a>
+    <a href="blog.html">The Privacy Log</a>
     <a href="news.html">Newsroom</a>
     <a href="events.html">Events</a>
     <a href="careers.html">Careers</a>
     <a href="index.html#pricing">Pricing</a>
     <a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
-    <a href="index.html#download">Download</a>
+    <a href="index.html#download" data-cta="download">Download</a>
   </div>`;
 
   const footerHTML = `
@@ -114,6 +116,7 @@
           <h5>Company</h5>
           <a href="about.html">About</a>
           <a href="team.html">Team</a>
+          <a href="blog.html">The Privacy Log</a>
           <a href="news.html">Newsroom</a>
           <a href="events.html">Events</a>
           <a href="careers.html">Careers</a>
@@ -153,7 +156,7 @@
   <div class="pp-modal" id="ppDownloadModal" aria-hidden="true">
     <div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Download PrivacyPal">
       <div class="pp-modal-head">
-        <h3>Download PrivacyPal · v1.8.6</h3>
+        <h3>Download PrivacyPal · v1.8.9</h3>
         <button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button>
       </div>
       <div class="pp-modal-body">
@@ -166,11 +169,11 @@
             <h4>Windows 11</h4>
             <p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>
             <div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>
-            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.6.exe" rel="noopener noreferrer">
+            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.9.exe" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
               Download for Windows
             </a>
-            <p class="pp-dl-filename">PrivacyPal-Setup-1.8.6.exe</p>
+            <p class="pp-dl-filename">PrivacyPal-Setup-1.8.9.exe</p>
             <div class="pp-dl-cli">
               <div class="cli-label">Or install via PowerShell</div>
               <div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>
@@ -195,7 +198,7 @@
               Intel Mac
             </a>
             <p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line — anything M-series is Apple Silicon.</p>
-            <p class="pp-dl-filename">PrivacyPal-1.8.6-{arm64,x64}.dmg</p>
+            <p class="pp-dl-filename">PrivacyPal-1.8.9-{arm64,x64}.dmg</p>
           </div>
         </div>
         <div class="pp-dl-trust">

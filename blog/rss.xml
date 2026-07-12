@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Privacy Log</title>
+    <link>https://privacypal.ai/blog.html</link>
+    <atom:link href="https://privacypal.ai/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <description>PrivacyPal&apos;s blog — field notes on AI, data privacy, and AI governance from our founders, team, and partners.</description>
+    <language>en-us</language>
+    <copyright>© 2026 PrivacyPal — Governance for the AI Operating System.</copyright>
+    <managingEditor>hello@privacypal.ai (PrivacyPal)</managingEditor>
+    <webMaster>hello@privacypal.ai (PrivacyPal)</webMaster>
+    <generator>PrivacyPal Privacy Log RSS generator</generator>
+    <lastBuildDate>Sat, 11 Jul 2026 00:44:18 GMT</lastBuildDate>
+    <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+    <ttl>60</ttl>
+    <image>
+      <url>https://privacypal.ai/assets/logo-color.png</url>
+      <title>The Privacy Log</title>
+      <link>https://privacypal.ai/blog.html</link>
+    </image>
+    <item>
+      <title>The model isn&apos;t the moat. Trust is the new infrastructure.</title>
+      <link>https://privacypal.ai/blog-article.html?id=the-model-isnt-the-moat</link>
+      <guid isPermaLink="true">https://privacypal.ai/blog-article.html?id=the-model-isnt-the-moat</guid>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Jason Melo</dc:creator>
+      <author>hello@privacypal.ai (Jason Melo)</author>
+      <category>AI</category>
+      <category>Enterprise AI</category>
+      <category>Infrastructure</category>
+      <category>Founders</category>
+      <description><![CDATA[Frontier models are becoming a commodity. The durable advantage in enterprise AI isn't a bigger model — it's the trust layer that lets an organization actually use one. Here's why we're building it on-device.]]></description>
+      <content:encoded><![CDATA[<p><img src="https://privacypal.ai/blog/images/the-model-isnt-the-moat.jpg" alt="The model isn&apos;t the moat. Trust is the new infrastructure." /></p><p><strong>From the CEO</strong></p>
+<p>Every few months a new frontier model arrives and the benchmark leaderboard reshuffles. It&apos;s genuinely thrilling — and, if you run a business, genuinely beside the point. The model your team uses next quarter will be better than the one it uses today, and the one after that will be better still. Capability is compounding, and it is not where anyone&apos;s moat is going to live.</p>
+<p>I&apos;ve spent a lot of the last year in rooms with CISOs, general counsels, and heads of AI. Not one of them is losing sleep over whether the model is smart enough. They&apos;re losing sleep over a different question entirely: can I let my people point this thing at our most sensitive data without betting the company on it? That question — not raw capability — is what actually gates adoption. And answering it is an infrastructure problem.</p>
+<h2>Capability is racing ahead of control</h2>
+<p>The uncomfortable truth of enterprise AI in 2026 is that the technology has sprinted past the guardrails. Employees are already pasting contracts, patient records, source code, and board decks into whatever assistant is fastest. They&apos;re not being reckless; they&apos;re being productive. The tools are extraordinary and the pressure to use them is real. But every one of those interactions is a decision about where sensitive data goes — made hundreds of times a day, by people who were never asked to be data-governance officers.</p>
+<p>You can respond to that in one of two ways. You can block — lock down the tools, publish a policy, and watch shadow AI route around you within a week. Or you can govern — make the safe path the fast path, so that protection travels with the data instead of standing in front of it. We are firmly in the second camp, and we think the difference is the whole ballgame.</p>
+<blockquote><p>The winners of the AI era won&apos;t be the companies with the best model. They&apos;ll be the companies that trusted their people to use one — because the trust was built into the infrastructure, not bolted onto the policy.</p><cite>&mdash; Jason Melo, Co-Founder &amp; CEO</cite></blockquote>
+<h2>Why we build on-device</h2>
+<p>If trust is the product, then the architecture has to earn it. That&apos;s why PrivacyPal runs where the work happens — on the device, in real time, before a single token reaches a model. When someone drafts a prompt containing a client name, an account number, or a line of proprietary code, we intercept it locally and substitute a coherent Privacy Twin: synthetic data that preserves the meaning and structure of the original so the model still does its job, while the real value never crosses the boundary.</p>
+<p>On-device isn&apos;t an implementation detail — it&apos;s the trust boundary. A cloud proxy asks you to send your secrets somewhere else first and trust that they&apos;re handled well. On-device inverts that: the sensitive value is protected before it ever leaves the endpoint, under a zero-knowledge architecture where we never see it either. You don&apos;t have to trust our servers, because your data never reaches them.</p>
+<ul><li>Protection lives at the source — the endpoint — not one hop away in someone else&apos;s cloud.</li><li>One policy governs every AI surface: chat assistants, browser tabs, IDEs, and agents.</li><li>Synthetic substitution keeps prompts useful, so security stops being the thing people route around.</li><li>Full audit of every interaction, so trust is provable — not just asserted.</li></ul>
+<h2>Trust compounds too</h2>
+<p>Here&apos;s the part I find genuinely exciting. Capability compounds — but so does trust. Every interaction that&apos;s governed well makes the next one easier to approve. A team that can safely use AI on its most sensitive workflows doesn&apos;t just get a productivity bump; it gets permission to keep going. That permission is the real flywheel of the AI era, and it is built out of infrastructure, one protected prompt at a time.</p>
+<p>Models will keep getting better, and we&apos;ll be glad of it — PrivacyPal is deliberately model-agnostic, so every leap forward is a leap our customers get to take safely. But the thing we&apos;re building isn&apos;t a smarter model. It&apos;s the layer that lets you point any model at anything you&apos;ve got, and sleep at night. That&apos;s the moat. That&apos;s the infrastructure. And that&apos;s the whole reason we get up in the morning.</p>
+<p>— Jason</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Redaction is a tax. Substitution is a strategy.</title>
+      <link>https://privacypal.ai/blog-article.html?id=redaction-is-a-tax-substitution-is-a-strategy</link>
+      <guid isPermaLink="true">https://privacypal.ai/blog-article.html?id=redaction-is-a-tax-substitution-is-a-strategy</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Shayra Antia</dc:creator>
+      <author>hello@privacypal.ai (Shayra Antia)</author>
+      <category>Data Privacy</category>
+      <category>Privacy Twins</category>
+      <category>PII</category>
+      <category>Compliance</category>
+      <description><![CDATA[Blacking out sensitive data feels safe, but it quietly breaks the thing you were trying to use. There's a better model — replace the secret with a coherent synthetic twin — and it changes what privacy costs you.]]></description>
+      <content:encoded><![CDATA[<p><img src="https://privacypal.ai/blog/images/redaction-is-a-tax.jpg" alt="Redaction is a tax. Substitution is a strategy." /></p><p><strong>Engineering privacy</strong></p>
+<p>Redaction is the reflex answer to data privacy. See something sensitive, black it out. It feels responsible, it looks like diligence, and for decades it was the best tool we had. But when your goal is to actually use data with an AI system, redaction is a tax — one you pay in accuracy, in context, and in the quiet frustration of a model that no longer understands what you asked.</p>
+<h2>What redaction actually does to a prompt</h2>
+<p>Consider a support agent asking an assistant to summarize a customer&apos;s account issue. Redact the name, the account number, the balance, and the transaction, and you&apos;re left with: &quot;[REDACTED] is disputing a [REDACTED] charge of [REDACTED] on [REDACTED].&quot; The sensitive data is gone — and so is the meaning. The model can&apos;t reason about relationships it can no longer see. It doesn&apos;t know whether two [REDACTED]s are the same entity or different ones. The answer degrades, the agent copies less into the tool next time, and privacy quietly becomes the enemy of the work.</p>
+<p>That&apos;s the hidden cost. Redaction doesn&apos;t just remove risk; it removes signal. And because it visibly makes the tool worse, it trains your best people to work around it — which is the opposite of what any privacy program is trying to achieve.</p>
+<blockquote><p>The goal was never to hide data from the model. It was to give the model something just as useful that happens to be safe.</p><cite>&mdash; PrivacyPal Product Team</cite></blockquote>
+<h2>Substitution: keep the shape, swap the secret</h2>
+<p>Privacy Twins take a different path. Instead of deleting a sensitive value, we replace it with a coherent synthetic equivalent — a twin that preserves type, format, and relationships while carrying none of the real information. &quot;Maria Gonzalez&quot; becomes another plausible name, and stays that same name every time it appears in the conversation. A real account number becomes a well-formed synthetic one. A $4,212.55 charge becomes a realistic figure of similar magnitude. The model sees a complete, internally consistent world — it just isn&apos;t your customer&apos;s world.</p>
+<figure><img src="https://privacypal.ai/assets/gemini-protected-card.png" alt="A prompt protected by PrivacyPal, with sensitive values substituted before reaching the model" /><figcaption>A live prompt with sensitive values replaced by coherent Privacy Twins — the model still understands the request.</figcaption></figure>
+<p>Because the substitution is structure-preserving, the model&apos;s answer comes back in terms of the twin, and we can reverse the mapping under policy so the human sees the real values again. The secret never left the device. The model never saw it. And the analysis is every bit as good as it would have been on the raw data — because, as far as the model could tell, it was working on real data the whole time.</p>
+<h2>Why this is a strategy, not a feature</h2>
+<ul><li>Utility is preserved: prompts stay coherent, so people keep using the safe path instead of routing around it.</li><li>Consistency across a conversation: the same entity maps to the same twin, so multi-turn reasoning holds together.</li><li>Reversible under policy: authorized workflows can re-link results downstream; everyone else never sees the original.</li><li>Auditable by construction: every detection and every substitution is logged — what was found, what it became, and why.</li><li>Regulation-ready: because the raw value never crosses the boundary, GDPR, HIPAA, GLBA, and the EU AI Act get dramatically easier to reason about.</li></ul>
+<h2>The compliance dividend</h2>
+<p>When you redact, you&apos;re managing the fallout of sensitive data that&apos;s already in motion. When you substitute on-device, the sensitive data was never in motion to begin with — so the compliance question changes from &quot;how do we govern this transfer?&quot; to &quot;there was no transfer.&quot; That&apos;s a categorically easier position to defend to a regulator, an auditor, or a customer&apos;s security team. It&apos;s the difference between cleaning up after risk and never creating it.</p>
+<p>Redaction asks your organization to choose between privacy and productivity, and then quietly taxes you no matter which you pick. Substitution refuses the trade. That&apos;s why we don&apos;t think of Privacy Twins as a nicer redaction — we think of it as the end of redaction, and the beginning of privacy that finally pays for itself.</p>
+<p>— Shayra</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Governing the ungovernable: a field guide to agentic AI</title>
+      <link>https://privacypal.ai/blog-article.html?id=governing-the-ungovernable-agentic-ai</link>
+      <guid isPermaLink="true">https://privacypal.ai/blog-article.html?id=governing-the-ungovernable-agentic-ai</guid>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Jordan Serlin</dc:creator>
+      <author>hello@privacypal.ai (Jordan Serlin)</author>
+      <category>AI Governance</category>
+      <category>Agentic AI</category>
+      <category>Risk</category>
+      <category>Compliance</category>
+      <description><![CDATA[Agents don't wait for a human to hit send. They read, decide, call tools, and act — at machine speed, across systems you don't fully see. Governing them means moving from reviewing outputs to governing behavior. Here's a practical framework.]]></description>
+      <content:encoded><![CDATA[<p><img src="https://privacypal.ai/blog/images/governing-the-ungovernable.jpg" alt="Governing the ungovernable: a field guide to agentic AI" /></p><p><strong>Perspectives — from our advisory board</strong></p>
+<p>For most of the short history of enterprise AI, governance had a comfortable shape: a human wrote a prompt, a model wrote a reply, and somewhere in the middle you could inspect, approve, or block. The human was the throttle. Agentic AI removes the throttle. An agent reads a ticket, decides on a plan, queries a database, calls three tools, writes to a system of record, and moves on to the next task — dozens of times a minute, often across systems no single reviewer can see at once. The old governance model assumed a human in the loop. Agents are the loop.</p>
+<h2>Why the old playbook fails</h2>
+<p>Output review — the practice of checking what a model said before acting on it — was always a bit of a fiction, but with agents it collapses entirely. There is no single output to review; there is a cascade of decisions and actions, each conditioned on the last, executed faster than any human can follow. By the time you&apos;d finish reviewing step one, the agent is on step forty. Governance that depends on catching the bad answer before it does damage simply cannot keep up.</p>
+<p>The mistake is to treat an agent like a faster chatbot. It isn&apos;t. It&apos;s an autonomous actor with credentials, tool access, and initiative. Governing it means governing behavior — what it&apos;s allowed to see, what it&apos;s allowed to do, and what must be true before it does it — not grading its homework after the fact.</p>
+<blockquote><p>You cannot review your way to safety with an agent. You have to govern the boundary it acts across — before it acts, not after.</p><cite>&mdash; Jordan Serlin, Advisor &amp; Partner</cite></blockquote>
+<h2>A field guide: five controls that actually hold</h2>
+<p>Over the last year, working with teams deploying real agents into production, a practical pattern has emerged. Five controls, applied at the boundary where the agent meets the outside world, do most of the work:</p>
+<ul><li>Least-privilege data access: an agent should see the minimum it needs. Sensitive values it doesn&apos;t strictly require should be substituted with twins before they ever enter its context.</li><li>Action gating: high-consequence actions — writes, sends, payments, deletions — pass through policy checks that can require approval, apply limits, or refuse, regardless of what the agent &apos;decided.&apos;</li><li>Boundary-level DSPM: watch the data crossing into and out of the agent in real time, not the model&apos;s internal reasoning you can&apos;t observe anyway.</li><li>Immutable audit: every decision, tool call, and data access is logged in a tamper-evident trail, so you can reconstruct exactly what happened and prove it.</li><li>Model-agnostic policy: the rules live above the model, so swapping or upgrading the underlying agent doesn&apos;t reset your governance to zero.</li></ul>
+<figure><img src="https://privacypal.ai/assets/activity-feed-wide.png" alt="A real-time activity feed of AI interactions and policy decisions" /><figcaption>Governance you can see: a live, auditable feed of every AI interaction and the policy decisions around it.</figcaption></figure>
+<h2>Govern the boundary, not the brain</h2>
+<p>Notice what these controls have in common: none of them require you to understand the agent&apos;s reasoning. That&apos;s deliberate. The interpretability of large models is an open research problem, and betting your compliance posture on solving it is a losing wager. But you don&apos;t need to read the agent&apos;s mind to govern it. You need to govern the boundary — the data going in and the actions coming out. Those are observable, enforceable, and auditable today. The reasoning in between can stay a black box, because you&apos;ve made the box&apos;s inputs and outputs safe.</p>
+<p>This is where on-device enforcement earns its keep. If the boundary control runs at the endpoint, before data reaches the model and before actions leave it, then it holds no matter which agent, which model, or which vendor is on the other side. You&apos;ve governed the one thing you actually control — the perimeter — and made it independent of the thing you don&apos;t.</p>
+<h2>The regulators are already here</h2>
+<p>None of this is hypothetical. The EU AI Act&apos;s obligations are phasing in, sector regulators in finance and healthcare are issuing agent-specific guidance, and &apos;we couldn&apos;t see what it did&apos; is not going to survive an audit. The organizations that will move fastest with agents are, counterintuitively, the ones that governed them first — because they can say yes to the next use case without flinching. Governance isn&apos;t the brake on agentic AI. Done right, it&apos;s the thing that lets you take your foot off it.</p>
+<p>— Jordan</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
