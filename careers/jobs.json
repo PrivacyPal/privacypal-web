@@ -79,36 +79,6 @@
       ]
     },
     {
-      "id": "senior-engineer-platform",
-      "title": "Senior Software Engineer, Platform",
-      "team": "engineering",
-      "location": "hybrid",
-      "type": "Full-time",
-      "level": "Senior / L5",
-      "comp": "$160K–$215K + equity",
-      "summary": "Build the platform that the rest of engineering — and eventually every customer — builds on top of.",
-      "about": "The PrivacyPal platform is the spine of our product: the gateway, the policy engine, the audit pipeline, the SDK. As a Senior Engineer on Platform, you'll own the parts of the system that have to be fast, safe, and so well-designed that nobody else on the team ever has to think about them. Reports to the Head of Engineering. This role is hybrid — remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
-      "responsibilities": [
-        "Own the request path of the gateway: routing, policy evaluation, audit, telemetry.",
-        "Design the SDK surface that customer engineering teams build against in production.",
-        "Push p95 overhead under 10ms with full policy enforcement and audit on.",
-        "Be the engineer customers' SREs respect on a Zoom call. Write runbooks they actually read.",
-        "Mentor engineers more junior than you — code review, design review, the works."
-      ],
-      "qualifications": [
-        "6+ years building backend systems in Rust, Go, or modern Java/Kotlin.",
-        "You've owned a service with real availability SLOs and lived through the incidents.",
-        "Deep familiarity with at least one of: proxy internals, service mesh, Kubernetes data plane, message queues.",
-        "You think about security primitives — TLS, mTLS, KMS, key rotation — without flinching.",
-        "Strong written communication. We default to async, and writing well isn't optional."
-      ],
-      "nicetohave": [
-        "Open-source contributions to proxy, observability, or data-plane projects.",
-        "Built something audited by a Big Four firm.",
-        "Familiarity with FedRAMP, HIPAA, or SOC 2 in production."
-      ]
-    },
-    {
       "id": "senior-engineer-devices",
       "title": "Senior Software Engineer, Devices",
       "team": "engineering",
@@ -202,94 +172,6 @@
         "Past life at a product-led growth company where you closed the deals the funnel surfaced.",
         "Sold into engineering, security, or compliance buyers specifically.",
         "Experience with usage-based or seat-hybrid pricing models."
-      ]
-    },
-    {
-      "id": "growth-marketing-intern",
-      "title": "Growth Marketing Intern (Summer 2026)",
-      "team": "gtm",
-      "location": "remote",
-      "type": "Internship · Summer 2026",
-      "level": "Intern · 12 weeks",
-      "comp": "$25/hr + equity grant",
-      "summary": "Run real growth experiments — paid, owned, in front of real customers — at a privacy-infra startup the moment it's breaking out.",
-      "about": "This isn't a coffee-fetching internship. You'll own one or two measurable growth surfaces — outbound, lifecycle email, landing pages, paid experiments, partner co-marketing — and we'll grade you on the deltas you ship. The COO runs this directly: no bureaucracy, no chain of command, no PowerPoint reviews. The best interns here come back full-time after graduation. This internship is fully remote — no travel required.",
-      "responsibilities": [
-        "Own a growth surface end-to-end for 12 weeks — pick it with the COO in week one, ship it by week twelve.",
-        "Build and analyze experiments: paid acquisition tests, landing-page A/Bs, lifecycle sequences, partner co-marketing plays.",
-        "Sit in customer conversations and product reviews. Steal what you learn.",
-        "Write the weekly growth memo. Read like a founder, not a student."
-      ],
-      "qualifications": [
-        "Current undergraduate in CS, marketing, business, economics, or any major you can pair with a real quant track record.",
-        "You can run a SQL query and a Google Ads campaign in the same day.",
-        "Writing that doesn't read like a marketing template.",
-        "A side project, a club, or a prior internship that proves you'd already be doing this on your own."
-      ],
-      "nicetohave": [
-        "Hands-on with one or more of: HubSpot, Mixpanel/Amplitude, SQL, Webflow, Figma.",
-        "Previous startup, agency, or media internship.",
-        "Built or grown something you can talk about for fifteen minutes straight."
-      ]
-    },
-    {
-      "id": "content-marketing-intern",
-      "title": "Content Marketing Intern (Summer 2026)",
-      "team": "gtm",
-      "location": "remote",
-      "type": "Internship · Summer 2026",
-      "level": "Intern · 12 weeks",
-      "comp": "$25/hr + equity grant",
-      "summary": "Help us tell the most important software story of the AI decade. Write essays, ship case studies, and build the editorial drumbeat behind PrivacyPal.",
-      "about": "We need someone who can write like an editor, not a marketer. You'll spend the summer producing content the people we want to hire and sell to actually read — not LinkedIn vomit, not SEO chum. The COO runs this directly. We share bylines, we publish what you write, and the best interns walk into full-time roles next spring. This internship is fully remote — no travel required.",
-      "responsibilities": [
-        "Draft 6–10 long-form posts, case studies, or research notes you'd be proud to put your name on.",
-        "Interview customers and engineers; turn the calls into stories someone actually wants to read.",
-        "Build the editorial calendar with the COO and own its execution.",
-        "Edit. We rewrite everything three times.",
-        "Pitch the writing — Hacker News, r/security, podcast bookings, your personal LinkedIn."
-      ],
-      "qualifications": [
-        "Current undergraduate in journalism, communications, English, CS, marketing, or any major you can pair with a real writing track record.",
-        "A portfolio: campus paper, personal blog, Substack, college lit-mag, anything.",
-        "Taste. You know what good copy looks like and won't ship anything that isn't.",
-        "Comfortable interviewing a senior engineer or CISO without flinching."
-      ],
-      "nicetohave": [
-        "Previous editorial, journalism, or content-marketing internship.",
-        "Worked with privacy, security, AI, or developer-tools content specifically.",
-        "Comfortable on camera — video and podcast experiments live in this seat."
-      ]
-    },
-    {
-      "id": "ai-devices-intern",
-      "title": "AI Devices Engineering Intern (Summer 2026)",
-      "team": "engineering",
-      "location": "remote",
-      "type": "Internship · Summer 2026",
-      "level": "Intern · 12 weeks",
-      "comp": "$50/hr + equity grant",
-      "summary": "An engineering internship for students living at the intersection of AI and hardware — Silicon Valley-level exposure, building real models that run on real devices.",
-      "about": "This is the internship for the student who can't decide between AI and hardware — so they chose both. PrivacyPal runs real models on real devices: small, fast networks that have to live inside the battery, memory, and thermal budget of a phone, tablet, or laptop while the cloud never sees a thing. You'll spend twelve weeks shipping at that intersection — quantizing models, wiring them to on-device accelerators, and measuring every millisecond and milliwatt — with the kind of mentorship and ambition you'd expect from a top Silicon Valley lab, from your own desk, wherever you are. You'll be paired with the engineers who own our AI and Devices stacks, your PRs will get reviewed like a full-timer's, and the best interns here get the first full-time offer. This internship is fully remote — no travel required.",
-      "responsibilities": [
-        "Own a real on-device AI feature end-to-end for the summer — scope it with your mentor in week one, ship it to a device by week twelve.",
-        "Get models onto the hardware: quantization, conversion, and the right accelerator for the right chip — Core ML and the Apple Neural Engine on iOS, NNAPI and ExecuTorch on Android, the NPU when it earns its keep.",
-        "Measure everything you ship — latency, memory, battery, thermals — and defend the tradeoffs you made.",
-        "Pair with senior AI and Devices engineers; sit in design reviews, on-call readouts, and customer conversations.",
-        "Present your work to the whole company at the end of the summer — demo on a real device, not a slide."
-      ],
-      "qualifications": [
-        "Currently pursuing a BS, MS, or PhD in CS, computer engineering, electrical engineering, or a related field — and studying at the intersection of AI/ML and hardware or devices.",
-        "You write real code in Python plus at least one of Swift, Kotlin, C++, or Rust.",
-        "Hands-on with at least one of: on-device or embedded ML, mobile development, model quantization, computer architecture, or DSP — a course, a research project, or a weekend hack all count.",
-        "You measure before you optimize, and you can explain the bottleneck you found and the tradeoff you took.",
-        "You can pick up an unfamiliar stack over a weekend and have something running by Monday."
-      ],
-      "nicetohave": [
-        "A project that put a model on a phone, microcontroller, Jetson, Raspberry Pi, or FPGA — and you can talk about what didn't work.",
-        "Coursework or research in computer architecture, compilers, ML systems, or signal processing.",
-        "Contributions to open-source ML, mobile, or embedded projects.",
-        "You've competed and have the scars — hackathons, robotics, Kaggle, CTFs, or a personal build you won't shut up about."
       ]
     }
   ]
