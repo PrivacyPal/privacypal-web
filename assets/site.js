@@ -237,10 +237,12 @@
     while (wrap.firstChild) document.body.appendChild(wrap.firstChild);
   }
 
-  // nav behavior
+  // nav behavior (guarded: landing pages may run without the injected nav)
   const nav = document.getElementById('siteNav');
-  const onScroll = () => { if (window.scrollY > 12) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
-  window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+  if (nav) {
+    const onScroll = () => { if (window.scrollY > 12) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+    window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+  }
 
   // hamburger
   const hamb = document.getElementById('hamb');

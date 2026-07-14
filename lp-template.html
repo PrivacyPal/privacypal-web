@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =============================================================
+     PRIVACYPAL · CAMPAIGN LANDING PAGE TEMPLATE
+     -------------------------------------------------------------
+     HOW TO SPIN UP A NEW LANDING PAGE (≈10 min):
+       1. Copy this file to  lp-<campaign>.html   (e.g. lp-blackhat.html)
+       2. Find/replace every  ⇩EDIT  marked value below.
+       3. Pick ONE primary goal per page:
+            • Enterprise / high-ticket  → primary CTA = data-cta="demo"
+            • Self-serve / consumer     → primary CTA = data-cta="download"
+          Keep the OTHER action as the quieter, secondary (ghost) button.
+       4. Swap the hero art. Enterprise = dark photo hero (.lp-hero.on-dark
+          + .lp-hero-photo). Consumer = warm light hero (default + product art).
+       5. Update <title>, meta description and the og:/twitter: block.
+       6. CTAs auto-wire to the shared demo + download modals via site.js —
+          just use  data-cta="demo"  or  data-cta="download"  on any link.
+       7. Optional "step 2" of the funnel: link people to
+          funnel-thanks.html?path=demo  (or ?path=download).
+
+     Full playbook + token reference:  LANDING-PAGES.md
+     ============================================================= -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<!-- ⇩EDIT · SEO ---------------------------------------------------- -->
+<title>Headline promise, in ≤60 chars | PrivacyPal</title>
+<meta name="description" content="One-sentence value promise for THIS campaign audience. Lead with the outcome, name the mechanism (Privacy Twins / on-device), end with the action." />
+
+<link rel="icon" href="assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="assets/landing.css"/>
+
+<!-- ⇩EDIT · social share (og:url, title, description) --------------- -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/lp-template.html" />
+<meta property="og:title" content="Headline promise | PrivacyPal" />
+<meta property="og:description" content="One-sentence value promise for this campaign audience." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Headline promise | PrivacyPal" />
+<meta name="twitter:description" content="One-sentence value promise for this campaign audience." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+</head>
+
+<body class="lp">
+
+<!-- ============ MINIMAL FUNNEL HEADER ============ -->
+<!-- Light hero → keep header light. Dark photo hero → add class "on-dark". -->
+<header class="lp-header" id="lpHeader">
+  <div class="lp-header-inner">
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home">
+      <img src="assets/logo-color.png" alt="PrivacyPal" class="logo-light-img">
+      <img src="privacypal-logo-light.png" alt="PrivacyPal" class="logo-dark-img">
+    </a>
+    <div class="lp-header-right">
+      <span class="lp-header-note">No credit card · Live in a minute</span> <!-- ⇩EDIT reassurance -->
+      <a class="btn btn-cobalt" href="#" data-cta="demo">Book a demo</a>   <!-- ⇩EDIT primary CTA -->
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<!-- Default = warm LIGHT split hero. For an enterprise dark photo hero, use:
+     <section class="lp-hero on-dark lp-hero--split">
+       <div class="lp-hero-photo"><img src="assets/hero-shot-XXXX.png" alt="…"></div> … -->
+<section class="lp-hero lp-hero--split">
+  <div class="lp-hero-inner">
+    <div class="reveal in">
+      <span class="lp-eyebrow">For [Audience]</span> <!-- ⇩EDIT eyebrow -->
+      <h1>Bold promise here.<br><em>The emotional turn.</em></h1> <!-- ⇩EDIT headline -->
+      <p class="lp-lede">Say what changes for <b>you</b>, name the mechanism (Privacy Twins, on-device), and make the stakes human. Two sentences, no fluff.</p> <!-- ⇩EDIT lede -->
+      <div class="lp-cta-row">
+        <a class="btn btn-cobalt" href="#" data-cta="demo">Book a demo</a>       <!-- ⇩EDIT primary -->
+        <a class="btn btn-ghost" href="#" data-cta="download">Download &amp; install</a> <!-- ⇩EDIT secondary -->
+        <span class="lp-cta-note">Takes 60 seconds.</span>
+      </div>
+      <div class="lp-hero-trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> On-device. Zero-knowledge.</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Signed &amp; notarized</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> NVIDIA Inception</span>
+      </div>
+    </div>
+
+    <!-- HERO VISUAL — swap for a photo (.lp-hero-figure) or product art (.lp-hero-stack) -->
+    <div class="lp-hero-visual reveal in reveal-delay-1">
+      <div class="lp-hero-figure">
+        <img src="assets/hero-shot-about.png" alt="PrivacyPal in context"> <!-- ⇩EDIT hero image -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="lp-trust">
+  <div class="lp-trust-inner">
+    <span class="lp-trust-label">Works with the AI your team already uses</span>
+    <div class="lp-trust-logos">
+      <img src="assets/chatgpt.png" alt="ChatGPT">
+      <img src="assets/claude.png" alt="Claude">
+      <img src="assets/gemini.png" alt="Gemini">
+      <img src="assets/copilot.webp" alt="Microsoft Copilot">
+    </div>
+  </div>
+</div>
+
+<!-- ============ STAKES · the human "why now" ============ -->
+<section class="lp-section lp-stakes">
+  <div class="lp-wrap">
+    <div class="reveal">
+      <span class="lp-eyebrow">The real cost</span>
+      <p class="lp-stakes-lead" style="margin-top:18px">Your people already use AI. The only question is whether <b>anyone can see what leaves the room.</b></p> <!-- ⇩EDIT -->
+    </div>
+    <div class="lp-stakes-grid">
+      <div class="lp-stake reveal reveal-delay-1"><div class="k">Today</div><h4>Shadow AI</h4><p>Sensitive data is pasted into public chatbots every day — with no log, no policy, no way to prove otherwise.</p></div>
+      <div class="lp-stake reveal reveal-delay-1"><div class="k">The trap</div><h4>Ban it, lose the edge</h4><p>Block the tools and productivity walks out the door — usually straight to an unmanaged personal device.</p></div>
+      <div class="lp-stake reveal reveal-delay-2"><div class="k">The way out</div><h4>Enable it, safely</h4><p>Keep every tool. Keep every user. Just make sure the real data never crosses the line.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEPS · how it works ============ -->
+<section class="lp-section alt">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">How it works</span>
+      <h2 class="lp-h2">Protected in three moves.</h2> <!-- ⇩EDIT -->
+      <p class="lp-sub">No workflow change. No new tab. It runs where you already work.</p>
+    </div>
+    <div class="lp-steps">
+      <div class="lp-step reveal reveal-delay-1"><div class="num">1</div><h4>Install once</h4><p>A lightweight desktop &amp; browser app. Two minutes, then it disappears into the background.</p></div>
+      <div class="lp-step reveal reveal-delay-1"><div class="num">2</div><h4>Just work</h4><p>Type into ChatGPT, Claude, Gemini or Copilot like always. PrivacyPal reads the moment data appears.</p></div>
+      <div class="lp-step reveal reveal-delay-2"><div class="num">3</div><h4>Privacy Twins swap in</h4><p>Sensitive values become realistic synthetic stand-ins before they ever hit the model — and swap back on return.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS · benefit-first blocks ============ -->
+<section class="lp-section">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">Why PrivacyPal</span>
+      <h2 class="lp-h2">The guardrail that doesn't <em>get in the way.</em></h2>
+    </div>
+    <div class="lp-benefits">
+      <div class="lp-benefit reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Nothing real leaves</h3><p>Interception happens on-device. Your unencrypted data is never seen — not even by us. Zero-knowledge by design.</p>
+      </div>
+      <div class="lp-benefit reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3>No quality tax</h3><p>Unlike redaction, Privacy Twins keep the statistical shape of your data — so the AI's answer stays sharp.</p>
+      </div>
+      <div class="lp-benefit reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Total visibility</h3><p>Every prompt, every swap, logged and SIEM-ready. Turn "we hope nobody leaked" into a straight answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF · quote ============ -->
+<section class="lp-quote">
+  <blockquote>“We went from a blanket <em>‘no AI’</em> memo to onboarding every user in two weeks.”</blockquote> <!-- ⇩EDIT -->
+  <cite>— CISO, Fortune 500</cite>
+</section>
+
+<!-- ============ PROOF · stat band ============ -->
+<div class="lp-stats">
+  <div class="lp-stat"><span class="n">100<small>s</small></span><span class="l">of companies protected</span></div>
+  <div class="lp-stat"><span class="n">0</span><span class="l">real data on the wire</span></div>
+  <div class="lp-stat"><span class="n">60<small>sec</small></span><span class="l">to install &amp; go</span></div>
+  <div class="lp-stat"><span class="n">4<small>+</small></span><span class="l">AI tools protected at once</span></div>
+</div>
+
+<!-- ============ FAQ ============ -->
+<section class="lp-section alt">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">Straight answers</span>
+      <h2 class="lp-h2">The questions you're already asking.</h2>
+    </div>
+    <div class="lp-faq reveal reveal-delay-1">
+      <details open><summary>Does this slow my team down?</summary><p>No. PrivacyPal runs silently in the background with a zero learning curve — people keep using the exact tools they already love.</p></details>
+      <details><summary>Can you see our data?</summary><p>Never. Detection and substitution happen on-device. We operate a zero-knowledge architecture — your unencrypted data never reaches us.</p></details>
+      <details><summary>Which AI tools are covered?</summary><p>ChatGPT, Claude, Gemini, Microsoft Copilot, Claude Code and agentic/MCP workflows — across Mac, PC, iOS and Android.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA · reuses site.css .final-cta ============ -->
+<section class="final-cta">
+  <div class="reveal">
+    <h2>Your move.</h2> <!-- ⇩EDIT closing line -->
+    <p>See it protect a real prompt in 15 minutes — or install it yourself right now.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="#" data-cta="demo">Book a demo</a>
+      <a class="btn btn-ghost" href="#" data-cta="download">Download &amp; install</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MINIMAL FOOTER ============ -->
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <img src="assets/logo-color.png" alt="PrivacyPal">
+    <div class="lp-footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacypal-cloud.html">For Enterprise</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:hello@privacypal.ai">Contact</a>
+    </div>
+    <div class="lp-footer-copy">© 2026 PrivacyPal — Govern every AI. Without blocking a single user.</div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="lp-sticky">
+  <a class="btn btn-cobalt" href="#" data-cta="demo">Book a demo</a> <!-- ⇩EDIT match primary CTA -->
+</div>
+
+<!-- site.js = shared demo + download modals, CTA auto-binding, reveal-on-scroll -->
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =============================================================
+     PRIVACYPAL · FUNNEL — STEP 2  (confirmation / momentum)
+     -------------------------------------------------------------
+     This is the bottom of every campaign funnel. Send people here
+     AFTER a conversion to keep momentum and offer the complementary
+     action. It self-tailors from a query param:
+        funnel-thanks.html?path=demo       → "You're booked"  (next: install now)
+        funnel-thanks.html?path=download   → "You're installing" (next: book onboarding)
+        (no param)                          → neutral "You're in"
+     Funnel map:  Ad/Email → lp-*.html → [demo|download modal] → THIS PAGE
+     ============================================================= -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>You're in — next step | PrivacyPal</title>
+<meta name="description" content="You're one step from private AI. Here's what happens next." />
+<meta name="robots" content="noindex" /> <!-- funnel step: keep out of search -->
+<link rel="icon" href="assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="assets/landing.css"/>
+</head>
+
+<body class="lp">
+
+<header class="lp-header">
+  <div class="lp-header-inner">
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home">
+      <img src="assets/logo-color.png" alt="PrivacyPal" class="logo-light-img">
+    </a>
+    <div class="lp-header-right">
+      <span class="lp-header-note">Step 2 of 2</span>
+      <a class="btn btn-ghost" href="index.html">Back to site</a>
+    </div>
+  </div>
+</header>
+
+<main class="fn-main">
+  <div class="fn-wrap">
+
+    <!-- progress -->
+    <div class="fn-steps">
+      <div class="st done"><span class="dot">✓</span><span class="lbl">You chose PrivacyPal</span></div>
+      <span class="bar"></span>
+      <div class="st now"><span class="dot">2</span><span class="lbl" id="fnStepLbl">Finish setup</span></div>
+    </div>
+
+    <div class="fn-check reveal in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+
+    <span class="fn-badge" id="fnBadge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <span id="fnBadgeText">You're in</span>
+    </span>
+
+    <h1 id="fnTitle">You're one step from <em>private AI.</em></h1>
+    <p class="fn-lede" id="fnLede">Nice move. While you're here, lock in the other half of the setup — it takes about a minute.</p>
+
+    <!-- next-step choices (the "feat" one is emphasized by JS depending on path) -->
+    <div class="fn-choices">
+      <div class="fn-choice feat" id="fnCardDownload">
+        <div class="k">Do this now</div>
+        <h3>Install PrivacyPal</h3>
+        <p>Drop it on your Mac or PC, sign in, and your AI guardrails are live everywhere — no configuration.</p>
+        <a class="btn btn-cobalt" href="#" data-cta="download">Download &amp; install</a>
+      </div>
+      <div class="fn-choice" id="fnCardDemo">
+        <div class="k">15 minutes</div>
+        <h3>See it on your data</h3>
+        <p>Book a live walkthrough. We'll protect a real prompt from your world and answer every security question.</p>
+        <a class="btn btn-primary" href="#" data-cta="demo">Book a demo</a>
+      </div>
+    </div>
+
+    <!-- resources -->
+    <div class="fn-resources">
+      <a class="fn-res" href="privacy-twins.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/></svg>
+        <div><h5>How Privacy Twins work</h5><p>The 2-minute explainer on synthetic substitution.</p></div>
+      </a>
+      <a class="fn-res" href="privacypal-cloud.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><h5>For Enterprise</h5><p>Self-hosted, DSPM, data sovereignty &amp; SIEM.</p></div>
+      </a>
+      <a class="fn-res" href="index.html#pricing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div><h5>Compare plans</h5><p>Pro, Max &amp; Cloud — pick the right fit.</p></div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <img src="assets/logo-color.png" alt="PrivacyPal">
+    <div class="lp-footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:hello@privacypal.ai">Contact</a>
+    </div>
+    <div class="lp-footer-copy">© 2026 PrivacyPal — Govern every AI. Without blocking a single user.</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+/* Tailor the page to the action the visitor just took. */
+(function(){
+  var path = new URLSearchParams(location.search).get('path');
+  var titleEl = document.getElementById('fnTitle');
+  var ledeEl  = document.getElementById('fnLede');
+  var badgeEl = document.getElementById('fnBadgeText');
+  var stepLbl = document.getElementById('fnStepLbl');
+  var cardDl  = document.getElementById('fnCardDownload');
+  var cardDemo= document.getElementById('fnCardDemo');
+
+  function feature(el){ el.classList.add('feat'); el.querySelector('.k').textContent = 'Do this now'; }
+  function plain(el){ el.classList.remove('feat'); }
+
+  if (path === 'demo') {
+    badgeEl.textContent = 'Demo booked';
+    stepLbl.textContent = 'While you wait';
+    titleEl.innerHTML = "You're booked. <em>Now get protected today.</em>";
+    ledeEl.textContent = "Your walkthrough is on the calendar. No reason to wait — install PrivacyPal now and you'll walk into the call already protected.";
+    plain(cardDemo); feature(cardDl);
+    cardDl.querySelector('.k').textContent = "Don't wait for the call";
+    cardDemo.querySelector('.k').textContent = "Already done";
+    cardDemo.querySelector('h3').textContent = "Your demo is confirmed";
+    cardDemo.querySelector('p').textContent = "Check your inbox for the invite. Bring your toughest security question.";
+    cardDemo.querySelector('.btn').textContent = "Add to calendar";
+  } else if (path === 'download') {
+    badgeEl.textContent = 'Download started';
+    stepLbl.textContent = 'Activate';
+    titleEl.innerHTML = "It's installing. <em>Let's make it count.</em>";
+    ledeEl.textContent = "Open the installer, sign in, and you're protected everywhere. Want a hand rolling it out to a team? Book 15 minutes.";
+    plain(cardDl); feature(cardDemo);
+    cardDl.querySelector('.k').textContent = "In progress";
+    cardDl.querySelector('h3').textContent = "Finish installing";
+    cardDl.querySelector('p').textContent = "Didn't start? Grab the Mac or Windows build again — it's signed & notarized.";
+    cardDl.querySelector('.btn').textContent = "Get the installer";
+    cardDemo.querySelector('.k').textContent = "Roll it out";
+  }
+})();
+</script>
+</body>
+</html>
