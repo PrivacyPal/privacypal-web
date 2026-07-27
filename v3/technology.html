@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Technology — AI governance for B2B SaaS &amp; software teams — PrivacyPal</title>
+<meta name="description" content="The governance layer that lets B2B SaaS ship AI features without putting customer data on a vendor list. Sidecar architecture, sovereign by design, agent-native for Claude Code, Copilot &amp; MCP." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/technology.html" />
+<meta property="og:title" content="Technology — PrivacyPal for software teams" />
+<meta property="og:description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Technology — PrivacyPal for software teams" />
+<meta name="twitter:description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<style>
+.hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-split h1{max-width:15ch}
+.hero-media{background:var(--panel);border-radius:var(--r-lg);padding:16px}
+.hero-media img{display:block;width:100%;border-radius:var(--r-md);border:1px solid var(--line)}
+.twin-note{margin-top:20px;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+@media (max-width:920px){.hero-split{grid-template-columns:1fr;gap:32px}}
+</style>
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="page-hero">
+  <div class="container">
+    <div class="hero-split">
+      <div class="reveal">
+        <span class="eyebrow blue">For B2B SaaS &amp; technology</span>
+        <h1>Ship AI features. Pass every security review.</h1>
+        <p class="lede">Your enterprise customers are reading your TOS with red pens. PrivacyPal is the governance layer that lets you build on GPT, Claude and Gemini without putting your customers' data on a subprocessor list. Sidecar topology, sovereign by design, agent-native for Claude Code, Copilot &amp; MCP — so you keep velocity and don't get lapped.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-lg" href="#" data-cta="download">Start 5-day trial</a>
+          <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+        </div>
+      </div>
+      <div class="hero-media reveal reveal-delay-1">
+        <img src="../assets/hero-shot-technology.png" alt="Engineers shipping AI features with PrivacyPal">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= THE PROBLEM + TWIN ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The B2B AI headwind</span>
+      <h2>Every AI feature triggers a new vendor review</h2>
+      <p class="lede">When you add OpenAI to your stack, every enterprise customer's CISO asks the same question: where does our data go, who else sees it, and what do you do when an agent calls our tools? Deals slow down. Renewals get harder. "AI-first" becomes "AI-stuck."</p>
+      <p style="margin-top:14px;color:var(--muted)">PrivacyPal breaks the pattern. The governance lives in your VPC — a sidecar beside your app. Customer data never reaches the LLM — Privacy Twins preserve statistical bandwidth without surfacing the original. The LLM never makes your subprocessor list. Your pipeline stays fast. The shift is here.</p>
+    </div>
+
+    <div class="twin-compare reveal">
+      <div class="twin-box before">
+        <h5><span class="dot"></span>01 — In your VPC · real values</h5>
+        "Summarize <span class="red">cust_47291</span>'s account for <span class="red">Jane Park</span>, currently at <span class="red">$48,200/yr</span>…"
+      </div>
+      <div class="twin-mid">
+        <div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="twin-box after">
+        <h5><span class="dot"></span>02 — On the wire · twins only</h5>
+        "Summarize <span class="green">cust_82064</span>'s account for <span class="green">Mira Tan</span>, currently at <span class="green">$62,500/yr</span>…"
+      </div>
+    </div>
+    <p class="twin-note reveal">Sidecar in your VPC · outbound real → twin, inbound twin → real · never lands on your subprocessor list · zero real values on the wire</p>
+  </div>
+</section>
+
+<!-- ================= WHO DEPLOYS ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Who deploys PrivacyPal</span>
+      <h2>B2B SaaS, platforms, dev tools, data infra</h2>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 10h4M13 8l3 2-3 2"/></svg></div>
+        <h4>B2B SaaS copilots</h4>
+        <p>Ship in-product AI assistants without appearing on any vendor subprocessor list. Privacy Twins keep tenant data sovereign — the LLM never sees customer values.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
+        <h4>Developer tools &amp; Claude Code workflows</h4>
+        <p>Let AI agents see user code without shipping proprietary IP to a model vendor. Native governance for Claude Code, Copilot &amp; MCP — secret detection on the way out, real values stitched back on the way in.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h4>Data platforms &amp; agentic queries</h4>
+        <p>Enable natural-language queries and agent-driven workflows over customer-hosted data. Values stay in the tenant. Only statistically accurate Privacy Twins go to the model. Full audit trail.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+        <h4>Internal tooling &amp; agentic ops</h4>
+        <p>Give engineers AI copilots on production logs, traces and prod data — without the leak risk. Org-wide AI controls, prompt-injection prevention, agent governance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="bigquote reveal">
+      <blockquote>Our <b>fastest-ever security review</b>. Three enterprise customers said yes to AI <b>the week we launched</b> with PrivacyPal.</blockquote>
+      <div class="who">CTO — Series C data infrastructure</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUILT FOR ENGINEERS ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Built for engineers</span>
+      <h2>Deploy in a sprint, not a quarter</h2>
+    </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3M10 12h4"/></svg></div>
+        <h4>Drop-in API</h4>
+        <p>OpenAI-compatible endpoint. One base_url change and your stack inherits end-to-end redaction.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg></div>
+        <h4>Per-tenant policies</h4>
+        <p>Different customers, different rules. Apply detectors by tenant ID, enforce by API key.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+        <h4>Streaming native</h4>
+        <p>Preserves SSE and chunked responses end-to-end. Your LLM UX doesn't change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For technology</span>
+      <h2 style="margin-top:14px">Ship AI fast. Pass every security review.</h2>
+      <p>30-minute technical walkthrough with one of our deployment engineers. Install once. Run sovereign. Get governance the CISO greenlights.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
+        <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Start 5-day trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+</body>
+</html>

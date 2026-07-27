@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Agent governance — native control of Claude Code, Copilot &amp; MCP — PrivacyPal</title>
+<meta name="description" content="Real on-device governance for agents, copilots and the MCP layer. Native control of Claude Code, Microsoft Copilot, ChatGPT, Gemini and any agent your team uses. Visibility and control across every AI surface — regardless of which AI." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/privacypal-ai.html" />
+<meta property="og:title" content="Agent governance — native control of Claude Code, Copilot &amp; MCP" />
+<meta property="og:description" content="Real on-device governance for agents, copilots and the MCP layer. Govern what every agent can read, write, prompt and exfiltrate — across every AI surface, every MCP server, every endpoint." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Agent governance — native control of Claude Code, Copilot &amp; MCP" />
+<meta name="twitter:description" content="Real on-device governance for agents, copilots and the MCP layer. Visibility and control of AI, regardless of which AI." />
+<style>
+  .ticks{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:10px;padding:0}
+  .ticks li{position:relative;padding-left:26px;font-size:.95rem;color:var(--muted);line-height:1.5}
+  .ticks li::before{content:"✓";position:absolute;left:0;font-weight:600;color:var(--ink)}
+  .soon-tag{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="page-hero center">
+  <div class="container">
+    <span class="eyebrow blue" style="justify-content:center">PrivacyPal platform · agent governance</span>
+    <h1>Agent governance for the AI Operating System</h1>
+    <p class="lede" style="max-width:60ch">Real on-device agent governance — not just a chat wrapper. PrivacyPal sits inside <b>Claude Code</b>, <b>Microsoft Copilot</b>, ChatGPT and Gemini at the device level. Govern what every agent can read, write, prompt and exfiltrate across every AI surface, every MCP server, every endpoint. Visibility and control of AI, regardless of which AI.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+      <a class="btn btn-ghost btn-lg" href="#how-it-works">See the mechanism</a>
+    </div>
+    <div class="page-hero-media reveal">
+      <img src="../product-shot-001.png" alt="PrivacyPal agent governance in action" loading="eager">
+    </div>
+  </div>
+</header>
+
+<!-- ================= STATS ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="n">100<small>%</small></div><div class="l">AI tool visibility across your team, from day one.</div></div>
+      <div class="stat"><div class="n">&lt;50<small>ms</small></div><div class="l">Governance latency — invisible to users.</div></div>
+      <div class="stat"><div class="n">5<small>min</small></div><div class="l">Average team deployment time.</div></div>
+      <div class="stat"><div class="n">99.99<small>%</small></div><div class="l">Platform uptime SLA.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how-it-works" style="padding-top:32px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Control before the prompt leaves the device</h2>
+      <p class="lede">Reactive tools tell you about the breach after the fact. PrivacyPal governs every AI interaction at the point of intent — before any prompt, tool call or agent action leaves your endpoint. Edge-processing by design.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="num">01</span>
+        <h4>Intercept</h4>
+        <p>PrivacyPal's lightweight on-device agent monitors every AI interaction in real time — across browsers and desktop apps — checking whether the tool is approved and who is using it.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h4>Govern &amp; redirect</h4>
+        <p>If the tool is approved, the prompt proceeds. If not, the user is instantly redirected to a sanctioned alternative. Sensitive data is classified and replaced with synthetic stand-ins.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h4>Log &amp; report</h4>
+        <p>Every AI interaction — approved or blocked — is logged to your governance dashboard. See who used what, when, and what data was involved. Full auditability, zero surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 01 AI TOOL CONTROL ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">01 · AI tool control</div>
+        <span class="eyebrow blue">Approve. Block. Redirect.</span>
+        <h2 style="margin-top:12px">You decide which AI tools your team can use</h2>
+        <p class="lede">Not all AI tools are created equal — and not all of them should be running in your business without your knowledge. PrivacyPal lets you build an approved AI tool list and enforce it across every device.</p>
+        <ul class="ticks">
+          <li>Approve tools like ChatGPT, Copilot, or Claude for specific teams or roles</li>
+          <li>Block consumer AI tools that don't meet your data policies</li>
+          <li>Redirect unapproved tools to sanctioned alternatives automatically</li>
+          <li>Control AI agents and automated workflows, not just human prompts</li>
+          <li>Custom policies — different rules for different departments or users</li>
+        </ul>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="link-arrow" href="privacy-twins.html">See how data access control works</a>
+        </div>
+      </div>
+      <div>
+        <div class="media"><img src="../product-shot-002.png" alt="Real-time data classification interface" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 DEPLOYMENT ================= -->
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">02 · Deployment</div>
+        <span class="eyebrow pink">Zero friction</span>
+        <h2 style="margin-top:12px">Up and running in under 5 minutes</h2>
+        <p class="lede">No enterprise IT team. No configuration headaches. PrivacyPal installs silently and begins protecting the moment it's active — for your entire team simultaneously.</p>
+        <ul class="ticks">
+          <li>One-click install for Mac and Windows</li>
+          <li>Zero configuration required out of the box</li>
+          <li>Deploy to 100 devices from the admin dashboard</li>
+          <li>Silent background operation — zero user friction</li>
+          <li>Automatic updates — protection improves continuously</li>
+        </ul>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="link-arrow" href="device-control.html">Explore Device Control &amp; team management</a>
+        </div>
+      </div>
+      <div>
+        <div class="media"><img src="../assets/privacypal-installer.png" alt="PrivacyPal installer for macOS — drag to Applications" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 ACCURACY ================= -->
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">03 · Accuracy</div>
+        <span class="eyebrow orange">Invisible when not needed</span>
+        <h2 style="margin-top:12px">Protection that never gets in the way</h2>
+        <p class="lede">The biggest failure mode of traditional security tools is false positives — blocking legitimate work and frustrating users into disabling protection. PrivacyPal is built to be invisible when it isn't needed.</p>
+        <ul class="ticks">
+          <li>Precision classification minimizes false positives</li>
+          <li>Context-aware engine understands intent, not just patterns</li>
+          <li>Sensitive data is replaced, not removed — AI responses stay useful</li>
+          <li>Privacy Twins allow full AI productivity with zero exposure</li>
+        </ul>
+      </div>
+      <div>
+        <div class="media"><img src="../product-shot-004.png" alt="PrivacyPal accuracy and precision" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COVERAGE ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Coverage</span>
+      <h2>Every AI surface. Every agent. Governed.</h2>
+      <p class="lede">PrivacyPal governs the full AI footprint — browsers, native desktop apps, command-line LLMs, on-device language models, agents and the MCP layer. Visibility and control regardless of which AI your team picks.</p>
+    </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <h4>Web browsers</h4>
+        <p>Chrome, Edge, Firefox, Safari — full protection for ChatGPT, Claude, and Gemini in any browser.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h4>Desktop apps</h4>
+        <p>Microsoft Copilot, Claude Desktop, and other native AI applications running directly on Mac or PC.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
+        <h4>File uploads</h4>
+        <p>Documents, spreadsheets, and PDFs attached to AI prompts are scanned and sanitized before upload.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
+        <h4>Claude Code &amp; agentic dev tools</h4>
+        <p>Native on-device governance for Claude Code, Cursor and AI coding agents — source, secrets and customer data protected at the IDE level, not just in chat.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        <h4>Mobile<span class="soon-tag">Coming soon</span></h4>
+        <p>iOS and Android support arriving soon — the same on-device protection for your team's phones.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h4>MCP, agents &amp; agent-to-agent workflows</h4>
+        <p>Govern Private MCP servers, autonomous agents and agent-to-agent flows. Authorization, intent detection, prompt-injection defense. Built for the AI OS, not a chat box.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="bigquote reveal">
+      <blockquote>
+        "We had developers pasting internal API specs into ChatGPT every day without realizing the risk. After installing PrivacyPal, that surface area went to <b>zero</b> — and our engineering team didn't change a single workflow."
+      </blockquote>
+      <div class="who">CTO, Global 100 MSP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
+      <h2 style="margin-top:14px">Stop blocking AI. Start governing it.</h2>
+      <p>Real on-device agent governance — not just policy theater. 5-day free trial. 30-day money-back guarantee. You're in charge from minute one.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html">View pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+</body>
+</html>

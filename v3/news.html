@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Newsroom — PrivacyPal</title>
+<meta name="description" content="News, press, product launches, and the moments that mark where PrivacyPal is headed — building the privacy layer for every AI." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<link rel="stylesheet" href="assets/news.css"/>
+<link rel="canonical" href="https://privacypal.ai/news.html">
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/news.html" />
+<meta property="og:title" content="Newsroom — PrivacyPal" />
+<meta property="og:description" content="The latest from PrivacyPal." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Newsroom</span>
+    <h1>The latest from PrivacyPal.</h1>
+    <p class="lede">News, press, product launches, and the moments that mark where we're headed — building the privacy layer for every AI on earth.</p>
+  </div>
+</header>
+
+<section class="section" id="newsroom" style="padding-top:24px">
+  <div class="container">
+    <div class="news-featured-wrap reveal" id="newsFeatured" hidden></div>
+
+    <div class="news-toolbar reveal">
+      <div class="news-search" id="newsSearchBox">
+        <input type="search" id="newsSearch" placeholder="Search the newsroom…" autocomplete="off" aria-label="Search news stories">
+        <button class="news-clear" id="newsClear" type="button" aria-label="Clear search">&times;</button>
+      </div>
+      <div class="news-filters" id="newsFilters" aria-label="Filter by category">
+        <button class="news-chip active" data-cat="all" type="button">All</button>
+      </div>
+    </div>
+
+    <div class="news-count" id="newsCount"></div>
+    <div class="news-loading reveal" id="newsLoading"><div class="pp-spinner" style="margin:60px auto"></div></div>
+    <div class="news-grid" id="newsGrid" hidden></div>
+    <div class="news-empty reveal" id="newsEmpty" hidden>
+      <h3>No stories yet.</h3>
+      <p>Check back soon — more is on the way.</p>
+      <a class="btn btn-ghost" href="mailto:press@privacypal.ai">Email press →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner reveal">
+      <span class="eyebrow" style="justify-content:center">Working on a story?</span>
+      <h2 style="margin-top:14px">For interviews and press assets, reach our team</h2>
+      <p>We'll get back to you fast — press inquiries, media assets or anything newsroom-related.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="mailto:press@privacypal.ai?subject=Press%20inquiry">Email press@privacypal.ai</a>
+        <a class="btn btn-ghost btn-lg" href="events.html">See our events</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+<script src="assets/news.js?v=2026-07-27"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Team — PrivacyPal</title>
+<meta name="description" content="The people behind PrivacyPal — democratizing technology while championing secure, transparent solutions that harness the transformative power of AI." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<style>
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+  .team-card{background:var(--panel);border-radius:var(--r-lg);overflow:hidden;transition:transform .25s}
+  .team-card:hover{transform:translateY(-4px)}
+  .team-photo{aspect-ratio:1/1;background:#e7e7e7;overflow:hidden}
+  .team-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .team-card:hover .team-photo img{transform:scale(1.04)}
+  .team-body{padding:18px 20px 22px}
+  .team-pill{
+    display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;
+    font-family:var(--font-mono);font-size:.6rem;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .team-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .team-pill.sales::before{background:var(--orange)}
+  .team-pill.advisor::before{background:var(--faint)}
+  .team-body h3{font-size:1.05rem;margin-bottom:4px}
+  .team-role{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .team-sep{
+    display:flex;align-items:center;gap:18px;margin:56px 0 24px;
+    color:var(--muted);font-family:var(--font-mono);font-size:.7rem;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;
+  }
+  .team-sep::before,.team-sep::after{content:"";flex:1;height:1px;background:var(--line)}
+  @media (max-width:1080px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:640px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/team.html" />
+<meta property="og:title" content="Team — PrivacyPal" />
+<meta property="og:description" content="The people behind the twin." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow">The team</span>
+    <h1>The people behind the twin.</h1>
+    <p class="lede">We are democratizing technology, ensuring that it's accessible to everyone, while championing secure, transparent, and sustainable solutions that harness the transformative power of AI.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:24px">
+      <span class="eyebrow">Our people</span>
+      <h2>Meet the team</h2>
+    </div>
+
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-photo"><img src="../jason-melo.jpg" alt="Jason Melo" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill">Founder</span><h3>Jason Melo</h3><div class="team-role">Co-Founder &amp; CEO</div></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="../shayra-antia.jpg" alt="Shayra Antia" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill">Founder</span><h3>Shayra Antia</h3><div class="team-role">Co-Founder &amp; COO</div></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="../palvinder-head.png" alt="Palvinder Singh Chahil" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill sales">Sales &amp; GTM</span><h3>Palvinder Singh Chahil</h3><div class="team-role">Chief Revenue Officer</div></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="../erik-frantzen.jpg" alt="Erik Frantzen" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill sales">Sales &amp; GTM</span><h3>Erik Frantzen</h3><div class="team-role">Head of Partnerships</div></div>
+      </div>
+    </div>
+
+    <div class="team-sep reveal">Advisory Board</div>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-photo"><img src="../cian-omaidin.jpg" alt="Cian Ó Maidín" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill advisor">Advisor</span><h3>Cian Ó Maidín</h3><div class="team-role">Advisory Board Member</div></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="../chris-adamo.jpeg" alt="Chris Adamo" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill advisor">Advisor</span><h3>Chris Adamo</h3><div class="team-role">Advisory Board Member</div></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><img src="../jordan_serlin.jpg" alt="Jordan Serlin" style="object-position:center top" loading="lazy"></div>
+        <div class="team-body"><span class="team-pill advisor">Advisor</span><h3>Jordan Serlin</h3><div class="team-role">Advisory Board Member</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">We're hiring</span>
+      <h2 style="margin-top:14px">Engineers, architects, sellers and storytellers</h2>
+      <p>The best in the world, building the privacy layer for every AI. Come build it with us.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="careers.html">See open roles</a>
+        <a class="btn btn-ghost btn-lg" href="about.html">About PrivacyPal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Healthcare — HIPAA-aligned AI governance — PrivacyPal</title>
+<meta name="description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting — PrivacyPal keeps PHI on-device, no BAA-roulette with public LLMs." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/healthcare.html" />
+<meta property="og:title" content="Healthcare — HIPAA-aligned AI governance — PrivacyPal" />
+<meta property="og:description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting — PrivacyPal keeps PHI on-device, no BAA-roulette with public LLMs." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Healthcare — HIPAA-aligned AI governance — PrivacyPal" />
+<meta name="twitter:description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting — PrivacyPal keeps PHI on-device, no BAA-roulette with public LLMs." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<style>
+.hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-split h1{max-width:15ch}
+.hero-media{background:var(--panel);border-radius:var(--r-lg);padding:16px}
+.hero-media img{display:block;width:100%;border-radius:var(--r-md);border:1px solid var(--line)}
+.twin-note{margin-top:20px;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+@media (max-width:920px){.hero-split{grid-template-columns:1fr;gap:32px}}
+</style>
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="page-hero">
+  <div class="container">
+    <div class="hero-split">
+      <div class="reveal">
+        <span class="eyebrow blue">For healthcare</span>
+        <h1>Govern AI in the clinic. Keep PHI at home.</h1>
+        <p class="lede">PrivacyPal is the HIPAA-aligned on-device governance layer between your staff and every AI tool they already want to use — ambient note-taking, prior-auth drafting, ChatGPT, Claude, Copilot, Claude Code. PHI never leaves the device. No BAA-roulette. No clinician friction. Compliance, by construction.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-lg" href="#" data-cta="download">Start 5-day trial</a>
+          <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+        </div>
+      </div>
+      <div class="hero-media reveal reveal-delay-1">
+        <img src="../assets/hero-shot-healthcare.png" alt="Clinician working with PrivacyPal-protected AI">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= THE PROBLEM + TWIN ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why this is hard</span>
+      <h2>PHI lives in sentences, not columns</h2>
+      <p class="lede">Classical DLP catches "SSN: 123-45-6789." It misses "My 68-year-old patient with a recent MI who lives alone on Oak Street." PrivacyPal's models understand context — they swap identifiers in prose, not just in tagged fields.</p>
+      <p style="margin-top:14px;color:var(--muted)">18 HIPAA identifiers, fully supported. Plus facility names, provider NPIs, device serials, and the long tail of quasi-identifiers that re-enable reidentification.</p>
+    </div>
+
+    <div class="twin-compare reveal">
+      <div class="twin-box before">
+        <h5><span class="dot"></span>01 — In the patient chart</h5>
+        "My 68-year-old patient <span class="red">Margaret Chen</span> with a recent MI who lives alone on <span class="red">Oak Street</span> in <span class="red">Lakewood</span>, MRN <span class="red">4471-8829</span>, presented to the ED on <span class="red">March 14</span> with chest pain…"
+      </div>
+      <div class="twin-mid">
+        <div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="twin-box after">
+        <h5><span class="dot"></span>02 — What the LLM receives</h5>
+        "My 68-year-old patient <span class="green">Nancy Grace</span> with a recent MI who lives alone on <span class="green">Pine Avenue</span> in <span class="green">Brookside</span>, MRN <span class="green">8826-3142</span>, presented to the ED on <span class="green">April 22</span> with chest pain…"
+      </div>
+    </div>
+    <div class="pill-row reveal" style="justify-content:center;margin-top:24px">
+      <span class="pill">Name · §164.514(b)(1)</span>
+      <span class="pill">Address · §164.514(b)(2)</span>
+      <span class="pill">City · §164.514(b)(2)</span>
+      <span class="pill">MRN · §164.514(b)(8)</span>
+      <span class="pill">Date · §164.514(b)(3)</span>
+    </div>
+    <p class="twin-note reveal">Clinical context intact · zero PHI on the wire · mapping held on-device · no BAA with OpenAI</p>
+  </div>
+</section>
+
+<!-- ================= WORKFLOWS ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Clinical &amp; ops workflows</span>
+      <h2>From the exam room to the back office</h2>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg></div>
+        <h4>Ambient documentation</h4>
+        <p>Let clinicians use Abridge, Nuance DAX or ChatGPT for note generation. PHI stays inside your Epic tenancy.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 14l2 2 4-4"/></svg></div>
+        <h4>Prior authorization</h4>
+        <p>Draft appeals and submissions against payer policies. Member IDs and clinical history never hit an outside model.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8 12h8M8 9h5"/></svg></div>
+        <h4>Patient messaging</h4>
+        <p>Generate draft replies in MyChart-style inboxes. Names, diagnoses, and med lists are swapped on the way out.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3M12 3v2"/></svg></div>
+        <h4>Revenue cycle</h4>
+        <p>Automate coding suggestions and denial analysis. Patient accounts, guarantor info, and DOBs stay protected.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="bigquote reveal">
+      <blockquote>Our clinicians were going to use AI either way. PrivacyPal made it <b>a compliance story instead of a crisis</b>.</blockquote>
+      <div class="who">Chief Medical Information Officer — 14-hospital IDN</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPLIANCE POSTURE ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Compliance posture</span>
+      <h2>Compliance, by construction</h2>
+      <p class="lede">Because PHI never reaches the LLM, you don't need a BAA with OpenAI, Anthropic or Google. Your existing covered-entity contracts already cover PrivacyPal — we sign a BAA, nobody downstream needs to.</p>
+      <div class="pill-row" style="justify-content:center;margin-top:24px">
+        <span class="pill">HIPAA</span>
+        <span class="pill">HITECH</span>
+        <span class="pill">CFR</span>
+        <span class="pill">State privacy laws</span>
+      </div>
+    </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>18 HIPAA identifiers</h4>
+        <p>Name, dates, MRN, NPI, IP, photos, biometric IDs — all detected in free text and swapped.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+        <h4>Audit-ready logs</h4>
+        <p>Every prompt, every swap, every model call — logged with user, patient context, and timestamp.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
+        <h4>SOC 2 Type II</h4>
+        <p>Annual audits. Penetration tests. Named security contact. The paperwork you need for risk review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For healthcare</span>
+      <h2 style="margin-top:14px">Safer AI at the bedside. And everywhere else.</h2>
+      <p>Talk to a solution architect who's been on the hospital side of this conversation.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a healthcare demo</a>
+        <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Start 5-day trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+</body>
+</html>

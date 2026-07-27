@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SDK for developers — PrivacyPal</title>
+<meta name="description" content="The governance SDK for agent-to-agent and MCP workflows. Encode PII into Privacy Twins, share safely between agents, decode back to real values. Node.js + Python today, future-ready for Data Payment controls." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/developers.html" />
+<meta property="og:title" content="PrivacyPal SDK — Governance for agent-to-agent workflows" />
+<meta property="og:description" content="Build secure agent-to-agent workflows with PrivacyPal. Encode PII into Privacy Twins, send safely to any AI or third party, decode results back to real values. SDKs for Node.js and Python." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PrivacyPal SDK — Governance for agent-to-agent workflows" />
+<meta name="twitter:description" content="Encode PII into Privacy Twins, send safely to any AI or third party, decode results back to real values. SDKs for Node.js and Python." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<style>
+.code-label{
+  font-family:var(--font-mono);font-size:.75rem;color:var(--muted);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+.code-label::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--ink)}
+.lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.example{margin-top:48px}
+.example h3{font-size:1.4rem;letter-spacing:-.01em}
+.example .desc{color:var(--muted);margin-top:8px;max-width:64ch}
+.example .lang-grid{margin-top:20px}
+.sdk-card .code-block{margin-top:auto}
+.sdk-card h4{font-family:var(--font-mono);font-size:.95rem}
+@media(max-width:860px){.lang-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow blue">PrivacyPal SDK · Agent-to-agent governance</span>
+    <h1>The governance SDK for agents &amp; MCP</h1>
+    <p class="lede">The secure entry point for AI agents to share data compliantly. One agent encodes sensitive data into Privacy Twins, shares with another agent, MCP server or third-party API, and decodes the response back to real values — without sensitive data ever crossing your trust boundary. Future-ready for Data Payment controls.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Read the docs</a>
+      <a class="btn btn-ghost btn-lg" href="#examples">View examples</a>
+    </div>
+    <div class="btn-row" style="margin-top:22px;max-width:640px;gap:10px">
+      <div class="code-block" style="flex:1;min-width:280px">
+        <span><span class="prompt">$</span>npm install @privacypal/sdk</span>
+        <button class="copy" type="button" data-cli-copy="npm install @privacypal/sdk">Copy</button>
+      </div>
+      <div class="code-block" style="flex:1;min-width:280px">
+        <span><span class="prompt">$</span>pip install privacypal-sdk</span>
+        <button class="copy" type="button" data-cli-copy="pip install privacypal-sdk">Copy</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= QUICKSTART CODE ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="panel reveal">
+      <div class="section-head" style="margin-bottom:28px;max-width:none">
+        <span class="eyebrow">Quickstart</span>
+        <h2 style="margin-top:12px">Encode. Share. Decode.</h2>
+        <p class="lede" style="margin-top:12px">Three calls to govern an agent-to-agent exchange — PII is replaced with statistically faithful Privacy Twins before anything leaves your boundary.</p>
+      </div>
+      <div class="lang-grid">
+        <div>
+          <div class="code-label">Node.js</div>
+          <div class="code-multi"><span class="k">import</span> { PrivacyPalClient } <span class="k">from</span> <span class="s">'@privacypal/sdk'</span>;
+
+<span class="k">const</span> client = <span class="k">new</span> PrivacyPalClient({
+  apiUrl: <span class="s">'https://api.privacypal.ai'</span>,
+  apiKey: process.env.PRIVACYPAL_API_KEY
+});
+
+<span class="c">// Encode — PII replaced with Privacy Twins</span>
+<span class="k">const</span> encoded = <span class="k">await</span> client.encode({
+  data: <span class="s">'Patient: Jane Doe, DOB: 1985-03-15'</span>,
+  sourceContainer: <span class="s">'ehr-system'</span>,
+  sourceElement: <span class="s">'patient-record'</span>
+});
+
+<span class="c">// Safe to send to any AI or 3rd-party API</span>
+<span class="k">const</span> reply = <span class="k">await</span> sendToAI(encoded.encodedData);
+
+<span class="c">// Decode — restore real values</span>
+<span class="k">const</span> decoded = <span class="k">await</span> client.decode({
+  continuationId: encoded.continuationId,
+  data: reply
+});</div>
+        </div>
+        <div>
+          <div class="code-label">Python</div>
+          <div class="code-multi"><span class="k">from</span> privacypal_sdk <span class="k">import</span> PrivacyPalClient
+<span class="k">import</span> os
+
+client = PrivacyPalClient(
+  api_url=<span class="s">'https://api.privacypal.ai'</span>,
+  api_key=os.environ[<span class="s">'PRIVACYPAL_API_KEY'</span>]
+)
+
+<span class="c"># Encode — PII replaced with Privacy Twins</span>
+encoded = client.encode(
+  <span class="s">'Patient: Jane Doe, DOB: 1985-03-15'</span>,
+  source_container=<span class="s">'ehr-system'</span>,
+  source_element=<span class="s">'patient-record'</span>
+)
+
+<span class="c"># Safe to send to any AI or 3rd-party API</span>
+reply = send_to_ai(encoded[<span class="s">'encodedData'</span>])
+
+<span class="c"># Decode — restore real values</span>
+decoded = client.decode(
+  continuation_id=encoded[<span class="s">'continuationId'</span>],
+  data=reply
+)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SDKS ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">SDKs</span>
+      <h2>Two first-class SDKs. More on the way.</h2>
+      <p class="lede">Node.js and Python today — fully supported, production-ready. A public REST API is also available for any runtime that speaks JSON. Additional language SDKs are in progress.</p>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="feature-card sdk-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
+        <h4>@privacypal/sdk</h4>
+        <p>Node.js 18+ &amp; browser. ES Modules. TypeScript types built in. Encode/decode, batch, file encoding, streaming AI chat, multi-turn sessions, optional client-side NLP.</p>
+        <div class="code-block">
+          <span><span class="prompt">$</span>npm install @privacypal/sdk</span>
+          <button class="copy" type="button" data-cli-copy="npm install @privacypal/sdk">Copy</button>
+        </div>
+      </div>
+      <div class="feature-card sdk-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-4 0-4 2-4 3v2h8v1H6c-2 0-3 1.5-3 4s1 4 3 4h2v-2.5c0-1.5 1-2.5 2.5-2.5h5c1.4 0 2.5-1 2.5-2.5V6c0-1-.5-3-4-3h-2z"/><path d="M12 21c4 0 4-2 4-3v-2H8v-1h10c2 0 3-1.5 3-4"/></svg></div>
+        <h4>privacypal-sdk</h4>
+        <p>Python 3.9+. Sync API today, async coming. Same encode/decode/batch surface as Node, with helpers for pandas DataFrames and request bodies.</p>
+        <div class="code-block">
+          <span><span class="prompt">$</span>pip install privacypal-sdk</span>
+          <button class="copy" type="button" data-cli-copy="pip install privacypal-sdk">Copy</button>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h4 style="display:flex;align-items:center;gap:10px">privacypal-go <span class="pill">Coming soon</span></h4>
+        <p>Go module with net/http middleware and context-aware encode/decode. Targeting the same v1 wire protocol as Node and Python.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
+        <h4>REST API</h4>
+        <p>Plain HTTPS — encode, decode, batch — for any runtime that speaks JSON. Use directly when an SDK isn't available for your stack.</p>
+        <a class="link-arrow" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">View API documentation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT YOU GET ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow pink">What you get</span>
+      <h2>Agent-to-agent governance, with privacy as the default</h2>
+      <p class="lede">Built for the AI Operating System: agentic workflows, MCP servers, autonomous tools. Encode at the boundary, decode at the destination — and stay compliant by construction.</p>
+    </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
+        <h4>Agent entry points</h4>
+        <p>Encode the sensitive parts of an inbound request, hand the twins to whatever agent or API you need, then decode the response back to real values. The protected entity stays inside your boundary.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>Compliance by default</h4>
+        <p>HIPAA, GDPR, and SOC 2 friendly out of the box. PII, PHI, and PCI classes are detected automatically, with structure-preserving twins so downstream parsers and prompts keep working.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>Streaming AI chat</h4>
+        <p>Server-Sent Events helpers for OpenAI, Anthropic, and Gemini. Encode the prompt, stream the model's response, decode tokens on the way out — your end users see normal token-by-token output.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h4>Self-hosted option</h4>
+        <p>Run the same SDK against PrivacyPal Cloud inside your own network. Encode/decode never leaves your VPC, and audit logs land in storage you already own.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
+        <h4>Database scanning (DSPM)</h4>
+        <p>Discover and classify sensitive data sitting in your own databases, file shares, and document stores — so you know what an agent should encode before it ever leaves the row.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h4 style="display:flex;align-items:center;gap:10px">x402 payments <span class="pill">Future</span></h4>
+        <p>Coming on the roadmap: agents will be able to require x402 payment before decoding sensitive results — enabling agentic marketplaces where data is shared only on settled terms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METRICS ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="stats cols-3 reveal">
+      <div class="stat"><div class="n">0.10<small>ms</small></div><div class="l">Encode latency per 100 records on a warm gateway.</div></div>
+      <div class="stat"><div class="n">1&amp;2<small>way</small></div><div class="l">One-way anonymization or reversible Privacy Twin encoding — chosen per request.</div></div>
+      <div class="stat"><div class="n">0<small>limits</small></div><div class="l">No per-record cap. Batch as much as your gateway can serve.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXAMPLES ================= -->
+<section class="section" id="examples" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow orange">Examples</span>
+      <h2>Real workflows. Real APIs.</h2>
+      <p class="lede">Three patterns from production deployments — encode/decode the way the SDK actually works.</p>
+    </div>
+
+    <div class="example reveal">
+      <h3>Agent entry point for secure A2A communication</h3>
+      <p class="desc">Encode the sensitive input, hand the twins off to an external agent, then decode the response back to original values.</p>
+      <div class="lang-grid">
+        <div>
+          <div class="code-label">Node.js</div>
+          <div class="code-multi"><span class="k">const</span> encoded = <span class="k">await</span> client.encode({
+  data: <span class="s">'User: John Smith, Email: john@acme.com, ID: user-123'</span>,
+  sourceContainer: <span class="s">'my-agent'</span>,
+  sourceElement: <span class="s">'user_input'</span>
+});
+
+<span class="c">// Share encoded data with an external agent</span>
+<span class="k">const</span> response = <span class="k">await</span> sendToExternalAgent(encoded.encodedData);
+
+<span class="c">// Decode the response back to real values</span>
+<span class="k">const</span> decoded = <span class="k">await</span> client.decode({
+  continuationId: encoded.continuationId,
+  data: response.text
+});
+console.log(decoded.decodedData);</div>
+        </div>
+        <div>
+          <div class="code-label">Python</div>
+          <div class="code-multi">encoded = client.encode(
+  <span class="s">'User: John Smith, Email: john@acme.com, ID: user-123'</span>,
+  source_container=<span class="s">'my-agent'</span>,
+  source_element=<span class="s">'user_input'</span>
+)
+
+<span class="c"># Share encoded data with an external agent</span>
+response = send_to_external_agent(encoded[<span class="s">'encodedData'</span>])
+
+<span class="c"># Decode the response back to real values</span>
+decoded = client.decode(
+  continuation_id=encoded[<span class="s">'continuationId'</span>],
+  data=response[<span class="s">'text'</span>]
+)
+print(decoded[<span class="s">'decodedData'</span>])</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <h3>Healthcare AI: patient data to a 3rd-party analyzer</h3>
+      <p class="desc">Encode PHI before sending to a vendor API, decode the analysis on the way back — HIPAA-compliant by design.</p>
+      <div class="lang-grid">
+        <div>
+          <div class="code-label">Node.js</div>
+          <div class="code-multi"><span class="k">const</span> encoded = <span class="k">await</span> client.encode({
+  data: <span class="s">'Patient: Jane Doe, DOB: 1985-03-15, Dx: Condition X'</span>,
+  sourceContainer: <span class="s">'ehr-system'</span>,
+  sourceElement: <span class="s">'patient-record'</span>
+});
+
+<span class="k">const</span> analysis = <span class="k">await</span> fetch(<span class="s">'https://vendor-api.com/analyze'</span>, {
+  method: <span class="s">'POST'</span>,
+  body: JSON.stringify({ data: encoded.encodedData })
+});
+
+<span class="k">const</span> result = <span class="k">await</span> client.decode({
+  continuationId: encoded.continuationId,
+  data: (<span class="k">await</span> analysis.json()).report
+});</div>
+        </div>
+        <div>
+          <div class="code-label">Python</div>
+          <div class="code-multi">encoded = client.encode(
+  <span class="s">'Patient: Jane Doe, DOB: 1985-03-15, Dx: Condition X'</span>,
+  source_container=<span class="s">'ehr-system'</span>,
+  source_element=<span class="s">'patient-record'</span>
+)
+
+response = requests.post(
+  <span class="s">'https://vendor-api.com/analyze'</span>,
+  json={<span class="s">'data'</span>: encoded[<span class="s">'encodedData'</span>]}
+)
+
+result = client.decode(
+  continuation_id=encoded[<span class="s">'continuationId'</span>],
+  data=response.json()[<span class="s">'report'</span>]
+)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example reveal">
+      <h3 style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">Financial services: decentralized dark pool <span class="pill">x402 coming soon</span></h3>
+      <p class="desc">Encode trade info to protect trader identity, match through Privacy Twins, and (in a future release) decode only after x402 payment is settled.</p>
+      <div class="lang-grid">
+        <div>
+          <div class="code-label">Node.js</div>
+          <div class="code-multi"><span class="c">// Future: import { x402Middleware } from '@x402/payment';</span>
+
+<span class="k">const</span> encoded = <span class="k">await</span> client.encode({
+  data: <span class="s">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
+  sourceContainer: <span class="s">'dark-pool'</span>,
+  sourceElement: <span class="s">'trade-request'</span>
+});
+
+<span class="k">const</span> match = <span class="k">await</span> findCounterparty(encoded.encodedData);
+
+<span class="k">if</span> (match.found) {
+  <span class="c">// Future: x402 payment required before decode</span>
+  <span class="k">const</span> realData = <span class="k">await</span> client.decode({
+    continuationId: encoded.continuationId,
+    data: match.counterpartyData
+  });
+  <span class="k">return</span> realData.decodedData;
+}</div>
+        </div>
+        <div>
+          <div class="code-label">Python</div>
+          <div class="code-multi"><span class="c"># Future: from x402 import middleware</span>
+
+encoded = client.encode(
+  <span class="s">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
+  source_container=<span class="s">'dark-pool'</span>,
+  source_element=<span class="s">'trade-request'</span>
+)
+
+match = find_counterparty(encoded[<span class="s">'encodedData'</span>])
+
+<span class="k">if</span> match[<span class="s">'found'</span>]:
+  <span class="c"># Future: x402 payment required before decode</span>
+  real_data = client.decode(
+    continuation_id=encoded[<span class="s">'continuationId'</span>],
+    data=match[<span class="s">'counterpartyData'</span>]
+  )
+  <span class="k">return</span> real_data[<span class="s">'decodedData'</span>]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
+      <h2 style="margin-top:14px">Govern your first agent-to-agent call in minutes</h2>
+      <p>Sign up for a PrivacyPal Cloud account, drop the SDK into your agent, and start encoding sensitive data on the way out the door.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Talk to Engineering</a>
+        <a class="btn btn-ghost btn-lg" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Read the docs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+</body>
+</html>

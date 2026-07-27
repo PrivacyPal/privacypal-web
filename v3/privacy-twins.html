@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Privacy Twins — language-based privacy for a language-based threat — PrivacyPal</title>
+<meta name="description" content="The core mechanism behind PrivacyPal's governance layer. Privacy Twins are statistically accurate synthetic data — preserving statistical bandwidth without ever exposing IP, PII or PHI. No blunt redaction. No broken UX." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/v3/privacy-twins.html" />
+<meta property="og:title" content="Privacy Twins — statistically accurate synthetic data" />
+<meta property="og:description" content="Privacy Twins are statistically accurate synthetic data entities that replace your real IP in AI prompts. Get accurate AI responses without ever exposing client names, financials, or source code." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Privacy Twins — statistically accurate synthetic data" />
+<meta name="twitter:description" content="Privacy Twins replace your real IP in AI prompts with statistically accurate synthetic data. Accurate AI answers, zero exposure." />
+<style>
+  .scenario{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+  .case-ex{margin-top:14px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--ink);padding:12px 14px;border-radius:0 10px 10px 0;font-size:.84rem;color:var(--muted);line-height:1.55}
+  .case-ex b{color:var(--ink);font-weight:600}
+  .mark-real{background:#ffe3e3;color:#a02020;padding:1px 7px;border-radius:5px;font-weight:500;white-space:nowrap}
+  .mark-twin{background:#dcf5e7;color:#0d6b3d;padding:1px 7px;border-radius:5px;font-weight:500;white-space:nowrap}
+  table.compare td:first-child{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="page-hero center">
+  <div class="container">
+    <span class="eyebrow blue" style="justify-content:center">PrivacyPal platform · the mechanism</span>
+    <h1>Privacy Twins</h1>
+    <p class="lede" style="max-width:58ch"><strong>Language-based privacy for a language-based threat.</strong> Redaction and masking blind the AI and break the user experience. Privacy Twins do the opposite — preserving the <em>statistical bandwidth</em> the LLM needs while ensuring sensitive IP and PII never reach it. The only approach built for how AI actually works.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+      <a class="btn btn-ghost btn-lg" href="#how-twins-work">See the mechanism</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= DEFINITION ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="panel reveal" style="max-width:820px;margin:0 auto;text-align:center">
+      <span class="eyebrow" style="justify-content:center">Definition</span>
+      <p style="margin-top:14px;font-size:1.02rem;line-height:1.7;color:var(--muted)"><b style="color:var(--ink)">Privacy Twins</b> are statistically accurate synthetic data entities generated in real time on-device. They preserve the contextual meaning, structure and relationships of your real data — so AI models respond with the same accuracy — while containing zero actual information about your business, clients, or people. Zero-knowledge by design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW TWINS WORK ================= -->
+<section class="section" id="how-twins-work" style="padding-top:32px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The process</span>
+      <h2>Real data in. Privacy Twin out. Real answer back.</h2>
+      <p class="lede">The full process happens in under 50 milliseconds on-device. Zero learning curve. The moment you type it, we protect it. The moment the answer arrives, your real values are stitched back in.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="num">01</span>
+        <h4>You type normally</h4>
+        <p>Your team uses AI exactly as they always have — no changed workflows, no prompts to remember, no extra steps.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h4>Privacy Twins swap in</h4>
+        <p>PrivacyPal detects every sensitive entity and replaces each one with a statistically identical synthetic equivalent before the prompt is sent.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h4>You see real answers</h4>
+        <p>The AI's response uses the synthetic data. PrivacyPal re-injects your real data so you see the answer with your actual names, figures, and context — only for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 01 THE SCIENCE ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">01 · The science</div>
+        <span class="eyebrow blue">Statistically identical</span>
+        <h2 style="margin-top:12px">What makes a Privacy Twin statistically identical?</h2>
+        <p class="lede">A simple data mask replaces "Acme Corp" with "COMPANY." A Privacy Twin replaces it with "Nexus Solutions" — a synthetic entity with consistent industry type, revenue range, legal structure, and relationship context.</p>
+        <p style="color:var(--muted);margin-top:14px">The AI model receives a prompt that is structurally and semantically equivalent to the original. It reasons about the same relationships, dependencies, and patterns — and returns an answer that is just as accurate and useful as if it had seen the real data.</p>
+        <p style="color:var(--muted);margin-top:14px">Your real data never leaves your device. The synthetic data has zero information value to anyone who intercepts it.</p>
+        <div class="pill-row" style="margin-top:22px">
+          <span class="pill">Structural equivalence</span>
+          <span class="pill">Semantic preservation</span>
+          <span class="pill">Relationship consistency</span>
+          <span class="pill">Domain-appropriate values</span>
+          <span class="pill">Zero real data exposure</span>
+        </div>
+      </div>
+      <div>
+        <div class="table-wrap">
+          <table class="compare" style="min-width:0">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Your real data</th>
+                <th>Privacy Twin sent to AI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Client</td><td><span class="mark-real">Acme Corp</span></td><td><span class="mark-twin">Nexus Solutions</span></td></tr>
+              <tr><td>Contact</td><td><span class="mark-real">Sarah Mitchell</span></td><td><span class="mark-twin">Dana Brooks</span></td></tr>
+              <tr><td>Deal value</td><td><span class="mark-real">$2,400,000</span></td><td><span class="mark-twin">$1,800,000</span></td></tr>
+              <tr><td>Document</td><td><span class="mark-real">Q3-Pipeline.xlsx</span></td><td><span class="mark-twin">Doc-7291.xlsx</span></td></tr>
+              <tr><td>Project</td><td><span class="mark-real">Project Orion</span></td><td><span class="mark-twin">Project Kepler</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-family:var(--font-mono);font-size:.75rem;color:var(--muted);text-align:center;margin-top:14px">AI responses are equally accurate for both columns. Only you see the real version.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= USE CASES ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Use cases</span>
+      <h2>Every department. Every AI surface. Governed.</h2>
+      <p class="lede">Privacy Twins run silently across every role and every AI — ChatGPT, Claude, Gemini, Copilot, Claude Code, MCP agents. Same governance plane, every workflow.</p>
+    </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.5 5.5-4.5s4.8 1.5 5.5 4.5"/><path d="M16 8h5M16 12h5M16 16h3"/></svg></div>
+        <div class="scenario">Sales &amp; business development</div>
+        <h4>Client data &amp; deal intelligence</h4>
+        <p>Sales teams frequently ask AI to analyze CRM data, draft proposals, and summarize pipeline reports — all containing real client names and deal values.</p>
+        <div class="case-ex">Ask AI to <b>"Summarize the Acme Corp deal risks"</b> and Privacy Twins ensure Acme Corp and all associated contacts are never exposed — while the AI's risk analysis is just as accurate.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
+        <div class="scenario">Engineering &amp; development</div>
+        <h4>Source code &amp; API secrets</h4>
+        <p>Developers routinely paste proprietary code, architecture diagrams, and API specifications into AI coding assistants. This is the single largest IP leak vector in modern businesses.</p>
+        <div class="case-ex">Paste a function containing <b>real database credentials or proprietary logic</b> into Copilot — Privacy Twins replace sensitive identifiers before any data is transmitted.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div>
+        <div class="scenario">Legal &amp; compliance</div>
+        <h4>Contracts &amp; NDA-protected content</h4>
+        <p>Legal teams ask AI to draft responses, summarize agreements, or check contract language — often pasting actual terms that can't leave the firm.</p>
+        <div class="case-ex">Upload a <b>client NDA for AI review</b> — Privacy Twins replace all party names, dollar amounts, and identifying terms before the document is processed.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
+        <div class="scenario">Finance &amp; accounting</div>
+        <h4>Financial models &amp; forecasts</h4>
+        <p>Finance teams use AI to spot anomalies, generate narratives, and model scenarios — often uploading actual budget spreadsheets with real revenue data.</p>
+        <div class="case-ex">Upload a <b>Q3 financial model</b> — Privacy Twins scale all figures proportionally so AI analysis is identical without exposing actual revenues or targets.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.5-8 11-8 11z"/></svg></div>
+        <div class="scenario">HR &amp; people operations</div>
+        <h4>Employee data &amp; performance</h4>
+        <p>HR teams ask AI to draft performance reviews, analyze compensation data, or summarize feedback — all highly sensitive and personally identifiable.</p>
+        <div class="case-ex">Ask AI to <b>"Draft a performance review for Jane Smith"</b> — Privacy Twins replace the real employee name, salary, and department before the request is processed.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <div class="scenario">Executive &amp; strategy</div>
+        <h4>Board materials &amp; M&amp;A data</h4>
+        <p>Executives use AI to prepare board presentations, analyze competitive intelligence, and draft acquisition rationale — some of the most sensitive data in any organization.</p>
+        <div class="case-ex">Paste a <b>confidential term sheet</b> into Claude for analysis — Privacy Twins replace all entity names, valuations, and deal structures before any data leaves the device.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECH STATS ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Technical performance</span>
+      <h2>Built for accuracy at scale</h2>
+      <p class="lede">Privacy Twins aren't just a privacy shield — they're engineered to preserve the quality of your AI outputs.</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="n">100<small>%</small></div><div class="l">Redaction accuracy. In independent testing, zero real data entities passed through in over 10,000 test prompts.</div></div>
+      <div class="stat"><div class="n">&lt;50<small>ms</small></div><div class="l">Twin generation latency. The swap happens entirely on-device and completes before the prompt is ready to send.</div></div>
+      <div class="stat"><div class="n">98.6<small>%</small></div><div class="l">Response equivalence. AI responses using Privacy Twins are rated equivalent in accuracy to responses using real data.</div></div>
+      <div class="stat"><div class="n">∞</div><div class="l">Unique twin pairs. Each Privacy Twin is generated fresh per session — no reuse, no pattern inference possible.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 RE-INJECTION ================= -->
+<section class="section">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">02 · Re-injection</div>
+        <span class="eyebrow pink">The round trip</span>
+        <h2 style="margin-top:12px">You always see your real data in the answer</h2>
+        <p class="lede">The AI's response comes back using the Privacy Twin names and values. PrivacyPal then re-injects your actual data on your device — so the answer you read is fully in context with your real situation.</p>
+        <p style="color:var(--muted);margin-top:14px">No manual translation. No cross-referencing a "fake" answer back to reality. You get the full power of AI plus the full context of your real business — simultaneously.</p>
+      </div>
+      <div>
+        <div class="deep-list">
+          <div class="deep-item"><b>Automatic re-injection</b><p>Real values are restored automatically on response receipt.</p></div>
+          <div class="deep-item"><b>Highlighted in your interface</b><p>So you always know what was protected.</p></div>
+          <div class="deep-item"><b>Every platform, identically</b><p>Works across all supported AI platforms identically.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel reveal" style="margin-top:36px;padding:22px">
+      <img src="../assets/claude-processing-banner.png" alt="PrivacyPal processing a Claude prompt" loading="lazy" style="width:100%;border-radius:var(--r-md);border:1px solid var(--line);display:block">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
+      <h2 style="margin-top:14px">Stop choosing between AI speed and data safety</h2>
+      <p>Privacy Twins are the only privacy mechanism built for how AI actually works. Install once. Get protected. 5-day free trial. 30-day money-back guarantee.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+        <a class="btn btn-ghost btn-lg" href="privacypal-ai.html">Explore the full platform</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+</body>
+</html>
