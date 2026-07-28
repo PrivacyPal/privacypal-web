@@ -5,6 +5,7 @@
   "main": "generate-pdf.js",
   "scripts": {
     "generate-pdf": "node generate-pdf.js",
+    "generate-carousel": "node generate-carousel-pdf.js",
     "serve": "node scripts/serve.js",
     "dev": "node scripts/serve.js",
     "start": "node scripts/serve.js",
