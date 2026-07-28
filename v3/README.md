@@ -36,6 +36,27 @@ See `STYLE-GUIDE.md` for the full component reference.
   the live site automatically.
 - Images are referenced from the repo root via `../` — no duplication.
 
+## Campaign landing pages
+
+Standalone funnel pages for paid/social traffic — deliberately **not** wired to
+the main nav (`assets/landing.css` + the `lp-*` components). They strip the
+header to a logo + one CTA, keep a single conversion path, and add a sticky
+mobile CTA so there are no exits between the ad and the booking. They still pull
+in `assets/v3.js`, so the shared **Book a demo** / **Download** modals work via
+`data-cta="demo"` / `data-cta="download"`.
+
+- **`lp-banking.html`** — Banking & FSI campaign (GLBA/SOX/FINRA angle), ported
+  from the root `lp-banking.html` into the v3 look. Conversion: book a banking demo.
+- **`lp-ciso.html`** — CISO funnel, built for driving LinkedIn traffic into a
+  briefing request. Dark authority hero, "govern the AI you can't see" framing,
+  security/audit-oriented proof and FAQ. Conversion: **Book a CISO briefing**
+  (the demo-booking modal). Point the LinkedIn post's link at
+  `https://privacypal.ai/v3/lp-ciso.html`.
+
+Both are marked `noindex` so they don't compete with the main pages in search.
+The conversion is the shared Google-Calendar booking modal — no separate lead
+backend is wired, so leads arrive as booked meetings.
+
 ## Promoting v3 to the live site (later)
 
 1. Archive the current root pages (e.g. into `site-v3-prev/` — same pattern as
