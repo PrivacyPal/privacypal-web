@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Stepwise admin guide: connect a Salesforce org to PrivacyPal with your own Connected App and index it for sensitive-data protection.">
+<title>Connect &amp; Index Salesforce — PrivacyPal Quickstart</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--ground); color: var(--ink); }
+  img, svg { max-width: 100%; }
+  .theme-toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 50;
+    width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--hair-strong); color: var(--ink-soft);
+    display: grid; place-items: center; box-shadow: var(--shadow-soft);
+    font-family: inherit;
+  }
+  .theme-toggle:hover { color: var(--ink); }
+  @media print {
+    .theme-toggle { display: none; }
+    .wrap { padding: 0 12px !important; }
+    .shot, .step, figure, .tshoot, .callout, .prereq, .handshake, .conncard { break-inside: avoid; }
+    .phase { break-inside: avoid-page; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<button class="theme-toggle" type="button" aria-label="Toggle light or dark theme" onclick="var r=document.documentElement,cur=r.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');r.setAttribute('data-theme',cur==='dark'?'light':'dark');">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+</button>
+<style>
+  :root {
+    --ground: #f6f8fc;
+    --surface: #ffffff;
+    --surface-2: #f0f3f9;
+    --ink: #131a2c;
+    --ink-soft: #2c3752;
+    --muted: #5b6580;
+    --faint: #8a93a8;
+    --hair: #e2e7f1;
+    --hair-strong: #cfd6e6;
+    --pp: #4b3fe4;          /* PrivacyPal track */
+    --pp-tint: #ecebfd;
+    --sf: #0592d6;          /* Salesforce track */
+    --sf-tint: #e2f3fc;
+    --ok: #0e9f6e;
+    --ok-tint: #e2f6ee;
+    --warn: #b7791f;
+    --warn-tint: #fbf1dd;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(19,26,44,.04), 0 8px 26px -14px rgba(19,26,44,.22);
+    --shadow-soft: 0 1px 2px rgba(19,26,44,.05);
+    --r: 12px;
+    --r-sm: 8px;
+    --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0a0e1a;
+      --surface: #121828;
+      --surface-2: #1a2136;
+      --ink: #eef1f8;
+      --ink-soft: #cdd4e5;
+      --muted: #98a2b8;
+      --faint: #6b7590;
+      --hair: #242c40;
+      --hair-strong: #313a52;
+      --pp: #9186ff;
+      --pp-tint: #211f42;
+      --sf: #3fc4f5;
+      --sf-tint: #0c2637;
+      --ok: #34d399;
+      --ok-tint: #0d2a22;
+      --warn: #e0a94b;
+      --warn-tint: #2c2413;
+      --on-accent: #0a0e1a;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 14px 34px -18px rgba(0,0,0,.7);
+      --shadow-soft: 0 1px 2px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #f6f8fc; --surface: #ffffff; --surface-2: #f0f3f9; --ink: #131a2c; --ink-soft: #2c3752;
+    --muted: #5b6580; --faint: #8a93a8; --hair: #e2e7f1; --hair-strong: #cfd6e6;
+    --pp: #4b3fe4; --pp-tint: #ecebfd; --sf: #0592d6; --sf-tint: #e2f3fc; --ok: #0e9f6e; --ok-tint: #e2f6ee;
+    --warn: #b7791f; --warn-tint: #fbf1dd; --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(19,26,44,.04), 0 8px 26px -14px rgba(19,26,44,.22); --shadow-soft: 0 1px 2px rgba(19,26,44,.05);
+  }
+  :root[data-theme="dark"] {
+    --ground: #0a0e1a; --surface: #121828; --surface-2: #1a2136; --ink: #eef1f8; --ink-soft: #cdd4e5;
+    --muted: #98a2b8; --faint: #6b7590; --hair: #242c40; --hair-strong: #313a52;
+    --pp: #9186ff; --pp-tint: #211f42; --sf: #3fc4f5; --sf-tint: #0c2637; --ok: #34d399; --ok-tint: #0d2a22;
+    --warn: #e0a94b; --warn-tint: #2c2413; --on-accent: #0a0e1a;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 14px 34px -18px rgba(0,0,0,.7); --shadow-soft: 0 1px 2px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  .wrap {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--ground);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    padding: 0 20px 88px;
+  }
+  .col { max-width: 900px; margin: 0 auto; }
+
+  a { color: var(--pp); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  :focus-visible { outline: 2px solid var(--pp); outline-offset: 2px; border-radius: 4px; }
+
+  code, .mono { font-family: var(--mono); }
+
+  /* ---------- Header ---------- */
+  header { padding: 60px 0 34px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--pp); }
+  h1 {
+    font-size: clamp(2.05rem, 1.35rem + 2.9vw, 3.15rem); line-height: 1.04; letter-spacing: -.025em;
+    font-weight: 800; margin: 0 0 18px; text-wrap: balance;
+  }
+  h1 .amp { color: var(--faint); font-weight: 500; }
+  .lede { font-size: 1.13rem; color: var(--ink-soft); max-width: 60ch; margin: 0; }
+  .lede b { color: var(--ink); font-weight: 650; }
+
+  .handshake {
+    display: flex; align-items: center; gap: 14px; margin: 30px 0 0;
+    padding: 16px 18px; border: 1px solid var(--hair); border-radius: var(--r);
+    background: var(--surface); box-shadow: var(--shadow-soft); width: fit-content; max-width: 100%;
+  }
+  .node { display: flex; align-items: center; gap: 10px; }
+  .node .glyph { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; flex: 0 0 auto; }
+  .node.sf .glyph { background: var(--sf-tint); }
+  .node.pp .glyph { background: var(--pp-tint); }
+  .node .nm { font-weight: 650; font-size: .92rem; letter-spacing: -.01em; white-space: nowrap; }
+  .node .sub { font-size: .72rem; color: var(--muted); }
+  .link {
+    flex: 1 1 40px; min-width: 34px; height: 30px; position: relative; display: grid; place-items: center;
+  }
+  .link .rail { position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed var(--hair-strong); }
+  .link .lock {
+    position: relative; z-index: 1; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--surface); border: 1.5px solid var(--ok); color: var(--ok); display: grid; place-items: center;
+  }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 26px; }
+  .meta .m {
+    font-size: .82rem; color: var(--ink-soft); background: var(--surface); border: 1px solid var(--hair);
+    padding: 7px 12px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .meta .m b { font-weight: 650; color: var(--ink); }
+  .meta .m svg { color: var(--muted); }
+
+  /* ---------- Prereqs ---------- */
+  .prereq {
+    margin: 34px 0 8px; border: 1px solid var(--hair); border-radius: var(--r); background: var(--surface);
+    padding: 20px 22px; box-shadow: var(--shadow-soft);
+  }
+  .prereq h4 { margin: 0 0 12px; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-family: var(--mono); }
+  .prereq ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .prereq li { display: flex; gap: 11px; align-items: flex-start; font-size: .95rem; color: var(--ink-soft); }
+  .prereq li svg { color: var(--pp); flex: 0 0 auto; margin-top: 3px; }
+
+  /* ---------- Phase ---------- */
+  .phase { margin-top: 56px; }
+  .phase-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; flex-wrap: wrap; }
+  .phase-kicker {
+    font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+    padding: 4px 9px; border-radius: 6px;
+  }
+  .phase.sf .phase-kicker { color: var(--sf); background: var(--sf-tint); }
+  .phase.pp .phase-kicker { color: var(--pp); background: var(--pp-tint); }
+  .phase-head h2 { font-size: 1.42rem; font-weight: 750; letter-spacing: -.018em; margin: 0; }
+  .phase-sub { color: var(--muted); font-size: .95rem; margin: 0 0 26px; }
+
+  /* ---------- Step ---------- */
+  .step { display: grid; grid-template-columns: 46px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--hair); }
+  .step:first-of-type { border-top: none; }
+  .num {
+    width: 46px; height: 46px; border-radius: 11px; display: grid; place-items: center;
+    font-weight: 800; font-size: 1.05rem; font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+    color: var(--on-accent);
+  }
+  .sf .num { background: var(--sf); }
+  .pp .num { background: var(--pp); }
+  .step-body { min-width: 0; }
+  .step h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.015em; margin: 6px 0 8px; }
+  .step p { margin: 0 0 12px; color: var(--ink-soft); max-width: 62ch; }
+  .step p:last-child { margin-bottom: 0; }
+  .step ol.sub, .step ul.sub { margin: 0 0 14px; padding-left: 0; list-style: none; display: grid; gap: 9px; }
+  .step ul.sub li, .step ol.sub li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink-soft); font-size: .95rem; max-width: 62ch; }
+  .step ul.sub li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--hair-strong); margin-top: 9px; flex: 0 0 auto; }
+  .step ol.sub { counter-reset: s; }
+  .step ol.sub li { counter-increment: s; }
+  .step ol.sub li::before {
+    content: counter(s); width: 20px; height: 20px; border-radius: 6px; background: var(--surface-2);
+    color: var(--muted); font-size: .72rem; font-weight: 700; font-family: var(--mono);
+    display: grid; place-items: center; margin-top: 1px; flex: 0 0 auto;
+  }
+  kbd {
+    font-family: var(--sans); font-size: .82em; font-weight: 600; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--hair); border-bottom-width: 2px;
+    padding: 1px 6px; border-radius: 5px; white-space: nowrap;
+  }
+  .tok { font-family: var(--mono); font-size: .86em; background: var(--surface-2); color: var(--ink); border: 1px solid var(--hair); padding: 1px 5px; border-radius: 5px; word-break: break-all; }
+
+  /* ---------- Mockups ("screenshots") ---------- */
+  figure { margin: 16px 0 4px; }
+  .shot {
+    border: 1px solid var(--hair-strong); border-radius: var(--r); overflow: hidden; background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .shot .bar {
+    display: flex; align-items: center; gap: 8px; padding: 9px 13px; background: var(--surface-2);
+    border-bottom: 1px solid var(--hair);
+  }
+  .shot .bar .dots { display: flex; gap: 6px; }
+  .shot .bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--hair-strong); display: block; }
+  .shot .bar .addr {
+    flex: 1; font-family: var(--mono); font-size: .72rem; color: var(--muted); background: var(--ground);
+    border: 1px solid var(--hair); border-radius: 6px; padding: 4px 10px; margin-left: 6px; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap;
+  }
+  .shot .body { padding: 18px; }
+  figcaption { font-size: .8rem; color: var(--faint); margin-top: 9px; font-style: italic; }
+  figcaption b { font-style: normal; font-weight: 650; color: var(--muted); }
+
+  /* app-ish primitives inside mockups */
+  .fld { margin-bottom: 13px; }
+  .fld:last-child { margin-bottom: 0; }
+  .fld label { display: block; font-size: .74rem; font-weight: 650; color: var(--muted); margin-bottom: 5px; letter-spacing: .01em; }
+  .input {
+    font-family: var(--mono); font-size: .8rem; color: var(--ink); background: var(--ground);
+    border: 1px solid var(--hair-strong); border-radius: 8px; padding: 9px 11px; display: flex; align-items: center;
+    gap: 8px; min-height: 38px; word-break: break-all;
+  }
+  .input.ph { color: var(--faint); }
+  .input .grow { flex: 1; min-width: 0; }
+  .btn {
+    font-family: var(--sans); font-weight: 650; font-size: .82rem; border-radius: 8px; padding: 9px 15px;
+    border: 1px solid transparent; display: inline-flex; align-items: center; gap: 7px; cursor: default;
+  }
+  .btn.primary { background: var(--pp); color: var(--on-accent); }
+  .btn.sf { background: var(--sf); color: #fff; }
+  .btn.ghost { background: transparent; border-color: var(--hair-strong); color: var(--ink-soft); }
+  .btn.sm { padding: 5px 10px; font-size: .74rem; border-radius: 6px; }
+  .pill {
+    font-size: .7rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; letter-spacing: .02em;
+    display: inline-flex; align-items: center; gap: 5px; text-transform: uppercase; font-family: var(--mono);
+  }
+  .pill.ok { background: var(--ok-tint); color: var(--ok); }
+  .pill.run { background: var(--sf-tint); color: var(--sf); }
+  .scope { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: .72rem; background: var(--surface-2); border: 1px solid var(--hair); color: var(--ink-soft); padding: 4px 9px; border-radius: 6px; }
+  .check { width: 15px; height: 15px; border-radius: 4px; background: var(--pp); display: inline-grid; place-items: center; flex: 0 0 auto; }
+  .check svg { color: #fff; }
+
+  /* wizard step indicator */
+  .wsteps { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+  .wsteps .ws { display: flex; align-items: center; gap: 7px; flex: 1; }
+  .wsteps .ws:last-child { flex: 0; }
+  .wsteps .wd { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: .68rem; font-weight: 800; flex: 0 0 auto; }
+  .wsteps .wd.done { background: var(--ok); color: #fff; }
+  .wsteps .wd.now { background: var(--pp); color: var(--on-accent); }
+  .wsteps .wd.next { background: var(--surface-2); color: var(--faint); }
+  .wsteps .wl { font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); white-space: nowrap; }
+  .wsteps .wl.on { color: var(--pp); }
+  .wsteps .wl.dn { color: var(--ok); }
+  .wsteps .bar2 { flex: 1; height: 1px; background: var(--hair); }
+  .infobox { background: var(--surface-2); border: 1px solid var(--hair); border-radius: 10px; padding: 13px 14px; margin-bottom: 14px; }
+  .infobox .t { font-weight: 650; font-size: .84rem; margin: 0 0 6px; }
+  .infobox .d { font-size: .78rem; color: var(--muted); margin: 0 0 10px; line-height: 1.5; }
+  .secure { display: flex; gap: 9px; align-items: flex-start; background: var(--ok-tint); border: 1px solid color-mix(in srgb, var(--ok) 26%, transparent); border-radius: 9px; padding: 10px 12px; margin-top: 13px; }
+  .secure svg { color: var(--ok); flex: 0 0 auto; margin-top: 1px; }
+  .secure p { margin: 0; font-size: .76rem; color: var(--ink-soft); line-height: 1.5; }
+
+  /* catalog rows */
+  .cat-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 12px; flex-wrap: wrap; }
+  .cat-head .t { font-weight: 700; font-size: .95rem; }
+  .cat-head .s { font-size: .76rem; color: var(--muted); font-family: var(--mono); }
+  .catrow { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border: 1px solid var(--hair); border-radius: 9px; margin-bottom: 8px; background: var(--ground); }
+  .catrow:last-child { margin-bottom: 0; }
+  .catrow .tag { font-family: var(--mono); font-size: .68rem; font-weight: 700; padding: 3px 8px; border-radius: 5px; letter-spacing: .04em; }
+  .catrow .lbl { flex: 1; font-size: .82rem; color: var(--ink-soft); }
+  .catrow .hash { font-family: var(--mono); font-size: .72rem; color: var(--faint); }
+  .catrow .cnt { font-family: var(--mono); font-size: .82rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* connection card */
+  .conncard { display: flex; align-items: center; gap: 13px; padding: 15px 16px; border: 1px solid var(--hair-strong); border-radius: 11px; background: var(--ground); }
+  .conncard .logo { width: 40px; height: 40px; border-radius: 10px; background: var(--sf-tint); display: grid; place-items: center; flex: 0 0 auto; }
+  .conncard .info { flex: 1; min-width: 0; }
+  .conncard .info .n { font-weight: 700; font-size: .95rem; display: flex; align-items: center; gap: 9px; }
+  .conncard .info .d { font-size: .76rem; color: var(--muted); margin-top: 2px; }
+
+  /* consent */
+  .consent { text-align: center; max-width: 320px; margin: 0 auto; }
+  .consent .cloud { width: 46px; height: 46px; border-radius: 12px; background: var(--sf-tint); display: inline-grid; place-items: center; margin-bottom: 12px; }
+  .consent h5 { margin: 0 0 4px; font-size: 1rem; font-weight: 700; }
+  .consent .who { font-size: .78rem; color: var(--muted); margin: 0 0 14px; }
+  .consent .asks { text-align: left; display: grid; gap: 8px; margin-bottom: 16px; }
+  .consent .asks div { display: flex; gap: 9px; align-items: flex-start; font-size: .8rem; color: var(--ink-soft); }
+  .consent .asks svg { color: var(--sf); flex: 0 0 auto; margin-top: 2px; }
+  .consent .row { display: flex; gap: 9px; }
+  .consent .row .btn { flex: 1; justify-content: center; }
+
+  /* ---------- Callout ---------- */
+  .callout { display: flex; gap: 13px; margin: 20px 0 4px; padding: 15px 17px; border-radius: var(--r); border: 1px solid; }
+  .callout.warn { background: var(--warn-tint); border-color: color-mix(in srgb, var(--warn) 30%, transparent); }
+  .callout.tip { background: var(--pp-tint); border-color: color-mix(in srgb, var(--pp) 26%, transparent); }
+  .callout .ic { flex: 0 0 auto; margin-top: 1px; }
+  .callout.warn .ic { color: var(--warn); }
+  .callout.tip .ic { color: var(--pp); }
+  .callout .txt { font-size: .9rem; color: var(--ink-soft); }
+  .callout .txt b { color: var(--ink); font-weight: 700; }
+
+  /* ---------- Troubleshooting ---------- */
+  .tshoot { margin-top: 20px; border: 1px solid var(--hair); border-radius: var(--r); overflow: hidden; background: var(--surface); box-shadow: var(--shadow-soft); }
+  .tsr { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; border-top: 1px solid var(--hair); }
+  .tsr:first-child { border-top: none; }
+  .tsr .c { padding: 13px 16px; font-size: .87rem; }
+  .tsr .c.q { color: var(--ink); font-weight: 600; border-right: 1px solid var(--hair); background: var(--surface-2); }
+  .tsr .c.a { color: var(--ink-soft); }
+  .tsr .c .tok { font-size: .8em; }
+
+  /* ---------- Footer ---------- */
+  footer { margin-top: 60px; padding-top: 26px; border-top: 1px solid var(--hair); display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; justify-content: space-between; }
+  footer .sec { display: flex; gap: 11px; align-items: flex-start; max-width: 62ch; }
+  footer .sec svg { color: var(--ok); flex: 0 0 auto; margin-top: 2px; }
+  footer .sec p { margin: 0; font-size: .84rem; color: var(--muted); line-height: 1.55; }
+  footer .sec b { color: var(--ink-soft); font-weight: 650; }
+  footer .brand { font-family: var(--mono); font-size: .74rem; color: var(--faint); letter-spacing: .04em; white-space: nowrap; }
+
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 38px 1fr; gap: 14px; }
+    .num { width: 38px; height: 38px; font-size: .95rem; border-radius: 10px; }
+    .tsr { grid-template-columns: 1fr; }
+    .tsr .c.q { border-right: none; border-bottom: 1px solid var(--hair); }
+    header { padding-top: 40px; }
+    .wsteps .wl { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap">
+<div class="col">
+
+  <header>
+    <p class="eyebrow"><span class="dot"></span> PrivacyPal &nbsp;·&nbsp; Salesforce integration &nbsp;·&nbsp; Admin quickstart</p>
+    <h1>Connect &amp; index<br>your Salesforce org</h1>
+    <p class="lede">Give PrivacyPal read access to Salesforce so it can catalog sensitive customer data and keep it out of AI prompts. You connect with <b>your own Connected App</b> — your credentials and tokens never leave your tenant.</p>
+
+    <div class="handshake" role="img" aria-label="Salesforce connects to PrivacyPal over an encrypted OAuth handshake">
+      <div class="node sf">
+        <span class="glyph">
+          <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M19.5 12c1.2-1.3 2.9-2 4.7-2 2.3 0 4.3 1.2 5.5 3 .8-.4 1.7-.6 2.6-.6 3.2 0 5.7 2.6 5.7 5.8 0 .5-.1 1-.2 1.5C39.3 20.5 41 22.8 41 25.5c0 3.7-3 6.7-6.7 6.7H14.8c-3.2 0-5.8-2.6-5.8-5.8 0-2.4 1.5-4.5 3.6-5.4-.1-.4-.1-.8-.1-1.2 0-3.5 2.8-6.3 6.3-6.3.6 0 1.2.1 1.7.3C20 13.2 19.7 12.6 19.5 12z" fill="var(--sf)"/></svg>
+        </span>
+        <span><span class="nm">Salesforce</span><br><span class="sub">Your org</span></span>
+      </div>
+      <div class="link" aria-hidden="true">
+        <span class="rail"></span>
+        <span class="lock"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+      </div>
+      <div class="node pp">
+        <span class="glyph">
+          <svg width="20" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pp)" stroke-width="2" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span><span class="nm">PrivacyPal</span><br><span class="sub">Data catalog</span></span>
+      </div>
+    </div>
+
+    <div class="meta">
+      <span class="m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> About <b>10 minutes</b></span>
+      <span class="m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/></svg> Needs a <b>Salesforce admin</b> + <b>PrivacyPal admin</b></span>
+      <span class="m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <b>No</b> PrivacyPal-side secrets to set</span>
+    </div>
+  </header>
+
+  <div class="prereq">
+    <h4>Before you start</h4>
+    <ul>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span><b>System Administrator</b> access to the Salesforce org you want to protect.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span><b>PrivacyPal admin</b> access — <em>Connections</em> is admin-only.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span>A few minutes of patience — Salesforce takes <b>2–10 min</b> to activate a new Connected App.</span></li>
+    </ul>
+  </div>
+
+  <!-- ============ PHASE A ============ -->
+  <section class="phase sf">
+    <div class="phase-head">
+      <span class="phase-kicker">Part A · In Salesforce</span>
+      <h2>Create your Connected App</h2>
+    </div>
+    <p class="phase-sub">You do this once, inside your own Salesforce org. It produces the Consumer Key &amp; Secret PrivacyPal will use.</p>
+
+    <div class="step sf">
+      <div class="num">1</div>
+      <div class="step-body">
+        <h3>Confirm your My&nbsp;Domain URL</h3>
+        <p>Go to <kbd>Setup</kbd> → <kbd>Company Settings</kbd> → <kbd>My Domain</kbd>. Copy your login URL — you'll paste it into PrivacyPal. Sandboxes use their own <span class="tok">…sandbox.my.salesforce.com</span> address.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">yourcompany.lightning.force.com/lightning/setup/OrgDomain/home</span></div>
+            <div class="body">
+              <div class="fld">
+                <label>Current My Domain URL</label>
+                <div class="input"><span class="grow">https://acme.my.salesforce.com</span><span class="btn ghost sm">Copy</span></div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>Setup → My Domain.</b> Your org's login host, e.g. <span class="tok">https://acme.my.salesforce.com</span>.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step sf">
+      <div class="num">2</div>
+      <div class="step-body">
+        <h3>Register a new Connected App</h3>
+        <p>In <kbd>Setup</kbd> → <kbd>App Manager</kbd>, choose <kbd>New Connected App</kbd>. Name it <b>PrivacyPal</b>, add your email, then enable OAuth and fill in exactly these two things:</p>
+        <ul class="sub">
+          <li><b>Callback URL</b> — paste the one PrivacyPal shows in Step&nbsp;5. It's the same for everyone:</li>
+        </ul>
+        <div class="input mono" style="margin:-4px 0 14px">https://api.privacypal.ai/api/business-data/connections/oauth/salesforce/callback</div>
+        <ul class="sub">
+          <li><b>Selected OAuth Scopes</b> — add <span class="tok">Manage user data via APIs (api)</span> and <span class="tok">Perform requests at any time (refresh_token, offline_access)</span>.</li>
+        </ul>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">Setup › App Manager › New Connected App</span></div>
+            <div class="body">
+              <div class="fld"><label>Connected App Name</label><div class="input" style="font-family:var(--sans)">PrivacyPal</div></div>
+              <div class="fld"><label style="display:flex;align-items:center;gap:8px"><span class="check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span> Enable OAuth Settings</label></div>
+              <div class="fld"><label>Callback URL</label><div class="input">https://api.privacypal.ai/api/business-data/connections/oauth/salesforce/callback</div></div>
+              <div class="fld"><label>Selected OAuth Scopes</label>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <span class="scope"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> api</span>
+                  <span class="scope"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> refresh_token, offline_access</span>
+                </div>
+              </div>
+              <div style="margin-top:15px;display:flex;gap:8px"><span class="btn sf">Save</span><span class="btn ghost">Cancel</span></div>
+            </div>
+          </div>
+          <figcaption><b>Connected App → API (Enable OAuth Settings).</b> Only the callback URL and these two scopes matter.</figcaption>
+        </figure>
+        <div class="callout warn">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
+          <span class="txt"><b>Give it a moment.</b> After you Save, Salesforce needs <b>2–10 minutes</b> to activate the app. Connecting too soon shows an <span class="tok">"OAuth not active"</span> / app-not-enabled error — just wait and retry.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step sf">
+      <div class="num">3</div>
+      <div class="step-body">
+        <h3>Copy the Consumer Key &amp; Secret</h3>
+        <p>Back in <kbd>App Manager</kbd>, open the <b>PrivacyPal</b> app → <kbd>View</kbd> → <kbd>Manage Consumer Details</kbd> (Salesforce may re-verify your identity). Copy both values — you'll paste them into PrivacyPal next.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">Setup › App Manager › PrivacyPal › Manage Consumer Details</span></div>
+            <div class="body">
+              <div class="fld"><label>Consumer Key</label><div class="input"><span class="grow">3MVG9k2Q…f8Rz1pXbW7cN</span><span class="btn ghost sm">Copy</span></div></div>
+              <div class="fld"><label>Consumer Secret</label><div class="input"><span class="grow">•••••••••••••••••••••••••••</span><span class="btn ghost sm">Reveal</span><span class="btn ghost sm">Copy</span></div></div>
+            </div>
+          </div>
+          <figcaption><b>Manage Consumer Details.</b> Treat the secret like a password — PrivacyPal encrypts it at rest.</figcaption>
+        </figure>
+        <div class="callout tip">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <span class="txt"><b>Who can connect &amp; what gets read.</b> The scan reads as the Salesforce user who approves in Step&nbsp;6, so use an admin or integration user with read access to Contacts, Leads, Accounts, Cases and Opportunities. If your org blocks unapproved apps, set the app's <b>Permitted Users</b> policy and, if needed, relax IP restrictions.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHASE B ============ -->
+  <section class="phase pp">
+    <div class="phase-head">
+      <span class="phase-kicker">Part B · In PrivacyPal</span>
+      <h2>Connect the org</h2>
+    </div>
+    <p class="phase-sub">Now hand PrivacyPal your app details and approve access. Tokens are exchanged server-side and stored encrypted.</p>
+
+    <div class="step pp">
+      <div class="num">4</div>
+      <div class="step-body">
+        <h3>Open the Salesforce connector</h3>
+        <p>In PrivacyPal, go to <kbd>Connections</kbd> → <kbd>Add connection</kbd> → <b>CRM &amp; Business Systems</b> → <b>Salesforce</b>.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections</span></div>
+            <div class="body">
+              <div class="cat-head"><span class="t">CRM &amp; Business Systems</span><span class="btn primary sm">+ Add connection</span></div>
+              <div class="conncard">
+                <span class="logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M19.5 12c1.2-1.3 2.9-2 4.7-2 2.3 0 4.3 1.2 5.5 3 .8-.4 1.7-.6 2.6-.6 3.2 0 5.7 2.6 5.7 5.8 0 .5-.1 1-.2 1.5C39.3 20.5 41 22.8 41 25.5c0 3.7-3 6.7-6.7 6.7H14.8c-3.2 0-5.8-2.6-5.8-5.8 0-2.4 1.5-4.5 3.6-5.4-.1-.4-.1-.8-.1-1.2 0-3.5 2.8-6.3 6.3-6.3.6 0 1.2.1 1.7.3C20 13.2 19.7 12.6 19.5 12z" fill="var(--sf)"/></svg></span>
+                <div class="info"><div class="n">Salesforce</div><div class="d">Scan Contacts, Leads, Accounts, Cases &amp; Opportunities for sensitive customer data.</div></div>
+                <span class="btn primary sm">Connect</span>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>Connections → Salesforce.</b> The wizard opens on a 4-step flow: Welcome → Authenticate → Configure → Complete.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step pp">
+      <div class="num">5</div>
+      <div class="step-body">
+        <h3>Enter your app details</h3>
+        <p>On the <b>Authenticate</b> step, PrivacyPal shows the exact <b>Callback URL</b> to register (that's the value from Step&nbsp;2 — copy it there if you haven't yet). Then paste your <b>My Domain login URL</b>, <b>Consumer Key</b>, and <b>Consumer Secret</b>, and press <b>Connect with Salesforce</b>.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections › Add Salesforce</span></div>
+            <div class="body">
+              <div class="wsteps">
+                <div class="ws"><span class="wd done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span><span class="wl dn">Welcome</span><span class="bar2"></span></div>
+                <div class="ws"><span class="wd now">2</span><span class="wl on">Authenticate</span><span class="bar2"></span></div>
+                <div class="ws"><span class="wd next">3</span><span class="wl">Configure</span><span class="bar2"></span></div>
+                <div class="ws"><span class="wd next">4</span><span class="wl">Complete</span></div>
+              </div>
+              <div class="infobox">
+                <p class="t">Use your own Salesforce Connected App</p>
+                <p class="d">Register this exact callback URL in your Connected App, then paste your My Domain URL and Consumer Key/Secret.</p>
+                <label style="font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);display:block;margin-bottom:5px">Callback URL to register</label>
+                <div class="input"><span class="grow" style="font-size:.72rem">https://api.privacypal.ai/api/business-data/connections/oauth/salesforce/callback</span><span class="btn ghost sm">Copy</span></div>
+                <p style="font-size:.7rem;color:var(--muted);margin:9px 0 0">Required OAuth scopes: <span class="mono" style="color:var(--ink-soft)">api&nbsp; refresh_token</span></p>
+              </div>
+              <div class="fld"><label>My Domain login URL</label><div class="input">https://acme.my.salesforce.com</div></div>
+              <div class="fld"><label>Consumer Key</label><div class="input">3MVG9k2Q…f8Rz1pXbW7cN</div></div>
+              <div class="fld"><label>Consumer Secret</label><div class="input"><span class="grow">••••••••••••••••••••</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--faint)" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div></div>
+              <div class="secure">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                <p>Your credentials are encrypted with AES-256 before storage and are never exposed in logs or API responses.</p>
+              </div>
+              <div style="display:flex;gap:9px;margin-top:14px"><span class="btn ghost" style="flex:1;justify-content:center">Back</span><span class="btn primary" style="flex:1;justify-content:center">Connect with Salesforce</span></div>
+            </div>
+          </div>
+          <figcaption><b>Authenticate step.</b> Three fields — My Domain, Consumer Key, Consumer Secret — plus the callback URL to copy.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step pp">
+      <div class="num">6</div>
+      <div class="step-body">
+        <h3>Approve access</h3>
+        <p>A Salesforce window opens. Log in if prompted and choose <b>Allow</b>. The window closes, PrivacyPal exchanges the code for tokens, and the connection flips to <span class="pill ok"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Active</span>.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">login.salesforce.com › OAuth · Allow Access?</span></div>
+            <div class="body">
+              <div class="consent">
+                <span class="cloud"><svg width="26" height="26" viewBox="0 0 48 48"><path d="M19.5 12c1.2-1.3 2.9-2 4.7-2 2.3 0 4.3 1.2 5.5 3 .8-.4 1.7-.6 2.6-.6 3.2 0 5.7 2.6 5.7 5.8 0 .5-.1 1-.2 1.5C39.3 20.5 41 22.8 41 25.5c0 3.7-3 6.7-6.7 6.7H14.8c-3.2 0-5.8-2.6-5.8-5.8 0-2.4 1.5-4.5 3.6-5.4-.1-.4-.1-.8-.1-1.2 0-3.5 2.8-6.3 6.3-6.3.6 0 1.2.1 1.7.3C20 13.2 19.7 12.6 19.5 12z" fill="var(--sf)"/></svg></span>
+                <h5>Allow Access?</h5>
+                <p class="who"><b>PrivacyPal</b> is requesting access to your org</p>
+                <div class="asks">
+                  <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Access and manage your data via APIs</div>
+                  <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Perform requests at any time (refresh)</div>
+                </div>
+                <div class="row"><span class="btn ghost">Deny</span><span class="btn sf">Allow</span></div>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>Salesforce OAuth consent.</b> Approving returns tokens to PrivacyPal — nothing is stored on the Salesforce side.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHASE C ============ -->
+  <section class="phase pp">
+    <div class="phase-head">
+      <span class="phase-kicker">Part C · In PrivacyPal</span>
+      <h2>Index &amp; verify</h2>
+    </div>
+    <p class="phase-sub">Build the sensitive-data catalog from your org, then confirm protection is live.</p>
+
+    <div class="step pp">
+      <div class="num">7</div>
+      <div class="step-body">
+        <h3>Scan to build your catalog</h3>
+        <p>On the <b>Configure</b> step you can list any <span class="tok">Object.FieldApiName</span> to exclude — leave it blank to scan all relevant fields — then finish the wizard. On the Salesforce connection card, press <b>Scan</b> (or <b>Sync All</b> to run every connection).</p>
+        <p>PrivacyPal enumerates <b>Contacts, Leads, Accounts, Cases, Opportunities</b> and any relevant custom objects, then catalogs each sensitive value as a <b>salted hash — never plaintext</b>.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections</span></div>
+            <div class="body">
+              <div class="conncard">
+                <span class="logo"><svg width="24" height="24" viewBox="0 0 48 48"><path d="M19.5 12c1.2-1.3 2.9-2 4.7-2 2.3 0 4.3 1.2 5.5 3 .8-.4 1.7-.6 2.6-.6 3.2 0 5.7 2.6 5.7 5.8 0 .5-.1 1-.2 1.5C39.3 20.5 41 22.8 41 25.5c0 3.7-3 6.7-6.7 6.7H14.8c-3.2 0-5.8-2.6-5.8-5.8 0-2.4 1.5-4.5 3.6-5.4-.1-.4-.1-.8-.1-1.2 0-3.5 2.8-6.3 6.3-6.3.6 0 1.2.1 1.7.3C20 13.2 19.7 12.6 19.5 12z" fill="var(--sf)"/></svg></span>
+                <div class="info"><div class="n">Salesforce <span class="pill ok"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Active</span></div><div class="d">Connected as admin@acme.com · OAuth</div></div>
+                <span class="btn primary sm">Scan</span>
+              </div>
+              <p style="font-size:.76rem;color:var(--muted);margin:12px 2px 0;display:flex;align-items:center;gap:8px"><span class="pill run"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.2-8.5"/></svg> Scanning</span> Scanning Salesforce for sensitive data…</p>
+            </div>
+          </div>
+          <figcaption><b>Active connection card.</b> Scanning starts immediately; the daily rebuild also refreshes every active connection automatically.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step pp">
+      <div class="num">8</div>
+      <div class="step-body">
+        <h3>Confirm your catalog &amp; protection</h3>
+        <p>When the scan finishes, the <b>Business Data Catalog</b> fills with indexed items grouped by category. From here on, any matching value that appears in an AI prompt is automatically protected — no further action needed.</p>
+        <figure>
+          <div class="shot">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections › Business Data Catalog</span></div>
+            <div class="body">
+              <div class="cat-head"><span class="t">Business Data Catalog</span><span class="s">1,284 items indexed · Last sync today</span></div>
+              <div class="catrow"><span class="tag" style="background:var(--sf-tint);color:var(--sf)">PII</span><span class="lbl">Contact &amp; Lead names, emails, phone numbers</span><span class="hash">sha256 ····</span><span class="cnt">742</span></div>
+              <div class="catrow"><span class="tag" style="background:var(--pp-tint);color:var(--pp)">SALES-IP</span><span class="lbl">Account names, deal amounts &amp; stages</span><span class="hash">sha256 ····</span><span class="cnt">431</span></div>
+              <div class="catrow"><span class="tag" style="background:var(--ok-tint);color:var(--ok)">PCI / OTHER</span><span class="lbl">Case &amp; Opportunity free-text matches</span><span class="hash">sha256 ····</span><span class="cnt">111</span></div>
+            </div>
+          </div>
+          <figcaption><b>Business Data Catalog.</b> Values are stored as hashes only — the catalog proves coverage without ever holding the raw data.</figcaption>
+        </figure>
+        <div class="callout tip">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span>
+          <span class="txt"><b>That's it.</b> The connection stays fresh on its own — tokens refresh automatically and the daily rebuild re-scans every active org. You only revisit this if you rotate the Connected App's secret or want to reconnect.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TROUBLESHOOTING ============ -->
+  <section class="phase">
+    <div class="phase-head"><span class="phase-kicker" style="color:var(--muted);background:var(--surface-2)">Reference</span><h2>If something goes wrong</h2></div>
+    <div class="tshoot">
+      <div class="tsr"><div class="c q">"OAuth not active" / app not enabled</div><div class="c a">The Connected App was just created or edited. Wait <b>2–10 minutes</b> for Salesforce to activate it, then retry the connection.</div></div>
+      <div class="tsr"><div class="c q"><span class="tok">redirect_uri_mismatch</span></div><div class="c a">The Callback URL in your Connected App doesn't match. Copy it again from the wizard — it must match exactly, including scheme and path.</div></div>
+      <div class="tsr"><div class="c q">"Invalid Salesforce host" before the popup</div><div class="c a">Your login URL isn't a recognized Salesforce host. Use your <span class="tok">…my.salesforce.com</span> (or sandbox) URL — not a custom CNAME.</div></div>
+      <div class="tsr"><div class="c q">Popup closed / "authentication cancelled"</div><div class="c a">Allow pop-ups for PrivacyPal and try again. The half-finished connection is cleaned up automatically.</div></div>
+      <div class="tsr"><div class="c q">Connects, but the scan finds little data</div><div class="c a">The approving Salesforce user lacks read access. Reconnect as a user with read permission on the target objects.</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sec">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <p><b>Tenant-isolated by design.</b> Every customer connects with their own Connected App; PrivacyPal makes server-side calls only to verified Salesforce hosts, encrypts your secret and tokens per-tenant, and stores catalog values as hashes. Revoke anytime from Salesforce → Connected Apps OAuth Usage, or by removing the connection in PrivacyPal.</p>
+    </div>
+    <span class="brand">PrivacyPal · Salesforce Quickstart</span>
+  </footer>
+
+</div>
+</div>
+</body>
+</html>
