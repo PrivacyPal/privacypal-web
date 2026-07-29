@@ -32,7 +32,7 @@
   /* ---------------- Announcement bar ---------------- */
   var announceHTML =
   '<div class="announce">' +
-    '<a href="#" data-cta="download"><span class="tag">New</span> PrivacyPal v1.8.10 is out for Mac &amp; Windows — Download <span class="arrow">→</span></a>' +
+    '<a href="#" data-cta="download"><span class="tag">New</span> PrivacyPal v1.8.10 is out for Mac &amp; Windows — Install now <span class="arrow">→</span></a>' +
   '</div>';
 
   /* ---------------- Nav ---------------- */
@@ -111,7 +111,7 @@
         '<div class="nav-social">' + social() + '</div>' +
         '<a class="nav-signin" href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign in</a>' +
         '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-        '<a class="btn btn-primary" href="#" data-cta="download">Download</a>' +
+        '<a class="btn btn-primary" href="#" data-cta="download">Install</a>' +
         '<button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</div>' +
@@ -148,7 +148,7 @@
     '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign in</a>' +
     '<div class="mm-ctas">' +
       '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-      '<a class="btn btn-primary" href="#" data-cta="download">Download</a>' +
+      '<a class="btn btn-primary" href="#" data-cta="download">Install</a>' +
     '</div>' +
     '<div class="mm-social">' + social() + '</div>' +
   '</div>';
@@ -235,8 +235,8 @@
     '</div>' +
   '</div>' +
   '<div class="pp-modal" id="ppDownloadModal" aria-hidden="true">' +
-    '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Download PrivacyPal">' +
-      '<div class="pp-modal-head"><h3>Download PrivacyPal · v1.8.10</h3>' +
+    '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Install PrivacyPal">' +
+      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.8.10</h3>' +
       '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
       '<div class="pp-modal-body">' +
         '<div class="pp-dl-grid">' +
@@ -245,7 +245,7 @@
             '<h4>Windows 11</h4>' +
             '<p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>' +
             '<div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>' +
-            '<a class="pp-dl-btn win" href="' + DOWNLOAD_WIN + '" rel="noopener noreferrer">Download for Windows</a>' +
+            '<a class="pp-dl-btn win" href="' + DOWNLOAD_WIN + '" rel="noopener noreferrer">Install for Windows</a>' +
             '<p class="pp-dl-filename">PrivacyPal-Setup-1.8.10.exe</p>' +
             '<div class="pp-dl-cli"><div class="cli-label">Or install via PowerShell</div>' +
             '<div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>' +
