@@ -4,47 +4,38 @@
     "applicationsEmail": "careers@privacypal.ai"
   },
   "teams": [
-    { "id": "engineering", "label": "Engineering" },
-    { "id": "gtm",         "label": "Sales & GTM" },
-    { "id": "ops",         "label": "Operations" }
+    {
+      "id": "engineering",
+      "label": "Engineering"
+    },
+    {
+      "id": "gtm",
+      "label": "Sales & GTM"
+    },
+    {
+      "id": "ops",
+      "label": "Operations"
+    }
   ],
   "locations": [
-    { "id": "wpalm",       "label": "West Palm Beach, FL" },
-    { "id": "hybrid",      "label": "Hybrid (Remote + WPB)" },
-    { "id": "remote",      "label": "Remote (Americas)" },
-    { "id": "remote-apac", "label": "Remote (APAC)" }
+    {
+      "id": "wpalm",
+      "label": "West Palm Beach, FL"
+    },
+    {
+      "id": "hybrid",
+      "label": "Hybrid (Remote + WPB)"
+    },
+    {
+      "id": "remote",
+      "label": "Remote (Americas)"
+    },
+    {
+      "id": "remote-apac",
+      "label": "Remote (APAC)"
+    }
   ],
   "jobs": [
-    {
-      "id": "vp-sales-enterprise",
-      "title": "VP of Sales, Enterprise",
-      "team": "gtm",
-      "location": "hybrid",
-      "type": "Full-time",
-      "level": "VP",
-      "comp": "$120K base / $325K OTE + equity",
-      "summary": "Build and run the enterprise sales motion for the privacy infrastructure every Fortune 500 will eventually need.",
-      "about": "We sell into the most regulated, most paranoid, hardest-to-sell buyers on the planet — and we win. You'll inherit a short bench, a strong pipeline, and a founder who knows you have to close the first ten deals yourself before you build the team that closes the next hundred. Reports directly to the COO. This role is hybrid — remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
-      "responsibilities": [
-        "Carry the team quota. Build pipeline, run the playbook, and personally close at the top of the funnel.",
-        "Hire AEs, Sales Engineers, and BDRs; build the leveling, ramp, and comp plans that hold up under scrutiny.",
-        "Partner with the CEO and COO on pricing, packaging, and segmentation.",
-        "Stand up the enterprise GTM stack: outbound, deal desk, partner program, executive sponsors.",
-        "Run forecasting that the board trusts the first time you present it."
-      ],
-      "qualifications": [
-        "12+ years in enterprise software sales; 5+ years as a frontline manager or VP carrying a team quota.",
-        "Track record of taking a team from $0 → $20M+ ARR in security, infra, or data — and the receipts to prove it.",
-        "You've personally closed $1M+ ACV deals to CISOs, CIOs, or CDOs at Fortune 1000 logos.",
-        "MEDDPICC, Force Management, or equivalent rigor — and you've taught it to others.",
-        "You write your own outbound. You don't delegate strategy to slide decks."
-      ],
-      "nicetohave": [
-        "Built a sales org through a category-creation phase.",
-        "Existing CISO or CDO Rolodex in financial services, healthcare, or federal.",
-        "Comfort with channel and SI motions — we'll build both within 18 months."
-      ]
-    },
     {
       "id": "senior-engineer-ai",
       "title": "Senior Software Engineer, AI",

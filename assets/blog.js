@@ -1,8 +1,10 @@
 /* =========================================================
-   The Privacy Log — shared helpers
+   The Privacy Log — v3
    - loads blog/blog.json (single source of truth, also feeds rss.xml)
    - blog.html        : featured + grid + search + author/month/tag facets
    - blog-article.html: single post + author bio + related + sharing
+   Root-relative asset paths from the JSON (thumbs, heroes, avatars,
+   inline images) are repo-root-relative.
    ========================================================= */
 (function(){
   const BLOG_URL = 'blog/blog.json';
@@ -15,6 +17,11 @@
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
+  }
+  // JSON paths are root-relative ("blog/images/x.jpg") — v3 pages live in /v3/
+  function asset(p){
+    if (!p) return p;
+    return /^(https?:)?\/\//.test(p) || p.startsWith('../') || p.startsWith('/') ? p : p;
   }
   function fmtDate(iso){
     if (!iso) return '';
@@ -33,7 +40,7 @@
   function authorLink(id){ return 'blog.html?author=' + encodeURIComponent(id); }
   function tagLink(t){ return 'blog.html?tag=' + encodeURIComponent(t); }
 
-  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
 
   function authorsById(data){
     const m = {};
@@ -62,34 +69,32 @@
   // avatar element, tolerant of a custom object-position
   function avatarHTML(au, cls){
     const pos = au.avatarPos ? ` style="object-position:${escape(au.avatarPos)}"` : '';
-    return `<img class="blog-avatar ${cls || ''}" src="${escape(au.avatar)}" alt="${escape(au.name)}"${pos} loading="lazy">`;
+    return `<img class="log-avatar ${cls || ''}" src="${escape(asset(au.avatar))}" alt="${escape(au.name)}"${pos} loading="lazy">`;
   }
 
   // reusable story card (grid + related)
   function cardHTML(data, a){
     const au = authorOf(data, a);
-    const primaryTag = (a.tags || [])[0] || '';
-    const tagPills = (a.tags || []).slice(0, 3).map(t => `<span class="t">${escape(t)}</span>`).join('');
+    const tagPills = (a.tags || []).slice(0, 3).map(t => `<span class="pill">${escape(t)}</span>`).join('');
     return `
-      <a class="blog-card reveal in" href="${articleUrl(a)}">
-        <div class="blog-card-media">
-          ${primaryTag ? `<span class="blog-card-tag">${escape(primaryTag)}</span>` : ''}
-          <img src="${escape(a.thumb)}" alt="" loading="lazy" width="800" height="500">
+      <a class="post-card reveal in" href="${articleUrl(a)}">
+        <div class="post-card-media">
+          <img src="${escape(asset(a.thumb))}" alt="" loading="lazy" width="800" height="500">
         </div>
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
+        <div class="post-card-body">
+          <div class="post-card-meta mono">
             <span>${escape(fmtDate(a.date))}</span>
-            ${a.readTime ? `<span>&middot;</span><span>${escape(a.readTime)}</span>` : ''}
+            ${a.readTime ? `<span class="sep">·</span><span>${escape(a.readTime)}</span>` : ''}
           </div>
           <h3>${escape(a.title)}</h3>
           <p>${escape(a.excerpt || '')}</p>
-          ${tagPills ? `<div class="blog-card-tags">${tagPills}</div>` : ''}
-          <div class="blog-card-foot">
-            <span class="blog-author">
+          ${tagPills ? `<div class="pill-row">${tagPills}</div>` : ''}
+          <div class="post-card-foot">
+            <span class="log-author">
               ${avatarHTML(au, 'sm')}
-              <span class="blog-author-name">${escape(au.name)}</span>
+              <span class="log-author-name">${escape(au.name)}</span>
             </span>
-            <span class="blog-read">${ARROW}</span>
+            <span class="post-card-arrow">${ARROW}</span>
           </div>
         </div>
       </a>`;
@@ -163,7 +168,7 @@
       const tagsSorted = Object.keys(tagCounts).sort((x, y) => tagCounts[y] - tagCounts[x] || x.localeCompare(y));
       tagsSorted.forEach(t => {
         const b = document.createElement('button');
-        b.type = 'button'; b.className = 'blog-chip'; b.dataset.tag = t;
+        b.type = 'button'; b.className = 'log-chip'; b.dataset.tag = t;
         b.innerHTML = `${escape(t)} <span class="cnt">${tagCounts[t]}</span>`;
         tagWrap.appendChild(b);
       });
@@ -177,7 +182,7 @@
       authorSel.addEventListener('change', () => { fAuthor = authorSel.value || 'all'; render(); });
       monthSel.addEventListener('change',  () => { fMonth  = monthSel.value  || 'all'; render(); });
       tagWrap.addEventListener('click', e => {
-        const b = e.target.closest('button.blog-chip'); if (!b) return;
+        const b = e.target.closest('button.log-chip'); if (!b) return;
         const t = b.dataset.tag;
         if (fTags.has(t)) fTags.delete(t); else fTags.add(t);
         render();
@@ -234,7 +239,7 @@
       // sync control visual state
       authorSel.parentElement.classList.toggle('active', fAuthor !== 'all');
       monthSel.parentElement.classList.toggle('active', fMonth !== 'all');
-      tagWrap.querySelectorAll('button.blog-chip').forEach(b => b.classList.toggle('active', fTags.has(b.dataset.tag)));
+      tagWrap.querySelectorAll('button.log-chip').forEach(b => b.classList.toggle('active', fTags.has(b.dataset.tag)));
       clearAll.classList.toggle('show', filtering);
 
       // featured banner only in the default, unfiltered view
@@ -267,28 +272,28 @@
       const au = authorOf(data, a);
       const primaryTag = (a.tags || [])[0] || '';
       return `
-        <a class="blog-featured reveal in" href="${articleUrl(a)}">
-          <div class="blog-featured-media">
-            <span class="blog-flag"><span class="dot"></span>Latest</span>
-            <img src="${escape(a.hero)}" alt="" width="1600" height="900">
+        <a class="log-featured reveal in" href="${articleUrl(a)}">
+          <div class="log-featured-media">
+            <img src="${escape(asset(a.hero))}" alt="" width="1600" height="900">
           </div>
-          <div class="blog-featured-body">
-            <div class="blog-featured-meta">
-              ${primaryTag ? `<span class="blog-tag">${escape(primaryTag)}</span>` : ''}
-              <span class="blog-tag date">${escape(fmtDate(a.date))}</span>
-              ${a.readTime ? `<span class="blog-tag date">${escape(a.readTime)}</span>` : ''}
+          <div class="log-featured-body">
+            <div class="log-featured-meta mono">
+              <span class="log-flag"><span class="dot"></span>Latest</span>
+              ${primaryTag ? `<span class="pill">${escape(primaryTag)}</span>` : ''}
+              <span>${escape(fmtDate(a.date))}</span>
+              ${a.readTime ? `<span class="sep">·</span><span>${escape(a.readTime)}</span>` : ''}
             </div>
             <h2>${escape(a.title)}</h2>
             <p class="excerpt">${escape(a.excerpt || '')}</p>
-            <div class="blog-featured-foot">
-              <span class="blog-author">
+            <div class="log-featured-foot">
+              <span class="log-author">
                 ${avatarHTML(au)}
                 <span>
-                  <span class="blog-author-name">${escape(au.name)}</span><br>
-                  <span class="blog-author-role">${escape(au.role || '')}</span>
+                  <span class="log-author-name">${escape(au.name)}</span><br>
+                  <span class="log-author-role">${escape(au.role || '')}</span>
                 </span>
               </span>
-              <span class="blog-read">Read the post ${ARROW}</span>
+              <span class="link-arrow">Read the post</span>
             </div>
           </div>
         </a>`;
@@ -300,10 +305,6 @@
      ======================================================= */
   const root = document.getElementById('blogArticleRoot');
   if (root){
-    // the post opens on a dark, full-bleed hero — flip the nav to its on-dark variant
-    const navEl = document.getElementById('siteNav');
-    if (navEl) navEl.classList.add('on-dark');
-
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
 
@@ -315,8 +316,8 @@
           <div class="post-missing">
             <h2>That post couldn't be found.</h2>
             <p>It may have moved, or the link may be wrong. Head back to the Privacy Log for the latest.</p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <a class="btn btn-cobalt" href="blog.html">Back to the Privacy Log</a>
+            <div class="btn-row" style="justify-content:center">
+              <a class="btn btn-primary" href="blog.html">Back to the Privacy Log</a>
               <a class="btn btn-ghost" href="mailto:hello@privacypal.ai">Email us</a>
             </div>
           </div>`;
@@ -350,83 +351,73 @@
         .sort((p, q) => q.score - p.score || byDateDesc(p.x, q.x))
         .slice(0, 3).map(o => o.x);
 
-      const tagsHero = (a.tags || []).map(t => `<span class="blog-tag">${escape(t)}</span>`).join('');
-      const tagsRow  = (a.tags || []).map(t => `<a href="${tagLink(t)}">${escape(t)}</a>`).join('');
+      const tagsHero = (a.tags || []).map(t => `<span class="pill">${escape(t)}</span>`).join('');
+      const tagsRow  = (a.tags || []).map(t => `<a class="pill" href="${tagLink(t)}">${escape(t)}</a>`).join('');
 
       root.innerHTML = `
         <article>
-          <header class="post-hero">
-            <div class="post-hero-media"><img src="${escape(a.hero)}" alt="" width="1600" height="900"></div>
-            <div class="post-hero-inner">
-              <div class="container">
-                <div class="post-crumbs reveal in"><a href="blog.html">The Privacy Log</a></div>
-                <div class="post-hero-tags reveal in">${tagsHero}</div>
+          <header class="post-head">
+            <div class="container">
+              <div class="post-head-inner">
+                <p class="post-crumbs reveal in"><a class="link-arrow back" href="blog.html">The Privacy Log</a></p>
+                ${tagsHero ? `<div class="pill-row reveal in" style="justify-content:center">${tagsHero}</div>` : ''}
                 <h1 class="reveal in">${escape(a.title)}</h1>
                 ${a.excerpt ? `<p class="lede reveal in">${escape(a.excerpt)}</p>` : ''}
-                <div class="post-hero-byline reveal in">
+                <div class="post-byline reveal in">
                   ${avatarHTML(au)}
-                  <span>
-                    <a class="blog-author-name" href="${authorLink(au.id)}" style="text-decoration:none">${escape(au.name)}</a><br>
-                    <span class="meta">${escape(au.role || '')}</span>
+                  <span class="who">
+                    <a class="log-author-name" href="${authorLink(au.id)}">${escape(au.name)}</a><br>
+                    <span class="mono meta">${escape(au.role || '')}</span>
                   </span>
-                  <span class="meta">&middot;</span>
-                  <span class="meta">${escape(fmtDate(a.date))}${a.readTime ? ' &middot; ' + escape(a.readTime) : ''}</span>
+                  <span class="mono meta sep">·</span>
+                  <span class="mono meta">${escape(fmtDate(a.date))}${a.readTime ? ' · ' + escape(a.readTime) : ''}</span>
                 </div>
               </div>
             </div>
           </header>
 
-          <section class="section">
+          <div class="container">
+            <figure class="post-hero-img reveal in"><img src="${escape(asset(a.hero))}" alt="" width="1600" height="900"></figure>
+          </div>
+
+          <section class="section-sm">
             <div class="container">
-              <div class="post-layout">
-                <div class="post-body reveal">
-                  ${(a.body || []).map(renderBlock).join('')}
-                  ${tagsRow ? `<div class="post-tagrow"><span class="lbl">Filed under</span>${tagsRow}</div>` : ''}
-                  ${authorCardHTML(au)}
-                </div>
-                <aside class="post-aside reveal">
-                  <div>
-                    <div class="share-label">Share</div>
-                    <div class="post-share">
-                      <button class="share-btn" type="button" data-share="copy" aria-label="Copy link" title="Copy link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-                      </button>
-                      <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener" aria-label="Share on X" title="Share on X">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21.5l-7.5 8.57L22.5 22h-6.59l-5.16-6.75L4.84 22H1.58l8.02-9.17L1.5 2h6.75l4.66 6.16L18.244 2Zm-1.16 18h1.83L7.01 3.9H5.05L17.084 20Z"/></svg>
-                      </a>
-                      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="Share on LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.83v1.64h.05c.53-.95 1.83-1.95 3.77-1.95C20.2 8.69 21 11 21 14.02V21h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z"/></svg>
-                      </a>
-                      <a class="share-btn" href="mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(shareUrl)}" aria-label="Share by email" title="Share by email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                      </a>
-                    </div>
+              <div class="prose post-body">
+                ${(a.body || []).map(renderBlock).join('')}
+                ${tagsRow ? `<div class="post-tagrow"><span class="lbl mono">Filed under</span><span class="pill-row">${tagsRow}</span></div>` : ''}
+                <div class="post-share">
+                  <span class="share-label mono">Share this post</span>
+                  <div class="share-row">
+                    <button class="share-btn" type="button" data-share="copy" aria-label="Copy link" title="Copy link">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+                    </button>
+                    <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener" aria-label="Share on X" title="Share on X">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21.5l-7.5 8.57L22.5 22h-6.59l-5.16-6.75L4.84 22H1.58l8.02-9.17L1.5 2h6.75l4.66 6.16L18.244 2Zm-1.16 18h1.83L7.01 3.9H5.05L17.084 20Z"/></svg>
+                    </a>
+                    <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.83v1.64h.05c.53-.95 1.83-1.95 3.77-1.95C20.2 8.69 21 11 21 14.02V21h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z"/></svg>
+                    </a>
+                    <a class="share-btn" href="mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(shareUrl)}" aria-label="Share by email" title="Share by email">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                    </a>
                   </div>
-                </aside>
+                </div>
+                ${authorCardHTML(au)}
               </div>
             </div>
           </section>
 
           ${related.length ? `
-          <section class="section section-alt post-related">
+          <section class="section post-related" style="padding-top:24px">
             <div class="container">
-              <h2 class="reveal">More from the Privacy Log</h2>
-              <p class="sub reveal">Field notes on AI, data privacy, and AI governance from our founders, team, and partners.</p>
-              <div class="blog-grid">${related.map(r => cardHTML(data, r)).join('')}</div>
+              <div class="section-head reveal in">
+                <span class="eyebrow">More from the Privacy Log</span>
+                <h2>Keep reading</h2>
+              </div>
+              <div class="post-grid">${related.map(r => cardHTML(data, r)).join('')}</div>
             </div>
           </section>` : ''}
         </article>
-
-        <section class="final-cta">
-          <div class="reveal">
-            <h2>Govern every AI. Without blocking a single user.</h2>
-            <p>PrivacyPal is the on-device governance and enablement layer for the Age of AI. See it protect your prompts in real time.</p>
-            <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-              <a class="btn btn-cobalt" href="index.html#download">Download PrivacyPal</a>
-              <a class="btn btn-ghost" href="blog.html">Back to the Privacy Log</a>
-            </div>
-          </div>
-        </section>
       `;
 
       wireShare();
@@ -437,17 +428,17 @@
         <div class="post-missing">
           <h2>We couldn't load that post.</h2>
           <p>Please try again in a moment, or email hello@privacypal.ai.</p>
-          <a class="btn btn-cobalt" href="blog.html">Back to the Privacy Log</a>
+          <a class="btn btn-primary" href="blog.html">Back to the Privacy Log</a>
         </div>`;
     });
 
     function renderBlock(b){
       switch (b.type){
-        case 'kicker': return `<p class="post-kicker">${escape(b.text)}</p>`;
+        case 'kicker': return `<p class="kicker">${escape(b.text)}</p>`;
         case 'h2':    return `<h2>${escape(b.text)}</h2>`;
         case 'quote': return `<blockquote><p>${escape(b.text)}</p>${b.cite ? `<cite>${escape(b.cite)}</cite>` : ''}</blockquote>`;
         case 'list':  return `<ul>${(b.items || []).map(i => `<li>${escape(i)}</li>`).join('')}</ul>`;
-        case 'image': return `<figure><img src="${escape(b.src)}" alt="${escape(b.alt || '')}" loading="lazy">${b.caption ? `<figcaption>${escape(b.caption)}</figcaption>` : ''}</figure>`;
+        case 'image': return `<figure><img src="${escape(asset(b.src))}" alt="${escape(b.alt || '')}" loading="lazy">${b.caption ? `<figcaption>${escape(b.caption)}</figcaption>` : ''}</figure>`;
         case 'p':
         default:      return `<p>${escape(b.text)}</p>`;
       }
@@ -455,17 +446,14 @@
 
     function authorCardHTML(au){
       const li = au.linkedin ? `
-        <a class="ln" href="${escape(au.linkedin)}" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.83v1.64h.05c.53-.95 1.83-1.95 3.77-1.95C20.2 8.69 21 11 21 14.02V21h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9Z"/></svg>
-          Connect on LinkedIn
-        </a>` : '';
+        <a class="ln link-arrow" href="${escape(au.linkedin)}" target="_blank" rel="noopener">Connect on LinkedIn</a>` : '';
       return `
         <div class="post-authorcard">
-          ${avatarHTML(au)}
+          ${avatarHTML(au, 'lg')}
           <div class="who">
-            <span class="kick">Written by</span>
+            <span class="kick mono">Written by</span>
             <h3>${escape(au.name)}</h3>
-            <div class="role">${escape(au.role || '')}</div>
+            <div class="role mono">${escape(au.role || '')}</div>
             ${au.bio ? `<p>${escape(au.bio)}</p>` : ''}
             ${li}
           </div>

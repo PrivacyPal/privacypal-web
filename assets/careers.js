@@ -5,7 +5,7 @@
    - renders single role + form on careers-apply.html
    ========================================================= */
 (function(){
-  const JOBS_URL = 'careers/jobs.json';
+  const JOBS_URL = "careers/jobs.json";
 
   // ---------- data ----------
   const dataPromise = fetch(JOBS_URL, { cache: 'no-store' })

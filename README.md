@@ -4,9 +4,22 @@ Landing page for PrivacyPal - AI Without Compromise
 
 ## Site structure
 
-- **Repository root** – Live site (current design). This is what GitHub Pages serves.
-- **site-v1/** – Archived previous site.
-- **site-v2/** – Archived; content was promoted to root. Edit files in the root, not here.
+- **Repository root** – Live site (the v3 redesign, promoted to root). This is what GitHub Pages serves.
+- **v2.archive/** – Archived previous site (pages + a snapshot of its `assets/`). Edit files in the root, not here.
+- **v3/** – Redirect stubs only, kept so pre-launch `/v3/…` links (e.g. the LinkedIn CISO campaign) still resolve.
+
+## Site architecture
+
+- Plain static HTML. `assets/v3.css` is the entire design system; see `STYLE-GUIDE.md`
+  for the component reference and page-building rules.
+- `assets/v3.js` injects the announcement bar, nav (mega menus, mobile menu), footer
+  and the shared demo/download modals into the `#site-nav-slot` / `#site-footer-slot`
+  placeholders on every page; also handles dropdowns, reveal-on-scroll, copy buttons
+  and CTA bindings (`data-cta="demo"` / `data-cta="download"`).
+- `assets/blog.js`, `news.js`, `careers.js`, `events.js` render their pages from
+  `blog/blog.json`, `news/news.json`, `careers/jobs.json`, `events/events.json`.
+- Campaign landing pages (`lp-banking.html`, `lp-ciso.html`, via `assets/landing.css`)
+  are standalone funnels, marked `noindex`, not wired into the main nav.
 
 ## GitHub Pages setup
 

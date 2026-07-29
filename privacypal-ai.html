@@ -1,349 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN2Z18HP0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0QN2Z18HP0');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Governance — Native control of Claude Code, Copilot &amp; MCP | PrivacyPal</title>
-    <meta name="description" content="Real on-device governance for agents, copilots and the MCP layer. Native control of Claude Code, Microsoft Copilot, ChatGPT, Gemini and any agent your team uses. Visibility and control across every AI surface — regardless of which AI.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/site.css"/>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --cobalt:#336699; --cobalt-dark:#1a3a5a; --cobalt-light:#4a86c2; --bg:#EDEAE2; --bg-alt:#E4E0D7;--bg-card:#ffffff; --text:#111111; --text-muted:#5a5a52; --text-light:#7a7a72; --border:#D4D0C8; }
-        html { scroll-behavior: smooth; }
-        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
-
-        /* PAGE HERO */
-        .page-hero { padding:120px 24px 0; background:linear-gradient(160deg, var(--cobalt-dark) 0%, var(--cobalt) 55%, #4a86c2 100%); color:white; text-align:center; overflow:hidden; }
-        .page-hero-inner { max-width:800px; margin:0 auto; padding-bottom:56px; }
-        .page-hero-badge { display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:50px; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:24px; color:rgba(255,255,255,0.9); }
-        .page-hero h1 { font-family:'Radley',Georgia,serif; font-size:clamp(2.4rem,5vw,3.75rem); font-weight:700; line-height:1.1; margin-bottom:20px; color:#fff; }
-        .page-hero p { font-size:clamp(1rem,1.5vw,1.15rem); color:rgba(255,255,255,0.88); line-height:1.75; max-width:640px; margin:0 auto 36px; }
-        .page-hero-ctas { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:56px; }
-        .btn-white { background:white; color:var(--cobalt); padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all 0.2s; display:inline-block; }
-        .btn-white:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-        .btn-ghost-white { background:transparent; color:white; border:2px solid rgba(255,255,255,0.55); padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.95rem; transition:all 0.2s; display:inline-block; }
-        .btn-ghost-white:hover { border-color:white; background:rgba(255,255,255,0.08); }
-        .hero-screenshot { max-width:900px; margin:0 auto; border-radius:14px 14px 0 0; overflow:hidden; box-shadow:0 -8px 48px rgba(0,0,0,0.3); }
-        .hero-screenshot img { width:100%; display:block; }
-
-        /* STATS */
-        .stats-strip { background:var(--bg-alt); border-bottom:1px solid var(--border); padding:40px 24px; }
-        .stats-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); }
-        .stat-item { text-align:center; padding:12px 16px; border-right:1px solid var(--border); }
-        .stat-item:last-child { border-right:none; }
-        .stat-number { font-size:2rem; font-weight:800; color:var(--cobalt); line-height:1; margin-bottom:6px; }
-        .stat-label { font-size:0.82rem; color:var(--text-muted); line-height:1.4; }
-
-        /* HOW IT WORKS */
-        .how-it-works { padding:96px 24px; background:#fff; }
-        .container { max-width:1100px; margin:0 auto; }
-        .section-header { text-align:center; margin-bottom:56px; }
-        .section-badge { display:inline-block; padding:0; background:none; border:none;  color:var(--text-muted); font-weight:500; font-size:0.68rem; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.18em; }
-        .section-title { font-family:'Radley',Georgia,serif; font-size:clamp(2rem,4vw,2.75rem); font-weight:700; color:var(--text); margin-bottom:16px; line-height:1.15; }
-        .section-subtitle { font-size:1.05rem; color:var(--text-muted); max-width:560px; margin:0 auto; line-height:1.7; }
-        .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-        .step-card { text-align:center; padding:40px 28px; border:1px solid var(--border); border-radius:14px; background:var(--bg-alt); transition:box-shadow 0.3s,border-color 0.3s; }
-        .step-card:hover { box-shadow:0 10px 40px -10px rgba(51,102,153,0.18); border-color:rgba(51,102,153,0.2); }
-        .step-number { width:44px; height:44px; border-radius:50%; background:var(--cobalt); color:white; font-size:1.25rem; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
-        .step-card h3 { font-size:1.1rem; font-weight:700; margin-bottom:10px; color:var(--text); }
-        .step-card p { color:var(--text-muted); font-size:0.9rem; line-height:1.65; }
-
-        /* FEATURE SECTIONS */
-        .feature-section { padding:80px 24px; }
-        .feature-section:nth-child(even) { background:var(--bg-alt); }
-        .feature-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
-        .feature-grid.reverse .feature-visual { order:-1; }
-        .feature-badge { display:inline-block; padding:5px 14px; background:rgba(51,102,153,0.1); border-radius:50px; color:var(--cobalt); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; }
-        .feature-grid h2 { font-family:'Radley',Georgia,serif; font-size:clamp(1.75rem,3vw,2.4rem); font-weight:700; color:var(--text); line-height:1.2; margin-bottom:16px; }
-        .feature-grid h2 .highlight { color:var(--cobalt); }
-        .feature-grid p { font-size:1rem; color:var(--text-muted); line-height:1.75; margin-bottom:14px; }
-        .feature-bullets { list-style:none; margin:20px 0 28px; }
-        .feature-bullets li { display:flex; align-items:flex-start; gap:10px; padding:8px 0; font-size:0.9rem; color:var(--text-muted); border-bottom:1px solid #f1f5f9; }
-        .feature-bullets li:last-child { border-bottom:none; }
-        .feature-bullets li::before { content:''; width:18px; height:18px; border-radius:50%; background:rgba(51,102,153,0.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23336699' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat; flex-shrink:0; margin-top:2px; }
-        .feature-link { color:var(--cobalt); font-weight:600; text-decoration:none; font-size:0.9rem; display:inline-flex; align-items:center; gap:5px; }
-        .feature-link:hover { text-decoration:underline; }
-        .feature-visual { border-radius:14px; overflow:hidden; box-shadow:0 20px 48px -12px rgba(51,102,153,0.2),0 0 0 1px rgba(0,0,0,0.04); }
-        .feature-visual img { width:100%; display:block; }
-
-        /* COVERAGE */
-        .coverage { padding:88px 24px; background:#111111;color:white; }
-        .coverage .section-badge { background:none; border-color:var(--text-muted); color:var(--text-muted); }
-        .coverage .section-title { color:white; }
-        .coverage .section-subtitle { color:rgba(255,255,255,0.85); max-width:560px; }
-        .coverage-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; max-width:960px; margin-left:auto; margin-right:auto; }
-        .coverage-card { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:12px; padding:28px 24px; transition:background 0.3s,transform 0.2s; }
-        .coverage-card:hover { background:rgba(255,255,255,0.18); transform:translateY(-3px); }
-        .coverage-card-icon { width:44px; height:44px; border-radius:10px; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
-        .coverage-card-icon svg { width:22px; height:22px; stroke:white; stroke-width:1.75; fill:none; }
-        .coverage-card h4 { font-size:1rem; font-weight:700; color:white; margin-bottom:8px; }
-        .coverage-card p { font-size:0.85rem; color:rgba(255,255,255,0.8); line-height:1.6; }
-
-        /* PROOF */
-        .proof { padding:88px 24px; background:var(--bg-alt); }
-        .proof-inner { max-width:760px; margin:0 auto; text-align:center; }
-        .proof-quote { font-family:'Radley',Georgia,serif; font-size:clamp(1.4rem,2.5vw,1.85rem); font-weight:400; font-style:italic; color:var(--text); line-height:1.55; margin-bottom:28px; }
-        .proof-quote strong { font-weight:700; font-style:normal; color:var(--cobalt); }
-        .proof-attribution { display:flex; align-items:center; justify-content:center; gap:16px; }
-        .proof-attribution-text { text-align:center; }
-        .proof-attribution-text strong { display:block; font-size:0.9rem; font-weight:700; color:var(--text); }
-        .proof-attribution-text span { font-size:0.82rem; color:var(--text-light); }
-
-        /* FINAL CTA */
-        .final-cta { background:#111111; color:white; text-align:center; padding:88px 24px; }
-        .final-cta h2 { font-family:'Radley',Georgia,serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:16px; max-width:640px; margin-left:auto; margin-right:auto; }
-        .final-cta p { font-size:1.1rem; margin-bottom:36px; opacity:0.92; }
-        .final-cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-        .btn-white-cta { background:white; color:var(--cobalt); padding:15px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1rem; transition:all 0.2s; display:inline-block; }
-        .btn-white-cta:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.15); }
-        .btn-outline-cta { background:transparent; color:white; border:2px solid rgba(255,255,255,0.6); padding:15px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1rem; transition:all 0.2s; display:inline-block; }
-        .btn-outline-cta:hover { border-color:white; background:rgba(255,255,255,0.08); }
-
-        /* SCROLL REVEAL */
-        .scroll-reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease-out,transform 0.6s ease-out; }
-        .scroll-reveal.revealed { opacity:1; transform:translateY(0); }
-
-        /* RESPONSIVE */
-        @media (max-width:1024px){
-            .feature-grid { grid-template-columns:1fr; gap:40px; }
-            .feature-grid.reverse .feature-visual { order:0; }
-            .steps-grid { grid-template-columns:1fr; }
-            .coverage-grid { grid-template-columns:1fr 1fr; }
-            .stats-grid { grid-template-columns:repeat(2,1fr); }
-        }
-        @media (max-width:768px){
-            .coverage-grid { grid-template-columns:1fr; }
-        }
-    </style>
-<!-- social-share-meta:start -->
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Agent governance — native control of Claude Code, Copilot &amp; MCP — PrivacyPal</title>
+<meta name="description" content="Real on-device governance for agents, copilots and the MCP layer. Native control of Claude Code, Microsoft Copilot, ChatGPT, Gemini and any agent your team uses. Visibility and control across every AI surface — regardless of which AI." />
+<link rel="icon" href="assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/privacypal-ai.html" />
-<meta property="og:title" content="AI Governance Engine — PrivacyPal Platform" />
-<meta property="og:description" content="PrivacyPal" />
+<meta property="og:title" content="Agent governance — native control of Claude Code, Copilot &amp; MCP" />
+<meta property="og:description" content="Real on-device governance for agents, copilots and the MCP layer. Govern what every agent can read, write, prompt and exfiltrate — across every AI surface, every MCP server, every endpoint." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
-<meta property="og:image:secure_url" content="https://privacypal.ai/assets/logo-color.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="4000" />
-<meta property="og:image:height" content="1108" />
-<meta property="og:image:alt" content="PrivacyPal" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AI Governance Engine — PrivacyPal Platform" />
-<meta name="twitter:description" content="PrivacyPal" />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
-<meta name="twitter:image:alt" content="PrivacyPal" />
-<link rel="image_src" href="https://privacypal.ai/assets/logo-color.png" />
-<!-- social-share-meta:end -->
+<meta name="twitter:title" content="Agent governance — native control of Claude Code, Copilot &amp; MCP" />
+<meta name="twitter:description" content="Real on-device governance for agents, copilots and the MCP layer. Visibility and control of AI, regardless of which AI." />
+<style>
+  .ticks{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:10px;padding:0}
+  .ticks li{position:relative;padding-left:26px;font-size:.95rem;color:var(--muted);line-height:1.5}
+  .ticks li::before{content:"✓";position:absolute;left:0;font-weight:600;color:var(--ink)}
+  .soon-tag{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:middle}
+</style>
 </head>
 <body>
 
 <div id="site-nav-slot"></div>
-<!-- HERO -->
-<section class="page-hero">
-    <div class="page-hero-inner">
-        <div class="page-hero-badge">PrivacyPal Platform · Agent Governance</div>
-        <h1>Agent Governance<br>for the AI Operating System</h1>
-        <p>Real on-device agent governance — not just a chat wrapper. PrivacyPal sits inside <b>Claude Code</b>, <b>Microsoft Copilot</b>, ChatGPT and Gemini at the device level. Govern what every agent can read, write, prompt and exfiltrate across every AI surface, every MCP server, every endpoint. Visibility and control of AI, regardless of which AI.</p>
-        <div class="page-hero-ctas">
-            <a href="desktop.html" class="btn-white">Install once. Get protected.</a>
-            <a href="#how-it-works" class="btn-ghost-white">See the mechanism</a>
-        </div>
+
+<!-- ================= HERO ================= -->
+<header class="page-hero center">
+  <div class="container">
+    <span class="eyebrow blue" style="justify-content:center">PrivacyPal platform · agent governance</span>
+    <h1>Agent governance for the AI Operating System</h1>
+    <p class="lede" style="max-width:60ch">Real on-device agent governance — not just a chat wrapper. PrivacyPal sits inside <b>Claude Code</b>, <b>Microsoft Copilot</b>, ChatGPT and Gemini at the device level. Govern what every agent can read, write, prompt and exfiltrate across every AI surface, every MCP server, every endpoint. Visibility and control of AI, regardless of which AI.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+      <a class="btn btn-ghost btn-lg" href="#how-it-works">See the mechanism</a>
     </div>
-    <div class="hero-screenshot">
-        <img src="product-shot-001.png" alt="PrivacyPal Next-Gen AI Anti-Virus in action" loading="eager">
+    <div class="page-hero-media reveal">
+      <img src="product-shot-001.png" alt="PrivacyPal agent governance in action" loading="eager">
     </div>
+  </div>
+</header>
+
+<!-- ================= STATS ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="n">100<small>%</small></div><div class="l">AI tool visibility across your team, from day one.</div></div>
+      <div class="stat"><div class="n">&lt;50<small>ms</small></div><div class="l">Governance latency — invisible to users.</div></div>
+      <div class="stat"><div class="n">5<small>min</small></div><div class="l">Average team deployment time.</div></div>
+      <div class="stat"><div class="n">99.99<small>%</small></div><div class="l">Platform uptime SLA.</div></div>
+    </div>
+  </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-strip">
-    <div class="stats-grid">
-        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">AI tool visibility across your team, from day one</div></div>
-        <div class="stat-item"><div class="stat-number">&lt;50ms</div><div class="stat-label">Governance latency — invisible to users</div></div>
-        <div class="stat-item"><div class="stat-number">5 min</div><div class="stat-label">Average team deployment time</div></div>
-        <div class="stat-item"><div class="stat-number">99.99%</div><div class="stat-label">Platform uptime SLA</div></div>
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how-it-works" style="padding-top:32px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Control before the prompt leaves the device</h2>
+      <p class="lede">Reactive tools tell you about the breach after the fact. PrivacyPal governs every AI interaction at the point of intent — before any prompt, tool call or agent action leaves your endpoint. Edge-processing by design.</p>
     </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="num">01</span>
+        <h4>Intercept</h4>
+        <p>PrivacyPal's lightweight on-device agent monitors every AI interaction in real time — across browsers and desktop apps — checking whether the tool is approved and who is using it.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h4>Govern &amp; redirect</h4>
+        <p>If the tool is approved, the prompt proceeds. If not, the user is instantly redirected to a sanctioned alternative. Sensitive data is classified and replaced with synthetic stand-ins.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h4>Log &amp; report</h4>
+        <p>Every AI interaction — approved or blocked — is logged to your governance dashboard. See who used what, when, and what data was involved. Full auditability, zero surprises.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-it-works scroll-reveal" id="how-it-works">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-badge">How It Works</div>
-            <h2 class="section-title">Control before the prompt leaves the device.</h2>
-            <p class="section-subtitle">Reactive tools tell you about the breach after the fact. PrivacyPal governs every AI interaction at the point of intent — before any prompt, tool call or agent action leaves your endpoint. Edge-processing by design.</p>
+<!-- ================= 01 AI TOOL CONTROL ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">01 · AI tool control</div>
+        <span class="eyebrow blue">Approve. Block. Redirect.</span>
+        <h2 style="margin-top:12px">You decide which AI tools your team can use</h2>
+        <p class="lede">Not all AI tools are created equal — and not all of them should be running in your business without your knowledge. PrivacyPal lets you build an approved AI tool list and enforce it across every device.</p>
+        <ul class="ticks">
+          <li>Approve tools like ChatGPT, Copilot, or Claude for specific teams or roles</li>
+          <li>Block consumer AI tools that don't meet your data policies</li>
+          <li>Redirect unapproved tools to sanctioned alternatives automatically</li>
+          <li>Control AI agents and automated workflows, not just human prompts</li>
+          <li>Custom policies — different rules for different departments or users</li>
+        </ul>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="link-arrow" href="privacy-twins.html">See how data access control works</a>
         </div>
-        <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>Intercept</h3>
-                <p>PrivacyPal's lightweight on-device agent monitors every AI interaction in real time — across browsers and desktop apps — checking whether the tool is approved and who is using it.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>Govern &amp; Redirect</h3>
-                <p>If the tool is approved, the prompt proceeds. If not, the user is instantly redirected to a sanctioned alternative. Sensitive data is classified and replaced with synthetic stand-ins.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>Log &amp; Report</h3>
-                <p>Every AI interaction — approved or blocked — is logged to your governance dashboard. See who used what, when, and what data was involved. Full auditability, zero surprises.</p>
-            </div>
-        </div>
+      </div>
+      <div>
+        <div class="media"><img src="product-shot-002.png" alt="Real-time data classification interface" loading="lazy"></div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- FEATURE: Detection Engine -->
-<section class="feature-section scroll-reveal">
-    <div class="feature-grid">
-        <div>
-            <div class="feature-badge">AI Tool Control</div>
-            <h2>You Decide <span class="highlight">Which AI Tools</span> Your Team Can Use</h2>
-            <p>Not all AI tools are created equal — and not all of them should be running in your business without your knowledge. PrivacyPal lets you build an approved AI tool list and enforce it across every device.</p>
-            <ul class="feature-bullets">
-                <li>Approve tools like ChatGPT, Copilot, or Claude for specific teams or roles</li>
-                <li>Block consumer AI tools that don't meet your data policies</li>
-                <li>Redirect unapproved tools to sanctioned alternatives automatically</li>
-                <li>Control AI agents and automated workflows, not just human prompts</li>
-                <li>Custom policies — different rules for different departments or users</li>
-            </ul>
-            <a href="privacy-twins.html" class="feature-link">See how Data Access Control works →</a>
+<!-- ================= 02 DEPLOYMENT ================= -->
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">02 · Deployment</div>
+        <span class="eyebrow pink">Zero friction</span>
+        <h2 style="margin-top:12px">Up and running in under 5 minutes</h2>
+        <p class="lede">No enterprise IT team. No configuration headaches. PrivacyPal installs silently and begins protecting the moment it's active — for your entire team simultaneously.</p>
+        <ul class="ticks">
+          <li>One-click install for Mac and Windows</li>
+          <li>Zero configuration required out of the box</li>
+          <li>Deploy to 100 devices from the admin dashboard</li>
+          <li>Silent background operation — zero user friction</li>
+          <li>Automatic updates — protection improves continuously</li>
+        </ul>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="link-arrow" href="device-control.html">Explore Device Control &amp; team management</a>
         </div>
-        <div class="feature-visual">
-            <img src="product-shot-002.png" alt="Real-time data classification interface" loading="lazy">
-        </div>
+      </div>
+      <div>
+        <div class="media"><img src="assets/privacypal-installer.png" alt="PrivacyPal installer for macOS — drag to Applications" loading="lazy"></div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- FEATURE: Deployment -->
-<section class="feature-section scroll-reveal">
-    <div class="feature-grid reverse">
-        <div>
-            <div class="feature-badge">Deployment</div>
-            <h2>Up and Running in <span class="highlight">Under 5 Minutes</span></h2>
-            <p>No enterprise IT team. No configuration headaches. PrivacyPal installs silently and begins protecting the moment it's active — for your entire team simultaneously.</p>
-            <ul class="feature-bullets">
-                <li>One-click install for Mac and Windows</li>
-                <li>Zero configuration required out of the box</li>
-                <li>Deploy to 100 devices from the admin dashboard</li>
-                <li>Silent background operation — zero user friction</li>
-                <li>Automatic updates — protection improves continuously</li>
-            </ul>
-            <a href="device-control.html" class="feature-link">Explore Device Control &amp; team management →</a>
-        </div>
-        <div class="feature-visual">
-            <img src="assets/privacypal-installer.png" alt="PrivacyPal installer for macOS — drag to Applications" loading="lazy">
-        </div>
+<!-- ================= 03 ACCURACY ================= -->
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="deep reveal">
+      <div>
+        <div class="num-tag">03 · Accuracy</div>
+        <span class="eyebrow orange">Invisible when not needed</span>
+        <h2 style="margin-top:12px">Protection that never gets in the way</h2>
+        <p class="lede">The biggest failure mode of traditional security tools is false positives — blocking legitimate work and frustrating users into disabling protection. PrivacyPal is built to be invisible when it isn't needed.</p>
+        <ul class="ticks">
+          <li>Precision classification minimizes false positives</li>
+          <li>Context-aware engine understands intent, not just patterns</li>
+          <li>Sensitive data is replaced, not removed — AI responses stay useful</li>
+          <li>Privacy Twins allow full AI productivity with zero exposure</li>
+        </ul>
+      </div>
+      <div>
+        <div class="media"><img src="product-shot-004.png" alt="PrivacyPal accuracy and precision" loading="lazy"></div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- FEATURE: Accuracy -->
-<section class="feature-section scroll-reveal">
-    <div class="feature-grid">
-        <div>
-            <div class="feature-badge">Accuracy</div>
-            <h2>Protection That <span class="highlight">Never Gets in the Way</span></h2>
-            <p>The biggest failure mode of traditional security tools is false positives — blocking legitimate work and frustrating users into disabling protection. PrivacyPal is built to be invisible when it isn't needed.</p>
-            <ul class="feature-bullets">
-                <li>Precision classification minimizes false positives</li>
-                <li>Context-aware engine understands intent, not just patterns</li>
-                <li>Sensitive data is replaced, not removed — AI responses stay useful</li>
-                <li>Privacy Twins allow full AI productivity with zero exposure</li>
-            </ul>
-        </div>
-        <div class="feature-visual">
-            <img src="product-shot-004.png" alt="PrivacyPal accuracy and precision" loading="lazy">
-        </div>
+<!-- ================= COVERAGE ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Coverage</span>
+      <h2>Every AI surface. Every agent. Governed.</h2>
+      <p class="lede">PrivacyPal governs the full AI footprint — browsers, native desktop apps, command-line LLMs, on-device language models, agents and the MCP layer. Visibility and control regardless of which AI your team picks.</p>
     </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <h4>Web browsers</h4>
+        <p>Chrome, Edge, Firefox, Safari — full protection for ChatGPT, Claude, and Gemini in any browser.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h4>Desktop apps</h4>
+        <p>Microsoft Copilot, Claude Desktop, and other native AI applications running directly on Mac or PC.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
+        <h4>File uploads</h4>
+        <p>Documents, spreadsheets, and PDFs attached to AI prompts are scanned and sanitized before upload.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
+        <h4>Claude Code &amp; agentic dev tools</h4>
+        <p>Native on-device governance for Claude Code, Cursor and AI coding agents — source, secrets and customer data protected at the IDE level, not just in chat.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        <h4>Mobile<span class="soon-tag">Coming soon</span></h4>
+        <p>iOS and Android support arriving soon — the same on-device protection for your team's phones.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h4>MCP, agents &amp; agent-to-agent workflows</h4>
+        <p>Govern Private MCP servers, autonomous agents and agent-to-agent flows. Authorization, intent detection, prompt-injection defense. Built for the AI OS, not a chat box.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- COVERAGE -->
-<section class="coverage scroll-reveal">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-badge">Coverage</div>
-            <h2 class="section-title">Every AI surface. Every agent. Governed.</h2>
-            <p class="section-subtitle">PrivacyPal governs the full AI footprint — browsers, native desktop apps, command-line LLMs, on-device language models, agents and the MCP layer. Visibility and control regardless of which AI your team picks.</p>
-        </div>
-        <div class="coverage-grid">
-            <div class="coverage-card">
-                <div class="coverage-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                <h4>Web Browsers</h4>
-                <p>Chrome, Edge, Firefox, Safari — full protection for ChatGPT, Claude, and Gemini in any browser.</p>
-            </div>
-            <div class="coverage-card">
-                <div class="coverage-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                <h4>Desktop Apps</h4>
-                <p>Microsoft Copilot, Claude Desktop, and other native AI applications running directly on Mac or PC.</p>
-            </div>
-            <div class="coverage-card">
-                <div class="coverage-card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-                <h4>File Uploads</h4>
-                <p>Documents, spreadsheets, and PDFs attached to AI prompts are scanned and sanitized before upload.</p>
-            </div>
-            <div class="coverage-card">
-                <div class="coverage-card-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-                <h4>Claude Code &amp; agentic dev tools</h4>
-                <p>Native on-device governance for Claude Code, Cursor and AI coding agents — source, secrets and customer data protected at the IDE level, not just in chat.</p>
-            </div>
-            <div class="coverage-card">
-                <div class="coverage-card-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-                <h4>Mobile (Coming Soon)</h4>
-                <p>iOS and Android support arriving soon — the same on-device protection for your team's phones.</p>
-            </div>
-            <div class="coverage-card">
-                <div class="coverage-card-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-                <h4>MCP, agents &amp; agent-to-agent workflows</h4>
-                <p>Govern Private MCP servers, autonomous agents and agent-to-agent flows. Authorization, intent detection, prompt-injection defense. Built for the AI OS, not a chat box.</p>
-            </div>
-        </div>
+<!-- ================= PROOF ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="bigquote reveal">
+      <blockquote>
+        "We had developers pasting internal API specs into ChatGPT every day without realizing the risk. After installing PrivacyPal, that surface area went to <b>zero</b> — and our engineering team didn't change a single workflow."
+      </blockquote>
+      <div class="who">CTO, Global 100 MSP</div>
     </div>
+  </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof scroll-reveal">
-    <div class="proof-inner">
-        <div class="section-badge" style="margin-bottom:32px;">Customer Story</div>
-        <blockquote class="proof-quote">"We had developers pasting internal API specs into ChatGPT every day without realizing the risk. After installing PrivacyPal, that surface area went to <strong>zero</strong> — and our engineering team didn't change a single workflow."</blockquote>
-        <div class="proof-attribution">
-            <div class="proof-attribution-text">
-                <strong>CTO, Global 100 MSP</strong>
-            </div>
-        </div>
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
+      <h2 style="margin-top:14px">Stop blocking AI. Start governing it.</h2>
+      <p>Real on-device agent governance — not just policy theater. 5-day free trial. 30-day money-back guarantee. You're in charge from minute one.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html">View pricing</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-    <h2>Stop blocking AI. Start governing it.</h2>
-    <p>Real on-device agent governance — not just policy theater. 5-day free trial. 30-day money-back guarantee. You're in charge from minute one.</p>
-    <div class="final-cta-buttons">
-        <a href="desktop.html" class="btn-white-cta">Install once. Get protected.</a>
-        <a href="index.html#pricing" class="btn-outline-cta">View pricing</a>
-    </div>
-</section>
-
-<!-- FOOTER -->
 <div id="site-footer-slot"></div>
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.scroll-reveal').forEach(function(el){obs.observe(el);});
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=this.getAttribute('href');if(h&&h!=='#'&&h.length>1){e.preventDefault();var t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}});});
-});
-</script>
-<script src="assets/site.js"></script>
+
+<script src="assets/v3.js"></script>
 </body>
 </html>

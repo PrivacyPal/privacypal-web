@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Newsroom — PrivacyPal</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
+<link rel="stylesheet" href="assets/news.css">
+<meta name="description" content="The latest news, press, and happenings from PrivacyPal — the on-device privacy layer for every AI.">
+<link rel="canonical" href="https://privacypal.ai/news.html">
+<!-- social-share-meta:start -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/news.html" />
+<meta property="og:title" content="Newsroom — PrivacyPal" />
+<meta property="og:description" content="The latest news, press, and happenings from PrivacyPal — the on-device privacy layer for every AI." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="4000" />
+<meta property="og:image:height" content="1108" />
+<meta property="og:image:alt" content="PrivacyPal" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Newsroom — PrivacyPal" />
+<meta name="twitter:description" content="The latest news, press, and happenings from PrivacyPal — the on-device privacy layer for every AI." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:image:alt" content="PrivacyPal" />
+<link rel="image_src" href="https://privacypal.ai/assets/logo-color.png" />
+<!-- social-share-meta:end -->
+</head><body>
+<div id="site-nav-slot"></div>
+
+<section class="sub-hero news-hero">
+  <div class="container">
+    <div style="max-width:880px">
+      <span class="eyebrow reveal in">Newsroom</span>
+      <h1 class="reveal in">The latest from <em>PrivacyPal</em>.</h1>
+      <p class="lede reveal in">News, press, product launches, and the moments that mark where we're headed — building the privacy layer for every AI on earth.</p>
+      <p class="press-line reveal in">Press &amp; media: <a href="mailto:press@privacypal.ai">press@privacypal.ai</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="newsroom">
+  <div class="container">
+
+    <!-- featured story (default, unfiltered view) -->
+    <div class="news-featured-wrap reveal" id="newsFeatured" hidden></div>
+
+    <!-- toolbar: search + category filters -->
+    <div class="news-toolbar reveal" style="margin-top:48px">
+      <div class="news-search" id="newsSearchBox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="newsSearch" placeholder="Search the newsroom…" autocomplete="off" aria-label="Search news stories">
+        <button class="news-clear" id="newsClear" type="button" aria-label="Clear search">&times;</button>
+      </div>
+      <div class="news-filters" id="newsFilters" aria-label="Filter by category">
+        <button class="news-chip active" data-cat="all" type="button">All stories</button>
+        <!-- category chips injected -->
+      </div>
+    </div>
+
+    <div class="news-count" id="newsCount"></div>
+
+    <div class="news-loading reveal" id="newsLoading">
+      <div class="pp-spinner" style="margin:60px auto"></div>
+    </div>
+
+    <div class="news-grid" id="newsGrid" hidden></div>
+
+    <div class="news-empty reveal" id="newsEmpty" hidden>
+      <h3>No stories yet.</h3>
+      <p>Check back soon — more is on the way.</p>
+      <a class="btn btn-ghost" href="mailto:press@privacypal.ai">Email the press team →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRESS CTA ============== -->
+<section class="final-cta">
+  <div class="reveal">
+    <h2>In the press?</h2>
+    <p>For interviews, executive commentary, press assets, or anything newsroom-related — reach our team and we'll get back to you fast.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-cobalt" href="mailto:press@privacypal.ai?subject=Press%20inquiry">Email press@privacypal.ai</a>
+      <a class="btn btn-ghost" href="about.html">About PrivacyPal</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+<script src="assets/site.js"></script>
+<script src="assets/news.js?v=2026-06-21"></script>
+</body></html>

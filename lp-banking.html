@@ -6,11 +6,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>AI in the bank, examiner-ready | PrivacyPal for Banking</title>
 <meta name="description" content="Let analysts use ChatGPT, Claude & Copilot without client PII, account numbers or MNPI ever reaching an LLM. On-device Privacy Twins keep you GLBA-, SOX- and FINRA-aligned. Book a banking demo." />
+<meta name="robots" content="noindex,follow" />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
 <link rel="stylesheet" href="assets/landing.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
@@ -26,37 +27,40 @@
 
 <body class="lp">
 
-<!-- HEADER (dark, over photo hero) -->
-<header class="lp-header on-dark">
+<!-- HEADER -->
+<header class="lp-header">
   <div class="lp-header-inner">
-    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home">
-      <img src="assets/logo-color.png" alt="PrivacyPal" class="logo-light-img">
-      <img src="privacypal-logo-light.png" alt="PrivacyPal" class="logo-dark-img">
-    </a>
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/logo-color.png" alt="PrivacyPal"></a>
     <div class="lp-header-right">
       <span class="lp-header-note">GLBA · SOX · FINRA aligned</span>
-      <a class="btn btn-cobalt" href="#" data-cta="demo">Book a demo</a>
+      <a class="btn btn-primary" href="#" data-cta="demo">Book a demo</a>
     </div>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="lp-hero on-dark lp-hero--split">
-  <div class="lp-hero-photo"><img src="assets/hero-shot-banking.png" alt="Banking analysts working with PrivacyPal-protected AI"></div>
-  <div class="lp-hero-inner">
-    <div class="reveal in">
-      <span class="lp-eyebrow">For Banking &amp; Financial Services</span>
-      <h1>Let the analysts run.<br><em>Keep the examiners calm.</em></h1>
-      <p class="lp-lede">Your people already use AI. PrivacyPal makes sure the bank can <b>prove</b> nothing sensitive left. On-device Privacy Twins swap client PII, account numbers and MNPI for realistic synthetic data <b>before</b> a single prompt reaches ChatGPT, Claude or Copilot.</p>
-      <div class="lp-cta-row">
-        <a class="btn btn-cobalt" href="#" data-cta="demo">Book a banking demo</a>
-        <a class="btn btn-ghost" href="#" data-cta="download">Start a 5-day trial</a>
-        <span class="lp-cta-note">15 minutes. Bring your hardest compliance question.</span>
+<section class="lp-hero lp-hero--split">
+  <div class="lp-wrap">
+    <div class="lp-hero-inner">
+      <div class="reveal in">
+        <span class="lp-eyebrow">For Banking &amp; Financial Services</span>
+        <h1>Let the analysts run. <em>Keep the examiners calm.</em></h1>
+        <p class="lp-lede">Your people already use AI. PrivacyPal makes sure the bank can <b>prove</b> nothing sensitive left. On-device Privacy Twins swap client PII, account numbers and MNPI for realistic synthetic data <b>before</b> a single prompt reaches ChatGPT, Claude or Copilot.</p>
+        <div class="lp-cta-row">
+          <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a>
+          <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Start a 5-day trial</a>
+        </div>
+        <div class="lp-cta-row" style="margin-top:14px">
+          <span class="lp-cta-note">15 minutes. Bring your hardest compliance question.</span>
+        </div>
+        <div class="lp-hero-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> On-device. Zero-knowledge.</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/></svg> Per-prompt SIEM trail</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> NVIDIA Inception</span>
+        </div>
       </div>
-      <div class="lp-hero-trust">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> On-device. Zero-knowledge.</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/></svg> Per-prompt SIEM trail</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> NVIDIA Inception</span>
+      <div class="lp-hero-photo reveal in reveal-delay-1">
+        <img src="assets/hero-shot-banking.png" alt="Banking analysts working with PrivacyPal-protected AI">
       </div>
     </div>
   </div>
@@ -76,9 +80,9 @@
 </div>
 
 <!-- STAKES -->
-<section class="lp-section lp-stakes">
+<section class="lp-section">
   <div class="lp-wrap">
-    <div class="reveal">
+    <div class="reveal" style="max-width:760px">
       <span class="lp-eyebrow">The $340B problem</span>
       <p class="lp-stakes-lead" style="margin-top:18px">Your analysts are already using AI. <b>Your risk team just can't see it.</b></p>
       <p class="lp-sub" style="margin-top:18px">McKinsey puts banking's generative-AI upside at up to $340B a year. The catch: most of that value is being captured in public chatbots — off the record, off the radar.</p>
@@ -100,7 +104,7 @@
       <p class="lp-sub">No workflow change for the analyst. No data leaving the bank.</p>
     </div>
     <div class="lp-steps">
-      <div class="lp-step reveal reveal-delay-1"><div class="num">1</div><h4>The analyst writes</h4><p>“Draft a Q3 narrative for Margaret Chen, account 4521-8893, $4.2M in AAPL.” Business as usual.</p></div>
+      <div class="lp-step reveal reveal-delay-1"><div class="num">1</div><h4>The analyst writes</h4><p>"Draft a Q3 narrative for Margaret Chen, account 4521-8893, $4.2M in AAPL." Business as usual.</p></div>
       <div class="lp-step reveal reveal-delay-1"><div class="num">2</div><h4>PrivacyPal swaps</h4><p>On-device, real values become realistic twins — Nancy Grace, 7912-4408, $3.8M in MSFT. The mapping never leaves the bank.</p></div>
       <div class="lp-step reveal reveal-delay-2"><div class="num">3</div><h4>The model answers</h4><p>The LLM works a fully synthetic prompt. On return, twins swap back to the real client — and every hop is logged to your SIEM.</p></div>
     </div>
@@ -137,14 +141,14 @@
     <div class="lp-split">
       <div class="reveal">
         <span class="lp-eyebrow">Four workflows, one guardrail</span>
-        <h2 class="lp-h2" style="margin-bottom:6px">Wherever your desks touch AI.</h2>
+        <h2 class="lp-h2" style="margin:6px 0 0">Wherever your desks touch AI.</h2>
         <ul class="lp-check">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Wealth management.</b> Draft client narratives and explain market moves — without household positions reaching the model.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Commercial lending.</b> Run AI on borrower financials. Cap tables, covenants and side-letters stay inside the bank.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Customer operations.</b> Automate triage and response drafting. SSNs and routing codes never leave the perimeter.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Trading &amp; research.</b> Accelerate memos and diligence. Proprietary screens and position data stay where they belong.</span></li>
         </ul>
-        <div class="lp-cta-row"><a class="btn btn-cobalt" href="#" data-cta="demo">Book a banking demo</a></div>
+        <div class="lp-cta-row"><a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a></div>
       </div>
       <div class="lp-split-figure reveal reveal-delay-1">
         <img src="assets/gemini-protected-card.png" alt="A prompt protected by PrivacyPal — masked, encoded and decoded on-device">
@@ -155,7 +159,7 @@
 
 <!-- PROOF QUOTE -->
 <section class="lp-quote">
-  <blockquote>“We went from a blanket <em>‘no AI’</em> memo to onboarding all our users in two weeks.”</blockquote>
+  <blockquote>"We went from a blanket <em>'no AI'</em> memo to onboarding all our users in two weeks."</blockquote>
   <cite>— Chief Information Security Officer, top-50 US bank</cite>
 </section>
 
@@ -164,7 +168,7 @@
   <div class="lp-stat"><span class="n">$340<small>B</small></span><span class="l">annual GenAI upside in banking</span></div>
   <div class="lp-stat"><span class="n">68<small>%</small></span><span class="l">of staff paste sensitive data into chatbots</span></div>
   <div class="lp-stat"><span class="n">0</span><span class="l">real records on the wire</span></div>
-  <div class="lp-stat"><span class="n">2<small>wk</small></span><span class="l">from “no AI” to fully onboarded</span></div>
+  <div class="lp-stat"><span class="n">2<small>wk</small></span><span class="l">from "no AI" to fully onboarded</span></div>
 </div>
 
 <!-- FAQ -->
@@ -184,13 +188,13 @@
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="reveal">
-    <h2>Stop negotiating between<br>AI and compliance.</h2>
+<section class="lp-final">
+  <div class="lp-final-card reveal">
+    <h2>Stop negotiating between AI and compliance.</h2>
     <p>Talk to a banker on our team — yes, we hire from the industry on purpose. Or start a trial and see it protect a real prompt today.</p>
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
-      <a class="btn btn-cobalt" href="#" data-cta="demo">Book a banking demo</a>
-      <a class="btn btn-ghost" href="#" data-cta="download">Start a 5-day trial</a>
+    <div class="lp-cta-row">
+      <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a>
+      <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Start a 5-day trial</a>
     </div>
   </div>
 </section>
@@ -212,9 +216,9 @@
 
 <!-- STICKY MOBILE CTA -->
 <div class="lp-sticky">
-  <a class="btn btn-cobalt" href="#" data-cta="demo">Book a banking demo</a>
+  <a class="btn btn-primary" href="#" data-cta="demo">Book a banking demo</a>
 </div>
 
-<script src="assets/site.js"></script>
+<script src="assets/v3.js"></script>
 </body>
 </html>

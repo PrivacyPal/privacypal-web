@@ -20,6 +20,9 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
   }
+  // JSON asset paths are root-relative; v3 pages live in /v3/, so prefix
+  // any non-absolute path is repo-root-relative.
+  function asset(p){ return (p && !/^https?:\/\//.test(p)) ? String(p).replace(/^\/+/, '') : p; }
   // description / tagline copy is authored with a few safe inline tags
   // (<strong>, <em>, <code>) — allow those, escape everything else.
   function richText(s){
@@ -134,7 +137,7 @@
           ? '<span class="event-badge upcoming"><span class="dot"></span>Upcoming</span>'
           : '<span class="event-badge past">Past event</span>';
         const thumb = ev.thumb
-          ? '<img src="' + escape(ev.thumb) + '" alt="' + escape(ev.title) + '" loading="lazy">'
+          ? '<img src="' + escape(asset(ev.thumb)) + '" alt="' + escape(ev.title) + '" loading="lazy">'
           : '';
         return `
         <a class="event-card reveal${i < 3 ? ' reveal-delay-' + (i+1) : ''}" href="event.html?id=${encodeURIComponent(ev.id)}">
@@ -167,7 +170,7 @@
             <h2>That event couldn't be found.</h2>
             <p>It may have been removed, or the link may be wrong. Browse all of our events instead.</p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <a class="btn btn-cobalt" href="events.html">See all events</a>
+              <a class="btn btn-primary" href="events.html">See all events</a>
               <a class="btn btn-ghost" href="https://www.linkedin.com/company/privacypalai/" target="_blank" rel="noopener">Follow on LinkedIn</a>
             </div>
           </div>`;
@@ -205,7 +208,7 @@
             ${videos.map(v => {
               const id = v.id;
               const href = v.href || (id ? ytWatch(id) : '#');
-              const img  = v.thumb || (id ? ytThumb(id) : '');
+              const img  = v.thumb ? asset(v.thumb) : (id ? ytThumb(id) : '');
               return `
               <div class="event-video">
                 ${v.label ? '<p class="video-label">' + escape(v.label) + '</p>' : ''}
@@ -227,7 +230,7 @@
             ${gallery.map((g, i) => `
               <figure class="gallery-figure" data-index="${i}" tabindex="0" role="button" aria-label="View photo: ${escape(g.caption || g.alt || 'photo')}">
                 <div class="gallery-media">
-                  <img src="${escape(g.src)}" alt="${escape(g.alt || g.caption || ev.title)}" loading="lazy">
+                  <img src="${escape(asset(g.src))}" alt="${escape(g.alt || g.caption || ev.title)}" loading="lazy">
                   <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
                 </div>
                 ${(g.caption || g.description) ? `<figcaption>
@@ -253,7 +256,7 @@
               <div class="album-track">
                 ${album.map((a, i) => `
                   <figure class="album-slide" data-index="${i}">
-                    <img src="${escape(a.src)}" alt="${escape(a.alt || ev.title)}" loading="${i < 2 ? 'eager' : 'lazy'}" draggable="false">
+                    <img src="${escape(asset(a.src))}" alt="${escape(a.alt || ev.title)}" loading="${i < 2 ? 'eager' : 'lazy'}" draggable="false">
                   </figure>`).join('')}
               </div>
               <button class="album-arrow album-prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -263,7 +266,7 @@
             <div class="album-strip">
               ${album.map((a, i) => `
                 <button class="album-thumb${i === 0 ? ' active' : ''}" type="button" data-index="${i}" aria-label="Go to photo ${i + 1}">
-                  <img src="${escape(a.src)}" alt="" loading="lazy" draggable="false">
+                  <img src="${escape(asset(a.src))}" alt="" loading="lazy" draggable="false">
                 </button>`).join('')}
             </div>
           </div>
@@ -272,7 +275,7 @@
       // ---- CTAs ----
       const ctas = Array.isArray(ev.ctas) ? ev.ctas : [];
       const ctaButtons = ctas.map(c =>
-        `<a class="btn ${c.style === 'primary' ? 'btn-cobalt' : 'btn-ghost'}" href="${escape(c.href)}"${/^https?:/.test(c.href) ? ' target="_blank" rel="noopener"' : ''}>${escape(c.label)}</a>`
+        `<a class="btn ${c.style === 'primary' ? 'btn-primary' : 'btn-ghost'}" href="${escape(c.href)}"${/^https?:/.test(c.href) ? ' target="_blank" rel="noopener"' : ''}>${escape(c.label)}</a>`
       ).join('');
 
       // upcoming events lead with a register card; past events lead with content
@@ -327,7 +330,7 @@
         <div class="event-missing">
           <h2>We couldn't load that event.</h2>
           <p>Please try again, or browse all of our events.</p>
-          <a class="btn btn-cobalt" href="events.html">Back to events</a>
+          <a class="btn btn-primary" href="events.html">Back to events</a>
         </div>`;
     });
 
@@ -364,7 +367,7 @@
         current = (i + photos.length) % photos.length;
         const g = photos[current];
         const single = photos.length < 2;
-        imgEl.src = g.src;
+        imgEl.src = asset(g.src);
         imgEl.alt = g.alt || g.caption || title;
         titleEl.textContent = g.caption || '';
         titleEl.style.display = g.caption ? '' : 'none';

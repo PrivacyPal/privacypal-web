@@ -16,6 +16,9 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
   }
+  // JSON asset paths are root-relative ("news/images/x.jpg"); v3 pages
+  // data paths are repo-root-relative; strip any leading slash
+  function asset(p){ return (p && !/^https?:\/\//.test(p)) ? String(p).replace(/^\/+/, '') : p; }
   function catLabel(data, id){
     const c = (data.categories || []).find(x => x.id === id);
     return c ? c.label : id;
@@ -49,7 +52,7 @@
       <a class="news-card reveal in" href="${articleUrl(a)}">
         <div class="news-card-media">
           <span class="news-card-cat">${escape(catLabel(data, a.category))}</span>
-          <img src="${escape(a.thumb)}" alt="" loading="lazy" width="800" height="500">
+          <img src="${escape(asset(a.thumb))}" alt="" loading="lazy" width="800" height="500">
         </div>
         <div class="news-card-body">
           <div class="news-card-meta">
@@ -176,7 +179,7 @@
         <a class="news-featured reveal in" href="${articleUrl(a)}">
           <div class="news-featured-media">
             <span class="news-flag"><span class="dot"></span>Featured</span>
-            <img src="${escape(a.hero)}" alt="" width="1600" height="900">
+            <img src="${escape(asset(a.hero))}" alt="" width="1600" height="900">
           </div>
           <div class="news-featured-body">
             <div class="news-featured-meta">
@@ -219,7 +222,7 @@
             <h2>That story couldn't be found.</h2>
             <p>It may have moved, or the link may be wrong. Head back to the newsroom for the latest.</p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <a class="btn btn-cobalt" href="news.html">Back to the newsroom</a>
+              <a class="btn btn-primary" href="news.html">Back to the newsroom</a>
               <a class="btn btn-ghost" href="mailto:press@privacypal.ai">Email press</a>
             </div>
           </div>`;
@@ -246,7 +249,7 @@
       root.innerHTML = `
         <article>
           <header class="article-hero">
-            <div class="article-hero-media"><img src="${escape(a.hero)}" alt="" width="1600" height="900"></div>
+            <div class="article-hero-media"><img src="${escape(asset(a.hero))}" alt="" width="1600" height="900"></div>
             <div class="article-hero-inner">
               <div class="container">
                 <div class="article-crumbs reveal in"><a href="news.html">Newsroom</a><span> / ${escape(cat)}</span></div>
@@ -303,7 +306,7 @@
             <h2>Working on a story?</h2>
             <p>For interviews, press assets, or anything newsroom-related, our team will get back to you fast.</p>
             <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-              <a class="btn btn-cobalt" href="mailto:press@privacypal.ai?subject=Press%20inquiry">Email press@privacypal.ai</a>
+              <a class="btn btn-primary" href="mailto:press@privacypal.ai?subject=Press%20inquiry">Email press@privacypal.ai</a>
               <a class="btn btn-ghost" href="news.html">Back to the newsroom</a>
             </div>
           </div>
@@ -318,7 +321,7 @@
         <div class="news-missing">
           <h2>We couldn't load that story.</h2>
           <p>Please try again in a moment, or email press@privacypal.ai.</p>
-          <a class="btn btn-cobalt" href="news.html">Back to the newsroom</a>
+          <a class="btn btn-primary" href="news.html">Back to the newsroom</a>
         </div>`;
     });
 
@@ -328,7 +331,7 @@
         case 'h2':    return `<h2>${escape(b.text)}</h2>`;
         case 'quote': return `<blockquote><p>${escape(b.text)}</p>${b.cite ? `<cite>${escape(b.cite)}</cite>` : ''}</blockquote>`;
         case 'list':  return `<ul>${(b.items || []).map(i => `<li>${escape(i)}</li>`).join('')}</ul>`;
-        case 'image': return `<figure><img src="${escape(b.src)}" alt="${escape(b.alt || '')}" loading="lazy">${b.caption ? `<figcaption>${escape(b.caption)}</figcaption>` : ''}</figure>`;
+        case 'image': return `<figure><img src="${escape(asset(b.src))}" alt="${escape(b.alt || '')}" loading="lazy">${b.caption ? `<figcaption>${escape(b.caption)}</figcaption>` : ''}</figure>`;
         case 'p':
         default:      return `<p>${escape(b.text)}</p>`;
       }
@@ -341,7 +344,7 @@
             <div class="src-label">Originally published by</div>
             <div class="src-name">${escape(a.source)}</div>
           </div>
-          <a class="btn btn-cobalt" href="${escape(a.sourceUrl)}" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="${escape(a.sourceUrl)}" target="_blank" rel="noopener">
             Read on ${escape(a.source)} ${ARROW}
           </a>
         </div>`;

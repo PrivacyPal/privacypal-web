@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 322 40" width="322" height="40" role="img" aria-label="Four Ninety Six Capital">
+  <circle cx="20" cy="20" r="18" fill="none" stroke="#0c0d10" stroke-width="1.4" opacity=".85"/>
+  <path d="M20 2 A18 18 0 0 1 35.6 11" fill="none" stroke="#a9824a" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="20" cy="2.4" r="2.2" fill="#a9824a"/>
+  <text x="54" y="28.5" font-family="Inter,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="600" letter-spacing="-0.5" fill="#0c0d10" textLength="178">Four Ninety Six</text>
+  <text x="240" y="28.5" font-family="Inter,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="500" letter-spacing="-0.25" fill="#928d82" textLength="80">Capital</text>
+</svg>

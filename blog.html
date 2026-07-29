@@ -1,62 +1,47 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Privacy Log — PrivacyPal's Blog</title>
-<link rel="icon" href="assets/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/sub.css">
-<link rel="stylesheet" href="assets/blog.css">
-<meta name="description" content="The Privacy Log — PrivacyPal's blog. Field notes on AI, data privacy, and AI governance from our founders, team, and partners.">
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Privacy Log — PrivacyPal</title>
+<meta name="description" content="Field notes on AI, data privacy, and AI governance — written by PrivacyPal's founders, team members, and partners." />
+<link rel="icon" href="assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<link rel="stylesheet" href="assets/blog.css"/>
 <link rel="canonical" href="https://privacypal.ai/blog.html">
-<!-- realtime RSS feed auto-discovery -->
-<link rel="alternate" type="application/rss+xml" title="The Privacy Log — PrivacyPal" href="blog/rss.xml">
-<!-- social-share-meta:start -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/blog.html" />
-<meta property="og:title" content="The Privacy Log — PrivacyPal's Blog" />
-<meta property="og:description" content="Field notes on AI, data privacy, and AI governance from PrivacyPal's founders, team, and partners." />
+<meta property="og:title" content="The Privacy Log — PrivacyPal" />
+<meta property="og:description" content="PrivacyPal's blog, from the people building it." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
-<meta property="og:image:secure_url" content="https://privacypal.ai/assets/logo-color.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="4000" />
-<meta property="og:image:height" content="1108" />
-<meta property="og:image:alt" content="PrivacyPal" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Privacy Log — PrivacyPal's Blog" />
-<meta name="twitter:description" content="Field notes on AI, data privacy, and AI governance from PrivacyPal's founders, team, and partners." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
-<meta name="twitter:image:alt" content="PrivacyPal" />
-<link rel="image_src" href="https://privacypal.ai/assets/logo-color.png" />
-<!-- social-share-meta:end -->
-</head><body>
+</head>
+<body>
+
 <div id="site-nav-slot"></div>
 
-<section class="sub-hero blog-hero">
+<header class="page-hero">
   <div class="container">
-    <div style="max-width:900px">
-      <span class="eyebrow reveal in">The Privacy Log</span>
-      <h1 class="reveal in">PrivacyPal's blog, from the people <em>building it</em>.</h1>
-      <p class="lede reveal in">Field notes on AI, data privacy, and AI governance — written by our founders, team members, and partners. Ideas from the frontier of the privacy layer for every AI.</p>
-      <p class="press-line reveal in">
-        <a class="rss-btn" href="blog/rss.xml" aria-label="Subscribe to the Privacy Log RSS feed">
-          <span class="rss-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 10.1v2.9a7 7 0 0 1 7 7h2.9A9.9 9.9 0 0 0 4 10.1Z"/><path d="M4 4.44v2.83c7 0 12.73 5.73 12.73 12.73h2.83C19.56 11.5 12.5 4.44 4 4.44Z"/></svg></span>
-          Subscribe via RSS
-        </a>
-        <span>Or write to us: <a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></span>
-      </p>
+    <span class="eyebrow">The Privacy Log</span>
+    <h1>PrivacyPal's blog, from the people building it.</h1>
+    <p class="lede">Field notes on AI, data privacy, and AI governance — written by our founders, team members, and partners. Ideas from the frontier of the privacy layer for every AI.</p>
+    <div class="btn-row">
+      <a class="btn btn-ghost" href="blog/rss.xml">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:15px;height:15px"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 10.1v2.9a7 7 0 0 1 7 7h2.9A9.9 9.9 0 0 0 4 10.1Z"/><path d="M4 4.44v2.83c7 0 12.73 5.73 12.73 12.73h2.83C19.56 11.5 12.5 4.44 4 4.44Z"/></svg>
+        Subscribe via RSS
+      </a>
+      <a class="link-arrow muted" href="mailto:hello@privacypal.ai">hello@privacypal.ai</a>
     </div>
   </div>
-</section>
+</header>
 
-<section class="section" id="privacylog">
+<section class="section" id="privacylog" style="padding-top:24px">
   <div class="container">
-
-    <!-- featured post (default, unfiltered view) -->
     <div class="blog-featured-wrap reveal" id="blogFeatured" hidden></div>
 
-    <!-- toolbar: search + RSS -->
     <div class="blog-toolbar reveal">
       <div class="blog-toolbar-top">
         <div class="blog-search" id="blogSearchBox">
@@ -65,20 +50,14 @@
           <button class="blog-clear" id="blogClear" type="button" aria-label="Clear search">&times;</button>
         </div>
       </div>
-
-      <!-- facets: author + month + tags -->
       <div class="blog-facets">
         <div class="blog-facet">
           <span class="blog-facet-label">Author</span>
-          <span class="blog-select">
-            <select id="blogAuthor" aria-label="Filter by author"><option value="">All authors</option></select>
-          </span>
+          <span class="blog-select"><select id="blogAuthor" aria-label="Filter by author"><option value="">All authors</option></select></span>
         </div>
         <div class="blog-facet">
           <span class="blog-facet-label">Month</span>
-          <span class="blog-select">
-            <select id="blogMonth" aria-label="Filter by month"><option value="">All months</option></select>
-          </span>
+          <span class="blog-select"><select id="blogMonth" aria-label="Filter by month"><option value="">All months</option></select></span>
         </div>
         <div class="blog-facet tags">
           <span class="blog-facet-label">Topics</span>
@@ -92,12 +71,8 @@
       <button class="blog-clearall" id="blogClearAll" type="button">Clear all filters</button>
     </div>
 
-    <div class="blog-loading reveal" id="blogLoading">
-      <div class="pp-spinner" style="margin:60px auto"></div>
-    </div>
-
-    <div class="blog-grid" id="blogGrid" hidden></div>
-
+    <div class="blog-loading reveal" id="blogLoading"><div class="pp-spinner" style="margin:60px auto"></div></div>
+    <div class="post-grid" id="blogGrid" hidden></div>
     <div class="blog-empty reveal" id="blogEmpty" hidden>
       <h3>No posts yet.</h3>
       <p>Check back soon — more is on the way.</p>
@@ -106,19 +81,23 @@
   </div>
 </section>
 
-<!-- ============== SUBSCRIBE CTA ============== -->
-<section class="final-cta">
-  <div class="reveal">
-    <h2>Never miss a post.</h2>
-    <p>The Privacy Log publishes a live RSS feed — drop it into your reader and every new post from our founders, team, and partners lands automatically.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-cobalt" href="blog/rss.xml">Subscribe via RSS</a>
-      <a class="btn btn-ghost" href="about.html">About PrivacyPal</a>
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner reveal">
+      <span class="eyebrow" style="justify-content:center">Never miss a post</span>
+      <h2 style="margin-top:14px">The Privacy Log, straight to your reader</h2>
+      <p>Drop our live RSS feed into your reader and every new post from our founders, team and partners lands automatically.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="blog/rss.xml">Subscribe via RSS</a>
+        <a class="btn btn-ghost btn-lg" href="about.html">About PrivacyPal</a>
+      </div>
     </div>
   </div>
 </section>
 
 <div id="site-footer-slot"></div>
-<script src="assets/site.js"></script>
-<script src="assets/blog.js?v=2026-07-10"></script>
-</body></html>
+
+<script src="assets/v3.js"></script>
+<script src="assets/blog.js?v=2026-07-27"></script>
+</body>
+</html>
