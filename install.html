@@ -43,11 +43,49 @@
 }
 .arch-hint{font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.55}
 .arch-hint b{color:var(--ink);font-weight:600}
-.acct-card{display:flex;flex-direction:column}
-.acct-card ul{list-style:none;margin:14px 0 22px;display:flex;flex-direction:column;gap:10px}
-.acct-card li{padding-left:24px;position:relative;font-size:.93rem;color:var(--muted)}
-.acct-card li::before{content:"✓";position:absolute;left:0;font-weight:600;color:var(--ink)}
-.acct-card .btn{margin-top:auto;align-self:flex-start}
+/* CEO video section */
+.ceo-video-card{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  aspect-ratio:16/9;background:var(--ink);cursor:pointer;border:0;
+  display:block;width:100%;padding:0;text-align:inherit;
+  box-shadow:var(--shadow-menu);
+}
+.ceo-video-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(46% 60% at 24% 108%, rgba(47,196,210,.42), transparent 70%),
+    radial-gradient(42% 55% at 76% 112%, rgba(250,169,104,.32), transparent 70%),
+    radial-gradient(60% 70% at 50% -18%, rgba(2,131,145,.22), transparent 72%);
+}
+.ceo-video-card .poster-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 22%;opacity:.34;
+  filter:grayscale(.3);
+  transition:opacity .3s,transform .5s;
+}
+.ceo-video-card:hover .poster-photo{opacity:.42;transform:scale(1.02)}
+.ceo-video-card .play-ring{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:76px;height:76px;border-radius:50%;
+  background:rgba(255,255,255,.94);color:var(--teal-deep);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 40px -8px rgba(1,32,78,.5);
+  transition:transform .25s,background .2s;
+}
+.ceo-video-card:hover .play-ring{transform:translate(-50%,-50%) scale(1.07);background:#fff}
+.ceo-video-card .play-ring svg{width:26px;height:26px;margin-left:3px}
+.ceo-video-card .card-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:18px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:linear-gradient(180deg,transparent,rgba(1,32,78,.82));color:#fff;
+}
+.ceo-video-card .card-cap b{font-size:.95rem;font-weight:500;display:block}
+.ceo-video-card .card-cap small{font-size:.78rem;opacity:.75}
+.ceo-video-card .card-cap .dur{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;
+  border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 10px;flex:none;
+}
+.ceo-video-card video{position:absolute;inset:0;width:100%;height:100%;background:#000}
 @media(max-width:860px){.dl-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -172,42 +210,64 @@
   </div>
 </section>
 
-<!-- ================= SIGNUP OPTIONS ================= -->
+<!-- ================= CEO VIDEO ================= -->
 <section class="section" style="padding-top:24px">
   <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow pink">Accounts</span>
-      <h2>Web2 or Web3 — your choice</h2>
-      <p class="lede">PrivacyPal supports both Web2 and Web3 users. Choose the signup method that works best for you.</p>
-    </div>
-    <div class="card-grid cols-2">
-      <div class="feature-card acct-card reveal reveal-delay-1">
-        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg></div>
-        <h4>Free trial signup</h4>
-        <p>Traditional signup with credit card payment. Simple, secure, and familiar.</p>
-        <ul>
-          <li>Credit card payment</li>
-          <li>Email-based account</li>
-          <li>Standard subscription</li>
-          <li>Full PrivacyPal features</li>
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow blue">From our founder</span>
+        <h2>Watch why we built PrivacyPal</h2>
+        <p class="lede" style="margin-top:16px">Before you install, hear it from the source. Co-founder &amp; CEO Jason Melo walks through the problem every AI-hungry team hits — sensitive IP and PII flowing into LLMs — and how PrivacyPal's on-device Privacy Twins govern every AI app, copilot and agent without blocking a single user.</p>
+        <ul class="ticks">
+          <li>The problem: your team is already pasting sensitive data into AI</li>
+          <li>The mechanism: Privacy Twins, explained in plain language</li>
+          <li>The result: security teams become enablers, not blockers</li>
         </ul>
-        <a class="btn btn-primary" href="#downloads">Sign up today</a>
+        <div class="btn-row" style="margin-top:26px">
+          <button class="btn btn-primary" type="button" data-play-ceo>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Play the video
+          </button>
+          <a class="link-arrow muted" href="#downloads">Skip to downloads</a>
+        </div>
       </div>
-      <div class="feature-card acct-card reveal reveal-delay-2">
-        <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
-        <h4>Web3 signup</h4>
-        <p>Connect with your EVM-compatible crypto wallet. Decentralized, private, and future-ready.</p>
-        <ul>
-          <li>EVM wallet connection</li>
-          <li>Crypto payment support</li>
-          <li>Decentralized identity</li>
-          <li>Full PrivacyPal features</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSfQTGr9Az3z4v13P9eXT83JmacnnvpLTd511GL7xTIT_3RUQg/viewform?usp=dialog" target="_blank" rel="noopener">Join the waitlist</a>
+      <div class="reveal reveal-delay-1">
+        <button class="ceo-video-card" id="ceoVideoCard" type="button" aria-label="Play: Jason Melo introduces PrivacyPal">
+          <img class="poster-photo" src="jason-melo.jpg" alt="" loading="lazy">
+          <span class="play-ring" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="card-cap">
+            <span><b>Meet PrivacyPal</b><small>Jason Melo — Co-Founder &amp; CEO</small></span>
+            <span class="dur" aria-hidden="true">WATCH</span>
+          </span>
+        </button>
       </div>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var SRC = 'https://d1fvqdveubpy4w.cloudfront.net/streaming/PrivacyPal-Promo-Video-Q2-2026_faststart.mp4';
+  var card = document.getElementById('ceoVideoCard');
+  function play(){
+    if (!card || card.dataset.playing) return;
+    card.dataset.playing = '1';
+    card.innerHTML = '';
+    card.style.cursor = 'default';
+    var v = document.createElement('video');
+    v.src = SRC; v.controls = true; v.autoplay = true; v.playsInline = true;
+    card.appendChild(v);
+  }
+  if (card) card.addEventListener('click', play);
+  document.querySelectorAll('[data-play-ceo]').forEach(function(b){
+    b.addEventListener('click', function(){
+      play();
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  });
+})();
+</script>
 
 <!-- ================= CTA ================= -->
 <section class="section-sm">
