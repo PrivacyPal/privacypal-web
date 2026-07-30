@@ -214,7 +214,7 @@
                 ${v.label ? '<p class="video-label">' + escape(v.label) + '</p>' : ''}
                 <a class="video-frame" href="${escape(href)}" target="_blank" rel="noopener" aria-label="${escape(v.title || v.label || 'Watch video')}">
                   ${img ? '<img src="' + escape(img) + '" alt="" loading="lazy" onerror="this.src=\'https://img.youtube.com/vi/' + escape(id) + '/hqdefault.jpg\'">' : ''}
-                  <span class="video-play">${ICON.play} Watch on YouTube</span>
+                  <span class="video-play" aria-hidden="true">${ICON.play}</span>
                 </a>
               </div>`;
             }).join('')}
