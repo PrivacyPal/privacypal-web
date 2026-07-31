@@ -2,9 +2,9 @@
    Injected by JS to keep pages lean (same pattern as the current site). */
 (function(){
 
-  var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.10.exe';
-  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.10-arm64.dmg';
-  var DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.10-x64.dmg';
+  var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.8.12.exe';
+  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.12-arm64.dmg';
+  var DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.12-x64.dmg';
 
   /* Social profiles — update these when handles are confirmed. */
   var SOCIAL = {
@@ -32,7 +32,7 @@
   /* ---------------- Announcement bar ---------------- */
   var announceHTML =
   '<div class="announce">' +
-    '<a href="#" data-cta="download"><span class="tag">New</span> PrivacyPal v1.8.10 is out for Mac &amp; Windows — Install now <span class="arrow">→</span></a>' +
+    '<a href="#" data-cta="download"><span class="tag">New</span> PrivacyPal v1.8.12 is out for Mac &amp; Windows — Install now <span class="arrow">→</span></a>' +
   '</div>';
 
   /* ---------------- Nav ---------------- */
@@ -236,7 +236,7 @@
   '</div>' +
   '<div class="pp-modal" id="ppDownloadModal" aria-hidden="true">' +
     '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Install PrivacyPal">' +
-      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.8.10</h3>' +
+      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.8.12</h3>' +
       '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
       '<div class="pp-modal-body">' +
         '<div class="pp-dl-grid">' +
@@ -246,7 +246,7 @@
             '<p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>' +
             '<div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>' +
             '<a class="pp-dl-btn win" href="' + DOWNLOAD_WIN + '" rel="noopener noreferrer">Install for Windows</a>' +
-            '<p class="pp-dl-filename">PrivacyPal-Setup-1.8.10.exe</p>' +
+            '<p class="pp-dl-filename">PrivacyPal-Setup-1.8.12.exe</p>' +
             '<div class="pp-dl-cli"><div class="cli-label">Or install via PowerShell</div>' +
             '<div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>' +
             '<button class="cli-copy" type="button" data-cli-copy="winget install PrivacyPal.AI">Copy</button></div></div>' +
@@ -259,7 +259,7 @@
             '<a class="pp-dl-btn mac" href="' + DOWNLOAD_MACOS_ARM64 + '" rel="noopener noreferrer">Apple Silicon</a>' +
             '<a class="pp-dl-btn mac mac-secondary" href="' + DOWNLOAD_MACOS_X64 + '" rel="noopener noreferrer">Intel Mac</a>' +
             '<p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line — anything M-series is Apple Silicon.</p>' +
-            '<p class="pp-dl-filename">PrivacyPal-1.8.10-{arm64,x64}.dmg</p>' +
+            '<p class="pp-dl-filename">PrivacyPal-1.8.12-{arm64,x64}.dmg</p>' +
           '</div>' +
         '</div>' +
         '<div class="pp-dl-trust">' +
