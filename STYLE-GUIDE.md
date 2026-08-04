@@ -1,4 +1,4 @@
-# PrivacyPal — Design System & Page Building Guide
+# PrivacyPal · Design System & Page Building Guide
 
 The live site (originally the v3 redesign, now promoted to the repo root):
 minimal dev-tool SaaS aesthetic. White base, Deep Navy `#01204E` ink, quiet warm
@@ -25,7 +25,7 @@ names are kept but remapped: `blue`≙teal, `pink`≙coral, `orange`≙tangerine
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>PAGE TITLE — PrivacyPal</title>
+<title>PAGE TITLE · PrivacyPal</title>
 <meta name="description" content="..." />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,8 +43,8 @@ names are kept but remapped: `blue`≙teal, `pink`≙coral, `orange`≙tangerine
 </html>
 ```
 
-2. **Never** hand-write a nav or footer — the slots + `assets/v3.js` inject them.
-3. All assets are root-relative — no `../` prefixes
+2. **Never** hand-write a nav or footer; the slots + `assets/v3.js` inject them.
+3. All assets are root-relative, with no `../` prefixes
    (e.g. `assets/hero-shot-banking.png`, `product-shot-001.png`, `assets/v3.css`).
 4. Links between v3 pages are plain relative (`banking.html`, `pricing.html`).
 5. Copy comes from the archived old page in `v2.archive/`. Keep every fact, number,
@@ -56,8 +56,12 @@ names are kept but remapped: `blue`≙teal, `pink`≙coral, `orange`≙tangerine
    (v3.js binds these to shared modals.)
 7. Page-specific CSS goes in one `<style>` block in `<head>`, uses the tokens
    (`var(--panel)`, `var(--muted)`, `var(--line)`, `var(--r-lg)` …), and stays small.
-   If you need a component that exists in v3.css — use it, don't re-create it.
-8. Headline style: sentence case, short, no trailing gimmicks. Eyebrows are
+   If you need a component that exists in v3.css, use it, don't re-create it.
+8. **No em dashes (—) anywhere in copy**, including titles and meta tags. They read
+   as AI-generated. Use a comma, colon, new sentence, or sparing semicolon instead;
+   step labels use the middle-dot convention ("01 · Name") and numeric ranges use an
+   unspaced en dash. Title tags end in " · PrivacyPal".
+9. Headline style: sentence case, short, no trailing gimmicks. Eyebrows are
    lowercase-ish mono labels ("How it works", "Coverage", "By industry").
 
 ## Component reference (all in assets/v3.css)
@@ -80,7 +84,7 @@ names are kept but remapped: `blue`≙teal, `pink`≙coral, `orange`≙tangerine
 | Quote (large) | `bigquote` (blockquote with `<b>` gradient highlights + `.who`) |
 | Pricing | `pricing-grid` > `price-card [dark]` (`.plan` + `price-badge`, `.price-desc`, `.amount` (`.big` + `small` + `.save`), `ul` ticks, `.btn`), `billing-toggle` |
 | Industry rows | `industry-list` > `industry-row` (icon box + h4 + p + link-arrow) |
-| CTA banner | `cta-banner [dark]` inside `container cta-stack` — h2 + p + btn-row. End most pages with ONE cta-banner section before the footer. |
+| CTA banner | `cta-banner [dark]` inside `container cta-stack`: h2 + p + btn-row. End most pages with ONE cta-banner section before the footer. |
 | Prose | `prose` wrapper for articles/legal (styles h2/h3/p/ul/blockquote/code/pre, `.kicker`) |
 | Forms | `form` wrapper, `.row` for 2-col, label + input/select/textarea |
 | Tables | `table-wrap` > `table.compare` (`td.yes` / `td.no`) |

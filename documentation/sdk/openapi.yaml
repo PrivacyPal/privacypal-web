@@ -5,17 +5,17 @@ info:
   description: |
     The PrivacyPal API enables applications to detect, encode, and decode sensitive data (PII/PHI/PCI) using **Privacy Twins** technology.
 
-    Privacy Twins are synthetic values that replace real sensitive data while preserving format, structure, and utility — allowing your application to safely process, store, and transmit data through third-party services (LLMs, analytics, logs, etc.) without exposing real personal information.
+    Privacy Twins are synthetic values that replace real sensitive data while preserving format, structure, and utility, allowing your application to safely process, store, and transmit data through third-party services (LLMs, analytics, logs, etc.) without exposing real personal information.
 
     ## Key Capabilities
 
-    - **Encode** — Detect PII in text and replace it with synthetic Privacy Twins
-    - **Decode** — Restore original values from Privacy Twins with full audit trail
-    - **Batch Processing** — Encode multiple records in a single request
-    - **File Encoding** — Process files (PDF, DOCX, CSV, images) for PII detection
-    - **AI Chat** — Send prompts to LLMs (Gemini, GPT, Claude) with automatic PII protection
-    - **Streaming** — Real-time streaming AI responses with Server-Sent Events
-    - **Multi-Turn Conversations** — Track Privacy Twin mappings across conversation turns
+    - **Encode**: Detect PII in text and replace it with synthetic Privacy Twins
+    - **Decode**: Restore original values from Privacy Twins with full audit trail
+    - **Batch Processing**: Encode multiple records in a single request
+    - **File Encoding**: Process files (PDF, DOCX, CSV, images) for PII detection
+    - **AI Chat**: Send prompts to LLMs (Gemini, GPT, Claude) with automatic PII protection
+    - **Streaming**: Real-time streaming AI responses with Server-Sent Events
+    - **Multi-Turn Conversations**: Track Privacy Twin mappings across conversation turns
 
     ## Authentication
 
@@ -687,11 +687,11 @@ paths:
         Streaming AI chat with real-time response chunks via Server-Sent Events (SSE).
 
         The response is a stream of events with the following types:
-        - `encoding_complete` — PII encoding finished
-        - `llm_chunk` — Partial LLM response text
-        - `llm_complete` — Full LLM response assembled
-        - `complete` — Full processing finished (includes decoded response)
-        - `error` — An error occurred
+        - `encoding_complete`: PII encoding finished
+        - `llm_chunk`: Partial LLM response text
+        - `llm_complete`: Full LLM response assembled
+        - `complete`: Full processing finished (includes decoded response)
+        - `error`: An error occurred
 
         **SDK Usage:**
         ```typescript

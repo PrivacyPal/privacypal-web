@@ -1,5 +1,5 @@
 /* =========================================================
-   Events — shared helpers
+   Events: shared helpers
    - loadEvents(): fetches events/events.json
    - renders the card grid on events.html
    - renders a single event + gallery/lightbox on event.html
@@ -24,7 +24,7 @@
   // any non-absolute path is repo-root-relative.
   function asset(p){ return (p && !/^https?:\/\//.test(p)) ? String(p).replace(/^\/+/, '') : p; }
   // description / tagline copy is authored with a few safe inline tags
-  // (<strong>, <em>, <code>) — allow those, escape everything else.
+  // (<strong>, <em>, <code>): allow those, escape everything else.
   function richText(s){
     return escape(s).replace(/&lt;(\/?(?:strong|em|b|i|code))&gt;/g, '<$1>');
   }
@@ -178,7 +178,7 @@
       }
 
       const up = isUpcoming(ev);
-      document.title = ev.title + ' — Events — PrivacyPal';
+      document.title = ev.title + ' · Events · PrivacyPal';
 
       // ---- hero facts ----
       const facts = [];
@@ -283,7 +283,7 @@
         <section class="event-section reveal">
           <div class="event-register">
             <h3>Join us</h3>
-            <p>${escape(ev.tagline || 'Save your spot — we\'d love to see you there.')}</p>
+            <p>${escape(ev.tagline || 'Save your spot. We\'d love to see you there.')}</p>
             <div class="event-cta-row">${ctaButtons}</div>
           </div>
         </section>` : '';
@@ -439,7 +439,7 @@
         if (smooth === false){ void track.offsetWidth; track.style.transition = ''; }
         curEl.textContent = idx + 1;
         thumbs.forEach((t, n) => t.classList.toggle('active', n === idx));
-        // only center the active thumb on user navigation — doing it on the
+        // only center the active thumb on user navigation. Doing it on the
         // initial render scrolls the whole page down to the album on load
         const at = thumbs[idx];
         if (at && smooth !== false) at.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
@@ -449,7 +449,7 @@
       root.querySelector('.album-next').addEventListener('click', () => go(idx + 1));
       thumbs.forEach(t => t.addEventListener('click', () => go(+t.dataset.index)));
 
-      // swipe — and suppress the click -> lightbox that would follow a drag
+      // swipe, and suppress the click -> lightbox that would follow a drag
       let x0 = null, moved = false;
       vp.addEventListener('pointerdown', e => { x0 = e.clientX; moved = false; });
       vp.addEventListener('pointermove', e => { if (x0 !== null && Math.abs(e.clientX - x0) > 8) moved = true; });

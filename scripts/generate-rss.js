@@ -42,7 +42,7 @@ function blockHtml(site, b){
   switch (b.type){
     case 'kicker': return `<p><strong>${xml(b.text)}</strong></p>`;
     case 'h2':     return `<h2>${xml(b.text)}</h2>`;
-    case 'quote':  return `<blockquote><p>${xml(b.text)}</p>${b.cite ? `<cite>&mdash; ${xml(b.cite)}</cite>` : ''}</blockquote>`;
+    case 'quote':  return `<blockquote><p>${xml(b.text)}</p>${b.cite ? `<cite>${xml(b.cite)}</cite>` : ''}</blockquote>`;
     case 'list':   return `<ul>${(b.items || []).map(i => `<li>${xml(i)}</li>`).join('')}</ul>`;
     case 'image':  return `<figure><img src="${xml(abs(site, b.src))}" alt="${xml(b.alt || '')}" />${b.caption ? `<figcaption>${xml(b.caption)}</figcaption>` : ''}</figure>`;
     case 'p':

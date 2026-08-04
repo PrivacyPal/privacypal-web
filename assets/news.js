@@ -1,5 +1,5 @@
 /* =========================================================
-   Newsroom — shared helpers
+   Newsroom: shared helpers
    - loadNews(): fetches news/news.json
    - renders featured + grid + search/filter on news.html
    - renders a single article + related on news-article.html
@@ -98,7 +98,7 @@
       all = (d.articles || []).slice().sort(byDateDesc);
       featured = all.find(a => a.featured) || all[0] || null;
 
-      // build category chips — only for categories that have stories
+      // build category chips, only for categories that have stories
       const present = new Set(all.map(a => a.category));
       (d.categories || []).filter(c => present.has(c.id)).forEach(c => {
         const b = document.createElement('button');
@@ -159,7 +159,7 @@
         empty.querySelector('h3').textContent = 'No stories match that yet.';
         empty.querySelector('p').textContent  = query
           ? `Nothing for “${searchIn.value.trim()}”. Try another search or clear the filters.`
-          : 'Check back soon — more is on the way.';
+          : 'Check back soon. More is on the way.';
         countEl.textContent = '';
       } else {
         empty.hidden = true;
@@ -204,7 +204,7 @@
      ======================================================= */
   const root = document.getElementById('articleRoot');
   if (root){
-    // the article opens on a dark, full-bleed hero image — flip the (already
+    // the article opens on a dark, full-bleed hero image. Flip the (already
     // injected) nav to its light/on-dark variant so the logo + links stay
     // legible at the top, and pick up a dark backdrop once the page scrolls.
     const navEl = document.getElementById('siteNav');
@@ -229,7 +229,7 @@
         return;
       }
 
-      document.title = `${a.title} — Newsroom — PrivacyPal`;
+      document.title = `${a.title} · Newsroom · PrivacyPal`;
       const md = document.querySelector('meta[name="description"]');
       if (md && a.excerpt) md.setAttribute('content', a.excerpt);
 

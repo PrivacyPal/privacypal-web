@@ -44,19 +44,19 @@
 
 ## Introduction
 
-The PrivacyPal SDK enables Node.js applications to detect, encode, and decode sensitive data (PII/PHI/PCI) using **Privacy Twins** technology. Privacy Twins are synthetic values that replace real sensitive data while preserving format, structure, and utility — allowing your application to safely process, store, and transmit data through third-party services (LLMs, analytics, logs, etc.) without exposing real personal information.
+The PrivacyPal SDK enables Node.js applications to detect, encode, and decode sensitive data (PII/PHI/PCI) using **Privacy Twins** technology. Privacy Twins are synthetic values that replace real sensitive data while preserving format, structure, and utility, allowing your application to safely process, store, and transmit data through third-party services (LLMs, analytics, logs, etc.) without exposing real personal information.
 
 ### Key Capabilities
 
-- **Encode** — Detect PII in text and replace it with synthetic Privacy Twins
-- **Decode** — Restore original values from Privacy Twins with full audit trail
-- **Batch Processing** — Encode multiple records in a single request
-- **File Encoding** — Process files (PDF, DOCX, CSV, images) for PII detection
-- **AI Chat** — Send prompts to LLMs (Gemini, GPT, Claude) with automatic PII protection
-- **Streaming** — Real-time streaming AI responses with Server-Sent Events
-- **Multi-Turn Conversations** — Track Privacy Twin mappings across conversation turns
-- **Local Decoding** — Decode Privacy Twins offline using stored transformations
-- **Client-Side NLP** — Optional local entity detection with winkNLP
+- **Encode**: Detect PII in text and replace it with synthetic Privacy Twins
+- **Decode**: Restore original values from Privacy Twins with full audit trail
+- **Batch Processing**: Encode multiple records in a single request
+- **File Encoding**: Process files (PDF, DOCX, CSV, images) for PII detection
+- **AI Chat**: Send prompts to LLMs (Gemini, GPT, Claude) with automatic PII protection
+- **Streaming**: Real-time streaming AI responses with Server-Sent Events
+- **Multi-Turn Conversations**: Track Privacy Twin mappings across conversation turns
+- **Local Decoding**: Decode Privacy Twins offline using stored transformations
+- **Client-Side NLP**: Optional local entity detection with winkNLP
 
 ---
 
@@ -189,7 +189,7 @@ Privacy Twins preserve the **format** and **data type** of the original, allowin
 
 ### Continuation ID
 
-Every encoding operation returns a `continuationId` — a unique identifier that correlates the encoding session. Use this ID to:
+Every encoding operation returns a `continuationId`: a unique identifier that correlates the encoding session. Use this ID to:
 
 - **Decode** twins back to originals
 - **Retrieve** all twins in a dataset
@@ -199,10 +199,10 @@ Every encoding operation returns a `continuationId` — a unique identifier that
 
 Each detected PII entity produces a `Transformation` object containing:
 
-- `originalHash` / `twinHash` — Cryptographic hashes of the values
-- `entityType` — What kind of PII it is (e.g., `"PERSON"`, `"US_SSN"`)
-- `original` / `twin` — The actual values (when available for local decoding)
-- `components` — Sub-part breakdowns (e.g., first name, last name, city, state)
+- `originalHash` / `twinHash`: Cryptographic hashes of the values
+- `entityType`: What kind of PII it is (e.g., `"PERSON"`, `"US_SSN"`)
+- `original` / `twin`: The actual values (when available for local decoding)
+- `components`: Sub-part breakdowns (e.g., first name, last name, city, state)
 
 ---
 
@@ -254,13 +254,13 @@ encode(params: EncodeSingleParams): Promise<EncodeResponse>
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| `data` | `string` | — | **Required.** Input text containing potential PII |
+| `data` | `string` | – | **Required.** Input text containing potential PII |
 | `sourceContainer` | `string` | `"sdk_data"` | Source identifier (e.g., `"customer_db.users"`) |
 | `sourceElement` | `string` | `"text_input"` | Element identifier (e.g., `"personal_info"`) |
 | `metadata` | `EncodingMetadata` | `{}` | Additional metadata for audit trail |
-| `scoreThreshold` | `number` | `0.35` | Detection confidence threshold (0.0 – 1.0) |
+| `scoreThreshold` | `number` | `0.35` | Detection confidence threshold (0.0–1.0) |
 | `language` | `string` | `"en"` | Language code |
-| `continuationId` | `string` | — | Optional correlation ID |
+| `continuationId` | `string` | – | Optional correlation ID |
 
 **Returns:** `Promise<EncodeResponse>`
 
@@ -503,11 +503,11 @@ encodeFile(params: EncodeFileParams): Promise<EncodeFileResponse>
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| `file` | `Blob \| ArrayBuffer` | — | **Required.** File content |
-| `fileName` | `string` | — | **Required.** Original file name |
+| `file` | `Blob \| ArrayBuffer` | – | **Required.** File content |
+| `fileName` | `string` | – | **Required.** Original file name |
 | `processImages` | `boolean` | `true` | Convert images to markdown (`true`) or bypass (`false`) |
-| `platform` | `string` | — | Platform identifier |
-| `continuationId` | `string` | — | Optional session grouping ID |
+| `platform` | `string` | – | Platform identifier |
+| `continuationId` | `string` | – | Optional session grouping ID |
 
 **Returns:** `Promise<EncodeFileResponse>`
 
@@ -557,13 +557,13 @@ chatWithAI(params: AIChatParams): Promise<AIChatResponse>
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| `prompt` | `string` | — | **Required.** User prompt (will be encoded) |
+| `prompt` | `string` | – | **Required.** User prompt (will be encoded) |
 | `conversationHistory` | `ConversationMessage[]` | `[]` | Previous messages for context |
-| `sessionId` | `string` | — | Session tracking ID |
-| `sessionContinuationIds` | `string[]` | — | Prior turn continuation IDs for multi-turn decoding |
-| `model` | `string` | — | LLM model name (e.g., `"gemini-2.0-flash-exp"`) |
-| `provider` | `string` | — | LLM provider (`"vertex"`, `"aws"`, `"mock"`) |
-| `temperature` | `number` | `0.7` | Generation temperature (0.0 – 1.0) |
+| `sessionId` | `string` | – | Session tracking ID |
+| `sessionContinuationIds` | `string[]` | – | Prior turn continuation IDs for multi-turn decoding |
+| `model` | `string` | – | LLM model name (e.g., `"gemini-2.0-flash-exp"`) |
+| `provider` | `string` | – | LLM provider (`"vertex"`, `"aws"`, `"mock"`) |
+| `temperature` | `number` | `0.7` | Generation temperature (0.0–1.0) |
 | `maxTokens` | `number` | `2048` | Max tokens in response |
 
 **Returns:** `Promise<AIChatResponse>`
@@ -585,7 +585,7 @@ console.log(result.originalPrompt);
 
 console.log(result.encodedPrompt);
 // "Analyze credit history for Maria Garcia at maria.garcia@example.net"
-// ^ This is what the LLM actually saw — no real PII exposed
+// ^ This is what the LLM actually saw: no real PII exposed
 
 console.log(result.llmResponse);
 // "Based on the credit history for Maria Garcia..." (LLM response with twins)
@@ -747,7 +747,7 @@ if (stored) {
 
 #### `decodeLocal(text, continuationId)`
 
-Decode Privacy Twins locally using stored transformations — no API call required. Uses the `IntelligentDecoder` internally for fuzzy matching.
+Decode Privacy Twins locally using stored transformations: no API call required. Uses the `IntelligentDecoder` internally for fuzzy matching.
 
 ```typescript
 decodeLocal(text: string, continuationId: string): string
@@ -1230,7 +1230,7 @@ session.addTurn({
   continuationId: turn1.continuationId
 });
 
-// Turn 2 — references John Doe from Turn 1
+// Turn 2: references John Doe from Turn 1
 const turn2 = await client.chatWithAI({
   prompt: 'What about his mortgage history?',
   sessionId: session.getSessionId(),
@@ -1802,7 +1802,7 @@ history.push(
   { role: 'assistant', content: turn1.llmResponse }
 );
 
-// Turn 2 — "his" refers to John Doe from Turn 1
+// Turn 2: "his" refers to John Doe from Turn 1
 const turn2 = await client.chatWithAI({
   prompt: 'What is his mortgage payment history?',
   sessionId: session.getSessionId(),
@@ -1894,7 +1894,7 @@ const decoder = new IntelligentDecoder({
   partialMatch: true
 });
 
-// AI reformatted names — decoder handles it
+// AI reformatted names; decoder handles it
 const text = 'Dear Ms. Garcia, your appointment on September 16, 1996 in Portland is confirmed.';
 
 const decoded = decoder.decode(
@@ -1931,7 +1931,7 @@ const client = new PrivacyPalClient({
 
 // Get account info
 const account = await client.getAccount();
-console.log(`${account.firstName} ${account.lastName} — ${account.tier} tier`);
+console.log(`${account.firstName} ${account.lastName} - ${account.tier} tier`);
 
 // Get usage stats
 const stats = await client.getUserStats(30); // Last 30 days
@@ -1980,7 +1980,7 @@ try {
   const result = await client.encode({ data: 'John Doe, SSN 123-45-6789' });
 } catch (error) {
   if (error.message.startsWith('401:')) {
-    // Token expired — re-authenticate
+    // Token expired; re-authenticate
     const login = await client.login(email, password);
     client.updateApiKey(login.data.token);
   } else if (error.message.startsWith('403:')) {
@@ -2003,12 +2003,12 @@ try {
 |---------|-------------|---------|
 | `401: ...` | 401 | Authentication failed / token expired |
 | `403: ... [Trial expired]` | 403 | Trial expired or subscription required |
-| `Network Error: Unable to connect...` | — | API unreachable |
-| `Request Error: ...` | — | Request configuration error |
+| `Network Error: Unable to connect...` | – | API unreachable |
+| `Request Error: ...` | – | Request configuration error |
 
 ### Health Check (Non-Throwing)
 
-The `healthCheck()` method never throws — use it to verify connectivity:
+The `healthCheck()` method never throws. Use it to verify connectivity:
 
 ```typescript
 const health = await client.healthCheck();
@@ -2089,4 +2089,4 @@ const client = new PrivacyPalClient({
 
 ---
 
-*PrivacyPal SDK Documentation — Generated February 2026*
+*PrivacyPal SDK Documentation, generated February 2026*

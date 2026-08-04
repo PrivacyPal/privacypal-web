@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Stepwise admin guide: connect a Salesforce org to PrivacyPal with your own Connected App and index it for sensitive-data protection.">
-<title>Connect &amp; Index Salesforce — PrivacyPal Quickstart</title>
+<title>Connect &amp; Index Salesforce | PrivacyPal Quickstart</title>
 <style>
   html, body { margin: 0; padding: 0; }
   body { background: var(--ground); color: var(--ink); }
@@ -351,7 +351,7 @@
   <header>
     <p class="eyebrow"><span class="dot"></span> PrivacyPal &nbsp;·&nbsp; Salesforce integration &nbsp;·&nbsp; Admin quickstart</p>
     <h1>Connect &amp; index<br>your Salesforce org</h1>
-    <p class="lede">Give PrivacyPal read access to Salesforce so it can catalog sensitive customer data and keep it out of AI prompts. You connect with <b>your own Connected App</b> — your credentials and tokens never leave your tenant.</p>
+    <p class="lede">Give PrivacyPal read access to Salesforce so it can catalog sensitive customer data and keep it out of AI prompts. You connect with <b>your own Connected App</b>: your credentials and tokens never leave your tenant.</p>
 
     <div class="handshake" role="img" aria-label="Salesforce connects to PrivacyPal over an encrypted OAuth handshake">
       <div class="node sf">
@@ -383,8 +383,8 @@
     <h4>Before you start</h4>
     <ul>
       <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span><b>System Administrator</b> access to the Salesforce org you want to protect.</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span><b>PrivacyPal admin</b> access — <em>Connections</em> is admin-only.</span></li>
-      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span>A few minutes of patience — Salesforce takes <b>2–10 min</b> to activate a new Connected App.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span><b>PrivacyPal admin</b> access: <em>Connections</em> is admin-only.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> <span>A few minutes of patience: Salesforce takes <b>2–10 min</b> to activate a new Connected App.</span></li>
     </ul>
   </div>
 
@@ -400,7 +400,7 @@
       <div class="num">1</div>
       <div class="step-body">
         <h3>Confirm your My&nbsp;Domain URL</h3>
-        <p>Go to <kbd>Setup</kbd> → <kbd>Company Settings</kbd> → <kbd>My Domain</kbd>. Copy your login URL — you'll paste it into PrivacyPal. Sandboxes use their own <span class="tok">…sandbox.my.salesforce.com</span> address.</p>
+        <p>Go to <kbd>Setup</kbd> → <kbd>Company Settings</kbd> → <kbd>My Domain</kbd>. Copy your login URL. You'll paste it into PrivacyPal. Sandboxes use their own <span class="tok">…sandbox.my.salesforce.com</span> address.</p>
         <figure>
           <div class="shot">
             <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">yourcompany.lightning.force.com/lightning/setup/OrgDomain/home</span></div>
@@ -422,11 +422,11 @@
         <h3>Register a new Connected App</h3>
         <p>In <kbd>Setup</kbd> → <kbd>App Manager</kbd>, choose <kbd>New Connected App</kbd>. Name it <b>PrivacyPal</b>, add your email, then enable OAuth and fill in exactly these two things:</p>
         <ul class="sub">
-          <li><b>Callback URL</b> — paste the one PrivacyPal shows in Step&nbsp;5. It's the same for everyone:</li>
+          <li><b>Callback URL</b>: paste the one PrivacyPal shows in Step&nbsp;5. It's the same for everyone:</li>
         </ul>
         <div class="input mono" style="margin:-4px 0 14px">https://api.privacypal.ai/api/business-data/connections/oauth/salesforce/callback</div>
         <ul class="sub">
-          <li><b>Selected OAuth Scopes</b> — add <span class="tok">Manage user data via APIs (api)</span> and <span class="tok">Perform requests at any time (refresh_token, offline_access)</span>.</li>
+          <li><b>Selected OAuth Scopes</b>: add <span class="tok">Manage user data via APIs (api)</span> and <span class="tok">Perform requests at any time (refresh_token, offline_access)</span>.</li>
         </ul>
         <figure>
           <div class="shot">
@@ -448,7 +448,7 @@
         </figure>
         <div class="callout warn">
           <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
-          <span class="txt"><b>Give it a moment.</b> After you Save, Salesforce needs <b>2–10 minutes</b> to activate the app. Connecting too soon shows an <span class="tok">"OAuth not active"</span> / app-not-enabled error — just wait and retry.</span>
+          <span class="txt"><b>Give it a moment.</b> After you Save, Salesforce needs <b>2–10 minutes</b> to activate the app. Connecting too soon shows an <span class="tok">"OAuth not active"</span> / app-not-enabled error. Just wait and retry.</span>
         </div>
       </div>
     </div>
@@ -457,7 +457,7 @@
       <div class="num">3</div>
       <div class="step-body">
         <h3>Copy the Consumer Key &amp; Secret</h3>
-        <p>Back in <kbd>App Manager</kbd>, open the <b>PrivacyPal</b> app → <kbd>View</kbd> → <kbd>Manage Consumer Details</kbd> (Salesforce may re-verify your identity). Copy both values — you'll paste them into PrivacyPal next.</p>
+        <p>Back in <kbd>App Manager</kbd>, open the <b>PrivacyPal</b> app → <kbd>View</kbd> → <kbd>Manage Consumer Details</kbd> (Salesforce may re-verify your identity). Copy both values. You'll paste them into PrivacyPal next.</p>
         <figure>
           <div class="shot">
             <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">Setup › App Manager › PrivacyPal › Manage Consumer Details</span></div>
@@ -466,7 +466,7 @@
               <div class="fld"><label>Consumer Secret</label><div class="input"><span class="grow">•••••••••••••••••••••••••••</span><span class="btn ghost sm">Reveal</span><span class="btn ghost sm">Copy</span></div></div>
             </div>
           </div>
-          <figcaption><b>Manage Consumer Details.</b> Treat the secret like a password — PrivacyPal encrypts it at rest.</figcaption>
+          <figcaption><b>Manage Consumer Details.</b> Treat the secret like a password. PrivacyPal encrypts it at rest.</figcaption>
         </figure>
         <div class="callout tip">
           <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
@@ -510,7 +510,7 @@
       <div class="num">5</div>
       <div class="step-body">
         <h3>Enter your app details</h3>
-        <p>On the <b>Authenticate</b> step, PrivacyPal shows the exact <b>Callback URL</b> to register (that's the value from Step&nbsp;2 — copy it there if you haven't yet). Then paste your <b>My Domain login URL</b>, <b>Consumer Key</b>, and <b>Consumer Secret</b>, and press <b>Connect with Salesforce</b>.</p>
+        <p>On the <b>Authenticate</b> step, PrivacyPal shows the exact <b>Callback URL</b> to register (that's the value from Step&nbsp;2; copy it there if you haven't yet). Then paste your <b>My Domain login URL</b>, <b>Consumer Key</b>, and <b>Consumer Secret</b>, and press <b>Connect with Salesforce</b>.</p>
         <figure>
           <div class="shot">
             <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections › Add Salesforce</span></div>
@@ -538,7 +538,7 @@
               <div style="display:flex;gap:9px;margin-top:14px"><span class="btn ghost" style="flex:1;justify-content:center">Back</span><span class="btn primary" style="flex:1;justify-content:center">Connect with Salesforce</span></div>
             </div>
           </div>
-          <figcaption><b>Authenticate step.</b> Three fields — My Domain, Consumer Key, Consumer Secret — plus the callback URL to copy.</figcaption>
+          <figcaption><b>Authenticate step.</b> Three fields (My Domain, Consumer Key, Consumer Secret) plus the callback URL to copy.</figcaption>
         </figure>
       </div>
     </div>
@@ -564,7 +564,7 @@
               </div>
             </div>
           </div>
-          <figcaption><b>Salesforce OAuth consent.</b> Approving returns tokens to PrivacyPal — nothing is stored on the Salesforce side.</figcaption>
+          <figcaption><b>Salesforce OAuth consent.</b> Approving returns tokens to PrivacyPal. Nothing is stored on the Salesforce side.</figcaption>
         </figure>
       </div>
     </div>
@@ -582,8 +582,8 @@
       <div class="num">7</div>
       <div class="step-body">
         <h3>Scan to build your catalog</h3>
-        <p>On the <b>Configure</b> step you can list any <span class="tok">Object.FieldApiName</span> to exclude — leave it blank to scan all relevant fields — then finish the wizard. On the Salesforce connection card, press <b>Scan</b> (or <b>Sync All</b> to run every connection).</p>
-        <p>PrivacyPal enumerates <b>Contacts, Leads, Accounts, Cases, Opportunities</b> and any relevant custom objects, then catalogs each sensitive value as a <b>salted hash — never plaintext</b>.</p>
+        <p>On the <b>Configure</b> step you can list any <span class="tok">Object.FieldApiName</span> to exclude (leave it blank to scan all relevant fields), then finish the wizard. On the Salesforce connection card, press <b>Scan</b> (or <b>Sync All</b> to run every connection).</p>
+        <p>PrivacyPal enumerates <b>Contacts, Leads, Accounts, Cases, Opportunities</b> and any relevant custom objects, then catalogs each sensitive value as a <b>salted hash, never plaintext</b>.</p>
         <figure>
           <div class="shot">
             <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections</span></div>
@@ -605,7 +605,7 @@
       <div class="num">8</div>
       <div class="step-body">
         <h3>Confirm your catalog &amp; protection</h3>
-        <p>When the scan finishes, the <b>Business Data Catalog</b> fills with indexed items grouped by category. From here on, any matching value that appears in an AI prompt is automatically protected — no further action needed.</p>
+        <p>When the scan finishes, the <b>Business Data Catalog</b> fills with indexed items grouped by category. From here on, any matching value that appears in an AI prompt is automatically protected. No further action needed.</p>
         <figure>
           <div class="shot">
             <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="addr">portal.privacypal.ai/connections › Business Data Catalog</span></div>
@@ -616,11 +616,11 @@
               <div class="catrow"><span class="tag" style="background:var(--ok-tint);color:var(--ok)">PCI / OTHER</span><span class="lbl">Case &amp; Opportunity free-text matches</span><span class="hash">sha256 ····</span><span class="cnt">111</span></div>
             </div>
           </div>
-          <figcaption><b>Business Data Catalog.</b> Values are stored as hashes only — the catalog proves coverage without ever holding the raw data.</figcaption>
+          <figcaption><b>Business Data Catalog.</b> Values are stored as hashes only: the catalog proves coverage without ever holding the raw data.</figcaption>
         </figure>
         <div class="callout tip">
           <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span>
-          <span class="txt"><b>That's it.</b> The connection stays fresh on its own — tokens refresh automatically and the daily rebuild re-scans every active org. You only revisit this if you rotate the Connected App's secret or want to reconnect.</span>
+          <span class="txt"><b>That's it.</b> The connection stays fresh on its own: tokens refresh automatically and the daily rebuild re-scans every active org. You only revisit this if you rotate the Connected App's secret or want to reconnect.</span>
         </div>
       </div>
     </div>
@@ -631,8 +631,8 @@
     <div class="phase-head"><span class="phase-kicker" style="color:var(--muted);background:var(--surface-2)">Reference</span><h2>If something goes wrong</h2></div>
     <div class="tshoot">
       <div class="tsr"><div class="c q">"OAuth not active" / app not enabled</div><div class="c a">The Connected App was just created or edited. Wait <b>2–10 minutes</b> for Salesforce to activate it, then retry the connection.</div></div>
-      <div class="tsr"><div class="c q"><span class="tok">redirect_uri_mismatch</span></div><div class="c a">The Callback URL in your Connected App doesn't match. Copy it again from the wizard — it must match exactly, including scheme and path.</div></div>
-      <div class="tsr"><div class="c q">"Invalid Salesforce host" before the popup</div><div class="c a">Your login URL isn't a recognized Salesforce host. Use your <span class="tok">…my.salesforce.com</span> (or sandbox) URL — not a custom CNAME.</div></div>
+      <div class="tsr"><div class="c q"><span class="tok">redirect_uri_mismatch</span></div><div class="c a">The Callback URL in your Connected App doesn't match. Copy it again from the wizard; it must match exactly, including scheme and path.</div></div>
+      <div class="tsr"><div class="c q">"Invalid Salesforce host" before the popup</div><div class="c a">Your login URL isn't a recognized Salesforce host. Use your <span class="tok">…my.salesforce.com</span> (or sandbox) URL, not a custom CNAME.</div></div>
       <div class="tsr"><div class="c q">Popup closed / "authentication cancelled"</div><div class="c a">Allow pop-ups for PrivacyPal and try again. The half-finished connection is cleaned up automatically.</div></div>
       <div class="tsr"><div class="c q">Connects, but the scan finds little data</div><div class="c a">The approving Salesforce user lacks read access. Reconnect as a user with read permission on the target objects.</div></div>
     </div>

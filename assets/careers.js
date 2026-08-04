@@ -1,5 +1,5 @@
 /* =========================================================
-   Careers — shared helpers
+   Careers: shared helpers
    - loadJobs(): fetches careers/jobs.json
    - renders listings on careers.html
    - renders single role + form on careers-apply.html
@@ -123,7 +123,7 @@
         return;
       }
 
-      document.title = `${job.title} — Careers — PrivacyPal`;
+      document.title = `${job.title} · Careers · PrivacyPal`;
       const teamName = teamLabel(data, job.team);
       const locName  = locLabel(data, job.location);
       const applicationsEmail = (data.meta && data.meta.applicationsEmail) || 'careers@privacypal.ai';
@@ -179,7 +179,7 @@
 
                 <section class="reveal">
                   <h2>Compensation</h2>
-                  <p>${escape(job.comp || 'Top-of-band cash and meaningful equity. We share the band on the first call.')} The number on the offer letter is the number we believe in — we don't negotiate against ourselves and we don't expect you to.</p>
+                  <p>${escape(job.comp || 'Top-of-band cash and meaningful equity. We share the band on the first call.')} The number on the offer letter is the number we believe in. We don't negotiate against ourselves and we don't expect you to.</p>
                 </section>
               </div>
 
@@ -192,7 +192,7 @@
                       method="POST"
                       enctype="multipart/form-data">
 
-                  <input type="hidden" name="_subject" value="New application — ${escape(job.title)}">
+                  <input type="hidden" name="_subject" value="New application: ${escape(job.title)}">
                   <input type="hidden" name="_template" value="table">
                   <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_next" value="${location.origin}${location.pathname.replace(/[^\/]*$/, '')}careers-thanks.html">
@@ -244,7 +244,7 @@
                     <div class="file-field" id="fileField">
                       <input type="file" id="resume" name="attachment" required accept=".pdf,.doc,.docx,application/pdf">
                       <div class="file-label" id="fileLabel">
-                        Drop a file or <b>browse</b> — PDF, DOC, or DOCX up to 5MB
+                        Drop a file or <b>browse</b>: PDF, DOC, or DOCX up to 5MB
                       </div>
                     </div>
                   </div>
@@ -273,7 +273,7 @@
 
                   <p class="apply-footnote">
                     Trouble with the form? Email
-                    <a href="mailto:${escape(applicationsEmail)}?subject=Application%20—%20${encodeURIComponent(job.title)}"
+                    <a href="mailto:${escape(applicationsEmail)}?subject=Application%3A%20${encodeURIComponent(job.title)}"
                        style="color:var(--cobalt)">${escape(applicationsEmail)}</a>
                     with your resume attached.
                   </p>
@@ -317,7 +317,7 @@
         const f = fileIn.files && fileIn.files[0];
         if (!f){
           fileWrap.classList.remove('has-file');
-          fileLbl.innerHTML = 'Drop a file or <b>browse</b> — PDF, DOC, or DOCX up to 5MB';
+          fileLbl.innerHTML = 'Drop a file or <b>browse</b>: PDF, DOC, or DOCX up to 5MB';
           return;
         }
         if (f.size > 5 * 1024 * 1024){
@@ -329,7 +329,7 @@
         }
         status.className = 'apply-status'; status.textContent = '';
         fileWrap.classList.add('has-file');
-        fileLbl.innerHTML = '<b>' + escape(f.name) + '</b> — ' + (f.size/1024).toFixed(0) + ' KB';
+        fileLbl.innerHTML = '<b>' + escape(f.name) + '</b> · ' + (f.size/1024).toFixed(0) + ' KB';
       });
 
       form.addEventListener('submit', e => {
@@ -367,8 +367,8 @@
         btn.querySelector('.lbl').textContent = 'Submitting…';
 
         iframe.addEventListener('load', () => {
-          // The iframe's initial about:blank insertion can fire load too —
-          // ignore it. Only the post-submit navigation matters.
+          // The iframe's initial about:blank insertion can fire load too.
+          // Ignore it. Only the post-submit navigation matters.
           let landedHere = false;
           try {
             const url = iframe.contentWindow.location.href;
@@ -418,7 +418,7 @@
             </svg>
           </div>
           <h3>Application received</h3>
-          <p>Thanks — we've got it. A real human on our team will read it inside the next few business days, and we'll get back to you either way.</p>
+          <p>Thanks. We've got it. A real human on our team will read it inside the next few business days, and we'll get back to you either way.</p>
           <div class="apply-success-actions">
             <a class="btn btn-cobalt" href="careers.html">See other roles</a>
           </div>

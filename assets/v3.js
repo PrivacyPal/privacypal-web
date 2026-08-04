@@ -1,4 +1,4 @@
-/* PrivacyPal v3 — shared announcement bar, nav, footer, modals & behaviors.
+/* PrivacyPal v3: shared announcement bar, nav, footer, modals & behaviors.
    Injected by JS to keep pages lean (same pattern as the current site). */
 (function(){
 
@@ -6,7 +6,7 @@
   var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.12-arm64.dmg';
   var DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.8.12-x64.dmg';
 
-  /* Social profiles — update these when handles are confirmed. */
+  /* Social profiles: update these when handles are confirmed. */
   var SOCIAL = {
     linkedin: 'https://www.linkedin.com/company/privacypalai',
     x: 'https://x.com/PrivacyPalAI',
@@ -32,7 +32,7 @@
   /* ---------------- Announcement bar ---------------- */
   var announceHTML =
   '<div class="announce">' +
-    '<a href="#" data-cta="download"><span class="tag">New</span> PrivacyPal v1.8.12 is out for Mac &amp; Windows — Install now <span class="arrow">→</span></a>' +
+    '<a href="#" data-cta="download"><span class="tag">New</span> PrivacyPal v1.8.12 is out for Mac &amp; Windows. Install now <span class="arrow">→</span></a>' +
   '</div>';
 
   /* ---------------- Nav ---------------- */
@@ -50,8 +50,8 @@
               '<h6>Platform</h6>' +
               '<a href="device-control.html"><b>On-Device Protection</b><small>Real-time interception across every AI app</small></a>' +
               '<a href="ai-dspm.html"><b>AI-DSPM</b><small>On-device + network data security posture</small></a>' +
-              '<a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic substitution — no blunt redaction</small></a>' +
-              '<a href="private-memory.html"><b>Private Memory</b><small>One memory across every AI — yours</small></a>' +
+              '<a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic substitution, no blunt redaction</small></a>' +
+              '<a href="private-memory.html"><b>Private Memory</b><small>One memory across every AI: yours</small></a>' +
               '<a href="privacypal-ai.html"><b>Agent Governance</b><small>Claude Code, Copilot &amp; MCP under control</small></a>' +
             '</div>' +
             '<div class="nav-group">' +
@@ -77,10 +77,10 @@
             '</div>' +
             '<div class="nav-group">' +
               '<h6>By team</h6>' +
-              '<a href="privacypal-pro.html"><b>For growing teams</b><small>Install once, govern every AI — Pro</small></a>' +
-              '<a href="privacypal-max.html"><b>For AI-native enterprise</b><small>Agents, connections &amp; DSPM — Max</small></a>' +
-              '<a href="privacypal-cloud.html"><b>For regulated &amp; sovereign</b><small>Your VPC, your keys — Cloud</small></a>' +
-              '<a href="developers.html"><b>For developers</b><small>Govern your own agents — SDK</small></a>' +
+              '<a href="privacypal-pro.html"><b>For growing teams</b><small>Install once, govern every AI: Pro</small></a>' +
+              '<a href="privacypal-max.html"><b>For AI-native enterprise</b><small>Agents, connections &amp; DSPM: Max</small></a>' +
+              '<a href="privacypal-cloud.html"><b>For regulated &amp; sovereign</b><small>Your VPC, your keys: Cloud</small></a>' +
+              '<a href="developers.html"><b>For developers</b><small>Govern your own agents: SDK</small></a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -205,7 +205,7 @@
         '</div>' +
         '<div class="footer-news">' +
           '<h5>Weekly newsletter</h5>' +
-          '<p>The Privacy Log in your inbox — AI governance, on-device privacy and what the agentic shift means for your data. No spam, ever.</p>' +
+          '<p>The Privacy Log in your inbox: AI governance, on-device privacy and what the agentic shift means for your data. No spam, ever.</p>' +
           '<form action="mailto:hello@privacypal.ai" method="get" data-newsletter>' +
             '<input type="email" name="subject" placeholder="you@company.com" aria-label="Email address" required>' +
             '<button class="btn btn-primary" type="submit">Subscribe</button>' +
@@ -216,7 +216,7 @@
         '<a class="foot-logo" href="index.html"><img src="assets/logo-color.png" alt="PrivacyPal"></a>' +
         '<div class="footer-social">' + social() + '</div>' +
         '<div class="footer-legal">' +
-          '<span>© 2026 PrivacyPal — Governance for the AI Operating System.</span>' +
+          '<span>© 2026 PrivacyPal. Governance for the AI Operating System.</span>' +
           '<a href="privacy.html">Privacy</a>' +
           '<a href="terms.html">Terms</a>' +
           '<a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a>' +
@@ -261,7 +261,7 @@
             '<div class="pp-dl-pills"><span class="pp-dl-pill">.dmg installer</span><span class="pp-dl-pill">M1–M5+</span><span class="pp-dl-pill">macOS 13+</span></div>' +
             '<a class="pp-dl-btn mac" href="' + DOWNLOAD_MACOS_ARM64 + '" rel="noopener noreferrer">Apple Silicon</a>' +
             '<a class="pp-dl-btn mac mac-secondary" href="' + DOWNLOAD_MACOS_X64 + '" rel="noopener noreferrer">Intel Mac</a>' +
-            '<p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line — anything M-series is Apple Silicon.</p>' +
+            '<p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line. Anything M-series is Apple Silicon.</p>' +
             '<p class="pp-dl-filename">PrivacyPal-1.8.12-{arm64,x64}.dmg</p>' +
           '</div>' +
         '</div>' +
@@ -269,7 +269,7 @@
           '<div class="pp-dl-trust-card"><span class="pp-dl-trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>' +
           '<div class="pp-dl-trust-body"><h5>Signed &amp; notarized</h5><p>Notarized by Apple. Trusted publisher on Windows. No scary first-launch dialogs.</p></div></div>' +
           '<div class="pp-dl-trust-card"><span class="pp-dl-trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>' +
-          '<div class="pp-dl-trust-body"><h5>Live in a minute</h5><p>Drop into Applications, sign in, and your AI guardrails work everywhere — no setup.</p></div></div>' +
+          '<div class="pp-dl-trust-body"><h5>Live in a minute</h5><p>Drop into Applications, sign in, and your AI guardrails work everywhere, no setup.</p></div></div>' +
         '</div>' +
       '</div>' +
     '</div>' +

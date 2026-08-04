@@ -16,14 +16,14 @@
           <div class="dropdown-menu dropdown-wide">
             <a href="device-control.html"><b>On-Device Protection</b><small>Real-time interception across every AI app</small></a>
             <a href="ai-dspm.html"><b>AI-DSPM</b><small>On-device + network data security posture</small></a>
-            <a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic data substitution — no blunt redaction</small></a>
+            <a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic data substitution, no blunt redaction</small></a>
             <a href="privacypal-ai.html"><b>Agent Governance</b><small>Visibility &amp; control across Claude Code, Copilot, MCP</small></a>
           </div>
         </div>
         <div class="dropdown">
           <span>Products</span>
           <div class="dropdown-menu">
-            <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>SME governance — for individuals, firms &amp; growing teams</small></a>
+            <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>SME governance: for individuals, firms &amp; growing teams</small></a>
             <a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy, governance &amp; enterprise AI enablement</small></a>
             <a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>
             <a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>
@@ -49,7 +49,7 @@
             <a href="blog.html"><b>The Privacy Log</b><small>Our blog on AI, privacy &amp; governance</small></a>
             <a href="news.html"><b>Newsroom</b><small>News, press &amp; happenings</small></a>
             <a href="events.html"><b>Events</b><small>Where to find us next</small></a>
-            <a href="careers.html"><b>Careers</b><small>We're hiring — join us</small></a>
+            <a href="careers.html"><b>Careers</b><small>We're hiring. Join us</small></a>
           </div>
         </div>
         <a class="nav-cta" href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign In</a>
@@ -86,7 +86,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <img src="assets/logo-color.png" alt="PrivacyPal">
-          <p>Govern every AI. Without blocking a single user. PrivacyPal is the on-device governance and enablement layer for the Age of AI — real-time Privacy Twins protect sensitive IP and PII before it ever reaches an LLM.</p>
+          <p>Govern every AI. Without blocking a single user. PrivacyPal is the on-device governance and enablement layer for the Age of AI: real-time Privacy Twins protect sensitive IP and PII before it ever reaches an LLM.</p>
         </div>
         <div class="footer-col">
           <h5>Platform</h5>
@@ -133,7 +133,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 PrivacyPal — Governance for the AI Operating System.</span>
+        <span>© 2026 PrivacyPal. Governance for the AI Operating System.</span>
         <span><a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></span>
       </div>
     </div>
@@ -197,7 +197,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
               Intel Mac
             </a>
-            <p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line — anything M-series is Apple Silicon.</p>
+            <p class="pp-dl-arch-hint">Not sure which? Open the Apple menu → <b>About This Mac</b> and read the <b>Chip</b> line. Anything M-series is Apple Silicon.</p>
             <p class="pp-dl-filename">PrivacyPal-1.8.12-{arm64,x64}.dmg</p>
           </div>
         </div>
@@ -217,7 +217,7 @@
             </span>
             <div class="pp-dl-trust-body">
               <h5>Live in a minute</h5>
-              <p>Drop into Applications, sign in, and your AI guardrails work everywhere — no setup.</p>
+              <p>Drop into Applications, sign in, and your AI guardrails work everywhere, no setup.</p>
             </div>
           </div>
         </div>

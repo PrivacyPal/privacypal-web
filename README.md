@@ -41,7 +41,7 @@ This site is configured for GitHub Pages with custom domain:
 
 ## Local Development
 
-**Use a local web server — do not open the `.html` files directly (`file://`).**
+**Use a local web server. Do not open the `.html` files directly (`file://`).**
 Data-driven pages (the Privacy Log and the Newsroom) load their content with
 `fetch()`, which browsers block on `file://`. Serve over HTTP instead:
 
@@ -55,21 +55,21 @@ static server (`scripts/serve.js`). Any static server works too, e.g.
 `python3 -m http.server 8000` or `npx serve .`.
 
 Then visit:
-- Home — http://localhost:8000/
-- The Privacy Log — http://localhost:8000/blog.html
-- RSS feed — http://localhost:8000/blog/rss.xml
+- Home: http://localhost:8000/
+- The Privacy Log: http://localhost:8000/blog.html
+- RSS feed: http://localhost:8000/blog/rss.xml
 
 ## The Privacy Log (blog)
 
-PrivacyPal's blog, built the same way as the Newsroom — one JSON file is the
+PrivacyPal's blog, built the same way as the Newsroom: one JSON file is the
 source of truth for the pages **and** the RSS feed.
 
-- `blog.html` / `blog-article.html` — listing + article pages (client-rendered)
-- `blog/blog.json` — authors + posts (title, author, date, tags, excerpt, body blocks)
-- `blog/images/` — hero / thumbnail photography
-- `assets/blog.css`, `assets/blog.js` — styles + rendering, search, and the
+- `blog.html` / `blog-article.html`: listing + article pages (client-rendered)
+- `blog/blog.json`: authors + posts (title, author, date, tags, excerpt, body blocks)
+- `blog/images/`: hero / thumbnail photography
+- `assets/blog.css`, `assets/blog.js`: styles + rendering, search, and the
   author / month / tag filters
-- `blog/rss.xml` — the published RSS 2.0 feed
+- `blog/rss.xml`: the published RSS 2.0 feed
 
 **Adding or editing a post:** edit `blog/blog.json` (add an entry to `articles`,
 drop its hero image in `blog/images/`), then regenerate the feed:

@@ -44,11 +44,11 @@
       "type": "Full-time",
       "level": "Senior / L5",
       "comp": "$160K–$215K + equity",
-      "summary": "Own the AI that makes PrivacyPal smart — from on-device detection models to the LLM-powered features that make using AI safely feel effortless.",
-      "about": "AI is in every layer of this product. Small, fast models run on-device to spot what's sensitive. Larger models — locally and in the cloud — classify intent, summarize policy decisions, and power agentic flows for customers. As a Senior Engineer on AI you'll own the model stack end-to-end: selection, fine-tuning, prompting, evals, serving, latency, and the privacy guarantees that have to hold up under audit. Reports to the Head of Engineering. This role is hybrid — remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
+      "summary": "Own the AI that makes PrivacyPal smart: from on-device detection models to the LLM-powered features that make using AI safely feel effortless.",
+      "about": "AI is in every layer of this product. Small, fast models run on-device to spot what's sensitive. Larger models, locally and in the cloud, classify intent, summarize policy decisions, and power agentic flows for customers. As a Senior Engineer on AI you'll own the model stack end-to-end: selection, fine-tuning, prompting, evals, serving, latency, and the privacy guarantees that have to hold up under audit. Reports to the Head of Engineering. This role is hybrid: remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
       "responsibilities": [
         "Own the on-device inference stack: ONNX, quantization, latency budgets, memory limits.",
-        "Build AI features end-to-end — corpus, fine-tuning, prompt design, eval harness, shipped binary, telemetry, regression alerting.",
+        "Build AI features end-to-end: corpus, fine-tuning, prompt design, eval harness, shipped binary, telemetry, regression alerting.",
         "Pick the right model for the right job: small/fast on-device, frontier in the cloud, agentic when it earns its keep.",
         "Partner with the platform team on the contract between AI and policy enforcement.",
         "Write the customer-facing docs for what our AI does, what it doesn't, and why.",
@@ -57,10 +57,10 @@
       "qualifications": [
         "6+ years writing production code in Python and at least one of Rust, Go, or C++.",
         "Hands-on with at least one of: applied NLP, transformer inference, LLM-powered systems, RAG, or agent frameworks.",
-        "You've shipped AI features with hard latency or privacy constraints — and the evals to prove they work.",
+        "You've shipped AI features with hard latency or privacy constraints, and the evals to prove they work.",
         "Comfortable building with both frontier APIs (OpenAI, Anthropic, Google) and small open models you run yourself.",
         "Strong writing voice. Our PRs read like papers.",
-        "You think about correctness, then performance, then ergonomics — in that order."
+        "You think about correctness, then performance, then ergonomics. In that order."
       ],
       "nicetohave": [
         "Open-source contributions to ML infra, tokenizers, inference engines, or agent frameworks.",
@@ -77,29 +77,29 @@
       "type": "Full-time",
       "level": "Senior / L5",
       "comp": "$160K–$215K + equity",
-      "summary": "Ship PrivacyPal on every phone and tablet on earth — and go as close to the OS as we have to so on-device privacy is real, not marketing.",
-      "about": "Most of the prompts our customers worry about start on a phone. The mobile build of PrivacyPal isn't a port of the desktop client — it's its own product, with its own constraints (battery, thermals, sandboxing, App Store review, enterprise MDM fleets) and its own opportunities (Keychain, Secure Enclave, on-device inference accelerators, system extensions). As Senior Engineer on Devices you own the iOS, iPadOS, and Android clients end-to-end, set the bar for what 'native' means here, and ship the parts of the product that actually live on the device. Reports to the Head of Engineering. This role is hybrid — remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
+      "summary": "Ship PrivacyPal on every phone and tablet on earth, and go as close to the OS as we have to so on-device privacy is real, not marketing.",
+      "about": "Most of the prompts our customers worry about start on a phone. The mobile build of PrivacyPal isn't a port of the desktop client. It's its own product, with its own constraints (battery, thermals, sandboxing, App Store review, enterprise MDM fleets) and its own opportunities (Keychain, Secure Enclave, on-device inference accelerators, system extensions). As Senior Engineer on Devices you own the iOS, iPadOS, and Android clients end-to-end, set the bar for what 'native' means here, and ship the parts of the product that actually live on the device. Reports to the Head of Engineering. This role is hybrid: remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
       "responsibilities": [
-        "Own the iOS, iPadOS, and Android clients end-to-end — architecture, performance, distribution, support.",
+        "Own the iOS, iPadOS, and Android clients end-to-end: architecture, performance, distribution, support.",
         "Go as close to the OS as the work demands: keyboard extensions, share targets, file providers, accessibility services, system intents, broadcast receivers.",
-        "Ship on-device inference with the right accelerator for the right device — Core ML and the Apple Neural Engine on iOS; NNAPI, ExecuTorch, and the Hexagon NPU on Android.",
+        "Ship on-device inference with the right accelerator for the right device: Core ML and the Apple Neural Engine on iOS; NNAPI, ExecuTorch, and the Hexagon NPU on Android.",
         "Hold the line on battery, memory, and thermal budgets. We measure it. We publish it. We don't ship regressions.",
         "Wire detection into Keychain, Keystore, Secure Enclave, and StrongBox so customer secrets never leave the device.",
         "Own the release train: TestFlight, App Store review, Play Console staged rollouts, MDM-distributed enterprise builds (Intune, Jamf, Kandji, Knox).",
         "Take part in the on-call rotation for mobile."
       ],
       "qualifications": [
-        "6+ years writing production mobile code — deep expertise in at least one of iOS (Swift, Objective-C) or Android (Kotlin, Java), and working command of the other.",
-        "You've shipped at scale and lived with the consequences — crash-free rates, App Store rejections, OEM-specific surprises at 2am.",
-        "Comfort below the framework: NDK and C/C++ on Android, Objective-C++ and C on iOS, JNI, and IPC primitives (Binder, XPC, Mach ports) — or the equivalent stack on another platform.",
+        "6+ years writing production mobile code: deep expertise in at least one of iOS (Swift, Objective-C) or Android (Kotlin, Java), and working command of the other.",
+        "You've shipped at scale and lived with the consequences: crash-free rates, App Store rejections, OEM-specific surprises at 2am.",
+        "Comfort below the framework: NDK and C/C++ on Android, Objective-C++ and C on iOS, JNI, and IPC primitives (Binder, XPC, Mach ports), or the equivalent stack on another platform.",
         "A real opinion on at least one of: kernel, HAL, BSP, device drivers, custom ROM work, secure boot, TEE, or mobile cryptography APIs.",
         "Comfort owning the developer experience: build systems (Xcode, Gradle, Bazel), code signing, provisioning, and the failure modes that only show up on a real device.",
         "Strong writing voice. Our PRs read like papers."
       ],
       "nicetohave": [
-        "Past life on a phone-maker or platform team — Apple iOS/Darwin, Android Framework / AOSP / Pixel, Samsung Mobile R&D, OnePlus, Meta Reality Labs, Qualcomm, ARM.",
+        "Past life on a phone-maker or platform team: Apple iOS/Darwin, Android Framework / AOSP / Pixel, Samsung Mobile R&D, OnePlus, Meta Reality Labs, Qualcomm, ARM.",
         "Built or maintained a custom kernel, HAL, or device driver in production.",
-        "Shipped on-device ML in a real app with Core ML, MLC, Hexagon, or NNAPI/ExecuTorch — and can talk about what didn't work.",
+        "Shipped on-device ML in a real app with Core ML, MLC, Hexagon, or NNAPI/ExecuTorch, and can talk about what didn't work.",
         "Wrote a keyboard extension, share extension, or accessibility service that millions of people used without noticing.",
         "Familiarity with enterprise mobile distribution: MDM/UEM, Jamf, Intune, Kandji, Samsung Knox.",
         "Contributed to AOSP, WebKit, Chromium, or any other open mobile codebase."
@@ -113,26 +113,26 @@
       "type": "Full-time",
       "level": "IC / Mid",
       "comp": "$55K base / $90K OTE + equity",
-      "summary": "Open the doors the AEs walk through. Own outbound to the security and data leaders at the most important companies in the world — and turn cold lists into hot pipeline.",
-      "about": "We're early. Pipeline is the constraint, and you're the team's leverage on it. As one of our first BDRs you'll work directly with the VP of Sales on target lists, messaging, and the sequences that get a CISO to take a 15-minute meeting. Top performers here have a clear path to AE inside 18 months — and we mean it. Reports to the VP of Sales, Enterprise. This role is hybrid — remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
+      "summary": "Open the doors the AEs walk through. Own outbound to the security and data leaders at the most important companies in the world, and turn cold lists into hot pipeline.",
+      "about": "We're early. Pipeline is the constraint, and you're the team's leverage on it. As one of our first BDRs you'll work directly with the VP of Sales on target lists, messaging, and the sequences that get a CISO to take a 15-minute meeting. Top performers here have a clear path to AE inside 18 months. And we mean it. Reports to the VP of Sales, Enterprise. This role is hybrid: remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
       "responsibilities": [
         "Run outbound across email, LinkedIn, phone, and conferences into a tight list of target accounts.",
         "Book 8–12 qualified meetings per month with security, privacy, or data leadership.",
         "Own your data hygiene: CRM accuracy, contact enrichment, sequence performance.",
-        "Partner with marketing on the messages that work — and bury the ones that don't.",
+        "Partner with marketing on the messages that work, and bury the ones that don't.",
         "Earn the AE seat in 12–18 months by being undeniable."
       ],
       "qualifications": [
-        "1–3 years in a sales-development role at a B2B software company — ideally infra, security, or data.",
+        "1–3 years in a sales-development role at a B2B software company, ideally infra, security, or data.",
         "You write outbound nobody mistakes for a template.",
         "Comfortable on the phone. Comfortable being told no. More comfortable being told yes.",
         "You hit your number. You don't ask for credit for the activity that didn't.",
-        "Hungry for the AE seat and willing to work for it — but you also like the BDR craft right now."
+        "Hungry for the AE seat and willing to work for it, but you also like the BDR craft right now."
       ],
       "nicetohave": [
         "Past performance: top quartile, President's Club, fastest BDR to promo, etc.",
         "Experience selling into security or compliance personas specifically.",
-        "Bilingual is a plus (Spanish or Portuguese — we sell into LATAM)."
+        "Bilingual is a plus (Spanish or Portuguese; we sell into LATAM)."
       ]
     },
     {
@@ -143,17 +143,17 @@
       "type": "Future hire · opens Q4 2026",
       "level": "Senior IC",
       "comp": "$120K base / $240K OTE + equity",
-      "summary": "The first AE for our SMB / mid-market motion — own deals cold-to-closed in a faster, higher-velocity cycle than enterprise.",
-      "about": "You'll own a high-volume pipeline of $30K–$300K ACV deals into SMB and mid-market customers, run the full cycle yourself, and help us build the SMB playbook from scratch. Conversations begin immediately; the seat opens in Q4 2026. Reports to the VP of Sales, Enterprise. This role is hybrid — remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
+      "summary": "The first AE for our SMB / mid-market motion: own deals cold-to-closed in a faster, higher-velocity cycle than enterprise.",
+      "about": "You'll own a high-volume pipeline of $30K–$300K ACV deals into SMB and mid-market customers, run the full cycle yourself, and help us build the SMB playbook from scratch. Conversations begin immediately; the seat opens in Q4 2026. Reports to the VP of Sales, Enterprise. This role is hybrid: remote-first, with quarterly on-site weeks at our West Palm Beach HQ.",
       "responsibilities": [
         "Own pipeline build, qualification, and close for a list of 200–400 SMB / mid-market accounts.",
         "Run a faster cycle than enterprise: 30–60 day deals, self-serve POCs, fewer cooks in the kitchen.",
-        "Hit a $800K+ annual quota — uncapped accelerators above plan.",
+        "Hit a $800K+ annual quota: uncapped accelerators above plan.",
         "Partner with marketing on the inbound motion and BDRs on outbound coverage.",
-        "Help build the SMB playbook — discovery, demo, pricing, expansion — from the deals you close."
+        "Help build the SMB playbook (discovery, demo, pricing, expansion) from the deals you close."
       ],
       "qualifications": [
-        "4+ years closing SMB or mid-market SaaS deals — ideally infrastructure, security, or developer tools.",
+        "4+ years closing SMB or mid-market SaaS deals, ideally infrastructure, security, or developer tools.",
         "Quota over-attainment in at least two of the last three years.",
         "You know how to run a self-serve POC without it becoming a 90-day enterprise cycle.",
         "Comfort owning the full cycle: outbound, demo, negotiation, close, expansion.",

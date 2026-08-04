@@ -44,7 +44,7 @@
       "readTime": "4 min read",
       "thumb": "news/images/private-memory.jpg",
       "hero": "news/images/private-memory.jpg",
-      "excerpt": "Memory that follows you across ChatGPT, Claude, Gemini and Copilot — secrets that don't. Opt-in, erasable, and born governed.",
+      "excerpt": "Memory that follows you across ChatGPT, Claude, Gemini and Copilot. Secrets that don't. Opt-in, erasable, and born governed.",
       "body": [
         {
           "type": "kicker",
@@ -52,7 +52,7 @@
         },
         {
           "type": "p",
-          "text": "WEST PALM BEACH, FL — August 3, 2026 — PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced Private Memory: a user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Microsoft Copilot and custom agents — while the secrets underneath it never leave your control. With Private Memory, PrivacyPal expands from the protection layer of the AI operating system to its continuity layer."
+          "text": "WEST PALM BEACH, FL, August 3, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced Private Memory: a user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Microsoft Copilot and custom agents, while the secrets underneath it never leave your control. With Private Memory, PrivacyPal expands from the protection layer of the AI operating system to its continuity layer."
         },
         {
           "type": "h2",
@@ -60,7 +60,7 @@
         },
         {
           "type": "p",
-          "text": "Every major AI provider now ships memory — and every one of them is a walled garden. What ChatGPT learns about you stays with ChatGPT. Gemini builds its own profile. Copilot remembers inside the mailbox. Switch models and you start from zero; use three assistants and you maintain three strangers. The reason nobody has solved memory across providers is structural: whoever holds cross-provider memory holds the most sensitive longitudinal dataset in a person’s working life, and no model vendor is structurally trustable with it. PrivacyPal is built to be exactly that owner — because with Private Memory, the durable record never contains a real secret at all."
+          "text": "Every major AI provider now ships memory, and every one of them is a walled garden. What ChatGPT learns about you stays with ChatGPT. Gemini builds its own profile. Copilot remembers inside the mailbox. Switch models and you start from zero; use three assistants and you maintain three strangers. The reason nobody has solved memory across providers is structural: whoever holds cross-provider memory holds the most sensitive longitudinal dataset in a person’s working life, and no model vendor is structurally trustable with it. PrivacyPal is built to be exactly that owner, because with Private Memory, the durable record never contains a real secret at all."
         },
         {
           "type": "h2",
@@ -73,29 +73,29 @@
         {
           "type": "list",
           "items": [
-            "Captured where you already are. PrivacyPal’s on-device interception observes the full exchange — prompt and response — regardless of which model served it, with zero added latency in the hot path.",
+            "Captured where you already are. PrivacyPal’s on-device interception observes the full exchange, prompt and response, regardless of which model served it, with zero added latency in the hot path.",
             "Stored in twin-space. Memories are distilled in the background and written to a bi-temporal memory graph that references synthetic twins, never real values. The real‐to‐twin map lives in an encrypted vault under the user’s own keys. PrivacyPal can host, sync and serve a memory it cannot read.",
-            "Injected into any model. At the moment of interception, relevant memory is assembled into a token-budgeted Memory Pack — with no LLM in the read path — and delivered to whichever AI the user is working in. New facts supersede old ones; contradictions are invalidated, never silently deleted.",
-            "Guarded at the write path. A dedicated Memory Guard quarantines instructions masquerading as facts — shipping a defense against memory poisoning, the emerging agentic attack class the OWASP agentic security taxonomy ranks among its most critical.",
-            "Erased by mathematics, not promises. Destroying a user’s vault keys renders every copy of their memory — synced, exported or cached — statistically plausible noise about entities that resolve to nothing. The right to be forgotten becomes a mechanical property of the architecture, not a data-deletion workflow."
+            "Injected into any model. At the moment of interception, relevant memory is assembled into a token-budgeted Memory Pack, with no LLM in the read path, and delivered to whichever AI the user is working in. New facts supersede old ones; contradictions are invalidated, never silently deleted.",
+            "Guarded at the write path. A dedicated Memory Guard quarantines instructions masquerading as facts, shipping a defense against memory poisoning, the emerging agentic attack class the OWASP agentic security taxonomy ranks among its most critical.",
+            "Erased by mathematics, not promises. Destroying a user’s vault keys renders every copy of their memory (synced, exported or cached) statistically plausible noise about entities that resolve to nothing. The right to be forgotten becomes a mechanical property of the architecture, not a data-deletion workflow."
           ]
         },
         {
           "type": "p",
-          "text": "Private Memory is opt-in and off by default. Users see, search and control what has been remembered, can exclude a conversation before it starts, and can erase everything — permanently — in one action."
+          "text": "Private Memory is opt-in and off by default. Users see, search and control what has been remembered, can exclude a conversation before it starts, and can erase everything, permanently, in one action."
         },
         {
           "type": "quote",
-          "text": "Every AI vendor wants to own your memory, because whoever owns the memory owns the relationship. We built the version where you own it. Your memory follows you across every model on every device — and the secrets inside it don’t follow you anywhere, because they were never in the memory to begin with. That is what a trust layer beneath the AI Operating System is for.",
+          "text": "Every AI vendor wants to own your memory, because whoever owns the memory owns the relationship. We built the version where you own it. Your memory follows you across every model on every device, and the secrets inside it don’t follow you anywhere, because they were never in the memory to begin with. That is what a trust layer beneath the AI Operating System is for.",
           "cite": "Jason Melo, CEO of PrivacyPal"
         },
         {
           "type": "h2",
-          "text": "PrivacyPal Max: Cross-Team, Cross-AI Collaboration — Born Governed"
+          "text": "PrivacyPal Max: Cross-Team, Cross-AI Collaboration. Born Governed"
         },
         {
           "type": "p",
-          "text": "On PrivacyPal Max, the Company’s flagship enterprise edition, Private Memory becomes an organizational capability. Individual memory can be explicitly promoted — never silently harvested — into governed team and organization scopes, so knowledge established in one teammate’s Claude session is available, in twin-space, to another teammate’s Copilot. Max organizations get the full governance plane on top: org-wide memory policy, fleet-level Memory Guard controls, a complete audit console, and a Private MCP memory server that lets internal agents and tools query organizational memory without any connection leaking to a public host. Enterprises finally get what agent adoption has been missing — shared, cross-AI institutional memory without an ungoverned shadow database. Team and organization scopes are beginning their rollout to Max customers now."
+          "text": "On PrivacyPal Max, the Company’s flagship enterprise edition, Private Memory becomes an organizational capability. Individual memory can be explicitly promoted, never silently harvested, into governed team and organization scopes, so knowledge established in one teammate’s Claude session is available, in twin-space, to another teammate’s Copilot. Max organizations get the full governance plane on top: org-wide memory policy, fleet-level Memory Guard controls, a complete audit console, and a Private MCP memory server that lets internal agents and tools query organizational memory without any connection leaking to a public host. Enterprises finally get what agent adoption has been missing: shared, cross-AI institutional memory without an ungoverned shadow database. Team and organization scopes are beginning their rollout to Max customers now."
         },
         {
           "type": "h2",
@@ -104,10 +104,10 @@
         {
           "type": "list",
           "items": [
-            "PrivacyPal Pro — personal cross-LLM memory, on-device, with full viewer, controls and incognito. Included with Pro, opt-in.",
-            "PrivacyPal Max — everything in Pro, plus governed team and org memory scopes, policy plane, Memory Guard fleet policies, Private MCP memory server and audit console. Rolling out now.",
-            "PrivacyPal Cloud — the sovereign memory plane: in-VPC deployment, bring-your-own-key, air-gap support, Memory DSPM and data residency.",
-            "PrivacyPal SDK — remember() and recall(): compliant cross-LLM memory for any application in two calls."
+            "PrivacyPal Pro: personal cross-LLM memory, on-device, with full viewer, controls and incognito. Included with Pro, opt-in.",
+            "PrivacyPal Max: everything in Pro, plus governed team and org memory scopes, policy plane, Memory Guard fleet policies, Private MCP memory server and audit console. Rolling out now.",
+            "PrivacyPal Cloud, the sovereign memory plane: in-VPC deployment, bring-your-own-key, air-gap support, Memory DSPM and data residency.",
+            "PrivacyPal SDK, remember() and recall(): compliant cross-LLM memory for any application in two calls."
           ]
         },
         {
@@ -145,7 +145,7 @@
         },
         {
           "type": "p",
-          "text": "BOCA RATON, FL — June 23, 2026 — PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced the successful acquisition and corporate integration of WEB3 REX INC."
+          "text": "BOCA RATON, FL, June 23, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced the successful acquisition and corporate integration of WEB3 REX INC."
         },
         {
           "type": "h2",
@@ -157,7 +157,7 @@
         },
         {
           "type": "quote",
-          "text": "We are thrilled to officially integrate WEB3 REX INC. into our corporate ecosystem. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System—one that provides absolute, ecosystem-wide control without fracturing the user experience. By incorporating these next-generation synthetics and blockchain frameworks, we are uniquely positioned to rapidly scale our on-device governance models and proprietary synthetic data engines, securing the AI frontier for enterprises globally.",
+          "text": "We are thrilled to officially integrate WEB3 REX INC. into our corporate ecosystem. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System, one that provides absolute, ecosystem-wide control without fracturing the user experience. By incorporating these next-generation synthetics and blockchain frameworks, we are uniquely positioned to rapidly scale our on-device governance models and proprietary synthetic data engines, securing the AI frontier for enterprises globally.",
           "cite": "Jason Melo, CEO of PrivacyPal"
         },
         {
@@ -195,7 +195,7 @@
         },
         {
           "type": "p",
-          "text": "BOCA RATON, FL — June 22, 2026 — PrivacyPal LLC and WEB3 REX INC. today announced the formal termination of their definitive Securities Purchase and Share Exchange Agreement (the “Agreement”) with Vocodia Holdings Corp. (OTC: VHAI)."
+          "text": "BOCA RATON, FL, June 22, 2026: PrivacyPal LLC and WEB3 REX INC. today announced the formal termination of their definitive Securities Purchase and Share Exchange Agreement (the “Agreement”) with Vocodia Holdings Corp. (OTC: VHAI)."
         },
         {
           "type": "h2",
@@ -211,7 +211,7 @@
         },
         {
           "type": "quote",
-          "text": "While our prospective path with Vocodia has concluded, our fundamental corporate trajectory has never been stronger or more sharply focused. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System—one that provides absolute, ecosystem-wide control without fracturing the user experience.",
+          "text": "While our prospective path with Vocodia has concluded, our fundamental corporate trajectory has never been stronger or more sharply focused. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System, one that provides absolute, ecosystem-wide control without fracturing the user experience.",
           "cite": "Jason Melo, CEO of PrivacyPal"
         },
         {
@@ -241,11 +241,11 @@
       "readTime": "4 min read",
       "thumb": "news/images/privacy-twins-2.jpg",
       "hero": "news/images/privacy-twins-2.jpg",
-      "excerpt": "A new generation of on-device models replaces sensitive values with coherent, context-preserving synthetic data — so the model still understands the prompt, and the secret never leaves.",
+      "excerpt": "A new generation of on-device models replaces sensitive values with coherent, context-preserving synthetic data, so the model still understands the prompt, and the secret never leaves.",
       "body": [
         {
           "type": "p",
-          "text": "Redaction breaks the prompt. Replace a customer's name with [REDACTED] and the model loses the thread; replace a transaction with black bars and the analysis falls apart. Privacy Twins 2.0 takes a different path: it substitutes sensitive values with coherent synthetic equivalents that preserve meaning, structure, and relationships — so the model still does its job, and the real data never crosses the boundary."
+          "text": "Redaction breaks the prompt. Replace a customer's name with [REDACTED] and the model loses the thread; replace a transaction with black bars and the analysis falls apart. Privacy Twins 2.0 takes a different path: it substitutes sensitive values with coherent synthetic equivalents that preserve meaning, structure, and relationships, so the model still does its job, and the real data never crosses the boundary."
         },
         {
           "type": "h2",
@@ -257,7 +257,7 @@
             "Context-aware substitution that keeps entities consistent across a whole conversation.",
             "A faster on-device detection model with broader coverage of regulated data types.",
             "Reversible mapping under policy, so authorized workflows can re-link results downstream.",
-            "Full audit of every substitution — what was detected, what was swapped, and why."
+            "Full audit of every substitution: what was detected, what was swapped, and why."
           ]
         },
         {
@@ -280,15 +280,15 @@
       "readTime": "3 min read",
       "thumb": "news/images/desktop-launch.jpg",
       "hero": "news/images/desktop-launch.jpg",
-      "excerpt": "On-device protection arrives natively on the desktop — real-time Privacy Twins on Windows 11 and macOS, governed by a single policy and live in about a minute.",
+      "excerpt": "On-device protection arrives natively on the desktop: real-time Privacy Twins on Windows 11 and macOS, governed by a single policy and live in about a minute.",
       "body": [
         {
           "type": "p",
-          "text": "Today PrivacyPal is available natively on Windows 11 and macOS. The same real-time Privacy Twins that protect every AI interaction now run on the desktop — substituting sensitive data on-device, before a single token ever reaches a model."
+          "text": "Today PrivacyPal is available natively on Windows 11 and macOS. The same real-time Privacy Twins that protect every AI interaction now run on the desktop, substituting sensitive data on-device, before a single token ever reaches a model."
         },
         {
           "type": "p",
-          "text": "Both builds are signed and notarized — a trusted publisher on Windows, notarized by Apple — so there are no scary first-launch dialogs. Drop it in, sign in, and your AI guardrails work everywhere in about a minute."
+          "text": "Both builds are signed and notarized (a trusted publisher on Windows, notarized by Apple), so there are no scary first-launch dialogs. Drop it in, sign in, and your AI guardrails work everywhere in about a minute."
         },
         {
           "type": "h2",
@@ -297,15 +297,15 @@
         {
           "type": "list",
           "items": [
-            "Native builds for Windows 11 and macOS — Apple Silicon and Intel.",
+            "Native builds for Windows 11 and macOS (Apple Silicon and Intel).",
             "Real-time, on-device Privacy Twins across every AI app and browser tab.",
-            "One policy for the whole fleet — write it once, enforce it on every endpoint.",
+            "One policy for the whole fleet: write it once, enforce it on every endpoint.",
             "Zero-touch distribution through your existing MDM, with sub-10ms p95 overhead and full audit on."
           ]
         },
         {
           "type": "quote",
-          "text": "Protection has to live where the work happens. For most teams that's the desktop — so that's where we made it effortless.",
+          "text": "Protection has to live where the work happens. For most teams that's the desktop, so that's where we made it effortless.",
           "cite": "PrivacyPal Product Team"
         },
         {

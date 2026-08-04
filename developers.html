@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>SDK for developers — PrivacyPal</title>
+<title>SDK for developers · PrivacyPal</title>
 <meta name="description" content="The governance SDK for agent-to-agent and MCP workflows. Encode PII into Privacy Twins, share safely between agents, decode back to real values. Node.js + Python today, future-ready for Data Payment controls." />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +13,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/developers.html" />
-<meta property="og:title" content="PrivacyPal SDK — Governance for agent-to-agent workflows" />
+<meta property="og:title" content="PrivacyPal SDK: Governance for agent-to-agent workflows" />
 <meta property="og:description" content="Build secure agent-to-agent workflows with PrivacyPal. Encode PII into Privacy Twins, send safely to any AI or third party, decode results back to real values. SDKs for Node.js and Python." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PrivacyPal SDK — Governance for agent-to-agent workflows" />
+<meta name="twitter:title" content="PrivacyPal SDK: Governance for agent-to-agent workflows" />
 <meta name="twitter:description" content="Encode PII into Privacy Twins, send safely to any AI or third party, decode results back to real values. SDKs for Node.js and Python." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 <style>
@@ -45,7 +45,7 @@
   <div class="container">
     <span class="eyebrow blue">PrivacyPal SDK · Agent-to-agent governance</span>
     <h1>The governance SDK for agents &amp; MCP</h1>
-    <p class="lede">The secure entry point for AI agents to share data compliantly. One agent encodes sensitive data into Privacy Twins, shares with another agent, MCP server or third-party API, and decodes the response back to real values — without sensitive data ever crossing your trust boundary. Future-ready for Data Payment controls.</p>
+    <p class="lede">The secure entry point for AI agents to share data compliantly. One agent encodes sensitive data into Privacy Twins, shares with another agent, MCP server or third-party API, and decodes the response back to real values, without sensitive data ever crossing your trust boundary. Future-ready for Data Payment controls.</p>
     <div class="btn-row">
       <a class="btn btn-primary btn-lg" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Read the docs</a>
       <a class="btn btn-ghost btn-lg" href="#examples">View examples</a>
@@ -70,7 +70,7 @@
       <div class="section-head" style="margin-bottom:28px;max-width:none">
         <span class="eyebrow">Quickstart</span>
         <h2 style="margin-top:12px">Encode. Share. Decode.</h2>
-        <p class="lede" style="margin-top:12px">Three calls to govern an agent-to-agent exchange — PII is replaced with statistically faithful Privacy Twins before anything leaves your boundary.</p>
+        <p class="lede" style="margin-top:12px">Three calls to govern an agent-to-agent exchange: PII is replaced with statistically faithful Privacy Twins before anything leaves your boundary.</p>
       </div>
       <div class="lang-grid">
         <div>
@@ -82,7 +82,7 @@
   apiKey: process.env.PRIVACYPAL_API_KEY
 });
 
-<span class="c">// Encode — PII replaced with Privacy Twins</span>
+<span class="c">// Encode: PII replaced with Privacy Twins</span>
 <span class="k">const</span> encoded = <span class="k">await</span> client.encode({
   data: <span class="s">'Patient: Jane Doe, DOB: 1985-03-15'</span>,
   sourceContainer: <span class="s">'ehr-system'</span>,
@@ -92,7 +92,7 @@
 <span class="c">// Safe to send to any AI or 3rd-party API</span>
 <span class="k">const</span> reply = <span class="k">await</span> sendToAI(encoded.encodedData);
 
-<span class="c">// Decode — restore real values</span>
+<span class="c">// Decode: restore real values</span>
 <span class="k">const</span> decoded = <span class="k">await</span> client.decode({
   continuationId: encoded.continuationId,
   data: reply
@@ -108,7 +108,7 @@ client = PrivacyPalClient(
   api_key=os.environ[<span class="s">'PRIVACYPAL_API_KEY'</span>]
 )
 
-<span class="c"># Encode — PII replaced with Privacy Twins</span>
+<span class="c"># Encode: PII replaced with Privacy Twins</span>
 encoded = client.encode(
   <span class="s">'Patient: Jane Doe, DOB: 1985-03-15'</span>,
   source_container=<span class="s">'ehr-system'</span>,
@@ -118,7 +118,7 @@ encoded = client.encode(
 <span class="c"># Safe to send to any AI or 3rd-party API</span>
 reply = send_to_ai(encoded[<span class="s">'encodedData'</span>])
 
-<span class="c"># Decode — restore real values</span>
+<span class="c"># Decode: restore real values</span>
 decoded = client.decode(
   continuation_id=encoded[<span class="s">'continuationId'</span>],
   data=reply
@@ -135,7 +135,7 @@ decoded = client.decode(
     <div class="section-head center reveal">
       <span class="eyebrow">SDKs</span>
       <h2>Two first-class SDKs. More on the way.</h2>
-      <p class="lede">Node.js and Python today — fully supported, production-ready. A public REST API is also available for any runtime that speaks JSON. Additional language SDKs are in progress.</p>
+      <p class="lede">Node.js and Python today: fully supported, production-ready. A public REST API is also available for any runtime that speaks JSON. Additional language SDKs are in progress.</p>
     </div>
     <div class="card-grid cols-2">
       <div class="feature-card sdk-card reveal reveal-delay-1">
@@ -164,7 +164,7 @@ decoded = client.decode(
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
         <h4>REST API</h4>
-        <p>Plain HTTPS — encode, decode, batch — for any runtime that speaks JSON. Use directly when an SDK isn't available for your stack.</p>
+        <p>Plain HTTPS (encode, decode, batch) for any runtime that speaks JSON. Use directly when an SDK isn't available for your stack.</p>
         <a class="link-arrow" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">View API documentation</a>
       </div>
     </div>
@@ -177,7 +177,7 @@ decoded = client.decode(
     <div class="section-head center reveal">
       <span class="eyebrow pink">What you get</span>
       <h2>Agent-to-agent governance, with privacy as the default</h2>
-      <p class="lede">Built for the AI Operating System: agentic workflows, MCP servers, autonomous tools. Encode at the boundary, decode at the destination — and stay compliant by construction.</p>
+      <p class="lede">Built for the AI Operating System: agentic workflows, MCP servers, autonomous tools. Encode at the boundary, decode at the destination, and stay compliant by construction.</p>
     </div>
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
@@ -193,7 +193,7 @@ decoded = client.decode(
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <h4>Streaming AI chat</h4>
-        <p>Server-Sent Events helpers for OpenAI, Anthropic, and Gemini. Encode the prompt, stream the model's response, decode tokens on the way out — your end users see normal token-by-token output.</p>
+        <p>Server-Sent Events helpers for OpenAI, Anthropic, and Gemini. Encode the prompt, stream the model's response, decode tokens on the way out: your end users see normal token-by-token output.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
@@ -203,12 +203,12 @@ decoded = client.decode(
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
         <h4>Database scanning (DSPM)</h4>
-        <p>Discover and classify sensitive data sitting in your own databases, file shares, and document stores — so you know what an agent should encode before it ever leaves the row.</p>
+        <p>Discover and classify sensitive data sitting in your own databases, file shares, and document stores, so you know what an agent should encode before it ever leaves the row.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
         <h4 style="display:flex;align-items:center;gap:10px">x402 payments <span class="pill">Future</span></h4>
-        <p>Coming on the roadmap: agents will be able to require x402 payment before decoding sensitive results — enabling agentic marketplaces where data is shared only on settled terms.</p>
+        <p>Coming on the roadmap: agents will be able to require x402 payment before decoding sensitive results, enabling agentic marketplaces where data is shared only on settled terms.</p>
       </div>
     </div>
   </div>
@@ -219,7 +219,7 @@ decoded = client.decode(
   <div class="container">
     <div class="stats cols-3 reveal">
       <div class="stat"><div class="n">0.10<small>ms</small></div><div class="l">Encode latency per 100 records on a warm gateway.</div></div>
-      <div class="stat"><div class="n">1&amp;2<small>way</small></div><div class="l">One-way anonymization or reversible Privacy Twin encoding — chosen per request.</div></div>
+      <div class="stat"><div class="n">1&amp;2<small>way</small></div><div class="l">One-way anonymization or reversible Privacy Twin encoding, chosen per request.</div></div>
       <div class="stat"><div class="n">0<small>limits</small></div><div class="l">No per-record cap. Batch as much as your gateway can serve.</div></div>
     </div>
   </div>
@@ -231,7 +231,7 @@ decoded = client.decode(
     <div class="section-head center reveal">
       <span class="eyebrow orange">Examples</span>
       <h2>Real workflows. Real APIs.</h2>
-      <p class="lede">Three patterns from production deployments — encode/decode the way the SDK actually works.</p>
+      <p class="lede">Three patterns from production deployments: encode/decode the way the SDK actually works.</p>
     </div>
 
     <div class="example reveal">
@@ -279,7 +279,7 @@ print(decoded[<span class="s">'decodedData'</span>])</div>
 
     <div class="example reveal">
       <h3>Healthcare AI: patient data to a 3rd-party analyzer</h3>
-      <p class="desc">Encode PHI before sending to a vendor API, decode the analysis on the way back — HIPAA-compliant by design.</p>
+      <p class="desc">Encode PHI before sending to a vendor API, decode the analysis on the way back: HIPAA-compliant by design.</p>
       <div class="lang-grid">
         <div>
           <div class="code-label">Node.js</div>

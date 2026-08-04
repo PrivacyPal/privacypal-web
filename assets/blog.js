@@ -1,5 +1,5 @@
 /* =========================================================
-   The Privacy Log — v3
+   The Privacy Log: v3
    - loads blog/blog.json (single source of truth, also feeds rss.xml)
    - blog.html        : featured + grid + search + author/month/tag facets
    - blog-article.html: single post + author bio + related + sharing
@@ -18,7 +18,7 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
   }
-  // JSON paths are root-relative ("blog/images/x.jpg") — v3 pages live in /v3/
+  // JSON paths are root-relative ("blog/images/x.jpg"); v3 pages live in /v3/
   function asset(p){
     if (!p) return p;
     return /^(https?:)?\/\//.test(p) || p.startsWith('../') || p.startsWith('/') ? p : p;
@@ -254,7 +254,7 @@
         empty.querySelector('h3').textContent = 'Nothing matches those filters yet.';
         empty.querySelector('p').textContent  = query
           ? `No posts for “${searchIn.value.trim()}”. Try another search or clear the filters.`
-          : 'Try a different combination — or clear the filters to see everything.';
+          : 'Try a different combination, or clear the filters to see everything.';
         countEl.textContent = '';
       } else {
         empty.hidden = true;
@@ -329,7 +329,7 @@
       const shareText = a.title;
 
       // ---- meta / social ----
-      document.title = `${a.title} — The Privacy Log — PrivacyPal`;
+      document.title = `${a.title} · The Privacy Log · PrivacyPal`;
       setMeta('name', 'description', a.excerpt || '');
       setMeta('property', 'og:title', a.title);
       setMeta('name', 'twitter:title', a.title);
@@ -340,7 +340,7 @@
       setMeta('property', 'article:published_time', a.date);
       setCanonical(shareUrl);
 
-      // related: same author first, then shared tags, then most-recent — max 3
+      // related: same author first, then shared tags, then most-recent (max 3)
       const tagset = new Set(a.tags || []);
       const related = all.filter(x => x.id !== a.id)
         .map(x => {
