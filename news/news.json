@@ -86,6 +86,60 @@
       ]
     },
     {
+      "id": "vocodia-termination",
+      "title": "PrivacyPal and WEB3 REX Inc. terminate definitive agreement with Vocodia Holdings Corp.",
+      "category": "press-release",
+      "date": "2026-06-22",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "3 min read",
+      "thumb": "news/images/vocodia-termination.jpg",
+      "hero": "news/images/vocodia-termination.jpg",
+      "excerpt": "PrivacyPal LLC and WEB3 REX Inc. have formally terminated their Securities Purchase and Share Exchange Agreement with Vocodia Holdings Corp. (OTC: VHAI). CEO Jason Melo remains fully focused on PrivacyPal.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "BOCA RATON, FL — June 22, 2026 — PrivacyPal LLC and WEB3 REX INC. today announced the formal termination of their definitive Securities Purchase and Share Exchange Agreement (the “Agreement”) with Vocodia Holdings Corp. (OTC: VHAI)."
+        },
+        {
+          "type": "h2",
+          "text": "Termination of the Definitive Agreement with Vocodia"
+        },
+        {
+          "type": "p",
+          "text": "The termination of the proposed transaction was effectuated due to Vocodia’s inability to satisfy essential closing conditions necessary to consummate the acquisition under the terms of the Agreement dated January 13, 2026. Pursuant to the provisions of the Agreement, WEB3 REX INC. has formally exercised its right to terminate the transaction. While the strategic combination will not be consummated, PrivacyPal and WEB3 REX INC. express their appreciation to the Vocodia team for their collaboration during the negotiation process and extend their best wishes for Vocodia’s future corporate endeavors."
+        },
+        {
+          "type": "p",
+          "text": "Consequently, Jason Melo will not be joining Vocodia Holdings Corp. as Chief Executive Officer. Mr. Melo will remain fully dedicated to his role as Chief Executive Officer of PrivacyPal, advancing its strategic enterprise initiatives alongside the other high-growth companies within his corporate portfolio."
+        },
+        {
+          "type": "quote",
+          "text": "While our prospective path with Vocodia has concluded, our fundamental corporate trajectory has never been stronger or more sharply focused. The enterprise market demands a comprehensive trust and enablement layer beneath the AI Operating System—one that provides absolute, ecosystem-wide control without fracturing the user experience.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
       "id": "privacy-twins-2",
       "title": "Introducing Privacy Twins 2.0: synthetic substitution in real time",
       "category": "product",
