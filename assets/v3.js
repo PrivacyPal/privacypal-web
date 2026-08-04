@@ -51,6 +51,7 @@
               '<a href="device-control.html"><b>On-Device Protection</b><small>Real-time interception across every AI app</small></a>' +
               '<a href="ai-dspm.html"><b>AI-DSPM</b><small>On-device + network data security posture</small></a>' +
               '<a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic substitution — no blunt redaction</small></a>' +
+              '<a href="private-memory.html"><b>Private Memory</b><small>One memory across every AI — yours</small></a>' +
               '<a href="privacypal-ai.html"><b>Agent Governance</b><small>Claude Code, Copilot &amp; MCP under control</small></a>' +
             '</div>' +
             '<div class="nav-group">' +
@@ -122,6 +123,7 @@
     '<a href="device-control.html">On-Device Protection</a>' +
     '<a href="ai-dspm.html">AI-DSPM</a>' +
     '<a href="privacy-twins.html">Privacy Twins</a>' +
+    '<a href="private-memory.html">Private Memory</a>' +
     '<a href="privacypal-ai.html">Agent Governance</a>' +
     '<h6>Editions</h6>' +
     '<a href="privacypal-pro.html">PrivacyPal Pro</a>' +
@@ -163,6 +165,7 @@
           '<a href="device-control.html">On-Device Protection</a>' +
           '<a href="ai-dspm.html">AI-DSPM</a>' +
           '<a href="privacy-twins.html">Privacy Twins</a>' +
+          '<a href="private-memory.html">Private Memory</a>' +
           '<a href="privacypal-ai.html">Agent Governance</a>' +
           '<a href="privacypal-pro.html">PrivacyPal Pro</a>' +
           '<a href="privacypal-max.html">PrivacyPal Max</a>' +
