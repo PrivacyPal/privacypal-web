@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-06-23",
+    "updated": "2026-08-03",
     "pressEmail": "press@privacypal.ai"
   },
   "categories": [
@@ -35,11 +35,104 @@
   ],
   "articles": [
     {
+      "id": "private-memory-launch",
+      "title": "PrivacyPal launches Private Memory",
+      "category": "press-release",
+      "date": "2026-08-03",
+      "featured": true,
+      "author": "PrivacyPal Newsroom",
+      "readTime": "4 min read",
+      "thumb": "news/images/private-memory.jpg",
+      "hero": "news/images/private-memory.jpg",
+      "excerpt": "Memory that follows you across ChatGPT, Claude, Gemini and Copilot — secrets that don't. Opt-in, erasable, and born governed.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "WEST PALM BEACH, FL — August 3, 2026 — PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced Private Memory: a user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Microsoft Copilot and custom agents — while the secrets underneath it never leave your control. With Private Memory, PrivacyPal expands from the protection layer of the AI operating system to its continuity layer."
+        },
+        {
+          "type": "h2",
+          "text": "The End of Walled-Garden Memory"
+        },
+        {
+          "type": "p",
+          "text": "Every major AI provider now ships memory — and every one of them is a walled garden. What ChatGPT learns about you stays with ChatGPT. Gemini builds its own profile. Copilot remembers inside the mailbox. Switch models and you start from zero; use three assistants and you maintain three strangers. The reason nobody has solved memory across providers is structural: whoever holds cross-provider memory holds the most sensitive longitudinal dataset in a person’s working life, and no model vendor is structurally trustable with it. PrivacyPal is built to be exactly that owner — because with Private Memory, the durable record never contains a real secret at all."
+        },
+        {
+          "type": "h2",
+          "text": "Memory Portability Without Memory Custody"
+        },
+        {
+          "type": "p",
+          "text": "Private Memory is built on the interception plane PrivacyPal already operates and the Privacy Twins architecture that made it the trusted boundary between enterprises and AI:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Captured where you already are. PrivacyPal’s on-device interception observes the full exchange — prompt and response — regardless of which model served it, with zero added latency in the hot path.",
+            "Stored in twin-space. Memories are distilled in the background and written to a bi-temporal memory graph that references synthetic twins, never real values. The real‐to‐twin map lives in an encrypted vault under the user’s own keys. PrivacyPal can host, sync and serve a memory it cannot read.",
+            "Injected into any model. At the moment of interception, relevant memory is assembled into a token-budgeted Memory Pack — with no LLM in the read path — and delivered to whichever AI the user is working in. New facts supersede old ones; contradictions are invalidated, never silently deleted.",
+            "Guarded at the write path. A dedicated Memory Guard quarantines instructions masquerading as facts — shipping a defense against memory poisoning, the emerging agentic attack class the OWASP agentic security taxonomy ranks among its most critical.",
+            "Erased by mathematics, not promises. Destroying a user’s vault keys renders every copy of their memory — synced, exported or cached — statistically plausible noise about entities that resolve to nothing. The right to be forgotten becomes a mechanical property of the architecture, not a data-deletion workflow."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Private Memory is opt-in and off by default. Users see, search and control what has been remembered, can exclude a conversation before it starts, and can erase everything — permanently — in one action."
+        },
+        {
+          "type": "quote",
+          "text": "Every AI vendor wants to own your memory, because whoever owns the memory owns the relationship. We built the version where you own it. Your memory follows you across every model on every device — and the secrets inside it don’t follow you anywhere, because they were never in the memory to begin with. That is what a trust layer beneath the AI Operating System is for.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "PrivacyPal Max: Cross-Team, Cross-AI Collaboration — Born Governed"
+        },
+        {
+          "type": "p",
+          "text": "On PrivacyPal Max, the Company’s flagship enterprise edition, Private Memory becomes an organizational capability. Individual memory can be explicitly promoted — never silently harvested — into governed team and organization scopes, so knowledge established in one teammate’s Claude session is available, in twin-space, to another teammate’s Copilot. Max organizations get the full governance plane on top: org-wide memory policy, fleet-level Memory Guard controls, a complete audit console, and a Private MCP memory server that lets internal agents and tools query organizational memory without any connection leaking to a public host. Enterprises finally get what agent adoption has been missing — shared, cross-AI institutional memory without an ungoverned shadow database. Team and organization scopes are beginning their rollout to Max customers now."
+        },
+        {
+          "type": "h2",
+          "text": "Available Across the PrivacyPal Ecosystem"
+        },
+        {
+          "type": "list",
+          "items": [
+            "PrivacyPal Pro — personal cross-LLM memory, on-device, with full viewer, controls and incognito. Included with Pro, opt-in.",
+            "PrivacyPal Max — everything in Pro, plus governed team and org memory scopes, policy plane, Memory Guard fleet policies, Private MCP memory server and audit console. Rolling out now.",
+            "PrivacyPal Cloud — the sovereign memory plane: in-VPC deployment, bring-your-own-key, air-gap support, Memory DSPM and data residency.",
+            "PrivacyPal SDK — remember() and recall(): compliant cross-LLM memory for any application in two calls."
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
       "id": "web3rex-acquisition",
       "title": "PrivacyPal acquires WEB3 REX Inc., accelerating enterprise AI governance",
       "category": "press-release",
       "date": "2026-06-23",
-      "featured": true,
       "author": "PrivacyPal Newsroom",
       "readTime": "3 min read",
       "thumb": "news/images/web3rex-acquisition.jpg",
