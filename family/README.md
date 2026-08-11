@@ -35,22 +35,25 @@ slash; `/family` without a slash resolves to the older live one-pager
   with Duolingo-style pressed edges, big radii, squircle photo masks, LEGO-ish
   five-color band divider.
 - **Naming system:** Guardrails · Privacy Twins · Family Memory · Pal Agents
-  (Wellbeing Signal, Sharing Guard). Age stages: Explorer 5–9 · Navigator 10–13 ·
+  (Wellbeing Signal, Answer Guard). Age stages: Explorer 5–9 · Navigator 10–13 ·
   Pilot 14–17. Parent dashboard: **Parent HQ**. Ethics spine: "Guardrails, not
   surveillance" and "signals, not transcripts."
 
 ## Claims discipline (read before editing copy)
 
 - Shipping today (safe to state as fact): Privacy Twins swap on-device, ~340ms
-  interception, ChatGPT/Claude/Gemini/Copilot coverage, Mac + Windows, 5 devices,
-  $4.99/mo, 5-day trial, 30-day money-back, approve/block/redirect, memory viewer
+  interception, ChatGPT/Claude/Gemini/Copilot coverage, Mac + Windows, 5 family members,
+  $9.99/mo, 5-day trial, 30-day money-back, approve/block/redirect, memory viewer
   + crypto-shred erase.
 - Private Memory claims follow `GTM/Frameworks/Private Memory Claims Guidance`
   in the Brain: mechanisms and "internal benchmark" phrasing only, **no bare
   accuracy percentages**, no vendor comparisons.
 - Labeled **early access** on the site (do not present as shipped): iOS/Android,
-  Wellbeing Signal (sentiment), Sharing Guard (social), kid-safe answer checks.
-  Smart glasses are labeled **roadmap**.
+  Wellbeing Signal (sentiment), Answer Guard (age-right answers + prompt-injection
+  defense). Smart glasses are labeled **roadmap**.
+- **Social media sharing protection is deferred** (Jason, 2026-08-10): the focus
+  is AI protection; Sharing Guard was removed from the site and must not be
+  marketed until it's back on the roadmap. Do not add social-sharing claims.
 - No invented testimonials, star ratings, or user counts. Social proof borrows
   from the company ("hundreds of companies") until real family quotes exist.
 
