@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Get early access · PrivacyPal Family</title>
+<meta name="description" content="Save your family's spot. PrivacyPal Family early access opens in the next 2 weeks: tell us about your crew and we'll connect you with the tools to protect them." />
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="family.css"/>
+</head>
+<body>
+
+<nav class="fnav">
+  <div class="fnav-inner">
+    <a class="fnav-logo" href="index.html">
+      <img src="assets/product/logo-color.png" alt="PrivacyPal"/>
+      <span class="fam">Family</span>
+    </a>
+    <span class="preview-pill">team preview · not public</span>
+    <div class="fnav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="parents.html">For parents</a>
+      <a href="kids.html">For kids &amp; teens</a>
+      <a href="promise.html">Our promise</a>
+      <a href="index.html#plans">Plans</a>
+      <a class="btn btn-key btn-sm fnav-cta" href="early-access.html">Get early access</a>
+    </div>
+    <button class="fnav-burger" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ================= HERO + FORM ================= -->
+<header class="fhero" style="padding-bottom:72px">
+  <div class="container">
+    <div class="fhero-grid" style="align-items:start">
+      <div>
+        <span class="eyebrow orange">Early access · opens in the next 2 weeks</span>
+        <h1>Save your family's <span class="hl-teal">spot.</span></h1>
+        <p class="lede">You're a few fields away from the front of the line. Tell us a little about your crew, and when the doors open in the next two weeks, we'll connect you with everything you need to protect your family: the app, your Parent HQ, and a real human to help you set it up.</p>
+
+        <div class="deep-list" style="margin-top:30px">
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Today: your spot is saved</b><p>You join the Founding Families list. No card, no commitment.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Within 2 weeks: your invite arrives</b><p>A personal email with your download links and your first month free.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Day one: protected in about 15 minutes</b><p>We walk you through setup on every family device, and the guardrails you chose are on before dinner.</p></span>
+          </div>
+        </div>
+
+        <div class="trust-strip" style="margin-top:30px">
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No spam, ever</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Your info stays with us</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Unsubscribe anytime</span>
+        </div>
+      </div>
+
+      <div class="fform-card reveal" id="formCard">
+        <form class="fform" id="waitlistForm"
+              action="https://formsubmit.co/hi@privacypal.ai"
+              method="POST">
+          <input type="hidden" name="_subject" value="New Founding Family: early access waitlist"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" id="wlNext" value=""/>
+          <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off" style="display:none"/>
+          <input type="hidden" name="Devices at home" id="wlDevices" value=""/>
+          <input type="hidden" name="Kids ages" id="wlAges" value=""/>
+          <h3>Join the Founding Families</h3>
+          <p class="sub">About 60 seconds. We only ask what we need to get your family set up right.</p>
+
+          <label for="wl-name">Your first name</label>
+          <input type="text" id="wl-name" name="Parent first name" autocomplete="given-name" placeholder="e.g. Sam" required/>
+
+          <label for="wl-email">Email <small>where your invite lands</small></label>
+          <input type="email" id="wl-email" name="Email" autocomplete="email" placeholder="you@example.com" required/>
+
+          <label>Devices in your home <small>pick all that apply</small></label>
+          <div class="chip-picks" role="group" aria-label="Devices in your home">
+            <label><input type="checkbox" data-pick="devices" value="Mac"/><span>Mac</span></label>
+            <label><input type="checkbox" data-pick="devices" value="Windows PC"/><span>Windows PC</span></label>
+            <label><input type="checkbox" data-pick="devices" value="iPhone / iPad"/><span>iPhone / iPad</span></label>
+            <label><input type="checkbox" data-pick="devices" value="Android"/><span>Android</span></label>
+          </div>
+
+          <label>Your kids' ages <small>pick all that apply</small></label>
+          <div class="chip-picks" role="group" aria-label="Your kids' ages">
+            <label><input type="checkbox" data-pick="ages" value="Explorer (5-9)"/><span>5–9</span></label>
+            <label><input type="checkbox" data-pick="ages" value="Navigator (10-13)"/><span>10–13</span></label>
+            <label><input type="checkbox" data-pick="ages" value="Pilot (14-17)"/><span>14–17</span></label>
+          </div>
+
+          <label for="wl-priority">What matters most to you? <small>optional</small></label>
+          <select id="wl-priority" name="What matters most">
+            <option value="">Choose one (or skip)</option>
+            <option>Choosing which AI tools my kids can use</option>
+            <option>Keeping their identity out of AI</option>
+            <option>Understanding how AI affects their wellbeing</option>
+            <option>Safer social media sharing</option>
+            <option>All of it, honestly</option>
+          </select>
+
+          <button class="btn btn-key btn-lg" type="submit" id="wlSubmit"><span class="lbl">Save my family's spot</span></button>
+          <div class="apply-status" id="wlStatus" aria-live="polite" style="margin-top:12px;font-size:.88rem;color:var(--coral-deep);text-align:center"></div>
+          <p class="fine">Early access opens in the next 2 weeks. First month free for Founding Families. We use these answers only to set up your family, never for marketing lists.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess" hidden>
+          <div class="big-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 id="successTitle">Your spot is saved!</h3>
+          <p>Welcome to the Founding Families. Your invite lands in your inbox within 2 weeks, with everything you need to protect your family and a real human to help you set it up.</p>
+          <p>Until then, get to know what you're getting: <a class="link-arrow" href="promise.html">read the Family Promise</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
+
+<!-- ================= REASSURANCE ================= -->
+<section class="section wash-cream">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">While you wait</span>
+      <h2>Two weeks goes fast. Here's what you're getting.</h2>
+    </div>
+    <div class="card-grid cols-3">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico" style="background:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
+        <h4>The keys to AI in your home</h4>
+        <p>Approve the AI your kids use, protect who they are, and see how it shapes them. <a class="link-arrow" href="index.html#how">How it works</a></p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>Founding Family perks</h4>
+        <p>First month free, first in line for Wellbeing Signal and Sharing Guard, and a direct line to the team building them.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h4>A promise, in writing</h4>
+        <p>Guardrails, not surveillance. Kids see what you see. Read the whole thing before your invite arrives. <a class="link-arrow" href="promise.html">The Family Promise</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ffoot" style="margin-top:0">
+  <div class="container">
+    <div class="ffoot-grid">
+      <div class="brand">
+        <a class="fnav-logo" href="index.html">
+          <img src="assets/product/logo-color.png" alt="PrivacyPal" style="height:28px"/>
+          <span class="fam">Family</span>
+        </a>
+        <p>Effortless safety for families growing up with AI. You hold the keys. They get the future.</p>
+      </div>
+      <div class="cols">
+        <div>
+          <h6>Family</h6>
+          <ul>
+            <li><a href="index.html#how">How it works</a></li>
+            <li><a href="parents.html">For parents</a></li>
+            <li><a href="kids.html">For kids &amp; teens</a></li>
+            <li><a href="promise.html">The Family Promise</a></li>
+            <li><a href="index.html#plans">Plans</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>PrivacyPal</h6>
+          <ul>
+            <li><a href="https://privacypal.ai">privacypal.ai</a></li>
+            <li><a href="https://privacypal.ai/privacy-twins.html">Privacy Twins</a></li>
+            <li><a href="https://privacypal.ai/private-memory.html">Private Memory</a></li>
+            <li><a href="https://privacypal.ai/privacy-policy.html">Privacy policy</a></li>
+            <li><a href="https://privacypal.ai/terms-of-service.html">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Say hi</h6>
+          <ul>
+            <li><a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ffoot-base">
+      <span>© 2026 PrivacyPal. A PrivacyPal product, made with love for families.</span>
+      <span>Photography via Unsplash. Parent HQ shown is a design preview.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="family.js"></script>
+<script>
+(function(){
+  'use strict';
+  /* Same delivery mechanism as the careers application form (assets/careers.js):
+     POST to FormSubmit.co inside a hidden iframe so the page never navigates
+     away. Success = the iframe lands on our same-origin _next URL. */
+  var form = document.getElementById('waitlistForm');
+  var success = document.getElementById('formSuccess');
+  var title = document.getElementById('successTitle');
+  var status = document.getElementById('wlStatus');
+  var btn = document.getElementById('wlSubmit');
+  if (!form) return;
+
+  document.getElementById('wlNext').value =
+    location.origin + location.pathname + '?saved=1';
+
+  function picks(group){
+    return Array.prototype.map.call(
+      form.querySelectorAll('input[data-pick="' + group + '"]:checked'),
+      function(el){ return el.value; }
+    ).join(', ') || 'not sure yet';
+  }
+
+  form.addEventListener('submit', function(e){
+    var honey = form.querySelector('input[name="_honey"]');
+    if (honey && honey.value){ e.preventDefault(); return; }
+    if (!form.checkValidity()){
+      e.preventDefault();
+      form.reportValidity();
+      return;
+    }
+
+    var name = document.getElementById('wl-name').value.trim();
+    document.getElementById('wlDevices').value = picks('devices');
+    document.getElementById('wlAges').value = picks('ages');
+    form.querySelector('input[name="_subject"]').value =
+      'New Founding Family: ' + name + ' joined the early access waitlist';
+
+    var iframeName = 'pp-family-wl-' + Date.now();
+    var iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.setAttribute('aria-hidden', 'true');
+    iframe.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden';
+    document.body.appendChild(iframe);
+    form.target = iframeName;
+
+    btn.disabled = true;
+    btn.querySelector('.lbl').textContent = 'Saving your spot…';
+    if (status) status.textContent = '';
+
+    iframe.addEventListener('load', function(){
+      var landedHere = false;
+      try {
+        var url = iframe.contentWindow.location.href;
+        if (url === 'about:blank' || url === '') return;
+        landedHere = true; /* same-origin read → _next redirect → delivered */
+      } catch (_err) {
+        /* cross-origin → FormSubmit served its own page → not delivered */
+      }
+      if (landedHere){
+        if (title) title.textContent = 'Your spot is saved, ' + name + '!';
+        form.hidden = true;
+        success.hidden = false;
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function(){ iframe.remove(); }, 800);
+      } else {
+        if (status){
+          status.innerHTML = 'We couldn\'t save your spot just now. Email '
+            + '<a href="mailto:hi@privacypal.ai?subject=Founding%20Family%20spot" style="color:var(--teal-ink);font-weight:600">hi@privacypal.ai</a>'
+            + ' and we\'ll add you by hand.';
+        }
+        btn.disabled = false;
+        btn.querySelector('.lbl').textContent = 'Save my family\'s spot';
+        iframe.remove();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
