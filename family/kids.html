@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>For kids &amp; teens · PrivacyPal Family</title>
 <meta name="description" content="PrivacyPal Family for kids and teens: use the AI you love, keep your real identity yours, and always see exactly what your parents can see. No spying. That's the deal." />
-<meta name="robots" content="noindex,nofollow"/>
 <link rel="icon" href="../assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="family.css"/>
+<link rel="stylesheet" href="../assets/family-chrome.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal Family" />
 <meta property="og:url" content="https://privacypal.ai/family/kids.html" />
@@ -30,26 +30,7 @@
 </head>
 <body>
 
-<nav class="fnav">
-  <div class="fnav-inner">
-    <a class="fnav-logo" href="index.html">
-      <img src="assets/product/logo-color.png" alt="PrivacyPal"/>
-      <span class="fam">Family</span>
-    </a>
-    <span class="preview-pill">team preview · not public</span>
-    <div class="fnav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="parents.html">For parents</a>
-      <a href="kids.html" class="active">For kids &amp; teens</a>
-      <a href="promise.html">Our promise</a>
-      <a href="index.html#plans">Plans</a>
-      <a class="btn btn-key btn-sm fnav-cta" href="early-access.html">Get early access</a>
-    </div>
-    <button class="fnav-burger" aria-label="Menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </div>
-</nav>
+<div id="site-nav-slot"></div>
 
 <!-- ================= HERO ================= -->
 <header class="fhero" style="padding-bottom:56px">
@@ -58,7 +39,7 @@
       <div>
         <span class="eyebrow sage">For kids &amp; teens</span>
         <h1>Your AI. Your ideas. <span class="hl-sage">Your name stays yours.</span></h1>
-        <p class="lede">Use ChatGPT, Gemini, and Claude for everything: homework, stories, big questions, weird questions. PrivacyPal rides along quietly and makes sure the internet never learns who you really are. And no, it does not let your parents read your chats.</p>
+        <p class="lede">Use ChatGPT, Gemini, Claude, and Grok for everything: homework, stories, big questions, weird questions. PrivacyPal rides along quietly and makes sure the internet never learns who you really are. And no, it does not let your parents read your chats.</p>
         <div class="btn-row">
           <a class="btn btn-key btn-lg" href="#deal">See the deal</a>
           <a class="btn btn-ghost btn-lg" href="index.html#how">How it works</a>
@@ -81,6 +62,43 @@
 </header>
 
 <div class="band" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
+
+<!-- ================= YOUR LINEUP ================= -->
+<section class="section-sm ai-pals" aria-label="AI apps that keep working with PrivacyPal">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow sage">Your lineup</span>
+      <h2>Your favorite AI still works. <span class="hl-sage">All of it.</span></h2>
+      <p class="lede">Same apps, same speed, same answers. The only difference: your real name, school, and address stop tagging along.</p>
+    </div>
+    <div class="pal-shelf reveal" role="list">
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../assets/glyph-chatgpt.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>ChatGPT</b><small>armor on</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../assets/glyph-claude.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Claude</b><small>armor on</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../assets/glyph-gemini.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Gemini</b><small>armor on</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../assets/glyph-copilot.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Copilot</b><small>armor on</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Grok</b><small>armor on</small>
+      </div>
+      <div class="pal-card pal-next" role="listitem">
+        <span class="pal-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
+        <b>Whatever's next</b><small>day one</small>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= THE DEAL ================= -->
 <section class="section wash-cream" id="deal">
@@ -232,51 +250,9 @@
   </div>
 </section>
 
-<footer class="ffoot">
-  <div class="container">
-    <div class="ffoot-grid">
-      <div class="brand">
-        <a class="fnav-logo" href="index.html">
-          <img src="assets/product/logo-color.png" alt="PrivacyPal" style="height:28px"/>
-          <span class="fam">Family</span>
-        </a>
-        <p>Effortless safety for families growing up with AI. You hold the keys. They get the future.</p>
-      </div>
-      <div class="cols">
-        <div>
-          <h6>Family</h6>
-          <ul>
-            <li><a href="index.html#how">How it works</a></li>
-            <li><a href="parents.html">For parents</a></li>
-            <li><a href="kids.html">For kids &amp; teens</a></li>
-            <li><a href="promise.html">The Family Promise</a></li>
-            <li><a href="index.html#plans">Plans</a></li>
-          </ul>
-        </div>
-        <div>
-          <h6>PrivacyPal</h6>
-          <ul>
-            <li><a href="https://privacypal.ai">privacypal.ai</a></li>
-            <li><a href="https://privacypal.ai/privacy-twins.html">Privacy Twins</a></li>
-            <li><a href="https://privacypal.ai/private-memory.html">Private Memory</a></li>
-            <li><a href="https://privacypal.ai/privacy-policy.html">Privacy policy</a></li>
-            <li><a href="https://privacypal.ai/terms-of-service.html">Terms</a></li>
-          </ul>
-        </div>
-        <div>
-          <h6>Say hi</h6>
-          <ul>
-            <li><a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="ffoot-base">
-      <span>© 2026 PrivacyPal. A PrivacyPal product, made with love for families.</span>
-    </div>
-  </div>
-</footer>
+<div id="site-footer-slot"></div>
 
+<script src="../assets/v3.js"></script>
 <script src="family.js"></script>
 </body>
 </html>

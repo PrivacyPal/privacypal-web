@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 32" role="img" aria-label="Grok">
+  <!-- Stand-in mark: replace with official xAI/Grok asset when brand files are available -->
+  <g fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round">
+    <path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/>
+    <path d="M26.5 5.5 9.5 22.5"/>
+  </g>
+  <text x="36" y="23.5" font-family="'Overused Grotesk',system-ui,Arial,Helvetica,sans-serif" font-size="19.5" font-weight="620" letter-spacing="-0.2" fill="#01204e">Grok</text>
+</svg>

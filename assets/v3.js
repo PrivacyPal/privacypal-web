@@ -2,6 +2,24 @@
    Injected by JS to keep pages lean (same pattern as the current site). */
 (function(){
 
+  /* Root prefix: pages in subdirectories (e.g. /family/) load this file as
+     ../assets/v3.js — derive the prefix from the script src so every relative
+     href/src in the injected chrome resolves from the site root. */
+  var ROOT = (function(){
+    var s = document.currentScript;
+    if (!s) {
+      var all = document.getElementsByTagName('script');
+      s = all[all.length - 1];
+    }
+    var src = (s && s.getAttribute('src')) || '';
+    var m = src.match(/^(.*?)assets\/v3\.js/);
+    return m ? m[1] : '';
+  })();
+  function rel(html){
+    if (!ROOT) return html;
+    return html.replace(/(href|src)="(?!(?:https?:)?\/\/|https?:|mailto:|tel:|#|\/)/g, '$1="' + ROOT);
+  }
+
   var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.7.exe';
   var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.7-arm64.dmg';
   var DOWNLOAD_MACOS_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.7-x64.dmg';
@@ -85,6 +103,25 @@
           '</div>' +
         '</div>' +
 
+        '<div class="nav-item" data-drop>' +
+          '<button type="button" aria-expanded="false">PrivacyPal Family <span class="caret"></span></button>' +
+          '<div class="nav-drop">' +
+            '<div class="nav-group">' +
+              '<h6>For your family</h6>' +
+              '<a href="family/index.html"><b>Meet PrivacyPal Family</b><small>Safe, private AI for the whole household</small></a>' +
+              '<a href="family/index.html#how"><b>How it works</b><small>Three steps, then it just works</small></a>' +
+              '<a href="family/parents.html"><b>For parents</b><small>Parent HQ: signals, not transcripts</small></a>' +
+              '<a href="family/kids.html"><b>For kids &amp; teens</b><small>Armor, not a leash</small></a>' +
+              '<a href="family/promise.html"><b>The Family Promise</b><small>Guardrails, never surveillance</small></a>' +
+              '<a href="family/index.html#plans"><b>Plans</b><small>Whole-family cover, $9.99/mo</small></a>' +
+            '</div>' +
+            '<a class="nav-feature" href="family/early-access.html">' +
+              '<img src="family/assets/photos/hero-dad-kids.jpg" alt="" loading="lazy">' +
+              '<span class="cap"><b>Get early access</b><small>Founding Families: first month free →</small></span>' +
+            '</a>' +
+          '</div>' +
+        '</div>' +
+
         '<div class="nav-item"><a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Docs ' + ICONS.extLink + '</a></div>' +
 
         '<div class="nav-item" data-drop>' +
@@ -136,6 +173,14 @@
     '<a href="legal.html">Legal</a>' +
     '<a href="telecommunications.html">Telco</a>' +
     '<a href="technology.html">Technology</a>' +
+    '<h6>PrivacyPal Family</h6>' +
+    '<a href="family/index.html">Meet PrivacyPal Family</a>' +
+    '<a href="family/index.html#how">How it works</a>' +
+    '<a href="family/parents.html">For parents</a>' +
+    '<a href="family/kids.html">For kids &amp; teens</a>' +
+    '<a href="family/promise.html">The Family Promise</a>' +
+    '<a href="family/index.html#plans">Plans</a>' +
+    '<a href="family/early-access.html">Get early access</a>' +
     '<h6>Company</h6>' +
     '<a href="about.html">About us</a>' +
     '<a href="team.html">Team</a>' +
@@ -183,6 +228,16 @@
           '<a href="privacypal-cloud.html">For Enterprise</a>' +
           '<a href="install.html">Install guide</a>' +
           '<a href="desktop.html">Desktop app</a>' +
+        '</div>' +
+        '<div class="footer-col">' +
+          '<h5>PrivacyPal Family</h5>' +
+          '<a href="family/index.html">Meet PrivacyPal Family</a>' +
+          '<a href="family/index.html#how">How it works</a>' +
+          '<a href="family/parents.html">For parents</a>' +
+          '<a href="family/kids.html">For kids &amp; teens</a>' +
+          '<a href="family/promise.html">The Family Promise</a>' +
+          '<a href="family/index.html#plans">Plans</a>' +
+          '<a href="family/early-access.html">Get early access <small>NEW</small></a>' +
         '</div>' +
         '<div class="footer-col">' +
           '<h5>Resources</h5>' +
@@ -278,11 +333,11 @@
   /* ---------------- Inject ---------------- */
   var navHolder = document.getElementById('site-nav-slot');
   var footHolder = document.getElementById('site-footer-slot');
-  if (navHolder) navHolder.outerHTML = announceHTML + navHTML;
-  if (footHolder) footHolder.outerHTML = footerHTML;
+  if (navHolder) navHolder.outerHTML = rel(announceHTML + navHTML);
+  if (footHolder) footHolder.outerHTML = rel(footerHTML);
   if (!document.getElementById('ppDemoModal')) {
     var wrap = document.createElement('div');
-    wrap.innerHTML = modalsHTML;
+    wrap.innerHTML = rel(modalsHTML);
     while (wrap.firstChild) document.body.appendChild(wrap.firstChild);
   }
 

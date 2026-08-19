@@ -1,14 +1,24 @@
-# PrivacyPal Family — standalone sub-site (team preview, NOT public)
+# PrivacyPal Family — LIVE sub-site, integrated with the main site chrome
 
 A re-imagined PrivacyPal Family: Pro-grade Safety, Privacy and Private Memory,
 plus Max-derived Privacy Agents ("Pal Agents"), packaged as a consumer brand for
-parents. Lives at `/family/` as an isolated site: its own nav, footer, CSS and JS.
-It does **not** load `assets/v3.js` and is **not** linked from the main site nav,
-footer, or `sitemap.xml`. Every page carries `<meta name="robots" content="noindex,nofollow">`.
+parents. Lives at `/family/` with its own content design system (`family.css` +
+`family.js`) but shares the corporate header, footer and modals with the main
+site:
 
-**Direct URL for the team:** `https://privacypal.ai/family/` (note the trailing
-slash; `/family` without a slash resolves to the older live one-pager
-`family.html`, which is intentionally untouched).
+- Every page loads `../assets/v3.js`, which injects the shared announcement bar,
+  nav, footer and install/demo modals into `#site-nav-slot` / `#site-footer-slot`
+  (v3.js auto-detects the `../` prefix from its script src).
+- The chrome is styled by `assets/family-chrome.css` — a **scoped mirror** of the
+  Announcement/Nav/Footer/Modal sections of `assets/v3.css`. If those sections
+  change in v3.css, update family-chrome.css to match. Scoping keeps corporate
+  tokens inside the chrome and Family tokens out of it.
+- "PrivacyPal Family" is a top-level item (dropdown + footer column + mobile
+  section) in the shared nav on every page of the site, defined in `assets/v3.js`.
+- Pages are indexed (no more `noindex`) and listed in `sitemap.xml`.
+
+**URL:** `https://privacypal.ai/family/` (note the trailing slash; `/family`
+without a slash resolves to the older one-pager `family.html`).
 
 ## Pages
 
@@ -42,7 +52,7 @@ slash; `/family` without a slash resolves to the older live one-pager
 ## Claims discipline (read before editing copy)
 
 - Shipping today (safe to state as fact): Privacy Twins swap on-device, ~340ms
-  interception, ChatGPT/Claude/Gemini/Copilot coverage, Mac + Windows, 5 family members,
+  interception, ChatGPT/Claude/Gemini/Copilot/Grok coverage, Mac + Windows, 5 family members,
   $9.99/mo, 5-day trial, 30-day money-back, approve/block/redirect, memory viewer
   + crypto-shred erase.
 - Private Memory claims follow `GTM/Frameworks/Private Memory Claims Guidance`

@@ -112,6 +112,8 @@ Copy icon paths from index.html or draw simple ones. No emoji.
 - Customer logos: see index.html marquee
 - Integrations: `assets/salesforce.svg`, `slack.svg`, `notion.svg`, `sqlserver.svg`,
   `workday.svg`, `oracle.svg`, `gdocs.svg`, `gdrive.svg`, `word.svg`,
-  `assets/chatgpt.png`, `claude.png`, `gemini.png`, `copilot.webp`
+  `assets/chatgpt.png`, `claude.png`, `gemini.png`, `copilot.webp` (lockups),
+  `grok.svg`, `hermes.svg` (stand-in lockups until official brand assets land),
+  `glyph-chatgpt.png`, `glyph-claude.png`, `glyph-gemini.png`, `glyph-copilot.png` (square glyphs, used by the index AI cluster)
 - Cloud logos: `logos/aws.svg`, `azure.svg`, `gcp.svg`, `digitalocean.svg`, `vercel.svg`
 - Partner: `nvidia-inception-program-badge-rgb-for-screen.png`

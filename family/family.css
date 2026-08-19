@@ -699,3 +699,41 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   .reveal{opacity:1;transform:none;transition:none}
   .float-chip{animation:none}
 }
+
+/* ---------- AI pals: "covered everywhere" shelf ---------- */
+.ai-pals .section-head{margin-bottom:38px}
+.pal-shelf{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.pal-card{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:20px 26px 15px;min-width:136px;
+  box-shadow:var(--shadow-card);
+  transform:rotate(-1.4deg);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.pal-card:nth-child(even){transform:rotate(1.6deg)}
+.pal-card:hover{transform:rotate(0) translateY(-5px);box-shadow:var(--shadow-float)}
+.pal-card b{font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--ink)}
+.pal-card small{font-family:var(--font-mono);font-size:.66rem;color:var(--sage-deep);letter-spacing:.04em}
+.pal-tile{
+  position:relative;width:58px;height:58px;border-radius:18px;
+  background:var(--cream);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;margin-bottom:9px;
+}
+.pal-tile img,.pal-tile > svg{width:30px;height:30px;object-fit:contain}
+.pal-check{
+  position:absolute;right:-8px;bottom:-8px;width:23px;height:23px;border-radius:50%;
+  background:var(--teal);color:#fff;border:2.5px solid #fffdf8;
+  display:flex;align-items:center;justify-content:center;
+}
+.pal-check svg{width:11px;height:11px}
+.pal-next{border-style:dashed;border-color:var(--faint);background:transparent;box-shadow:none}
+.pal-next .pal-tile{background:#fff;color:var(--tangerine-deep)}
+.pal-next small{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.pal-card,.pal-card:nth-child(even){transform:none}}
+@media(max-width:760px){
+  .pal-shelf{gap:12px}
+  .pal-card{min-width:104px;padding:15px 14px 11px}
+  .pal-tile{width:50px;height:50px;border-radius:15px}
+  .pal-tile img,.pal-tile > svg{width:26px;height:26px}
+}

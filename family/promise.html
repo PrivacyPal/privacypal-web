@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Family Promise · PrivacyPal Family</title>
 <meta name="description" content="Five promises PrivacyPal Family makes to parents and kids: guardrails not surveillance, identity stays home, erase means erase, kids see what parents see, and protection that grows up with them." />
-<meta name="robots" content="noindex,nofollow"/>
 <link rel="icon" href="../assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="family.css"/>
+<link rel="stylesheet" href="../assets/family-chrome.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal Family" />
 <meta property="og:url" content="https://privacypal.ai/family/promise.html" />
@@ -53,26 +53,7 @@
 </head>
 <body>
 
-<nav class="fnav">
-  <div class="fnav-inner">
-    <a class="fnav-logo" href="index.html">
-      <img src="assets/product/logo-color.png" alt="PrivacyPal"/>
-      <span class="fam">Family</span>
-    </a>
-    <span class="preview-pill">team preview · not public</span>
-    <div class="fnav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="parents.html">For parents</a>
-      <a href="kids.html">For kids &amp; teens</a>
-      <a href="promise.html" class="active">Our promise</a>
-      <a href="index.html#plans">Plans</a>
-      <a class="btn btn-key btn-sm fnav-cta" href="early-access.html">Get early access</a>
-    </div>
-    <button class="fnav-burger" aria-label="Menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </div>
-</nav>
+<div id="site-nav-slot"></div>
 
 <!-- ================= HERO ================= -->
 <header class="fhero" style="padding-bottom:48px">
@@ -101,7 +82,7 @@
         <div class="pnum" style="background:var(--teal)">2</div>
         <div>
           <h3>Their identity never leaves home</h3>
-          <p>Names, school, address, health details: swapped with a safe stand-in on the device itself, before anything is sent, across ChatGPT, Gemini, Claude, and Copilot. Zero bytes of real identity to AI providers. In our internal benchmark, remembered personal values never reached a provider, measured value by value.</p>
+          <p>Names, school, address, health details: swapped with a safe stand-in on the device itself, before anything is sent, across ChatGPT, Gemini, Claude, Copilot, and Grok. Zero bytes of real identity to AI providers. In our internal benchmark, remembered personal values never reached a provider, measured value by value.</p>
           <span class="mech">mechanism · Privacy Twins + on-device interception, ~340ms average</span>
         </div>
       </div>
@@ -176,51 +157,9 @@
   </div>
 </section>
 
-<footer class="ffoot">
-  <div class="container">
-    <div class="ffoot-grid">
-      <div class="brand">
-        <a class="fnav-logo" href="index.html">
-          <img src="assets/product/logo-color.png" alt="PrivacyPal" style="height:28px"/>
-          <span class="fam">Family</span>
-        </a>
-        <p>Effortless safety for families growing up with AI. You hold the keys. They get the future.</p>
-      </div>
-      <div class="cols">
-        <div>
-          <h6>Family</h6>
-          <ul>
-            <li><a href="index.html#how">How it works</a></li>
-            <li><a href="parents.html">For parents</a></li>
-            <li><a href="kids.html">For kids &amp; teens</a></li>
-            <li><a href="promise.html">The Family Promise</a></li>
-            <li><a href="index.html#plans">Plans</a></li>
-          </ul>
-        </div>
-        <div>
-          <h6>PrivacyPal</h6>
-          <ul>
-            <li><a href="https://privacypal.ai">privacypal.ai</a></li>
-            <li><a href="https://privacypal.ai/privacy-twins.html">Privacy Twins</a></li>
-            <li><a href="https://privacypal.ai/private-memory.html">Private Memory</a></li>
-            <li><a href="https://privacypal.ai/privacy-policy.html">Privacy policy</a></li>
-            <li><a href="https://privacypal.ai/terms-of-service.html">Terms</a></li>
-          </ul>
-        </div>
-        <div>
-          <h6>Say hi</h6>
-          <ul>
-            <li><a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="ffoot-base">
-      <span>© 2026 PrivacyPal. A PrivacyPal product, made with love for families.</span>
-    </div>
-  </div>
-</footer>
+<div id="site-footer-slot"></div>
 
+<script src="../assets/v3.js"></script>
 <script src="family.js"></script>
 </body>
 </html>
