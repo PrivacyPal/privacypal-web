@@ -117,7 +117,7 @@
             '</div>' +
             '<a class="nav-feature" href="family/early-access.html">' +
               '<img src="family/assets/photos/hero-dad-kids.jpg" alt="" loading="lazy">' +
-              '<span class="cap"><b>Get early access</b><small>Founding Families: first month free →</small></span>' +
+              '<span class="cap"><b>Get early access</b><small>Founding Families: 50% off year one →</small></span>' +
             '</a>' +
           '</div>' +
         '</div>' +
