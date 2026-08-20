@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: PrivacyPal API
-  version: 1.0.0
+  version: 1.4.4
   description: |
     The PrivacyPal API enables applications to detect, encode, and decode sensitive data (PII/PHI/PCI) using **Privacy Twins** technology.
 
@@ -16,12 +16,29 @@ info:
     - **AI Chat**: Send prompts to LLMs (Gemini, GPT, Claude) with automatic PII protection
     - **Streaming**: Real-time streaming AI responses with Server-Sent Events
     - **Multi-Turn Conversations**: Track Privacy Twin mappings across conversation turns
+    - **Private Memory**: Per-user encrypted memory with recall, audit, and crypto-shred erase
+
+    ## Deployments
+
+    The same API runs on two isolated data planes:
+
+    - `https://api.privacypal.ai` — the enterprise plane (Pro / Max / Cloud / SDK accounts)
+    - `https://api.family.privacypal.ai` — the **PrivacyPal Family** plane
+
+    The planes share no credentials or signing keys: a token issued on one is not valid on the
+    other, in either direction. Family accounts automatically get the *family detection profile*
+    (adds a `SCHOOL` entity and city-level geography protection). The profile is resolved
+    server-side from the authenticated account and cannot be set by the client.
 
     ## Authentication
 
     All endpoints (except `/api/user/login`, `/api/user/register`, and `/health`) require a valid JWT token. Use either:
     - `Authorization: Bearer <token>`
     - `x-access-token: <token>`
+
+    Server-to-server integrations may instead authenticate with a provisioned developer key
+    sent as `x-pp-developer-key`. An optional `x-pp-client-id` header attributes traffic per
+    integration.
 
     ## SDK
 
@@ -48,7 +65,9 @@ info:
 
 servers:
   - url: https://api.privacypal.ai
-    description: Production
+    description: Production (enterprise plane)
+  - url: https://api.family.privacypal.ai
+    description: Production (PrivacyPal Family plane)
   - url: http://localhost:42026
     description: Local Development
 
@@ -71,6 +90,8 @@ tags:
     description: Company and team management
   - name: Audit
     description: Audit trail management
+  - name: Private Memory
+    description: Per-user encrypted memory with recall, audit, export, and crypto-shred erase
 
 security:
   - BearerAuth: []
@@ -270,6 +291,11 @@ paths:
         Detect PII in text and replace it with Privacy Twins. Returns the encoded text, a continuation ID for later decoding, and details of each transformation applied.
 
         **Supported entity types:** `PERSON`, `EMAIL_ADDRESS`, `PHONE_NUMBER`, `US_SSN`, `DATE_TIME`, `LOCATION`, `CREDIT_CARD`, `IP_ADDRESS`, `IBAN_CODE`, `US_PASSPORT`, `US_DRIVER_LICENSE`, `NRP`, `MEDICAL_LICENSE`, `URL`
+
+        **Detection profiles:** detection policy is resolved server-side from the authenticated account.
+        Enterprise accounts use the `standard` profile. Accounts on the Family plane automatically use the
+        `family` profile, which additionally protects `SCHOOL` names and city-level geography. There is no
+        request parameter for the profile; client-supplied values are ignored by design.
 
         **SDK Usage:**
         ```typescript
@@ -1010,6 +1036,130 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
+  /api/memory/episodes:
+    post:
+      operationId: memoryAddEpisode
+      summary: Add Memory Episode
+      description: Record an episode (a full observed interaction turn) into the authenticated user's Private Memory. Facts are extracted, encrypted with the user's own key, and become recallable.
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Episode recorded
+
+  /api/memory/recall:
+    post:
+      operationId: memoryRecall
+      summary: Recall Memories
+      description: Retrieve memory facts relevant to a query for the authenticated user.
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Relevant memory facts
+
+  /api/memory:
+    get:
+      operationId: memoryList
+      summary: List Memory Facts
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: The user's memory facts
+
+  /api/memory/stats:
+    get:
+      operationId: memoryStats
+      summary: Memory Stats
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Fact counts and memory usage statistics
+
+  /api/memory/settings:
+    get:
+      operationId: memoryGetSettings
+      summary: Get Memory Settings
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Current memory settings
+    put:
+      operationId: memoryUpdateSettings
+      summary: Update Memory Settings
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Settings updated
+
+  /api/memory/audit:
+    get:
+      operationId: memoryAudit
+      summary: Memory Audit Trail
+      description: Every read and write against the user's memory, for transparency.
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Audit entries
+
+  /api/memory/export:
+    get:
+      operationId: memoryExport
+      summary: Export Memory
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Full export of the user's memory facts
+
+  /api/memory/facts/{factId}:
+    delete:
+      operationId: memoryDeleteFact
+      summary: Delete Memory Fact
+      tags:
+        - Private Memory
+      parameters:
+        - name: factId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Fact deleted
+
+  /api/memory/facts/{factId}/correct:
+    post:
+      operationId: memoryCorrectFact
+      summary: Correct Memory Fact
+      tags:
+        - Private Memory
+      parameters:
+        - name: factId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Fact corrected
+
+  /api/memory/erase:
+    post:
+      operationId: memoryErase
+      summary: Erase Memory (Crypto-Shred)
+      description: Destroys the user's memory encryption key, rendering all stored memory facts permanently unreadable. Irreversible.
+      tags:
+        - Private Memory
+      responses:
+        '200':
+          description: Memory erased
+
 components:
   securitySchemes:
     BearerAuth:
@@ -1021,6 +1171,14 @@ components:
 
         Use the `login()` or `register()` SDK methods to obtain a token, then pass it to the client configuration.
         The API also accepts the `x-access-token` header with the same token value.
+    DeveloperKey:
+      type: apiKey
+      in: header
+      name: x-pp-developer-key
+      description: |
+        Provisioned developer key for server-to-server integrations. When set, it takes
+        precedence over user JWT authentication. Configure via `developerKey` (Node) or
+        `developer_key` (Python) in the SDK client.
 
   responses:
     Unauthorized:
@@ -1216,7 +1374,7 @@ components:
 
     EncodeBatchRequest:
       type: array
-      description: Array of items to encode (API accepts raw array, not { items: [...] })
+      description: "Array of items to encode (API accepts a raw array, not an object with an items property)"
       items:
         $ref: '#/components/schemas/EncodeBatchItem'
 

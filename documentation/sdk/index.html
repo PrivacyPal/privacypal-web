@@ -522,7 +522,7 @@
     <div class="top-bar-left">
       <div class="top-bar-logo">P</div>
       <span class="top-bar-title">PrivacyPal SDK</span>
-      <span class="top-bar-version">v1.0.0</span>
+      <span class="top-bar-version">v1.0.2</span>
       <div class="lang-badges">
         <span class="lang-badge lang-badge-node">Node.js</span>
         <span class="lang-badge lang-badge-python">Python</span>
@@ -553,7 +553,10 @@
         <p>
           The PrivacyPal SDK lets you encode sensitive data into Privacy Twins before it reaches an AI model,
           then decode the response to restore original values. Available for both Node.js and Python:
-          identical API surface, same endpoint, same behavior.
+          identical API surface, same endpoint, same behavior. The same clients work against the enterprise
+          data plane at <code style="color:var(--teal);background:rgba(78,201,176,.1);padding:1px 6px;border-radius:4px;">api.privacypal.ai</code>
+          and the PrivacyPal Family data plane at
+          <code style="color:var(--teal);background:rgba(78,201,176,.1);padding:1px 6px;border-radius:4px;">api.family.privacypal.ai</code>.
         </p>
 
         <div class="sdk-cards">
@@ -570,6 +573,137 @@
             <code>pip install privacypal-sdk</code>
           </div>
         </div>
+      </div>
+
+      <!-- Developer Quickstart -->
+      <div class="doc-block">
+        <h2>Developer Quickstart</h2>
+        <p>
+          Zero to protected in five minutes: install, initialize, then run the full
+          encode &rarr; AI &rarr; decode loop. Real PII never leaves your boundary; the model only ever
+          sees Privacy Twins.
+        </p>
+
+        <p><strong>1. Install</strong></p>
+        <div class="install-toggle">
+          <button class="install-tab active" onclick="switchInstall(this,'node')" data-lang="node">Node.js</button>
+          <button class="install-tab" onclick="switchInstall(this,'python')" data-lang="python">Python</button>
+        </div>
+        <div class="install-panel active" data-install="node">
+          <div class="install-cmd">
+            <code>npm install @privacypal/sdk</code>
+            <button class="copy-btn" onclick="copyCmd(this, 'npm install @privacypal/sdk')">Copy</button>
+          </div>
+        </div>
+        <div class="install-panel" data-install="python">
+          <div class="install-cmd">
+            <code>pip install privacypal-sdk</code>
+            <button class="copy-btn" onclick="copyCmd(this, 'pip install privacypal-sdk')">Copy</button>
+          </div>
+        </div>
+
+        <p style="margin-top:20px"><strong>2. Get a key</strong>: sign up at the
+          <a href="https://portal.privacypal.ai/signup" target="_blank" style="color:var(--cobalt-light)">PrivacyPal Portal</a>
+          and export it as <code style="color:var(--teal);background:rgba(78,201,176,.1);padding:1px 6px;border-radius:4px;">PRIVACYPAL_API_KEY</code>.
+        </p>
+
+        <p><strong>3. Run the loop</strong>: this is a complete program. Encode, hand the safe text to any
+          model or vendor, decode the answer.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">quickstart</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','qs')" data-group="qs" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','qs')" data-group="qs" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="qs" data-lang="node">
+<pre><span class="kw">import</span> { <span class="fn">PrivacyPalClient</span> } <span class="kw">from</span> <span class="st">'@privacypal/sdk'</span>;
+
+<span class="kw">const</span> <span class="pr">client</span> = <span class="kw">new</span> <span class="fn">PrivacyPalClient</span>({
+  <span class="pr">apiUrl</span>: <span class="st">'https://api.privacypal.ai'</span>,
+  <span class="pr">apiKey</span>: process.<span class="pr">env</span>.<span class="pr">PRIVACYPAL_API_KEY</span>,
+});
+
+<span class="cm">// 1. Encode: real PII becomes Privacy Twins</span>
+<span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'Refund request from Sarah Connor, sarah@acme.com, card ending 4242'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'quickstart'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'demo'</span>,
+});
+console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class="pr">encodedData</span>); <span class="cm">// safe for any LLM, vendor API, or log line</span>
+
+<span class="cm">// 2. Use the protected text anywhere, e.g. the built-in AI gateway</span>
+<span class="kw">const</span> <span class="pr">chat</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">chatWithAI</span>({
+  <span class="pr">prompt</span>: <span class="st">'Draft a polite reply approving the refund: '</span> + <span class="pr">encoded</span>.<span class="pr">encodedData</span>,
+});
+
+<span class="cm">// 3. Decode: restore the original values, with an audit trail</span>
+<span class="kw">const</span> <span class="pr">decoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
+  <span class="pr">continuationId</span>: <span class="pr">encoded</span>.<span class="pr">continuationId</span>,
+  <span class="pr">data</span>: <span class="pr">chat</span>.<span class="pr">decodedResponse</span> ?? <span class="pr">chat</span>.<span class="pr">llmResponse</span>,
+  <span class="pr">sensitiveHashes</span>: <span class="pr">encoded</span>.<span class="pr">transformations</span>.<span class="fn">map</span>(t =&gt; t.<span class="pr">originalHash</span>),
+  <span class="pr">authorization</span>: { <span class="pr">token</span>: process.<span class="pr">env</span>.<span class="pr">PRIVACYPAL_API_KEY</span>, <span class="pr">purpose</span>: <span class="st">'Quickstart demo'</span> },
+});
+console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class="pr">decodedData</span>);</pre>
+          </div>
+          <div class="code-panel" data-group="qs" data-lang="python">
+<pre><span class="kw">import</span> <span class="pr">os</span>
+<span class="kw">from</span> <span class="fn">privacypal_sdk</span> <span class="kw">import</span> <span class="fn">PrivacyPalClient</span>
+
+<span class="pr">client</span> = <span class="fn">PrivacyPalClient</span>(
+  <span class="pr">api_url</span>=<span class="st">'https://api.privacypal.ai'</span>,
+  <span class="pr">api_key</span>=<span class="pr">os</span>.<span class="pr">environ</span>[<span class="st">'PRIVACYPAL_API_KEY'</span>],
+)
+
+<span class="cm"># 1. Encode: real PII becomes Privacy Twins</span>
+<span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+  <span class="st">'Refund request from Sarah Connor, sarah@acme.com, card ending 4242'</span>,
+  <span class="pr">source_container</span>=<span class="st">'quickstart'</span>,
+  <span class="pr">source_element</span>=<span class="st">'demo'</span>,
+)
+<span class="fn">print</span>(<span class="pr">encoded</span>[<span class="st">'encodedData'</span>])  <span class="cm"># safe for any LLM, vendor API, or log line</span>
+
+<span class="cm"># 2. Use the protected text anywhere, e.g. the built-in AI gateway</span>
+<span class="cm"># Note: use prompt (not message) for chat_with_ai</span>
+<span class="pr">chat</span> = <span class="pr">client</span>.<span class="fn">chat_with_ai</span>(
+  <span class="pr">prompt</span>=<span class="st">'Draft a polite reply approving the refund: '</span> + <span class="pr">encoded</span>[<span class="st">'encodedData'</span>],
+)
+
+<span class="cm"># 3. Decode: restore the original values, with an audit trail</span>
+<span class="pr">decoded</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
+  <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
+  <span class="pr">data</span>=<span class="pr">chat</span>.<span class="fn">get</span>(<span class="st">'decodedResponse'</span>) <span class="kw">or</span> <span class="pr">chat</span>[<span class="st">'llmResponse'</span>],
+  <span class="pr">sensitive_hashes</span>=[t[<span class="st">'originalHash'</span>] <span class="kw">for</span> t <span class="kw">in</span> <span class="pr">encoded</span>[<span class="st">'transformations'</span>]],
+  <span class="pr">authorization</span>={<span class="st">'token'</span>: <span class="pr">os</span>.<span class="pr">environ</span>[<span class="st">'PRIVACYPAL_API_KEY'</span>], <span class="st">'purpose'</span>: <span class="st">'Quickstart demo'</span>},
+)
+<span class="fn">print</span>(<span class="pr">decoded</span>[<span class="st">'decodedData'</span>])</pre>
+          </div>
+        </div>
+
+        <p>
+          That is the whole mental model: <strong>encode &rarr; transmit &rarr; decode</strong>.
+          Everything else in this guide (batch, files, streaming, multi-turn sessions, the Family data plane)
+          is a variation on that loop.
+        </p>
+      </div>
+
+      <!-- What's New -->
+      <div class="doc-block">
+        <h2>What's New in 1.0.2</h2>
+        <p>Highlights since 1.0.0, across the SDKs and the platform API (now v1.4.4):</p>
+        <ul>
+          <li><strong>Developer keys</strong>: authenticate server-to-server with a <code>developerKey</code> (Node) / <code>developer_key</code> (Python) instead of a user JWT. Sent as <code>x-pp-developer-key</code>; rotate at runtime with <code>updateDeveloperKey</code> / <code>update_developer_key</code>.</li>
+          <li><strong>Client IDs</strong>: optional <code>clientId</code> / <code>client_id</code> config, sent as <code>x-pp-client-id</code> to attribute traffic per integration.</li>
+          <li><strong>Signup verification</strong>: <code>register</code> accepts an optional signup token for email-verified registration flows.</li>
+          <li><strong>File encoding</strong>: <code>encodeFile</code> / <code>encode_file</code> accepts a <code>platform</code> identifier; Python adds a per-call <code>timeout</code> override for interactive callers (default upload timeout stays 120s).</li>
+          <li><strong>Python reliability</strong>: <code>health_check</code> now reports a healthy API correctly (the <code>/health</code> endpoint returns plain text, not JSON), and errors are typed exceptions on a common <code>PrivacyPalError</code> base carrying <code>status_code</code>.</li>
+          <li><strong>Entitlement leases (Python)</strong>: on-device deployments can attach a lease via <code>entitlement_lease</code> / <code>update_entitlement_lease</code>, sent as <code>x-pp-entitlement-lease</code> and checked on the encode, batch, file, and decode routes.</li>
+          <li><strong>Private Memory API</strong>: new authenticated <code>/api/memory</code> endpoint group (episodes, recall, stats, settings, audit, export, correction, and crypto-shred erase).</li>
+          <li><strong>PrivacyPal Family</strong>: a dedicated Family data plane at <code>api.family.privacypal.ai</code> and a family detection profile that additionally protects school names and city-level geography. See the Family API section below.</li>
+        </ul>
       </div>
 
       <!-- Installation -->
@@ -603,6 +737,13 @@
       <div class="doc-block">
         <h2>Initialization</h2>
         <p>Create a client instance with your API URL and API key. You can obtain an API key from the <a href="https://portal.privacypal.ai/signup" target="_blank" style="color:var(--cobalt-light)">PrivacyPal Portal</a>.</p>
+        <p>
+          Server-to-server integrations can pass a <code style="color:var(--teal)">developerKey</code> (Node) /
+          <code style="color:var(--teal)">developer_key</code> (Python) instead of a user JWT; it is sent as the
+          <code style="color:var(--teal)">x-pp-developer-key</code> header and takes precedence when both are set.
+          An optional <code style="color:var(--teal)">clientId</code> / <code style="color:var(--teal)">client_id</code>
+          attributes traffic per integration.
+        </p>
 
         <div class="code-block">
           <div class="code-block-header">
@@ -687,7 +828,13 @@ console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class=
           </div>
         </div>
 
-        <p>To encode multiple items in one request, use <code style="color:var(--teal)">encodeBatch</code> / <code style="color:var(--teal)">encode_batch</code>. To encode a file (PDF, DOCX, CSV, image), use <code style="color:var(--teal)">encodeFile</code> / <code style="color:var(--teal)">encode_file</code>.</p>
+        <p>To encode multiple items in one request, use <code style="color:var(--teal)">encodeBatch</code> / <code style="color:var(--teal)">encode_batch</code>. To encode a file (PDF, DOCX, CSV, image), use <code style="color:var(--teal)">encodeFile</code> / <code style="color:var(--teal)">encode_file</code>: it accepts an optional <code style="color:var(--teal)">platform</code> identifier, defaults to a 120s upload timeout, and (Python) takes a per-call <code style="color:var(--teal)">timeout</code> override for interactive callers.</p>
+        <p>
+          Detection is policy-driven on the server. Accounts on the PrivacyPal Family data plane automatically
+          get the family detection profile (school names and city-level geography protected, on top of standard PII);
+          enterprise accounts get the standard profile. The profile is resolved from the authenticated account and
+          cannot be switched from the client, so there is no SDK parameter for it, by design.
+        </p>
       </div>
 
       <!-- Decode -->
@@ -757,7 +904,12 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
         <h2>AI Chat (Built-in Encode/Decode)</h2>
         <p>
           Use <code style="color:var(--teal)">chatWithAI</code> to send prompts through PrivacyPal's AI gateway, which automatically encodes PII before forwarding
-          to the LLM and decodes the response.
+          to the LLM and decodes the response. For token-by-token output, Node.js adds
+          <code style="color:var(--teal)">chatWithAIStream</code> (Server-Sent Events with per-chunk decoding);
+          Python streaming is on the roadmap, so Python callers use the non-streaming
+          <code style="color:var(--teal)">chat_with_ai</code> today. Multi-turn conversations carry twin mappings
+          across turns via <code style="color:var(--teal)">sessionContinuationIds</code> and the
+          <code style="color:var(--teal)">ConversationSession</code> helper.
         </p>
 
         <div class="code-block">
@@ -790,10 +942,77 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
         </div>
       </div>
 
+      <!-- Family API -->
+      <div class="doc-block">
+        <h2>Family API</h2>
+        <p>
+          <a href="/family/" style="color:var(--cobalt-light)">PrivacyPal Family</a> runs on its own,
+          fully isolated deployment of the PrivacyPal API. Two surfaces matter to developers:
+        </p>
+        <ul>
+          <li><strong>Family data plane</strong>: <code>https://api.family.privacypal.ai</code>. The same API and SDKs documented here (encode, decode, AI chat, memory), deployed with entirely separate credentials and signing keys. An enterprise token is not valid on the Family plane and a Family member token is not valid on <code>api.privacypal.ai</code>, in either direction, by design.</li>
+          <li><strong>Family platform API</strong>: <code>https://family.privacypal.ai/api/family</code>. Households, members, age stages, guardrails, devices, alerts, approvals, wellbeing, digests, and billing. Parents authenticate with a session (cookie or bearer token); kids sign in with a Family Code plus optional PIN and never hold an email or password; registered devices use a device token. Partner access is limited to read-only, aggregate admin endpoints.</li>
+        </ul>
+        <p>
+          Family member requests automatically use the family detection profile: on top of standard PII,
+          school names (a dedicated <code style="color:var(--teal)">SCHOOL</code> entity) and city-level geography
+          are twinned, because first name + school + city is a re-identification vector for a child.
+          The platform enforces its product promises server-side: activity telemetry is signals-only
+          (no prompt or response text can enter it), and teens in the Pilot stage (14 to 17) manage their own
+          memory facts.
+        </p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+            <span class="code-block-title">family-data-plane</span>
+            <div class="lang-tabs">
+              <button class="lang-tab active" onclick="switchLang(this,'node','fam')" data-group="fam" data-lang="node">Node.js</button>
+              <button class="lang-tab" onclick="switchLang(this,'python','fam')" data-group="fam" data-lang="python">Python</button>
+            </div>
+          </div>
+          <div class="code-panel active" data-group="fam" data-lang="node">
+<pre><span class="cm">// Same SDK, Family data plane. The member token comes from the</span>
+<span class="cm">// Family platform (device member-token exchange), not from login().</span>
+<span class="kw">const</span> <span class="pr">familyClient</span> = <span class="kw">new</span> <span class="fn">PrivacyPalClient</span>({
+  <span class="pr">apiUrl</span>: <span class="st">'https://api.family.privacypal.ai'</span>,
+  <span class="pr">apiKey</span>: <span class="pr">memberToken</span>,
+});
+
+<span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">familyClient</span>.<span class="fn">encode</span>({
+  <span class="pr">data</span>: <span class="st">'Alex goes to Washington High in a sunny city'</span>,
+  <span class="pr">sourceContainer</span>: <span class="st">'family-app'</span>,
+  <span class="pr">sourceElement</span>: <span class="st">'kid-message'</span>,
+});
+<span class="cm">// Family profile applies automatically: name, school, and city are all twinned.</span></pre>
+          </div>
+          <div class="code-panel" data-group="fam" data-lang="python">
+<pre><span class="cm"># Same SDK, Family data plane. The member token comes from the</span>
+<span class="cm"># Family platform (device member-token exchange), not from login().</span>
+<span class="pr">family_client</span> = <span class="fn">PrivacyPalClient</span>(
+  <span class="pr">api_url</span>=<span class="st">'https://api.family.privacypal.ai'</span>,
+  <span class="pr">api_key</span>=<span class="pr">member_token</span>,
+)
+
+<span class="pr">encoded</span> = <span class="pr">family_client</span>.<span class="fn">encode</span>(
+  <span class="st">'Alex goes to Washington High in a sunny city'</span>,
+  <span class="pr">source_container</span>=<span class="st">'family-app'</span>,
+  <span class="pr">source_element</span>=<span class="st">'kid-message'</span>,
+)
+<span class="cm"># Family profile applies automatically: name, school, and city are all twinned.</span></pre>
+          </div>
+        </div>
+
+        <p>
+          The full Family platform surface is specified in
+          <a href="../family/openapi.yaml" style="color:var(--cobalt-light)">family/openapi.yaml</a>.
+        </p>
+      </div>
+
       <!-- Error Handling -->
       <div class="doc-block">
         <h2>Error Handling</h2>
-        <p><strong>Node.js:</strong> Throws <code style="color:var(--teal)">Error</code>; check <code>err.message</code> for status prefixes. <strong>Python:</strong> Raises typed exceptions (<code>AuthenticationError</code>, <code>TrialExpiredError</code>, <code>NetworkError</code>).</p>
+        <p><strong>Node.js:</strong> Throws <code style="color:var(--teal)">Error</code>; check <code>err.message</code> for status prefixes. <strong>Python:</strong> Raises typed exceptions (<code>AuthenticationError</code>, <code>TrialExpiredError</code>, <code>NetworkError</code>, <code>RequestError</code>), all subclasses of <code>PrivacyPalError</code>, which carries <code>status_code</code>.</p>
 
         <table class="error-table">
           <thead>

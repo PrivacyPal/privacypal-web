@@ -1,7 +1,7 @@
 # PrivacyPal SDK for Node.js
 
 **Package:** `@privacypal/sdk`  
-**Version:** 1.0.0  
+**Version:** 1.0.2  
 **License:** MIT  
 **Module System:** ES Modules  
 **Runtime:** Node.js 18+, Browser (Chrome Extensions, Web Apps)
@@ -225,6 +225,8 @@ new PrivacyPalClient(config: PrivacyPalConfig, onTokenRefresh?: (newToken: strin
 | `config` | `PrivacyPalConfig` | Yes | Client configuration |
 | `config.apiUrl` | `string` | Yes | API base URL |
 | `config.apiKey` | `string` | Yes | JWT token (can be empty for login/register) |
+| `config.developerKey` | `string` | No | Provisioned developer key for server-to-server auth; sent as `x-pp-developer-key` and takes precedence over `apiKey` |
+| `config.clientId` | `string` | No | Integration identifier; sent as `x-pp-client-id` alongside JWT auth |
 | `config.timeout` | `number` | No | Request timeout in ms (default: 30000) |
 | `onTokenRefresh` | `function` | No | Callback when token is refreshed |
 
@@ -802,6 +804,16 @@ Update the API key (JWT token) used for requests.
 
 ```typescript
 updateApiKey(newApiKey: string): void
+```
+
+---
+
+#### `updateDeveloperKey(newDeveloperKey)`
+
+Update the developer key used for server-to-server authentication.
+
+```typescript
+updateDeveloperKey(newDeveloperKey: string): void
 ```
 
 ---
@@ -2074,6 +2086,14 @@ const client = new PrivacyPalClient({
 
 ## Changelog
 
+### 1.0.1 / 1.0.2
+
+- Developer key authentication: `developerKey` config + `updateDeveloperKey()`, sent as `x-pp-developer-key` and taking precedence over user JWTs
+- Optional `clientId` config, sent as `x-pp-client-id` for per-integration attribution
+- `register()` accepts an optional `signupToken` for email-verified registration flows
+- Companion Python SDK on PyPI as `privacypal-sdk` (Python 3.10+, sync API, typed exceptions on a `PrivacyPalError` base; adds entitlement-lease support and a per-call `encode_file` timeout override)
+- Support for the PrivacyPal Family data plane (`https://api.family.privacypal.ai`): same client, isolated credentials; Family accounts automatically get the family detection profile (SCHOOL entity + city-level geography)
+
 ### 1.0.0
 
 - Initial release
@@ -2089,4 +2109,4 @@ const client = new PrivacyPalClient({
 
 ---
 
-*PrivacyPal SDK Documentation, generated February 2026*
+*PrivacyPal SDK Documentation, updated August 2026*

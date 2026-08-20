@@ -1,0 +1,470 @@
+# PrivacyPal Family Platform API
+# The consumer household platform behind PrivacyPal Family (family.privacypal.ai).
+#
+# This is a separate service from the two data planes:
+#   - api.privacypal.ai         (enterprise data plane: encode/decode/AI chat/memory)
+#   - api.family.privacypal.ai  (Family data plane: same API, isolated credentials)
+# The Family Platform API manages households, members, guardrails, devices,
+# telemetry, alerts, approvals, wellbeing, digests, and Family billing.
+#
+# All routes live under /api/family.
+
+openapi: 3.1.0
+info:
+  title: PrivacyPal Family Platform API
+  version: 1.0.0
+  description: |
+    The Family Platform API powers **PrivacyPal Family**: households, members,
+    age stages, guardrails, devices, activity signals, alerts, approvals,
+    wellbeing, weekly digests, and billing.
+
+    ## Identity model
+
+    Family identity is fully isolated from PrivacyPal enterprise accounts.
+    A person may hold both a PrivacyPal account and a PrivacyPal Family account
+    on the same email address; they are unrelated (separate passwords,
+    verification, sessions, lifecycles).
+
+    - **Parents** authenticate with email + password (or Google SSO) and hold a
+      family session: an httpOnly cookie in the browser, or a bearer token on
+      desktop.
+    - **Kids** have no email and no password. They sign in with a **Family Code**
+      (e.g. `MIGHTY-MEERKAT-22`) plus an optional 4-digit PIN.
+    - **Devices** are registered by a parent and authenticate with a device
+      token (`x-pp-device-token`).
+    - **Partners** hold a partner JWT and can access only read-only, aggregate
+      admin endpoints.
+
+    Members reach the Family data plane (`api.family.privacypal.ai`) with
+    short-lived member tokens minted through the device member-token exchange.
+    The platform never holds the data plane's signing secret.
+
+    ## Product rules enforced server-side
+
+    - **Signals, never transcripts**: no prompt or response text can enter
+      family telemetry; the events endpoint rejects unknown keys.
+    - **Pilot stage (14 to 17) privacy**: the activity feed withholds
+      per-session rows for Pilot members and returns wellbeing weather only,
+      and Pilots manage their own memory facts.
+    - **Wellbeing is computed on-device**; only a mood label and score are
+      transmitted.
+  contact:
+    name: PrivacyPal Support
+    url: https://privacypal.ai
+
+servers:
+  - url: https://family.privacypal.ai
+    description: Production (served through the Family portal proxy)
+
+tags:
+  - name: Auth
+    description: Parent signup/login, Google SSO, kid Family Code login, session management
+  - name: Household
+    description: The family record, Family Code rotation, co-parent invites
+  - name: Members
+    description: Family members and age-stage graduation (Explorer 5-9, Navigator 10-13, Pilot 14-17)
+  - name: Guardrails
+    description: Per-member AI tool policy - approve, block, or redirect
+  - name: Never-Share
+    description: The household never-share list, synced into the detection layer
+  - name: Devices
+    description: Device registration, heartbeat, and member-token exchange
+  - name: Telemetry
+    description: Signals-only device event ingest
+  - name: Parent HQ
+    description: Feed, daily summary, wellbeing, alerts, approvals, digests
+  - name: Memory
+    description: Parent-scoped proxy to members' Private Memory on the Family data plane
+  - name: Kid
+    description: The kid-facing data plane (the Deal, summary, policy, own memory)
+  - name: Billing
+    description: Family subscription ($9.99/mo, 5-day trial) via Stripe
+  - name: Partner Admin
+    description: Read-only aggregate endpoints for partner JWTs. Never returns family codes, emails, activity, moods, memory, never-share values, or Stripe IDs.
+
+paths:
+  /api/family/auth/config:
+    get:
+      summary: Auth configuration (which sign-in methods are available)
+      tags: [Auth]
+      security: []
+  /api/family/auth/signup/start:
+    post:
+      summary: Start parent signup (sends a 6-digit email verification code)
+      tags: [Auth]
+      security: []
+  /api/family/auth/signup/verify:
+    post:
+      summary: Verify the signup email code
+      tags: [Auth]
+      security: []
+  /api/family/auth/register:
+    post:
+      summary: Complete parent registration
+      tags: [Auth]
+      security: []
+  /api/family/auth/login:
+    post:
+      summary: Parent login (email + password)
+      tags: [Auth]
+      security: []
+  /api/family/auth/password-reset/start:
+    post:
+      summary: Start a password reset
+      tags: [Auth]
+      security: []
+  /api/family/auth/set-password:
+    post:
+      summary: Set a new password with a reset code
+      tags: [Auth]
+      security: []
+  /api/family/auth/google:
+    get:
+      summary: Google SSO (parents only; verified id_token, fresh-auth required for unlocks)
+      tags: [Auth]
+      security: []
+  /api/family/auth/google/callback:
+    get:
+      summary: Google SSO callback
+      tags: [Auth]
+      security: []
+  /api/family/auth/desktop/exchange:
+    post:
+      summary: Exchange a desktop loopback grant for a bearer session
+      tags: [Auth]
+      security: []
+  /api/family/auth/kid-roster:
+    get:
+      summary: List kid profiles for a Family Code (for the kid sign-in picker)
+      tags: [Auth]
+      security: []
+  /api/family/auth/kid-login:
+    post:
+      summary: Kid login with Family Code + optional PIN
+      description: |
+        Kids never hold an email or password. Invalid code, member, and PIN all
+        return an identical error shape so the route cannot be used as a
+        guessing oracle. Rate-limited per account, not per client-supplied IP.
+      tags: [Auth]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [familyCode, memberId]
+              properties:
+                familyCode: { type: string, example: MIGHTY-MEERKAT-22 }
+                memberId: { type: string }
+                pin: { type: string, description: Optional 4-digit PIN }
+      responses:
+        '200':
+          description: Kid session token plus family, member, and capability info
+  /api/family/auth/logout:
+    post:
+      summary: Log out (invalidates the session)
+      tags: [Auth]
+  /api/family/auth/me:
+    get:
+      summary: Current session identity
+      tags: [Auth]
+  /api/family/auth/parent-verify:
+    post:
+      summary: Re-verify the parent password (issues a single-use unlock proof)
+      description: Sensitive actions from device sessions (policy writes, member removal, Family Code rotation, stopping protection in kid mode) require a server-issued, single-use unlock proof bound to family, member, and device.
+      tags: [Auth]
+  /api/family/auth/unlock/redeem:
+    post:
+      summary: Redeem an unlock proof
+      tags: [Auth]
+
+  /api/family/family:
+    get:
+      summary: Get the household
+      tags: [Household]
+    patch:
+      summary: Update household settings
+      tags: [Household]
+  /api/family/family/code/rotate:
+    post:
+      summary: Rotate the Family Code (requires unlock proof from device sessions)
+      tags: [Household]
+  /api/family/family/coparent/invites:
+    get:
+      summary: List co-parent invites
+      tags: [Household]
+  /api/family/family/coparent/invite:
+    post:
+      summary: Create a co-parent invite
+      tags: [Household]
+  /api/family/family/coparent/invite/{inviteId}:
+    get:
+      summary: Invite landing (public link target)
+      tags: [Household]
+      security: []
+      parameters:
+        - { name: inviteId, in: path, required: true, schema: { type: string } }
+  /api/family/family/coparent/accept:
+    post:
+      summary: Accept a co-parent invite
+      tags: [Household]
+      security: []
+
+  /api/family/members:
+    get:
+      summary: List members
+      tags: [Members]
+    post:
+      summary: Add a member (kid or co-parent)
+      tags: [Members]
+  /api/family/members/{id}:
+    get:
+      summary: Get a member
+      tags: [Members]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+    patch:
+      summary: Update a member
+      tags: [Members]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+    delete:
+      summary: Remove a member (requires unlock proof)
+      tags: [Members]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+  /api/family/members/{id}/graduate:
+    post:
+      summary: Graduate a member to the next age stage
+      tags: [Members]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+
+  /api/family/tools:
+    get:
+      summary: The AI tool catalog (ChatGPT, Claude, Gemini, Copilot, Grok)
+      tags: [Guardrails]
+  /api/family/members/{id}/policy:
+    get:
+      summary: Get a member's guardrail policy
+      tags: [Guardrails]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+    put:
+      summary: Set a member's guardrail policy (approve/block/redirect; requires unlock proof)
+      tags: [Guardrails]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+
+  /api/family/never-share:
+    get:
+      summary: List never-share terms
+      tags: [Never-Share]
+    post:
+      summary: Add never-share terms (synced into detection dictionaries)
+      tags: [Never-Share]
+  /api/family/never-share/{id}:
+    delete:
+      summary: Remove a never-share term
+      tags: [Never-Share]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+
+  /api/family/devices/register:
+    post:
+      summary: Register a household device (max 5 per household)
+      tags: [Devices]
+  /api/family/devices:
+    get:
+      summary: List devices
+      tags: [Devices]
+  /api/family/devices/{id}:
+    patch:
+      summary: Update a device
+      tags: [Devices]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+  /api/family/devices/{id}/heartbeat:
+    post:
+      summary: Device heartbeat (stale heartbeat raises a device_offline alert)
+      tags: [Devices]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+  /api/family/devices/{id}/member-token:
+    post:
+      summary: Exchange for a member data-plane token
+      description: |
+        Mints a short-lived token for the *session's* member identity, valid on
+        the Family data plane (api.family.privacypal.ai). Identity comes from
+        the authenticated session, never from the device's claim about itself;
+        kid-mode sessions cannot obtain a parent's token.
+      tags: [Devices]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+
+  /api/family/events:
+    post:
+      summary: Ingest device activity signals (batched)
+      description: Signals only. Payloads carrying prompt or response text are rejected; unknown keys are refused.
+      tags: [Telemetry]
+
+  /api/family/feed:
+    get:
+      summary: Activity feed (Pilot members return wellbeing weather only, no per-session rows)
+      tags: [Parent HQ]
+  /api/family/summary/today:
+    get:
+      summary: Today's household summary
+      tags: [Parent HQ]
+  /api/family/wellbeing/{memberId}:
+    get:
+      summary: A member's wellbeing weather
+      tags: [Parent HQ]
+      parameters: [{ name: memberId, in: path, required: true, schema: { type: string } }]
+  /api/family/alerts:
+    get:
+      summary: List alerts (device offline, protection off, tamper)
+      tags: [Parent HQ]
+  /api/family/alerts/{id}/resolve:
+    post:
+      summary: Resolve an alert
+      tags: [Parent HQ]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+  /api/family/approvals:
+    get:
+      summary: List pending approvals (e.g. a kid requesting a new AI tool)
+      tags: [Parent HQ]
+  /api/family/approvals/{id}/approve:
+    post:
+      summary: Approve a request
+      tags: [Parent HQ]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+  /api/family/approvals/{id}/deny:
+    post:
+      summary: Deny a request
+      tags: [Parent HQ]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+  /api/family/digest/latest:
+    get:
+      summary: Latest weekly digest
+      tags: [Parent HQ]
+  /api/family/digest/run:
+    post:
+      summary: Generate a digest now
+      tags: [Parent HQ]
+
+  /api/family/memory/{memberId}:
+    get:
+      summary: View a member's memory facts (proxied; Pilot members are server-side 403)
+      tags: [Memory]
+      parameters: [{ name: memberId, in: path, required: true, schema: { type: string } }]
+  /api/family/memory/{memberId}/stats:
+    get:
+      summary: A member's memory stats
+      tags: [Memory]
+      parameters: [{ name: memberId, in: path, required: true, schema: { type: string } }]
+  /api/family/memory/{memberId}/settings:
+    put:
+      summary: Update a member's memory settings
+      tags: [Memory]
+      parameters: [{ name: memberId, in: path, required: true, schema: { type: string } }]
+  /api/family/memory/{memberId}/facts/{factId}:
+    delete:
+      summary: Delete one memory fact
+      tags: [Memory]
+      parameters:
+        - { name: memberId, in: path, required: true, schema: { type: string } }
+        - { name: factId, in: path, required: true, schema: { type: string } }
+  /api/family/memory/{memberId}/erase:
+    post:
+      summary: Crypto-shred a member's memory (irreversible)
+      tags: [Memory]
+      parameters: [{ name: memberId, in: path, required: true, schema: { type: string } }]
+
+  /api/family/kid/deal:
+    get:
+      summary: The Deal (what the kid agreed to, in kid language)
+      tags: [Kid]
+  /api/family/kid/summary:
+    get:
+      summary: Kid's own summary (kids see exactly what parents see)
+      tags: [Kid]
+  /api/family/kid/policy:
+    get:
+      summary: Kid's own guardrail policy
+      tags: [Kid]
+  /api/family/kid/memory:
+    get:
+      summary: Kid's own memory facts
+      tags: [Kid]
+  /api/family/kid/memory/facts/{factId}:
+    delete:
+      summary: Kid deletes one of their own memory facts
+      tags: [Kid]
+      parameters: [{ name: factId, in: path, required: true, schema: { type: string } }]
+  /api/family/kid/memory/erase:
+    post:
+      summary: Kid crypto-shreds their own memory
+      tags: [Kid]
+
+  /api/family/billing/config:
+    get:
+      summary: Billing configuration and plan
+      tags: [Billing]
+  /api/family/billing/subscribe:
+    post:
+      summary: Start the subscription ($9.99/mo, 5-day trial)
+      tags: [Billing]
+  /api/family/billing/status:
+    get:
+      summary: Subscription status
+      tags: [Billing]
+  /api/family/billing/cancel:
+    post:
+      summary: Cancel at period end
+      tags: [Billing]
+  /api/family/billing/resume:
+    post:
+      summary: Resume a canceling subscription
+      tags: [Billing]
+  /api/family/billing/payment-method:
+    put:
+      summary: Update the payment method
+      tags: [Billing]
+  /api/family/stripe/webhook:
+    post:
+      summary: Stripe webhook (signature-verified raw body)
+      tags: [Billing]
+      security: []
+
+  /api/family/admin/summary:
+    get:
+      summary: Aggregate platform summary (partner)
+      tags: [Partner Admin]
+  /api/family/admin/families:
+    get:
+      summary: List families, aggregate fields only (partner)
+      tags: [Partner Admin]
+  /api/family/admin/families/{id}:
+    get:
+      summary: One family, aggregate fields only (partner)
+      tags: [Partner Admin]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+
+components:
+  securitySchemes:
+    FamilySessionCookie:
+      type: apiKey
+      in: cookie
+      name: pp_family_session
+      description: Parent or kid session cookie (browser).
+    FamilyBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Family session as a bearer token (desktop apps). Revocable server-side; changing the password invalidates existing sessions.
+    DeviceToken:
+      type: apiKey
+      in: header
+      name: x-pp-device-token
+      description: Registered household device.
+    PartnerJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Partner credential; grants only the read-only admin endpoints.
+
+security:
+  - FamilySessionCookie: []
+  - FamilyBearer: []
