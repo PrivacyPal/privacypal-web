@@ -212,13 +212,13 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
         <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
         <span class="agent-tag">Build &amp; marketplace</span>
         <h4>Bring your own, or pick from the shelf</h4>
-        <p>Customize and ship your own agents, or enable privacy, security and AI agents from the marketplace. Enrich any AI conversation across Claude, ChatGPT, Gemini, Copilot, Grok, Hermes Agent and more.</p>
+        <p>Customize and ship your own agents, or enable privacy, security and AI agents from the marketplace. Enrich any AI conversation across Claude, ChatGPT, Gemini, Copilot, Grok, Perplexity, Hermes Agent and more.</p>
       </div>
     </div>
     <div class="panel reveal" style="margin-top:20px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center">
       <div>
         <h3>Same governance. Every model. Every endpoint.</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:10px">Privacy Agents run on-device, so the same governance applies whether your team is in Claude Code, ChatGPT, Gemini, Microsoft Copilot, Grok, Hermes Agent, or a custom MCP stack you built yesterday. Visibility and control of AI, regardless of which AI.</p>
+        <p style="color:var(--muted);font-size:.95rem;margin-top:10px">Privacy Agents run on-device, so the same governance applies whether your team is in Claude Code, ChatGPT, Gemini, Microsoft Copilot, Grok, Perplexity, Hermes Agent, or a custom MCP stack you built yesterday. Visibility and control of AI, regardless of which AI.</p>
       </div>
       <div class="pill-row">
         <span class="pill">Claude Code</span>
@@ -227,6 +227,7 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
         <span class="pill">Claude</span>
         <span class="pill">Gemini</span>
         <span class="pill">Grok</span>
+        <span class="pill">Perplexity</span>
         <span class="pill">Hermes Agent</span>
         <span class="pill">MCP</span>
         <span class="pill">+ any LLM</span>
@@ -263,6 +264,40 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
         <h4>Finance wires up a Private MCP for the GL</h4>
         <p>Engineers, analysts and a custom Financial Agent all share the same internal context, without that context ever leaving the org. Same fluency. Zero exfiltration. Full audit.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COVERAGE TABLE ================= -->
+<section class="section" id="coverage" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow pink">Coverage · systems &amp; agents</span>
+      <h2>Ten surfaces. One governance plane.</h2>
+      <p class="lede">Everything <a href="privacypal-pro.html" style="color:var(--ink);text-decoration:underline">Pro</a> protects, plus the agent surfaces where real work now happens. Max governs what every one of them can read, write and send off the device.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="width:32%">AI system / agent</th>
+            <th>What Max governs</th>
+            <th style="width:18%">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/chatgpt.png" alt="" loading="lazy"></span><b>ChatGPT</b></span></td><td>Prompts &amp; uploads twinned in real time, web &amp; desktop</td><td class="yes">Governed</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/claude.png" alt="" loading="lazy"></span><b>Claude</b></span></td><td>Prompts &amp; attachments twinned, web &amp; desktop</td><td class="yes">Governed</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/gemini.png" alt="" loading="lazy"></span><b>Gemini</b></span></td><td>Prompts &amp; uploads twinned, web &amp; desktop</td><td class="yes">Governed</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/copilot.webp" alt="" loading="lazy"></span><b>Microsoft Copilot</b></span></td><td>Chat twinned; agent actions controlled at the device level</td><td class="yes">Governed</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg></span><b>Grok</b></span></td><td>Prompts &amp; uploads twinned on grok.com &amp; Grok Bot</td><td class="yes">Governed</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round"><path d="M16 5v22"/><path d="M6.5 10.5l19 11"/><path d="M25.5 10.5l-19 11"/></svg></span><b>Perplexity</b><span class="new-tag">New</span></span></td><td>Questions &amp; attachments protected on perplexity.ai, on by default</td><td class="yes">Governed</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6.5 9.5l3.5 2.8-3.5 2.8"/><path d="M12.5 15.5h5"/></svg></span><b>Claude Code</b></span></td><td>Repo-aware agent governance: prompts &amp; tool calls scrubbed before they leave the laptop</td><td class="yes">Governed · Max</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/copilot.webp" alt="" loading="lazy"></span><b>Copilot agents</b></span></td><td>What agent actions can read, write &amp; exfiltrate, enforced on-device</td><td class="yes">Governed · Max</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V9"/><path d="M8 13.5 16 7l8 6.5"/><path d="M9.5 20 16 14.8 22.5 20"/></svg></span><b>Hermes Agent</b></span></td><td>Covered via the Nous Portal &amp; default Fireworks endpoints</td><td class="yes">Governed · Max</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M12 2.5v6M12 15.5v6M2.5 12h6M15.5 12h6"/></svg></span><b>Private MCP</b></span></td><td>Internal tools over MCP, without leaking connections to a public host</td><td class="yes">Governed · Max</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
