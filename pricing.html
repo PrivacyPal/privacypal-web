@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Pricing · PrivacyPal</title>
-<meta name="description" content="Enterprise-grade governance. SME-friendly pricing. Pro from $15/seat/mo billed annually, Max from $50/seat/mo billed annually, Cloud custom. Cancel anytime. Every plan ships with on-device Privacy Twins and real-time interception." />
+<meta name="description" content="Enterprise-grade governance. SME-friendly pricing. Pro is an individual seat at $7.50/mo billed annually. Max covers teams and organizations from $30/seat/mo annually, down to $17 at scale. Cloud custom. Cancel anytime." />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,16 +14,28 @@
 .price-card.dark .btn-primary{background:#fff;color:var(--ink)}
 .price-card.dark .btn-primary:hover{background:#e7e7e7}
 .price-card.dark li{color:#e4e4e4}
+.price-card.dark .amount-note a{color:#8fd9c8;border-bottom:1px solid rgba(143,217,200,.45)}
+.price-card.dark .amount-note a:hover{border-bottom-color:#8fd9c8}
+.scope-panel{display:flex;flex-direction:column;height:100%}
+.scope-panel .dots{display:flex;flex-wrap:wrap;gap:7px;max-width:180px;margin-bottom:22px}
+.scope-panel .dots i{width:13px;height:13px;border-radius:50%;background:var(--faint);opacity:.45;display:block}
+.scope-panel .dots i.on{background:var(--teal);opacity:1}
+.scope-panel h3{font-size:1.25rem;font-weight:500;letter-spacing:-.02em;margin-top:10px}
+.scope-panel ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:11px}
+.scope-panel li{font-size:.9rem;color:var(--text);line-height:1.55;padding-left:22px;position:relative}
+.scope-panel li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.scope-panel li.off::before{background:transparent;box-shadow:inset 0 0 0 1px var(--faint)}
+.scope-panel li b{color:var(--ink);font-weight:600}
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/pricing.html" />
 <meta property="og:title" content="Pricing · PrivacyPal" />
-<meta property="og:description" content="Enterprise-grade governance. SME-friendly pricing. Cancel anytime. Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box." />
+<meta property="og:description" content="Pro is an individual seat at $7.50/mo billed annually. Max covers teams and organizations from $30/seat/mo annually, with volume pricing down to $17. Cancel anytime." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Pricing · PrivacyPal" />
-<meta name="twitter:description" content="Pro from $15/seat/mo billed annually, Max from $50/seat/mo billed annually, Cloud custom. Cancel anytime." />
+<meta name="twitter:description" content="Pro from $7.50/seat/mo billed annually (individual account). Max from $30/seat/mo annually with volume pricing to $17. Cloud custom." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 </head>
 <body>
@@ -35,11 +47,11 @@
   <div class="container">
     <span class="eyebrow">Pricing · attainable governance</span>
     <h1 style="max-width:20ch">Enterprise-grade governance. SME-friendly pricing.</h1>
-    <p class="lede">Cancel anytime. Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box. Start on a single seat. Scale to the whole org.</p>
+    <p class="lede">Cancel anytime. Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box. Pro covers one person. Max covers the organization, and gets cheaper per seat as you grow.</p>
     <div class="btn-row" style="margin-top:28px">
       <div class="billing-toggle" id="billingToggle" role="tablist" aria-label="Billing period">
         <button type="button" role="tab" data-billing="monthly" aria-selected="false">Monthly</button>
-        <button type="button" role="tab" data-billing="annual" class="active" aria-selected="true">Annual <span class="save-tag">Save up to 17%</span></button>
+        <button type="button" role="tab" data-billing="annual" class="active" aria-selected="true">Annual <span class="save-tag">Save up to 23%</span></button>
       </div>
     </div>
   </div>
@@ -50,28 +62,40 @@
   <div class="container">
     <div class="pricing-grid">
       <div class="price-card reveal reveal-delay-1">
-        <div class="plan">Pro <span class="price-badge">SME on-ramp</span></div>
-        <div class="price-desc">For individuals, firms &amp; growing teams.</div>
-        <div class="amount" data-monthly="$18|/mo · per seat" data-annual="$15|/mo · per seat · billed $180/yr" data-annual-save="Save 17%">
-          <span class="big">$15</span><small>/mo · per seat · billed $180/yr</small> <span class="save">Save 17%</span>
+        <div class="plan">Pro <span class="price-badge">Individual</span></div>
+        <div class="price-desc">One person, fully covered on every AI app they touch.</div>
+        <div class="amount">
+          <span class="big" data-price="pro-unit">$7.50</span><small data-price="pro-term">/mo · one person · billed $90/yr</small> <span class="save" data-price="pro-save">Save 17%</span>
+        </div>
+        <div class="scope-note">
+          <span class="seats-glyph"><i></i><i class="off"></i><i class="off"></i></span>
+          <div>
+            <b>One seat, one human</b>
+            <p>Pro is an individual account: your login, your devices, your seat. No domain accounts, no shared seats, no volume discounts. The moment a second person needs covering, you need Max.</p>
+          </div>
         </div>
         <ul>
           <li>Works across your entire Desktop and any Web Browser: ChatGPT, Claude, Gemini, Copilot, Grok</li>
           <li>Real-time on-device interception across every AI app</li>
           <li>Covers PII, HIPAA, PCI &amp; GDPR</li>
-          <li>SSO support</li>
+          <li>SSO sign-in (Okta, Entra, Google Workspace)</li>
+          <li>5-day free trial. Cancel anytime</li>
         </ul>
         <a class="btn btn-primary" href="privacypal-pro.html">Start 5-day trial</a>
       </div>
 
       <div class="price-card dark reveal reveal-delay-2">
-        <div class="plan">Max <span class="price-badge">Agentic privacy &amp; AI enablement</span></div>
+        <div class="plan">Max <span class="price-badge">Teams &amp; organizations</span></div>
         <div class="price-desc">For AI-native enterprises &amp; agentic workflows.</div>
-        <div class="amount" data-monthly="$60|/mo · per seat" data-annual="$50|/mo · per seat · billed $600/yr" data-annual-save="Save 17%">
-          <span class="big">$50</span><small>/mo · per seat · billed $600/yr</small> <span class="save">Save 17%</span>
+        <div class="amount">
+          <span class="big" data-price="max-unit">$25</span><small data-price="max-term">/mo · per seat · billed $300/yr</small> <span class="save" data-price="max-save">Save 14%</span>
         </div>
+        <div class="amount-note" data-price="max-note">Priced at <b>25 seats</b> · 10-99 seats · <b>17% off</b> the 1-9 seat rate</div>
+        <div class="amount-note"><a href="#volume">Size it with the seat slider</a></div>
         <ul>
           <li>Everything in Pro</li>
+          <li>Volume pricing built in: four tiers, applied automatically</li>
+          <li>Domain accounts: provision and de-provision centrally</li>
           <li>Connect Salesforce, Slack, Notion, SQL, Workday &amp; more</li>
           <li>Privacy Agents that travel with every employee</li>
           <li>On-device DSPM: every staff device</li>
@@ -99,8 +123,125 @@
   </div>
 </section>
 
-<!-- ================= COMPARE PLANS ================= -->
+<!-- ================= SEAT CALCULATOR ================= -->
+<section class="section-sm" id="volume" style="padding-top:14px">
+  <div class="container">
+    <div class="seat-calc reveal" data-seat-calc="25">
+      <div class="seat-calc-top">
+        <div>
+          <span class="eyebrow blue">Volume pricing · Max</span>
+          <h3>Move the slider. Watch the seat price fall.</h3>
+          <p>Max gets cheaper per seat as the rollout grows. Drag to your headcount and the numbers below update live, against whichever billing period you picked above.</p>
+        </div>
+        <div class="seat-calc-count">
+          <span class="n" data-calc="seats">25</span>
+          <span class="u" data-calc="seat-word">seats</span>
+        </div>
+      </div>
+
+      <div class="seat-slider">
+        <input type="range" class="seat-range" min="0" max="39" step="1" value="12" aria-label="Number of Max seats">
+        <div class="seat-tiers">
+          <button type="button" class="seat-tier" data-tier="0" style="--w:9"><b>1-9</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="1" style="--w:11"><b>10-99</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="2" style="--w:12"><b>100-999</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="3" style="--w:8"><b>1000+</b>seats</button>
+        </div>
+      </div>
+
+      <div class="seat-metrics">
+        <div class="seat-metric">
+          <span class="k">Per seat</span>
+          <span class="v" data-calc="unit">$25<small>/seat/mo</small></span>
+          <span class="sub">PrivacyPal Max</span>
+        </div>
+        <div class="seat-metric accent">
+          <span class="k" data-calc="total-label">Billed annually</span>
+          <span class="v" data-calc="total">$7,500<small>/yr</small></span>
+          <span class="sub">Whole rollout, all seats</span>
+        </div>
+        <div class="seat-metric">
+          <span class="k">Your volume tier</span>
+          <span class="v" data-calc="tier">10-99 seats</span>
+          <span class="sub" data-calc="tier-sub">17% off the 1-9 seat rate</span>
+        </div>
+        <div class="seat-metric">
+          <span class="k">Annual plan saves</span>
+          <span class="v" data-calc="save">$1,200<small>/yr</small></span>
+          <span class="sub">vs paying monthly</span>
+        </div>
+      </div>
+
+      <div class="seat-calc-foot">
+        <span>Volume tiers apply automatically at checkout and at renewal.</span>
+        <span>A company domain runs on Max, across every user on it.</span>
+        <a class="link-arrow" href="#" data-cta="demo">Past 5,000 seats? Talk to us</a>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal" style="margin-top:20px">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="width:38%">Max volume tier</th>
+            <th>Annual · per seat / mo</th>
+            <th>Monthly · per seat / mo</th>
+            <th>Off the 1-9 rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-tier-row="0"><td><b>1-9 seats</b><small>Small teams and pilots</small></td><td><b>$30</b></td><td><b>$34</b></td><td>List price</td></tr>
+          <tr data-tier-row="1"><td><b>10-99 seats</b><small>Departments and growing firms</small></td><td><b>$25</b></td><td><b>$29</b></td><td>17% annual<small>15% monthly</small></td></tr>
+          <tr data-tier-row="2"><td><b>100-999 seats</b><small>Company-wide rollout</small></td><td><b>$21</b></td><td><b>$26</b></td><td>30% annual<small>24% monthly</small></td></tr>
+          <tr data-tier-row="3"><td><b>1000+ seats</b><small>Enterprise scale</small></td><td><b>$17</b></td><td><b>$22</b></td><td>43% annual<small>35% monthly</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACCOUNT SCOPE ================= -->
 <section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Account scope</span>
+      <h2>Pro protects a person. Max protects an organization.</h2>
+      <p class="lede">The line between the two plans is not only a feature list. It is who the account belongs to.</p>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="panel scope-panel reveal reveal-delay-1">
+        <div class="dots">
+          <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <span class="eyebrow blue">Pro · individual</span>
+        <h3>One seat. One person. That is the whole design.</h3>
+        <ul>
+          <li><b>A single named individual.</b> Your login, your devices, your seat. Not a team seat, not a shared seat, not a seat that travels between people.</li>
+          <li class="off"><b>No domain accounts.</b> You cannot attach a company domain to Pro or provision colleagues under it.</li>
+          <li class="off"><b>No volume pricing.</b> One seat is one seat, at one price. Buying nine of them does not make them cheaper.</li>
+          <li><b>Everything an individual needs.</b> Real-time interception across every AI app on the machine, PII, HIPAA, PCI and GDPR coverage, 5-day free trial, cancel anytime.</li>
+        </ul>
+      </div>
+      <div class="panel scope-panel reveal reveal-delay-2">
+        <div class="dots">
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+        </div>
+        <span class="eyebrow pink">Max · teams and organizations</span>
+        <h3>Built for the second seat, and the two-thousandth.</h3>
+        <ul>
+          <li><b>Domain accounts.</b> Attach your company domain, provision and de-provision centrally, keep one policy plane across the org.</li>
+          <li><b>Volume pricing built in.</b> Four tiers from 1-9 up to 1000+, applied automatically as the rollout grows.</li>
+          <li><b>One domain, one plan.</b> Any company domain with more than one user runs on Max, across every user on it. Pro cannot attach to a company domain at all.</li>
+          <li><b>Everything an organization needs.</b> Connections, on-device DSPM, agent governance, Private MCP, Privacy Agents and org-wide AI policy.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARE PLANS ================= -->
+<section class="section" style="padding-top:0">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Compare plans</span>
@@ -118,6 +259,9 @@
           </tr>
         </thead>
         <tbody>
+          <tr><td>Account scope<small>Who the account belongs to</small></td><td>One individual</td><td>Teams, departments &amp; whole orgs</td><td>Whole organization</td></tr>
+          <tr><td>Company domain accounts<small>More than one user on a domain? The domain runs on Max</small></td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Volume pricing<small>Automatic tiers as seat count grows</small></td><td class="no">–</td><td class="yes">✓ 4 tiers</td><td>Custom</td></tr>
           <tr><td>On-device Privacy Twins &amp; real-time interception</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Every major AI provider: ChatGPT, Claude, Gemini, Copilot, Grok</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Hermes Agent support</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
@@ -133,7 +277,7 @@
           <tr><td>Network DSPM across databases &amp; data lakes</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
           <tr><td>OpenAI / Anthropic / Google compatible gateway</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
           <tr><td>Dedicated solution engineer · 24/7 support</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-          <tr><td>Pricing<br><span style="color:var(--muted);font-size:.8rem">Per seat · save 17% billed annually</span></td><td>$18/mo · $15/mo annual</td><td>$60/mo · $50/mo annual</td><td>Custom · annual</td></tr>
+          <tr><td>Pricing<br><span style="color:var(--muted);font-size:.8rem">Annual billing saves up to 23%</span></td><td>$9/mo<small>$7.50/mo annual · one person, flat</small></td><td>$34 to $22/mo<small>$30 to $17/mo annual · by volume</small></td><td>Custom · annual</td></tr>
         </tbody>
       </table>
     </div>
@@ -160,8 +304,8 @@
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
-        <h4>Start small, scale up</h4>
-        <p>Start on a single seat. Scale to the whole org. When you're ready for sovereign self-host, Cloud is a conversation away.</p>
+        <h4>Start solo. Scale to the org.</h4>
+        <p>Pro covers you as an individual. When a second person needs covering, or the business itself needs protecting, Max takes over with volume pricing built in.</p>
       </div>
     </div>
   </div>
@@ -172,8 +316,8 @@
   <div class="container cta-stack">
     <div class="cta-banner reveal">
       <span class="eyebrow" style="justify-content:center">Get started</span>
-      <h2 style="margin-top:14px">Start on a single seat. Scale to the whole org.</h2>
-      <p>Install once. Run silently. Get total governance across every AI app, copilot and agent your team touches, from $15/seat/mo billed annually.</p>
+      <h2 style="margin-top:14px">Cover yourself today. Cover the org this quarter.</h2>
+      <p>Install once. Run silently. Get total governance across every AI app, copilot and agent you touch, from $7.50 a month for one person on Pro, or $30/seat/mo for the whole organization on Max, billed annually.</p>
       <div class="btn-row">
         <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install for Mac &amp; Windows</a>
         <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
@@ -185,29 +329,6 @@
 <div id="site-footer-slot"></div>
 
 <script src="assets/v3.js"></script>
-<script>
-(function(){
-  var toggle = document.getElementById('billingToggle');
-  if (!toggle) return;
-  var buttons = toggle.querySelectorAll('button[data-billing]');
-  var amounts = document.querySelectorAll('.amount[data-monthly]');
-  function setBilling(mode){
-    buttons.forEach(function(b){
-      var on = b.dataset.billing === mode;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-    amounts.forEach(function(el){
-      var raw = el.dataset[mode];
-      if (!raw) return;
-      var parts = raw.split('|');
-      var save = el.dataset.annualSave;
-      el.innerHTML = '<span class="big">' + parts[0] + '</span><small>' + (parts[1] || '') + '</small>' +
-        (mode === 'annual' && save ? ' <span class="save">' + save + '</span>' : '');
-    });
-  }
-  buttons.forEach(function(b){ b.addEventListener('click', function(){ setBilling(b.dataset.billing); }); });
-})();
-</script>
+<script src="assets/pricing.js"></script>
 </body>
 </html>

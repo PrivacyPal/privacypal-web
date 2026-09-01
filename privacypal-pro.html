@@ -3,22 +3,34 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>PrivacyPal Pro: SME-grade AI governance, install once</title>
-<meta name="description" content="The SME on-ramp to enterprise-grade AI governance. Desktop and browser agents protect every AI app your team uses: ChatGPT, Claude, Gemini, Copilot, Grok. Zero learning curve. From $18/seat/mo." />
+<title>PrivacyPal Pro: individual AI governance, install once</title>
+<meta name="description" content="Enterprise-grade AI governance for one person. Desktop and browser agents protect every AI app you use: ChatGPT, Claude, Gemini, Copilot, Grok, Perplexity. Zero learning curve. $9/mo, or $7.50/mo billed annually. Individual account." />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
+<style>
+.pro-price-strip{display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:.76rem;color:var(--muted)}
+.pro-price-strip b{font-size:1.15rem;font-weight:500;color:var(--ink);margin-right:6px;letter-spacing:-.02em}
+.one-seat{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.one-seat .seat-viz{flex:none;display:flex;gap:9px;align-items:center}
+.one-seat .seat-viz i{width:15px;height:15px;border-radius:50%;background:var(--faint);opacity:.4;display:block}
+.one-seat .seat-viz i.on{background:var(--teal);opacity:1;box-shadow:0 0 0 5px rgba(2,131,145,.14)}
+.one-seat .txt{flex:1;min-width:280px}
+.one-seat h3{font-size:1.3rem;font-weight:500;letter-spacing:-.02em;margin-top:10px}
+.one-seat p{font-size:.95rem;color:var(--muted);margin-top:10px;line-height:1.6;max-width:66ch}
+.one-seat .rules{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+</style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/privacypal-pro.html" />
-<meta property="og:title" content="PrivacyPal Pro: SME-grade AI governance, install once" />
-<meta property="og:description" content="The SME on-ramp to enterprise-grade AI governance. Desktop and browser agents protect every AI app your team uses. Zero learning curve. From $18/seat/mo." />
+<meta property="og:title" content="PrivacyPal Pro: individual AI governance, install once" />
+<meta property="og:description" content="Enterprise-grade AI governance for one person. Desktop and browser agents protect every AI app you use. Zero learning curve. From $7.50/mo billed annually. Individual account." />
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PrivacyPal Pro: SME-grade AI governance, install once" />
-<meta name="twitter:description" content="Install once. Get protected. From $18/seat/mo." />
+<meta name="twitter:title" content="PrivacyPal Pro: individual AI governance, install once" />
+<meta name="twitter:description" content="Install once. Get protected. $9/mo, or $7.50/mo billed annually. One seat, one person." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 </head>
 <body>
@@ -28,12 +40,17 @@
 <!-- ================= PAGE HERO ================= -->
 <header class="page-hero">
   <div class="container">
-    <span class="eyebrow blue">PrivacyPal Pro · SME governance</span>
-    <h1>Enterprise-grade governance. SME-friendly to install.</h1>
-    <p class="lede" style="max-width:62ch">Pro is the on-ramp for individuals, firms and growing teams. Desktop and browser agents intercept sensitive data the moment it's typed (across ChatGPT, Claude, Gemini, Copilot, Grok and Perplexity), covering PII, HIPAA, PCI and GDPR. Zero learning curve. Your team keeps moving. Your data stays yours.</p>
+    <span class="eyebrow blue">PrivacyPal Pro · individual governance</span>
+    <h1>Enterprise-grade governance, sized for one person.</h1>
+    <p class="lede" style="max-width:62ch">Pro is the individual seat. Desktop and browser agents intercept sensitive data the moment you type it (across ChatGPT, Claude, Gemini, Copilot, Grok and Perplexity), covering PII, HIPAA, PCI and GDPR. Zero learning curve. You keep moving. Your data stays yours.</p>
     <div class="btn-row">
       <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected</a>
       <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a walkthrough</a>
+    </div>
+    <div class="pro-price-strip">
+      <span><b>$7.50</b>/ mo · one person · billed $90 a year</span>
+      <span><b>$9</b>/ mo · one person · monthly</span>
+      <span>Individual account · 5-day free trial</span>
     </div>
     <div class="page-hero-media reveal">
       <img src="assets/gemini-protected-card.png" alt="PrivacyPal protecting a Gemini prompt: masked entities, encode/decode timings, token counts">
@@ -62,22 +79,42 @@
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9M22 4l-10 10-3-3"/></svg></div>
         <h4>Web &amp; desktop, one install</h4>
-        <p>The browser extension covers AI on the web. The desktop agent covers native AI apps. Together: privacy for LLM use everywhere your team works.</p>
+        <p>The browser extension covers AI on the web. The desktop agent covers native AI apps. Together: privacy for LLM use everywhere you work.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7l8-4 8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4"/></svg></div>
         <h4>Zero learning curve</h4>
-        <p>No new tools to learn, no habits to change. Your team keeps using the AI they already love. PrivacyPal works silently underneath.</p>
+        <p>No new tools to learn, no habits to change. You keep using the AI you already love. PrivacyPal works silently underneath.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
-        <h4>SSO support</h4>
-        <p>Okta, Entra, Google Workspace. Provision in minutes. De-provision the minute someone walks out the door.</p>
+        <h4>SSO sign-in</h4>
+        <p>Okta, Entra, Google Workspace. Sign in with the identity you already use. Central provisioning and de-provisioning belong to <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">Max</a>.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h4>Zero-knowledge by default</h4>
         <p>Detection runs on the device. Your data never phones home: not to us, not to anyone. Edge-processing, by design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACCOUNT SCOPE ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="panel one-seat reveal">
+      <div class="seat-viz" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      <div class="txt">
+        <span class="eyebrow blue">Account scope</span>
+        <h3>One seat. One person. That is the whole design.</h3>
+        <p>Pro is an individual account, licensed to a single named human: your login, your devices, your seat. It is not a team plan and it does not stretch across an organization. That means no domain accounts, no shared seats and no volume discounts. Nine people buying Pro is nine individuals, at one flat price each. When the business itself is what needs protecting, that is <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">PrivacyPal Max</a>: domain accounts, central provisioning and volume pricing from the tenth seat.</p>
+        <div class="rules">
+          <span class="pill">Individual account</span>
+          <span class="pill">No domain accounts</span>
+          <span class="pill">No volume discounts</span>
+          <span class="pill">One flat price</span>
+        </div>
       </div>
     </div>
   </div>
@@ -89,7 +126,7 @@
     <div class="section-head reveal">
       <span class="eyebrow blue">Coverage · systems &amp; agents</span>
       <h2>What Pro protects, out of the box</h2>
-      <p class="lede">Six chat platforms, covered on every Pro seat the moment it's installed. Agent surfaces are governed by <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">PrivacyPal Max</a>: each one below links you straight there.</p>
+      <p class="lede">Six chat platforms, covered on your Pro account the moment it's installed. Agent surfaces are governed by <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">PrivacyPal Max</a>: each one below links you straight there.</p>
     </div>
     <div class="table-wrap reveal">
       <table class="compare">
@@ -118,16 +155,6 @@
   </div>
 </section>
 
-<!-- ================= QUOTE ================= -->
-<section class="section-sm" style="padding-top:0">
-  <div class="container">
-    <div class="bigquote reveal">
-      <blockquote>Our loan officers were pasting spreadsheets into ChatGPT every day to draft narratives. PrivacyPal made that <b>safe overnight</b>. We didn't have to change a single habit.</blockquote>
-      <div class="who">Managing Partner, 280-person wealth advisory</div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= DAY IN THE LIFE ================= -->
 <section class="section">
   <div class="container">
@@ -138,22 +165,22 @@
     <div class="card-grid cols-2">
       <div class="step reveal reveal-delay-1">
         <span class="num">01</span>
-        <h4>Clinicians drafting patient letters in Claude</h4>
-        <p>Patient names, dates of birth and diagnoses are swapped for Privacy Twins before the prompt leaves the desktop. The letter reads perfectly. The PHI never travels. HIPAA holds.</p>
+        <h4>The clinician drafting a patient letter in Claude</h4>
+        <p>Patient names, dates of birth and diagnoses are swapped for Privacy Twins before the prompt leaves your desktop. The letter reads perfectly. The PHI never travels. HIPAA holds.</p>
       </div>
       <div class="step reveal reveal-delay-1">
         <span class="num">02</span>
-        <h4>Analysts drafting the Monday memo</h4>
-        <p>Your analyst pastes a deal pipeline into Claude. Privacy Twins swap client names and amounts on the way out, stitch the real ones back on the way in. Same answer. Zero exfiltration.</p>
+        <h4>The analyst drafting the Monday memo</h4>
+        <p>You paste a deal pipeline into Claude. Privacy Twins swap client names and amounts on the way out, stitch the real ones back on the way in. Same answer. Zero exfiltration.</p>
       </div>
       <div class="step reveal reveal-delay-2">
         <span class="num">03</span>
-        <h4>Support teams in Copilot &amp; ChatGPT</h4>
-        <p>Real account numbers and PII never leave Outlook or the helpdesk. Customers get a better reply, faster, and nothing sensitive ever leaves the building.</p>
+        <h4>The support rep in Copilot &amp; ChatGPT</h4>
+        <p>Real account numbers and PII never leave your Outlook or your helpdesk. Your customer gets a better reply, faster, and nothing sensitive ever leaves the building.</p>
       </div>
       <div class="step reveal reveal-delay-2">
         <span class="num">04</span>
-        <h4>Finance drops P&amp;Ls into ChatGPT for commentary</h4>
+        <h4>The finance lead dropping a P&amp;L into ChatGPT</h4>
         <p>PrivacyPal keeps vendor names, margins and forecasts in-house. The LLM gets statistical-bandwidth-preserving Privacy Twins, and gives you a high-quality answer.</p>
       </div>
     </div>
@@ -165,8 +192,8 @@
   <div class="container cta-stack">
     <div class="cta-banner reveal">
       <span class="eyebrow" style="justify-content:center">Get started</span>
-      <h2 style="margin-top:14px">Start with one seat. Scale to the whole org.</h2>
-      <p>Deploy PrivacyPal Pro in 20 minutes. No infrastructure to stand up. No model to retrain. $18/seat/month, or $180/seat/year billed annually. When you're ready for connections, privacy policies, agent governance and on-device DSPM, you're one click from <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">Max</a>.</p>
+      <h2 style="margin-top:14px">Cover yourself in 20 minutes.</h2>
+      <p>Deploy PrivacyPal Pro in 20 minutes. No infrastructure to stand up. No model to retrain. $9/month, or $7.50/month billed annually at $90 a year, for one individual seat. When it is the business that needs protecting, with connections, privacy policies, agent governance, on-device DSPM and volume pricing, you're one click from <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">Max</a>.</p>
       <div class="btn-row">
         <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected</a>
         <a class="btn btn-ghost btn-lg" href="pricing.html">See pricing</a>

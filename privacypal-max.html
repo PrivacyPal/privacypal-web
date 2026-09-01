@@ -13,6 +13,8 @@
 <style>
 .price-strip{display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:.76rem;color:var(--muted)}
 .price-strip b{font-size:1.15rem;font-weight:500;color:var(--ink);margin-right:6px;letter-spacing:-.02em}
+.price-strip a{color:var(--ink);border-bottom:1px solid var(--line);margin-left:8px}
+.price-strip a:hover{border-bottom-color:var(--ink)}
 .logo-ico{background:#fff;border:1px solid var(--line);width:auto !important;min-width:42px;padding:0 12px;align-self:flex-start}
 .logo-ico img{max-height:22px;max-width:104px;width:auto;height:auto}
 .guard{display:inline-block;margin-top:14px;font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
@@ -47,8 +49,9 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
       <a class="btn btn-ghost btn-lg" href="#pillars">See what's inside</a>
     </div>
     <div class="price-strip">
-      <span><b>$50</b>per seat / mo · billed annually</span>
-      <span><b>$60</b>per seat / mo · monthly</span>
+      <span><b>$30</b>per seat / mo · billed annually</span>
+      <span><b>$34</b>per seat / mo · monthly</span>
+      <span>Volume pricing to <b>$17</b><a href="#volume">size your rollout</a></span>
       <span>Includes everything in Pro</span>
     </div>
   </div>
@@ -302,6 +305,95 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
   </div>
 </section>
 
+<!-- ================= VOLUME PRICING ================= -->
+<section class="section-sm" id="volume" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow pink">Volume pricing</span>
+      <h2>Max gets cheaper per seat as the rollout grows</h2>
+      <p class="lede">Four tiers, applied automatically at checkout and at renewal. Drag to your headcount and the numbers move with you.</p>
+      <div class="btn-row" style="margin-top:22px">
+        <div class="billing-toggle" role="tablist" aria-label="Billing period">
+          <button type="button" role="tab" data-billing="monthly" aria-selected="false">Monthly</button>
+          <button type="button" role="tab" data-billing="annual" class="active" aria-selected="true">Annual <span class="save-tag">Save up to 23%</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="seat-calc reveal" data-seat-calc="50">
+      <div class="seat-calc-top">
+        <div>
+          <span class="eyebrow blue">Seat calculator</span>
+          <h3>Move the slider. Watch the seat price fall.</h3>
+          <p>Every Max seat carries the full governance plane: connections, on-device DSPM, agent governance, Private MCP and org-wide policy.</p>
+        </div>
+        <div class="seat-calc-count">
+          <span class="n" data-calc="seats">50</span>
+          <span class="u" data-calc="seat-word">seats</span>
+        </div>
+      </div>
+
+      <div class="seat-slider">
+        <input type="range" class="seat-range" min="0" max="39" step="1" value="15" aria-label="Number of Max seats">
+        <div class="seat-tiers">
+          <button type="button" class="seat-tier" data-tier="0" style="--w:9"><b>1-9</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="1" style="--w:11"><b>10-99</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="2" style="--w:12"><b>100-999</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="3" style="--w:8"><b>1000+</b>seats</button>
+        </div>
+      </div>
+
+      <div class="seat-metrics">
+        <div class="seat-metric">
+          <span class="k">Per seat</span>
+          <span class="v" data-calc="unit">$25<small>/seat/mo</small></span>
+          <span class="sub">PrivacyPal Max</span>
+        </div>
+        <div class="seat-metric accent">
+          <span class="k" data-calc="total-label">Billed annually</span>
+          <span class="v" data-calc="total">$15,000<small>/yr</small></span>
+          <span class="sub">Whole rollout, all seats</span>
+        </div>
+        <div class="seat-metric">
+          <span class="k">Your volume tier</span>
+          <span class="v" data-calc="tier">10-99 seats</span>
+          <span class="sub" data-calc="tier-sub">17% off the 1-9 seat rate</span>
+        </div>
+        <div class="seat-metric">
+          <span class="k">Annual plan saves</span>
+          <span class="v" data-calc="save">$2,400<small>/yr</small></span>
+          <span class="sub">vs paying monthly</span>
+        </div>
+      </div>
+
+      <div class="seat-calc-foot">
+        <span>A company domain runs on Max, across every user on it.</span>
+        <a class="link-arrow" href="pricing.html">See every plan</a>
+        <a class="link-arrow" href="#" data-cta="demo">Past 5,000 seats? Talk to us</a>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal" style="margin-top:20px">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="width:38%">Max volume tier</th>
+            <th>Annual · per seat / mo</th>
+            <th>Monthly · per seat / mo</th>
+            <th>Off the 1-9 rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-tier-row="0"><td><b>1-9 seats</b><small>Small teams and pilots</small></td><td><b>$30</b></td><td><b>$34</b></td><td>List price</td></tr>
+          <tr data-tier-row="1"><td><b>10-99 seats</b><small>Departments and growing firms</small></td><td><b>$25</b></td><td><b>$29</b></td><td>17% annual<small>15% monthly</small></td></tr>
+          <tr data-tier-row="2"><td><b>100-999 seats</b><small>Company-wide rollout</small></td><td><b>$21</b></td><td><b>$26</b></td><td>30% annual<small>24% monthly</small></td></tr>
+          <tr data-tier-row="3"><td><b>1000+ seats</b><small>Enterprise scale</small></td><td><b>$17</b></td><td><b>$22</b></td><td>43% annual<small>35% monthly</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- ================= PRO VS MAX ================= -->
 <section class="section" style="padding-top:24px">
   <div class="container">
@@ -330,9 +422,21 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
           <tr><td>Org-wide AI policy &amp; privacy policies<small>Block models, require training, intercept, shadow-AI discovery</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
           <tr><td>Privacy Agents (intent, injection, vertical, custom)</td><td class="no">–</td><td class="yes">Max only</td></tr>
           <tr><td>Agent marketplace</td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Pricing<small>Per seat · save 17% billed annually</small></td><td><b>$18</b>/mo · <b>$180</b>/yr</td><td><b>$60</b>/mo · <b>$600</b>/yr</td></tr>
+          <tr><td>Account scope<small>Who the account belongs to</small></td><td>One individual</td><td>Teams, departments &amp; whole orgs</td></tr>
+          <tr><td>Company domain accounts &amp; volume pricing<small>More than one user on a domain? The domain runs on Max</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
+          <tr><td>Pricing<small>Annual billing saves up to 23%</small></td><td><b>$9</b>/mo · <b>$90</b>/yr<small>One person, flat</small></td><td><b>$34</b> to <b>$22</b>/mo · <b>$360</b> to <b>$204</b>/yr<small>By volume, see the tiers above</small></td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE ================= -->
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="bigquote reveal">
+      <blockquote>Our loan officers were pasting spreadsheets into ChatGPT every day to draft narratives. PrivacyPal made that <b>safe overnight</b>. We didn't have to change a single habit.</blockquote>
+      <div class="who">Managing Partner, 280-person wealth advisory</div>
     </div>
   </div>
 </section>
@@ -355,5 +459,6 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
 <div id="site-footer-slot"></div>
 
 <script src="assets/v3.js"></script>
+<script src="assets/pricing.js"></script>
 </body>
 </html>
