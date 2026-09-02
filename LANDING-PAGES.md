@@ -85,7 +85,7 @@ warmth (use the `.warm` accent + `.lp-benefits.warm` on consumer pages). Tokens 
 
 **Imagery** (from the brand kit): soft, natural, warm lighting — never harsh/stock/generic-AI.
 Product screenshots cropped clean with a subtle shadow. Line-weight icons only (Feather/Phosphor
-style), never filled/multicolor. Available heroes: `assets/hero-shot-{banking,legal,healthcare,technology,telecommunications,about}.png`.
+style), never filled/multicolor. Available heroes: `assets/hero-shot-{accounting,banking,legal,healthcare,technology,about}.png`.
 Product proof art: `pp-ext-popup.jpg`, `assets/gemini-protected-card.png`, `assets/activity-feed-wide.png`.
 
 ---

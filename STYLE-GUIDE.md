@@ -104,8 +104,8 @@ Copy icon paths from index.html or draw simple ones. No emoji.
   `assets/gemini-protected-card.png`, `assets/claude-processing-banner.png`,
   `assets/privacypal-installer.png`, `pp-ext-popup.jpg`, `ppal-ext-light.png`,
   `cws-screen-003.png`
-- Industry heroes: `assets/hero-shot-banking.png`, `-healthcare.png`, `-legal.png`,
-  `-technology.png`, `-telecommunications.png`, `-about.png`
+- Industry heroes: `assets/hero-shot-accounting.png`, `-banking.png`, `-healthcare.png`,
+  `-legal.png`, `-technology.png`, `-about.png`
 - Team photos: `jason-melo.jpg`, `chris-adamo.jpeg`, `ralph_vetsch.jpeg`,
   `brandon_turp.png`, `erik-frantzen.jpg`, `jordan_serlin.jpg`,
   `palvinder-head.png` (check v2.archive/team.html for who's who)

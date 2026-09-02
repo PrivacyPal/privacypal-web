@@ -86,10 +86,10 @@
           '<div class="nav-drop">' +
             '<div class="nav-group">' +
               '<h6>By industry</h6>' +
+              '<a href="accounting.html"><b>Accounting</b><small>CPA firms, tax practices &amp; advisory</small></a>' +
               '<a href="banking.html"><b>Banking</b><small>Community banks, credit unions &amp; wealth</small></a>' +
               '<a href="healthcare.html"><b>Healthcare</b><small>Clinics, therapists &amp; specialist practices</small></a>' +
               '<a href="legal.html"><b>Legal</b><small>Law firms, in-house counsel &amp; paralegals</small></a>' +
-              '<a href="telecommunications.html"><b>Telco</b><small>Carriers &amp; MSPs with subscriber data</small></a>' +
               '<a href="technology.html"><b>Technology</b><small>SaaS teams shipping AI on customer data</small></a>' +
             '</div>' +
             '<div class="nav-group">' +
@@ -167,10 +167,10 @@
     '<a href="privacypal-cloud.html">PrivacyPal Cloud</a>' +
     '<a href="developers.html">PrivacyPal SDK</a>' +
     '<h6>Solutions</h6>' +
+    '<a href="accounting.html">Accounting</a>' +
     '<a href="banking.html">Banking</a>' +
     '<a href="healthcare.html">Healthcare</a>' +
     '<a href="legal.html">Legal</a>' +
-    '<a href="telecommunications.html">Telco</a>' +
     '<a href="technology.html">Technology</a>' +
     '<h6>PrivacyPal Family</h6>' +
     '<a href="family/index.html">Meet PrivacyPal Family</a>' +
@@ -219,10 +219,10 @@
         '</div>' +
         '<div class="footer-col">' +
           '<h5>Solutions</h5>' +
+          '<a href="accounting.html">Accounting</a>' +
           '<a href="banking.html">Banking</a>' +
           '<a href="healthcare.html">Healthcare</a>' +
           '<a href="legal.html">Legal</a>' +
-          '<a href="telecommunications.html">Telco</a>' +
           '<a href="technology.html">Technology</a>' +
           '<a href="privacypal-cloud.html">For Enterprise</a>' +
           '<a href="install.html">Install guide</a>' +

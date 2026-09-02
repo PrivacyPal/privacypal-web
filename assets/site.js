@@ -31,10 +31,10 @@
         <div class="dropdown">
           <span>Solutions</span>
           <div class="dropdown-menu">
+            <a href="accounting.html">Accounting</a>
             <a href="banking.html">Banking</a>
             <a href="healthcare.html">Healthcare</a>
             <a href="legal.html">Legal</a>
-            <a href="telecommunications.html">Telco</a>
             <a href="technology.html">Technology</a>
           </div>
         </div>
@@ -104,10 +104,10 @@
         </div>
         <div class="footer-col">
           <h5>Solutions</h5>
+          <a href="accounting.html">Accounting</a>
           <a href="banking.html">Banking</a>
           <a href="healthcare.html">Healthcare</a>
           <a href="legal.html">Legal</a>
-          <a href="telecommunications.html">Telco</a>
           <a href="technology.html">Technology</a>
           <a href="privacypal-cloud.html">For Enterprise</a>
         </div>
