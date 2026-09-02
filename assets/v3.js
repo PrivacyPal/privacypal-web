@@ -74,7 +74,7 @@
             '<div class="nav-group">' +
               '<h6>Editions</h6>' +
               '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, one person covered</small></a>' +
-              '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy &amp; enterprise AI enablement</small></a>' +
+              '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy &amp; governance for your company</small></a>' +
               '<a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>' +
               '<a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>' +
             '</div>' +
@@ -95,7 +95,7 @@
             '<div class="nav-group">' +
               '<h6>By team</h6>' +
               '<a href="privacypal-pro.html"><b>For individuals</b><small>Install once, govern every AI: Pro</small></a>' +
-              '<a href="privacypal-max.html"><b>For AI-native enterprise</b><small>Agents, connections &amp; DSPM: Max</small></a>' +
+              '<a href="privacypal-max.html"><b>For companies, 2 to 2,000</b><small>Agents, connections &amp; DSPM: Max</small></a>' +
               '<a href="privacypal-cloud.html"><b>For regulated &amp; sovereign</b><small>Your VPC, your keys: Cloud</small></a>' +
               '<a href="developers.html"><b>For developers</b><small>Govern your own agents: SDK</small></a>' +
             '</div>' +
