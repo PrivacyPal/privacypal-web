@@ -28,6 +28,7 @@ without a slash resolves to the older one-pager `family.html`).
 | `parents.html` | Parent HQ deep dive: realtime controls, Sunday digest phone mock, engine proof |
 | `kids.html` | Speaks to kids/teens: transparency table ("the deal"), armor framing, stage ladder |
 | `promise.html` | The Family Promise: 5 numbered promises, each naming its mechanism |
+| `guidebook.html` | The Guidebook: the research behind raising AI-native kids. Four cited vulnerabilities, the frameworks Family is designed to align with, the wellbeing mechanism (mood weather, safety signals, Deep Insights), the trust architecture, the T1-T4 parent playbook with stage variants, crisis behavior, and full numbered sources from the research registry (v1.0.0) |
 | `early-access.html` | Parent-focused waitlist landing: friendly form (name, email, devices, kids' ages, priority), "opens in the next 2 weeks" promise, what-happens-next timeline. All "Get early access" CTAs point here. Submits via FormSubmit.co to **hi@privacypal.ai**, same mechanism as the careers application form (hidden-iframe POST, honeypot, `_next` success detection). NOTE: FormSubmit requires one-time activation per address; the first submission triggers an activation email to hi@privacypal.ai that must be confirmed before deliveries flow. |
 
 ## The sub-brand (summary)

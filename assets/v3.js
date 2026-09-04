@@ -112,6 +112,7 @@
               '<a href="family/parents.html"><b>For parents</b><small>Parent HQ: signals, not transcripts</small></a>' +
               '<a href="family/kids.html"><b>For kids &amp; teens</b><small>Armor, not a leash</small></a>' +
               '<a href="family/promise.html"><b>The Family Promise</b><small>Guardrails, never surveillance</small></a>' +
+              '<a href="family/guidebook.html"><b>The Guidebook</b><small>The research behind raising AI-native kids</small></a>' +
               '<a href="family/index.html#plans"><b>Plans</b><small>Whole-family cover, $9.99/mo</small></a>' +
             '</div>' +
             '<a class="nav-feature" href="family/early-access.html">' +
@@ -178,6 +179,7 @@
     '<a href="family/parents.html">For parents</a>' +
     '<a href="family/kids.html">For kids &amp; teens</a>' +
     '<a href="family/promise.html">The Family Promise</a>' +
+    '<a href="family/guidebook.html">The Guidebook</a>' +
     '<a href="family/index.html#plans">Plans</a>' +
     '<a href="family/early-access.html">Get early access</a>' +
     '<h6>Company</h6>' +
@@ -235,6 +237,7 @@
           '<a href="family/parents.html">For parents</a>' +
           '<a href="family/kids.html">For kids &amp; teens</a>' +
           '<a href="family/promise.html">The Family Promise</a>' +
+          '<a href="family/guidebook.html">The Guidebook</a>' +
           '<a href="family/index.html#plans">Plans</a>' +
           '<a href="family/early-access.html">Get early access <small>NEW</small></a>' +
         '</div>' +

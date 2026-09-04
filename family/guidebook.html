@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Guidebook · PrivacyPal Family</title>
+<meta name="description" content="The research behind raising AI-native kids: four evidence-backed vulnerabilities, the frameworks PrivacyPal Family is designed to align with, how the wellbeing science works, and the playbook only a parent can run." />
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="family.css"/>
+<link rel="stylesheet" href="../assets/family-chrome.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal Family" />
+<meta property="og:url" content="https://privacypal.ai/family/guidebook.html" />
+<meta property="og:title" content="The Guidebook · PrivacyPal Family" />
+<meta property="og:description" content="The research behind raising AI-native kids: four evidence-backed vulnerabilities, the frameworks PrivacyPal Family is designed to align with, how the wellbeing science works, and the playbook only a parent can run." />
+<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1214" />
+<meta property="og:image:height" content="658" />
+<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Guidebook · PrivacyPal Family" />
+<meta name="twitter:description" content="The research behind raising AI-native kids: the vulnerabilities, the frameworks, the wellbeing science, and the playbook." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta name="twitter:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<style>
+sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-left:2px}
+.footnotes{
+  max-width:860px;margin:0 auto;padding-top:20px;border-top:1px solid var(--line);
+  font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--muted);letter-spacing:.01em;
+}
+.footnotes p{margin:0 0 12px;overflow-wrap:anywhere}
+.footnotes b{color:var(--ink);font-weight:600}
+.footnotes a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:2px}
+.footnotes .rev{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);color:var(--faint)}
+.gb-list{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.gb-item{
+  display:grid;grid-template-columns:76px 1fr;gap:24px;align-items:start;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:30px 34px;
+}
+.gb-item .gnum{
+  font-family:var(--font-display);font-weight:600;font-size:1.9rem;line-height:1;
+  width:76px;height:76px;border-radius:24px;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.gb-item h3{margin-bottom:10px}
+.gb-item p{color:var(--muted);font-size:1rem;line-height:1.65}
+.gb-frames{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.gb-frame{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 32px}
+.gb-frame h3{margin-bottom:8px}
+.gb-frame p{color:var(--muted);font-size:1rem;line-height:1.65}
+.mech{
+  margin-top:14px;font-family:var(--font-mono);font-size:.74rem;color:var(--teal-ink);
+  background:var(--teal-tint);border-radius:10px;padding:9px 13px;display:inline-block;
+}
+.ea{font-family:var(--font-mono);font-size:.62rem;color:var(--tangerine-deep);font-weight:500}
+.gb-stages{margin-top:16px;padding:0;display:flex;flex-direction:column;gap:8px}
+.gb-stages li{list-style:none;display:grid;grid-template-columns:92px 1fr;gap:12px;font-size:.95rem;line-height:1.55;color:var(--muted)}
+.gb-stages .st{font-family:var(--font-mono);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding-top:3px}
+.st.explorer{color:var(--sage-deep)}
+.st.navigator{color:var(--teal-ink)}
+.st.pilot{color:var(--tangerine-deep)}
+.gb-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+.see-label{font-family:var(--font-mono);font-size:.66rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-ink)}
+.see-list{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.see-list li{color:var(--muted);font-size:.97rem;line-height:1.55;padding-left:18px;position:relative}
+.see-list li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:2px;background:var(--sage)}
+.see-list.no li::before{background:var(--coral)}
+.disclaimer{
+  max-width:860px;margin:26px auto 0;font-family:var(--font-mono);font-size:.78rem;line-height:1.7;
+  color:var(--coral-deep);background:var(--coral-tint);border-radius:12px;padding:14px 18px;
+}
+.gb-close{max-width:860px;margin:26px auto 0;color:var(--muted);font-size:1rem;line-height:1.65}
+@media(max-width:700px){
+  .gb-item{grid-template-columns:1fr;padding:26px 22px}
+  .gb-item .gnum{width:56px;height:56px;font-size:1.4rem;border-radius:18px}
+  .gb-stages li{grid-template-columns:1fr;gap:4px}
+  .gb-cols{grid-template-columns:1fr}
+}
+</style>
+<!-- Meta Pixel Code -->
+<script src="../assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="fhero" style="padding-bottom:48px">
+  <div class="container" style="max-width:880px;text-align:center">
+    <span class="eyebrow sage" style="justify-content:center">The Guidebook</span>
+    <h1 style="margin:18px 0 20px">The research behind <span class="hl-teal">raising AI-native kids.</span></h1>
+    <p class="lede" style="margin:0 auto"><b>TL;DR:</b> AI can genuinely enrich your kid's life, school, and growth. The risks are real and specific, and the published research names them. PrivacyPal Family is built on that research, and this page shows the receipts: every claim below carries its source.</p>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
+
+<!-- ================= WHAT THE RESEARCH SAYS ================= -->
+<section class="section wash-cream" id="research">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">The evidence</span>
+      <h2>What the research actually says</h2>
+      <p class="lede">Not vibes, not panic. Four specific vulnerabilities show up again and again in the published work on kids and AI chatbots. Here they are in parent language, with the numbers.</p>
+    </div>
+    <div class="gb-list">
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--ink)">1</div>
+        <div>
+          <h3>Kids can overtrust simulated empathy</h3>
+          <p>A chatbot sounds like it cares. It cannot. Adolescence, generally considered to span roughly ages 10 to 25, is a critical period for brain development,<sup>1</sup> and developing brains are less equipped to question a chatbot's intent, commercial bias, or accuracy. Simulated empathy gets mistaken for human understanding, because the words feel the same.<sup>1,2,3</sup></p>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--teal)">2</div>
+        <div>
+          <h3>Emotional dependence can displace real relationships</h3>
+          <p>This is not a niche behavior. 72% of US teens have tried AI companions, 12% use them for emotional or mental health support, and about one in three has chosen an AI companion over a real person for something important or serious.<sup>4</sup> About 1 in 5 US youths ages 12 to 21 (19.2%) have used AI chatbots for mental health advice.<sup>5</sup> 67% of teens 13 to 17 report using chatbots at all.<sup>6</sup> Comfort from a bot is always available and always agreeable, and leaning on it can displace the real-world social practice kids need.<sup>3,4,6,7</sup></p>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--coral)">3</div>
+        <div>
+          <h3>Chatbots miss distress and validate harmful thoughts</h3>
+          <p>Distress rarely arrives as a plain sentence; kids say it sideways. In independent testing, general-purpose chatbots consistently failed to recognize and appropriately respond to signs of mental health conditions, and their agreeableness validated whatever teens said.<sup>8</sup> Social AI companions were rated an unacceptable risk for anyone under 18, with testers watching subtle self-harm cues go unnoticed.<sup>9</sup> The pattern in the research literature: score the risk in what a person types, and route a hard moment to human help before the open dialogue continues.<sup>10</sup></p>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--sage)">4</div>
+        <div>
+          <h3>Cognitive offloading is real</h3>
+          <p>Heavy reliance on AI for conflict resolution, validation, or schoolwork can reduce critical thinking and independent coping.<sup>1,2,11</sup> The fix is not banning the tool. It is teaching the skill of doubting it, and the playbook below is built for exactly that.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FRAMEWORKS ================= -->
+<section class="section" id="frameworks">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">The standards</span>
+      <h2>The frameworks Family is designed to align with</h2>
+      <p class="lede">"Designed to align with" means exactly what it says: no badges claimed. For each framework below, what it asks for, and the named mechanism Family answers with.</p>
+    </div>
+    <div class="gb-frames">
+      <div class="gb-frame reveal">
+        <h3>APA health advisories</h3>
+        <p>The American Psychological Association's two 2025 advisories ask for regular, clear reminders that the user is talking to nonhuman AI, minimal engagement-maximizing design for youth, no validation of maladaptive or delusional thoughts, and no AI simulating clinical care.<sup>1,11</sup> Family does the reminding on the child's own device: when attachment patterns rise, a gentle nudge says plainly that the AI is software and the people in their life want to hear from them. Nothing in Family simulates care or therapy; hard moments route toward humans.</p>
+        <span class="mech">mechanism · anti-anthropomorphization nudges + crisis escalation to humans</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>American Academy of Pediatrics guidance</h3>
+        <p>The AAP tells families there is no guarantee that what a child shares with a chatbot stays confidential, warns that kids can mistake chatbots for true friends and pull away from real relationships, and asks for privacy defaults set to the most protective option.<sup>2,6</sup> Family answers with signals, never transcripts: parents see the emotional weather and safety categories, never the words, and the deeper analysis option ships off by default.</p>
+        <span class="mech">mechanism · signals, never transcripts + most-protective defaults</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>UNICEF policy guidance on AI for children (2021 edition)</h3>
+        <p>UNICEF's child-rights framework sets nine requirements for AI that touches children, including privacy-by-design and safety-by-design, transparency children can understand, and protection from data exploitation and commercial profiling.<sup>12</sup> Family is built kid-visible: the kid app shows what parents see, in age-appropriate language, and there is nothing to profile, because scoring happens on the child's own device and your family is not the product.</p>
+        <span class="mech">mechanism · on-device scoring + kids see what parents see</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>The Jed Foundation</h3>
+        <p>JED asks the industry to prohibit features that simulate friendship, intimacy, or therapeutic care for youth, and to make a warm hand-off to human crisis services such as 988 and Crisis Text Line whenever distress appears.<sup>7,13</sup> Family simulates nothing and hands off exactly that way: a crisis signal shows the child a warm support card with the 988 Suicide and Crisis Lifeline and the Crisis Text Line, and alerts a parent at the same time.</p>
+        <span class="mech">mechanism · crisis escalation to humans</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>IEEE 2089-2021 and 2089.1-2024</h3>
+        <p>IEEE 2089-2021 lays out processes for age-appropriate digital services built on the 5Rights principles: recognize that the user is a child, present age-appropriate information, and validate the design for each age.<sup>14</sup> IEEE 2089.1-2024 covers age assurance.<sup>15</sup> Family's stage ladder is the mechanism: Explorer, Navigator, and Pilot stages carry graduated permissions, age-tuned language, and age-tuned protection, set by the parent who knows the child.</p>
+        <span class="mech">mechanism · the stage ladder (Explorer · Navigator · Pilot)</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>IEEE P3462</h3>
+        <p>IEEE P3462, a draft recommended practice still in development, applies safety-by-design to generative models to prioritize child safety across the develop, deploy, and maintain lifecycle.<sup>16</sup> Family cannot change how the models themselves are built, but it designs to the same direction from the child's side: exploitation patterns are scored on the child's own device, and a flagged exchange is blocked right there.</p>
+        <span class="mech">mechanism · on-device exploitation detection</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>Thorn and All Tech Is Human</h3>
+        <p>Thorn's Safety by Design principles target the prevention of child sexual abuse across the develop, deploy, and maintain stages of generative AI.<sup>17</sup> Family works from the child's side of the conversation: it observes what happens on the child's own device, blocks a flagged exploitation exchange there with a warm, non-punitive page, and escalates to humans, a critical parent alert with the child told plainly. Family never suppresses or rewrites what an AI model says; its job is protecting the child's side of the exchange.</p>
+        <span class="mech">mechanism · on-device blocking + escalation to humans</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW THE SCIENCE WORKS ================= -->
+<section class="section wash-cream" id="science">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Under the hood</span>
+      <h2>How Family's wellbeing science works</h2>
+      <p class="lede">The Wellbeing Signal <span class="ea">early access</span> turns the research above into a daily practice. Here is the whole mechanism, in order.</p>
+    </div>
+    <div class="gb-frames">
+      <div class="gb-frame reveal">
+        <h3>Mood weather</h3>
+        <p>As your kid talks to AI, a Pal Agent on their device reads the emotional weather: energized, curious, anxious, withdrawn. You see a trend line, like a weekly forecast. You never see words.</p>
+        <span class="mech">mechanism · on-device scoring, signals never transcripts</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>Five safety signals, computed on their device</h3>
+        <p>Beyond the weather, Family watches for the research-backed patterns above. These are pattern-based safety signals scored on your kid's own device, and what gets recorded is categorical only: a category, a confidence tier, a count. Never words.</p>
+        <ul class="see-list" style="margin-top:14px">
+          <li>Crisis: signs a kid may be in real trouble, including the indirect phrasing keyword filters miss</li>
+          <li>Attachment to the AI: treating a chatbot like a best friend, a confidant, or a partner</li>
+          <li>Harmful-thought spirals: catastrophizing or harsh self-criticism that an agreeable AI echoes back</li>
+          <li>Exploitation patterns: age-inappropriate roleplay and manipulative dynamics, from either side of the conversation</li>
+          <li>Dependency patterns: computed from usage aggregates only (sessions, minutes, late-night share), never from content</li>
+        </ul>
+        <span class="mech">mechanism · pattern-based scoring on the child's own device, categorical signals only</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>Deep Insights <span class="ea">early access</span></h3>
+        <p>Deep Insights is a parent choice, off by default. When you switch it on, the analysis is refined by transiently reading the twin-protected version of the conversation: the same version the AI tool receives, with your child's identifying details already swapped out by Privacy Twins. It is analyzed and discarded. Never stored, never shown to anyone.</p>
+        <span class="mech">mechanism · twin-protected transient analysis: analyzed, discarded, stored never</span>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>What you see, and what you never see</h3>
+        <div class="gb-cols">
+          <div>
+            <span class="see-label">parents see</span>
+            <ul class="see-list">
+              <li>The weather: mood trends per kid, week by week</li>
+              <li>Safety categories and counts, in plain language</li>
+              <li>Practical, cited tips tuned to stage and weather</li>
+            </ul>
+          </div>
+          <div>
+            <span class="see-label" style="color:var(--coral-deep)">parents never see</span>
+            <ul class="see-list no">
+              <li>Words or transcripts</li>
+              <li>Questions, stories, or drafts</li>
+              <li>Anything your kid typed or read</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="gb-frame reveal">
+        <h3>The research registry</h3>
+        <p>Every tip and every signal in Family traces back to a research registry: the living link between the published work above and the guidance in the product. When the research moves, the registry moves, and the guidance follows. Registry version 1.0.0, last reviewed 2026-09-03.</p>
+        <span class="mech">mechanism · versioned research registry, quarterly review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST ARCHITECTURE ================= -->
+<section class="section" id="trust">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">The trust architecture</span>
+      <h2>Why kids can trust it is not spyware</h2>
+      <p class="lede">Monitoring that hides teaches kids to hide. Family's protection works because kids can check it.</p>
+    </div>
+    <div style="max-width:860px;margin:0 auto">
+      <div class="deep-list reveal">
+        <div class="deep-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>The kid always knows it is running</b><p>There is no stealth mode to find. The Pal app shows protection status on the kid's own screen, at every stage.</p></span>
+        </div>
+        <div class="deep-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Kids see what parents see</b><p>The kid view renders from the same data Parent HQ reads, including whether Deep Insights <span class="ea">early access</span> is on for them. The deal is checkable, not a promise to take on faith.</p></span>
+        </div>
+        <div class="deep-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Feelings stay private by design</b><p>Wellbeing runs as signals: weather and categories, never words. There is no transcript for anyone to read, because none is kept.</p></span>
+        </div>
+        <div class="deep-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Pilots keep their sessions private</b><p>At ages 14 to 17, parents get the weather and usage patterns only: no per-session rows, no per-category detail. The two critical safety alerts still come through, and the kid is told when one fires.</p></span>
+        </div>
+        <div class="deep-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Raw transcripts never leave the device</b><p>Scoring happens on the machine in your house. With Deep Insights <span class="ea">early access</span> on, only the twin-protected version, the same version the AI tool receives, is read transiently, then discarded.</p></span>
+        </div>
+        <div class="deep-item">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>When a crisis alert goes to a parent, the kid is told too</b><p>A notification your kid cannot see would be covert monitoring, and we do not build that. Alerts are two-way by design.</p></span>
+        </div>
+      </div>
+      <p class="gb-close reveal">Trust is not a soft goal here; it is protection. Most young people who sought mental health advice from a chatbot told no one (63.3%),<sup>5</sup> and the overtrust and displacement research shows where that silence goes: to a perfectly agreeable listener that mirrors instead of caring.<sup>3,6</sup> A kid who can check the deal has no reason to hide, and a kid who is not hiding is a kid you can still reach.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE PLAYBOOK ================= -->
+<section class="section wash-cream" id="playbook">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">The playbook</span>
+      <h2>Raising AI-native kids: four moves</h2>
+      <p class="lede">Family nudges you toward these automatically, at the right moment, tuned to your kid's stage. The nudge is ours. The conversation is yours: no software can run these plays for you.</p>
+    </div>
+    <div class="gb-list">
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--ink)">1</div>
+        <div>
+          <h3>Talk about what AI actually is</h3>
+          <p>Chatbots predict words. They have no feelings, no moral standards, and no clinical training. Teach the structural difference between a person who knows them and a computer simulation that mirrors them.<sup>2,3,11</sup></p>
+          <ul class="gb-stages">
+            <li><span class="st explorer">Explorer 5-9</span><span>Keep it concrete: the computer is playing pretend. Magical thinking makes anthropomorphization easiest at this age.</span></li>
+            <li><span class="st navigator">Navigator 10-13</span><span>Compare AI answers with what a friend, a teacher, or a parent would say, and talk about why they differ.</span></li>
+            <li><span class="st pilot">Pilot 14-17</span><span>Discuss commercial incentives directly: engagement features exist to keep users talking. Pilots respect being treated as capable of that analysis.</span></li>
+          </ul>
+          <span class="mech">family's part · the reality-check nudge appears when attachment patterns rise; the talk is yours</span>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--teal)">2</div>
+        <div>
+          <h3>Ask early, ask often, keep the human door open</h3>
+          <p>Ask which AI tools they use, including role-play apps and the AI built into social apps, and make clear that a human listener is always available. Most young people who turn to AI in a hard moment tell no one (63.3%), and bots miss distress that people would catch.<sup>4,5,8,13</sup></p>
+          <ul class="gb-stages">
+            <li><span class="st explorer">Explorer 5-9</span><span>Make AI chats a shared activity you occasionally sit in on together, the way you would a new game.</span></li>
+            <li><span class="st navigator">Navigator 10-13</span><span>A weekly low-stakes check-in beats an interrogation after an alert. Ask what the AI got wrong lately; it opens the door without pressure.</span></li>
+            <li><span class="st pilot">Pilot 14-17</span><span>Say it once, plainly: if an AI is ever the only one who knows something is wrong, that is the moment to tell me. Then respect their privacy the rest of the time.</span></li>
+          </ul>
+          <span class="mech">family's part · conversation-starter nudges when the weather shifts; the check-in is yours</span>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--sage)">3</div>
+        <div>
+          <h3>Keep AI out of the 1am bedroom</h3>
+          <p>Keep AI use in common household areas, not behind closed doors late at night when vulnerability and isolation peak. A laptop in the kitchen at 4pm and the same laptop in a bedroom at 1am are different risk environments.<sup>2,6</sup></p>
+          <ul class="gb-stages">
+            <li><span class="st explorer">Explorer 5-9</span><span>Screen-time windows already enforce this for Explorers; the habit matters more than the enforcement.</span></li>
+            <li><span class="st navigator">Navigator 10-13</span><span>Agree on a devices-out-of-the-bedroom time together rather than imposing it silently.</span></li>
+            <li><span class="st pilot">Pilot 14-17</span><span>Pilots set their own hours; share the pattern with them and let them draw the conclusion. The late-night share in their weekly weather is theirs to see too.</span></li>
+          </ul>
+          <span class="mech">family's part · the late-night share shows up in the weekly weather, for you and for them; the agreement is yours</span>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--tangerine)">4</div>
+        <div>
+          <h3>Practice doubting the confident answer</h3>
+          <p>Treat AI output with the same skepticism you teach for unverified internet claims. Pick one confident AI answer a week and verify it against a real source, out loud, together.<sup>1,8,12</sup></p>
+          <ul class="gb-stages">
+            <li><span class="st explorer">Explorer 5-9</span><span>Play true-or-made-up with fun AI answers; the reflex matters, not the topic.</span></li>
+            <li><span class="st navigator">Navigator 10-13</span><span>Homework is the natural place: one AI-assisted answer per assignment gets source-checked together.</span></li>
+            <li><span class="st pilot">Pilot 14-17</span><span>Flip the roles: have them teach you how they verify what an AI tells them. Teaching it cements it.</span></li>
+          </ul>
+          <span class="mech">family's part · cited tips arrive with the weekly digest; the practice is yours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CRISIS ================= -->
+<section class="section" id="crisis">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow coral">When it matters most</span>
+      <h2>What Family does in a crisis</h2>
+      <p class="lede">If the signals point to a crisis, Family does exactly this, in this order. No judgment calls, no surprises.</p>
+    </div>
+    <div class="gb-list">
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--ink)">1</div>
+        <div>
+          <h3>It never blocks or interrupts your child</h3>
+          <p>Mid-crisis is the wrong moment for a wall. The conversation continues; the support arrives alongside it.</p>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--teal)">2</div>
+        <div>
+          <h3>Your child gets a warm support card</h3>
+          <p>On their screen, right then: the 988 Suicide and Crisis Lifeline, the Crisis Text Line, and a plain reminder that they are talking to software and the people in their life want to hear from them.</p>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--sage)">3</div>
+        <div>
+          <h3>Your child is told a parent was alerted</h3>
+          <p>No silent alarms. A safety system that hides its alerts from the kid becomes surveillance; ours says so on the kid's own screen.</p>
+        </div>
+      </div>
+      <div class="gb-item reveal">
+        <div class="gnum" style="background:var(--tangerine)">4</div>
+        <div>
+          <h3>You get an alert built for the next conversation</h3>
+          <p>In Parent HQ, with a conversation opener, plus a best-effort email. The goal is never data; it is getting the right humans talking.</p>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">A safety signal, not clinical screening. Family does not diagnose and is not a substitute for professional care. If you are worried about your child, reach out to a professional. In an emergency, call or text 988.</p>
+    <p class="gb-close reveal">The design principle is The Jed Foundation's, and Family follows it end to end: software escalates to humans, always.<sup>7,13</sup> That crisis-routing pattern, score the risk and surface human help before more open dialogue, comes from the published framework literature.<sup>10</sup></p>
+  </div>
+</section>
+
+<!-- ================= SOURCES ================= -->
+<section class="section wash-cream" id="sources">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">The receipts</span>
+      <h2>Sources</h2>
+      <p class="lede">Every number and claim above traces to one of these published sources. Superscripts throughout the page point here.</p>
+    </div>
+    <div class="footnotes">
+      <p><b>1.</b> American Psychological Association · Artificial Intelligence and Adolescent Well-being: An APA Health Advisory · American Psychological Association · 2025 · <a href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-adolescent-well-being" target="_blank" rel="noopener">apa.org</a></p>
+      <p><b>2.</b> Joanna Parga-Belinkie, MD, FAAP (AAP Council on Communications and Media) · How AI Chatbots Affect Kids: Benefits, Risks &amp; What Parents Need to Know · American Academy of Pediatrics, HealthyChildren.org · 2025 · <a href="https://www.healthychildren.org/English/family-life/Media/Pages/are-ai-chatbots-safe-for-kids.aspx" target="_blank" rel="noopener">healthychildren.org</a></p>
+      <p><b>3.</b> Head KR · Minds in Crisis: How the AI Revolution is Impacting Mental Health · Journal of Mental Health &amp; Clinical Psychology 9(3):34-44, doi:10.29245/2578-2959/2025/3.1352 · 2025 · <a href="https://www.mentalhealthjournal.org/articles/minds-in-crisis-how-the-ai-revolution-is-impacting-mental-health.html" target="_blank" rel="noopener">mentalhealthjournal.org</a></p>
+      <p><b>4.</b> Robb MB, Mann S (survey fielded by NORC at the University of Chicago) · Talk, Trust, and Trade-Offs: How and Why Teens Use AI Companions · Common Sense Media · 2025 · <a href="https://www.commonsensemedia.org/research/talk-trust-and-trade-offs-how-and-why-teens-use-ai-companions" target="_blank" rel="noopener">commonsensemedia.org</a></p>
+      <p><b>5.</b> McBain RK, Cantor JH, Breslau J, Diliberti M, Zhang LA, Zhang F, Burnett A, Kofner A, Rader B, Pataranutaporn P, Stein BD, Mehrotra A, Yu H · AI Chatbot Use and Disclosure for Mental Health Among US Adolescents and Young Adults · JAMA Pediatrics 180(8):884-890, doi:10.1001/jamapediatrics.2026.2015 · 2026 · <a href="https://doi.org/10.1001/jamapediatrics.2026.2015" target="_blank" rel="noopener">doi.org</a></p>
+      <p><b>6.</b> AAP Center of Excellence on Social Media and Youth Mental Health · Counseling Patients and Families on Using AI Chatbots · American Academy of Pediatrics · 2026 · <a href="https://www.aap.org/en/patient-care/media-and-children/center-of-excellence-on-social-media-and-youth-mental-health/qa-portal/qa-portal-library/qa-portal-library-questions/counseling-patients-and-families-on-using-ai-chatbots/" target="_blank" rel="noopener">aap.org</a></p>
+      <p><b>7.</b> The Jed Foundation · Tech Companies and Policymakers Must Safeguard Youth Mental Health in AI Technologies · The Jed Foundation · 2025 · <a href="https://jedfoundation.org/artificial-intelligence-youth-mental-health-pov/" target="_blank" rel="noopener">jedfoundation.org</a></p>
+      <p><b>8.</b> Common Sense Media, with Stanford Medicine's Brainstorm Lab for Mental Health Innovation · Common Sense Media AI Risk Assessment: AI Chatbots for Mental Health Support · Common Sense Media · 2025 · <a href="https://www.commonsensemedia.org/ai-ratings/ai-chatbots-for-mental-health-support" target="_blank" rel="noopener">commonsensemedia.org</a></p>
+      <p><b>9.</b> Common Sense Media, with the Stanford Brainstorm Lab for Mental Health Innovation (Stanford School of Medicine) · Common Sense Media AI Risk Assessment: Social AI Companions · Common Sense Media · 2025 · <a href="https://www.commonsensemedia.org/sites/default/files/pug/csm-ai-risk-assessment-social-ai-companions_final.pdf" target="_blank" rel="noopener">commonsensemedia.org</a></p>
+      <p><b>10.</b> Boit S, Patil R · A Prompt Engineering Framework for Large Language Model-Based Mental Health Chatbots: Conceptual Framework · JMIR Mental Health 12:e75078, doi:10.2196/75078, PMCID PMC12594504 · 2025 · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12594504/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></p>
+      <p><b>11.</b> American Psychological Association · Health advisory: Use of generative AI chatbots and wellness applications for mental health · American Psychological Association · 2025 · <a href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-chatbots-wellness-apps" target="_blank" rel="noopener">apa.org</a></p>
+      <p><b>12.</b> UNICEF (Office of Global Insight and Policy, with the Government of Finland) · Policy guidance on AI for children 2.0 · UNICEF · 2021 · <a href="https://www.unicef.org/innocenti/reports/policy-guidance-ai-children" target="_blank" rel="noopener">unicef.org</a></p>
+      <p><b>13.</b> The Jed Foundation · Open Letter to the AI and Technology Industry · The Jed Foundation · 2025 · <a href="https://jedfoundation.org/open-letter-to-the-ai-and-technology-industry/" target="_blank" rel="noopener">jedfoundation.org</a></p>
+      <p><b>14.</b> IEEE Age Appropriate Digital Services Framework Working Group · IEEE Standard for an Age Appropriate Digital Services Framework Based on the 5Rights Principles for Children (IEEE 2089-2021) · IEEE Standards Association · 2021 · <a href="https://standards.ieee.org/ieee/2089/7633/" target="_blank" rel="noopener">standards.ieee.org</a></p>
+      <p><b>15.</b> IEEE Online Age Verification Working Group · IEEE Standard for Online Age Verification (IEEE 2089.1-2024) · IEEE Standards Association · 2024 · <a href="https://standards.ieee.org/ieee/2089.1/10700/" target="_blank" rel="noopener">standards.ieee.org</a></p>
+      <p><b>16.</b> IEEE SBD Working Group (Safety by Design for Generative Models to Prioritize Child Safety) · IEEE P3462: Recommended Practice for Using Safety by Design in Generative Models to Prioritize Child Safety (draft, active project) · IEEE Standards Association · 2024 · <a href="https://standards.ieee.org/ieee/3462/11584/" target="_blank" rel="noopener">standards.ieee.org</a></p>
+      <p><b>17.</b> Thorn and All Tech Is Human · Safety by Design for Generative AI: Preventing Child Sexual Abuse · Thorn · 2024 · <a href="https://www.thorn.org/blog/generative-ai-principles/" target="_blank" rel="noopener">thorn.org</a></p>
+      <p class="rev">Registry version 1.0.0, last reviewed 2026-09-03 · every source above is drawn from PrivacyPal Family's research registry and verified against the publisher's own page, on a quarterly review cycle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container">
+    <div class="fcta reveal">
+      <span class="eyebrow">Founding families</span>
+      <h2>Put the research to work</h2>
+      <p>Everything on this page ships as everyday protection: twins on their device, weather in your pocket, nudges at the right moment. Hold the keys from day one.</p>
+      <div class="btn-row">
+        <a class="btn btn-sun btn-lg" href="early-access.html">Get early access</a>
+        <a class="btn btn-ghost btn-lg" style="background:transparent;color:#fff;border-color:#3d5578;box-shadow:0 3px 0 #3d5578" href="promise.html">Read the Family Promise</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="../assets/v3.js"></script>
+<script src="family.js"></script>
+</body>
+</html>
