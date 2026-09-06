@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =============================================================
+     PRIVACYPAL · AE CERTIFICATION ACADEMY · STEP 3 (examination)
+     Eight sections rendered from assets/exam.js. Objective answers
+     are scored in the browser against a hashed key; long-form
+     answers are sent verbatim for human review. Everything is
+     posted to Formspree in one submission at the end.
+     ============================================================= -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certification exam · AE Certification · PrivacyPal</title>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<meta name="referrer" content="no-referrer"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="assets/academy.css"/>
+</head>
+<body class="ac">
+<div class="ac-shell">
+<div id="ac-head-slot"></div>
+
+<main class="ac-main">
+  <div class="ac-wrap">
+
+    <!-- Intro, shown once before section A -->
+    <section class="ex-sec on" id="exIntro">
+      <div class="ex-head">
+        <span class="ac-eyebrow">Certification exam</span>
+        <h1 class="ac-h1" style="font-size:clamp(1.8rem,4vw,2.6rem)">Before you begin.</h1>
+        <p class="ac-lede">Eight sections. Read each question carefully. Several of them are written to
+        catch the difference between a fact you memorized and a fact you understood.</p>
+      </div>
+      <div class="lsn-body">
+        <div class="ac-tbl">
+          <table>
+            <tbody>
+              <tr><td><b>Length</b></td><td id="introLen">Loading</td></tr>
+              <tr><td><b>Time</b></td><td>No timer. Budget about 90 minutes. Elapsed time is recorded and reviewed.</td></tr>
+              <tr><td><b>Scoring</b></td><td>Objective questions are scored automatically. Long-form answers are read by a person and we interview on them.</td></tr>
+              <tr><td><b>Pass mark</b></td><td><b>80% on the objective sections</b>, plus a passing review of the long-form answers.</td></tr>
+              <tr><td><b>Saving</b></td><td>Your answers save in this browser as you type. If you close the tab, come back to this device and continue.</td></tr>
+              <tr><td><b>Navigation</b></td><td>You can move back and forth between sections. A section will not advance until every question in it is answered.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note warn">
+          <span class="t">One request, and we mean it</span>
+          <p>Write the long-form answers in your own words. We are not scoring polish, we are scoring
+          judgement. An answer that says "I would not claim that, here is what I would say instead" scores
+          higher than a fluent answer that oversells the product.</p>
+        </div>
+        <div class="note">
+          <span class="t">What you may have open</span>
+          <p>Nothing. Close the curriculum. The whole point is to find out what you carry into a live call,
+          and a buyer will not wait while you look something up.</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="exSections"></div>
+
+    <!-- Submit panel, appended after the last section -->
+    <section class="ex-sec" id="exSubmit">
+      <div class="ex-head">
+        <span class="ac-eyebrow sage">Final step</span>
+        <h1 class="ac-h1" style="font-size:clamp(1.8rem,4vw,2.6rem)">Submit for certification.</h1>
+        <p class="ac-lede">Your answers, your signed NDA record and your elapsed time go to PrivacyPal
+        operations in one submission. You will not see your own score: a person reviews it and comes back
+        to you.</p>
+      </div>
+      <div class="lsn-body">
+        <div class="ac-tbl"><table><tbody>
+          <tr><td><b>Candidate</b></td><td id="sumWho"></td></tr>
+          <tr><td><b>Objective questions answered</b></td><td id="sumObj"></td></tr>
+          <tr><td><b>Long-form answers written</b></td><td id="sumLong"></td></tr>
+          <tr><td><b>Elapsed</b></td><td id="sumTime"></td></tr>
+        </tbody></table></div>
+        <div class="check-row">
+          <input type="checkbox" id="finalAttest">
+          <label for="finalAttest">I completed this exam myself. The answers are mine and were written
+          without another person answering for me.</label>
+        </div>
+        <div class="ex-err" id="submitErr"></div>
+        <div class="btn-row" style="margin-top:26px">
+          <button class="btn btn-primary btn-lg" id="submitBtn" type="button" disabled>
+            <span id="submitTxt">Submit exam and request certification</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="ac-nav">
+  <div class="ac-nav-in">
+    <button class="btn btn-ghost" id="exPrev" type="button">Back</button>
+    <span class="mid" id="exMid">Instructions</span>
+    <button class="btn btn-primary" id="exNext" type="button">Begin section A</button>
+  </div>
+</div>
+
+<div id="ac-foot-slot"></div>
+</div>
+
+<script src="assets/academy.js"></script>
+<script src="assets/exam.js"></script>
+<script>
+(function () {
+  var A = window.PPAcademy, X = window.PPExam;
+  var s = A.requireCourseDone();
+  if (!s) return;
+  /* One submission per candidate: a completed exam sends you to the receipt. */
+  if (s.submitted) { window.location.replace('complete.html'); return; }
+
+  A.head({ step: 'Examination', progress: 0 });
+  A.foot();
+  A.devBar([{ label: 'answer all', fn: function () {
+    function fnvD(str){var x=0x811c9dc5;for(var i=0;i<str.length;i++){x^=str.charCodeAt(i);x=Math.imul(x,0x01000193)>>>0;}return x.toString(36);}
+    X.sections.forEach(function (sec) { sec.qs.forEach(function (q) {
+      if (q.k === 'long') {
+        var ta = document.getElementById('in-' + q.id);
+        ta.value = 'Local test answer for ' + q.id + '. ' + 'lorem ipsum dolor sit amet '.repeat(Math.ceil(q.min / 26));
+        ta.dispatchEvent(new Event('input'));
+      } else {
+        var right = q.o.filter(function (o) { return fnvD(X.salt + q.id + '|' + o) === q.a; })[0];
+        var r = document.querySelector('input[name="' + q.id + '"][value="' + CSS.escape(right) + '"]');
+        if (r) { r.checked = true; r.dispatchEvent(new Event('change')); }
+      }
+    }); });
+    alert('All sections filled with correct answers. Use Next to walk to the submit page.');
+  }}]);
+
+  var ANS_KEY = 'pp_ae_exam_answers_v1';
+  var answers = {};
+  try { answers = JSON.parse(localStorage.getItem(ANS_KEY) || '{}') || {}; } catch (e) { answers = {}; }
+
+  if (!s.examStartedAt) { s = A.patch({ examStartedAt: A.stamp() }); }
+
+  /* Same FNV-1a as the generator. Math.imul keeps the 32-bit multiply exact. */
+  function fnv(str) {
+    var x = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) {
+      x ^= str.charCodeAt(i);
+      x = Math.imul(x, 0x01000193) >>> 0;
+    }
+    return x.toString(36);
+  }
+  function isRight(q, chosen) { return fnv(X.salt + q.id + '|' + chosen) === q.a; }
+
+  function saveAnswers() {
+    try { localStorage.setItem(ANS_KEY, JSON.stringify(answers)); } catch (e) {}
+  }
+
+  document.getElementById('introLen').textContent =
+    X.objectiveCount + ' objective questions across 8 sections, plus ' + X.longCount +
+    ' long-form answers. ' + (X.objectivePoints + X.longPoints) + ' points in total.';
+
+  /* ---------- render ---------- */
+  var host = document.getElementById('exSections');
+  var secEls = [];
+
+  X.sections.forEach(function (sec, si) {
+    var el = document.createElement('section');
+    el.className = 'ex-sec';
+    el.id = 'sec-' + sec.id;
+
+    var objCount  = sec.qs.filter(function (q) { return q.k !== 'long'; }).length;
+    var longCount = sec.qs.filter(function (q) { return q.k === 'long'; }).length;
+    var bits = [];
+    if (objCount)  bits.push('<span>' + objCount + ' objective</span>');
+    if (longCount) bits.push('<span>' + longCount + ' long-form</span>');
+
+    var html =
+      '<div class="ex-head">' +
+        '<span class="ac-eyebrow">Section ' + sec.id + ' of H</span>' +
+        '<h1 class="ac-h1" style="font-size:clamp(1.7rem,3.6vw,2.3rem)">' + A.esc(sec.t) + '</h1>' +
+        '<p class="ac-lede" style="font-size:.98rem">' + A.esc(sec.d) + '</p>' +
+        '<div class="meta">' + bits.join('') + '</div>' +
+        '<div class="secmap" id="map-' + sec.id + '"></div>' +
+      '</div>';
+
+    sec.qs.forEach(function (q, qi) {
+      var num = sec.id + (qi + 1);
+      var kind = q.k === 'long' ? 'Long form' : (q.k === 'tf' ? 'True or false' : 'Multiple choice');
+      html += '<div class="ex-q" data-q="' + q.id + '">' +
+        '<div class="qn"><span>' + num + '</span><span class="kind">' + kind + '</span>' +
+        '<span class="pts">' + q.p + (q.p === 1 ? ' point' : ' points') + '</span></div>' +
+        '<div class="qt">' + A.esc(q.q).replace(/\n\n/g, '</div><div class="qt" style="font-weight:400;font-size:.95rem;color:var(--text);margin-top:10px">') + '</div>';
+
+      if (q.h) html += '<div class="qhint">' + A.esc(q.h) + '</div>';
+
+      if (q.k === 'long') {
+        html += '<div class="long">' +
+            '<textarea id="in-' + q.id + '" data-min="' + q.min + '" placeholder="Write your answer here."></textarea>' +
+            '<div class="count"><span id="cnt-' + q.id + '"></span><span>Minimum ' + q.min + ' characters</span></div>' +
+          '</div>';
+      } else {
+        html += '<div class="opts' + (q.k === 'tf' ? ' tf' : '') + '">';
+        q.o.forEach(function (opt, oi) {
+          html += '<label class="opt" data-opt="' + oi + '">' +
+                    '<input type="radio" name="' + q.id + '" value="' + A.esc(opt) + '">' +
+                    '<span>' + A.esc(opt) + '</span></label>';
+        });
+        html += '</div>';
+      }
+      html += '</div>';
+    });
+
+    html += '<div class="ex-err" id="err-' + sec.id + '"></div>';
+    el.innerHTML = html;
+    host.appendChild(el);
+    secEls.push(el);
+  });
+
+  /* ---------- wire inputs ---------- */
+  function countFor(id) {
+    var ta = document.getElementById('in-' + id);
+    var n = ta.value.trim().length, min = parseInt(ta.dataset.min, 10);
+    var c = document.getElementById('cnt-' + id);
+    c.textContent = n + ' characters';
+    c.className = n >= min ? 'ok' : (n > 0 ? 'low' : '');
+  }
+
+  X.sections.forEach(function (sec) {
+    sec.qs.forEach(function (q) {
+      if (q.k === 'long') {
+        var ta = document.getElementById('in-' + q.id);
+        if (answers[q.id]) ta.value = answers[q.id];
+        countFor(q.id);
+        ta.addEventListener('input', function () {
+          answers[q.id] = ta.value;
+          countFor(q.id);
+          saveAnswers();
+        });
+      } else {
+        var radios = document.querySelectorAll('input[name="' + q.id + '"]');
+        Array.prototype.forEach.call(radios, function (r) {
+          if (answers[q.id] === r.value) {
+            r.checked = true;
+            r.closest('.opt').classList.add('sel');
+          }
+          r.addEventListener('change', function () {
+            answers[q.id] = r.value;
+            saveAnswers();
+            Array.prototype.forEach.call(
+              r.closest('.opts').querySelectorAll('.opt'),
+              function (l) { l.classList.remove('sel'); }
+            );
+            r.closest('.opt').classList.add('sel');
+          });
+        });
+      }
+    });
+  });
+
+  /* ---------- navigation ---------- */
+  var intro   = document.getElementById('exIntro');
+  var subm    = document.getElementById('exSubmit');
+  var pages   = [intro].concat(secEls).concat([subm]);
+  var prevBtn = document.getElementById('exPrev');
+  var nextBtn = document.getElementById('exNext');
+  var midLbl  = document.getElementById('exMid');
+  var p = 0;
+
+  function sectionComplete(sec) {
+    var missing = [];
+    sec.qs.forEach(function (q, qi) {
+      var label = sec.id + (qi + 1);
+      if (q.k === 'long') {
+        var v = (answers[q.id] || '').trim();
+        if (v.length < q.min) missing.push(label + ' needs at least ' + q.min + ' characters');
+      } else if (!answers[q.id]) {
+        missing.push(label + ' is unanswered');
+      }
+    });
+    return missing;
+  }
+
+  function drawMap(secId) {
+    var wrap = document.getElementById('map-' + secId);
+    if (!wrap) return;
+    wrap.innerHTML = X.sections.map(function (sc) {
+      var cls = 's';
+      if (sc.id === secId) cls += ' now';
+      else if (sectionComplete(sc).length === 0) cls += ' done';
+      return '<span class="' + cls + '">' + sc.id + '</span>';
+    }).join('');
+  }
+
+  function render() {
+    pages.forEach(function (el, i) { el.classList.toggle('on', i === p); });
+    prevBtn.classList.toggle('off', p === 0);
+
+    if (p === 0) {
+      midLbl.textContent = 'Instructions';
+      nextBtn.textContent = 'Begin section A';
+      A.progress(0, 'Examination');
+    } else if (p === pages.length - 1) {
+      midLbl.textContent = 'Review and submit';
+      nextBtn.classList.add('off');
+      A.progress(100, 'Ready to submit');
+      refreshSummary();
+    } else {
+      var sec = X.sections[p - 1];
+      midLbl.textContent = 'Section ' + sec.id + ' of H';
+      nextBtn.classList.remove('off');
+      nextBtn.textContent = (p === pages.length - 2) ? 'Review and submit' : 'Next section';
+      A.progress(Math.round((p / (pages.length - 1)) * 100), 'Section ' + sec.id + ' of H');
+      drawMap(sec.id);
+    }
+    window.scrollTo(0, 0);
+  }
+
+  nextBtn.addEventListener('click', function () {
+    if (p > 0 && p < pages.length - 1) {
+      var sec = X.sections[p - 1];
+      var missing = sectionComplete(sec);
+      var errEl = document.getElementById('err-' + sec.id);
+      if (missing.length) {
+        errEl.innerHTML = '<b>Section ' + sec.id + ' is not finished.</b> ' +
+          missing.length + (missing.length === 1 ? ' item: ' : ' items: ') + A.esc(missing.join('; ')) + '.';
+        errEl.classList.add('on');
+        errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      errEl.classList.remove('on');
+    }
+    if (p < pages.length - 1) { p++; render(); }
+  });
+
+  prevBtn.addEventListener('click', function () { if (p > 0) { p--; render(); } });
+
+  /* ---------- scoring ---------- */
+  function score() {
+    var perSection = [], got = 0, max = 0, missed = [], answered = 0;
+    X.sections.forEach(function (sec) {
+      var sg = 0, sm = 0, sq = 0;
+      sec.qs.forEach(function (q, qi) {
+        if (q.k === 'long') return;
+        sm += q.p; sq++;
+        var chosen = answers[q.id];
+        if (chosen) answered++;
+        if (chosen && isRight(q, chosen)) { sg += q.p; }
+        else {
+          missed.push({
+            n: sec.id + (qi + 1),
+            q: q.q,
+            given: chosen || '(no answer)'
+          });
+        }
+      });
+      if (sq) {
+        perSection.push({ id: sec.id, t: sec.t, got: sg, max: sm, pct: Math.round((sg / sm) * 100) });
+        got += sg; max += sm;
+      }
+    });
+    return {
+      got: got, max: max, pct: max ? Math.round((got / max) * 100) : 0,
+      perSection: perSection, missed: missed, answered: answered
+    };
+  }
+
+  function refreshSummary() {
+    var r = score();
+    document.getElementById('sumWho').textContent = s.name + ' (' + s.email + ')';
+    document.getElementById('sumObj').textContent = r.answered + ' of ' + X.objectiveCount;
+    var written = X.sections.reduce(function (acc, sec) {
+      return acc + sec.qs.filter(function (q) {
+        return q.k === 'long' && (answers[q.id] || '').trim().length >= q.min;
+      }).length;
+    }, 0);
+    document.getElementById('sumLong').textContent = written + ' of ' + X.longCount;
+    var mins = A.minutesSince(s.examStartedAt);
+    document.getElementById('sumTime').textContent = (mins === null ? 'unknown' : mins + ' minutes on the exam');
+  }
+
+  /* ---------- submit ---------- */
+  var attest    = document.getElementById('finalAttest');
+  var submitBtn = document.getElementById('submitBtn');
+  var submitTxt = document.getElementById('submitTxt');
+  var submitErr = document.getElementById('submitErr');
+
+  attest.addEventListener('change', function () { submitBtn.disabled = !attest.checked; });
+
+  function transcript(r) {
+    var out = [];
+    out.push('PRIVACYPAL AE CERTIFICATION EXAM');
+    out.push('Candidate: ' + s.name + ' <' + s.email + '>');
+    out.push('Submitted: ' + new Date().toISOString());
+    out.push('');
+    out.push('OBJECTIVE SCORE: ' + r.got + ' / ' + r.max + '  (' + r.pct + '%)   Pass mark ' + X.passMark + '%');
+    out.push('Result on objective sections: ' + (r.pct >= X.passMark ? 'PASS' : 'BELOW PASS MARK'));
+    out.push('');
+    out.push('BY SECTION');
+    r.perSection.forEach(function (ps) {
+      out.push('  ' + ps.id + '  ' + ps.got + '/' + ps.max + '  (' + ps.pct + '%)  ' + ps.t);
+    });
+    out.push('');
+    if (r.missed.length) {
+      out.push('MISSED OBJECTIVE QUESTIONS (' + r.missed.length + ')');
+      r.missed.forEach(function (m) {
+        out.push('  [' + m.n + '] ' + m.q.replace(/\n+/g, ' '));
+        out.push('        candidate answered: ' + m.given);
+      });
+    } else {
+      out.push('MISSED OBJECTIVE QUESTIONS: none. Full marks.');
+    }
+    out.push('');
+    out.push('================ LONG-FORM ANSWERS, FOR HUMAN REVIEW ================');
+    X.sections.forEach(function (sec) {
+      sec.qs.forEach(function (q, qi) {
+        if (q.k !== 'long') return;
+        out.push('');
+        out.push('--- ' + sec.id + (qi + 1) + '  (' + q.p + ' points) ---');
+        out.push('Q: ' + q.q.replace(/\n+/g, ' '));
+        out.push('A: ' + (answers[q.id] || '(blank)'));
+      });
+    });
+    return out.join('\n');
+  }
+
+  submitBtn.addEventListener('click', function () {
+    submitErr.classList.remove('on');
+    var incomplete = [];
+    X.sections.forEach(function (sec) {
+      var m = sectionComplete(sec);
+      if (m.length) incomplete.push('Section ' + sec.id + ' (' + m.length + ')');
+    });
+    if (incomplete.length) {
+      submitErr.innerHTML = '<b>Some sections are still incomplete:</b> ' +
+        A.esc(incomplete.join(', ')) + '. Use Back to finish them.';
+      submitErr.classList.add('on');
+      return;
+    }
+
+    var r = score();
+    var mins = A.minutesSince(s.examStartedAt);
+    submitBtn.disabled = true;
+    submitTxt.innerHTML = '<span class="ac-spin"></span> Submitting';
+
+    var payload = {
+      _subject: 'AE Academy EXAM: ' + s.name + '  (' + r.pct + '% objective, ' +
+                (r.pct >= X.passMark ? 'PASS' : 'below pass mark') + ')',
+      _replyto: s.email,
+      submission_type: 'AE Certification, completed examination',
+      route_to: 'ops@privacypal.ai',
+
+      candidate_name: s.name,
+      candidate_email: s.email,
+      candidate_phone: s.phone || '',
+      candidate_location: s.location || '',
+      candidate_linkedin: s.linkedin || '',
+      years_selling_b2b: s.years || '',
+      segment_experience: s.segmentExperience || '',
+      heard_about_us: s.source || '',
+
+      objective_score: r.got + ' / ' + r.max,
+      objective_percent: r.pct + '%',
+      objective_result: (r.pct >= X.passMark ? 'PASS' : 'BELOW PASS MARK'),
+      pass_mark: X.passMark + '%',
+      section_scores: r.perSection.map(function (ps) {
+        return ps.id + ' ' + ps.got + '/' + ps.max + ' (' + ps.pct + '%)';
+      }).join(' · '),
+      missed_count: String(r.missed.length),
+      long_form_answers_count: String(X.longCount),
+      long_form_points_available: String(X.longPoints),
+
+      enrolled_at_utc: s.enrolledAt || '',
+      course_completed_at_utc: s.courseCompletedAt || '',
+      exam_started_at_utc: s.examStartedAt || '',
+      exam_submitted_at_utc: A.stamp(),
+      exam_minutes: (mins === null ? 'unknown' : String(mins)),
+
+      nda_version: s.ndaVersion || '',
+      nda_signature: s.ndaSignature || '',
+      nda_signed_at_utc: s.ndaSignedAt || '',
+      timezone: s.timezone || '',
+
+      message: transcript(r)
+    };
+
+    A.postForm(payload)
+    .then(function (resp) {
+      if (resp.dry) {
+        submitTxt.textContent = 'Dry run complete, see the console';
+      }
+      A.patch({
+        examSubmittedAt: A.stamp(),
+        examMinutes: mins,
+        submitted: true
+      });
+      window.location.href = 'complete.html';
+    })
+    .catch(function (e) {
+      submitBtn.disabled = false;
+      submitTxt.textContent = 'Try submitting again';
+      submitErr.innerHTML = '<b>We could not send your exam.</b> ' + A.esc(String((e && e.message) || e)) +
+        '. Your answers are still saved in this browser, so nothing is lost. Try again, and if it keeps ' +
+        'failing email <a href="mailto:ops@privacypal.ai">ops@privacypal.ai</a> and we will collect it another way.';
+      submitErr.classList.add('on');
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

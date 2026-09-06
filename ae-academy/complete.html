@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =============================================================
+     PRIVACYPAL · AE CERTIFICATION ACADEMY · STEP 4 (confirmation)
+     Reached only after a successful exam submission.
+     ============================================================= -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Submitted · AE Certification · PrivacyPal</title>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<meta name="referrer" content="no-referrer"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="assets/academy.css"/>
+</head>
+<body class="ac">
+<div class="ac-shell">
+<div id="ac-head-slot"></div>
+
+<main class="ac-main">
+  <div class="done-wrap">
+
+    <div class="done-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+
+    <span class="ac-badge" style="margin-bottom:20px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      Exam received
+    </span>
+
+    <h1>That was the hard part, <em id="firstName">candidate</em>.</h1>
+    <p class="lede">Your exam, your long-form answers and your signed NDA record are with PrivacyPal
+    operations. A member of our team reviews every submission personally and will come back to you with your
+    results and next steps.</p>
+
+    <!-- ---------- certificate ---------- -->
+    <div class="cert">
+      <div class="ct">
+        <img src="../assets/logo-color.png" alt="PrivacyPal">
+        <span class="sep"></span>
+        <span>Certificate of Sales Certification</span>
+      </div>
+      <div class="cb">
+        <div class="who" id="certName">Candidate name</div>
+        <div class="role">PrivacyPal Certified Sales Professional</div>
+        <p>Awarded on completion of the PrivacyPal AE Certification Program: nine modules covering the
+        market, the Privacy Twins mechanism, the platform, the price book, the buyer set, the go-to-market
+        motion, MEDDIC qualification, discovery and security review, and competitive positioning, followed
+        by an eight-section examination.</p>
+      </div>
+      <div class="cg">
+        <div><div class="k">Candidate</div><div class="v" id="cgName">&nbsp;</div></div>
+        <div><div class="k">Program</div><div class="v">AE Certification, 2026 edition</div></div>
+        <div><div class="k">Submitted</div><div class="v" id="cgDate">&nbsp;</div></div>
+      </div>
+      <div class="pend">
+        <span class="d"></span>
+        <span id="pendText">PENDING REVIEW &middot; ISSUED ON PASS</span>
+      </div>
+    </div>
+
+    <!-- ---------- next ---------- -->
+    <div style="margin-top:56px;text-align:left">
+      <span class="ac-eyebrow plain" style="display:block;text-align:center;margin-bottom:6px">What happens next</span>
+    </div>
+    <div class="nxt">
+      <div class="n">
+        <div class="s">1</div>
+        <h4>We review</h4>
+        <p>Your objective sections are already scored. A member of the team reads every long-form answer.
+        Expect to hear from us within a few business days.</p>
+      </div>
+      <div class="n">
+        <div class="s">2</div>
+        <h4>We talk</h4>
+        <p>If your submission clears, we book a conversation. We will go through two or three of your
+        long-form answers directly, so be ready to defend what you wrote.</p>
+      </div>
+      <div class="n">
+        <div class="s">3</div>
+        <h4>You get certified</h4>
+        <p>On a pass you become a PrivacyPal Certified Sales Professional, and we move to territory,
+        segment focus and commission structure.</p>
+      </div>
+    </div>
+
+    <div class="note" style="text-align:left;margin-top:42px">
+      <span class="t">While you wait</span>
+      <p>The strongest candidates come to the follow-up call having pressure-tested one thing on their own:
+      pick a real company in a segment you know, work out which plan and seat band they would land in, and
+      write down what you would need to learn to open the MEDDIC gate on them. Bring it. It is the fastest
+      way to show us you can do the job.</p>
+    </div>
+
+    <div class="note warn" style="text-align:left">
+      <span class="t">A reminder about the NDA you signed</span>
+      <p>Everything in the program stays confidential: the price book, the competitive analysis, the
+      customer information, and in particular the internal claims guidance about what our product does not
+      do. That obligation stands whether or not you end up working with us. Do not paste any of it into an
+      AI service that retains or trains on what you submit. Yes, we noticed the irony too.</p>
+    </div>
+
+    <p style="margin-top:38px;font-size:.88rem;color:var(--muted)">
+      Questions about your submission: <a href="mailto:ops@privacypal.ai" style="color:var(--teal-ink);border-bottom:1px solid rgba(2,131,145,.35)">ops@privacypal.ai</a>
+    </p>
+
+    <div class="btn-row" style="justify-content:center;margin-top:26px">
+      <a class="btn btn-ghost" href="https://privacypal.ai/" target="_blank" rel="noopener">Visit privacypal.ai</a>
+    </div>
+
+  </div>
+</main>
+
+<div id="ac-foot-slot"></div>
+</div>
+
+<script src="assets/academy.js"></script>
+<script>
+(function () {
+  var A = window.PPAcademy;
+  var s = A.load();
+
+  if (!s || !s.submitted) {
+    A.gate('No submission found on this device.', 'index.html', 'Back to the start');
+    return;
+  }
+
+  A.head({ step: 'Complete', progress: 100 });
+  A.foot();
+
+  var first = String(s.name || '').trim().split(/\s+/)[0] || 'candidate';
+  document.getElementById('firstName').textContent = first;
+  document.getElementById('certName').textContent  = s.name;
+  document.getElementById('cgName').textContent    = s.name;
+  document.getElementById('cgDate').textContent    = A.pretty(s.examSubmittedAt);
+
+  if (s.examMinutes != null) {
+    document.getElementById('pendText').textContent =
+      'PENDING REVIEW · ISSUED ON PASS · ' + s.examMinutes + ' MINUTES ON THE EXAM';
+  }
+})();
+</script>
+</body>
+</html>

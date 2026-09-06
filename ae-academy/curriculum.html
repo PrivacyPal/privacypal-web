@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =============================================================
+     PRIVACYPAL · AE CERTIFICATION ACADEMY · STEP 2 (curriculum)
+     Nine click-through modules. All modules live in this document;
+     the controller at the bottom shows one at a time and records
+     completion into localStorage via assets/academy.js.
+     ============================================================= -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Curriculum · AE Certification · PrivacyPal</title>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<meta name="referrer" content="no-referrer"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="assets/academy.css"/>
+</head>
+<body class="ac">
+<div class="ac-shell">
+<div id="ac-head-slot"></div>
+
+<main class="ac-main">
+  <div class="ac-wrap">
+
+<!-- ============================================================
+     MODULE 01
+     ============================================================ -->
+<section class="lsn" id="m1" data-mod="m1">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 01 of 09</div>
+    <h1>The shift, the market and the wedge</h1>
+    <p class="lede">Before you can sell PrivacyPal you have to explain, in ninety seconds, why a competent
+    security leader is blocking the most valuable productivity tool their company has ever had. That
+    explanation is the sale.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>Every company is now running AI whether or not it approved AI. The question is not adoption, it is governance.</li>
+        <li>Security teams have three bad options today: ban it, write a policy nobody reads, or look away.</li>
+        <li>Every governance vendor sits somewhere on a <strong>mechanism ladder</strong>. Every rung above "coach" costs the buyer accuracy. Only one mechanism, substitution, costs nothing.</li>
+        <li>Our wedge is not fear. It is <strong>turning the person who blocks AI into the person who ships it</strong>.</li>
+        <li>You never lead with the product. You lead with the tradeoff the buyer is already losing.</li>
+      </ul>
+    </div>
+
+    <h2>1. What actually changed</h2>
+    <p>Ten years of data-loss prevention was built on a simple assumption: sensitive data leaves the company
+    as a <em>file</em>, through a <em>channel</em> you can inspect. Email attachments. USB drives. Uploads to
+    a known SaaS host. DLP watched the channels.</p>
+    <p>Generative AI broke that assumption in two ways at once.</p>
+    <ol>
+      <li><strong>The payload became a prompt.</strong> The leak is now free text typed by a human into a
+      text box, mixed with context, mid-thought. No file, no classification label, no filename to match.</li>
+      <li><strong>The channel became every channel.</strong> A browser tab, a desktop app, an IDE, a coding
+      agent running on a laptop, an MCP server calling internal tools, an agent talking to another agent.
+      Some of that traffic never touches the corporate network at all.</li>
+    </ol>
+    <p>So the security leader is looking at a category of exposure that their existing stack was
+    structurally not built to see. That is the real emotional state you are walking into. Not "we do not
+    care about AI." It is "we cannot see it, so we said no, and now the business hates us."</p>
+
+    <h2>2. The three responses, and why all three fail</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>What they do</th><th>Why they did it</th><th>Why it fails</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Ban it</b><small>Block the domains, refuse the tools</small></td>
+            <td>It is the only control they actually have, and it is defensible in an audit.</td>
+            <td>Staff use personal accounts on personal devices. The company loses the productivity <em>and</em> keeps the exposure, now with zero visibility. Harmonic measured 17% of exposures happening through free or personal accounts where IT has no audit trail at all.</td>
+          </tr>
+          <tr>
+            <td><b>Write a policy</b><small>An AI acceptable-use form staff sign</small></td>
+            <td>Cheap, fast, looks like governance to a board.</td>
+            <td>A policy is a promise, not a control. Nothing enforces it, nothing evidences it, and nothing catches the mistake. Our own line for this: <strong>an AI policy is not AI governance</strong>.</td>
+          </tr>
+          <tr>
+            <td><b>Look away</b><small>No stated position</small></td>
+            <td>The business is moving faster than security can review.</td>
+            <td>Shadow AI accrues silently until it appears in a breach report, a regulator's question, or a customer's security questionnaire.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="t">The line that opens doors</span>
+      <p>"Most companies I talk to have an AI policy. Almost none of them have AI governance. The difference
+      is whether anything actually happens when someone pastes a client file into ChatGPT at 11pm."</p>
+    </div>
+
+    <h2>3. The evidence you are allowed to use</h2>
+    <p>You will be tempted to reach for scary statistics. Discipline matters more than volume here. Use
+    figures that carry a real source, and say the source out loud. PrivacyPal's brand position is
+    <strong>publish mechanisms and reproducible measurements, never marketing percentages</strong>, and a
+    buyer who catches you quoting an uncited number will discount everything else you said.</p>
+
+    <h3>Well-sourced, use freely</h3>
+    <p><strong>Harmonic Security AI Usage Index, 22.4 million enterprise prompts, calendar year 2025.</strong>
+    Harmonic is a competitor of ours (Module 09), which makes their research usable and hard to argue with:</p>
+    <div class="facts">
+      <div class="f"><div class="n">2.6<small>%</small></div><div class="l">of enterprise prompts contained company-sensitive data (579k of 22.4M)</div></div>
+      <div class="f"><div class="n">71.2<small>%</small></div><div class="l">of all data exposures came through ChatGPT, on 43.9% of prompt volume</div></div>
+      <div class="f"><div class="n">17<small>%</small></div><div class="l">of exposures occurred via free or personal accounts with no audit trail</div></div>
+      <div class="f"><div class="n">92.6<small>%</small></div><div class="l">of potential exposure is covered by governing just six AI applications</div></div>
+    </div>
+    <p>The exposure mix is the part that lands with an executive: <strong>code was 30% of exposures, legal
+    material 22.3%, M&amp;A data 12.6%, financial projections 7.8%</strong>. That is not an employee typing
+    their own address into a chatbot. That is the crown jewels.</p>
+
+    <div class="note warn">
+      <span class="t">Two numbers on our own site that need care</span>
+      <p><strong>"$340B, McKinsey's estimated annual value of generative AI in banking"</strong> and
+      <strong>"68% of bank employees already paste sensitive data into public chatbots"</strong> both appear
+      on privacypal.ai without their original citation. Our own website is not a source for a third party's
+      research. Two rules:</p>
+      <ul>
+        <li>Neither figure runs in paid media until the report title and year are attached.</li>
+        <li>The 68% is a <em>bank employee</em> statistic. It carries the words "bank employees" or it does
+        not get used. Dropped onto a general audience it becomes a claim we cannot support.</li>
+      </ul>
+      <p>You may still use both in a conversation, labelled as our site's published figures. You may not
+      present them as your own research or drop the labels.</p>
+    </div>
+
+    <div class="note">
+      <span class="t">Correction you should know about</span>
+      <p>An older internal note quotes Harmonic's "8.5% of prompts contain sensitive data." That figure is
+      from their <strong>Q4 2024</strong> quarterly research, not the full-year 2025 index. The 2025 index
+      number is 2.6%. If you quote 8.5%, date it Q4 2024 or do not use it.</p>
+    </div>
+
+    <h2>4. The mechanism ladder</h2>
+    <p>This is the single most useful idea in your entire toolkit, and almost nobody in the market
+    articulates it. Every AI governance product in existence does one of six things to a risky prompt. They
+    are ordered by how much protection they give, and every rung from "block" upward costs the buyer
+    something.</p>
+
+    <div class="ladder">
+      <div class="rung"><span class="lv">01</span><div><b>Observe</b><p>Log what happened. Tell someone later.</p></div><span class="tag part">No protection</span></div>
+      <div class="rung"><span class="lv">02</span><div><b>Coach</b><p>Warn the user, let them proceed anyway.</p></div><span class="tag part">Soft</span></div>
+      <div class="rung"><span class="lv">03</span><div><b>Block</b><p>Refuse the request. The work does not happen.</p></div><span class="tag lossy">Kills the use case</span></div>
+      <div class="rung"><span class="lv">04</span><div><b>Redact</b><p>Strip the sensitive text out. The model answers a question with holes in it.</p></div><span class="tag lossy">Degrades the answer</span></div>
+      <div class="rung"><span class="lv">05</span><div><b>Tokenize</b><p>Replace values with meaningless placeholders, restore them on the way back.</p></div><span class="tag lossy">Keeps references, loses meaning</span></div>
+      <div class="rung us"><span class="lv">06</span><div><b>Substitute</b><p>Replace values with statistically faithful synthetic ones, restore on the way back. The model reasons on data that behaves like the real thing.</p></div><span class="tag full">Protection with no accuracy tax</span></div>
+    </div>
+
+    <p>Walk a technical buyer up this ladder and let them place their current tooling on it themselves.
+    They will land on rung 3 or 4, and they already know rung 3 and 4 are why nobody uses the tool. You do
+    not have to attack a competitor. The ladder does it.</p>
+
+    <div class="note ok">
+      <span class="t">The distinction that wins the technical argument</span>
+      <p><strong>Tokenization preserves referential integrity. Substitution preserves meaning.</strong>
+      If you replace "Acme Corp" with <code>ENTITY_7741</code> every time, the model can tell that the same
+      thing is being discussed. It cannot tell that the thing is a company, in an industry, of a size, in a
+      jurisdiction. Ask a model to draft a credit memo about <code>ENTITY_7741</code> earning
+      <code>NUM_0032</code> and you get sludge. Ask it about a mid-market industrial distributor earning
+      $14.2M and you get a credit memo. That is the accuracy tax, and it is why redaction-era tools sit
+      unused after the pilot.</p>
+    </div>
+
+    <h2>5. The wedge: Blocker to Enabler</h2>
+    <p>Every competitor sells fear to the security team. That works exactly once, produces a small deal, and
+    stalls. Our wedge is different and it is worth memorizing:</p>
+    <blockquote>We turn the person who blocks AI into the person who ships it.</blockquote>
+    <p>Think about what that means for the human on the other side of the table. A CISO, an IT director, a
+    COO at a 40-person firm. Right now their name is attached to a "no." Every quarter that no gets more
+    expensive and more unpopular. They are not looking for another control. They are looking for a way to
+    say <strong>yes</strong> and survive the audit.</p>
+    <p>The proof point that lands hardest is a customer's own words:</p>
+    <blockquote>"We went from a blanket 'no AI' memo to onboarding all our users in two weeks."
+      <cite>CISO, top-50 US bank</cite></blockquote>
+
+    <div class="say two">
+      <div>
+        <div class="sh bad"><span class="dot"></span>Do not open with</div>
+        <div class="sb"><p>"Did you know 68% of employees are leaking data into ChatGPT? We can stop that."</p>
+        <p style="color:var(--muted);font-size:.84rem">Fear framing, uncited stat, positions us as another blocker. The buyer has heard it from four vendors this quarter.</p></div>
+      </div>
+      <div>
+        <div class="sh"><span class="dot"></span>Open with</div>
+        <div class="sb"><p>"Where did your company land on AI? Most people I talk to either banned it, or wrote a policy and hoped. Whichever one you picked, I want to know what it is costing you."</p>
+        <p style="color:var(--muted);font-size:.84rem">Diagnostic, not pitched. Gets them describing their own pain in their own words, which is the raw material for Identify Pain in Module 07.</p></div>
+      </div>
+    </div>
+
+    <h2>6. Where the money is</h2>
+    <p>One structural fact about this market that you should carry into every conversation: <strong>the
+    small and mid-sized company is unserved.</strong> Every named competitor is quote-only and sales-led,
+    with floors. WitnessAI has a 1,000-user minimum and a roughly $180K annual floor. Harmonic has a
+    200-user minimum. The two that were acquired now get sold through platform paper.</p>
+    <p>That means a 40-person accounting firm, a 12-lawyer practice, a 300-person regional bank cannot buy
+    AI governance today at any price they would accept. PrivacyPal sells from seat one with published
+    pricing. That is not a marketing choice, it is the strategic wedge, and Module 04 is where you learn to
+    work it.</p>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 01</div>
+      <ul>
+        <li>The <b>mechanism ladder</b>: observe, coach, block, redact, tokenize, substitute. Know which rung any competitor sits on.</li>
+        <li>The <b>wedge</b>: blocker into enabler. Never fear-first.</li>
+        <li><b>Tokenization keeps references, substitution keeps meaning.</b> That sentence wins technical rooms.</li>
+        <li>Harmonic 2025: <b>2.6%</b> of prompts sensitive, <b>71.2%</b> of exposures via ChatGPT, <b>17%</b> via personal accounts, code is <b>30%</b> of exposures.</li>
+        <li>Our own $340B and 68% figures carry caveats. Never strip the labels.</li>
+        <li>The 10 to 1,000 seat band is structurally unserved by every named competitor.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 02
+     ============================================================ -->
+<section class="lsn" id="m2" data-mod="m2">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 02 of 09</div>
+    <h1>The mechanism: Privacy Twins on device</h1>
+    <p class="lede">PrivacyPal is a mechanism-first company. You do not get to make a claim without naming
+    the machinery that makes it true. This module is the machinery.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li><strong>Privacy Twins</strong> are statistically accurate synthetic values substituted for real ones before a prompt leaves the device, and reverted in the response.</li>
+        <li>The whole pipeline runs <strong>on the endpoint</strong>. PrivacyPal never sees unencrypted customer data. That is what "zero-knowledge" means here.</li>
+        <li>Five stages: detect, classify, synthesize, map, revert.</li>
+        <li>You must know the internals. You must also know that <strong>you do not say the internals to a prospect</strong>. Answer plus mechanism, then stop.</li>
+      </ul>
+    </div>
+
+    <h2>1. The journey of one prompt</h2>
+    <div class="dgm white">
+      <svg viewBox="0 0 900 336" role="img" aria-label="A prompt travels from the user through on-device detection and substitution to the AI provider, and the answer is reverted on the way back">
+        <defs>
+          <marker id="ar1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0 0 L9 4.5 L0 9 z" fill="#68758e"/>
+          </marker>
+          <marker id="ar1g" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0 0 L9 4.5 L0 9 z" fill="#4da394"/>
+          </marker>
+        </defs>
+
+        <rect x="10" y="44" width="540" height="252" rx="16" fill="#f6f5ef" stroke="#e8e6dc"/>
+        <text x="30" y="70" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#68758e" letter-spacing="1.5">THE USER&apos;S DEVICE</text>
+
+        <rect x="28" y="94" width="112" height="70" rx="11" fill="#fff" stroke="#e8e6dc"/>
+        <text x="84" y="120" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="13" font-weight="600" fill="#01204e">User types</text>
+        <text x="84" y="138" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#d54751">&quot;memo for</text>
+        <text x="84" y="151" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#d54751">Jane Doe...&quot;</text>
+
+        <path d="M140 129 H158" stroke="#68758e" stroke-width="1.4" marker-end="url(#ar1)"/>
+
+        <rect x="164" y="94" width="108" height="70" rx="11" fill="#fff" stroke="#028391"/>
+        <text x="218" y="120" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="13" font-weight="600" fill="#01204e">Detect</text>
+        <text x="218" y="138" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">NER, regex,</text>
+        <text x="218" y="152" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">component split</text>
+
+        <path d="M272 129 H290" stroke="#68758e" stroke-width="1.4" marker-end="url(#ar1)"/>
+
+        <rect x="296" y="94" width="118" height="70" rx="11" fill="#fff" stroke="#028391"/>
+        <text x="355" y="120" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="13" font-weight="600" fill="#01204e">Substitute</text>
+        <text x="355" y="138" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">synthetic twin,</text>
+        <text x="355" y="152" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">same statistics</text>
+
+        <path d="M355 164 V192" stroke="#01204e" stroke-width="1.1" stroke-dasharray="3 3"/>
+        <rect x="296" y="192" width="118" height="44" rx="10" fill="#01204e"/>
+        <text x="355" y="211" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8fd6dc" letter-spacing="0.9">ENCRYPTED</text>
+        <text x="355" y="225" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#8fd6dc" letter-spacing="0.9">TWIN MAP</text>
+
+        <path d="M296 214 H262" stroke="#01204e" stroke-width="1.1" stroke-dasharray="3 3"/>
+
+        <rect x="136" y="192" width="126" height="44" rx="10" fill="#fff" stroke="#4da394"/>
+        <text x="199" y="210" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="12.5" font-weight="600" fill="#01204e">Revert</text>
+        <text x="199" y="226" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10" fill="#68758e">five ordered passes</text>
+
+        <path d="M136 214 H84 V172" stroke="#4da394" stroke-width="1.4" fill="none" marker-end="url(#ar1g)"/>
+
+        <path d="M414 129 H672" stroke="#68758e" stroke-width="1.4" marker-end="url(#ar1)"/>
+        <text x="560" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#358a7c" letter-spacing="0.9">0 BYTES OF SENSITIVE DATA LEAVE</text>
+
+        <rect x="680" y="100" width="170" height="106" rx="14" fill="#01204e"/>
+        <text x="765" y="140" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="14" font-weight="600" fill="#fff">The LLM</text>
+        <text x="765" y="161" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#8fd6dc">sees only twins,</text>
+        <text x="765" y="176" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#8fd6dc">answers normally</text>
+
+        <path d="M680 190 H470 V266 H199 V242" stroke="#4da394" stroke-width="1.4" fill="none" marker-end="url(#ar1g)"/>
+        <text x="470" y="286" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#358a7c" letter-spacing="0.9">THE ANSWER COMES BACK IN TWIN FORM</text>
+      </svg>
+      <div class="cap">One prompt, start to finish. Everything inside the panel happens on the endpoint.</div>
+    </div>
+
+    <h2>2. The five stages</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Stage</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · Detection</b></td><td>Multi-layer sensitive-data detection: named entity recognition, regular expressions, and component splitting (so a full name, a street address or an account number is broken into its parts).</td></tr>
+          <tr><td><b>2 · Classification</b></td><td>The detected entity is categorized. This is what drives which kind of twin gets generated.</td></tr>
+          <tr><td><b>3 · Synthesis</b></td><td>A statistically faithful synthetic value is generated for that entity type. The generation is model-based, not a random string.</td></tr>
+          <tr><td><b>4 · Mapping</b></td><td>The real-to-twin mapping is stored in the encrypted vault and graph. This is the only place the relationship exists, and it never leaves the boundary.</td></tr>
+          <tr><td><b>5 · Reversion</b></td><td>On the response, twins are swapped back to real values. Multi-turn conversations stay coherent through continuation IDs.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Reversion runs in five passes</h3>
+    <p>Reversion is the part that competitors get wrong, so it is worth knowing precisely. The engine runs
+    ordered passes: exact full-string match with word boundaries, then case-insensitive full-string, then
+    component level, then token-based for name types, then partial match for addresses with city
+    extraction. There is no separate recombination step. A split entity reassembles because each component
+    was substituted at its own position in the text.</p>
+    <p><strong>Twin reuse has a deliberate 60-second cross-continuation window.</strong> Files uploaded in a
+    batch under different continuation IDs within a minute of each other stay consistent with one another.
+    If someone tells you reuse is strictly scoped to a single continuation, that is not accurate.</p>
+
+    <div class="note warn">
+      <span class="t">Altitude rule: know it, do not say it</span>
+      <p>Everything in the two paragraphs above is internal. It is here so you can hold your own in a
+      technical room and know when a question is out of bounds. It is <strong>not</strong> what you say to a
+      prospect.</p>
+      <p>Our standing rule for prospect-facing capability answers: <strong>state the outcome, name the
+      mechanism in one clause, say plainly what is not shipped, and stop.</strong> No algorithm names, no
+      window sizes, no pipeline stages, no guard lists, no deployment topologies. The test: could a
+      competitor rebuild a feature from what you just wrote? If yes, cut it back to the mechanism's name and
+      keep the rest for the call.</p>
+      <p>This is not theoretical. In September 2026 a nine-question due-diligence reply ran roughly 1,550
+      words with the twin properties, hash algorithm, n-gram window size, decode guards and memory
+      pipeline. Jason cut it: "You could almost take this whole email and reverse engineer our product."
+      The corrected draft was half the length, answered every question, and kept the internals for the
+      call.</p>
+    </div>
+
+    <h2>3. Where interception happens</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Surface</th><th>How</th><th>Notes for the field</th></tr></thead>
+        <tbody>
+          <tr><td><b>Desktop</b></td><td>Electron app with Layer-7 HTTPS interception and a root CA install, running in the system tray.</td><td>Windows 11 and macOS 13+ on Apple Silicon. <strong>Intel Mac support ended at v1.9.12.</strong> Ask about the fleet early: an Intel-heavy shop is a real objection, not a detail.</td></tr>
+          <tr><td><b>Browser</b></td><td>Manifest V3 extension with content interception.</td><td>Covers the tab even when the desktop app is not the path.</td></tr>
+          <tr><td><b>Mobile</b></td><td>iOS and iPadOS network extensions. The tunnel claims only a fake IP range, so non-AI packets are never handed to the extension at all.</td><td>Architecturally a <em>stronger</em> privacy claim than desktop. Phase 1 builds and runs; the netstack and TLS interception are Phase 2. <strong>Do not promise a mobile GA date.</strong></td></tr>
+          <tr><td><b>Agent and code surfaces</b></td><td>Claude Code is governed through a local HTTP gateway on the loopback address, set by an environment variable. Request body encoded, streaming response decoded, no TLS interception needed.</td><td>This is a favourite with engineering-led buyers. It is also Max only.</td></tr>
+          <tr><td><b>SDK</b></td><td>Programmatic encode and decode for agent-to-agent systems.</td><td>Node and Python, v1.0.2. Builders buy this. See Module 04.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>4. Zero-knowledge, stated precisely</h2>
+    <p>"Zero-knowledge" is a phrase reviewers will push on. Here is the accurate version, and it is strong
+    enough that you never need to overstate it:</p>
+    <ul>
+      <li>The detection, substitution and reversion all execute on the device.</li>
+      <li>The on-device core reaches PrivacyPal for exactly two things: a <strong>signed entitlement
+      lease</strong> (default four-hour TTL) and <strong>sanitized audit receipts</strong>.</li>
+      <li>An audit receipt carries platform, timestamp and entity types. The prompt itself is stored as
+      <code>[processed on-device]</code>. The content is not transmitted.</li>
+      <li>Enforcement is <strong>fail-closed on the prompt path</strong>. Encode failure, an expired session
+      and an unreadable prompt all refuse the request. There is no passthrough mode.</li>
+    </ul>
+    <p>That last bullet is worth its weight in a security review. Most competing architectures degrade to
+    "allow" when their inspection path breaks. Ours refuses.</p>
+
+    <h2>5. The published numbers, and their caveats</h2>
+    <div class="facts">
+      <div class="f"><div class="n">340<small>ms</small></div><div class="l">average interception latency</div></div>
+      <div class="f"><div class="n">0<small> bytes</small></div><div class="l">sensitive data sent to AI providers</div></div>
+      <div class="f"><div class="n">47</div><div class="l">data types covered (PII, PHI, PCI, IP classes)</div></div>
+      <div class="f"><div class="n">10M<small>+</small></div><div class="l">sensitive elements governed across endpoints</div></div>
+    </div>
+
+    <div class="note warn">
+      <span class="t">Claims discipline, memorize this section</span>
+      <p><strong>340ms</strong> is the published endpoint average. One account measured 100 to 200ms on
+      prompts and about three seconds on large uploads. Quote it as the published average and offer to
+      measure on the customer's own traffic. Never present it as a guarantee.</p>
+      <p><strong>47 data types</strong> is the published site figure. It could not be re-derived from
+      configuration in September 2026. If a reviewer asks for the enumerated list, that is a request you
+      route to us, not one you improvise.</p>
+      <p><strong>"0 bytes of sensitive data"</strong> holds for the prompt path and for the file paths that
+      are actually processed. It does <em>not</em> currently hold for document attachments on ChatGPT and
+      Gemini, which are forwarded unchanged. See the box below.</p>
+    </div>
+
+    <h3>File upload coverage: the exact line</h3>
+    <div class="say two">
+      <div>
+        <div class="sh"><span class="dot"></span>Still fine to say</div>
+        <div class="sb"><p>Prompts are twinned on every supported chat surface, on the way out and on the way back.</p>
+        <p>Spreadsheets, delimited text and plain text are encoded and keep their original format.</p>
+        <p>With PDF protection on, sensitive text inside a PDF is replaced in place, preserving images, layout and fonts.</p></div>
+      </div>
+      <div>
+        <div class="sh bad"><span class="dot"></span>Do not say</div>
+        <div class="sb"><p>That file uploads are protected across all supported platforms, without naming which.</p>
+        <p>That PDF protection is on by default. It is a per-account setting and it is off.</p>
+        <p>Any unqualified "nothing sensitive ever reaches the provider" claim where file upload is in scope, for example on a security questionnaire.</p></div>
+      </div>
+    </div>
+    <div class="note ok">
+      <span class="t">Say this instead, when asked directly</span>
+      <p>"Prompt content is protected on every supported surface. Document attachment coverage varies by
+      surface. ChatGPT and Gemini attachments are currently forwarded unchanged and that work is queued."</p>
+      <p>Volunteering this costs you nothing and buys you the room. Getting caught on it after a security
+      review costs you the deal and the reference.</p>
+    </div>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 02</div>
+      <ul>
+        <li>Five stages: <b>detect, classify, synthesize, map, revert</b>.</li>
+        <li>Reversion runs <b>five ordered passes</b>; twin reuse has a <b>60-second</b> cross-continuation window.</li>
+        <li>On-device only. Two things go out: a <b>signed entitlement lease</b> (4h TTL) and <b>sanitized audit receipts</b>.</li>
+        <li>The prompt path is <b>fail-closed</b>. No passthrough mode.</li>
+        <li>Intel Mac support ended at <b>v1.9.12</b>. Ask about the fleet.</li>
+        <li>ChatGPT and Gemini <b>document attachments are forwarded unchanged</b> today. Say it before they find it.</li>
+        <li>Answer plus mechanism, then stop. <b>Know the internals, do not say the internals.</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 03
+     ============================================================ -->
+<section class="lsn" id="m3" data-mod="m3">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 03 of 09</div>
+    <h1>The platform: what Max actually does</h1>
+    <p class="lede">Module 02 was the mechanism. This is the product built on top of it, and the exact line
+    between what ships today and what is specified but not built. Knowing that line is what separates a
+    trusted rep from a burned one.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>Max stands on <strong>four pillars</strong>: on-device DSPM, agent and copilot governance, Private MCP, and org-wide AI controls.</li>
+        <li>DSPM exists at <strong>three depths</strong>, and the depth maps to the plan: prompt level (Pro), on device (Max), across the network (Cloud).</li>
+        <li>Seven AI platforms are supported. Six are chat, one is an agent, and that one is Max only.</li>
+        <li>There is a real, written list of things that are <strong>not built</strong>. Learn it. It is the most valuable page in this course.</li>
+      </ul>
+    </div>
+
+    <h2>1. The four governance pillars of Max</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Pillar</th><th>What it does</th><th>Who it lands with</th></tr></thead>
+        <tbody>
+          <tr><td><b>On-Device DSPM</b></td><td>Discovers, classifies and monitors sensitive data sitting on staff endpoints. Described as the first DSPM that lives on the endpoint.</td><td>Security, compliance, anyone facing an auditor</td></tr>
+          <tr><td><b>Agent &amp; Copilot Governance</b></td><td>Controls Claude Code, Microsoft Copilot, ChatGPT, Gemini, Grok, Perplexity and Hermes Agent at the device level. Governs what agents can read, write and exfiltrate.</td><td>Engineering leaders, platform teams</td></tr>
+          <tr><td><b>Private MCP</b></td><td>Internal tools reachable by AI agents without the connection leaking to a public host.</td><td>CTOs, anyone whose agents touch a system of record</td></tr>
+          <tr><td><b>Org-Wide AI Controls</b></td><td>One policy plane across the company, plus shadow-AI discovery.</td><td>The economic buyer. This is the "I can finally say yes" pillar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. DSPM at three depths</h2>
+    <p>Buyers use "DSPM" loosely. Being precise here separates you immediately.</p>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Depth</th><th>Where it looks</th><th>Plan</th></tr></thead>
+        <tbody>
+          <tr><td><b>Prompt-level DSPM</b></td><td>At the moment of typing or upload.</td><td>Pro</td></tr>
+          <tr class="hi"><td><b>On-Device DSPM</b></td><td>On the staff endpoint itself: data at rest on the laptop.</td><td>Max</td></tr>
+          <tr><td><b>Network DSPM</b></td><td>Across databases, data lakes, and RAG, vector and agent memory stores. Agentless discovery across SQL Server, PostgreSQL, MongoDB and cloud storage, with risk scored by access pattern, exposure and business purpose.</td><td>Cloud</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Two things to know about the mechanics, because a technical buyer will ask. Business Data terms are
+    stored as <strong>one-way HMAC-SHA-256 hashes, never plaintext</strong>. And the catalog is built from
+    the systems the customer connects, rebuilt by a daily job and on demand. In customer-facing language
+    that is <strong>"connect your systems"</strong>, never "enrol terms," which sounds like manual work.</p>
+
+    <h2>3. Connections</h2>
+    <p>Max-exclusive integrations, so AI can reach the systems a business actually runs on while twins keep
+    the underlying data protected. The list:</p>
+    <p style="font-family:var(--font-mono);font-size:.84rem;line-height:2;color:var(--ink)">
+      Salesforce · Slack · Microsoft Teams · Mattermost · Telegram · Notion · NetDocuments · Google Drive ·
+      Microsoft OneDrive · Dropbox · Box · MS SQL Server · MySQL · MongoDB · Supabase · Workday · Oracle
+    </p>
+    <div class="note warn">
+      <span class="t">Connector precision</span>
+      <p>NetSuite, Intuit and practice-management systems are <strong>not shipped connectors</strong>. They
+      connect <em>through</em> Private MCP, which a customer or we build. The distinction has to survive
+      into your sales conversations. Today's only Private MCP connector is Salesforce.</p>
+    </div>
+
+    <h2>4. Private MCP</h2>
+    <p>A proprietary Model Context Protocol runtime. It is a twin-translating proxy that mirrors the
+    upstream tool's contract exactly, so the agent does not know the difference. <strong>The model sees only
+    twins. The system of record sends and receives real values. The human sees the real answer.</strong></p>
+    <p>The field story that sells it: a Max customer connected Claude straight to Salesforce. Because the
+    desktop correctly twins what users type, Claude then queried and wrote Salesforce <em>with twin
+    values</em>. Private MCP is the sanctioned route for any connector into a system holding PII or IP.</p>
+    <ul>
+      <li>Built and shipping. OAuth 2.1 with PKCE, per-user grant vault, schema-typed encode, fail-closed guards.</li>
+      <li>Self-host is available now with a developer key. Pro and SDK customers with dev resources can run their own.</li>
+      <li><strong>The hosted Private MCP plane is not stood up yet.</strong> Say "self-host available now, hosted plane being stood up." Do not sell the hosted plane as available.</li>
+    </ul>
+
+    <h2>5. Privacy Agents</h2>
+    <p>On-device autonomous agents that reason about privacy, intent and risk in real time, inside the
+    encode path. They adjust detection per intent: skip or force entity types, preserve an original, pass
+    location through. Executions are persisted and alerts recorded. Built-in functions include Intent
+    Detection, Prompt Injection Guard, Legal Enrichment and Financial Enrichment.</p>
+
+    <h2>6. Private Memory, and the claims you may make</h2>
+    <p>Memory that persists across AI tools, kept in twin space. The differentiated claim is simple and
+    measured: <strong>remembered values never reach the provider.</strong></p>
+    <div class="say two">
+      <div>
+        <div class="sh"><span class="dot"></span>Approved (cite "internal benchmark, 2026")</div>
+        <div class="sb"><p>Memory in twin space does not degrade recall. In our benchmark, twin-space matched or beat plaintext.</p>
+        <p>Remembered values never reach the provider. Measured per value.</p>
+        <p>100% of our adversarial memory-poisoning cases were blocked, with clean abstention when no memory exists.</p>
+        <p>Memory Packs cut context cost about 56% versus replaying history, benchmark-measured.</p>
+        <p>Recall adds under 100ms. No LLM in the read path.</p>
+        <p>Erasure is mechanical and immediate. Crypto-shred is contract-tested, including mid-consolidation.</p></div>
+      </div>
+      <div>
+        <div class="sh bad"><span class="dot"></span>Not approved</div>
+        <div class="sb"><p>Any bare accuracy percentage as a product claim. Ten self-authored cases is a regression gate, not a benchmark result.</p>
+        <p>Any head-to-head vendor comparison on memory. We have no common-benchmark basis.</p>
+        <p>Any generalization of the twin advantage beyond "matched or beat in our benchmark."</p></div>
+      </div>
+    </div>
+    <p>The reason this discipline exists: the memory-vendor field is burned by self-reported numbers. One
+    competitor published 94% on a public benchmark and was independently measured at 49%. Our position is
+    to be <strong>the vendor whose claims survive independent testing</strong>, and it costs us nothing
+    because the mechanism claims are the differentiated ones anyway.</p>
+
+    <h2>7. Supported AI platforms</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Platform</th><th>Category</th><th>Tiers</th></tr></thead>
+        <tbody>
+          <tr><td>ChatGPT</td><td>Chat</td><td class="num">Pro · Max · Cloud</td></tr>
+          <tr><td>Claude</td><td>Chat</td><td class="num">Pro · Max · Cloud</td></tr>
+          <tr><td>Gemini</td><td>Chat</td><td class="num">Pro · Max · Cloud</td></tr>
+          <tr><td>Microsoft Copilot</td><td>Chat / copilot</td><td class="num">Pro · Max · Cloud</td></tr>
+          <tr><td>Grok</td><td>Chat</td><td class="num">Pro · Max · Cloud</td></tr>
+          <tr><td>Perplexity</td><td>Chat</td><td class="num">Pro · Max · Cloud</td></tr>
+          <tr class="hi"><td><b>Hermes Agent</b></td><td>Agent</td><td class="num"><b>Max only</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Seven platforms, one policy. Two precision points that get reps in trouble:</p>
+    <ul>
+      <li><strong>Pro-specific copy never claims Hermes Agent.</strong> Agent surfaces are Max only.</li>
+      <li><strong>Hermes coverage is scoped.</strong> We cover the Nous Portal endpoint and the Fireworks
+      endpoint Hermes uses by default. Traffic pointed at any other inference provider is not covered.
+      Carry that scope into any customer-facing claim.</li>
+    </ul>
+
+    <h2>8. The not-built list</h2>
+    <p>This page exists because a September 2026 verification pass checked our public claims against the
+    actual code. Read it twice. If you sell any of these as shipped, you will be found out in a security
+    review, and it will cost more than the deal.</p>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Do not sell as shipped</th><th>What you say instead</th></tr></thead>
+        <tbody>
+          <tr><td><b>Content-class hard block</b><small>A Privacy Agent refusing a prompt outright based on classification</small></td><td>"Flagging, yes. Classification-driven refusal is not shipped." Agent output is applied as detection overrides and alerts.</td></tr>
+          <tr><td><b>Hosted Private MCP</b></td><td>"Self-host is available now with a developer key. The hosted plane is being stood up."</td></tr>
+          <tr><td><b>SIEM forwarder / GRC connectors</b></td><td>Structured JSON logs, CloudWatch when hosted, customer-owned storage on Cloud. <b>No native ServiceNow, Archer, Vanta or Drata integration exists.</b></td></tr>
+          <tr><td><b>Admin-pushed model blocks and training-cohort gating</b><small>Stated on our own Max page</small></td><td>Treat as a website claim awaiting confirmation or a build. Do not demo it, do not commit to it in a proposal.</td></tr>
+          <tr><td><b>Per-project or per-client memory scopes</b></td><td>Forward work. Team scope today is explicit per-fact promotion, and it is Max gated.</td></tr>
+          <tr><td><b>SOC 2</b></td><td>Expected, unverified as of September 2026. <b>Do not state it as held.</b> Route the question to us.</td></tr>
+          <tr><td><b>A mobile GA date</b></td><td>Phase 1 builds and runs. Do not put a date in front of a customer.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note ok">
+      <span class="t">Why this list is an asset, not a liability</span>
+      <p>Every vendor in this category oversells. A rep who volunteers "that one is not built yet, here is
+      what is" becomes the credible person in the room within ten minutes. You will close more by being the
+      only honest vendor in the evaluation than you ever will by matching a competitor's feature checklist
+      claim for claim.</p>
+    </div>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 03</div>
+      <ul>
+        <li>Four Max pillars: <b>on-device DSPM, agent governance, Private MCP, org-wide controls</b>.</li>
+        <li>DSPM depths map to plans: <b>prompt (Pro), device (Max), network (Cloud)</b>.</li>
+        <li>Business Data terms are stored as <b>one-way HMAC-SHA-256 hashes</b>, never plaintext.</li>
+        <li>Private MCP is <b>built</b>, first connector <b>Salesforce</b>, hosted plane <b>not up</b>.</li>
+        <li><b>Seven platforms.</b> Hermes Agent is Max only and its coverage is scoped to two endpoints.</li>
+        <li>The not-built list: content-class block, hosted MCP, SIEM forwarder, model blocks, memory scopes, SOC 2, mobile GA.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 04
+     ============================================================ -->
+<section class="lsn" id="m4" data-mod="m4">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 04 of 09</div>
+    <h1>The product line, pricing and deal math</h1>
+    <p class="lede">Four products, three segments, one price book. If you quote the wrong plan or the wrong
+    band you do not just lose margin, you lose the deal, because the buyer stops trusting your numbers.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li><strong>Pro protects a person. Max protects an organization.</strong> The plan boundary is who the account belongs to, not the feature list.</li>
+        <li>Pro is <strong>individual only</strong>, flat priced, no domain accounts, no volume discount at any seat count.</li>
+        <li>Max is the <strong>SME plan</strong>, roughly 20 to 2,000 people, on four automatic volume bands.</li>
+        <li>Cloud is the <strong>enterprise</strong> plan: sovereign, self-hosted, custom priced.</li>
+        <li>Max prices the <strong>whole seat count</strong> at the band rate, not marginally.</li>
+      </ul>
+    </div>
+
+    <h2>1. The line, mapped to segments</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Plan</th><th>Segment</th><th>Buyer</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td><b>PrivacyPal Pro</b></td><td>The individual</td><td>A single named professional, self-serve</td><td class="num">$9/mo, or $7.50/mo annual ($90/yr)</td></tr>
+          <tr class="hi"><td><b>PrivacyPal Max</b></td><td><b>SME</b>, roughly 20 to 2,000 people</td><td>CEO, COO, managing partner, practice owner, IT lead</td><td class="num">$34 to $22/mo, $30 to $17/mo annual</td></tr>
+          <tr><td><b>PrivacyPal Cloud</b></td><td><b>Enterprise</b></td><td>Regulated organizations with a data-sovereignty mandate</td><td class="num">Custom, annual</td></tr>
+          <tr><td><b>PrivacyPal SDK</b></td><td>Builders</td><td>CTOs and engineering leaders shipping AI on customer data</td><td class="num">Self-host against Cloud</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <span class="t">Positioning correction you must not get wrong</span>
+      <p>Max is <strong>not</strong> the enterprise product, and the phrase "AI-native enterprise" is retired
+      from Max. Enterprise is Cloud's segment. Max is the plan for the whole company at any size above one
+      person, and the copy is written so a CEO of 20 and a CEO of 2,000 both recognize themselves. Older
+      collateral you may find still says otherwise. It is wrong.</p>
+    </div>
+
+    <div class="dgm white">
+      <svg viewBox="0 0 900 300" role="img" aria-label="Decision tree from who the account belongs to, through to Pro, Max, Cloud or SDK">
+        <defs>
+          <marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0 0 L9 4.5 L0 9 z" fill="#68758e"/>
+          </marker>
+        </defs>
+        <rect x="8" y="120" width="168" height="60" rx="11" fill="#01204e"/>
+        <text x="92" y="145" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="13" font-weight="600" fill="#fff">Who does the</text>
+        <text x="92" y="163" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="13" font-weight="600" fill="#fff">account belong to?</text>
+
+        <path d="M176 150 H206 V54 H302" stroke="#68758e" stroke-width="1.3" fill="none" marker-end="url(#ar4)"/>
+        <path d="M176 150 H206 V172 H302" stroke="#68758e" stroke-width="1.3" fill="none" marker-end="url(#ar4)"/>
+        <text x="212" y="46" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">one person</text>
+        <text x="212" y="192" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">a company</text>
+
+        <rect x="308" y="30" width="182" height="48" rx="10" fill="#fff" stroke="#e8e6dc"/>
+        <text x="399" y="52" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">No domain, no colleagues,</text>
+        <text x="399" y="68" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">no volume discount</text>
+        <path d="M490 54 H606" stroke="#68758e" stroke-width="1.3" marker-end="url(#ar4)"/>
+
+        <rect x="614" y="28" width="278" height="52" rx="11" fill="#f2f9fa" stroke="#028391"/>
+        <text x="634" y="50" font-family="Overused Grotesk, system-ui" font-size="14" font-weight="600" fill="#01204e">PrivacyPal Pro</text>
+        <text x="634" y="68" font-family="IBM Plex Mono, monospace" font-size="10" fill="#028391">$9 MONTHLY / $7.50 ANNUAL, ONE SEAT</text>
+
+        <rect x="308" y="148" width="182" height="48" rx="10" fill="#fff" stroke="#e8e6dc"/>
+        <text x="399" y="170" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">Is there a hard data</text>
+        <text x="399" y="186" text-anchor="middle" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">residency mandate?</text>
+
+        <path d="M490 172 H520 V124 H606" stroke="#68758e" stroke-width="1.3" fill="none" marker-end="url(#ar4)"/>
+        <path d="M490 172 H520 V206 H606" stroke="#68758e" stroke-width="1.3" fill="none" marker-end="url(#ar4)"/>
+        <text x="528" y="118" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">no</text>
+        <text x="528" y="200" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">yes</text>
+
+        <rect x="614" y="98" width="278" height="52" rx="11" fill="#f2f9fa" stroke="#028391"/>
+        <text x="634" y="120" font-family="Overused Grotesk, system-ui" font-size="14" font-weight="600" fill="#01204e">PrivacyPal Max</text>
+        <text x="634" y="138" font-family="IBM Plex Mono, monospace" font-size="10" fill="#028391">$30 / $25 / $21 / $17 ANNUAL BY BAND</text>
+
+        <rect x="614" y="180" width="278" height="52" rx="11" fill="#f1f8f5" stroke="#4da394"/>
+        <text x="634" y="202" font-family="Overused Grotesk, system-ui" font-size="14" font-weight="600" fill="#01204e">PrivacyPal Cloud</text>
+        <text x="634" y="220" font-family="IBM Plex Mono, monospace" font-size="10" fill="#358a7c">CUSTOM, ANNUAL, SELF-HOSTED</text>
+
+        <path d="M92 180 V266 H606" stroke="#68758e" stroke-width="1.3" fill="none" stroke-dasharray="4 3" marker-end="url(#ar4)"/>
+        <text x="104" y="260" font-family="Overused Grotesk, system-ui" font-size="10.5" fill="#68758e">a builder shipping AI on customer data</text>
+        <rect x="614" y="248" width="278" height="44" rx="11" fill="#fff" stroke="#e8e6dc"/>
+        <text x="634" y="266" font-family="Overused Grotesk, system-ui" font-size="13.5" font-weight="600" fill="#01204e">PrivacyPal SDK</text>
+        <text x="634" y="282" font-family="IBM Plex Mono, monospace" font-size="10" fill="#68758e">SELF-HOST AGAINST CLOUD</text>
+      </svg>
+      <div class="cap">Start with who the account belongs to, never with the feature list. A builder is Tier A regardless of headcount.</div>
+    </div>
+
+    <h2>2. The price book, September 2026</h2>
+    <h3>Pro: flat, individual only</h3>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Billing</th><th>Per seat, per month</th><th>Billed</th></tr></thead>
+        <tbody>
+          <tr><td>Annual</td><td class="num"><b>$7.50</b></td><td class="num">$90 per year, saves 17%</td></tr>
+          <tr><td>Monthly</td><td class="num"><b>$9.00</b></td><td class="num">Cancel anytime</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Five-day free trial, or ten prompts. <strong>No volume pricing.</strong> Nine people on Pro is nine
+    individual accounts at nine times $90 a year. <strong>No domain accounts.</strong> A company domain
+    cannot be attached to Pro and colleagues cannot be provisioned under it.</p>
+
+    <h3>Max: four automatic volume bands</h3>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Seats</th><th>Annual, per seat/mo</th><th>Annual, per seat/yr</th><th>Monthly, per seat/mo</th><th>Off the 1-9 rate</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1-9</td><td class="num"><b>$30</b></td><td class="num">$360</td><td class="num"><b>$34</b></td><td>list</td></tr>
+          <tr><td class="num">10-99</td><td class="num"><b>$25</b></td><td class="num">$300</td><td class="num"><b>$29</b></td><td>17% annual · 15% monthly</td></tr>
+          <tr><td class="num">100-999</td><td class="num"><b>$21</b></td><td class="num">$252</td><td class="num"><b>$26</b></td><td>30% annual · 24% monthly</td></tr>
+          <tr><td class="num">1000+</td><td class="num"><b>$17</b></td><td class="num">$204</td><td class="num"><b>$22</b></td><td>43% annual · 35% monthly</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Tiers price the whole seat count, not marginally</strong>, and reprice automatically at band
+    crossings. A customer at 99 seats pays 99 times $25. At 100 seats they pay 100 times $21, and their
+    total bill goes <em>down</em>. Know that, because it is a closing lever: a prospect sitting at 92 seats
+    is eight seats away from a lower total invoice.</p>
+    <p>Annual saves 12% at the entry band, rising to 23% at 1000+.</p>
+
+    <h2>3. The domain policy</h2>
+    <div class="note">
+      <span class="t">Server-enforced, not a guideline</span>
+      <p><strong>A company domain with more than one user runs Max for every user on it.</strong> Pro and
+      Max do not mix on a domain or on an invoice. This is enforced server side and returns an error code.
+      There is no version of a deal where you sell six Pro seats to a firm to save them money. Try it and
+      the platform stops you.</p>
+    </div>
+    <p>This exists because of a real deal. A nine-seat prospect stalled because <em>they liked Pro's pricing
+    but wanted Max's features</em>. Rather than blur the line, the company drew it harder: Pro protects a
+    person, Max protects an organization. When you hit this objection, you are hitting a designed boundary,
+    not a bug, and the honest answer is that Max at nine seats is $360 per seat per year and it is a
+    different product.</p>
+
+    <h2>4. Deal math you must be able to do in your head</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Scenario</th><th>Band</th><th>Annual rate</th><th>Contract value</th><th>MRR contribution</th></tr></thead>
+        <tbody>
+          <tr><td>20-person accounting firm, annual</td><td class="num">10-99</td><td class="num">$300/seat/yr</td><td class="num"><b>$6,000/yr</b></td><td class="num">$500</td></tr>
+          <tr><td>200-person regional bank, annual</td><td class="num">100-999</td><td class="num">$252/seat/yr</td><td class="num"><b>$50,400/yr</b></td><td class="num">$4,200</td></tr>
+          <tr><td>2,000-person carrier, annual</td><td class="num">1000+</td><td class="num">$204/seat/yr</td><td class="num"><b>$408,000/yr</b></td><td class="num">$34,000</td></tr>
+          <tr><td>9-seat firm, annual</td><td class="num">1-9</td><td class="num">$360/seat/yr</td><td class="num"><b>$3,240/yr</b></td><td class="num">$270</td></tr>
+          <tr><td>50-seat Pro shop moved to 200-seat Max</td><td class="num">100-999</td><td class="num">$26/seat/mo monthly</td><td class="num"><b>$5,200/mo</b></td><td class="num">$900 becomes $5,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="t">The counting rule</span>
+      <p>Annual contracts count as <strong>ARR divided by 12</strong> for MRR. One-time pilot fees do
+      <strong>not</strong> count as MRR at all. Get this wrong on a forecast call and you will be corrected
+      in public.</p>
+    </div>
+
+    <h2>5. SDK and Cloud, in one paragraph each</h2>
+    <p><strong>SDK.</strong> The secure entry point for AI agents to share data compliantly. The pattern is
+    encode, transmit, decode. Node 18+ (<code>@privacypal/sdk</code>) and Python 3.10+
+    (<code>privacypal-sdk</code>), both at v1.0.2. Encode latency is 0.10ms per 100 records on a warm
+    gateway. <strong>Streaming SSE chat is Node only</strong>; the Python client has no streaming and no
+    pandas helpers. The live developers page still says Python 3.9+, which is wrong. It is 3.10+.</p>
+    <p><strong>Cloud.</strong> The sovereign governance plane in the customer's own VPC. AI Gateway that is
+    provider agnostic and drop-in (change the base URL), plus network DSPM. Deploys to AWS, Azure, GCP,
+    bare metal, single container, or fully air-gapped with zero outbound. Terraform, Helm or curl. Scales
+    horizontally to 100k requests per second at P99 under 500ms, with a 24/7 SLA and a dedicated solution
+    engineer.</p>
+
+    <h2>6. Partner economics, if a deal comes through a partner</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Tier</th><th>Annual minimum</th><th>Economics</th><th>Certification</th></tr></thead>
+        <tbody>
+          <tr><td>Referral</td><td>None</td><td class="num">10% referral fee</td><td>Basic onboarding</td></tr>
+          <tr><td>Silver</td><td>None</td><td class="num">20% gross margin</td><td>Sales enablement training</td></tr>
+          <tr><td>Gold</td><td class="num">$50,000</td><td class="num">35% gross margin</td><td>Full technical certification</td></tr>
+          <tr><td>Platinum</td><td class="num">$500,000</td><td class="num">50% gross margin</td><td>VAR status, joint business plan</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Deal registration runs through the partner portal with <strong>90-day margin protection</strong>.
+    Resellers remit effective cost, meaning MSRP minus margin, net 30. <strong>Pro is out of the partner
+    catalog entirely</strong>: partners sell Max and Cloud. The master agreement is a draft under counsel
+    review and nothing is signed, so never quote partner terms as final.</p>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 04</div>
+      <ul>
+        <li>Pro <b>$9 / $7.50</b>, individual only, no domain, no volume discount, five-day trial.</li>
+        <li>Max annual bands: <b>$30 / $25 / $21 / $17</b>. Monthly: <b>$34 / $29 / $26 / $22</b>.</li>
+        <li>Bands are <b>1-9, 10-99, 100-999, 1000+</b> and price the <b>whole</b> seat count.</li>
+        <li>One domain, more than one user, <b>everyone runs Max</b>. Server enforced.</li>
+        <li>Annual counts as <b>ARR/12</b>. Pilot fees are <b>not</b> MRR.</li>
+        <li>Partners: <b>10 / 20 / 35 / 50</b>, 90-day deal registration, <b>Max and Cloud only</b>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 05
+     ============================================================ -->
+<section class="lsn" id="m5" data-mod="m5">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 05 of 09</div>
+    <h1>Who we sell to: ICPs, tiers and verticals</h1>
+    <p class="lede">Four buyer types, three tiers, one override that beats all of them, and five industries
+    with different regulators standing behind them. Misclassify the buyer and every message after that is
+    aimed at the wrong fear.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>Four ICPs. <strong>01 is the gatekeeper, 02 is the economic buyer, 03 is the builder, 04 is an overlay, not a person.</strong></li>
+        <li>The classic deal is <strong>a pressured owner plus a technical gatekeeper plus a regulatory date</strong>.</li>
+        <li>Tier A, B, C sets the motion. The <strong>builder override</strong> beats headcount every time.</li>
+        <li>Every vertical has a named regulation. Learn the regulation, not the vertical.</li>
+      </ul>
+    </div>
+
+    <h2>1. The four ICPs</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>ICP</th><th>Who</th><th>What they must believe</th><th>Buys</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>01 · Technical Contacts</b><small>The gatekeeper and the veto</small></td>
+            <td>CISO, head of security, deputy CISO, IT director or manager, DevOps or platform lead, or an outside MSP. At an SME this is often not a CISO at all.</td>
+            <td>The architecture is <em>verifiable</em>, adds <em>no burden</em> to the team, and produces <em>audit evidence</em>.</td>
+            <td>Max in the ordinary case. Cloud when the requirement is self-hosting or residency.</td>
+          </tr>
+          <tr>
+            <td><b>02 · Business Owners</b><small>The economic buyer and initiator</small></td>
+            <td>Founder, CEO, managing partner, practice owner, COO or GM. Also innovation mandate holders: head of innovation, AI lead, special projects.</td>
+            <td>They do not have to choose between innovation and trust. Framed as a per-day cost.</td>
+            <td>Max. This is the SME economic buyer. Pro only if covering themselves alone.</td>
+          </tr>
+          <tr>
+            <td><b>03 · Service Providers</b><small>The builder</small></td>
+            <td>CTO, VP or head of engineering, founding engineer, product lead. Companies building AI on their <em>customers'</em> data.</td>
+            <td>Integration takes days, output quality survives, and we unblock their stalled enterprise deals.</td>
+            <td>SDK, API, Cloud.</td>
+          </tr>
+          <tr>
+            <td><b>04 · Regulatory Pressure</b><small>An overlay, not a standalone persona</small></td>
+            <td>Anyone facing an examiner, auditor or insurer on a <strong>known date</strong>. Layers on top of 01 and 02.</td>
+            <td>PrivacyPal <strong>supports</strong> compliance. It does not claim to solve it.</td>
+            <td>Whatever 01 or 02 buys, faster.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="t">The stance that keeps us out of trouble</span>
+      <p>On ICP-04 the position is <strong>"support, not solve."</strong> PrivacyPal produces evidence and
+      reduces exposure. It does not certify compliance, it does not make anyone HIPAA compliant, and it does
+      not discharge a regulatory obligation. A rep who says "this makes you HIPAA compliant" has just
+      created a liability for the company and, in a regulated account, for the buyer personally.</p>
+    </div>
+
+    <h2>2. Tiers and routing</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Tier</th><th>Meaning</th><th>Routing</th></tr></thead>
+        <tbody>
+          <tr><td><b>A</b></td><td>Fits, and a human moves on it fast.</td><td>Solutions call</td></tr>
+          <tr><td><b>B</b></td><td>Fits, missing a signal. Smaller team, lower authority.</td><td>Group demo</td></tr>
+          <tr><td><b>C</b></td><td>Individual or spam.</td><td>Self-serve trial or disqualify</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <span class="t">The builder override</span>
+      <p><strong>Builder + AI on customer data + any end-customer compliance signal = Tier A regardless of
+      headcount.</strong> A six-person startup shipping an AI feature into a bank is a Tier A account.
+      And <strong>builders never enter the self-serve trial sequence</strong>. Route them to a solutions
+      call. This is the single most commonly failed classification question in this course.</p>
+    </div>
+
+    <h2>3. The five verticals</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Vertical</th><th>The line</th><th>Regulations to name</th><th>Plan fit</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Banking &amp; FSI</b><small>Community banks, credit unions, wealth advisors, commercial lenders</small></td>
+            <td>"AI governance your regulators can live with."</td>
+            <td class="num">GLBA · SOX · FFIEC · FINRA · NYDFS Part 500 · PCI</td>
+            <td>Max / Cloud</td>
+          </tr>
+          <tr>
+            <td><b>Healthcare</b><small>Clinics, therapists, specialist practices, IDNs</small></td>
+            <td>PHI never leaves the device.</td>
+            <td class="num">HIPAA · HITECH · SOC 2</td>
+            <td>Max / Cloud</td>
+          </tr>
+          <tr>
+            <td><b>Legal</b><small>Law firms, in-house counsel, paralegals</small></td>
+            <td>"Privilege preserved. Productivity finally unlocked."</td>
+            <td class="num">ABA Formal Opinion 512 · client confidentiality</td>
+            <td>Max / Cloud</td>
+          </tr>
+          <tr>
+            <td><b>Technology &amp; SaaS</b><small>B2B teams shipping AI on customer data</small></td>
+            <td>"Ship AI features. Pass every security review."</td>
+            <td class="num">SOC 2 · enterprise vendor review</td>
+            <td>SDK / Cloud</td>
+          </tr>
+          <tr class="hi">
+            <td><b>Accounting &amp; Tax</b><small>CPA firms, tax practices, bookkeeping and CAS, audit, outsourced CFO</small></td>
+            <td>Consent, not "security." Our newest and fastest-moving segment.</td>
+            <td class="num">Section 7216 · Section 6713 · FTC Safeguards Rule · IRS Pub 4557 · AICPA confidentiality · Circular 230</td>
+            <td>Max, Pro only for a true sole practitioner</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.86rem;color:var(--muted)">Telecom was a published vertical until September 2026 and
+    no longer has a website surface. Regional carriers, MVNOs, rural broadband and MSPs remain sellable, but
+    do not point a prospect at a page that does not exist.</p>
+
+    <h2>4. Accounting, the segment worth knowing cold</h2>
+    <p>The accounting wedge is different from every other vertical, and it is the sharpest one we have. It
+    is not framed as security. It is framed as <strong>consent</strong>.</p>
+    <div class="note warn">
+      <span class="t">The argument, in the buyer's own regulatory language</span>
+      <p>Under <strong>Section 7216</strong>, disclosing or using tax return information without the
+      taxpayer's written consent is a criminal matter: a misdemeanor carrying up to $1,000 and a year.
+      <strong>Section 6713</strong> adds a $250 civil penalty per disclosure. <strong>A staff accountant
+      pasting a K-1 into a public chatbot is a disclosure.</strong></p>
+      <p>Style rule from the founder: write and say <strong>"Section 7216"</strong> and
+      <strong>"Section 6713"</strong>. Never the section-sign form. It reads as legal boilerplate to a
+      practitioner audience.</p>
+    </div>
+    <p>Three more arguments this segment runs on:</p>
+    <ol>
+      <li><strong>An AI policy is not AI governance.</strong> Drawn from a real prospect who observed that
+      he "had an AI policy before he had governance."</li>
+      <li><strong>Busy season and offshore staff.</strong> Seasonal preparers and offshore teams are
+      recurring Section 7216 disclosure decisions and third-party service provider questions. Max domain
+      provisioning answers both.</li>
+      <li><strong>Your ledger is not training data.</strong> The firm's own IP is at risk alongside client
+      identity: tax strategies refined over decades, engagement templates, pricing, client lists, workpaper
+      methodology.</li>
+    </ol>
+    <p>The <strong>Financial Twins Toggle</strong> is this segment's primary product message and, per a real
+    customer call, "the first question every accountant will ask." Dollar amounts are twinned by default;
+    financial twins can be switched off per user so money values pass through untouched. Names, SSNs, EINs,
+    account numbers and dates keep full protection either way.</p>
+    <p>On point tools: Blue J and TaxGPT are good at what they were built for. We do not replace them and
+    <strong>we make no claim to intercept their traffic</strong>. We govern everything around them: the
+    preparer rewriting a client email in Claude, the admin pulling figures off a scanned W-2 in ChatGPT, the
+    partner running Perplexity on a prospect.</p>
+
+    <h2>5. What you may say about our customers</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Fact</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>"120+ businesses onboard"</td><td class="yes">Approved. This is the only defensible count wording.</td></tr>
+          <tr><td>"100s of companies trust PrivacyPal to govern AI"</td><td class="yes">On the website, approved.</td></tr>
+          <tr><td>Named logos: CorePLUS Technologies, peaq, Four Ninety Six Capital, Vodafone, Key Focus Group, Fastweb, Cyphlens, Gorilla Bow, Purewater Financial</td><td class="yes">Approved as customers. "Backed by" wording is also permitted for Vodafone and Fastweb.</td></tr>
+          <tr><td>NVIDIA Inception member</td><td class="yes">Approved.</td></tr>
+          <tr><td>Three accounting and wealth practices signed on Max, 8 / 25 / 10 people, 43 seats</td><td class="no">Size and vertical only. <b>Names may not appear on any surface.</b> Never quote the buying driver as a testimonial: it is an internal synthesis, not buyer speech.</td></tr>
+          <tr><td>"2.4M queries daily"</td><td class="no"><b>Retired. Confirmed inaccurate.</b> It must not reappear anywhere.</td></tr>
+          <tr><td>Arithmetic on the customer count ("120 plus three is 123")</td><td class="no">Never. Do not adjust the number by arithmetic.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Voice of customer you may quote verbatim</h3>
+    <blockquote>"We went from a blanket 'no AI' memo to onboarding all our users in two weeks."<cite>CISO, top-50 US bank</cite></blockquote>
+    <blockquote>"Our clinicians were going to use AI either way. PrivacyPal made it a compliance story instead of a crisis."<cite>CMIO</cite></blockquote>
+    <blockquote>"Our ethics committee approved firm-wide AI in one meeting. That never happens."<cite>GC, AmLaw 100 firm</cite></blockquote>
+    <blockquote>"Three enterprise customers said yes to AI the week we launched with PrivacyPal."<cite>CTO, Series C data infrastructure</cite></blockquote>
+    <p style="font-size:.86rem;color:var(--muted)">There is <strong>no accounting testimonial</strong>. Do
+    not invent one, and do not repurpose another vertical's quote with the industry swapped.</p>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 05</div>
+      <ul>
+        <li>ICP-01 gatekeeper, ICP-02 economic buyer, ICP-03 builder, <b>ICP-04 is an overlay</b>.</li>
+        <li>Stance on compliance: <b>support, not solve</b>.</li>
+        <li><b>Builder override</b> beats headcount. Builders never enter the trial sequence.</li>
+        <li>Accounting runs on <b>Section 7216 and Section 6713</b>, and on the <b>Financial Twins Toggle</b>.</li>
+        <li><b>120+</b> is the count. The 2.4M claim is dead. Three unnamed practices stay unnamed.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 06
+     ============================================================ -->
+<section class="lsn" id="m6" data-mod="m6">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 06 of 09</div>
+    <h1>The GTM motion and the pipeline</h1>
+    <p class="lede">PrivacyPal runs an AI-operated sales pipeline with a human at every decision point. You
+    are the human. Knowing exactly what the machine does for you, and what it will never do, is the
+    difference between leverage and confusion.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>The AI <strong>recommends</strong>. A human <strong>decides</strong>. That is the hard rule.</li>
+        <li><strong>Automation never moves a deal stage.</strong> Ever. It arrives as a task, not a write.</li>
+        <li>Four numbered stages of automation: lead-in, sequences, post-call extraction, proposal assembly.</li>
+        <li>Eight pipeline stages in HubSpot, with Security Review sitting between the second call and the trial.</li>
+      </ul>
+    </div>
+
+    <h2>1. The deal flow</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Stage</th><th>Motion</th><th>What the automation does</th></tr></thead>
+        <tbody>
+          <tr><td class="num"><b>1</b></td><td>Lead-in and ICP classification</td><td>Enriches, classifies against the four ICPs, scores intent, assigns tier and routing, and writes fields to HubSpot <b>in under 60 seconds</b>. Low confidence routes to human review.</td></tr>
+          <tr><td class="num"><b>2</b></td><td>Booking and sequences</td><td>Enrolls into one of four sequences based on the routing value.</td></tr>
+          <tr><td class="num"><b>3</b></td><td>Post-call extraction</td><td>On a processed call recording: extracts pains, objections, sentiment trajectory, buying signals, stakeholders and MEDDIC status. Writes the deal fields, the account brain and a rep debrief.</td></tr>
+          <tr><td class="num"><b>5</b></td><td>Proposal assembly</td><td>Drafts a proposal, gated by MEDDIC, with <b>mandatory human review before send</b>.</td></tr>
+          <tr><td>n/a</td><td>Close, onboard, expand</td><td>Human motions. There is no stage 4. A month-2 review is held on every closed-won.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. The pipeline stages</h2>
+    <div class="dgm">
+      <svg viewBox="0 0 900 130" role="img" aria-label="Eight HubSpot pipeline stages from Discovery to Closed Won or Closed Lost">
+        <g font-family="Overused Grotesk, system-ui" font-size="11.5" fill="#01204e">
+          <rect x="4"   y="44" width="102" height="40" rx="9" fill="#fff" stroke="#e8e6dc"/><text x="55"  y="69" text-anchor="middle">Discovery</text>
+          <rect x="116" y="44" width="112" height="40" rx="9" fill="#fff" stroke="#e8e6dc"/><text x="172" y="63" text-anchor="middle">Solutions</text><text x="172" y="76" text-anchor="middle">Call 2</text>
+          <rect x="238" y="44" width="112" height="40" rx="9" fill="#f2f9fa" stroke="#028391"/><text x="294" y="63" text-anchor="middle">Security</text><text x="294" y="76" text-anchor="middle">Review</text>
+          <rect x="360" y="44" width="86"  height="40" rx="9" fill="#fff" stroke="#e8e6dc"/><text x="403" y="69" text-anchor="middle">Trial</text>
+          <rect x="456" y="44" width="102" height="40" rx="9" fill="#fdf9ef" stroke="#f0914d"/><text x="507" y="69" text-anchor="middle">Proposal</text>
+          <rect x="568" y="44" width="110" height="40" rx="9" fill="#fff" stroke="#e8e6dc"/><text x="623" y="69" text-anchor="middle">Negotiation</text>
+          <rect x="688" y="18" width="120" height="40" rx="9" fill="#f1f8f5" stroke="#4da394"/><text x="748" y="37" text-anchor="middle">Closed Won</text><text x="748" y="50" text-anchor="middle" font-size="10" fill="#68758e">Onboarding</text>
+          <rect x="688" y="72" width="120" height="40" rx="9" fill="#fdf3f3" stroke="#d54751"/><text x="748" y="97" text-anchor="middle">Closed Lost</text>
+        </g>
+        <g stroke="#c6ccd8" stroke-width="1.2" fill="none">
+          <path d="M106 64 H116"/><path d="M228 64 H238"/><path d="M350 64 H360"/><path d="M446 64 H456"/><path d="M558 64 H568"/>
+          <path d="M678 64 H683 V38 H688"/><path d="M678 64 H683 V92 H688"/>
+        </g>
+        <text x="507" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#f0914d" letter-spacing="1">MEDDIC GATE</text>
+        <path d="M507 88 V100" stroke="#f0914d" stroke-width="1.2" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="cap">Entering Proposal triggers assembly, and assembly is gated on MEDDIC. Module 07.</div>
+    </div>
+    <p>The Security Review stage is where ICP-01 validates the architecture. It is not a formality and it is
+    where unprepared reps lose deals. Module 08 arms you for it.</p>
+
+    <h2>3. The four sequences</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Sequence</th><th>Who</th><th>Shape</th></tr></thead>
+        <tbody>
+          <tr><td><b>PP-1 Solutions Call</b></td><td>Tier A: technical contacts, builders, high-intent business owners</td><td class="num">3 touches over 6 business days: day 0 within an hour, day 2, day 6 breakup</td></tr>
+          <tr><td><b>PP-2 Group Demo</b></td><td>Tier B: fits but missing a signal, smaller teams, lower authority</td><td class="num">2 touches: day 0, day 4</td></tr>
+          <tr><td><b>PP-3 Trial</b></td><td>Pro-fit self-serve buyers</td><td class="num">3 touches across a 5-day trial arc: day 0, day 2, day 5</td></tr>
+          <tr><td><b>PP-4 Nurture</b></td><td>Fits eventually, not now</td><td class="num">1 day-0 email into the standing list</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Unenroll on reply is on. <strong>Builders never enter PP-3.</strong> A separate booking confirmation
+    email, sent on booking, attaches the sector one-pager and the role-based architecture one-pager. That is
+    not one of the four sequences.</p>
+
+    <h2>4. The north-star metrics</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Stage</th><th>Metric</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Leads routed correctly, audited agreement</td><td class="num"><b>85%+</b></td></tr>
+          <tr><td>2</td><td>Tier A to call booked</td><td class="num"><b>35%+</b></td></tr>
+          <tr><td>3</td><td>Call to next step with an owner and a date</td><td class="num"><b>80%+</b></td></tr>
+          <tr><td>5</td><td>Stage change to proposal sent</td><td class="num"><b>within 48 hours</b></td></tr>
+          <tr><td>Close</td><td>Proposal to decision</td><td class="num"><b>within 21 days</b></td></tr>
+          <tr><td>Expand</td><td>Month-2 review held</td><td class="num"><b>100%</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>"Next step with an owner and a date" is worth pausing on. A call that ends with "I will send some
+    information" did not produce a next step. It produced a stall you have not admitted to yet.</p>
+
+    <h2>5. The objection taxonomy</h2>
+    <p>Every objection heard on a call gets coded into one of ten buckets. You will be tested on this list
+    and you will use it in every debrief.</p>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Code</th><th>What it sounds like</th></tr></thead>
+        <tbody>
+          <tr><td class="num">data_flow_doubt</td><td>"Where does our data actually go?"</td></tr>
+          <tr><td class="num">it_burden</td><td>"My team cannot take on another agent to manage."</td></tr>
+          <tr><td class="num">vendor_trust</td><td>"You are a startup. Will you exist in three years?"</td></tr>
+          <tr><td class="num">accuracy_latency</td><td>"Will this slow it down or make the answers worse?"</td></tr>
+          <tr><td class="num">already_careful</td><td>"Our people know not to paste client data."</td></tr>
+          <tr><td class="num">ban_alternative</td><td>"We just blocked the sites. Problem solved."</td></tr>
+          <tr><td class="num">cost</td><td>"Too expensive for what it is."</td></tr>
+          <tr><td class="num">workflow_change</td><td>"I am not retraining 200 people."</td></tr>
+          <tr><td class="num">timing</td><td>"Revisit next quarter, next budget cycle, after busy season."</td></tr>
+          <tr><td class="num">competitor</td><td>"We are already looking at someone else."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>6. Anti-patterns</h2>
+    <div class="note warn">
+      <span class="t">Things that get a rep in trouble here</span>
+      <ul>
+        <li><strong>Do not let automation move deal stages.</strong> If a workflow moved a stage, it is a bug, and you report it.</li>
+        <li><strong>Do not fabricate account facts.</strong> Pull from the account brain and HubSpot. If it is not recorded, it is not a fact.</li>
+        <li><strong>Do not send when the kill switch is set.</strong></li>
+        <li><strong>Do not skip the MEDDIC gate to rush a proposal.</strong> Sending against the gate is recorded on the deal and tracked against win rate. It is visible.</li>
+      </ul>
+    </div>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 06</div>
+      <ul>
+        <li><b>Automation never writes a deal stage.</b> The AI recommends, the human decides.</li>
+        <li>Stages <b>1, 2, 3, 5</b>. There is no stage 4. Close, onboard and expand are human motions.</li>
+        <li>Lead classification lands in HubSpot in <b>under 60 seconds</b>.</li>
+        <li>Pipeline: Discovery, Solutions Call 2, <b>Security Review</b>, Trial, Proposal, Negotiation, Closed Won (Onboarding), Closed Lost.</li>
+        <li>Sequences <b>PP-1 (3/6 days), PP-2 (2), PP-3 (3 over 5 days), PP-4 (1)</b>. Builders never enter PP-3.</li>
+        <li>Metrics: <b>85% routing, 35% booked, 80% next step, 48h proposal, 21-day decision, 100% month-2</b>.</li>
+        <li>Ten objection codes. Learn them by name.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 07
+     ============================================================ -->
+<section class="lsn" id="m7" data-mod="m7">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 07 of 09</div>
+    <h1>MEDDIC and the proposal gate</h1>
+    <p class="lede">This is the module the certification exam weights most heavily. MEDDIC is not paperwork.
+    It is the discipline that stops you from spending six weeks on a deal that was never going to close, and
+    at PrivacyPal it is wired into the system as a hard gate on whether a proposal can be assembled at all.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>Six criteria. Each scored <strong>unknown (0), partial (1), confirmed (2)</strong>. Total <strong>0 to 12</strong>.</li>
+        <li>The gate: <strong>Identify Pain = confirmed AND Economic Buyer at least partial AND Champion at least partial AND score at least 7.</strong></li>
+        <li>Failing the gate does not mean the deal is bad. It means you have not done the work yet.</li>
+        <li>Sending a proposal against the gate is <strong>recorded on the deal and tracked against win rate</strong>.</li>
+      </ul>
+    </div>
+
+    <h2>1. Where it comes from, and which variant we run</h2>
+    <p>MEDDIC was created in the 1990s by Jack Napoli and Dick Dunkel at Parametric Technology Corporation,
+    where it helped take annual sales from roughly $300M past $1B. Its value was never the acronym. It was
+    giving a whole sales organization one shared language for what "qualified" means.</p>
+    <p>Two extensions exist and you should know them because buyers and other reps use the terms:</p>
+    <ul>
+      <li><strong>MEDDICC</strong> adds <strong>Competition</strong>: the alternatives, including doing nothing.</li>
+      <li><strong>MEDDPICC</strong> adds <strong>Paper Process</strong>: legal, procurement, security paperwork, MSAs, DPAs.</li>
+    </ul>
+    <p><strong>PrivacyPal runs the six-criterion MEDDIC</strong>, scored 0 to 12, because that is what the
+    gate is built on. Competition and paper process still matter enormously in our deals, they just live
+    inside Decision Criteria and Decision Process rather than as their own letters. Do not report a
+    "MEDDPICC score" on a PrivacyPal deal. There is no such field.</p>
+
+    <h2>2. The six criteria, at PrivacyPal</h2>
+
+    <h3>M · Metrics</h3>
+    <p><strong>The quantified impact the buyer cares about.</strong> Not our metrics. Theirs. "340ms latency"
+    is our metric. "We lose eleven analyst hours a week rewriting things by hand because AI is banned" is
+    theirs.</p>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Status</th><th>What it looks like</th></tr></thead>
+      <tbody>
+        <tr><td class="no">Unknown</td><td>You have talked about value in adjectives. Faster, safer, better.</td></tr>
+        <tr><td>Partial</td><td>The buyer named a metric but not a number, or a number you supplied and they nodded at.</td></tr>
+        <tr><td class="yes">Confirmed</td><td>The buyer stated a number, in their own words, that they will be measured on. "Two weeks to onboard all users." "We are budgeting 40 hours a month of manual review."</td></tr>
+      </tbody>
+    </table></div>
+    <div class="qb"><div class="qbh">Questions that get to Metrics</div><ul>
+      <li>If AI were fully approved tomorrow, what would change that you could <b>count</b>?</li>
+      <li>How many people are affected by the current position, and what are they doing instead?</li>
+      <li>What did the last compliance incident or near-miss cost you, in hours or in dollars?</li>
+      <li>How would you know, ninety days after rollout, that this was worth doing?</li>
+    </ul></div>
+
+    <h3>E · Economic Buyer</h3>
+    <p><strong>The person who can say yes when everyone else says no, and whose budget it comes from.</strong>
+    At an SME this is frequently the CEO, COO, managing partner or practice owner. Not the CISO.</p>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Status</th><th>What it looks like</th></tr></thead>
+      <tbody>
+        <tr><td class="no">Unknown</td><td>You have a name from an org chart. You have never spoken to them and nobody has confirmed they hold the budget.</td></tr>
+        <tr><td>Partial</td><td>Identified and confirmed by someone inside the account, but you have not met them.</td></tr>
+        <tr><td class="yes">Confirmed</td><td>You have been in a conversation with them, or they have visibly acted (approved a budget line, joined a call, forwarded a request).</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note warn">
+      <span class="t">The most common self-deception in this entire framework</span>
+      <p>A sponsor is not an economic buyer. Someone who says "I will take this to the board" is telling you
+      they are <em>not</em> the economic buyer. Someone who says "I need to check with finance" has a
+      constraint you have not mapped. Write down the actual name and how you know.</p>
+    </div>
+
+    <h3>D · Decision Criteria</h3>
+    <p><strong>What they will judge us on.</strong> In our category this is nearly always some combination of:
+    architecture verifiability, coverage across their actual AI surface list, endpoint burden, accuracy
+    impact, audit evidence, deployment effort, and price. <strong>Your job is not just to learn the criteria.
+    It is to shape them</strong>, so that the mechanism ladder and the on-device architecture are on the list
+    before a competitor gets to write it.</p>
+    <div class="qb"><div class="qbh">Questions that get to Decision Criteria</div><ul>
+      <li>If you brought three vendors to your risk committee, what would the comparison table's columns be?</li>
+      <li>Which of those columns is a hard requirement and which is a preference?</li>
+      <li>Who wrote the requirements, and when were they last updated?</li>
+      <li>What would make you <b>rule someone out</b> in the first ten minutes?</li>
+    </ul></div>
+
+    <h3>D · Decision Process</h3>
+    <p><strong>The steps and the timeline, including our Security Review stage.</strong> Who has to sign,
+    in what order, by when, and what artifact each step needs.</p>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Status</th><th>What it looks like</th></tr></thead>
+      <tbody>
+        <tr><td class="no">Unknown</td><td>"They said they will get back to us."</td></tr>
+        <tr><td>Partial</td><td>You know the steps but not the dates, or the dates but not who owns them.</td></tr>
+        <tr><td class="yes">Confirmed</td><td>You can name each step, its owner, its date, and what document it consumes. Including legal, procurement and security.</td></tr>
+      </tbody>
+    </table></div>
+    <p>In regulated accounts this is where deals actually die. A security questionnaire, a vendor risk
+    assessment, a DPA, an insurance certificate, and a board meeting that happens once a quarter. Find the
+    quarterly meeting early or you will discover it in week nine.</p>
+
+    <h3>I · Identify Pain</h3>
+    <p><strong>The concrete leakage or compliance pain.</strong> This is the only criterion that must be
+    <em>confirmed</em> for the gate to open, and that is deliberate. Everything else in a PrivacyPal deal
+    follows from a real, specific, named pain.</p>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Not pain</th><th>Pain</th></tr></thead>
+      <tbody>
+        <tr><td>"We are interested in AI governance."</td><td>"Our examiner asked what controls we have on generative AI and we did not have an answer."</td></tr>
+        <tr><td>"Security is a priority for us."</td><td>"An associate pasted a client engagement letter into ChatGPT in March. We found out in May."</td></tr>
+        <tr><td>"We are exploring options."</td><td>"Three enterprise prospects have put our AI feature through security review and two stalled."</td></tr>
+      </tbody>
+    </table></div>
+    <div class="qb"><div class="qbh">Questions that get to Identify Pain</div><ul>
+      <li>What made you take this call <b>this month</b> rather than six months ago?</li>
+      <li>Walk me through the last time someone in the firm did something with AI that made you uncomfortable.</li>
+      <li>What happens to you personally if this is still unresolved at year end?</li>
+      <li>Who is currently absorbing the cost of the workaround?</li>
+    </ul></div>
+
+    <h3>C · Champion</h3>
+    <p><strong>An internal advocate who sells on your behalf when you are not in the room.</strong> Three
+    tests, all of which must be true: they have <em>influence</em>, they have <em>a personal win</em> if this
+    happens, and they will <em>actively sell it</em>.</p>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Role</th><th>Test</th></tr></thead>
+      <tbody>
+        <tr><td><b>Coach</b></td><td>Gives you information. No influence, no personal stake. Useful, not a champion.</td></tr>
+        <tr><td><b>Sponsor</b></td><td>Wants it to happen and has influence, but will not spend political capital.</td></tr>
+        <tr><td class="yes"><b>Champion</b></td><td>Has influence, has a personal win, and has demonstrably acted: booked the internal meeting, forwarded the business case, argued for you in a room you were not in.</td></tr>
+      </tbody>
+    </table></div>
+    <p>The way you test a champion is to <strong>ask them to do something</strong>. Get me thirty minutes
+    with the managing partner. Send this one-pager to the risk committee. Introduce me to whoever runs
+    procurement. A champion does it. A sponsor explains why now is not the right time.</p>
+
+    <h2>3. Scoring and the gate</h2>
+    <div class="dgm white">
+      <svg viewBox="0 0 900 268" role="img" aria-label="MEDDIC scoring feeds a four-condition gate that permits or blocks proposal assembly">
+        <defs><marker id="ar7" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#68758e"/></marker><marker id="ar7g" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#4da394"/></marker><marker id="ar7r" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#d54751"/></marker></defs>
+        <g font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">
+          <text x="18" y="24" font-family="IBM Plex Mono, monospace" font-size="10" fill="#68758e" letter-spacing="1.4">SCORE EACH CRITERION</text>
+          <rect x="14" y="38" width="214" height="34" rx="8" fill="#fff" stroke="#e8e6dc"/><text x="30" y="60">M · Metrics</text><text x="210" y="60" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#68758e">0 / 1 / 2</text>
+          <rect x="14" y="78" width="214" height="34" rx="8" fill="#fff" stroke="#e8e6dc"/><text x="30" y="100">E · Economic Buyer</text><text x="210" y="100" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#68758e">0 / 1 / 2</text>
+          <rect x="14" y="118" width="214" height="34" rx="8" fill="#fff" stroke="#e8e6dc"/><text x="30" y="140">D · Decision Criteria</text><text x="210" y="140" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#68758e">0 / 1 / 2</text>
+          <rect x="14" y="158" width="214" height="34" rx="8" fill="#fff" stroke="#e8e6dc"/><text x="30" y="180">D · Decision Process</text><text x="210" y="180" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#68758e">0 / 1 / 2</text>
+          <rect x="14" y="198" width="214" height="34" rx="8" fill="#f2f9fa" stroke="#028391"/><text x="30" y="220">I · Identify Pain</text><text x="210" y="220" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#028391">0 / 1 / 2</text>
+          <rect x="14" y="238" width="214" height="26" rx="8" fill="#fff" stroke="#e8e6dc"/><text x="30" y="256">C · Champion</text><text x="210" y="256" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#68758e">0 / 1 / 2</text>
+        </g>
+        <path d="M236 150 H278" stroke="#68758e" stroke-width="1.4" marker-end="url(#ar7)"/>
+        <rect x="278" y="52" width="286" height="196" rx="14" fill="#01204e"/>
+        <text x="298" y="80" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8fd6dc" letter-spacing="1.4">THE GATE, ALL FOUR MUST HOLD</text>
+        <g font-family="Overused Grotesk, system-ui" font-size="12.5" fill="#fff">
+          <text x="298" y="112">1 · Identify Pain = confirmed</text>
+          <text x="298" y="142">2 · Economic Buyer at least partial</text>
+          <text x="298" y="172">3 · Champion at least partial</text>
+          <text x="298" y="202">4 · Total score at least 7 of 12</text>
+        </g>
+        <text x="298" y="230" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7f93b5">ANY ONE FAILS, THE GATE IS SHUT</text>
+        <path d="M572 116 H620" stroke="#4da394" stroke-width="1.4" marker-end="url(#ar7g)"/>
+        <path d="M572 190 H620" stroke="#d54751" stroke-width="1.4" marker-end="url(#ar7r)"/>
+        <rect x="626" y="90" width="258" height="52" rx="11" fill="#f1f8f5" stroke="#4da394"/>
+        <text x="646" y="114" font-family="Overused Grotesk, system-ui" font-size="12.5" font-weight="600" fill="#01204e">Proposal assembly runs</text>
+        <text x="646" y="131" font-family="Overused Grotesk, system-ui" font-size="11" fill="#68758e">Drafted, then mandatory human review</text>
+        <rect x="626" y="164" width="258" height="52" rx="11" fill="#fdf3f3" stroke="#d54751"/>
+        <text x="646" y="188" font-family="Overused Grotesk, system-ui" font-size="12.5" font-weight="600" fill="#01204e">Go back and do the work</text>
+        <text x="646" y="205" font-family="Overused Grotesk, system-ui" font-size="11" fill="#68758e">Sending anyway is recorded on the deal</text>
+      </svg>
+      <div class="cap">Six criteria in, one binary decision out. The gate is arithmetic, not judgement.</div>
+    </div>
+
+    <h2>4. Two worked examples</h2>
+    <h3>Deal A: 25-seat accounting practice</h3>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Criterion</th><th>Evidence</th><th>Status</th><th>Points</th></tr></thead>
+      <tbody>
+        <tr><td>Metrics</td><td>Managing partner: "Busy season is fourteen weeks. If preparers could use AI on returns we would take three days out of every complex 1040."</td><td class="yes">Confirmed</td><td class="num">2</td></tr>
+        <tr><td>Economic Buyer</td><td>Managing partner, on the call, owns the budget, said the number out loud.</td><td class="yes">Confirmed</td><td class="num">2</td></tr>
+        <tr><td>Decision Criteria</td><td>Named: does not slow preparers down, covers offshore staff, produces something to show a peer reviewer. Price not yet a stated criterion.</td><td>Partial</td><td class="num">1</td></tr>
+        <tr><td>Decision Process</td><td>"Me and my ops manager, we can decide." No procurement, no security review, no date.</td><td>Partial</td><td class="num">1</td></tr>
+        <tr><td>Identify Pain</td><td>A preparer pasted a client K-1 into ChatGPT during last busy season. He found out afterward.</td><td class="yes">Confirmed</td><td class="num">2</td></tr>
+        <tr><td>Champion</td><td>Ops manager pulled the staff list together unprompted and scheduled the follow-up.</td><td class="yes">Confirmed</td><td class="num">2</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Score 10 of 12. Pain confirmed, EB confirmed, Champion confirmed. The gate opens.</strong>
+    Note that two criteria are only partial and the deal still qualifies. The gate is not a demand for
+    perfection, it is a floor.</p>
+
+    <h3>Deal B: 900-person regional bank</h3>
+    <div class="ac-tbl"><table>
+      <thead><tr><th>Criterion</th><th>Evidence</th><th>Status</th><th>Points</th></tr></thead>
+      <tbody>
+        <tr><td>Metrics</td><td>Deputy CISO cited a board objective to "enable AI safely in 2027." No number.</td><td>Partial</td><td class="num">1</td></tr>
+        <tr><td>Economic Buyer</td><td>Believed to be the CIO. Never met, not confirmed by anyone inside.</td><td class="no">Unknown</td><td class="num">0</td></tr>
+        <tr><td>Decision Criteria</td><td>Detailed 40-item requirements document received.</td><td class="yes">Confirmed</td><td class="num">2</td></tr>
+        <tr><td>Decision Process</td><td>Vendor risk assessment, then architecture review board, then a quarterly steering committee. Dates known.</td><td class="yes">Confirmed</td><td class="num">2</td></tr>
+        <tr><td>Identify Pain</td><td>Deputy CISO: "We are worried about it." No incident, no examiner question, no named event.</td><td>Partial</td><td class="num">1</td></tr>
+        <tr><td>Champion</td><td>Deputy CISO is engaged and helpful, but has not taken it anywhere internally.</td><td>Partial</td><td class="num">1</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note warn">
+      <span class="t">Score 7 of 12, and the gate is still shut</span>
+      <p>The score clears the threshold. The gate fails on <strong>two</strong> conditions:
+      <strong>Identify Pain is only partial</strong> (must be confirmed) and <strong>Economic Buyer is
+      unknown</strong> (must be at least partial). This is exactly the deal that feels good, has a big logo,
+      and burns a quarter. The score alone will fool you. The conditions will not.</p>
+      <p>The work list is obvious once you score it: find the real event behind "we are worried", and get
+      confirmation of who signs. Two conversations, not two months.</p>
+    </div>
+
+    <h2>5. How MEDDIC gets into the system</h2>
+    <p>You do not fill in a spreadsheet. Post-call extraction reads the call recording and writes the six
+    per-criterion statuses, the total score and the gate result onto the deal, alongside pains, objections,
+    sentiment trajectory, buying signals and stakeholders. It also writes an account brain entry with
+    verbatim quotes and a rep debrief.</p>
+    <p>Two consequences you should internalize:</p>
+    <ol>
+      <li><strong>What you get on the call is what gets scored.</strong> If you never asked who signs, the
+      extraction cannot invent an economic buyer. Vague calls produce low scores mechanically.</li>
+      <li><strong>The verbatim quote matters more than your summary.</strong> Get the buyer to say the number
+      out loud. A confirmed metric is a sentence in their voice, and the system captures it.</li>
+    </ol>
+
+    <div class="note">
+      <span class="t">How to use MEDDIC on a live call without sounding like a robot</span>
+      <p>Never work the acronym in order. Work it as a checklist <em>after</em> the call, then design the
+      next call around the two weakest criteria. The best reps end every call by closing exactly one gap:
+      "Before we wrap, who else would need to be comfortable with this before it happens?" That single
+      question moves Economic Buyer and Decision Process at once.</p>
+    </div>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 07</div>
+      <ul>
+        <li>Six criteria, <b>0 / 1 / 2</b> each, total <b>0 to 12</b>.</li>
+        <li>The gate, word for word: <b>Identify Pain confirmed AND Economic Buyer at least partial AND Champion at least partial AND score at least 7.</b></li>
+        <li><b>A passing score is not a passing gate.</b> All four conditions are independent.</li>
+        <li>Champion test: influence, personal win, <b>and demonstrated action</b>. Ask them to do something.</li>
+        <li>PrivacyPal runs the <b>six-criterion MEDDIC</b>, not MEDDPICC. There is no paper-process field.</li>
+        <li>Proposals sent against the gate are <b>recorded and tracked</b>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 08
+     ============================================================ -->
+<section class="lsn" id="m8" data-mod="m8">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 08 of 09</div>
+    <h1>Discovery, demo and the Security Review</h1>
+    <p class="lede">Three rooms. In the first you shut up and take notes. In the second you show one thing.
+    In the third you get audited, and everything you said in the first two gets checked.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>Discovery has one job: produce a <strong>confirmed pain in the buyer's own words</strong>.</li>
+        <li>A demo is not a tour. Show <strong>one before-and-after</strong> on data that looks like theirs.</li>
+        <li>The Security Review is a stage in our pipeline, not an afterthought. Prepare for it in Discovery.</li>
+        <li>There is a written list of what a reviewer <strong>may</strong> be told. Anything else routes to us.</li>
+      </ul>
+    </div>
+
+    <h2>1. Discovery, structured</h2>
+    <p>Run it in four movements. Do not skip to three because they asked about price.</p>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Movement</th><th>Goal</th><th>Signal you have it</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · Situation</b></td><td>Where did they land on AI, and how did they get there?</td><td>They describe the decision and who made it.</td></tr>
+          <tr><td><b>2 · The event</b></td><td>What happened, on a date, that put this on the agenda?</td><td>A specific incident, examiner question, customer questionnaire or board ask.</td></tr>
+          <tr><td><b>3 · The cost of the current position</b></td><td>What is the ban, the policy or the silence costing?</td><td>A number, in hours, dollars, stalled deals or staff frustration.</td></tr>
+          <tr><td><b>4 · The path</b></td><td>What would have to be true for this to happen, and who has to be comfortable?</td><td>Names, steps and a date.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Question banks by persona</h3>
+    <div class="qb"><div class="qbh">ICP-01 · Technical contact (CISO, IT director, MSP)</div><ul>
+      <li>What is your current position on generative AI, and how is it enforced today?</li>
+      <li>Which AI surfaces do you actually have visibility into: browser, desktop apps, IDEs, agents?</li>
+      <li>If I asked you to produce evidence of AI usage for last month, what could you produce?</li>
+      <li>What happens on an unmanaged or BYOD device today?</li>
+      <li>What does your endpoint fleet look like: Windows, Apple Silicon, any Intel Macs left?</li>
+      <li>Who owns the risk if something goes wrong: you, or someone above you?</li>
+      <li>What would you need to see architecturally before you would recommend a yes?</li>
+    </ul></div>
+    <div class="qb"><div class="qbh">ICP-02 · Business owner (CEO, COO, managing partner)</div><ul>
+      <li>How much of your team is using AI today, with or without permission?</li>
+      <li>What are you not doing with AI right now that a competitor probably is?</li>
+      <li>What is your exposure if a client's information turned up somewhere it should not be?</li>
+      <li>Who told you no, and what would it take for them to say yes?</li>
+      <li>Is there a date on the calendar, an audit, a renewal, a busy season, that this has to be ahead of?</li>
+      <li>If this were solved, what is the first thing you would let people do?</li>
+    </ul></div>
+    <div class="qb"><div class="qbh">ICP-03 · Builder (CTO, head of engineering)</div><ul>
+      <li>Where in your product does customer data reach a model?</li>
+      <li>How many enterprise deals are currently sitting in a security review because of it?</li>
+      <li>What does your subprocessor list look like, and what does adding a model provider to it cost you?</li>
+      <li>What have you built yourself so far, and what does it cost you to maintain?</li>
+      <li>Node or Python, and do you need response streaming?</li>
+      <li>What does "integration takes days" have to mean for this to be worth your team's time?</li>
+    </ul></div>
+    <div class="qb"><div class="qbh">ICP-04 overlay · When there is a regulator, auditor or insurer</div><ul>
+      <li>What is the date, and who is asking?</li>
+      <li>What exactly do they want to see: a policy, a control, or evidence a control ran?</li>
+      <li>Has anyone asked you a question about AI on a questionnaire yet? Can I see it?</li>
+      <li>What did you tell them last time, and what changed since?</li>
+    </ul></div>
+
+    <h2>2. The demo</h2>
+    <p>The temptation is to show the whole platform. Do not. The product's argument is made by
+    <strong>one before-and-after</strong>, on content that resembles the buyer's own work.</p>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Beat</th><th>What you do</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Type a realistic prompt containing sensitive values from their world: a client name, an account number, a matter reference, a patient identifier.</td><td>Recognition. They must see their own work, not a demo dataset.</td></tr>
+          <tr><td class="num">2</td><td>Show what the provider actually received. Point at the twins.</td><td>This is the moment the mechanism becomes real.</td></tr>
+          <tr><td class="num">3</td><td>Show the answer coming back, reverted, correct and useful.</td><td>Kills the accuracy objection before it is raised.</td></tr>
+          <tr><td class="num">4</td><td>Show the audit record for that prompt: user, platform, timestamp, entity types, risk level.</td><td>This is the artifact the compliance buyer needs and no policy can produce.</td></tr>
+          <tr><td class="num">5</td><td>Stop. Ask what they want to see next.</td><td>Let them direct the second half. What they ask for is your Decision Criteria.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The legal demo runs an eleven-swap example in a single document, which is the version that lands best
+    with partners and general counsel: they can count the exposures on the page.</p>
+
+    <h2>3. The Security Review</h2>
+    <p>A distinct pipeline stage where ICP-01 validates the architecture. Expect a questionnaire, a call with
+    an architect, and follow-up in writing. Two governing principles:</p>
+    <ol>
+      <li><strong>Answer plus mechanism, then stop.</strong> Each answer states the outcome, names the
+      mechanism in one clause, and says plainly what is not shipped. No internals.</li>
+      <li><strong>Volunteer the gaps.</strong> Everything on the not-built list in Module 03 will surface
+      eventually. Surfacing it yourself converts a future credibility loss into present credibility.</li>
+    </ol>
+
+    <h3>What is verified as built, and safe to state</h3>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Claim</th></tr></thead>
+        <tbody>
+          <tr><td>One detection engine across tiers. The detection profile is resolved <b>server side</b> from the account; client-supplied values are ignored in both directions.</td></tr>
+          <tr><td>Per-surface refusal at the device. A host policy set to block refuses every request to that host, enforced in routing so an application cannot route around it.</td></tr>
+          <tr><td><b>Fail-closed on the prompt path.</b> Encode failure, expired session and unreadable prompt all refuse. No passthrough mode exists.</td></tr>
+          <tr><td>Claude Code governed through a local HTTP gateway on the loopback address: request body encoded, streaming response decoded, no TLS interception needed.</td></tr>
+          <tr><td>Private MCP: a twin-translating proxy mirroring the upstream tool contract, schema-typed encode, fail-closed guards, OAuth 2.1 with PKCE, per-user grant vault. Self-host available.</td></tr>
+          <tr><td>Privacy Agents run inside the encode path, adjust detection per intent, and record alerts. Executions are persisted.</td></tr>
+          <tr><td><b>No model routing by cost or complexity anywhere.</b> The gateway sends to the provider and model named per request.</td></tr>
+          <tr><td>Private Memory: capture, consolidation, recall with no LLM in the read path, opt-in twin stability, crypto-shred at owner granularity. Team scope is by explicit per-fact promotion, Max gated.</td></tr>
+          <tr><td>The on-device core reaches PrivacyPal only for a signed entitlement lease (default four-hour TTL) and sanitized audit receipts. The prompt is stored as <code>[processed on-device]</code>.</td></tr>
+          <tr><td>An audit record exists per prompt and per file: user, platform, timestamp, entity types, risk level, per-file outcome, with company-admin endpoints per user.</td></tr>
+          <tr><td>Cloud deployment shapes: VPC, bare metal, single container, <b>air-gapped with zero outbound</b>. Terraform, Helm or curl.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="t">Per-file outcomes, and why they matter in a review</span>
+      <p>The protection panel reports a real outcome per file: <strong>Protected, No data found, Not scanned,
+      Text only, Not protected, Blocked, or Unknown.</strong> Before a fix in desktop v1.9.16, every file
+      showed as encoded once PrivacyPal had seen it, including files forwarded to the AI exactly as they
+      arrived. If a prospect validated coverage by watching that panel before 1.9.16, they were given a wrong
+      signal. If that comes up, do not improvise. Escalate it.</p>
+    </div>
+
+    <h2>4. "Send me everything in writing"</h2>
+    <p>This is the most dangerous request you will get, because it feels like progress. A written answer is
+    permanent, forwardable, and quotable back at you. The failure mode is real: a nine-question reply that
+    ran roughly 1,550 words with algorithm names, window sizes, guard lists and pipeline stages, which the
+    founder cut with "You could almost take this whole email and reverse engineer our product."</p>
+    <div class="say two">
+      <div>
+        <div class="sh"><span class="dot"></span>The written answer, correct altitude</div>
+        <div class="sb"><p>"Sensitive values never reach the provider. They are replaced on the device with synthetic equivalents before the request leaves, and restored in the response. Document attachments on ChatGPT and Gemini are currently forwarded unchanged; that work is queued. Happy to walk your architect through the detail on a call."</p></div>
+      </div>
+      <div>
+        <div class="sh bad"><span class="dot"></span>The written answer that costs us</div>
+        <div class="sb"><p>Anything naming the detection algorithms, the n-gram window, the number and order of reversion passes, the guard list, the lease cadence, or the deployment topology. Those belong on a call, in a demo, or in a controlled document such as the Cloud Technical Whitepaper.</p></div>
+      </div>
+    </div>
+
+    <h2>5. The eight-question check before anything ships</h2>
+    <p>Run this over any email, deck, one-pager or proposal you write for a prospect.</p>
+    <ol>
+      <li>Is there a TL;DR?</li>
+      <li>Did I use a numbered framework?</li>
+      <li>Is the call to action a simple verb?</li>
+      <li>Did I name the mechanism that makes the claim true?</li>
+      <li>Did I scan for spaced em dashes and remove every one?</li>
+      <li>Did I remove banned framings, including "honest" as a framing device and "load-bearing"?</li>
+      <li>Is every line at the document's altitude, with no config or incident detail in a strategy document?</li>
+      <li><strong>Could a competitor rebuild a feature from this?</strong> If yes, cut back to the mechanism's name.</li>
+    </ol>
+    <div class="note">
+      <span class="t">On the em dash rule, since candidates always ask</span>
+      <p>No spaced em dashes in anything we produce. It reads as machine-generated and undermines the voice
+      on sight. Use a comma, a colon, parentheses, or a second sentence. This is not a stylistic preference,
+      it is a hard rule, and it applies to your emails to prospects.</p>
+    </div>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 08</div>
+      <ul>
+        <li>Discovery's output is a <b>confirmed pain in the buyer's words</b>, not a feature list.</li>
+        <li>Demo in five beats. <b>One before-and-after</b> on their kind of data, then the audit record, then stop.</li>
+        <li>Security Review answers: <b>outcome, mechanism in one clause, what is not shipped</b>. Then stop.</li>
+        <li>Detection profile is <b>server-resolved</b>. Prompt path is <b>fail-closed</b>. <b>No model routing by cost.</b></li>
+        <li>Per-file outcomes: Protected, No data found, Not scanned, Text only, Not protected, Blocked, Unknown.</li>
+        <li>Written answers are permanent. Keep internals for the call.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MODULE 09
+     ============================================================ -->
+<section class="lsn" id="m9" data-mod="m9">
+  <div class="lsn-head">
+    <div class="lsn-kick">Module 09 of 09</div>
+    <h1>Objections, competition and closing</h1>
+    <p class="lede">Four named competitors, ten objection codes, one gate, and a set of rules about how we
+    behave. This is the last module. The exam is next.</p>
+  </div>
+  <div class="lsn-body">
+
+    <div class="note dark">
+      <span class="t">TL;DR</span>
+      <ul>
+        <li>Two of our four named competitors were <strong>acquired inside twelve months</strong>. Expect bundling you never see.</li>
+        <li>The competitor objection to prepare for is <strong>"we restore data too."</strong> Know the answer cold.</li>
+        <li>Every objection maps to one of ten codes. Code it, answer it, log it.</li>
+        <li>Closing discipline: proposal within 48 hours of stage change, decision inside 21 days, month-2 review on every win.</li>
+      </ul>
+    </div>
+
+    <h2>1. The competitive field</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Competitor</th><th>Architecture</th><th>Mechanism</th><th>Commercials</th><th>Where they are blind</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>WitnessAI</b><small>Independent, $85M+ raised, $58M Series B</small></td>
+            <td>Inline network gateway fed by the customer's proxy. Single-tenant vendor cloud.</td>
+            <td><b>Deterministic surrogate tokenization</b> with detokenization on the response. The only competitor with a reversible mechanism.</td>
+            <td class="num">$180/user/yr, 1,000-user minimum, so a $180K floor. Protect SKU $300K/yr.</td>
+            <td>Anywhere traffic avoids the network path: local CLI, IDE and stdio agents, unmanaged BYOD.</td>
+          </tr>
+          <tr>
+            <td><b>Prompt Security</b><small>Acquired by SentinelOne, ~$180M</small></td>
+            <td>Broadest sensor set: Chrome extension, endpoint agent, OpenAI-compatible cloud API, MCP gateway, code assistants, red teaming.</td>
+            <td><b>Lossy.</b> Block with a 400 error, or redacted placeholders. Responses scrubbed on return. No restoration documented.</td>
+            <td class="num">Sold through SentinelOne private offers.</td>
+            <td>Accuracy. Their own mechanism degrades the answer.</td>
+          </tr>
+          <tr>
+            <td><b>Harmonic Security</b><small>Independent, ~$26M, no round since Oct 2024</small></td>
+            <td>Browser extension across 11 browsers, 4 desktop apps, local MCP gateway.</td>
+            <td>Detection via fine-tuned small language models running on <b>Harmonic's own cloud</b>. Coach-first enforcement, block and redact are lossy, no restoration.</td>
+            <td class="num">Quote only, 200-user minimum.</td>
+            <td>Prompt content transits their cloud. That is the whole argument against them in a regulated account.</td>
+          </tr>
+          <tr>
+            <td><b>LayerX</b><small>Acquired by Akamai ~$205M, now Akamai Workforce Protector</small></td>
+            <td>Browser extension DLP, plus a desktop and IDE agent added in 2026.</td>
+            <td><b>Lossy.</b> Monitor, warn, block, redact, controlled bypass. The response side is analysis, not restoration.</td>
+            <td class="num">Through Akamai paper.</td>
+            <td>No API and no mobile coverage found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dgm white">
+      <svg viewBox="0 0 900 400" role="img" aria-label="Scatter plot of protection depth against accuracy preserved, placing PrivacyPal Max top right">
+        <rect x="96" y="24" width="620" height="312" fill="#fafaf5" stroke="#e8e6dc"/>
+        <g stroke="#efeee6" stroke-width="1">
+          <path d="M96 102 H716"/><path d="M96 180 H716"/><path d="M96 258 H716"/>
+          <path d="M251 24 V336"/><path d="M406 24 V336"/><path d="M561 24 V336"/>
+        </g>
+        <path d="M96 336 H716" stroke="#c6ccd8" stroke-width="1.4"/>
+        <path d="M96 24 V336" stroke="#c6ccd8" stroke-width="1.4"/>
+        <text x="406" y="368" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#68758e" letter-spacing="1.2">ACCURACY PRESERVED</text>
+        <text x="40" y="180" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#68758e" letter-spacing="1.2" transform="rotate(-90 40 180)">PROTECTION DEPTH</text>
+        <text x="92" y="352" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#aeb7c8">4</text>
+        <text x="720" y="352" font-family="IBM Plex Mono, monospace" font-size="9" fill="#aeb7c8">10</text>
+        <text x="88" y="30" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#aeb7c8">10</text>
+
+        <circle cx="670" cy="65" r="9" fill="#028391"/>
+        <text x="654" y="52" text-anchor="end" font-family="Overused Grotesk, system-ui" font-size="13" font-weight="600" fill="#01204e">PrivacyPal Max</text>
+        <text x="654" y="68" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#028391">9.6 ACCURACY / 9.2 DEPTH</text>
+
+        <circle cx="422" cy="193" r="7" fill="#68758e"/>
+        <text x="438" y="190" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">WitnessAI</text>
+        <text x="438" y="205" font-family="IBM Plex Mono, monospace" font-size="9" fill="#68758e">6.4 / 6.7</text>
+
+        <circle cx="298" cy="206" r="7" fill="#68758e"/>
+        <text x="314" y="203" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">Prompt Security</text>
+        <text x="314" y="218" font-family="IBM Plex Mono, monospace" font-size="9" fill="#68758e">5.2 / 6.5</text>
+
+        <circle cx="267" cy="257" r="7" fill="#68758e"/>
+        <text x="283" y="254" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">Harmonic</text>
+        <text x="283" y="269" font-family="IBM Plex Mono, monospace" font-size="9" fill="#68758e">4.9 / 5.7</text>
+
+        <circle cx="236" cy="288" r="7" fill="#68758e"/>
+        <text x="252" y="292" font-family="Overused Grotesk, system-ui" font-size="12" fill="#01204e">LayerX</text>
+        <text x="252" y="307" font-family="IBM Plex Mono, monospace" font-size="9" fill="#68758e">4.7 / 5.3</text>
+
+        <rect x="742" y="24" width="152" height="122" rx="11" fill="#f6f5ef" stroke="#e8e6dc"/>
+        <text x="758" y="48" font-family="IBM Plex Mono, monospace" font-size="9" fill="#68758e" letter-spacing="1.1">READ IT THIS WAY</text>
+        <text x="758" y="72" font-family="Overused Grotesk, system-ui" font-size="11" fill="#3a4763">Everyone else clusters</text>
+        <text x="758" y="88" font-family="Overused Grotesk, system-ui" font-size="11" fill="#3a4763">low and left because</text>
+        <text x="758" y="104" font-family="Overused Grotesk, system-ui" font-size="11" fill="#3a4763">their mechanisms are</text>
+        <text x="758" y="120" font-family="Overused Grotesk, system-ui" font-size="11" fill="#3a4763">lossy. The gap is the</text>
+        <text x="758" y="136" font-family="Overused Grotesk, system-ui" font-size="11" fill="#3a4763">mechanism ladder.</text>
+      </svg>
+      <div class="cap">Our own rubric-scored placements. Present them as our assessment, never as third-party research.</div>
+    </div>
+
+    <h3>Where everyone lands</h3>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Vendor</th><th>Accuracy preserved</th><th>Protection depth</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td><b>PrivacyPal Max</b></td><td class="num"><b>9.6</b></td><td class="num"><b>9.2</b></td></tr>
+          <tr><td>WitnessAI</td><td class="num">6.4</td><td class="num">6.7</td></tr>
+          <tr><td>Prompt Security</td><td class="num">5.2</td><td class="num">6.5</td></tr>
+          <tr><td>Harmonic</td><td class="num">4.9</td><td class="num">5.7</td></tr>
+          <tr><td>LayerX</td><td class="num">4.7</td><td class="num">5.3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.86rem;color:var(--muted)">These are our own rubric-scored placements from an
+    internal analysis. Present them as our assessment, never as third-party research.</p>
+
+    <div class="note warn">
+      <span class="t">The objection you must be able to answer in your sleep</span>
+      <p><strong>"WitnessAI restores data too, so what is the difference?"</strong></p>
+      <p>Three-part answer:</p>
+      <ol>
+        <li><strong>Tokens carry no semantics.</strong> Their surrogates preserve referential integrity, so
+        the model knows two mentions are the same thing. It does not know what kind of thing, in what
+        industry, at what scale. The reasoning degrades even though the round trip works.</li>
+        <li><strong>Deterministic tokens leak patterns.</strong> If the same input always produces the same
+        surrogate, the surrogate becomes a stable identifier across sessions and documents.</li>
+        <li><strong>Their own documentation steers code and IP to internal models.</strong> That is a vendor
+        telling you their mechanism is not sufficient for the highest-value content. Ask the prospect to read
+        that page.</li>
+      </ol>
+      <p>Then move to architecture: their gateway is fed by the customer's network path. Ask what happens to
+      the coding agent running locally on an engineer's laptop.</p>
+    </div>
+
+    <div class="note">
+      <span class="t">What is unique to us in this set</span>
+      <p>On-device end to end with no vendor-cloud transit of prompt content, endpoint data-at-rest
+      discovery, and Private MCP. Plus the commercial one: <strong>every competitor here has a floor.</strong>
+      1,000 seats, 200 seats, or platform paper. We sell from seat one with published pricing.</p>
+    </div>
+
+    <div class="note warn">
+      <span class="t">Exposures to manage, do not walk into these</span>
+      <ul>
+        <li><strong>Document attachment coverage</strong> on ChatGPT and Gemini. Get ahead of it.</li>
+        <li><strong>Catalog breadth.</strong> They market 4,000 to 15,000 app catalogs. We cover seven platforms deep. Reframe: shallow coverage of 15,000 apps is a spreadsheet, and six apps cover 92.6% of real exposure by their own competitor's research.</li>
+        <li><strong>No analyst placement yet.</strong> They hold Gartner mentions. We do not. Do not claim one.</li>
+        <li><strong>SOC 2</strong> is expected, unverified. Do not state it as held.</li>
+        <li><strong>Platform bundling.</strong> Two of four now sell inside EDR and CDN renewals we never see.</li>
+      </ul>
+    </div>
+
+    <h2>2. The ten objections, answered</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Code</th><th>How you answer</th></tr></thead>
+        <tbody>
+          <tr><td><b>data_flow_doubt</b></td><td>Draw the path. Detection, substitution and reversion happen on the device. Two things leave: a signed entitlement lease and a sanitized audit receipt where the prompt is stored as processed on-device. Then offer the architecture call.</td></tr>
+          <tr><td><b>it_burden</b></td><td>One installer, domain attach, central provisioning. No infrastructure, no security hire, no IT department. The SME proof point is "governed the same afternoon."</td></tr>
+          <tr><td><b>vendor_trust</b></td><td>120+ businesses onboard, NVIDIA Inception, and named customers including Vodafone and Fastweb. For a small firm the real fear is that we will not exist in three years, so the backed-by angle is legitimate here.</td></tr>
+          <tr><td><b>accuracy_latency</b></td><td>This is the mechanism ladder conversation. Substitution preserves meaning, which is exactly why the answers stay good. Published average 340ms; offer to measure on their traffic.</td></tr>
+          <tr><td><b>already_careful</b></td><td>Do not argue. Ask for evidence: "If I asked you to show what AI usage looked like last month, what could you produce?" Careful people still cannot produce the artifact.</td></tr>
+          <tr><td><b>ban_alternative</b></td><td>17% of exposures happen through free and personal accounts where IT has no audit trail. The ban moved the risk, it did not remove it, and it cost the productivity too.</td></tr>
+          <tr><td><b>cost</b></td><td>Reframe per seat per day, then use the bands. A prospect near a band edge gets a lower total bill by adding seats. Compare against a competitor floor of 200 or 1,000 seats.</td></tr>
+          <tr><td><b>workflow_change</b></td><td>Zero learning curve. Existing AI tools unchanged. The user does not do anything differently, which is the entire design goal.</td></tr>
+          <tr><td><b>timing</b></td><td>Anchor to their own date, not ours. An examination, a busy season, a renewal, a customer questionnaire. If there is no date, you do not have confirmed pain and the MEDDIC gate will tell you so.</td></tr>
+          <tr><td><b>competitor</b></td><td>Never attack. Walk the ladder, let them place the other vendor on it, and ask what happens to traffic that never touches the network path.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>3. Closing</h2>
+    <div class="ac-tbl">
+      <table>
+        <thead><tr><th>Step</th><th>Discipline</th></tr></thead>
+        <tbody>
+          <tr><td>Proposal</td><td>Assembly is <b>gated by MEDDIC</b> and drafted with deterministic pricing computed outside the model. <b>Mandatory human review before send.</b> Target: sent within <b>48 hours</b> of the stage change.</td></tr>
+          <tr><td>Decision</td><td>Proposal to decision within <b>21 days</b>. If it is drifting, the gap is almost always Decision Process, which you should have mapped in Discovery.</td></tr>
+          <tr><td>Negotiation levers</td><td>Annual versus monthly (12% to 23% saving), seat count across a band edge, term length. <b>Not</b> ad hoc discounting off the band table.</td></tr>
+          <tr><td>Closed Won</td><td>Hand to onboarding and schedule the <b>month-2 review</b>. Target is 100%, and expansion lives there.</td></tr>
+          <tr><td>Closed Lost</td><td>With a reason. A loss without a coded reason is a loss we learn nothing from.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>4. How we behave</h2>
+    <div class="note">
+      <span class="t">Six rules that apply to you from day one</span>
+      <ol>
+        <li><strong>Never fabricate.</strong> Facts come from the brain, HubSpot, or the real systems. No source, no fact. This applies to customer names, seat counts, metrics, certifications and roadmap dates equally.</li>
+        <li><strong>Mechanism first.</strong> No claim without the machinery behind it.</li>
+        <li><strong>A human at every decision point.</strong> You are that human. The automation drafts, you decide.</li>
+        <li><strong>Measured, not marketed.</strong> Publish mechanisms and reproducible measurements, never marketing percentages.</li>
+        <li><strong>Stay at altitude.</strong> Outcome, mechanism, what is not shipped. Then stop.</li>
+        <li><strong>Say what is not built.</strong> Volunteering a gap buys more trust than any feature claim you could make instead.</li>
+      </ol>
+    </div>
+
+    <h2>5. What certification means</h2>
+    <p>Passing this exam makes you a <strong>PrivacyPal Certified Sales Professional</strong>. In practice
+    that means our operations team has verified you can do four things:</p>
+    <ol>
+      <li>Explain the mechanism to a technical buyer without reading from anything.</li>
+      <li>Size a deal correctly against the current price book, including the band behaviour.</li>
+      <li>Qualify a deal against MEDDIC and state plainly whether the gate is open.</li>
+      <li>Know where the line is between what we do today and what we do not, and stay on the right side of it under pressure.</li>
+    </ol>
+    <p>The exam is eight sections. Objective questions are scored automatically. Long-form answers are read
+    by a human, and we interview on them, so write what you actually think rather than what you believe we
+    want to read. Take your time. There is no timer.</p>
+
+    <div class="qb">
+      <div class="qbh">Carry these out of Module 09</div>
+      <ul>
+        <li>Four competitors: <b>WitnessAI</b> (network gateway, reversible tokens, $180K floor), <b>Prompt Security</b> (SentinelOne, broad sensors, lossy), <b>Harmonic</b> (their cloud, coach-first, lossy), <b>LayerX</b> (Akamai, browser-first, lossy).</li>
+        <li>The reversibility answer: <b>no semantics, deterministic tokens leak patterns, their own docs steer IP elsewhere</b>.</li>
+        <li>Ten objection codes, each with a mechanism-first answer.</li>
+        <li><b>48 hours to proposal, 21 days to decision, month-2 review on every win.</b></li>
+        <li>Never claim SOC 2, an analyst placement, or a mobile GA date.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  </div>
+</main>
+
+<div class="ac-nav">
+  <div class="ac-nav-in">
+    <button class="btn btn-ghost" id="prevBtn" type="button">Back</button>
+    <span class="mid" id="navMid">Module 01 of 09</span>
+    <button class="btn btn-primary" id="nextBtn" type="button">Next module</button>
+  </div>
+</div>
+
+<div id="ac-foot-slot"></div>
+</div>
+
+<script src="assets/academy.js"></script>
+<script>
+(function () {
+  var A = window.PPAcademy;
+  var s = A.requireEnrolled();
+  if (!s) return;
+
+  A.head({ step: 'Curriculum', progress: 0 });
+  A.foot();
+
+  var mods    = Array.prototype.slice.call(document.querySelectorAll('.lsn'));
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var navMid  = document.getElementById('navMid');
+  var total   = mods.length;
+
+  /* Resume where they left off: first module not yet marked done. */
+  var done = (s.modulesDone || []).slice();
+  var i = 0;
+  for (var k = 0; k < total; k++) {
+    if (done.indexOf(mods[k].dataset.mod) === -1) { i = k; break; }
+    i = k;
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function render() {
+    mods.forEach(function (m, idx) { m.classList.toggle('on', idx === i); });
+    navMid.textContent = 'Module ' + pad(i + 1) + ' of ' + pad(total);
+    prevBtn.classList.toggle('off', i === 0);
+    nextBtn.textContent = (i === total - 1) ? 'Finish and start the exam' : 'Next module';
+    A.progress(Math.round(((i) / total) * 100), 'Module ' + pad(i + 1) + ' of ' + pad(total));
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  function markDone(idx) {
+    var id = mods[idx].dataset.mod;
+    if (done.indexOf(id) === -1) {
+      done.push(id);
+      A.patch({ modulesDone: done, lastModuleAt: A.stamp() });
+    }
+  }
+
+  nextBtn.addEventListener('click', function () {
+    markDone(i);
+    if (i === total - 1) {
+      A.patch({ courseCompletedAt: A.stamp() });
+      window.location.href = 'exam.html';
+      return;
+    }
+    i++;
+    render();
+  });
+
+  prevBtn.addEventListener('click', function () {
+    if (i > 0) { i--; render(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

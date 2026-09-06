@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =============================================================
+     PRIVACYPAL · AE CERTIFICATION ACADEMY · STEP 1 (enrollment)
+     -------------------------------------------------------------
+     Private, unlisted enablement portal for commission-only Account
+     Executive candidates. Not linked from the public site, excluded
+     from sitemap.xml, noindex/nofollow on every page.
+     Flow: index.html -> curriculum.html -> exam.html -> complete.html
+     ============================================================= -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AE Certification · PrivacyPal</title>
+<meta name="robots" content="noindex,nofollow,noarchive"/>
+<meta name="referrer" content="no-referrer"/>
+<meta name="description" content="PrivacyPal Certified Sales Professional program. Private candidate portal."/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="assets/academy.css"/>
+</head>
+<body class="ac">
+<div class="ac-shell">
+<div id="ac-head-slot"></div>
+
+<main class="ac-main">
+  <div class="ac-wrap">
+
+    <!-- ============== HERO ============== -->
+    <section class="ac-hero">
+      <span class="ac-eyebrow">PrivacyPal Sales Academy</span>
+      <h1 class="ac-h1">Become a PrivacyPal<br>Certified Sales Professional.</h1>
+      <p class="ac-lede">
+        This is the full commercial operating manual for PrivacyPal: the market, the mechanism,
+        the product line, the price book, the buyers, the motion, and the qualification discipline
+        we run every deal through. Work the nine modules, pass the certification exam, and you sell
+        with the same command of the material as the founding team.
+      </p>
+
+      <div class="badge-row">
+        <span class="ac-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> 9 modules</span>
+        <span class="ac-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 2 to 3 hours</span>
+        <span class="ac-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> 8-section exam</span>
+        <span class="ac-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg> Certification on pass</span>
+      </div>
+    </section>
+
+    <div class="ac-divider"></div>
+
+    <!-- ============== WHAT THIS IS ============== -->
+    <section>
+      <span class="ac-eyebrow plain">How the program runs</span>
+      <div class="ac-outline">
+        <div class="oi">
+          <div class="n">Step 01</div>
+          <h4>Sign the NDA</h4>
+          <p>Everything past this page is commercially sensitive: the price book, competitive teardowns, and the claims we are not allowed to make. It travels under NDA.</p>
+        </div>
+        <div class="oi">
+          <div class="n">Step 02</div>
+          <h4>Work the nine modules</h4>
+          <p>Click through at your own pace. Progress is saved in this browser, so you can stop and pick it back up on the same device.</p>
+        </div>
+        <div class="oi">
+          <div class="n">Step 03</div>
+          <h4>Sit the certification exam</h4>
+          <p>Eight sections. Multiple choice, true or false, deal-sizing math, and long-form answers scored by a human. It is designed to be hard.</p>
+        </div>
+        <div class="oi">
+          <div class="n">Step 04</div>
+          <h4>Get certified</h4>
+          <p>Results go to our operations team. Pass, and you are a PrivacyPal Certified Sales Professional with a territory conversation to follow.</p>
+        </div>
+      </div>
+
+      <div class="note dark" style="margin-top:30px">
+        <span class="t">Read this before you start</span>
+        <p><strong>This is a commission-only Account Executive track.</strong> We are not testing whether you
+        can recite a brochure. We are testing whether you can hold a technical conversation with a CISO,
+        size a deal correctly against a volume-tiered price book, qualify against MEDDIC without lying to
+        yourself, and know the exact line between what our product does today and what it does not.
+        Candidates who skim the modules do not pass.</p>
+      </div>
+    </section>
+
+    <div class="ac-divider"></div>
+
+    <!-- ============== ENROLLMENT FORM ============== -->
+    <form id="enrollForm" novalidate>
+
+      <section class="ac-card">
+        <span class="ac-eyebrow">Candidate details</span>
+        <h2 style="margin-top:12px">Who is enrolling</h2>
+        <p class="sub">Used to attribute your exam submission and to reach you with results. Nothing here is published anywhere.</p>
+
+        <div class="form" style="margin-top:26px">
+          <div class="row">
+            <div>
+              <label for="fName">Full legal name <span style="color:var(--coral)">*</span></label>
+              <input type="text" id="fName" name="name" autocomplete="name" placeholder="Alex Moreno" required>
+            </div>
+            <div>
+              <label for="fEmail">Email address <span style="color:var(--coral)">*</span></label>
+              <input type="email" id="fEmail" name="email" autocomplete="email" placeholder="alex@example.com" required>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="fPhone">Phone</label>
+              <input type="tel" id="fPhone" name="phone" autocomplete="tel" placeholder="+1 555 000 0000">
+            </div>
+            <div>
+              <label for="fLocation">City, state or country</label>
+              <input type="text" id="fLocation" name="location" placeholder="West Palm Beach, FL">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="fLinkedin">LinkedIn profile</label>
+              <input type="url" id="fLinkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div>
+              <label for="fYears">Years selling B2B software</label>
+              <select id="fYears" name="years">
+                <option value="">Select</option>
+                <option>Under 2</option>
+                <option>2 to 5</option>
+                <option>5 to 10</option>
+                <option>10 to 15</option>
+                <option>15 or more</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="fSegment">Where you have sold before</label>
+              <select id="fSegment" name="segment_experience">
+                <option value="">Select</option>
+                <option>Security or infrastructure software</option>
+                <option>Data, AI or analytics software</option>
+                <option>Regulated verticals (banking, healthcare, legal, accounting)</option>
+                <option>General B2B SaaS</option>
+                <option>Channel, MSP or reseller</option>
+                <option>New to software sales</option>
+              </select>
+            </div>
+            <div>
+              <label for="fSource">How you heard about this role</label>
+              <input type="text" id="fSource" name="source" placeholder="Referral name, job board, LinkedIn...">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== NDA ============== -->
+      <section class="ac-card">
+        <span class="ac-eyebrow coral">Required before access</span>
+        <h2 style="margin-top:12px">Non-Disclosure Agreement</h2>
+        <p class="sub">Read it in full, then sign below. Scroll the panel to the end to enable signature.</p>
+
+        <div class="nda-box" id="ndaBox">
+          <h4>Mutual understanding</h4>
+          <p>This Non-Disclosure Agreement (the "Agreement") is entered into as of the date of electronic
+          signature below, between <strong>PrivacyPal</strong> (the "Company") and the individual signing
+          below (the "Recipient"). Each of the Company and the Recipient is a "Party" and together they are
+          the "Parties".</p>
+
+          <h4>1. Purpose</h4>
+          <p>The Company is evaluating the Recipient for a prospective commission-only Account Executive
+          engagement and, for that purpose, will disclose commercially sensitive information through the
+          PrivacyPal AE Certification Program (the "Program"), including product architecture, pricing,
+          go-to-market strategy, customer and pipeline information, competitive analysis, and internal
+          claims guidance. This Agreement governs the Recipient's receipt and use of that information (the
+          "Purpose").</p>
+
+          <h4>2. Confidential Information</h4>
+          <p><strong>"Confidential Information"</strong> means all non-public information disclosed by the
+          Company to the Recipient, in any form, whether or not marked as confidential, including without
+          limitation:</p>
+          <ul>
+            <li>product architecture, mechanisms, detection and substitution methods, source code, roadmaps
+            and unreleased capabilities;</li>
+            <li>pricing, discounting bands, margin structures, partner economics and contract terms;</li>
+            <li>go-to-market strategy, qualification frameworks, sales playbooks, sequences and metrics;</li>
+            <li>customer, prospect, pipeline and revenue information, whether named or described;</li>
+            <li>competitive research and analysis of third parties; and</li>
+            <li>internal claims guidance, including any statement of what the Company's products do not do
+            or may not be represented as doing.</li>
+          </ul>
+          <p>All Program materials, in whole or in part, are Confidential Information.</p>
+
+          <h4>3. Exclusions</h4>
+          <p>Confidential Information does not include information that the Recipient can demonstrate:
+          (a) was lawfully in the Recipient's possession without a duty of confidentiality before
+          disclosure; (b) is or becomes publicly available other than through breach of this Agreement;
+          (c) is lawfully received from a third party without a duty of confidentiality; or (d) is
+          independently developed without use of or reference to the Confidential Information.</p>
+
+          <h4>4. Obligations of the Recipient</h4>
+          <p>The Recipient shall: (a) hold the Confidential Information in strict confidence and use at
+          least the same degree of care used to protect the Recipient's own confidential information, and
+          in no event less than reasonable care; (b) use the Confidential Information solely for the
+          Purpose; (c) not disclose, publish, reproduce, post, summarize or transmit the Confidential
+          Information to any third party, including in any public forum, social platform, resume,
+          portfolio, or artificial intelligence service that retains or trains on submitted content; and
+          (d) not use the Confidential Information to compete with the Company or to assist any third
+          party in doing so.</p>
+
+          <h4>5. Compelled disclosure</h4>
+          <p>If the Recipient is required by law, regulation or valid legal process to disclose
+          Confidential Information, the Recipient may do so, provided that (where legally permitted) the
+          Recipient gives the Company prompt written notice so the Company may seek a protective order,
+          and discloses only the portion legally required.</p>
+
+          <h4>6. Term</h4>
+          <p>The obligations in this Agreement begin on signature and continue for <strong>five (5)
+          years</strong> from the date of last disclosure, except that obligations with respect to any
+          information constituting a trade secret continue for so long as that information remains a trade
+          secret under applicable law.</p>
+
+          <h4>7. No license, no warranty</h4>
+          <p>No license or other right in any intellectual property is granted by this Agreement, whether
+          by implication, estoppel or otherwise. All Confidential Information remains the property of the
+          Company. The Confidential Information is provided "as is", without warranty of any kind, and the
+          Company has no obligation to update it or to correct inaccuracies.</p>
+
+          <h4>8. Return or destruction</h4>
+          <p>On the Company's written request, the Recipient shall promptly cease all use of the
+          Confidential Information and destroy or return all copies in the Recipient's possession or
+          control, and confirm the same in writing.</p>
+
+          <h4>9. No engagement created</h4>
+          <p>This Agreement does not create any employment, agency, partnership, joint venture or
+          independent contractor relationship, does not obligate either Party to enter into any further
+          agreement, and does not constitute an offer of engagement or of compensation. Any commercial
+          engagement will be documented in a separate written agreement signed by both Parties.</p>
+
+          <h4>10. No restraint on employment</h4>
+          <p>This Agreement contains <strong>no non-competition covenant and no non-solicitation
+          covenant</strong>. Nothing in this Agreement restricts the Recipient's right to work, to accept
+          employment, or to engage with any other party, subject only to the confidentiality obligations
+          set out above.</p>
+
+          <h4>11. Notice under the Defend Trade Secrets Act</h4>
+          <p>Under 18 U.S.C. Section 1833(b), an individual shall not be held criminally or civilly liable
+          under any federal or state trade secret law for the disclosure of a trade secret that is made
+          (a) in confidence to a federal, state or local government official, either directly or
+          indirectly, or to an attorney, and solely for the purpose of reporting or investigating a
+          suspected violation of law; or (b) in a complaint or other document filed in a lawsuit or other
+          proceeding, if such filing is made under seal.</p>
+
+          <h4>12. Protected activity</h4>
+          <p>Nothing in this Agreement prohibits or restricts the Recipient from communicating with, filing
+          a charge or complaint with, or participating in an investigation or proceeding conducted by any
+          federal, state or local government agency or self-regulatory organization, or from disclosing
+          facts the Recipient has reason to believe relate to unlawful acts in the workplace, including
+          harassment or discrimination. Prior notice to the Company is not required for such
+          communications.</p>
+
+          <h4>13. Remedies</h4>
+          <p>The Recipient acknowledges that a breach of this Agreement may cause the Company irreparable
+          harm for which monetary damages would be an inadequate remedy, and that the Company is entitled
+          to seek injunctive relief in addition to any other remedy available at law or in equity, without
+          the requirement to post a bond.</p>
+
+          <h4>14. General</h4>
+          <p>This Agreement is the entire agreement between the Parties on its subject matter and
+          supersedes all prior discussions. It may be modified only in a writing signed by both Parties. If
+          any provision is held unenforceable, the remainder stays in force and the unenforceable provision
+          is limited to the minimum extent necessary. This Agreement is binding on the Parties and their
+          successors and permitted assigns, and is governed by the laws of the United States and, to the
+          extent applicable, the laws of the state in which the Company maintains its principal place of
+          business, without regard to conflict-of-laws rules.</p>
+
+          <h4>15. Electronic signature</h4>
+          <p>The Recipient consents to signing electronically. Typing the Recipient's full legal name in
+          the signature field below, checking the acknowledgment box, and submitting this form constitutes
+          an electronic signature with the same legal effect as a handwritten signature, and creates a
+          record of the signature, the version of this Agreement, and the date and time of signing.</p>
+        </div>
+        <p class="nda-scrollnote" id="ndaScrollNote">Scroll to the end of the agreement to continue</p>
+
+        <div class="sig-grid">
+          <div class="sig-pad">
+            <label for="fSig">Electronic signature: type your full legal name</label>
+            <input type="text" id="fSig" name="signature" placeholder="Alex Moreno" autocomplete="off" spellcheck="false" disabled>
+          </div>
+          <div class="sig-meta">
+            <b id="sigDate">Date</b>
+            Agreement version <span id="sigVer">2026.09-AE-1</span><br>
+            Signed on this device and recorded with your submission.
+          </div>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="fAgree" disabled>
+          <label for="fAgree">
+            I have read the Non-Disclosure Agreement above in full. I am signing it in my own name, the
+            signature I typed matches my full legal name, and I agree to be bound by its terms.
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="fHonest" disabled>
+          <label for="fHonest">
+            I will complete the certification exam on my own, without a second person answering for me.
+            I understand my long-form answers are read by a human and that our team interviews on them.
+          </label>
+        </div>
+
+        <div class="ex-err" id="enrollErr"></div>
+
+        <div class="btn-row" style="margin-top:26px">
+          <button type="submit" class="btn btn-primary btn-lg" id="enrollBtn" disabled>
+            <span id="enrollBtnText">Sign and start Module 01</span>
+          </button>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:14px;line-height:1.6">
+          Your signed NDA record is filed with PrivacyPal operations the moment you continue.
+          Your progress is stored in this browser only, so finish on the device you start on.
+        </p>
+      </section>
+
+    </form>
+
+  </div>
+</main>
+
+<div id="ac-foot-slot"></div>
+</div>
+
+<script src="assets/academy.js"></script>
+<script>
+(function () {
+  var A = window.PPAcademy;
+  A.head({ step: 'Enrollment', progress: 3 });
+  A.foot();
+
+  var box     = document.getElementById('ndaBox');
+  var note    = document.getElementById('ndaScrollNote');
+  var sig     = document.getElementById('fSig');
+  var agree   = document.getElementById('fAgree');
+  var honest  = document.getElementById('fHonest');
+  var btn     = document.getElementById('enrollBtn');
+  var btnText = document.getElementById('enrollBtnText');
+  var err     = document.getElementById('enrollErr');
+  var form    = document.getElementById('enrollForm');
+
+  A.devBar([{ label: 'fill form', fn: function () {
+    var v = { fName:'Local Tester', fEmail:'local@example.com', fPhone:'+1 555 010 0100',
+              fLocation:'West Palm Beach, FL', fLinkedin:'https://linkedin.com/in/local' };
+    Object.keys(v).forEach(function (k) { document.getElementById(k).value = v[k]; });
+    document.getElementById('ndaBox').scrollTop = document.getElementById('ndaBox').scrollHeight;
+    document.getElementById('ndaBox').dispatchEvent(new Event('scroll'));
+    setTimeout(function () {
+      document.getElementById('fSig').value = 'Local Tester';
+      document.getElementById('fAgree').checked = true;
+      document.getElementById('fHonest').checked = true;
+      document.getElementById('fSig').dispatchEvent(new Event('input'));
+    }, 60);
+  }}]);
+
+  document.getElementById('sigDate').textContent = A.pretty();
+  document.getElementById('sigVer').textContent  = A.NDA_VERSION;
+
+  /* If they already enrolled on this device, offer to resume. */
+  var existing = A.load();
+  if (existing && existing.ndaAccepted) {
+    var resumeTo = existing.submitted ? 'complete.html' : 'curriculum.html';
+    btnText.textContent = existing.submitted ? 'View your submission' : 'Resume the program';
+    btn.disabled = false;
+    btn.type = 'button';
+    btn.addEventListener('click', function () { window.location.href = resumeTo; });
+    note.textContent = existing.submitted
+      ? 'You submitted on ' + A.pretty(existing.examSubmittedAt) + '. Results are with our operations team.'
+      : 'You signed on ' + A.pretty(existing.ndaSignedAt) + '. Continue where you left off.';
+    box.style.maxHeight = '150px';
+    return;
+  }
+
+  /* Unlock the signature block only after the NDA is scrolled through. */
+  function checkScroll() {
+    if (box.scrollTop + box.clientHeight >= box.scrollHeight - 24) {
+      sig.disabled = false; agree.disabled = false; honest.disabled = false;
+      note.textContent = 'Agreement read. Sign below.';
+      note.style.color = 'var(--sage)';
+      box.removeEventListener('scroll', checkScroll);
+      gate();
+    }
+  }
+  box.addEventListener('scroll', checkScroll);
+  /* Short viewports: the panel may not be scrollable at all. */
+  if (box.scrollHeight <= box.clientHeight + 24) checkScroll();
+
+  function gate() {
+    var ok = sig.value.trim().length >= 4 && agree.checked && honest.checked;
+    btn.disabled = !ok;
+  }
+  sig.addEventListener('input', gate);
+  agree.addEventListener('change', gate);
+  honest.addEventListener('change', gate);
+
+  function fail(msg) {
+    err.innerHTML = msg;
+    err.classList.add('on');
+    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.classList.remove('on');
+
+    var v = function (id) { return (document.getElementById(id).value || '').trim(); };
+    var name = v('fName'), email = v('fEmail'), signature = sig.value.trim();
+
+    if (name.length < 3)  return fail('<b>Enter your full legal name.</b>');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) return fail('<b>Enter a valid email address.</b>');
+    if (signature.replace(/\s+/g, '').toLowerCase() !== name.replace(/\s+/g, '').toLowerCase()) {
+      return fail('<b>Signature does not match.</b> Type your full legal name exactly as entered above. That is what makes this an executed agreement.');
+    }
+
+    var now = A.stamp();
+    var record = {
+      name: name,
+      email: email,
+      phone: v('fPhone'),
+      location: v('fLocation'),
+      linkedin: v('fLinkedin'),
+      years: v('fYears'),
+      segmentExperience: v('fSegment'),
+      source: v('fSource'),
+      ndaAccepted: true,
+      ndaVersion: A.NDA_VERSION,
+      ndaSignature: signature,
+      ndaSignedAt: now,
+      enrolledAt: now,
+      modulesDone: [],
+      userAgent: navigator.userAgent,
+      timezone: (Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown')
+    };
+
+    btn.disabled = true;
+    btnText.innerHTML = '<span class="ac-spin"></span> Filing your NDA';
+
+    A.postForm({
+        _subject: 'AE Academy · NDA executed: ' + name,
+        _replyto: email,
+        submission_type: 'AE Certification, NDA execution record',
+        route_to: 'ops@privacypal.ai',
+        candidate_name: name,
+        candidate_email: email,
+        candidate_phone: record.phone,
+        candidate_location: record.location,
+        candidate_linkedin: record.linkedin,
+        years_selling_b2b: record.years,
+        segment_experience: record.segmentExperience,
+        heard_about_us: record.source,
+        nda_version: record.ndaVersion,
+        nda_signature: record.ndaSignature,
+        nda_signed_at_utc: record.ndaSignedAt,
+        nda_signed_local: new Date(record.ndaSignedAt).toString(),
+        timezone: record.timezone,
+        user_agent: record.userAgent,
+        message: name + ' executed the AE Academy NDA (version ' + record.ndaVersion + ') on ' +
+                 record.ndaSignedAt + ' and has begun the curriculum. Exam results will follow in a separate submission.'
+    })
+    .catch(function (e) {
+      /* Never block a candidate on a network failure: the NDA record is
+         repeated in full with the exam submission at the end. */
+      record.ndaFileError = String(e && e.message || e);
+      return null;
+    })
+    .then(function () {
+      A.save(record);
+      window.location.href = 'curriculum.html';
+    });
+  });
+})();
+</script>
+</body>
+</html>
