@@ -444,11 +444,11 @@
     btn.disabled = true;
     btnText.innerHTML = '<span class="ac-spin"></span> Filing your NDA';
 
-    A.postForm({
-        _subject: 'AE Academy · NDA executed: ' + name,
-        _replyto: email,
+    A.deliver({
+      subject: 'AE Academy - NDA executed: ' + name,
+      replyTo: email,
+      summary: {
         submission_type: 'AE Certification, NDA execution record',
-        route_to: 'ops@privacypal.ai',
         candidate_name: name,
         candidate_email: email,
         candidate_phone: record.phone,
@@ -459,12 +459,19 @@
         heard_about_us: record.source,
         nda_version: record.ndaVersion,
         nda_signature: record.ndaSignature,
-        nda_signed_at_utc: record.ndaSignedAt,
+        nda_signed_at_utc: record.ndaSignedAt
+      },
+      detail: {
         nda_signed_local: new Date(record.ndaSignedAt).toString(),
         timezone: record.timezone,
-        user_agent: record.userAgent,
-        message: name + ' executed the AE Academy NDA (version ' + record.ndaVersion + ') on ' +
-                 record.ndaSignedAt + ' and has begun the curriculum. Exam results will follow in a separate submission.'
+        user_agent: record.userAgent
+      },
+      shortMessage: name + ' executed the AE Academy NDA (version ' + record.ndaVersion +
+                    ') and has begun the curriculum. Exam results follow in a separate submission.'
+    })
+    .then(function (res) {
+      record.ndaDelivery = res.formspree + '/' + res.ops;
+      if (!res.anyOk) record.ndaFileError = res.errors.join(' | ');
     })
     .catch(function (e) {
       /* Never block a candidate on a network failure: the NDA record is

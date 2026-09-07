@@ -109,25 +109,69 @@ for a second cohort.
 
 ## Submission delivery
 
-**Verified working on 2026-09-06.** Both submissions post to `https://formspree.io/f/mykbaere`, the
-same form the live `unsubscribe.html` uses, so it is already active. Two test submissions were sent
-and both returned `{"next":"/thanks","ok":true}` with HTTP 200: one with an `Origin` of
-`https://privacypal.ai`, one with `http://localhost:8000`. The form is not origin-restricted, so
-local live-testing works too.
+**Two independent channels, both carrying the complete record**, so either email on its own is enough
+to review a candidate.
 
-The endpoint is defined once, as `FORM_ENDPOINT` at the top of `assets/academy.js`. Change it there
-and both pages follow.
+| Channel | Endpoint | Status |
+|---|---|---|
+| **Formspree** | `formspree.io/f/mykbaere` (`FORM_ENDPOINT`) | Live. The form the rest of the site already uses. |
+| **ops@ direct** | `formsubmit.co/ajax/ops@privacypal.ai` (`OPS_ENDPOINT`) | Live, activated 2026-09-07. Delivers straight to ops@ with no dashboard configuration. |
 
-Formspree delivers to the recipients configured on the form, and a free-plan form cannot be
-re-routed from the page (`_cc` is a paid feature). So:
+Both fire in parallel from `A.deliver()` in `assets/academy.js`, each receiving the same ~5KB payload:
+candidate details, per-section scores, missed questions with the answer given, elapsed time, the NDA
+record, and the full transcript of every long-form answer.
 
-- Every submission carries `route_to: ops@privacypal.ai` in the body and a distinguishing subject
-  (`AE Academy · NDA executed: <name>` and `AE Academy EXAM: <name> (90% objective, PASS)`), and
-  sets the candidate as reply-to.
-- **Two test messages titled "AE Academy · TEST ... please ignore" were sent to that form.** Whoever
-  received them is the form's current recipient. If that is not ops@privacypal.ai, add ops@ as a
-  recipient on form `mykbaere` in the Formspree dashboard, which takes about thirty seconds and needs
-  no code change. Alternatively create a dedicated form and change the one `FORM_ENDPOINT` line.
+### Why two channels
+
+An exam submission was lost on 2026-09-07: the NDA email arrived, the exam email never did. The
+original design used one channel, and that gave no way to tell the difference between a submission
+that was delivered and one that was accepted and then discarded, because both look identical from the
+browser.
+
+**The cause was never established.** The working theory at the time was that the large transcript was
+being spam-filtered, but that was disproved: a full 30-field submission with a 4.4KB transcript was
+sent afterwards and arrived. Whatever the cause, the lesson stands: a single channel with no delivery
+signal can fail invisibly, and for a hiring pipeline that is unacceptable.
+
+So `deliver()` reports exactly what landed, and the pages act on it:
+
+- **Either channel lands** → the candidate goes to the receipt page, which states which routes carried it.
+- **Neither lands** → the candidate is **not** told it worked. They stay on the exam page with the
+  specific error from each channel and a **Copy my full submission** button so the answers can be
+  emailed to ops@ by hand. Nothing is ever silently lost.
+- The receipt page always offers **Copy my answers** and **Download as a text file**.
+
+All four combinations are exercised by `delivery.js` in the build session's scratchpad: both succeed,
+Formspree fails, ops@ needs activation, both fail.
+
+### Hardening worth doing
+
+FormSubmit issues a **hashed endpoint** (a random string) once a form is activated. Swapping
+`OPS_ENDPOINT` to it keeps `ops@privacypal.ai` out of the page source, where scrapers can read it.
+That is a one-line change.
+
+### Two gotchas, both already handled
+
+**1. Referrer.** These pages set `<meta name="referrer" content="no-referrer">` so the unlisted path
+is never leaked to an outbound request. FormSubmit reads the `Referer` header and rejects a request
+that has none, treating it as a `file://` page: *"Make sure you open this page through a web server."*
+Both `fetch` calls therefore pass `referrerPolicy: 'origin'`, which sends `https://privacypal.ai/` and
+never `/ae-academy/...`. Verified: neither endpoint receives the path. **Do not remove that option**,
+and if you add a third channel, give it the same treatment.
+
+**2. Local live-testing of the ops@ channel is unreliable.** FormSubmit scopes activation by referring
+origin, so a localhost origin can come back as `needs Activation` even though production is activated.
+Formspree is fine locally. The dev toolbar defaults to **DRY RUN** on localhost for this reason: both
+payloads print to the console and nothing is sent. Flip it to **SENDING LIVE** to exercise the real
+endpoints, and expect the ops@ leg to be the flaky one locally, not in production.
+
+Test through `npm run serve` rather than opening the file directly.
+
+### Verified end to end
+
+On 2026-09-07, a full exam submitted through the real page with both channels live recorded
+`{formspree: "ok", ops: "ok"}` and delivered a ~5KB payload with the complete transcript to both
+inboxes.
 
 ## One thing still to settle
 

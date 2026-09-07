@@ -105,6 +105,17 @@
       AI service that retains or trains on what you submit. Yes, we noticed the irony too.</p>
     </div>
 
+    <div class="note ok" style="text-align:left" id="deliveryNote">
+      <span class="t">Delivery confirmed</span>
+      <p id="deliveryText">Your submission reached PrivacyPal operations.</p>
+      <p style="margin-top:10px">Keep your own copy if you like. It is useful to have in front of you on
+      the follow-up call, because we will go through two or three of your answers directly.</p>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" class="btn btn-ghost btn-sm" id="copyBtn">Copy my answers</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="dlBtn">Download as a text file</button>
+      </div>
+    </div>
+
     <p style="margin-top:38px;font-size:.88rem;color:var(--muted)">
       Questions about your submission: <a href="mailto:ops@privacypal.ai" style="color:var(--teal-ink);border-bottom:1px solid rgba(2,131,145,.35)">ops@privacypal.ai</a>
     </p>
@@ -143,6 +154,45 @@
     document.getElementById('pendText').textContent =
       'PENDING REVIEW · ISSUED ON PASS · ' + s.examMinutes + ' MINUTES ON THE EXAM';
   }
+
+  /* Delivery ran down two independent channels. Say which one carried it, so a
+     half-failure is visible here instead of being discovered weeks later. */
+  var d = s.delivery || {};
+  var note = document.getElementById('deliveryNote');
+  var text = document.getElementById('deliveryText');
+  if (d.dry) {
+    note.className = 'note warn';
+    note.querySelector('.t').textContent = 'Local dry run';
+    text.textContent = 'Nothing was sent. This browser is in dry-run mode, so no email was delivered.';
+  } else if (d.ops === 'ok' && d.formspree === 'ok') {
+    text.textContent = 'Your submission reached PrivacyPal operations on both delivery routes.';
+  } else if (d.ops === 'ok' || d.formspree === 'ok') {
+    text.textContent = 'Your submission reached PrivacyPal operations.';
+  } else {
+    note.className = 'note warn';
+    note.querySelector('.t').textContent = 'Keep a copy';
+    text.innerHTML = 'We recorded your submission on this device but could not confirm delivery. ' +
+      'Please copy it below and email it to <a href="mailto:ops@privacypal.ai">ops@privacypal.ai</a>.';
+  }
+
+  var body = s.transcript || '';
+  function feedback(btn, msg) {
+    var old = btn.textContent; btn.textContent = msg;
+    setTimeout(function () { btn.textContent = old; }, 2500);
+  }
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var b = this;
+    navigator.clipboard.writeText(body).then(function () { feedback(b, 'Copied'); },
+                                             function () { feedback(b, 'Could not copy'); });
+  });
+  document.getElementById('dlBtn').addEventListener('click', function () {
+    var blob = new Blob([body], { type: 'text/plain' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'privacypal-ae-exam-' + (s.name || 'submission').replace(/\s+/g, '-').toLowerCase() + '.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
 })();
 </script>
 </body>

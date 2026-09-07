@@ -11,13 +11,23 @@
   var NDA_VERSION = '2026.09-AE-1';
 
   /* ------------------------------------------------------------------
-     Where submissions go. ONE place to change it.
-     This is the same Formspree form the live unsubscribe page uses, so
-     it is already active and already accepts cross-origin posts from
-     privacypal.ai and from localhost. Both submissions carry
-     route_to: ops@privacypal.ai and a distinguishing subject line.
+     DELIVERY. Two independent channels, both carrying the complete record,
+     so either email on its own is enough to review a candidate.
+
+     Formspree is the form the rest of the site already uses. FormSubmit
+     delivers straight to ops@privacypal.ai without any dashboard config.
+     Both are known-good: a full 30-field submission with a 4.4KB transcript
+     was verified end to end on both routes on 2026-09-07.
+
+     The reason for two: an exam submission was lost on 2026-09-07 and the
+     single channel gave no signal, because a POST that is accepted and a
+     POST that is accepted and then discarded look identical from the
+     browser. Redundancy plus honest reporting is the fix. deliver() tells
+     the caller exactly what landed, and the caller never claims success it
+     cannot evidence.
      ------------------------------------------------------------------ */
   var FORM_ENDPOINT = 'https://formspree.io/f/mykbaere';
+  var OPS_ENDPOINT  = 'https://formsubmit.co/ajax/ops@privacypal.ai';
   var MODE_KEY = 'pp_ae_send_mode';
 
   function isLocal() {
@@ -35,34 +45,111 @@
     return isLocal() ? 'dry' : 'live';
   }
 
-  function postForm(payload) {
-    try { w.localStorage.setItem('pp_ae_last_payload', JSON.stringify(payload, null, 2)); } catch (e) {}
-    if (sendMode() === 'dry') {
-      console.log('%c[AE Academy] DRY RUN, nothing was sent to ' + FORM_ENDPOINT,
-                  'background:#01204e;color:#8fd6dc;padding:3px 8px;border-radius:4px');
-      console.log('Subject:', payload._subject);
-      console.table(Object.keys(payload).reduce(function (o, k) {
-        if (k !== 'message') o[k] = String(payload[k]).slice(0, 90);
-        return o;
-      }, {}));
-      if (payload.message) console.log('%c--- message body ---', 'color:#028391', '\n' + payload.message);
-      return new Promise(function (res) { setTimeout(function () { res({ ok: true, dry: true }); }, 450); });
+  function timeout(promise, ms, label) {
+    return new Promise(function (res, rej) {
+      var t = setTimeout(function () { rej(new Error(label + ' timed out')); }, ms);
+      promise.then(function (v) { clearTimeout(t); res(v); },
+                   function (e) { clearTimeout(t); rej(e); });
+    });
+  }
+
+  /* Channel 1: Formspree, complete record. */
+  function toFormspree(o) {
+    var body = { _subject: o.subject, _replyto: o.replyTo || '', route_to: 'ops@privacypal.ai' };
+    for (var k in o.summary) {
+      if (Object.prototype.hasOwnProperty.call(o.summary, k)) body[k] = o.summary[k];
     }
-    return fetch(FORM_ENDPOINT, {
+    for (var k2 in o.detail) {
+      if (Object.prototype.hasOwnProperty.call(o.detail, k2)) body[k2] = o.detail[k2];
+    }
+    body.message = o.fullMessage || o.shortMessage;
+    return timeout(fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function (r) {
-      if (r.ok) return { ok: true, dry: false };
+      /* These pages set referrer=no-referrer so the unlisted path never leaks.
+         'origin' overrides that for this request only: the endpoint sees
+         https://privacypal.ai/ and never /ae-academy/... FormSubmit rejects a
+         request with no Referer at all, treating it as a local file. */
+      referrerPolicy: 'origin',
+      body: JSON.stringify(body)
+    }), 20000, 'Formspree').then(function (r) {
+      if (r.ok) return { channel: 'formspree', ok: true };
       return r.json().catch(function () { return {}; }).then(function (d) {
-        var msg = (d.errors && d.errors.map(function (e) { return e.message; }).join('; ')) ||
-                  d.error || ('Formspree returned ' + r.status);
-        throw new Error(msg);
+        throw new Error((d.errors && d.errors.map(function (e) { return e.message; }).join('; ')) ||
+                        d.error || ('Formspree returned ' + r.status));
       });
     });
   }
 
-  /* The nine curriculum modules, in order. Titles must match the
+  /* Channel 2: FormSubmit, same complete record, delivered straight to ops@. */
+  function toOps(o) {
+    var body = { _subject: o.subject, _template: 'table', _captcha: 'false' };
+    if (o.replyTo) body._replyto = o.replyTo;
+    for (var k in o.summary) {
+      if (Object.prototype.hasOwnProperty.call(o.summary, k)) body[k] = o.summary[k];
+    }
+    for (var k2 in o.detail) {
+      if (Object.prototype.hasOwnProperty.call(o.detail, k2)) body[k2] = o.detail[k2];
+    }
+    body.message = o.fullMessage || o.shortMessage;
+    return timeout(fetch(OPS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      referrerPolicy: 'origin',
+      body: JSON.stringify(body)
+    }), 20000, 'FormSubmit').then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (d) {
+        var ok = d.success === true || d.success === 'true';
+        if (ok) return { channel: 'ops', ok: true };
+        var msg = String(d.message || ('FormSubmit returned ' + r.status));
+        var err = new Error(msg);
+        if (/activat/i.test(msg)) err.needsActivation = true;
+        throw err;
+      });
+    });
+  }
+
+  /* Fire both, wait for both, report honestly. Resolves even when a channel
+     fails: the caller decides what to do with a partial or total failure. */
+  function deliver(o) {
+    var record = {
+      subject: o.subject, at: stamp(),
+      summary: o.summary, detail: o.detail || {},
+      fullMessage: o.fullMessage || o.shortMessage
+    };
+    try { w.localStorage.setItem('pp_ae_last_payload', JSON.stringify(record, null, 2)); } catch (e) {}
+
+    if (sendMode() === 'dry') {
+      console.log('%c[AE Academy] DRY RUN, nothing was sent', 'background:#01204e;color:#8fd6dc;padding:3px 8px;border-radius:4px');
+      console.log('Subject:', o.subject);
+      console.log('Both channels would receive:', o.summary);
+      console.log((o.fullMessage || o.shortMessage));
+      return new Promise(function (res) {
+        setTimeout(function () {
+          res({ dry: true, anyOk: true, formspree: 'dry', ops: 'dry', errors: [] });
+        }, 450);
+      });
+    }
+
+    return Promise.all([
+      toFormspree(o).then(function (r) { return r; }, function (e) { return { channel: 'formspree', ok: false, error: e }; }),
+      toOps(o).then(function (r) { return r; }, function (e) { return { channel: 'ops', ok: false, error: e }; })
+    ]).then(function (rs) {
+      var fs = rs[0], op = rs[1];
+      var out = {
+        dry: false,
+        formspree: fs.ok ? 'ok' : 'failed',
+        ops: op.ok ? 'ok' : (op.error && op.error.needsActivation ? 'needs-activation' : 'failed'),
+        anyOk: !!(fs.ok || op.ok),
+        errors: []
+      };
+      if (!fs.ok) out.errors.push('Formspree: ' + ((fs.error && fs.error.message) || 'failed'));
+      if (!op.ok) out.errors.push('ops@ direct: ' + ((op.error && op.error.message) || 'failed'));
+      return out;
+    });
+  }
+
+  /* The seven curriculum modules, in order. Titles must match the
      data-mod ids used by curriculum.html. */
   var MODULES = [
     { id: 'm1', n: '01', t: 'The market and the wedge',
@@ -288,7 +375,8 @@
     load: load, save: save, patch: patch, reset: reset,
     initials: initials, esc: esc, stamp: stamp, pretty: pretty, minutesSince: minutesSince,
     head: head, foot: foot, progress: progress, gate: gate, devBar: devBar,
-    FORM_ENDPOINT: FORM_ENDPOINT, isLocal: isLocal, sendMode: sendMode, postForm: postForm,
+    FORM_ENDPOINT: FORM_ENDPOINT, OPS_ENDPOINT: OPS_ENDPOINT,
+    isLocal: isLocal, sendMode: sendMode, deliver: deliver,
     requireEnrolled: requireEnrolled, requireCourseDone: requireCourseDone
   };
 })(window, document);

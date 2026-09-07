@@ -129,8 +129,10 @@
         ta.dispatchEvent(new Event('input'));
       } else {
         var right = q.o.filter(function (o) { return fnvD(X.salt + q.id + '|' + o) === q.a; })[0];
-        var r = document.querySelector('input[name="' + q.id + '"][value="' + CSS.escape(right) + '"]');
-        if (r) { r.checked = true; r.dispatchEvent(new Event('change')); }
+        var radios = document.getElementsByName(q.id);
+        for (var i = 0; i < radios.length; i++) {
+          if (radios[i].value === right) { radios[i].checked = true; radios[i].dispatchEvent(new Event('change')); }
+        }
       }
     }); });
     alert('All sections filled with correct answers. Use Next to walk to the submit page.');
@@ -444,66 +446,91 @@
     submitBtn.disabled = true;
     submitTxt.innerHTML = '<span class="ac-spin"></span> Submitting';
 
-    var payload = {
-      _subject: 'AE Academy EXAM: ' + s.name + '  (' + r.pct + '% objective, ' +
-                (r.pct >= X.passMark ? 'PASS' : 'below pass mark') + ')',
-      _replyto: s.email,
+    /* Both channels carry the same complete record, so either email alone is
+       enough to review this candidate. */
+    var summary = {
       submission_type: 'AE Certification, completed examination',
-      route_to: 'ops@privacypal.ai',
-
       candidate_name: s.name,
       candidate_email: s.email,
       candidate_phone: s.phone || '',
       candidate_location: s.location || '',
       candidate_linkedin: s.linkedin || '',
-      years_selling_b2b: s.years || '',
-      segment_experience: s.segmentExperience || '',
-      heard_about_us: s.source || '',
-
       objective_score: r.got + ' / ' + r.max,
       objective_percent: r.pct + '%',
       objective_result: (r.pct >= X.passMark ? 'PASS' : 'BELOW PASS MARK'),
-      pass_mark: X.passMark + '%',
       section_scores: r.perSection.map(function (ps) {
-        return ps.id + ' ' + ps.got + '/' + ps.max + ' (' + ps.pct + '%)';
-      }).join(' · '),
+        return ps.id + ' ' + ps.got + '/' + ps.max;
+      }).join('  '),
       missed_count: String(r.missed.length),
-      long_form_answers_count: String(X.longCount),
-      long_form_points_available: String(X.longPoints),
+      exam_minutes: (mins === null ? 'unknown' : String(mins)),
+      nda_signature: s.ndaSignature || '',
+      nda_signed_at_utc: s.ndaSignedAt || ''
+    };
 
+    var detail = {
+      years_selling_b2b: s.years || '',
+      segment_experience: s.segmentExperience || '',
+      heard_about_us: s.source || '',
+      pass_mark: X.passMark + '%',
+      long_form_answers: String(X.longCount),
+      long_form_points_available: String(X.longPoints),
       enrolled_at_utc: s.enrolledAt || '',
       course_completed_at_utc: s.courseCompletedAt || '',
       exam_started_at_utc: s.examStartedAt || '',
       exam_submitted_at_utc: A.stamp(),
-      exam_minutes: (mins === null ? 'unknown' : String(mins)),
-
       nda_version: s.ndaVersion || '',
-      nda_signature: s.ndaSignature || '',
-      nda_signed_at_utc: s.ndaSignedAt || '',
-      timezone: s.timezone || '',
-
-      message: transcript(r)
+      timezone: s.timezone || ''
     };
 
-    A.postForm(payload)
-    .then(function (resp) {
-      if (resp.dry) {
-        submitTxt.textContent = 'Dry run complete, see the console';
+    var full = transcript(r);
+    var short = s.name + ' completed the AE Certification exam. Objective score ' + r.got + '/' + r.max +
+                ' (' + r.pct + '%), ' + (r.pct >= X.passMark ? 'above' : 'below') + ' the ' + X.passMark +
+                '% pass mark, in ' + (mins === null ? 'an unknown number of' : mins) + ' minutes.';
+
+    window.__ppLastTranscript = full;
+
+    A.deliver({
+      subject: 'AE Academy EXAM: ' + s.name + ' - ' + r.pct + ' percent, ' +
+               (r.pct >= X.passMark ? 'PASS' : 'below pass mark'),
+      replyTo: s.email,
+      summary: summary,
+      detail: detail,
+      shortMessage: short,
+      fullMessage: full
+    })
+    .then(function (res) {
+      if (!res.anyOk) {
+        /* Nothing landed. Never tell a candidate it worked when it did not. */
+        submitBtn.disabled = false;
+        submitTxt.textContent = 'Try submitting again';
+        submitErr.innerHTML =
+          '<b>Your exam did not reach us.</b> Nothing is lost: your answers are saved in this browser. ' +
+          'Please try again. If it fails a second time, use the button below to copy your submission and ' +
+          'email it to <a href="mailto:ops@privacypal.ai">ops@privacypal.ai</a>.' +
+          '<div style="margin-top:12px"><button type="button" class="btn btn-ghost btn-sm" id="copyFallback">' +
+          'Copy my full submission</button></div>' +
+          '<div style="margin-top:10px;font-family:var(--font-mono);font-size:.68rem;color:var(--muted)">' +
+          A.esc(res.errors.join('  |  ')) + '</div>';
+        submitErr.classList.add('on');
+        var cb = document.getElementById('copyFallback');
+        if (cb) cb.addEventListener('click', function () {
+          navigator.clipboard.writeText(window.__ppLastTranscript || '').then(function () {
+            cb.textContent = 'Copied. Now paste it into an email to ops@privacypal.ai';
+          }, function () {
+            cb.textContent = 'Could not copy. Open the browser console for your answers.';
+            console.log(window.__ppLastTranscript);
+          });
+        });
+        return;
       }
       A.patch({
         examSubmittedAt: A.stamp(),
         examMinutes: mins,
-        submitted: true
+        submitted: true,
+        delivery: { formspree: res.formspree, ops: res.ops, dry: !!res.dry },
+        transcript: full
       });
       window.location.href = 'complete.html';
-    })
-    .catch(function (e) {
-      submitBtn.disabled = false;
-      submitTxt.textContent = 'Try submitting again';
-      submitErr.innerHTML = '<b>We could not send your exam.</b> ' + A.esc(String((e && e.message) || e)) +
-        '. Your answers are still saved in this browser, so nothing is lost. Try again, and if it keeps ' +
-        'failing email <a href="mailto:ops@privacypal.ai">ops@privacypal.ai</a> and we will collect it another way.';
-      submitErr.classList.add('on');
     });
   });
 
