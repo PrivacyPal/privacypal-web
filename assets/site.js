@@ -3,7 +3,7 @@
   const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const onDark = document.body.classList.contains('nav-on-dark');
 
-  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.25-arm64.dmg';
+  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.26-arm64.dmg';
 
   const navHTML = `
   <nav class="site-nav ${onDark ? 'on-dark' : ''}" id="siteNav">
@@ -155,7 +155,7 @@
   <div class="pp-modal" id="ppDownloadModal" aria-hidden="true">
     <div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Download PrivacyPal">
       <div class="pp-modal-head">
-        <h3>Download PrivacyPal · v1.9.25</h3>
+        <h3>Download PrivacyPal · v1.9.26</h3>
         <button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button>
       </div>
       <div class="pp-modal-body">
@@ -168,11 +168,11 @@
             <h4>Windows 11</h4>
             <p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>
             <div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>
-            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.25.exe" rel="noopener noreferrer">
+            <a class="pp-dl-btn win" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.26.exe" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
               Download for Windows
             </a>
-            <p class="pp-dl-filename">PrivacyPal-Setup-1.9.25.exe</p>
+            <p class="pp-dl-filename">PrivacyPal-Setup-1.9.26.exe</p>
             <div class="pp-dl-cli">
               <div class="cli-label">Or install via PowerShell</div>
               <div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>
@@ -192,7 +192,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
               Apple Silicon
             </a>
-            <p class="pp-dl-filename">PrivacyPal-1.9.25-arm64.dmg</p>
+            <p class="pp-dl-filename">PrivacyPal-1.9.26-arm64.dmg</p>
           </div>
         </div>
         <div class="pp-dl-trust">
