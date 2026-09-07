@@ -65,24 +65,20 @@
   /* The nine curriculum modules, in order. Titles must match the
      data-mod ids used by curriculum.html. */
   var MODULES = [
-    { id: 'm1', n: '01', t: 'The shift, the market and the wedge',
+    { id: 'm1', n: '01', t: 'The market and the wedge',
       b: 'Why AI adoption stalls, who stalls it, and the one move that unblocks it.' },
     { id: 'm2', n: '02', t: 'The mechanism: Privacy Twins on device',
-      b: 'What actually happens between the keystroke and the model. Sell the mechanism.' },
-    { id: 'm3', n: '03', t: 'The platform: what Max actually does',
-      b: 'DSPM, Agent Governance, Private MCP, Connections, Private Memory.' },
-    { id: 'm4', n: '04', t: 'The product line, pricing and deal math',
-      b: 'Pro, Max, Cloud, SDK. The September 2026 price book and how to size a deal.' },
-    { id: 'm5', n: '05', t: 'Who we sell to: ICPs, tiers and verticals',
-      b: 'Four buyer types, three tiers, the builder override, five industries.' },
-    { id: 'm6', n: '06', t: 'The GTM motion and the pipeline',
-      b: 'Stages, sequences, HubSpot, Gong, and the rule automation never breaks.' },
-    { id: 'm7', n: '07', t: 'MEDDIC and the proposal gate',
+      b: 'What happens between the keystroke and the model. Sell the mechanism.' },
+    { id: 'm3', n: '03', t: 'What you sell: the platform and the price book',
+      b: 'Pro, Max, Cloud, SDK, and how the price book behaves.' },
+    { id: 'm4', n: '04', t: 'Who we sell to',
+      b: 'Four buyer types, the builder override, five industries and their regulators.' },
+    { id: 'm5', n: '05', t: 'The motion and the pipeline',
+      b: 'What the machine does for you, and the rule it never breaks.' },
+    { id: 'm6', n: '06', t: 'MEDDIC and the proposal gate',
       b: 'Six criteria, twelve points, one gate. The heart of this certification.' },
-    { id: 'm8', n: '08', t: 'Discovery, demo and the Security Review',
-      b: 'Question banks by persona, demo choreography, what a reviewer may be told.' },
-    { id: 'm9', n: '09', t: 'Objections, competition and closing',
-      b: 'The ten-code taxonomy, four named competitors, and how deals actually close.' }
+    { id: 'm7', n: '07', t: 'Discovery, objections and closing',
+      b: 'Question banks, the ten objection codes, the competition, and how deals close.' }
   ];
 
   /* ---------- state ---------- */
