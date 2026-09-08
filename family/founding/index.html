@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Founding Families · 50% off your first year · PrivacyPal Family</title>
+<meta name="description" content="Founding Families get PrivacyPal Family at half price for a whole year. Choose the AI your kids use, keep their identity at home, and see how AI shapes them. Signals, never transcripts. Code applied automatically." />
+<!-- Campaign landing page: reached only from ads and social posts. Never linked from the site nav, footer or sitemap. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../family.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal Family" />
+<meta property="og:url" content="https://privacypal.ai/family/founding/" />
+<meta property="og:title" content="Founding Families: 50% off your first year of PrivacyPal Family" />
+<meta property="og:description" content="Their world is full of AI. You hold the keys. Founding Families get PrivacyPal Family at half price for a whole year, code applied automatically." />
+<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1214" />
+<meta property="og:image:height" content="658" />
+<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Founding Families: 50% off your first year of PrivacyPal Family" />
+<meta name="twitter:description" content="Their world is full of AI. You hold the keys. Half price for a whole year, code applied automatically." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta name="twitter:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<!-- Meta Pixel Code -->
+<script src="../../assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+<style>
+/* ---------- Landing-only layer (on top of family.css) ---------- */
+body{padding-bottom:0}
+.lph{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,253,248,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.lph-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 24px;height:66px;
+  display:flex;align-items:center;gap:12px;
+}
+.lph-logo{display:flex;align-items:center;gap:10px}
+.lph-logo img{height:28px;width:auto}
+.lph-logo .fam{
+  font-family:var(--font-display);font-weight:600;font-size:1rem;
+  background:var(--tangerine-tint);color:var(--tangerine-deep);
+  padding:3px 12px;border-radius:999px;
+}
+.lph-offer{
+  margin-left:auto;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
+  display:none;
+}
+@media(min-width:760px){.lph-offer{display:inline}}
+.lph .btn{margin-left:10px}
+.lph .btn.btn-sm{padding:10px 18px}
+
+/* hero */
+.fhero.lp{padding:56px 0 72px}
+.fhero.lp .fhero-grid{grid-template-columns:1.05fr .95fr;align-items:start}
+.fhero.lp h1{margin:16px 0 18px}
+.hero-ticks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.hero-ticks li{display:flex;gap:11px;align-items:flex-start;font-size:1.02rem;color:var(--text)}
+.hero-ticks li b{color:var(--ink)}
+.hero-ticks svg{width:22px;height:22px;flex:none;margin-top:2px;color:var(--sage-deep);background:var(--sage-tint);border-radius:7px;padding:4px}
+
+/* offer card: the conversion element */
+.offer{
+  background:#fff;border:2px solid var(--ink);border-radius:var(--r-xl);
+  padding:30px 30px 26px;box-shadow:8px 8px 0 var(--amber);position:relative;
+}
+.offer .ribbon{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
+  background:var(--tangerine-tint);color:var(--tangerine-deep);
+  padding:5px 12px;border-radius:999px;margin-bottom:14px;
+}
+.offer .ribbon::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tangerine)}
+.offer h3{font-size:1.5rem;margin-bottom:6px}
+.offer .sub{color:var(--muted);font-size:.95rem}
+.offer .price{display:flex;align-items:baseline;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+.offer .price .was{font-family:var(--font-display);font-size:1.5rem;color:var(--faint);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--coral)}
+.offer .price .now{font-family:var(--font-display);font-size:3.2rem;font-weight:600;line-height:1;color:var(--ink)}
+.offer .price .now small{font-family:var(--font-display);font-size:1.1rem;font-weight:500;color:var(--muted)}
+.offer .price-note{font-size:.86rem;color:var(--muted)}
+.offer .code{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:18px 0 6px;padding:12px 14px;border-radius:14px;
+  background:var(--sage-tint);border:1px dashed var(--sage);
+}
+.offer .code .k{font-family:var(--font-mono);font-size:.82rem;font-weight:600;color:var(--sage-deep);letter-spacing:.02em;word-break:break-all}
+.offer .code .v{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--sage-deep);font-weight:600}
+.offer .code .v svg{width:14px;height:14px}
+.offer ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin:18px 0 22px}
+.offer li{display:flex;gap:10px;font-size:.95rem;align-items:flex-start}
+.offer li svg{width:18px;height:18px;color:var(--sage-deep);flex:none;margin-top:3px}
+.offer .btn{width:100%}
+.offer .fine{font-size:.78rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+.offer .guarantee{
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;
+  font-family:var(--font-mono);font-size:.68rem;color:var(--muted);
+}
+.offer .guarantee span{display:inline-flex;align-items:center;gap:5px}
+.offer .guarantee svg{width:12px;height:12px;color:var(--sage-deep)}
+
+/* next-steps mini rail */
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.next .n{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 20px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.next .n .num{
+  font-family:var(--font-display);font-weight:600;flex:none;
+  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:#fff;
+}
+.next .n:nth-child(2) .num{background:var(--teal)}
+.next .n:nth-child(3) .num{background:var(--tangerine)}
+.next .n b{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:3px}
+.next .n p{color:var(--muted);font-size:.9rem}
+@media(max-width:900px){.next{grid-template-columns:1fr}}
+
+/* proof strip near the decision */
+.proof-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+.proof-row .p{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 15px;
+  font-size:.86rem;font-weight:600;color:var(--ink);box-shadow:var(--shadow-card);
+}
+.proof-row .p svg{width:16px;height:16px;color:var(--teal)}
+
+/* footer */
+.lpf{border-top:1px solid var(--line);background:var(--cream);padding:30px 0 110px;margin-top:40px}
+.lpf-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+.lpf a{color:var(--text);margin-left:16px}
+.lpf a:hover{color:var(--teal-ink)}
+@media(min-width:761px){.lpf{padding-bottom:36px}}
+
+/* sticky mobile CTA */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(255,253,248,.96);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  display:none;align-items:center;gap:12px;
+}
+.sticky .s-txt{font-size:.82rem;line-height:1.25;color:var(--text)}
+.sticky .s-txt b{display:block;font-family:var(--font-display);color:var(--ink);font-size:.95rem}
+.sticky .btn{margin-left:auto;white-space:nowrap;padding:12px 18px;font-size:.95rem}
+@media(max-width:760px){.sticky{display:flex}}
+
+@media(max-width:960px){
+  .fhero.lp .fhero-grid{grid-template-columns:1fr;gap:36px}
+  .offer{box-shadow:6px 6px 0 var(--amber)}
+}
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<!-- ================= MINIMAL HEADER (no site nav on purpose) ================= -->
+<header class="lph">
+  <div class="lph-inner">
+    <a class="lph-logo" href="#top" aria-label="PrivacyPal Family">
+      <img src="../assets/product/logo-color.png" alt="PrivacyPal"/>
+      <span class="fam">Family</span>
+    </a>
+    <span class="lph-offer">Founding Families · 50% off your first year</span>
+    <a class="btn btn-key btn-sm" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim 50% off</a>
+  </div>
+</header>
+
+<!-- ================= HERO + OFFER ================= -->
+<section class="fhero lp" id="top">
+  <div class="container">
+    <div class="fhero-grid">
+      <div>
+        <span class="eyebrow orange">Founding Families · half price for a whole year</span>
+        <h1>Their world is full of AI. <span class="hl-teal">You hold the keys.</span></h1>
+        <p class="lede">Your kids already talk to ChatGPT, Gemini and Claude every day. PrivacyPal Family lets you choose the AI they use, keeps their real name, school and address from ever leaving your house, and shows you how AI is shaping them. Signals, never transcripts.</p>
+
+        <ul class="hero-ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg><span><b>You pick the AI.</b> Approved tools open. Everything else is blocked and redirected to one you trust.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg><span><b>Their identity stays home.</b> Privacy Twins swap real details for safe stand-ins on the device, before anything is sent.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg><span><b>You see signals, not their words.</b> Parent HQ shows what got protected and how they are doing. Kids see exactly what you see.</span></li>
+        </ul>
+
+        <div class="trust-strip">
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on the device</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Zero-knowledge</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Set up in about 15 minutes</span>
+        </div>
+        <p class="trust-note">Built on PrivacyPal, the same on-device protection hundreds of companies run at work.</p>
+      </div>
+
+      <aside class="offer reveal" aria-labelledby="offerTitle">
+        <span class="ribbon">Founding Family offer</span>
+        <h3 id="offerTitle">Half price for a whole year</h3>
+        <p class="sub">One plan for the whole household. The Founding Families rate is for families who join during early access.</p>
+        <div class="price">
+          <span class="was" aria-label="Regular price $9.99 per month">$9.99</span>
+          <span class="now">$4.99<small>/month</small></span>
+        </div>
+        <p class="price-note">50% off the $9.99 plan for your first 12 months, then $9.99 a month. Cancel anytime.</p>
+
+        <div class="code" role="status">
+          <span class="k">FOUNDINGFAMILY-0926-496</span>
+          <span class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg>applied automatically at signup</span>
+        </div>
+
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 family members on Mac and PC</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Guardrails, Privacy Twins and Family Memory, all included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Works with ChatGPT, Claude, Gemini, Copilot and Grok</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>First in line for Wellbeing Signal and Answer Guard</li>
+        </ul>
+
+        <a class="btn btn-key btn-lg" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim my Founding Family spot</a>
+        <p class="fine">Starts with a 5-day free trial. No charge today, and we remind you before it ends. You will land on the PrivacyPal Family signup with your code already applied.</p>
+        <div class="guarantee">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>5-day free trial</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>30-day money-back</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Cancel anytime</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
+
+<!-- ================= COVERED EVERYWHERE ================= -->
+<section class="section-sm ai-pals" aria-label="AI apps PrivacyPal Family protects">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Nothing to ban</span>
+      <h2>The AI they already love. <span class="hl-teal">All protected.</span></h2>
+      <p class="lede">Your kids keep their favorite AI, in the browser and in desktop apps. One quiet app guards every one of them.</p>
+    </div>
+    <div class="pal-shelf reveal" role="list">
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../../assets/glyph-chatgpt.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>ChatGPT</b><small>protected</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../../assets/glyph-claude.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Claude</b><small>protected</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../../assets/glyph-gemini.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Gemini</b><small>protected</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><img src="../../assets/glyph-copilot.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Copilot</b><small>protected</small>
+      </div>
+      <div class="pal-card" role="listitem">
+        <span class="pal-tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
+        <b>Grok</b><small>protected</small>
+      </div>
+      <div class="pal-card pal-next" role="listitem">
+        <span class="pal-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
+        <b>Whatever's next</b><small>covered on day one</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TWIN DEMO ================= -->
+<section class="section wash-cream">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow sage">Privacy Twins</span>
+      <h2>What the AI sees vs. who your child is</h2>
+      <p class="lede">The swap happens on the device, in about a third of a second, before anything is sent. The AI still helps with the homework. Your child's real identity never left your house.</p>
+    </div>
+    <div class="twin-wrap reveal">
+      <div class="twin-card before">
+        <h5><span class="dot"></span>What your child types</h5>
+        "Write a story about me, <span class="mark-red">Timmy Johnson</span>, who goes to <span class="mark-red">Lincoln High School</span> in <span class="mark-red">Austin, TX</span>."
+        <div class="twin-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Without PrivacyPal, this goes to corporate AI servers
+        </div>
+      </div>
+      <div class="twin-mid"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="twin-card after">
+        <h5><span class="dot"></span>What the AI receives</h5>
+        "Write a story about me, <span class="mark-green">[Alex]</span>, who goes to <span class="mark-green">[Washington High]</span> in <span class="mark-green">[a sunny city]</span>."
+        <div class="twin-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Real identity swapped with a Privacy Twin, on the device
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps. Then it just works.</h2>
+      <p class="lede">No router surgery, no weekly rule tuning. Set it up once and protection follows your kids to every AI they touch.</p>
+    </div>
+    <div class="fsteps">
+      <div class="fstep reveal reveal-delay-1">
+        <div class="num">1</div><span class="mins">~5 min</span>
+        <h4>Sign up with your code applied</h4>
+        <p>Create your family account, add your kids, and pick each one's stage: Explorer (5 to 9), Navigator (10 to 13) or Pilot (14 to 17). Your Founding Family price is already on the plan.</p>
+      </div>
+      <div class="fstep reveal reveal-delay-2">
+        <div class="num">2</div><span class="mins">~5 min</span>
+        <h4>Pick your keys</h4>
+        <p>Approve the AI tools you trust, and choose what can never leave your house: names, school, address, health details, feelings.</p>
+      </div>
+      <div class="fstep reveal reveal-delay-3">
+        <div class="num">3</div><span class="mins">~5 min</span>
+        <h4>Put a Pal on every device</h4>
+        <p>Install once on the family Mac or PC. Kids keep using ChatGPT, Gemini and Claude exactly as before. Parent HQ shows you what matters in realtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PILLARS ================= -->
+<section class="section wash-teal">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">What you get</span>
+      <h2>Four superpowers. One quiet app.</h2>
+      <p class="lede">Everything PrivacyPal builds for the world's most careful companies, re-imagined for the people you care about most.</p>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="pillar reveal reveal-delay-1">
+        <div class="ico" style="background:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
+        <h3>Guardrails</h3>
+        <p>You approve the AI tools your kids can use. Anything else is blocked and gently redirected to a parent-approved alternative. Homework mode keeps school hours on task.</p>
+      </div>
+      <div class="pillar tint-teal reveal reveal-delay-2">
+        <div class="ico" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Privacy Twins</h3>
+        <p>The moment your child types their real name, school or address, PrivacyPal swaps in a safe stand-in on the device itself. The AI still helps. Their real identity never leaves your house.</p>
+      </div>
+      <div class="pillar tint-sage reveal reveal-delay-1">
+        <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 4.5-2 7H7c0-2.5-2-4-2-7a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></div>
+        <h3>Family Memory</h3>
+        <p>See what AI remembers about each child, in plain language. Keep the helpful parts and erase anything forever with one tap. Erase means erase, even for work in flight.</p>
+      </div>
+      <div class="pillar tint-sun reveal reveal-delay-2">
+        <span class="soon-tag">early access</span>
+        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Pal Agents</h3>
+        <p>Small helpers that watch out for your child, not over them. Wellbeing Signal spots mood shifts in how they talk to AI. Answer Guard checks that what AI says back is age-right and manipulation-free. Founding Families get them first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROMISE ================= -->
+<section class="section">
+  <div class="container">
+    <div class="deep">
+      <div>
+        <span class="eyebrow coral">The part we care most about</span>
+        <h2>Guardrails, not surveillance</h2>
+        <p class="lede">Spyware makes kids hide. PrivacyPal Family is built to protect your child and your relationship with them. Trust is the feature.</p>
+        <div class="deep-list">
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>You never see transcripts</b><p>Parent HQ shows which tools they used, what identity details were protected, and wellbeing trends. Never their words.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Kids see exactly what you see</b><p>Your child can open their own view of the same signals. Kids who know the deal don't need to hide.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Protection matures with them</b><p>Explorer, Navigator, Pilot. Guardrails loosen as they earn them, and the keys hand over at 18.</p></span>
+          </div>
+        </div>
+      </div>
+      <div class="media"><img src="../assets/photos/study-together.jpg" alt="A mother and her daughter doing homework together at a desk" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="section wash-teal">
+  <div class="container">
+    <div class="deep flip">
+      <div>
+        <span class="eyebrow">Real technology, shipping today</span>
+        <h2>Not a promise. A product.</h2>
+        <p class="lede">PrivacyPal Family runs on the same engine that protects hundreds of companies right now: on-device interception, Privacy Twins, and private memory with mechanical erasure. Here it is working inside a real AI chat.</p>
+        <div class="deep-list">
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Milliseconds, not minutes</b><p>Interception averages a third of a second. Kids never notice it is there.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Zero bytes of real identity to AI providers</b><p>Swaps happen before anything leaves the device. In our internal benchmark, remembered personal values never reached a provider.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Mac and Windows today</b><p>Browser and desktop AI apps, up to 5 family members. iPhone, iPad and Android are rolling out to early access families on the same plan.</p></span>
+          </div>
+        </div>
+      </div>
+      <div class="media"><img src="../assets/product/privacypal-desktop-claude-example.png" alt="Actual PrivacyPal screenshot: a Claude conversation with sensitive details being protected in realtime" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFFER, RESTATED AT THE DECISION POINT ================= -->
+<section class="section wash-amber" id="offer">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow orange">Founding Families</span>
+      <h2>Half price for a whole year. Code applied for you.</h2>
+      <p class="lede">Join during early access and lock in the Founding Families rate: 50% off PrivacyPal Family for your first 12 months.</p>
+    </div>
+    <div class="fprice reveal">
+      <div class="plan">PrivacyPal Family <span class="tag">founding families</span></div>
+      <div class="amount"><span class="big">$4.99</span><small>/month, first year</small></div>
+      <p class="note">Regular price $9.99 a month. Covers up to 5 family members on Mac and PC. Mobile joins the same plan as it rolls out.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 family members</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Guardrails: approve, block &amp; redirect AI tools</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Privacy Twins identity protection, on-device</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Family Memory with one-tap erase</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Works with ChatGPT, Gemini, Claude, Copilot &amp; Grok</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Your Founding Family code, applied automatically</li>
+      </ul>
+      <a class="btn btn-key btn-lg" style="width:100%" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim my Founding Family spot</a>
+      <p class="fine">5-day free trial · 30-day money-back guarantee · cancel anytime</p>
+    </div>
+
+    <div class="proof-row reveal">
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on the device</span>
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Card goes straight to Stripe</span>
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>No charge for 5 days</span>
+    </div>
+
+    <div class="next reveal">
+      <div class="n"><span class="num">1</span><span><b>Tap the button</b><p>You land on the PrivacyPal Family signup. Your Founding Family code is already applied to the plan.</p></span></div>
+      <div class="n"><span class="num">2</span><span><b>Add your kids, pick your keys</b><p>Stages, approved AI tools, and the details that can never leave your house. About ten minutes.</p></span></div>
+      <div class="n"><span class="num">3</span><span><b>Install on the family Mac or PC</b><p>Protection is on before dinner. Parent HQ shows you what matters, in realtime.</p></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Questions parents ask</span>
+      <h2>Fair questions. Straight answers.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>How does the Founding Family price work?</summary>
+        <div class="a">Tap any button on this page and you land on the PrivacyPal Family signup with code FOUNDINGFAMILY-0926-496 applied. The plan shows the discounted price before you enter a card. Your first 5 days are free. After that, you pay 50% off the $9.99 plan for 12 months, then $9.99 a month. If the code is not showing on your plan, type it into the promo code field and it applies the same way.</div>
+      </details>
+      <details>
+        <summary>Is this spyware on my kid?</summary>
+        <div class="a">No, and we built it to be the opposite. PrivacyPal Family never shows you transcripts of what your child says to an AI. You see signals: which tools they used, what identity details we protected, and wellbeing trends. Your child can open their own view and see exactly what you see. Kids who know the deal don't need to hide.</div>
+      </details>
+      <details>
+        <summary>What exactly gets protected?</summary>
+        <div class="a">Real names, home address, phone numbers, school names, health details, and dozens more identity data types. The moment one is typed or uploaded, it is swapped with a safe stand-in (a Privacy Twin) before anything leaves the device. The AI's answer still makes sense. The real detail never left your house.</div>
+      </details>
+      <details>
+        <summary>Will it slow down or break the AI tools my kids use?</summary>
+        <div class="a">No. Protection runs on the device and adds around a third of a second. ChatGPT, Gemini, Claude, Copilot and Grok keep working exactly as before, in the browser and in desktop apps. Most kids never notice it is running.</div>
+      </details>
+      <details>
+        <summary>Which devices are covered today?</summary>
+        <div class="a">Mac and Windows (browser and desktop AI apps) are covered now, for up to 5 family members. iPhone, iPad and Android are rolling out to early access families, and one plan covers all of it as it ships.</div>
+      </details>
+      <details>
+        <summary>What if it is not for us?</summary>
+        <div class="a">Your first 5 days are free and we remind you before the trial ends. After that there is a 30-day money-back guarantee, and you can cancel anytime from Parent HQ. Cancelling keeps everything running until the month you paid for is up.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="section-sm">
+  <div class="container">
+    <div class="fcta reveal">
+      <span class="eyebrow">Founding Families · 50% off your first year</span>
+      <h2>Hold the keys. Let them fly.</h2>
+      <p>Give your kids the future without giving away who they are. Your Founding Family code is applied the moment you tap.</p>
+      <div class="btn-row">
+        <a class="btn btn-sun btn-lg" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim my Founding Family spot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="lpf">
+  <div class="lpf-inner">
+    <span>© 2026 PrivacyPal. Guardrails, not surveillance.</span>
+    <span><a href="../../privacy-policy.html" rel="nofollow">Privacy</a><a href="../../terms-of-service.html" rel="nofollow">Terms</a><a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></span>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky" aria-hidden="false">
+  <span class="s-txt"><b>50% off your first year</b>Founding Families · code applied</span>
+  <a class="btn btn-key" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim it</a>
+</div>
+
+<script src="../family.js"></script>
+<script>
+(function(){
+  'use strict';
+  /* Every CTA carries the Founding Families promo code to the signup wizard as
+     ?promo=. Any utm_* and fbclid on this page's URL ride along so attribution
+     survives the hop to family.privacypal.ai. */
+  var CODE = 'FOUNDINGFAMILY-0926-496';
+  var SIGNUP = 'https://family.privacypal.ai/signup';
+  var here = new URLSearchParams(location.search);
+  var out = new URLSearchParams();
+  out.set('promo', CODE);
+  here.forEach(function(v, k){ if (/^utm_/i.test(k) || k === 'fbclid') out.set(k, v); });
+  var href = SIGNUP + '?' + out.toString();
+
+  var ctas = document.querySelectorAll('a[data-signup]');
+  Array.prototype.forEach.call(ctas, function(a){
+    a.href = href;
+    a.addEventListener('click', function(){
+      if (typeof fbq === 'function'){
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'PrivacyPal Family · Founding Families',
+          content_category: 'family',
+          currency: 'USD',
+          value: 9.99
+        });
+      }
+    });
+  });
+
+  if (typeof fbq === 'function'){
+    fbq('track', 'ViewContent', { content_name: 'Founding Families landing', content_category: 'family' });
+  }
+})();
+</script>
+</body>
+</html>
