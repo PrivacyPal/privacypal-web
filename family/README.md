@@ -28,16 +28,31 @@ now either shipping or genuinely still early access, and the two are kept apart:
 - **Still early access:** iOS/iPadOS, Android, Wellbeing Signal, Answer Guard.
   `early-access.html` is now the list for *those*, not for the product.
 
-Every "start your free trial" CTA across the Family sub-site, the shared nav, the
-shared footer, the mobile menu, the homepage and the pricing page points at
-`https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496`. The three
-portal actions are defined once, at the top of `assets/v3.js`:
+### Nothing links straight to /signup
+
+**Every "start your free trial" CTA on the site goes to `founding/index.html`, the
+coded Founding Families landing page, and that page hands off to the portal.** A
+bare `?promo=` appended to the signup URL does not reliably reach the wizard, so a
+direct signup link silently drops the discount. The landing page is the fix: it
+states the code on the page, and its own CTAs carry
+`?promo=FOUNDINGFAMILY-0926-496` plus any `utm_*` and `fbclid` from the arriving
+URL.
+
+Adding a link to `family.privacypal.ai/signup` anywhere else in this repo
+re-introduces the bug. There is a guard for this: nothing outside
+`family/founding/index.html` should contain the string
+`family.privacypal.ai/signup`.
+
+The site-wide announcement bar also points at the landing page, so the launch
+banner on every page of privacypal.ai lands on the coded offer.
+
+The links are defined once, at the top of `assets/v3.js`:
 
 | Constant | URL | What it does |
 |---|---|---|
-| `FAMILY_SIGNUP` | `family.privacypal.ai/signup?promo=…` | The five-step wizard that creates the Family Account. Reads `?promo=` (and `?code=` as an alias), strips it from the address bar, and prices the plan step from Stripe. |
-| `FAMILY_DOWNLOAD` | `family.privacypal.ai/download` | Sniffs the OS and 302s to the current **Family** build, read live from the auto-update manifest. Never hardcode a version. |
-| `FAMILY_LOGIN` | `family.privacypal.ai/login` | Parent HQ. |
+| `FAMILY_OFFER` | `family/founding/index.html` | The coded landing page. Site-relative so `rel()` can prefix it for pages in subdirectories. This is what every trial CTA and the announcement bar point at. |
+| `FAMILY_DOWNLOAD` | `family.privacypal.ai/download` | Sniffs the OS and 302s to the current **Family** build, read live from the auto-update manifest. Never hardcode a version. Needs no code, so it links direct. |
+| `FAMILY_LOGIN` | `family.privacypal.ai/login` | Parent HQ. Needs no code, so it links direct. |
 
 **The Family desktop app is a different build from Pro.** Pro is
 `PrivacyPal-Setup-<v>.exe` / `PrivacyPal-<v>-arm64.dmg` on the `/proxy` feed
@@ -120,7 +135,8 @@ Done (2026-09-09):
    the signup. Same links in the footer column and the mobile menu.
 3. ~~Point the CTAs at something real.~~ Every "get early access" button on
    `index`, `parents`, `kids`, `promise` and `guidebook` is now
-   "start your free trial" → the live signup with the promo code.
+   "start your free trial" → the coded landing page, which carries the promo
+   code into the portal.
 4. The site-wide announcement bar is the Family launch (it was the Pro 1.9.33
    release note).
 5. `index.html` has a Family CTA banner; `pricing.html` has a Family plan band

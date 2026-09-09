@@ -25,16 +25,22 @@
 
   /* PrivacyPal Family is a separate product with its own account system, its own
      desktop build and its own release feed. Never point a Family link at the Pro
-     installers above. The portal owns all three actions:
-       /signup    the five-step wizard that creates the Family Account (accepts
-                  ?promo= and carries utm_* through)
+     installers above.
+
+     IMPORTANT: no link on this site goes straight to the portal's /signup. A bare
+     ?promo= on the signup URL does not reliably reach the wizard, so every "start
+     your trial" CTA on the site goes to FAMILY_OFFER, the coded Founding Families
+     landing page, which states the code on the page and hands off to /signup
+     itself (forwarding utm_* and fbclid). Adding a direct signup link anywhere
+     would silently drop the discount. It is a site-relative path so rel() can
+     prefix it for pages in subdirectories.
+
+     The two portal links below are safe to use directly: neither one needs a code.
        /download  sniffs the OS and 302s to the current Family build, read live
                   from the auto-update manifest, so no version is hardcoded here
-       /login     Parent HQ
-     FAMILY_PROMO is the Founding Families code behind the launch offer. */
+       /login     Parent HQ, for families who already have an account */
   var FAMILY_PORTAL = 'https://family.privacypal.ai';
-  var FAMILY_PROMO = 'FOUNDINGFAMILY-0926-496';
-  var FAMILY_SIGNUP = FAMILY_PORTAL + '/signup?promo=' + FAMILY_PROMO;
+  var FAMILY_OFFER = 'family/founding/index.html';
   var FAMILY_DOWNLOAD = FAMILY_PORTAL + '/download';
   var FAMILY_LOGIN = FAMILY_PORTAL + '/login';
 
@@ -64,7 +70,7 @@
   /* ---------------- Announcement bar ---------------- */
   var announceHTML =
   '<div class="announce">' +
-    '<a href="family/index.html"><span class="tag">New</span> PrivacyPal Family is live for Mac &amp; Windows. Founding Families get 50% off <span class="arrow">→</span></a>' +
+    '<a href="' + FAMILY_OFFER + '"><span class="tag">New</span> PrivacyPal Family is live for Mac &amp; Windows. Founding Families get 50% off <span class="arrow">→</span></a>' +
   '</div>';
 
   /* ---------------- Nav ---------------- */
@@ -131,13 +137,12 @@
             '</div>' +
             '<div class="nav-group">' +
               '<h6>Get started</h6>' +
-              '<a href="' + FAMILY_SIGNUP + '"><b>Create a Family Account</b><small>Five steps, then a 5-day free trial</small></a>' +
-              '<a href="family/founding/index.html"><b>Founding Families offer</b><small>50% off the $9.99 plan for your first year</small></a>' +
+              '<a href="' + FAMILY_OFFER + '"><b>Create a Family Account</b><small>Founding Families: 50% off your first year</small></a>' +
               '<a href="' + FAMILY_DOWNLOAD + '"><b>Download the app</b><small>Mac &amp; Windows, up to 5 family members</small></a>' +
               '<a href="family/index.html#plans"><b>Plans &amp; pricing</b><small>Whole-family cover, $9.99/mo</small></a>' +
               '<a href="' + FAMILY_LOGIN + '"><b>Sign in to Parent HQ</b><small>Already have a Family Account</small></a>' +
             '</div>' +
-            '<a class="nav-feature" href="' + FAMILY_SIGNUP + '">' +
+            '<a class="nav-feature" href="' + FAMILY_OFFER + '">' +
               '<img src="family/assets/photos/hero-dad-kids.jpg" alt="" loading="lazy">' +
               '<span class="cap"><b>Start your free trial</b><small>Founding Families: 50% off year one →</small></span>' +
             '</a>' +
@@ -203,8 +208,7 @@
     '<a href="family/promise.html">The Family Promise</a>' +
     '<a href="family/guidebook.html">The Guidebook</a>' +
     '<a href="family/index.html#plans">Plans</a>' +
-    '<a href="family/founding/index.html">Founding Families offer</a>' +
-    '<a href="' + FAMILY_SIGNUP + '">Create a Family Account</a>' +
+    '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
     '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
     '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
     '<h6>Company</h6>' +
@@ -264,8 +268,7 @@
           '<a href="family/promise.html">The Family Promise</a>' +
           '<a href="family/guidebook.html">The Guidebook</a>' +
           '<a href="family/index.html#plans">Plans</a>' +
-          '<a href="family/founding/index.html">Founding Families offer <small>50% OFF</small></a>' +
-          '<a href="' + FAMILY_SIGNUP + '">Create a Family Account <small>NEW</small></a>' +
+          '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
           '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
           '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
         '</div>' +
