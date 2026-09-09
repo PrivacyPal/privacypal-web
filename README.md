@@ -5,8 +5,13 @@ Landing page for PrivacyPal - AI Without Compromise
 ## Site structure
 
 - **Repository root** – Live site (the v3 redesign, promoted to root). This is what GitHub Pages serves.
-- **v2.archive/** – Archived previous site (pages + a snapshot of its `assets/`). Edit files in the root, not here.
-- **v3/** – Redirect stubs only, kept so pre-launch `/v3/…` links (e.g. the LinkedIn CISO campaign) still resolve.
+
+> `v2.archive/` (the previous site) and `v3/` (redirect stubs for pre-launch `/v3/…`
+> links) were deleted on 2026-09-09: crawlers were picking them up despite the
+> `robots.txt` disallow, which only asks politely and does not stop indexing of
+> pages linked from elsewhere. Both are recoverable from git history. Note that
+> `/v3/lp-ciso.html`, the stub behind the pre-launch LinkedIn CISO campaign URL,
+> now 404s; if that campaign is still live, restore that one file.
 
 ## Site architecture
 

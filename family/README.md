@@ -17,8 +17,38 @@ site:
   section) in the shared nav on every page of the site, defined in `assets/v3.js`.
 - Pages are indexed (no more `noindex`) and listed in `sitemap.xml`.
 
-**URL:** `https://privacypal.ai/family/` (note the trailing slash; `/family`
-without a slash resolves to the older one-pager `family.html`).
+**URL:** `https://privacypal.ai/family/` (note the trailing slash).
+
+## Launch state (2026-09-09)
+
+PrivacyPal Family is **live**. Everything the site says "get early access" about is
+now either shipping or genuinely still early access, and the two are kept apart:
+
+- **Shipping:** Mac and Windows, up to 5 family members, $9.99/mo, 5-day trial.
+- **Still early access:** iOS/iPadOS, Android, Wellbeing Signal, Answer Guard.
+  `early-access.html` is now the list for *those*, not for the product.
+
+Every "start your free trial" CTA across the Family sub-site, the shared nav, the
+shared footer, the mobile menu, the homepage and the pricing page points at
+`https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496`. The three
+portal actions are defined once, at the top of `assets/v3.js`:
+
+| Constant | URL | What it does |
+|---|---|---|
+| `FAMILY_SIGNUP` | `family.privacypal.ai/signup?promo=…` | The five-step wizard that creates the Family Account. Reads `?promo=` (and `?code=` as an alias), strips it from the address bar, and prices the plan step from Stripe. |
+| `FAMILY_DOWNLOAD` | `family.privacypal.ai/download` | Sniffs the OS and 302s to the current **Family** build, read live from the auto-update manifest. Never hardcode a version. |
+| `FAMILY_LOGIN` | `family.privacypal.ai/login` | Parent HQ. |
+
+**The Family desktop app is a different build from Pro.** Pro is
+`PrivacyPal-Setup-<v>.exe` / `PrivacyPal-<v>-arm64.dmg` on the `/proxy` feed
+(1.9.33 at time of writing); Family is `PrivacyPal-Family-Setup-<v>.exe` /
+`PrivacyPal-Family-<v>-{arm64,x64}.dmg` on the `/family` feed (1.0.3). The
+`data-cta="download"` modal in `v3.js` is the **Pro** installer. Never point a
+Family link at it, and never point a Family link at a hardcoded artifact URL:
+use `/download` so a new Family release updates every link with no site deploy.
+
+**Settled, do not re-raise:** the Stripe coupon runs 13 months while the site and
+the ads say 12. That extra month is deliberate. Marketing stays at 12 months.
 
 ## Pages
 
@@ -29,8 +59,8 @@ without a slash resolves to the older one-pager `family.html`).
 | `kids.html` | Speaks to kids/teens: transparency table ("the deal"), armor framing, stage ladder |
 | `promise.html` | The Family Promise: 5 numbered promises, each naming its mechanism |
 | `guidebook.html` | The Guidebook: the research behind raising AI-native kids. Four cited vulnerabilities, the frameworks Family is designed to align with, the wellbeing mechanism (mood weather, safety signals, Deep Insights), the trust architecture, the T1-T4 parent playbook with stage variants, crisis behavior, and full numbered sources from the research registry (v1.0.0) |
-| `early-access.html` | Parent-focused waitlist landing: friendly form (name, email, devices, kids' ages, priority), "opens in the next 2 weeks" promise, what-happens-next timeline. All "Get early access" CTAs point here. Submits via FormSubmit.co to **hi@privacypal.ai**, same mechanism as the careers application form (hidden-iframe POST, honeypot, `_next` success detection). NOTE: FormSubmit requires one-time activation per address; the first submission triggers an activation email to hi@privacypal.ai that must be confirmed before deliveries flow. |
-| `founding/index.html` | **Campaign landing page** (`/family/founding/`) for paid ads and organic social. Deliberately **unlisted**: `noindex,nofollow`, not in `sitemap.xml`, not in the shared nav or footer, and it loads no `v3.js` (its own minimal header and legal-only footer so the only exit is the CTA). Every CTA points at `https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496`; the inline script also forwards any `utm_*` and `fbclid` from the landing URL. Meta pixel fires `ViewContent` on load and `InitiateCheckout` on CTA click. States the Founding Families offer: 50% off the $9.99 plan for the first 12 months. Requires the family-portal signup to accept `?promo=` (privacypal-cloud change); until then the code is shown on-page so parents can type it. |
+| `early-access.html` | **Post-launch: the mobile & Pal Agents early access list**, not the product waitlist. Mac and Windows ship today and need no invite, so the hero leads with "start your free trial" and "download", and the form now decides who gets an iOS/iPadOS/Android build and the Pal Agents first. Friendly form (name, email, devices, kids' ages, priority). No longer linked from any CTA: the nav, footer and every page button now go to signup instead. Submits via FormSubmit.co to **hi@privacypal.ai**, same mechanism as the careers application form (hidden-iframe POST, honeypot, `_next` success detection). NOTE: FormSubmit requires one-time activation per address; the first submission triggers an activation email to hi@privacypal.ai that must be confirmed before deliveries flow. |
+| `founding/index.html` | **Campaign landing page** (`/family/founding/`) for paid ads and organic social. **Indexable since 2026-09-09** (robots meta dropped, canonical added, listed in `sitemap.xml`) and linked from the shared nav, footer, mobile menu, the family home and the early-access page. It still loads no `v3.js`: its own minimal header and legal-only footer, with a footer link back to `/family/` so it is not a dead end. Every CTA points at `https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496`; the inline script also forwards any `utm_*` and `fbclid` from the landing URL. Meta pixel fires `ViewContent` on load and `InitiateCheckout` on CTA click. States the Founding Families offer: 50% off the $9.99 plan for the first 12 months. The family-portal signup accepts `?promo=` in production, so the code is applied automatically; it is still shown on-page as a fallback. |
 
 ## The sub-brand (summary)
 
@@ -78,15 +108,34 @@ without a slash resolves to the older one-pager `family.html`).
   the logo. The Parent HQ dashboard and phone digest are hand-built HTML mocks
   (design previews), labeled as such on-page.
 
-## Launch checklist (when Jason says go)
+## Launch checklist
 
-1. Remove `noindex,nofollow` meta from all four pages.
-2. Remove the "team preview · not public" pill from the nav (`.preview-pill`).
-3. Add `/family/` pages to `sitemap.xml` and link from main-site nav/footer
-   (`assets/v3.js`), replacing or redirecting the legacy `family.html`.
-4. Confirm hi@privacypal.ai has completed FormSubmit.co activation (submit the
-   form once and click the activation link that lands in that inbox), and confirm
-   the "opens in the next 2 weeks" date before anyone external sees it.
-5. Update the og meta (currently none by design, to stay uncrawlable) and add
-   social cards.
-6. Re-verify Private Memory claims against the Brain guidance at launch time.
+Done (2026-09-09):
+
+1. ~~Remove `noindex,nofollow`~~ and the preview pill. Pages are indexed and in
+   `sitemap.xml`.
+2. ~~Link from the main-site nav/footer.~~ The shared nav's Family dropdown now
+   carries a second "Get started" group (create an account, the Founding
+   Families offer, download, plans, Parent HQ sign-in) and its feature card is
+   the signup. Same links in the footer column and the mobile menu.
+3. ~~Point the CTAs at something real.~~ Every "get early access" button on
+   `index`, `parents`, `kids`, `promise` and `guidebook` is now
+   "start your free trial" → the live signup with the promo code.
+4. The site-wide announcement bar is the Family launch (it was the Pro 1.9.33
+   release note).
+5. `index.html` has a Family CTA banner; `pricing.html` has a Family plan band
+   at `#family`.
+6. `founding/index.html` is linked from the nav, footer, mobile menu, the family
+   home hero and plan card, and the early-access page, and its footer now links
+   back to `/family/` so it is not a dead end.
+
+7. `founding/index.html` is public: robots meta dropped, canonical added, listed
+   in `sitemap.xml`.
+
+Still open:
+
+- Confirm hi@privacypal.ai has completed FormSubmit.co activation before relying
+  on the early-access list.
+- Meta pixel on the family portal is still not added (Jason's call, given the
+  Family privacy promise), so signup conversions are not attributed today.
+- Re-verify Private Memory claims against the Brain guidance.

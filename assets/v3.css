@@ -232,6 +232,15 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
   min-width:280px;
 }
 .nav-item.open .nav-drop{opacity:1;visibility:visible;transform:translateY(0)}
+
+/* The PrivacyPal Family drop carries two groups plus the feature card, which is
+   ~790px wide and runs off the right edge between the desktop nav breakpoint
+   (1081px) and about 1260px. Drop the photo card there: two groups is ~560px,
+   which clears 1081px with room to spare. Re-anchoring the drop instead pushes
+   it off the LEFT edge, because the item sits ~340px into the nav. */
+@media (max-width:1260px){
+  .nav-item--family .nav-feature{display:none}
+}
 .nav-group{min-width:230px}
 .nav-group + .nav-group{border-left:1px solid var(--line-soft);padding-left:28px}
 .nav-group h6{

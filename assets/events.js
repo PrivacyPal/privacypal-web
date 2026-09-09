@@ -20,8 +20,7 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
   }
-  // JSON asset paths are root-relative; v3 pages live in /v3/, so prefix
-  // any non-absolute path is repo-root-relative.
+  // JSON asset paths are root-relative: any non-absolute path is repo-root-relative.
   function asset(p){ return (p && !/^https?:\/\//.test(p)) ? String(p).replace(/^\/+/, '') : p; }
   // description / tagline copy is authored with a few safe inline tags
   // (<strong>, <em>, <code>): allow those, escape everything else.

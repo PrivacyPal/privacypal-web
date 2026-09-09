@@ -47,8 +47,9 @@ names are kept but remapped: `blue`≙teal, `pink`≙coral, `orange`≙tangerine
 3. All assets are root-relative, with no `../` prefixes
    (e.g. `assets/hero-shot-banking.png`, `product-shot-001.png`, `assets/v3.css`).
 4. Links between v3 pages are plain relative (`banking.html`, `pricing.html`).
-5. Copy comes from the archived old page in `v2.archive/`. Keep every fact, number,
-   feature list and claim. You may tighten headlines to fit the aesthetic
+5. Copy for a page that replaces an older one comes from that page's last version
+   in git history (`v2.archive/` was deleted 2026-09-09; `git log --diff-filter=D`
+   finds it). Keep every fact, number, feature list and claim. You may tighten headlines to fit the aesthetic
    (short, sentence case, no title case). **Never invent** stats, customers,
    testimonials or capabilities.
 6. Demo CTAs: `<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>`.
@@ -108,7 +109,7 @@ Copy icon paths from index.html or draw simple ones. No emoji.
   `-legal.png`, `-technology.png`, `-about.png`
 - Team photos: `jason-melo.jpg`, `chris-adamo.jpeg`, `ralph_vetsch.jpeg`,
   `brandon_turp.png`, `erik-frantzen.jpg`, `jordan_serlin.jpg`,
-  `palvinder-head.png` (check v2.archive/team.html for who's who)
+  `palvinder-head.png` (check `team.html` for who's who)
 - Customer logos: see index.html marquee
 - Integrations: `assets/salesforce.svg`, `slack.svg`, `notion.svg`, `sqlserver.svg`,
   `workday.svg`, `oracle.svg`, `gdocs.svg`, `gdrive.svg`, `word.svg`,

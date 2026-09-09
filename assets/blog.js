@@ -18,7 +18,7 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[c]));
   }
-  // JSON paths are root-relative ("blog/images/x.jpg"); v3 pages live in /v3/
+  // JSON paths are root-relative ("blog/images/x.jpg").
   function asset(p){
     if (!p) return p;
     return /^(https?:)?\/\//.test(p) || p.startsWith('../') || p.startsWith('/') ? p : p;
