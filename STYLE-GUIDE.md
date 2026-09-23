@@ -13,7 +13,15 @@ accents, Muted Coral `#D54751` for risk/problem framing, Warm Amber `#F6DCAC` an
 Soft Ivory `#F0ECC9` for background washes only. The legacy accent class/token
 names are kept but remapped: `blue`≙teal, `pink`≙coral, `orange`≙tangerine.
 
-**Canonical example: `index.html`. Read it before building any page.**
+**Canonical corporate example: `business.html`. Read it before building any
+standard page.** Since 2026-09-22 the homepage (`index.html`) is the
+consumer-first cinematic page: PrivacyPal Family front and center (full-bleed
+photo hero, launch-film modal, Fredoka display type in the family sections),
+with the business line presented as the second door and living under
+`business.html` plus the "For Business" nav dropdown. Only the homepage borrows
+Family DNA at the root; every other root page stays in the corporate system
+below. The homepage sets `body.cinema`, which v3.css uses to render the shared
+nav transparent-over-photo until scroll; do not reuse that class elsewhere.
 
 ## Hard rules
 
@@ -118,3 +126,9 @@ Copy icon paths from index.html or draw simple ones. No emoji.
   `glyph-chatgpt.png`, `glyph-claude.png`, `glyph-gemini.png`, `glyph-copilot.png` (square glyphs, used by the index AI cluster)
 - Cloud logos: `logos/aws.svg`, `azure.svg`, `gcp.svg`, `digitalocean.svg`, `vercel.svg`
 - Partner: `nvidia-inception-program-badge-rgb-for-screen.png`
+- Family launch film: `assets/family-launch-film.mp4` (1080p H.264, 1:52,
+  transcoded from the master on Jason's machine), poster
+  `assets/family-launch-poster.jpg`, hero chip thumb
+  `assets/family-launch-card.jpg`. Played by the homepage film modal.
+- Family photography lives in `family/assets/photos/` (the homepage hero uses
+  `family-beach.jpg`; the nav feature card uses `hero-dad-kids.jpg`).

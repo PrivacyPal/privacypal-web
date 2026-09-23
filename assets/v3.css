@@ -233,12 +233,10 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
 }
 .nav-item.open .nav-drop{opacity:1;visibility:visible;transform:translateY(0)}
 
-/* The PrivacyPal Family drop carries two groups plus the feature card, which is
-   ~790px wide and runs off the right edge between the desktop nav breakpoint
-   (1081px) and about 1260px. Drop the photo card there: two groups is ~560px,
-   which clears 1081px with room to spare. Re-anchoring the drop instead pushes
-   it off the LEFT edge, because the item sits ~340px into the nav. */
-@media (max-width:1260px){
+/* The Family drop carries two groups plus the feature card (~790px wide). As
+   the first nav item it anchors ~150px in, so it clears the desktop breakpoint;
+   hide the photo card just above it as a defensive margin. */
+@media (max-width:1120px){
   .nav-item--family .nav-feature{display:none}
 }
 .nav-group{min-width:230px}
@@ -313,6 +311,40 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
 .mobile-menu .mm-social{display:flex;gap:14px;margin-top:24px}
 .mobile-menu .mm-social a{border-bottom:0;padding:6px}
 .mobile-menu .mm-social svg{width:18px;height:18px}
+
+/* right-anchored dropdown (the Sign in split: Parent HQ / Business portal) */
+.nav-drop.drop-right{left:auto;right:0;min-width:0}
+.nav-group.slim{min-width:216px}
+
+/* The For Business drop carries three groups (~790px). It clears the desktop
+   nav breakpoint from its anchor position, but wrap it defensively just above. */
+@media (max-width:1120px){
+  .nav-item--biz .nav-drop{flex-wrap:wrap;max-width:580px}
+  .nav-item--biz .nav-group + .nav-group{border-left:0;padding-left:0}
+}
+
+/* Cinema mode: the homepage sets body.cinema and pulls a full-bleed dark hero
+   up behind the nav. The nav starts transparent with light chrome, and returns
+   to the standard white blur once scrolled (or while the mobile menu is open). */
+body.cinema .site-nav:not(.scrolled):not(.menu-open){
+  background:transparent;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > a,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > button,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-social a,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-signin{color:#fff}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > a:hover,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > button:hover,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item.open > button,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-social a:hover,
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-signin:hover{background:rgba(255,255,255,.14)}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-logo img{filter:brightness(0) invert(1)}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-right .btn-ghost{
+  background:transparent;color:#fff;border-color:rgba(255,255,255,.5);
+}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-right .btn-ghost:hover{border-color:#fff}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-burger span{background:#fff}
 
 /* ---------- Hero ---------- */
 .hero{padding:110px 0 70px;text-align:center;position:relative;overflow:hidden}
@@ -1033,6 +1065,7 @@ table.compare td.max-link a:hover{opacity:.75}
   .nav-menu{display:none}
   .nav-social{display:none}
   .nav-signin{display:none}
+  .nav-right .nav-item{display:none}
   .nav-right .btn-ghost{display:none}
   .nav-burger{display:flex}
   .footer-grid{grid-template-columns:repeat(2,1fr)}

@@ -13,8 +13,14 @@ site:
   Announcement/Nav/Footer/Modal sections of `assets/v3.css`. If those sections
   change in v3.css, update family-chrome.css to match. Scoping keeps corporate
   tokens inside the chrome and Family tokens out of it.
-- "PrivacyPal Family" is a top-level item (dropdown + footer column + mobile
-  section) in the shared nav on every page of the site, defined in `assets/v3.js`.
+- Since the 2026-09-22 revamp, Family is the main show sitewide: the shared
+  nav's FIRST item is the "Family" mega-dropdown, the footer's first column is
+  the Family column, the nav's primary button is "Start free trial" (the coded
+  Founding Families page), the desktop "Sign in" is a two-entry dropdown
+  (Parent HQ + Business portal), and the root homepage (`/index.html`) is a
+  consumer-first cinematic Family page with the launch-film modal. The business
+  line (Pro/Max/Cloud/SDK, platform, industries) is consolidated under the
+  "For Business" dropdown and `business.html`. All defined in `assets/v3.js`.
 - Pages are indexed (no more `noindex`) and listed in `sitemap.xml`.
 
 **URL:** `https://privacypal.ai/family/` (note the trailing slash).

@@ -81,50 +81,8 @@
 
       '<div class="nav-menu" id="navMenu">' +
 
-        '<div class="nav-item" data-drop>' +
-          '<button type="button" aria-expanded="false">Product <span class="caret"></span></button>' +
-          '<div class="nav-drop">' +
-            '<div class="nav-group">' +
-              '<h6>Platform</h6>' +
-              '<a href="device-control.html"><b>On-Device Protection</b><small>Real-time interception across every AI app</small></a>' +
-              '<a href="ai-dspm.html"><b>AI-DSPM</b><small>On-device + network data security posture</small></a>' +
-              '<a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic substitution, no blunt redaction</small></a>' +
-              '<a href="private-memory.html"><b>Private Memory</b><small>One memory across every AI: yours</small></a>' +
-              '<a href="privacypal-ai.html"><b>Agent Governance</b><small>Claude Code, Copilot &amp; MCP under control</small></a>' +
-            '</div>' +
-            '<div class="nav-group">' +
-              '<h6>Editions</h6>' +
-              '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, one person covered</small></a>' +
-              '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy &amp; governance for your company</small></a>' +
-              '<a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>' +
-              '<a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-
-        '<div class="nav-item" data-drop>' +
-          '<button type="button" aria-expanded="false">Solutions <span class="caret"></span></button>' +
-          '<div class="nav-drop">' +
-            '<div class="nav-group">' +
-              '<h6>By industry</h6>' +
-              '<a href="accounting.html"><b>Accounting</b><small>CPA firms, tax practices &amp; advisory</small></a>' +
-              '<a href="banking.html"><b>Banking</b><small>Community banks, credit unions &amp; wealth</small></a>' +
-              '<a href="healthcare.html"><b>Healthcare</b><small>Clinics, therapists &amp; specialist practices</small></a>' +
-              '<a href="legal.html"><b>Legal</b><small>Law firms, in-house counsel &amp; paralegals</small></a>' +
-              '<a href="technology.html"><b>Technology</b><small>SaaS teams shipping AI on customer data</small></a>' +
-            '</div>' +
-            '<div class="nav-group">' +
-              '<h6>By team</h6>' +
-              '<a href="privacypal-pro.html"><b>For individuals</b><small>Install once, govern every AI: Pro</small></a>' +
-              '<a href="privacypal-max.html"><b>For companies, 2 to 2,000</b><small>Agents, connections &amp; DSPM: Max</small></a>' +
-              '<a href="privacypal-cloud.html"><b>For regulated &amp; sovereign</b><small>Your VPC, your keys: Cloud</small></a>' +
-              '<a href="developers.html"><b>For developers</b><small>Govern your own agents: SDK</small></a>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-
         '<div class="nav-item nav-item--family" data-drop>' +
-          '<button type="button" aria-expanded="false">PrivacyPal Family <span class="caret"></span></button>' +
+          '<button type="button" aria-expanded="false">Family <span class="caret"></span></button>' +
           '<div class="nav-drop">' +
             '<div class="nav-group">' +
               '<h6>For your family</h6>' +
@@ -149,7 +107,38 @@
           '</div>' +
         '</div>' +
 
-        '<div class="nav-item"><a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Docs ' + ICONS.extLink + '</a></div>' +
+        '<div class="nav-item nav-item--biz" data-drop>' +
+          '<button type="button" aria-expanded="false">For Business <span class="caret"></span></button>' +
+          '<div class="nav-drop">' +
+            '<div class="nav-group">' +
+              '<h6>The business line</h6>' +
+              '<a href="business.html"><b>PrivacyPal for Business</b><small>Govern every AI at work: the overview</small></a>' +
+              '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, one person covered</small></a>' +
+              '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy &amp; governance for your company</small></a>' +
+              '<a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>' +
+              '<a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>' +
+              '<a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener"><b>Docs</b><small>SDK reference &amp; developer guides</small></a>' +
+            '</div>' +
+            '<div class="nav-group">' +
+              '<h6>Platform</h6>' +
+              '<a href="device-control.html"><b>On-Device Protection</b><small>Real-time interception across every AI app</small></a>' +
+              '<a href="ai-dspm.html"><b>AI-DSPM</b><small>On-device + network data security posture</small></a>' +
+              '<a href="privacy-twins.html"><b>Privacy Twins</b><small>Synthetic substitution, no blunt redaction</small></a>' +
+              '<a href="private-memory.html"><b>Private Memory</b><small>One memory across every AI: yours</small></a>' +
+              '<a href="privacypal-ai.html"><b>Agent Governance</b><small>Claude Code, Copilot &amp; MCP under control</small></a>' +
+            '</div>' +
+            '<div class="nav-group">' +
+              '<h6>By industry</h6>' +
+              '<a href="accounting.html"><b>Accounting</b><small>CPA firms, tax practices &amp; advisory</small></a>' +
+              '<a href="banking.html"><b>Banking</b><small>Community banks, credit unions &amp; wealth</small></a>' +
+              '<a href="healthcare.html"><b>Healthcare</b><small>Clinics, therapists &amp; specialist practices</small></a>' +
+              '<a href="legal.html"><b>Legal</b><small>Law firms, in-house counsel &amp; paralegals</small></a>' +
+              '<a href="technology.html"><b>Technology</b><small>SaaS teams shipping AI on customer data</small></a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="nav-item"><a href="pricing.html">Pricing</a></div>' +
 
         '<div class="nav-item" data-drop>' +
           '<button type="button" aria-expanded="false">Company <span class="caret"></span></button>' +
@@ -169,37 +158,27 @@
         '</div>' +
 
         '<div class="nav-item"><a href="blog.html">Blog</a></div>' +
-        '<div class="nav-item"><a href="pricing.html">Pricing</a></div>' +
       '</div>' +
 
       '<div class="nav-right">' +
         '<div class="nav-social">' + social() + '</div>' +
-        '<a class="nav-signin" href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign in</a>' +
+        '<div class="nav-item nav-item--signin" data-drop>' +
+          '<button type="button" aria-expanded="false">Sign in <span class="caret"></span></button>' +
+          '<div class="nav-drop drop-right">' +
+            '<div class="nav-group slim">' +
+              '<a href="' + FAMILY_LOGIN + '"><b>Parent HQ</b><small>PrivacyPal Family sign-in</small></a>' +
+              '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener"><b>Business portal</b><small>Pro, Max &amp; Cloud sign-in</small></a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
         '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-        '<a class="btn btn-primary" href="#" data-cta="download">Install</a>' +
+        '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>' +
         '<button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</div>' +
   '</nav>' +
 
   '<div class="mobile-menu" id="mobileMenu">' +
-    '<h6>Platform</h6>' +
-    '<a href="device-control.html">On-Device Protection</a>' +
-    '<a href="ai-dspm.html">AI-DSPM</a>' +
-    '<a href="privacy-twins.html">Privacy Twins</a>' +
-    '<a href="private-memory.html">Private Memory</a>' +
-    '<a href="privacypal-ai.html">Agent Governance</a>' +
-    '<h6>Editions</h6>' +
-    '<a href="privacypal-pro.html">PrivacyPal Pro</a>' +
-    '<a href="privacypal-max.html">PrivacyPal Max</a>' +
-    '<a href="privacypal-cloud.html">PrivacyPal Cloud</a>' +
-    '<a href="developers.html">PrivacyPal SDK</a>' +
-    '<h6>Solutions</h6>' +
-    '<a href="accounting.html">Accounting</a>' +
-    '<a href="banking.html">Banking</a>' +
-    '<a href="healthcare.html">Healthcare</a>' +
-    '<a href="legal.html">Legal</a>' +
-    '<a href="technology.html">Technology</a>' +
     '<h6>PrivacyPal Family</h6>' +
     '<a href="family/index.html">Meet PrivacyPal Family</a>' +
     '<a href="family/index.html#how">How it works</a>' +
@@ -211,6 +190,24 @@
     '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
     '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
     '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
+    '<h6>For Business</h6>' +
+    '<a href="business.html">PrivacyPal for Business</a>' +
+    '<a href="privacypal-pro.html">PrivacyPal Pro</a>' +
+    '<a href="privacypal-max.html">PrivacyPal Max</a>' +
+    '<a href="privacypal-cloud.html">PrivacyPal Cloud</a>' +
+    '<a href="developers.html">PrivacyPal SDK</a>' +
+    '<h6>Platform</h6>' +
+    '<a href="device-control.html">On-Device Protection</a>' +
+    '<a href="ai-dspm.html">AI-DSPM</a>' +
+    '<a href="privacy-twins.html">Privacy Twins</a>' +
+    '<a href="private-memory.html">Private Memory</a>' +
+    '<a href="privacypal-ai.html">Agent Governance</a>' +
+    '<h6>By industry</h6>' +
+    '<a href="accounting.html">Accounting</a>' +
+    '<a href="banking.html">Banking</a>' +
+    '<a href="healthcare.html">Healthcare</a>' +
+    '<a href="legal.html">Legal</a>' +
+    '<a href="technology.html">Technology</a>' +
     '<h6>Company</h6>' +
     '<a href="about.html">About us</a>' +
     '<a href="team.html">Team</a>' +
@@ -222,10 +219,10 @@
     '<h6>More</h6>' +
     '<a href="pricing.html">Pricing</a>' +
     '<a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Docs</a>' +
-    '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Sign in</a>' +
+    '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Business portal sign-in</a>' +
     '<div class="mm-ctas">' +
       '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-      '<a class="btn btn-primary" href="#" data-cta="download">Install</a>' +
+      '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>' +
     '</div>' +
     '<div class="mm-social">' + social() + '</div>' +
   '</div>';
@@ -236,7 +233,21 @@
     '<div class="footer-inner">' +
       '<div class="footer-grid">' +
         '<div class="footer-col">' +
-          '<h5>Product</h5>' +
+          '<h5>PrivacyPal Family</h5>' +
+          '<a href="family/index.html">Meet PrivacyPal Family</a>' +
+          '<a href="family/index.html#how">How it works</a>' +
+          '<a href="family/parents.html">For parents</a>' +
+          '<a href="family/kids.html">For kids &amp; teens</a>' +
+          '<a href="family/promise.html">The Family Promise</a>' +
+          '<a href="family/guidebook.html">The Guidebook</a>' +
+          '<a href="family/index.html#plans">Plans</a>' +
+          '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
+          '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
+          '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
+        '</div>' +
+        '<div class="footer-col">' +
+          '<h5>For Business</h5>' +
+          '<a href="business.html">PrivacyPal for Business</a>' +
           '<a href="device-control.html">On-Device Protection</a>' +
           '<a href="ai-dspm.html">AI-DSPM</a>' +
           '<a href="privacy-twins.html">Privacy Twins</a>' +
@@ -258,19 +269,6 @@
           '<a href="privacypal-cloud.html">For Enterprise</a>' +
           '<a href="install.html">Install guide</a>' +
           '<a href="desktop.html">Desktop app</a>' +
-        '</div>' +
-        '<div class="footer-col">' +
-          '<h5>PrivacyPal Family</h5>' +
-          '<a href="family/index.html">Meet PrivacyPal Family</a>' +
-          '<a href="family/index.html#how">How it works</a>' +
-          '<a href="family/parents.html">For parents</a>' +
-          '<a href="family/kids.html">For kids &amp; teens</a>' +
-          '<a href="family/promise.html">The Family Promise</a>' +
-          '<a href="family/guidebook.html">The Guidebook</a>' +
-          '<a href="family/index.html#plans">Plans</a>' +
-          '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
-          '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
-          '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
         '</div>' +
         '<div class="footer-col">' +
           '<h5>Resources</h5>' +
@@ -304,7 +302,7 @@
         '<a class="foot-logo" href="index.html"><img src="assets/logo-color.png" alt="PrivacyPal"></a>' +
         '<div class="footer-social">' + social() + '</div>' +
         '<div class="footer-legal">' +
-          '<span>© 2026 PrivacyPal. Governance for the AI Operating System.</span>' +
+          '<span>© 2026 PrivacyPal. You hold the keys, at home and at work.</span>' +
           '<a href="privacy.html">Privacy</a>' +
           '<a href="terms.html">Terms</a>' +
           '<a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a>' +
@@ -415,11 +413,13 @@
       burger.classList.toggle('active', on);
       burger.setAttribute('aria-expanded', on ? 'true' : 'false');
       document.body.style.overflow = on ? 'hidden' : '';
+      if (nav) nav.classList.toggle('menu-open', on);
     });
     mmenu.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', function(){
         mmenu.classList.remove('active'); burger.classList.remove('active');
         document.body.style.overflow = '';
+        if (nav) nav.classList.remove('menu-open');
       });
     });
   }
