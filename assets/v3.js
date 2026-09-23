@@ -35,11 +35,12 @@
      anywhere would silently drop the discount. It is a site-relative path so
      rel() can prefix it for pages in subdirectories.
 
-     The chrome is context-aware: on /family/ pages the announce bar and primary
-     CTA push the Founding Families offer (Family keeps its 5-day trial); on
-     every other page they push Pro, which is completely free for individuals
-     (no card, no trial), via the download modal. Max has no trial mode: it is
-     paid from day one, upsold from free Pro.
+     The chrome's primary CTA ("Start Family free") always points at FAMILY_OFFER,
+     on every page. The announce bar is context-aware: on /family/ pages it pushes
+     the Founding Families offer (Family keeps its 5-day trial); on every other
+     page it pushes Pro, which is completely free for individuals (no card, no
+     trial), via the download modal. Max has no trial mode: it is paid from day
+     one, upsold from free Pro.
 
      The two portal links below are safe to use directly: neither one needs a code.
        /download  sniffs the OS and 302s to the current Family build, read live
@@ -183,9 +184,7 @@
           '</div>' +
         '</div>' +
         '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-        (IS_FAMILY
-          ? '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>'
-          : '<a class="btn btn-primary" href="#" data-cta="download">Get Pro free</a>') +
+        '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start Family free</a>' +
         '<button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</div>' +
@@ -235,9 +234,7 @@
     '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Business portal sign-in</a>' +
     '<div class="mm-ctas">' +
       '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-      (IS_FAMILY
-        ? '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>'
-        : '<a class="btn btn-primary" href="#" data-cta="download">Get Pro free</a>') +
+      '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start Family free</a>' +
     '</div>' +
     '<div class="mm-social">' + social() + '</div>' +
   '</div>';
