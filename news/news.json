@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-08-03",
+    "updated": "2026-09-23",
     "pressEmail": "press@privacypal.ai"
   },
   "categories": [
@@ -35,11 +35,341 @@
   ],
   "articles": [
     {
+      "id": "mobile-launch",
+      "title": "PrivacyPal Mobile arrives on iPhone and iPad",
+      "category": "press-release",
+      "date": "2026-10-01",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "5 min read",
+      "thumb": "news/images/mobile-launch.jpg",
+      "hero": "news/images/mobile-launch.jpg",
+      "excerpt": "The phone is where the sensitive prompt actually gets typed. PrivacyPal Mobile protects AI traffic on iOS and iPadOS, and by construction it never receives anything else.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "WEST PALM BEACH, FL, October 1, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced PrivacyPal Mobile for iOS and iPadOS. Mobile carries the Company’s on-device interception to the handset, where it governs the AI applications an employee uses and, by deliberate architecture, never receives anything else."
+        },
+        {
+          "type": "h2",
+          "text": "The Desktop Design Did Not Survive Contact With iOS"
+        },
+        {
+          "type": "p",
+          "text": "On a laptop PrivacyPal owns the network path. A local proxy, a trusted certificate and a policy file are enough to see every request an AI client makes and to protect it before it leaves. iOS offers one comparable lever, a packet tunnel, and attaches three constraints to it: a hard memory ceiling measured in a handful of megabytes, no ability to draw an interface, and certificate trust that cannot be automated, deep-linked or even read outside of mobile device management."
+        },
+        {
+          "type": "p",
+          "text": "A port of the desktop design would have failed on all three, and the failure mode is not a warning dialog. It is a dropped AI request the user experiences as the assistant being broken. So the Company inverted the model instead."
+        },
+        {
+          "type": "h2",
+          "text": "Scoped, Not Filtered"
+        },
+        {
+          "type": "p",
+          "text": "Rather than receiving all traffic and filtering out what does not matter, the tunnel claims routes only for the AI destinations under policy. Packets from a banking app are never handed to the extension at all: not filtered, not inspected, not seen. Five layers hold that boundary in place."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A denylist compiled into the binary that no downloaded policy can override.",
+            "Claimed routes limited to the AI ranges, so everything else leaves the device directly.",
+            "DNS matching limited to intercept hosts, so nothing else is even resolved through PrivacyPal.",
+            "A per-connection lease that encodes the destination hostname, so the governing policy is known before the connection opens rather than inferred once it is running.",
+            "A server-name cross-check at the TLS handshake, which catches any mismatch between the destination requested and the destination presented."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "That yields a claim the desktop build cannot make. On iOS, PrivacyPal is structurally incapable of seeing a user’s non-AI traffic. For a security reviewer that is the difference between a policy promise and a property of the system, and it is the line the Company leads with in front of a CISO."
+        },
+        {
+          "type": "h2",
+          "text": "The Twin Engine Runs on the Handset"
+        },
+        {
+          "type": "p",
+          "text": "Protection itself happens on the phone. Sensitive spans are detected with Apple’s on-device natural language framework alongside checksum-validated detectors for email addresses, phone numbers, government identifiers, payment cards validated with Luhn, IBANs, addresses and postal codes. Each detected value is replaced with a twin that preserves its entity type, so a date still reads as a date and a customer name still reads as a name."
+        },
+        {
+          "type": "p",
+          "text": "Twins hold steady inside a conversation and are deliberately not reused across conversations. A twin that persists forever becomes a tracking identifier, which would reintroduce the exact linkability the substitution exists to remove. Nothing about the detection pass leaves the device."
+        },
+        {
+          "type": "quote",
+          "text": "The phone is where the sensitive prompt actually gets typed. It is also the device where nobody will accept a security product that reads everything, and they are right not to. So we built a tunnel that is blind to every destination except the ones it is permitted to govern, and we do the protection work on the handset. We never wanted your traffic. Now we cannot have it.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "What It Does Not Do"
+        },
+        {
+          "type": "p",
+          "text": "Four limits ship stated, because a security review finds them anyway and an optimistic coverage matrix does not survive one:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Siri, Apple Intelligence and Private Cloud Compute cannot be intercepted, by PrivacyPal or by anyone else. Apple’s transport is attested and much of it never touches the network. The only available control is an MDM restriction, and PrivacyPal claims nothing beyond that.",
+            "Always-On VPN in Apple’s sense is available only to IKEv2 profiles. What ships instead is on-demand connect rules on every interface, a non-removable configuration profile, and user VPN creation disabled. The outcome matches; the label does not, and the Company states it precisely rather than winning a checklist and losing the bake-off.",
+            "Preventing removal of the app requires a supervised device. On unsupervised hardware PrivacyPal detects removal within three minutes and reports it, but cannot block it.",
+            "Certificate-pinned applications are refused rather than passed through unprotected. A surface PrivacyPal cannot protect does not get a silent exception, on any platform."
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Deployment and Availability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Managed fleets: distribution through Apple Business Manager custom apps, with a per-app VPN that scopes protection to the applications IT names.",
+            "BYOD: a packet tunnel scoped to the same AI routes, which leaves personal traffic untouched and demonstrably out of reach.",
+            "No in-app purchase of any kind. Seats are bought on the web, so Apple takes no commission and procurement stays where it belongs.",
+            "Android is in development and will be announced separately."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal Mobile is available beginning today through PrivacyPal and its distribution and managed-service partners. Deploy once. Govern the phone the same way you govern the laptop. Write to hi@privacypal.ai to arrange a pilot."
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
+      "id": "family-launch",
+      "title": "PrivacyPal launches Family: guardrails for the AI kids already use",
+      "category": "press-release",
+      "date": "2026-09-21",
+      "featured": true,
+      "author": "PrivacyPal Newsroom",
+      "readTime": "5 min read",
+      "thumb": "news/images/family-launch.jpg",
+      "hero": "news/images/family-launch.jpg",
+      "excerpt": "Approve the tools. Protect what gets typed. See how it is going without reading a word of it. PrivacyPal Family is $9.99 a month for five devices in the house.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "WEST PALM BEACH, FL, September 21, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced the public launch of PrivacyPal Family, a consumer edition of its protection engine built for households. Family covers the AI tools children already use, protects the personal information that goes into them, and gives parents a view of what is happening without reading a word their child wrote. It is $9.99 a month for up to five devices."
+        },
+        {
+          "type": "h2",
+          "text": "The Gap Is Widest Where There Is No Governance at All"
+        },
+        {
+          "type": "p",
+          "text": "A company that deploys AI has an acceptable-use policy, a named owner, a defined integration scope, an audit trail and a regulator with a fine schedule. A fourteen-year-old with a chatbot has none of it. No policy applies. Nobody signed anything. The session runs at eleven at night on a bedroom laptop, and the only durable record of it sits with the model vendor."
+        },
+        {
+          "type": "p",
+          "text": "The material is not trivial either. Into that box go a home address, a parent’s card number, the name of a school, a medical question the child would not ask out loud. Every argument the industry makes for governing AI inside a bank applies with more force to a household, which has no security team and no leverage with anyone."
+        },
+        {
+          "type": "p",
+          "text": "The market’s existing answer is monitoring software: log the screen, read the messages, report upward. That trade buys the parent information at the child’s expense, and it has a short shelf life. Children route around surveillance, usually within a week, and what they learn from it is how to hide. PrivacyPal Family was built on the opposite premise. Guardrails, not surveillance."
+        },
+        {
+          "type": "h2",
+          "text": "Four Things Family Does"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Guardrails. Parents approve, block or redirect AI tools per child and per device. A tool that has not been approved does not open, and the decision sits with the parent rather than with an app store rating.",
+            "Privacy Twins. When a child types a real name, address, phone number or card into an AI tool, PrivacyPal substitutes a coherent synthetic stand-in on the device before the prompt is sent. Structure and meaning survive the swap, so the model still answers the question properly. The real values never reach it.",
+            "Family Memory. What the household’s AI tools remember lives under the family’s own keys, stays visible in a viewer, and can be destroyed outright. Erasing the keys renders every copy unreadable, which is a mechanical guarantee rather than a deletion request that somebody else has to honor.",
+            "Pal Agents (early access). Wellbeing Signal flags when a conversation turns heavy and nudges a parent to check in. Answer Guard checks that an answer fits the child’s stage and blocks manipulation aimed at them, including prompt injection dressed up as a helpful instruction."
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Signals, Never Transcripts"
+        },
+        {
+          "type": "p",
+          "text": "One rule governs the rest of the product. Parents see signals: which tools were used, how much, whether a guardrail fired, whether a conversation suggests it is time to check in. Parents do not see transcripts. Children can see exactly what their parents see, and that symmetry is not a setting that can be switched off."
+        },
+        {
+          "type": "p",
+          "text": "The reasoning is practical rather than sentimental. A control a child understands is a control that survives contact with a teenager. A control that reads their diary teaches them to find a device that does not. Family protects the child and the relationship at the same time, and the Company treats the second one as a product requirement."
+        },
+        {
+          "type": "h2",
+          "text": "Autonomy That Moves With Age"
+        },
+        {
+          "type": "p",
+          "text": "Family ships a three-stage age ladder rather than a single on and off switch. Explorer covers ages 5 to 9, Navigator 10 to 13, and Pilot 14 to 17. Each stage widens what a child can do without asking first. At eighteen the keys hand over completely and the account becomes theirs, which is the point of the exercise. Parent HQ, the household dashboard, shows the whole family in one view."
+        },
+        {
+          "type": "quote",
+          "text": "We built the enterprise version of this first, and enterprises at least have rules. A kid has a chatbot, a laptop and no policy whatsoever. If the mechanism holds at that edge it holds anywhere, so Family runs the same engine we sell to banks, and the protection happens on your machine rather than in our cloud. You hold the keys. They get the future.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "Pricing and Availability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "$9.99 per month, up to five devices in the household.",
+            "Protected AI tools: ChatGPT, Claude, Gemini, Microsoft Copilot and Grok, with new assistants covered as they arrive.",
+            "Mac and Windows are available today. iOS and Android are in early access.",
+            "Parent HQ and the Privacy Twins engine are included at every stage of the age ladder.",
+            "Founding Families receive 50 percent off the first year, applied at signup with the code sent with the invitation."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal also publishes a Child Psychology Guidebook for parents at privacypal.ai/family/guidebook.html, written to explain what changes when a child’s first research tool, tutor and confidant is a model. Wellbeing Signal and Answer Guard are labeled early access and are being rolled out to Founding Families first."
+        },
+        {
+          "type": "p",
+          "text": "Set the guardrails at privacypal.ai/family. Hand over the keys later."
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
+      "id": "linux-agent-shield",
+      "title": "PrivacyPal brings AI protection to headless Linux",
+      "category": "press-release",
+      "date": "2026-09-10",
+      "author": "PrivacyPal Newsroom",
+      "readTime": "4 min read",
+      "thumb": "news/images/linux-agent-shield.jpg",
+      "hero": "news/images/linux-agent-shield.jpg",
+      "excerpt": "Command-line AI agents run on servers with no browser, no window and, until now, no governance. The Linux Agent Shield protects them at the process boundary, before a packet leaves the box.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "WEST PALM BEACH, FL, September 10, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced the PrivacyPal Linux Agent Shield, a command-line build of its interception engine for headless Linux. The Shield extends Privacy Twins protection to the AI agents that run where nobody is watching: Ubuntu and Fedora servers, build machines, and Windows Subsystem for Linux."
+        },
+        {
+          "type": "h2",
+          "text": "The Server Was the Blind Spot"
+        },
+        {
+          "type": "p",
+          "text": "Enterprise AI governance grew up around the screen. Nearly every control shipping today assumes a person at a laptop, a browser tab, a window that can be watched. That assumption held while AI was something employees typed into. It stopped holding the moment agents began running on their own."
+        },
+        {
+          "type": "p",
+          "text": "A coding agent on a build server reads source files, executes commands, and posts the results to a model endpoint at three in the morning. The material is every bit as sensitive as anything a person would paste into a chat box: credentials, customer records, unreleased code. The difference is that no window ever opens, so the tooling built to catch it sees nothing at all. Surveys of enterprise AI risk keep landing on shadow AI as an employee behavior problem. On a server it is an architecture problem, and it does not respond to training."
+        },
+        {
+          "type": "h2",
+          "text": "What Ships"
+        },
+        {
+          "type": "p",
+          "text": "The Linux Agent Shield is a single privacypal command and a supervisor process, written in Python. There is no Electron, no desktop dependency and no graphical component anywhere in it. It runs the same interception engine as the PrivacyPal desktop application, unchanged:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Agent surfaces are covered. Hermes Agent, Claude Code, Codex, the OpenAI API and the xAI API are protected on the wire. Sensitive values are replaced with Privacy Twins before the request leaves the machine, and the model’s answer is translated back to real values as it returns.",
+            "Coverage is scoped by the operator, not imposed on the box. Protection attaches to an environment: launch an agent under privacypal run, work inside a protected privacypal shell, or export the settings into a shell of your own with one eval. No PAC file, no system proxy, no machine-wide setting. Every listener binds to loopback. A process you did not point at PrivacyPal is never touched by it.",
+            "Failure closes the door. If the encoder cannot be reached, the request stops rather than continuing in the clear. On this build a surface the license does not cover is refused on the wire instead of quietly passing through, a deliberate tightening of the desktop behavior.",
+            "One file installs it. A self-contained tarball of roughly 49 MB carries its own CPython 3.12.9 and pinned dependencies, installed by a user-level script. No root, no system Python, no dependency conflict with anything the server already runs. Builds ship for x86_64 and aarch64. Debian and RPM packages follow."
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Verified on a Matrix, Not on a Slide"
+        },
+        {
+          "type": "p",
+          "text": "Every claim above was tested against the built artifacts on Ubuntu 24.04 and Fedora 40, on both architectures, before the release was published. The test that decides it is the wire audit: seeded sensitive values go into a live agent session, and the capture taken on the provider side of the connection is searched for them. They appear only as twins. The answers decode back to real values on the machine and nowhere else."
+        },
+        {
+          "type": "p",
+          "text": "The same matrix covers an encoder outage (the request stops), a license lockout (the surface is refused at the wire), and a full install and uninstall cycle. The engine’s 1,435 unit tests run inside the bundled Linux runtime as part of the gate. A release that cannot clear the matrix does not get published."
+        },
+        {
+          "type": "quote",
+          "text": "Agents handle the most sensitive material in the building and they are the part of the stack nobody is watching. Yours reads your source, your keys and your customer records, then ships all of it to an API endpoint while the office is empty. You cannot govern that with a browser extension, because there is no browser. You govern it at the process boundary, on the machine, before the packet leaves.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "Scope, Stated Plainly"
+        },
+        {
+          "type": "p",
+          "text": "The Shield covers agent surfaces only. Web chat platforms stay with the desktop application by design, because a headless server has no browser to protect. Coverage of Hermes Agent is scoped to the Nous Portal endpoint and the Fireworks endpoint Hermes uses by default; traffic pointed at another inference provider is not covered, and PrivacyPal states that limit rather than letting a customer discover it. The Shield is a PrivacyPal Max capability and rides the same release train as the desktop client."
+        },
+        {
+          "type": "p",
+          "text": "The Linux setup guide is available to customers now. Point it at your agents. Write to hi@privacypal.ai to start."
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
       "id": "private-memory-launch",
       "title": "PrivacyPal launches Private Memory",
       "category": "press-release",
       "date": "2026-08-03",
-      "featured": true,
       "author": "PrivacyPal Newsroom",
       "readTime": "4 min read",
       "thumb": "news/images/private-memory.jpg",
