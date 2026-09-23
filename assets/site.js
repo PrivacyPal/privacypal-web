@@ -23,7 +23,7 @@
           <span>Products</span>
           <div class="dropdown-menu">
             <a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>SME governance: for individuals, firms &amp; growing teams</small></a>
-            <a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy, governance &amp; enterprise AI enablement</small></a>
+            <a href="privacypal-max.html"><b>PrivacyPal Max</b><small>IP Protection, Governance Policies &amp; Private Memory for your company</small></a>
             <a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>
             <a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>
           </div>

@@ -114,7 +114,7 @@
               '<h6>The business line</h6>' +
               '<a href="business.html"><b>PrivacyPal for Business</b><small>Govern every AI at work: the overview</small></a>' +
               '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, one person covered</small></a>' +
-              '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>Agentic privacy &amp; governance for your company</small></a>' +
+              '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>IP Protection, Governance Policies &amp; Private Memory for your company</small></a>' +
               '<a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>' +
               '<a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>' +
               '<a href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener"><b>Docs</b><small>SDK reference &amp; developer guides</small></a>' +

@@ -346,7 +346,7 @@
       <span class="t">TL;DR</span>
       <ul>
         <li><strong>Pro protects a person. Max protects an organization.</strong> The plan boundary is who the account belongs to, not the feature list.</li>
-        <li>Max stands on four pillars: on-device DSPM, agent and copilot governance, Private MCP, and org-wide AI controls.</li>
+        <li>Max stands on four pillars: IP Protection, Governance Policies, Private Memory, and shadow-AI discovery. Lead with these names; the mechanisms underneath (connections, on-device policy agents, Private MCP, on-device DSPM) come out in discovery, not in the pitch.</li>
         <li>Max prices on <strong>four automatic volume bands</strong>, and each band prices the <strong>whole</strong> seat count.</li>
         <li>Cloud is the sovereign, self-hosted plane. It is the answer whenever the requirement is "in our own network".</li>
       </ul>
@@ -357,10 +357,10 @@
       <table>
         <thead><tr><th>Pillar</th><th>What it does</th><th>Who it lands with</th></tr></thead>
         <tbody>
-          <tr><td><b>On-device DSPM</b></td><td>Discovers, classifies and monitors sensitive data sitting on staff endpoints. The first DSPM that lives on the endpoint.</td><td>Security, compliance, anyone facing an auditor</td></tr>
-          <tr><td><b>Agent &amp; copilot governance</b></td><td>Controls Claude Code, Microsoft Copilot, ChatGPT, Gemini, Grok, Perplexity and Hermes Agent at the device level. Governs what agents can read, write and exfiltrate.</td><td>Engineering leaders, platform teams</td></tr>
-          <tr><td><b>Private MCP</b></td><td>Internal tools reachable by AI agents without the connection leaking to a public host.</td><td>CTOs, anyone whose agents touch a system of record</td></tr>
-          <tr><td><b>Org-wide AI controls</b></td><td>One policy plane across the company, plus shadow-AI discovery.</td><td>The economic buyer. This is the "I can finally say yes" pillar.</td></tr>
+          <tr><td><b>IP Protection</b></td><td>Max-exclusive connections to Salesforce, Slack, Notion, SQL, Workday and more. Learns what is sensitive at the source so secrets and IP never reach a model.</td><td>Founders, CISOs, anyone whose IP is the company</td></tr>
+          <tr><td><b>Governance Policies</b></td><td>One policy plane across the company, enforced on-device inside Claude Code, Microsoft Copilot, ChatGPT, Gemini, Grok, Perplexity and Hermes Agent. Governs what agents can read, write and exfiltrate.</td><td>Engineering leaders, platform teams</td></tr>
+          <tr><td><b>Private Memory</b></td><td>One governed memory across every AI: team and org scopes, twin-space storage, fleet Memory Guard, audit console, and a Private MCP memory server so internal agents reach tools and data without leaking to a public host.</td><td>CTOs, anyone whose agents touch a system of record</td></tr>
+          <tr><td><b>Shadow-AI discovery</b></td><td>The first DSPM that lives on the endpoint: discovers, classifies and monitors sensitive data on staff devices, and surfaces every unsanctioned AI tool in a dashboard.</td><td>The economic buyer. This is the "I can finally say yes" pillar.</td></tr>
         </tbody>
       </table>
     </div>
@@ -371,9 +371,9 @@
     Max</strong> (data at rest on the laptop), <strong>network is Cloud</strong> (databases, data lakes,
     and RAG, vector and agent memory stores).</p>
 
-    <h3>Connections</h3>
-    <p>Max-exclusive integrations, so AI can reach the systems a business actually runs on while twins
-    keep the underlying data protected:</p>
+    <h3>IP Protection: the connections underneath</h3>
+    <p>IP Protection is powered by Max-exclusive integrations, so AI can reach the systems a business
+    actually runs on while twins keep the underlying data protected:</p>
     <p style="font-family:var(--font-mono);font-size:.84rem;line-height:2;color:var(--ink)">
       Salesforce · Slack · Microsoft Teams · Notion · Google Drive · OneDrive · Dropbox · Box ·
       NetDocuments · SQL Server · MySQL · MongoDB · Supabase · Workday · Oracle · NetSuite · Intuit ·
@@ -387,13 +387,14 @@
       workflow and how many seats this covers," and then you bring it to us.</p>
     </div>
 
-    <h3>Private MCP and Privacy Agents</h3>
+    <h3>Private MCP and Governance Policies</h3>
     <p><strong>Private MCP</strong> is a twin-translating proxy that mirrors the upstream tool's contract
     exactly, so the agent does not know the difference: the model sees only twins, the system of record
     sends and receives real values, the human sees the real answer. It is the sanctioned route for any
     connector into a system holding PII or IP.</p>
-    <p><strong>Privacy Agents</strong> reason about intent and risk in real time inside the encode path:
-    intent detection, prompt injection guard, legal and financial enrichment.
+    <p><strong>Governance Policies</strong> are enforced by on-device agents that reason about intent and
+    risk in real time inside the encode path: intent detection, prompt injection guard, legal and
+    financial enrichment.
     <strong>Private Memory</strong> gives a user one memory across every AI tool, held in twin space, and
     the claim is simple: <em>remembered values never reach the provider.</em></p>
 
