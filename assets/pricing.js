@@ -1,13 +1,15 @@
 /* =========================================================
    PrivacyPal — pricing engine
    Drives the billing toggle, the Max seat slider (volume
-   pricing) and every price readout on pricing.html and
+   pricing) and every Max price readout on pricing.html and
    privacypal-max.html. No dependencies.
+
+   Pro is free for individuals: it has no price book and no
+   readouts here. Its "Free" copy is hardcoded in the HTML.
 
    Markup contract
    ---------------
    Billing toggle : .billing-toggle > button[data-billing="monthly|annual"]
-   Pro readouts   : [data-price="pro-unit|pro-term|pro-save"]
    Max readouts   : [data-price="max-unit|max-term|max-save|max-note"]
    Calculator     : [data-seat-calc] wrapping input.seat-range and
                     [data-calc="seats|unit|total|total-label|tier|save"]
@@ -18,8 +20,6 @@
   'use strict';
 
   /* ---------- The price book (single source of truth) ---------- */
-  var PRO = { monthly: 9, annual: 7.5 };
-
   var MAX_TIERS = [
     { min: 1,    max: 9,        label: '1-9 seats',     monthly: 34, annual: 30 },
     { min: 10,   max: 99,       label: '10-99 seats',   monthly: 29, annual: 25 },
@@ -76,17 +76,6 @@
   }
 
   /* ---------- Render ---------- */
-  function renderPro() {
-    var annual = state.billing === 'annual';
-    var unit = annual ? PRO.annual : PRO.monthly;
-    setText('pro-unit', money(unit));
-    setText('pro-term', annual
-      ? '/mo · one person · billed ' + money(PRO.annual * 12) + '/yr'
-      : '/mo · one person · billed monthly');
-    setText('pro-save', annual ? 'Save ' + savePct(PRO.monthly, PRO.annual) + '%' : '');
-    $all('[data-price="pro-save"]').forEach(function (el) { el.hidden = !annual; });
-  }
-
   function renderMax() {
     var annual = state.billing === 'annual';
     var tier = tierFor(state.seats);
@@ -144,7 +133,7 @@
     });
   }
 
-  function render() { renderPro(); renderMax(); renderCalc(); }
+  function render() { renderMax(); renderCalc(); }
 
   /* ---------- Wiring ---------- */
   function setBilling(mode) {

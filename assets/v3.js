@@ -28,12 +28,18 @@
      installers above.
 
      IMPORTANT: no link on this site goes straight to the portal's /signup. A bare
-     ?promo= on the signup URL does not reliably reach the wizard, so every "start
-     your trial" CTA on the site goes to FAMILY_OFFER, the coded Founding Families
-     landing page, which states the code on the page and hands off to /signup
-     itself (forwarding utm_* and fbclid). Adding a direct signup link anywhere
-     would silently drop the discount. It is a site-relative path so rel() can
-     prefix it for pages in subdirectories.
+     ?promo= on the signup URL does not reliably reach the wizard, so every Family
+     "start your trial" CTA on the site goes to FAMILY_OFFER, the coded Founding
+     Families landing page, which states the code on the page and hands off to
+     /signup itself (forwarding utm_* and fbclid). Adding a direct signup link
+     anywhere would silently drop the discount. It is a site-relative path so
+     rel() can prefix it for pages in subdirectories.
+
+     The chrome is context-aware: on /family/ pages the announce bar and primary
+     CTA push the Founding Families offer (Family keeps its 5-day trial); on
+     every other page they push Pro, which is completely free for individuals
+     (no card, no trial), via the download modal. Max has no trial mode: it is
+     paid from day one, upsold from free Pro.
 
      The two portal links below are safe to use directly: neither one needs a code.
        /download  sniffs the OS and 302s to the current Family build, read live
@@ -43,6 +49,8 @@
   var FAMILY_OFFER = 'family/founding/index.html';
   var FAMILY_DOWNLOAD = FAMILY_PORTAL + '/download';
   var FAMILY_LOGIN = FAMILY_PORTAL + '/login';
+
+  var IS_FAMILY = /(^|\/)family\//.test(location.pathname);
 
   /* Social profiles: update these when handles are confirmed. */
   var SOCIAL = {
@@ -68,10 +76,13 @@
   }
 
   /* ---------------- Announcement bar ---------------- */
-  var announceHTML =
-  '<div class="announce">' +
-    '<a href="' + FAMILY_OFFER + '"><span class="tag">New</span> PrivacyPal Family is live for Mac &amp; Windows. Founding Families get 50% off <span class="arrow">→</span></a>' +
-  '</div>';
+  var announceHTML = IS_FAMILY
+  ? '<div class="announce">' +
+      '<a href="' + FAMILY_OFFER + '"><span class="tag">New</span> PrivacyPal Family is live for Mac &amp; Windows. Founding Families get 50% off <span class="arrow">→</span></a>' +
+    '</div>'
+  : '<div class="announce">' +
+      '<a href="privacypal-pro.html"><span class="tag">New</span> PrivacyPal Pro is now completely free for individuals. No card, no trial <span class="arrow">→</span></a>' +
+    '</div>';
 
   /* ---------------- Nav ---------------- */
   var navHTML =
@@ -113,7 +124,7 @@
             '<div class="nav-group">' +
               '<h6>The business line</h6>' +
               '<a href="business.html"><b>PrivacyPal for Business</b><small>Govern every AI at work: the overview</small></a>' +
-              '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, one person covered</small></a>' +
+              '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, completely free</small></a>' +
               '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>IP Protection, Governance Policies &amp; Private Memory for your company</small></a>' +
               '<a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>' +
               '<a href="developers.html"><b>PrivacyPal SDK</b><small>Agent-to-agent governance for developers</small></a>' +
@@ -172,7 +183,9 @@
           '</div>' +
         '</div>' +
         '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-        '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>' +
+        (IS_FAMILY
+          ? '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>'
+          : '<a class="btn btn-primary" href="#" data-cta="download">Get Pro free</a>') +
         '<button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
       '</div>' +
     '</div>' +
@@ -222,7 +235,9 @@
     '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener">Business portal sign-in</a>' +
     '<div class="mm-ctas">' +
       '<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>' +
-      '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>' +
+      (IS_FAMILY
+        ? '<a class="btn btn-primary" href="' + FAMILY_OFFER + '">Start free trial</a>'
+        : '<a class="btn btn-primary" href="#" data-cta="download">Get Pro free</a>') +
     '</div>' +
     '<div class="mm-social">' + social() + '</div>' +
   '</div>';
@@ -328,6 +343,7 @@
       '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.9.36</h3>' +
       '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
       '<div class="pp-modal-body">' +
+        '<p style="margin:0 0 18px;font-size:.92rem;line-height:1.55;color:var(--muted)"><b style="color:var(--ink)">PrivacyPal Pro is completely free for individuals.</b> No credit card, no trial clock: install, sign in, and you are covered. Looking for the household app? <a href="' + FAMILY_OFFER + '" style="color:var(--ink);text-decoration:underline">PrivacyPal Family</a> is separate.</p>' +
         '<div class="pp-dl-grid">' +
           '<div class="pp-dl-card win">' +
             '<div class="pp-dl-row"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg><span class="label">Microsoft · Windows 11</span></div>' +
