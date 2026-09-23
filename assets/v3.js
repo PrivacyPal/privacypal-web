@@ -20,8 +20,8 @@
     return html.replace(/(href|src)="(?!(?:https?:)?\/\/|https?:|mailto:|tel:|#|\/)/g, '$1="' + ROOT);
   }
 
-  var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.36.exe';
-  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.36-arm64.dmg';
+  var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.40.exe';
+  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.39-arm64.dmg';
 
   /* PrivacyPal Family is a separate product with its own account system, its own
      desktop build and its own release feed. Never point a Family link at the Pro
@@ -337,7 +337,7 @@
   '</div>' +
   '<div class="pp-modal" id="ppDownloadModal" aria-hidden="true">' +
     '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Install PrivacyPal">' +
-      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.9.36</h3>' +
+      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.9.40</h3>' +
       '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
       '<div class="pp-modal-body">' +
         '<p style="margin:0 0 18px;font-size:.92rem;line-height:1.55;color:var(--muted)"><b style="color:var(--ink)">PrivacyPal Pro is completely free for individuals.</b> No credit card, no trial clock: install, sign in, and you are covered. Looking for the household app? <a href="' + FAMILY_OFFER + '" style="color:var(--ink);text-decoration:underline">PrivacyPal Family</a> is separate.</p>' +
@@ -348,7 +348,7 @@
             '<p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>' +
             '<div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>' +
             '<a class="pp-dl-btn win" href="' + DOWNLOAD_WIN + '" rel="noopener noreferrer">Install for Windows</a>' +
-            '<p class="pp-dl-filename">PrivacyPal-Setup-1.9.36.exe</p>' +
+            '<p class="pp-dl-filename">PrivacyPal-Setup-1.9.40.exe</p>' +
             '<div class="pp-dl-cli"><div class="cli-label">Or install via PowerShell</div>' +
             '<div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>' +
             '<button class="cli-copy" type="button" data-cli-copy="winget install PrivacyPal.AI">Copy</button></div></div>' +
@@ -359,7 +359,7 @@
             '<p>Native build for Apple Silicon Macs. Every M-series chip is supported.</p>' +
             '<div class="pp-dl-pills"><span class="pp-dl-pill">.dmg installer</span><span class="pp-dl-pill">M1–M5+</span><span class="pp-dl-pill">macOS 13+</span></div>' +
             '<a class="pp-dl-btn mac" href="' + DOWNLOAD_MACOS_ARM64 + '" rel="noopener noreferrer">Install for Apple Silicon</a>' +
-            '<p class="pp-dl-filename">PrivacyPal-1.9.36-arm64.dmg</p>' +
+            '<p class="pp-dl-filename">PrivacyPal-1.9.39-arm64.dmg</p>' +
           '</div>' +
         '</div>' +
         '<div class="pp-dl-trust">' +
