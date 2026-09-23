@@ -60,12 +60,12 @@
     linear-gradient(180deg, rgba(1,16,42,.45) 0%, transparent 22%, transparent 62%, rgba(1,12,34,.55) 100%);
 }
 .fam-hero .container{position:relative;z-index:1;width:100%}
-.fam-hero-inner{max-width:660px;padding:150px 0 120px}
+.fam-hero-inner{max-width:840px;padding:150px 0 120px}
 .fam-hero .eyebrow{color:rgba(255,253,248,.85)}
 .fam-hero .eyebrow::before{background:var(--tangerine)}
 .fam-hero h1{
   font-family:var(--fam-display);
-  font-size:clamp(2.9rem,6.2vw,4.7rem);
+  font-size:clamp(2.9rem,5.3vw,4.2rem);
   font-weight:600;line-height:1.03;letter-spacing:-.015em;
   color:#fff;margin-top:18px;
 }
@@ -385,6 +385,7 @@
 @media (max-width:720px){
   .fam-hero{background-position:60% 64%}
   .fam-hero-inner{padding:132px 0 96px}
+  .fam-hero h1 br{display:none}
   .door .body{padding:26px 24px 28px}
 }
 </style>
@@ -399,7 +400,7 @@
   <div class="container">
     <div class="fam-hero-inner">
       <span class="eyebrow">PrivacyPal Family · now on Mac &amp; Windows</span>
-      <h1>Their world is full of AI. <span class="keys">You hold the keys.</span></h1>
+      <h1>Their world is full <br>of AI. <span class="keys">You hold the keys.</span></h1>
       <p class="lede">Your kids already talk to AI every day. PrivacyPal Family lets you choose the AI they use, protect who they are, and understand how it shapes them. All without reading a single private word.</p>
       <div class="btn-row">
         <a class="btn-fam" href="family/founding/index.html">Start your free trial</a>
