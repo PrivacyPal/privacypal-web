@@ -105,7 +105,7 @@ the ads say 12. That extra month is deliberate. Marketing stays at 12 months.
 ## Claims discipline (read before editing copy)
 
 - Shipping today (safe to state as fact): Privacy Twins swap on-device, ~340ms
-  interception, ChatGPT/Claude/Gemini/Copilot/Grok coverage, Mac + Windows, 5 family members,
+  interception, ChatGPT/Claude/Gemini/Copilot/Grok/Perplexity coverage, Mac + Windows, 5 family members,
   $9.99/mo, 5-day trial, 30-day money-back, approve/block/redirect, memory viewer
   + crypto-shred erase.
 - Private Memory claims follow `GTM/Frameworks/Private Memory Claims Guidance`
