@@ -57,16 +57,20 @@ The links are defined once, at the top of `assets/v3.js`:
 | Constant | URL | What it does |
 |---|---|---|
 | `FAMILY_OFFER` | `family/founding/index.html` | The coded landing page. Site-relative so `rel()` can prefix it for pages in subdirectories. This is what every trial CTA and the announcement bar point at. |
-| `FAMILY_DOWNLOAD` | `family.privacypal.ai/download` | Sniffs the OS and 302s to the current **Family** build, read live from the auto-update manifest. Never hardcode a version. Needs no code, so it links direct. |
+| `FAMILY_DOWNLOAD` | `family.privacypal.ai/download` | Sniffs the OS and 302s to the current **Family** build, read live from the auto-update manifest. Never hardcode a version. Kept as the `href` on every Family install trigger (middle-click / no-JS fallback); a normal click opens the Family install modal instead. |
+| `FAMILY_DOWNLOAD_WIN` / `FAMILY_DOWNLOAD_MAC` | `…/download/windows` / `…/download/macos` | The split endpoints the Family install modal's buttons point at. Same live version resolution; macOS is Apple Silicon only (no Intel build), and the modal says so. |
 | `FAMILY_LOGIN` | `family.privacypal.ai/login` | Parent HQ. Needs no code, so it links direct. |
 
 **The Family desktop app is a different build from Pro.** Pro is
 `PrivacyPal-Setup-<v>.exe` / `PrivacyPal-<v>-arm64.dmg` on the `/proxy` feed
 (1.9.40 at time of writing); Family is `PrivacyPal-Family-Setup-<v>.exe` /
-`PrivacyPal-Family-<v>-{arm64,x64}.dmg` on the `/family` feed (1.0.3). The
-`data-cta="download"` modal in `v3.js` is the **Pro** installer. Never point a
-Family link at it, and never point a Family link at a hardcoded artifact URL:
-use `/download` so a new Family release updates every link with no site deploy.
+`PrivacyPal-Family-<v>-{arm64,x64}.dmg` on the `/family` feed (1.0.3). There are
+two install modals in `v3.js`: `data-cta="download"` opens the **Pro** installer
+modal, `data-cta="family-download"` opens the **Family** one (Mac and Windows
+split, buttons on the portal's `/download/windows` and `/download/macos`
+routes). Never point a Family link at the Pro modal, and never point a Family
+link at a hardcoded artifact URL: the `/download` routes resolve the version
+live, so a new Family release updates every link with no site deploy.
 
 **Settled, do not re-raise:** the Stripe coupon runs 13 months while the site and
 the ads say 12. That extra month is deliberate. Marketing stays at 12 months.

@@ -42,13 +42,22 @@
      trial), via the download modal. Max has no trial mode: it is paid from day
      one, upsold from free Pro.
 
-     The two portal links below are safe to use directly: neither one needs a code.
-       /download  sniffs the OS and 302s to the current Family build, read live
-                  from the auto-update manifest, so no version is hardcoded here
-       /login     Parent HQ, for families who already have an account */
+     The portal links below are safe to use directly: none of them needs a code.
+       /download          sniffs the OS and 302s to the current Family build,
+                          read live from the auto-update manifest, so no version
+                          is hardcoded here. Kept as the href on every Family
+                          install trigger so middle-click / no-JS still works;
+                          a normal click opens ppFamilyDownloadModal instead
+                          (data-cta="family-download").
+       /download/windows  the Windows build, same live resolution
+       /download/macos    the Mac build (Apple Silicon only; no Intel build
+                          exists, the modal says so)
+       /login             Parent HQ, for families who already have an account */
   var FAMILY_PORTAL = 'https://family.privacypal.ai';
   var FAMILY_OFFER = 'family/founding/index.html';
   var FAMILY_DOWNLOAD = FAMILY_PORTAL + '/download';
+  var FAMILY_DOWNLOAD_WIN = FAMILY_PORTAL + '/download/windows';
+  var FAMILY_DOWNLOAD_MAC = FAMILY_PORTAL + '/download/macos';
   var FAMILY_LOGIN = FAMILY_PORTAL + '/login';
 
   var IS_FAMILY = /(^|\/)family\//.test(location.pathname);
@@ -108,7 +117,7 @@
             '<div class="nav-group">' +
               '<h6>Get started</h6>' +
               '<a href="' + FAMILY_OFFER + '"><b>Create a Family Account</b><small>Founding Families: 50% off your first year</small></a>' +
-              '<a href="' + FAMILY_DOWNLOAD + '"><b>Download the app</b><small>Mac &amp; Windows, up to 5 family members</small></a>' +
+              '<a href="' + FAMILY_DOWNLOAD + '" data-cta="family-download"><b>Download the app</b><small>Mac &amp; Windows, up to 5 family members</small></a>' +
               '<a href="family/index.html#plans"><b>Plans &amp; pricing</b><small>Whole-family cover, $9.99/mo</small></a>' +
               '<a href="' + FAMILY_LOGIN + '"><b>Sign in to Parent HQ</b><small>Already have a Family Account</small></a>' +
             '</div>' +
@@ -200,7 +209,7 @@
     '<a href="family/guidebook.html">The Guidebook</a>' +
     '<a href="family/index.html#plans">Plans</a>' +
     '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
-    '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
+    '<a href="' + FAMILY_DOWNLOAD + '" data-cta="family-download">Download the Family app</a>' +
     '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
     '<h6>For Business</h6>' +
     '<a href="business.html">PrivacyPal for Business</a>' +
@@ -254,7 +263,7 @@
           '<a href="family/guidebook.html">The Guidebook</a>' +
           '<a href="family/index.html#plans">Plans</a>' +
           '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
-          '<a href="' + FAMILY_DOWNLOAD + '">Download the Family app</a>' +
+          '<a href="' + FAMILY_DOWNLOAD + '" data-cta="family-download">Download the Family app</a>' +
           '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
         '</div>' +
         '<div class="footer-col">' +
@@ -370,6 +379,44 @@
         '</div>' +
       '</div>' +
     '</div>' +
+  '</div>' +
+  /* Family install modal. The buttons point at the portal's live-resolving
+     /download/<target> routes, never at a versioned artifact: a new Family
+     release updates both links with no site deploy, which is why no version
+     number appears anywhere in this card. */
+  '<div class="pp-modal" id="ppFamilyDownloadModal" aria-hidden="true">' +
+    '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Install PrivacyPal Family">' +
+      '<div class="pp-modal-head"><h3>Install PrivacyPal Family</h3>' +
+      '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
+      '<div class="pp-modal-body">' +
+        '<p style="margin:0 0 18px;font-size:.92rem;line-height:1.55;color:var(--muted)"><b style="color:var(--ink)">One plan covers the whole house.</b> Install on each family computer and sign in with your Family Account: up to 5 family members, 5-day free trial, 30-day money-back. No account yet? <a href="' + FAMILY_OFFER + '" style="color:var(--ink);text-decoration:underline">Start your free trial</a>, Founding Families get 50% off year one. Looking for the workplace app? <a href="privacypal-pro.html" style="color:var(--ink);text-decoration:underline">PrivacyPal Pro</a> is separate.</p>' +
+        '<div class="pp-dl-grid">' +
+          '<div class="pp-dl-card win">' +
+            '<div class="pp-dl-row"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg><span class="label">Microsoft · Windows</span></div>' +
+            '<h4>Windows</h4>' +
+            '<p>The Family app for the family PC. A full installer that always serves the newest release.</p>' +
+            '<div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Latest release</span></div>' +
+            '<a class="pp-dl-btn win" href="' + FAMILY_DOWNLOAD_WIN + '" rel="noopener noreferrer">Install for Windows</a>' +
+            '<p class="pp-dl-filename">PrivacyPal-Family-Setup-&lt;latest&gt;.exe</p>' +
+          '</div>' +
+          '<div class="pp-dl-card mac">' +
+            '<div class="pp-dl-row"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span class="label">Apple · macOS</span></div>' +
+            '<h4>macOS</h4>' +
+            '<p>Native build for Apple Silicon Macs, M1 and later.</p>' +
+            '<div class="pp-dl-pills"><span class="pp-dl-pill">.dmg installer</span><span class="pp-dl-pill">Apple Silicon</span><span class="pp-dl-pill">Latest release</span></div>' +
+            '<a class="pp-dl-btn mac" href="' + FAMILY_DOWNLOAD_MAC + '" rel="noopener noreferrer">Install for Apple Silicon</a>' +
+            '<p class="pp-dl-filename">PrivacyPal-Family-&lt;latest&gt;-arm64.dmg</p>' +
+            '<p class="pp-dl-arch-hint">Macs with an Intel processor are not supported.</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="pp-dl-trust">' +
+          '<div class="pp-dl-trust-card"><span class="pp-dl-trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>' +
+          '<div class="pp-dl-trust-body"><h5>Signed &amp; notarized</h5><p>Notarized by Apple. Signed for Windows. No scary first-launch dialogs.</p></div></div>' +
+          '<div class="pp-dl-trust-card"><span class="pp-dl-trust-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>' +
+          '<div class="pp-dl-trust-body"><h5>Set up in minutes</h5><p>Install, sign in with your Family Account, and the guardrails cover everyone in the house.</p></div></div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
   '</div>';
 
   /* ---------------- Inject ---------------- */
@@ -474,6 +521,8 @@
   window.closeDemoModal = function(){ closeModal('ppDemoModal'); };
   window.openDownloadModal = function(e){ if(e) e.preventDefault(); openModal('ppDownloadModal'); };
   window.closeDownloadModal = function(){ closeModal('ppDownloadModal'); };
+  window.openFamilyDownloadModal = function(e){ if(e) e.preventDefault(); openModal('ppFamilyDownloadModal'); };
+  window.closeFamilyDownloadModal = function(){ closeModal('ppFamilyDownloadModal'); };
 
   document.addEventListener('click', function(e){
     if (e.target.classList && e.target.classList.contains('pp-modal')) closeModal(e.target);
@@ -499,7 +548,9 @@
     var demo = e.target.closest ? e.target.closest('[data-cta="demo"], a[href="#demo"], a[href="#book-demo"]') : null;
     if (demo) { e.preventDefault(); openModal('ppDemoModal'); return; }
     var dl = e.target.closest ? e.target.closest('[data-cta="download"], a[href="#download"]') : null;
-    if (dl) { e.preventDefault(); openModal('ppDownloadModal'); }
+    if (dl) { e.preventDefault(); openModal('ppDownloadModal'); return; }
+    var fdl = e.target.closest ? e.target.closest('[data-cta="family-download"], a[href="#family-download"]') : null;
+    if (fdl) { e.preventDefault(); openModal('ppFamilyDownloadModal'); }
   });
 
   /* newsletter → mailto fallback */
