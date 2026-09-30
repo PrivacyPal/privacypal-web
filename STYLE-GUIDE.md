@@ -115,9 +115,9 @@ Copy icon paths from index.html or draw simple ones. No emoji.
   `cws-screen-003.png`
 - Industry heroes: `assets/hero-shot-accounting.png`, `-banking.png`, `-healthcare.png`,
   `-legal.png`, `-technology.png`, `-about.png`
-- Team photos: `jason-melo.jpg`, `chris-adamo.jpeg`, `ralph_vetsch.jpeg`,
-  `brandon_turp.png`, `erik-frantzen.jpg`, `jordan_serlin.jpg`,
-  `palvinder-head.png` (check `team.html` for who's who)
+- Team photos: `jason-melo.jpg`, `shayra-antia.jpg`, `cian-omaidin.jpg`,
+  `chris-adamo.jpeg`, `jordan_serlin.jpg`, `ralph_vetsch.jpeg`,
+  `brandon_turp.png` (check `team.html` for who's who)
 - Customer logos: see index.html marquee
 - Integrations: `assets/salesforce.svg`, `slack.svg`, `notion.svg`, `sqlserver.svg`,
   `workday.svg`, `oracle.svg`, `gdocs.svg`, `gdrive.svg`, `word.svg`,
