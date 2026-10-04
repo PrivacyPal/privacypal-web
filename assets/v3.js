@@ -21,7 +21,7 @@
   }
 
   var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.50.exe';
-  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/cloud/PrivacyPal-1.9.50-arm64.dmg';
+  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.50-arm64.dmg';
 
   /* PrivacyPal Family is a separate product with its own account system, its own
      desktop build and its own release feed. Never point a Family link at the Pro

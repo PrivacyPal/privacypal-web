@@ -3,7 +3,7 @@
   const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const onDark = document.body.classList.contains('nav-on-dark');
 
-  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/cloud/PrivacyPal-1.9.50-arm64.dmg';
+  const DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.50-arm64.dmg';
 
   const navHTML = `
   <nav class="site-nav ${onDark ? 'on-dark' : ''}" id="siteNav">
