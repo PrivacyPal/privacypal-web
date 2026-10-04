@@ -63,7 +63,7 @@ The links are defined once, at the top of `assets/v3.js`:
 
 **The Family desktop app is a different build from Pro.** Pro is
 `PrivacyPal-Setup-<v>.exe` / `PrivacyPal-<v>-arm64.dmg` on the `/proxy` feed
-(1.9.40 at time of writing); Family is `PrivacyPal-Family-Setup-<v>.exe` /
+(1.9.50 at time of writing); Family is `PrivacyPal-Family-Setup-<v>.exe` /
 `PrivacyPal-Family-<v>-{arm64,x64}.dmg` on the `/family` feed (1.0.3). There are
 two install modals in `v3.js`: `data-cta="download"` opens the **Pro** installer
 modal, `data-cta="family-download"` opens the **Family** one (Mac and Windows
