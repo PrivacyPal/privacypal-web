@@ -20,6 +20,23 @@
     return html.replace(/(href|src)="(?!(?:https?:)?\/\/|https?:|mailto:|tel:|#|\/)/g, '$1="' + ROOT);
   }
 
+  /* Referral attribution. assets/referral.js captures ?ref= (partner, reseller
+     and creator codes) and forwards it to the Founding Families offer page and
+     on to family.privacypal.ai/signup. It is loaded from here rather than from
+     a <script> tag in every page, so every corporate page gets it for free.
+
+     Load order does not matter: referral.js rewrites a matching link on click,
+     in the capture phase, so the FAMILY_OFFER links this file injects below
+     carry the code even though they are built before referral.js arrives.
+     The Family sub-site does not load v3.js and loads referral.js itself. */
+  (function(){
+    if (window.PPReferral) return;
+    var s = document.createElement('script');
+    s.src = ROOT + 'assets/referral.js';
+    s.async = true;
+    (document.head || document.documentElement).appendChild(s);
+  })();
+
   var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.50.exe';
   var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.50-arm64.dmg';
 

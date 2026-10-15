@@ -9,7 +9,9 @@
     "serve": "node scripts/serve.js",
     "dev": "node scripts/serve.js",
     "start": "node scripts/serve.js",
-    "rss": "node scripts/generate-rss.js"
+    "rss": "node scripts/generate-rss.js",
+    "test": "node --test scripts/test-referral.js",
+    "test:referral": "node --test scripts/test-referral.js"
   },
   "dependencies": {
     "puppeteer": "^21.5.0",

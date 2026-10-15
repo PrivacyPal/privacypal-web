@@ -33,6 +33,10 @@
 <!-- Meta Pixel Code -->
 <script src="../../assets/meta-pixel.js"></script>
 <!-- End Meta Pixel Code -->
+<!-- Referral attribution: captures ?ref= (partner, reseller and creator codes)
+     and forwards it to the Founding Families signup, alongside the promo code.
+     The Family sub-site does not load assets/v3.js, so each page loads this itself. -->
+<script src="../../assets/referral.js"></script>
 <style>
 /* ---------- Landing-only layer (on top of family.css) ---------- */
 body{padding-bottom:0}
@@ -529,12 +533,23 @@ body{padding-bottom:0}
   'use strict';
   /* Every CTA carries the Founding Families promo code to the signup wizard as
      ?promo=. Any utm_* and fbclid on this page's URL ride along so attribution
-     survives the hop to family.privacypal.ai. */
+     survives the hop to family.privacypal.ai.
+
+     A partner, reseller or creator referral code rides along too, as ?ref=.
+     It is a separate thing from the promo code: ?promo= is the Stripe coupon
+     and sets the price, ?ref= names the partner who sent this family and only
+     ever lands in the customer record. A partner link therefore looks like
+     /family/founding/?ref=CREATOR-SMITH and the family still gets the same
+     Founding Families discount. assets/referral.js has already normalized and
+     stored whatever arrived, so the code is here even when the parent reached
+     this page from somewhere else on the site with the code on that URL. */
   var CODE = 'FOUNDINGFAMILY-0926-496';
   var SIGNUP = 'https://family.privacypal.ai/signup';
   var here = new URLSearchParams(location.search);
   var out = new URLSearchParams();
   out.set('promo', CODE);
+  var ref = (window.PPReferral && window.PPReferral.get()) || '';
+  if (ref) out.set('ref', ref);
   here.forEach(function(v, k){ if (/^utm_/i.test(k) || k === 'fbclid') out.set(k, v); });
   var href = SIGNUP + '?' + out.toString();
 
