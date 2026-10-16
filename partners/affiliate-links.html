@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>PrivacyPal Family · Partner Program · Your affiliate link</title>
+<!-- Partner collateral, not a marketing page. Reachable so the link can be
+     sent directly, but kept out of search the same way the campaign landing
+     pages are (see LANDING-PAGES.md). -->
+<meta name="robots" content="noindex,nofollow"/>
+<!-- Source for partners/PrivacyPal-Family-Partner-Links.pdf.
+
+     A single Letter page, rendered by scripts/generate-partner-pdf.js. Built
+     on the PrivacyPal Family design system (family/family.css): Fredoka for
+     display, Overused Grotesk for body, IBM Plex Mono for labels, navy ink,
+     teal for action, tangerine for warmth.
+
+     Print rules this layout depends on:
+       the page is exactly 8.5in x 11in with its own padding, so the PDF is
+       generated with margin:0 and printBackground:true;
+       nothing may overflow, there is no second page by design. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'Overused Grotesk';
+  src:url('../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2-variations'),
+      url('../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2');
+  font-weight:300 900;font-style:normal;font-display:block;
+}
+
+:root{
+  --font-display:'Fredoka','Overused Grotesk',system-ui,sans-serif;
+  --font-primary:'Overused Grotesk',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+
+  --ink:#01204e;
+  --ink-soft:#0e3364;
+  --text:#3a4763;
+  --muted:#68758e;
+  --faint:#aeb7c8;
+
+  --bg:#fffdf8;
+  --cream:#fdf8ee;
+  --line:#eee8d9;
+  --line-soft:#f3efe4;
+
+  --teal:#028391;
+  --teal-deep:#015a63;
+  --teal-tint:#e3f2f1;
+  --sage:#4da394;
+  --sage-deep:#357e71;
+  --sage-tint:#e8f3ee;
+  --tangerine:#f0914d;
+  --tangerine-deep:#d97a35;
+  --tangerine-tint:#fdeede;
+  --amber:#f6dcac;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+@page{size:8.5in 11in;margin:0}
+
+html,body{width:8.5in;height:11in}
+body{
+  font-family:var(--font-primary);
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.page{
+  width:8.5in;height:11in;
+  padding:0.52in 0.58in 0.44in;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(120% 60% at 100% 0%, #fdf6e6 0%, rgba(255,253,248,0) 58%),
+    var(--bg);
+}
+
+/* ---------- masthead ---------- */
+.mast{display:flex;align-items:center;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.mast img{height:27px;width:auto;display:block}
+.mast .kick{
+  font-family:var(--font-mono);font-size:7.6pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.2em;color:var(--teal);
+}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1fr 2.26in;gap:0.32in;align-items:center;padding:0.2in 0 0.18in}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:7.4pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.19em;color:var(--muted);
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--tangerine)}
+h1{
+  font-family:var(--font-display);font-weight:600;
+  font-size:35pt;line-height:1.02;letter-spacing:-.016em;
+  color:var(--ink);margin:11px 0 10px;
+}
+h1 em{font-style:normal;color:var(--teal)}
+.lede{font-size:11pt;line-height:1.5;color:var(--text);max-width:3.95in}
+
+.shot{
+  border-radius:30px 30px 92px 30px;overflow:hidden;
+  aspect-ratio:1/1;background:var(--line-soft);
+  box-shadow:0 16px 40px -18px rgba(1,32,78,.34);
+}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- the link, the centrepiece ---------- */
+.linkcard{
+  background:linear-gradient(180deg,#fff 0%,var(--teal-tint) 100%);
+  border:2px solid var(--teal);border-radius:22px;
+  padding:0.23in 0.3in 0.25in;
+  box-shadow:0 5px 0 var(--teal-deep);
+}
+.linkcard .cap{
+  font-family:var(--font-mono);font-size:7.2pt;font-weight:600;
+  text-transform:uppercase;letter-spacing:.17em;color:var(--teal-deep);
+  display:block;margin-bottom:9px;
+}
+.url{
+  font-family:var(--font-mono);font-size:13.4pt;font-weight:600;
+  color:var(--ink);letter-spacing:-.012em;line-height:1.3;word-break:break-all;
+}
+.url .slot{
+  color:var(--tangerine-deep);background:var(--tangerine-tint);
+  border-radius:6px;padding:1px 5px;
+  box-shadow:inset 0 0 0 1px rgba(217,122,53,.32);
+}
+.linkcard .sub{
+  margin-top:10px;font-size:9.1pt;line-height:1.45;color:var(--ink-soft);
+}
+.linkcard .sub b{color:var(--ink);font-weight:600;white-space:nowrap}
+
+/* ---------- three steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0.19in;padding:0.2in 0 0.2in}
+.step{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:0.2in 0.19in 0.21in;
+}
+.step .num{
+  width:27px;height:27px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:600;font-size:11.5pt;
+  color:#fff;background:var(--ink);margin-bottom:11px;
+}
+.step:nth-child(2) .num{background:var(--teal)}
+.step:nth-child(3) .num{background:var(--tangerine)}
+.step b{
+  display:block;font-family:var(--font-display);font-weight:600;
+  font-size:12pt;color:var(--ink);margin-bottom:5px;letter-spacing:-.006em;
+}
+.step p{font-size:9.1pt;line-height:1.48;color:var(--text)}
+.step code{
+  font-family:var(--font-mono);font-size:8.3pt;font-weight:600;color:var(--teal-deep);
+  white-space:nowrap;
+}
+
+/* ---------- good to know ---------- */
+.know-head{
+  font-family:var(--font-mono);font-size:7.4pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.19em;color:var(--muted);
+  display:flex;align-items:center;gap:11px;margin-bottom:0.13in;
+}
+.know-head::after{content:"";flex:1;height:1px;background:var(--line)}
+.know{display:grid;grid-template-columns:1fr 1fr;gap:0.15in 0.3in}
+.k{display:flex;gap:11px;align-items:flex-start}
+.k svg{width:17px;height:17px;flex:none;margin-top:1px;color:var(--sage-deep)}
+.k b{
+  display:block;font-family:var(--font-display);font-weight:600;
+  font-size:10.4pt;color:var(--ink);margin-bottom:2px;
+}
+.k p{font-size:8.9pt;line-height:1.46;color:var(--text)}
+.k code{font-family:var(--font-mono);font-size:8.2pt;font-weight:600;color:var(--teal-deep);white-space:nowrap}
+
+/* ---------- footer ---------- */
+.foot{margin-top:auto;padding-top:0.15in;border-top:1px solid var(--line)}
+.offer{
+  background:var(--cream);border:1px dashed var(--amber);border-radius:14px;
+  padding:0.13in 0.2in;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  margin-bottom:0.11in;
+}
+.offer .t{
+  font-family:var(--font-mono);font-size:7pt;font-weight:600;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--tangerine-deep);
+}
+.offer .d{font-size:9pt;line-height:1.45;color:var(--ink-soft)}
+.offer .d b{color:var(--ink);font-weight:600}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.meta span{font-family:var(--font-mono);font-size:7.4pt;color:var(--faint);letter-spacing:.05em}
+.meta a{font-family:var(--font-mono);font-size:7.4pt;color:var(--teal);text-decoration:none;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <img src="../family/assets/product/logo-color.png" alt="PrivacyPal"/>
+    <span class="kick">Family · Partner Program</span>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Affiliate links</span>
+      <h1>Your link.<br/><em>Your credit.</em></h1>
+      <p class="lede">Every family who signs up through your link is credited to
+      you, automatically. One line to build, nothing to install.</p>
+    </div>
+    <div class="shot">
+      <img src="../family/assets/photos/hero-dad-kids.jpg" alt="A dad laughing with his two young kids outside at golden hour"/>
+    </div>
+  </section>
+
+  <section class="linkcard">
+    <span class="cap">Your affiliate link</span>
+    <div class="url">https://privacypal.ai/family/founding/?ref=<span class="slot">YOUR-CODE</span></div>
+    <p class="sub">Swap <b>YOUR-CODE</b> for the partner code we send you at onboarding.
+    That is the whole setup. A link for Alex Rivera would end
+    <b>?ref=RIVERA-ALEX</b>.</p>
+  </section>
+
+  <section class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <b>Get your code</b>
+      <p>We send it to you at onboarding. Use it exactly as written, with no
+      spaces and no changes.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <b>Build your link</b>
+      <p>Add <code>?ref=</code> and your code to the end of the Founding
+      Families page address.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <b>Share it</b>
+      <p>Bio, video description, newsletter, QR code. Anywhere your people
+      already find you.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="know-head">Good to know</div>
+    <div class="know">
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div>
+          <b>You are credited for 90 days</b>
+          <p>Your code sits in their browser for 90 days, so a family who
+          signs up next week still counts. If they later click another
+          partner's link, the most recent one wins.</p>
+        </div>
+      </div>
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7"/><rect x="2" y="7" width="20" height="5" rx="1"/><path d="M12 20V7M12 7H7.5a2.5 2.5 0 1 1 2.5-2.5V7zM12 7h4.5A2.5 2.5 0 1 0 14 4.5V7z"/></svg>
+        <div>
+          <b>The price never changes</b>
+          <p>Your families still get the full Founding Families offer, 50% off
+          their first year. A partner code records who sent them and nothing
+          else.</p>
+        </div>
+      </div>
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>
+        <div>
+          <b>Your own tracking survives</b>
+          <p>Add <code>utm_source</code>, <code>utm_campaign</code> or anything
+          else you measure with. It rides along to signup untouched, next to
+          your code.</p>
+        </div>
+      </div>
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+        <div>
+          <b>Shorteners and bio links are fine</b>
+          <p>Any link tool works, as long as it keeps the <code>?ref=</code>
+          part on the end when it redirects. Paste the full link when you set
+          it up.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="offer">
+      <span class="t">What you are sharing</span>
+      <span class="d"><b>PrivacyPal Family</b>, $9.99 a month for up to 5 people.
+      Founding Families get <b>50% off the first year</b>, after a 5 day free
+      trial and with a 30 day money-back guarantee.</span>
+    </div>
+    <div class="meta">
+      <span>Guardrails, not surveillance.</span>
+      <a href="mailto:hi@privacypal.ai">Questions: hi@privacypal.ai</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
