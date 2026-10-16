@@ -41,7 +41,7 @@ from ads/emails, and staying out of search keeps A/B variants from competing.
    funnel-thanks.html?path=…      ← Step 2: confirm + push the complementary action
 ```
 
-- **Enterprise pages** lead with *Book a demo*, keep *Get Pro free* (download) as the quiet second option. Pro is completely free for individuals; there is no trial anywhere in the business line, and Max is paid from day one.
+- **Enterprise pages** lead with *Book a demo*, keep *Get Pro free* (download) as the quiet second option. Pro is completely free for individuals. Self-serve Max is paid from day one; company-wide Max evaluations exist but are issued by sales against a trial code, never offered as a self-serve trial.
 - **Consumer pages** lead with *Download*, keep *See plans* as the second option.
 - `funnel-thanks.html` keeps momentum: if they booked a demo it nudges *install now*; if they
   downloaded it nudges *book onboarding*. Link to it after a conversion, e.g. the consumer page's

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>PrivacyPal Max · Partner Program · Your affiliate link</title>
+<!-- Source for partners/PrivacyPal-Max-Partner-Links.pdf.
+
+     The Max sibling of affiliate-links.html, and deliberately NOT a recolour
+     of it. Family is a consumer product on the Family design system (Fredoka,
+     tangerine, squircles); Max is the company plan on the CORPORATE system,
+     so this page uses the v3 tokens: navy ink, Signal Teal for action,
+     Overused Grotesk for body and IBM Plex Mono for labels. No Fredoka.
+
+     Rendered by scripts/generate-partner-pdf.js. Print contract:
+       exactly 8.5in x 11in with its own padding, so the PDF is generated
+       with margin:0 and printBackground:true, and nothing may overflow. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'Overused Grotesk';
+  src:url('../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2-variations'),
+      url('../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2');
+  font-weight:300 900;font-style:normal;font-display:block;
+}
+
+:root{
+  --font-primary:'Overused Grotesk',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+
+  --ink:#01204e;
+  --ink-soft:#0e3364;
+  --text:#3a4763;
+  --muted:#68758e;
+  --faint:#aeb7c8;
+
+  --bg:#ffffff;
+  --panel:#f6f5ef;
+  --panel-2:#fafaf5;
+  --line:#e8e6dc;
+
+  --teal:#028391;
+  --teal-deep:#01656f;
+  --coral:#d54751;
+  --amber:#f6dcac;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+@page{size:8.5in 11in;margin:0}
+html,body{width:8.5in;height:11in}
+body{
+  font-family:var(--font-primary);color:var(--text);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+
+.page{
+  width:8.5in;height:11in;padding:0.5in 0.56in 0.42in;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+  background:
+    radial-gradient(110% 55% at 100% 0%, #f2f6f7 0%, rgba(255,255,255,0) 60%),
+    var(--bg);
+}
+
+/* ---------- masthead ---------- */
+.mast{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.mast img{height:25px;width:auto;display:block}
+.mast .kick{
+  font-family:var(--font-mono);font-size:7.4pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.2em;color:var(--teal);
+}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1fr 2.2in;gap:0.3in;align-items:center;padding:0.2in 0 0.18in}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:7.2pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--muted);
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--teal)}
+h1{
+  font-size:30pt;line-height:1.06;letter-spacing:-.028em;font-weight:600;
+  color:var(--ink);margin:10px 0 9px;
+}
+h1 em{font-style:normal;color:var(--teal)}
+.lede{font-size:10.6pt;line-height:1.5;color:var(--text);max-width:3.9in}
+
+.shot{
+  border-radius:16px;overflow:hidden;aspect-ratio:1/1;
+  background:var(--panel);box-shadow:0 14px 34px -16px rgba(1,32,78,.36);
+}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;display:block}
+
+/* ---------- the link ---------- */
+.linkcard{
+  background:var(--ink);border-radius:16px;padding:0.22in 0.28in 0.24in;color:#fff;
+}
+.linkcard .cap{
+  font-family:var(--font-mono);font-size:7pt;font-weight:600;
+  text-transform:uppercase;letter-spacing:.17em;color:#8fd3da;
+  display:block;margin-bottom:9px;
+}
+.url{
+  font-family:var(--font-mono);font-size:12.6pt;font-weight:600;
+  color:#fff;letter-spacing:-.012em;line-height:1.3;word-break:break-all;
+}
+.url .slot{
+  color:#ffd9a3;background:rgba(246,220,172,.14);
+  border-radius:5px;padding:1px 5px;
+  box-shadow:inset 0 0 0 1px rgba(246,220,172,.38);
+}
+.linkcard .sub{margin-top:10px;font-size:8.9pt;line-height:1.45;color:#c6d2e2}
+.linkcard .sub b{color:#fff;font-weight:600;white-space:nowrap}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0.17in;padding:0.2in 0 0.19in}
+.step{background:var(--panel-2);border:1px solid var(--line);border-radius:13px;padding:0.17in 0.17in 0.18in}
+.step .num{
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10pt;font-weight:600;color:#fff;background:var(--ink);margin-bottom:10px;
+}
+.step:nth-child(2) .num{background:var(--teal)}
+.step:nth-child(3) .num{background:var(--coral)}
+.step b{display:block;font-size:11pt;font-weight:600;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}
+.step p{font-size:8.8pt;line-height:1.46;color:var(--text)}
+.step code{font-family:var(--font-mono);font-size:8pt;font-weight:600;color:var(--teal-deep);white-space:nowrap}
+
+/* ---------- good to know ---------- */
+.know-head{
+  font-family:var(--font-mono);font-size:7.2pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--muted);
+  display:flex;align-items:center;gap:11px;margin-bottom:0.13in;
+}
+.know-head::after{content:"";flex:1;height:1px;background:var(--line)}
+.know{display:grid;grid-template-columns:1fr 1fr;gap:0.14in 0.28in}
+.k{display:flex;gap:10px;align-items:flex-start}
+.k svg{width:16px;height:16px;flex:none;margin-top:1px;color:var(--teal)}
+.k b{display:block;font-size:10pt;font-weight:600;color:var(--ink);margin-bottom:2px}
+.k p{font-size:8.6pt;line-height:1.45;color:var(--text)}
+.k code{font-family:var(--font-mono);font-size:8pt;font-weight:600;color:var(--teal-deep);white-space:nowrap}
+
+/* ---------- footer ---------- */
+.foot{margin-top:auto;padding-top:0.14in;border-top:1px solid var(--line)}
+.offer{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:0.13in 0.19in;margin-bottom:0.11in;
+}
+.offer .t{
+  font-family:var(--font-mono);font-size:6.8pt;font-weight:600;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--teal);
+  display:block;margin-bottom:4px;
+}
+.offer .d{font-size:8.8pt;line-height:1.45;color:var(--ink-soft)}
+.offer .d b{color:var(--ink);font-weight:600}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.meta span{font-family:var(--font-mono);font-size:7.2pt;color:var(--faint);letter-spacing:.05em}
+.meta a{font-family:var(--font-mono);font-size:7.2pt;color:var(--teal);text-decoration:none;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <img src="../assets/logo-color.png" alt="PrivacyPal"/>
+    <span class="kick">Max · Partner Program</span>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Affiliate links</span>
+      <h1>One link.<br/><em>Every seat counts.</em></h1>
+      <p class="lede">Max is the company plan, so a single referral can be ten
+      seats or ten thousand. Every company that signs up through your link is
+      credited to you, automatically.</p>
+    </div>
+    <!-- A print-sized JPEG of assets/hero-shot-technology.png. The source PNG
+         is 1888x2117 and embeds at about 8MB, which is too heavy for a
+         document that gets emailed; this renders at roughly 2.2in square. -->
+    <div class="shot">
+      <img src="max-hero.jpg" alt="A team working through an architecture diagram at a whiteboard in an open-plan office"/>
+    </div>
+  </section>
+
+  <section class="linkcard">
+    <span class="cap">Your affiliate link</span>
+    <div class="url">https://privacypal.ai/max-offer.html?ref=<span class="slot">YOUR-CODE</span></div>
+    <p class="sub">Swap <b>YOUR-CODE</b> for the partner code we send you at
+    onboarding. That is the whole setup. A link for Northwind Partners would
+    end <b>?ref=NORTHWIND</b>.</p>
+  </section>
+
+  <section class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <b>Get your code</b>
+      <p>We send it to you at onboarding. Use it exactly as written, with no
+      spaces and no changes.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <b>Build your link</b>
+      <p>Add <code>?ref=</code> and your code to the end of the Max offer page
+      address.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <b>Share it</b>
+      <p>Proposals, newsletters, partner pages, a QR code in a deck. Anywhere
+      your buyers already meet you.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="know-head">Good to know</div>
+    <div class="know">
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div>
+          <b>You are credited for 90 days</b>
+          <p>Your code sits in their browser for 90 days, so a buyer who takes
+          a quarter to decide still counts. If they later click another
+          partner's link, the most recent one wins.</p>
+        </div>
+      </div>
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div>
+          <b>Your code never changes the price</b>
+          <p>A referral code records who sent the customer and nothing else.
+          Discounts come from a separate promo code, and Max volume pricing
+          applies on its own as the seat count grows.</p>
+        </div>
+      </div>
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+        <div>
+          <b>Trials are a separate code</b>
+          <p>Sales issues company-wide evaluation codes. If your buyer needs
+          one, introduce us: a trial code and your referral code work together,
+          so you keep the credit either way.</p>
+        </div>
+      </div>
+
+      <div class="k">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>
+        <div>
+          <b>Your own tracking survives</b>
+          <p>Add <code>utm_source</code>, <code>utm_campaign</code> or anything
+          else you measure with. It rides along to signup untouched, next to
+          your code.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="offer">
+      <span class="t">What you are sharing</span>
+      <span class="d"><b>PrivacyPal Max</b>, the plan for the whole company at
+      20 people or 2,000. From <b>$30 per seat a month</b> billed annually,
+      falling to <b>$17</b> from 1,000 seats. Everything in Pro plus IP
+      Protection at the source, Governance Policies on every device and agent,
+      Private Memory the organization owns, and shadow-AI discovery on every
+      seat.</span>
+    </div>
+    <div class="meta">
+      <span>Govern every AI. Without blocking a single user.</span>
+      <a href="mailto:hello@privacypal.ai">Questions: hello@privacypal.ai</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

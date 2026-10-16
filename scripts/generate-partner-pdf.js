@@ -27,6 +27,12 @@ const DOCS = [
     pdf: 'partners/PrivacyPal-Family-Partner-Links.pdf',
     width: '8.5in',
     height: '11in'
+  },
+  {
+    html: 'partners/max-affiliate-links.html',
+    pdf: 'partners/PrivacyPal-Max-Partner-Links.pdf',
+    width: '8.5in',
+    height: '11in'
   }
 ];
 

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- CAMPAIGN LANDING · PRIVACYPAL MAX · B2B · primary goal = start Max
+
+     Reachable by direct link only: noindex, not in sitemap.xml, not linked
+     from any nav. Partners, resellers and campaigns send people straight
+     here, which is why it carries its own header and footer and omits the
+     #site-nav-slot / #site-footer-slot divs. That omission IS the chrome
+     opt-out (see lp-banking.html): assets/v3.js still loads at the end, so
+     the shared demo-booking modal and data-cta="demo" keep working while the
+     site nav and footer stay out of the way.
+
+     THREE CODES ride in on this page's own URL and they are never conflated:
+       ?promo=   a Stripe coupon.        Changes PRICE.
+       ?ref=     a partner/reseller tag. ATTRIBUTION only, never price.
+                 (?partner= and ?aff= are accepted aliases, via referral.js)
+       ?trial=   a Max trial code.       Changes ENTITLEMENT.
+     A reseller link can carry all three at once.
+
+     The discounted price is NEVER computed here. GET /api/billing/public/
+     max-offer asks Stripe and returns the discounted figure; this page only
+     arranges it. That endpoint is public and rate limited.
+-->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Govern every AI your company uses · PrivacyPal Max</title>
+<meta name="description" content="Everyone already uses ChatGPT and nobody wrote a policy. Attach your domain, send one installer, and the whole company is governed by lunchtime. Privacy Twins on every device, one policy plane across every AI tool and agent." />
+<meta name="robots" content="noindex,follow" />
+<link rel="icon" href="assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<link rel="stylesheet" href="assets/landing.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/max-offer.html" />
+<meta property="og:title" content="Govern every AI your company uses · PrivacyPal Max" />
+<meta property="og:description" content="Attach your domain, send one installer, and the whole company is governed by lunchtime. One policy plane across every AI tool and agent." />
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Govern every AI your company uses · PrivacyPal Max" />
+<meta name="twitter:description" content="One policy plane across every AI tool and agent. Install in an afternoon." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<!-- Meta Pixel Code -->
+<script src="assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+<!-- Referral attribution: captures ?ref= (partner, reseller and creator
+     codes) so the CTA script below can carry it to signup. -->
+<script src="assets/referral.js"></script>
+<style>
+/* ---------- Page-local layer, on top of v3.css + landing.css ---------- */
+
+/* The offer card is the conversion element: everything above it argues, this
+   is where the decision happens. Two paths of equal weight, as the brief
+   requires, so neither reads as the fallback. */
+.offer-wrap{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start}
+@media(max-width:980px){.offer-wrap{grid-template-columns:1fr;gap:32px}}
+
+.offer{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:28px;position:sticky;top:24px;
+}
+@media(max-width:980px){.offer{position:static}}
+.offer-kick{
+  font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--teal);margin-bottom:14px;display:block;
+}
+.price-now{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price-now .amt{font-size:3rem;font-weight:600;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.price-now .was{
+  font-size:1.35rem;color:var(--muted);text-decoration:line-through;
+  text-decoration-thickness:2px;text-decoration-color:var(--coral);
+}
+.price-now .per{font-size:.9rem;color:var(--muted)}
+.price-note{font-size:.82rem;color:var(--muted);margin-top:8px;line-height:1.5;min-height:2.4em}
+.price-band{
+  font-family:var(--font-mono);font-size:.7rem;color:var(--muted);
+  margin-top:10px;letter-spacing:.04em;
+}
+
+/* A code that applied, and a code that did not. Both must be unmistakable:
+   a silently ignored promo is how a customer thinks they were overcharged. */
+.code-chip{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+  padding:7px 12px;border-radius:999px;font-family:var(--font-mono);
+  font-size:.72rem;letter-spacing:.04em;
+}
+.code-chip.ok{background:rgba(2,131,145,.10);color:var(--teal);border:1px dashed var(--teal)}
+.code-chip.bad{background:rgba(213,71,81,.08);color:var(--coral);border:1px dashed var(--coral)}
+.code-chip svg{width:13px;height:13px;flex:none}
+
+/* Seats drive the price, so the control sits with the price, not in a form
+   further down the page. */
+.seats{margin:22px 0 18px;padding-top:18px;border-top:1px solid var(--line)}
+.seats-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.seats-head label{font-size:.85rem;color:var(--text);font-weight:500}
+.seats-head b{font-family:var(--font-mono);font-size:1rem;color:var(--ink)}
+.seats input[type=range]{width:100%;accent-color:var(--teal)}
+.seats-total{font-size:.82rem;color:var(--muted);margin-top:9px}
+.seats-total b{color:var(--ink);font-weight:600}
+
+/* The two paths. Equal visual weight by construction. */
+.paths{display:grid;gap:10px;margin-top:4px}
+.path{
+  border:1px solid var(--line);border-radius:var(--r-md);padding:16px;
+  background:var(--bg);transition:border-color .15s ease;
+}
+.path[aria-expanded="true"]{border-color:var(--teal)}
+.path-head{
+  display:flex;align-items:center;gap:11px;width:100%;
+  background:none;border:0;padding:0;cursor:pointer;text-align:left;font:inherit;
+}
+.path-head .dot{
+  width:18px;height:18px;border-radius:50%;border:2px solid var(--line);
+  flex:none;position:relative;transition:border-color .15s ease;
+}
+.path[aria-expanded="true"] .path-head .dot{border-color:var(--teal)}
+.path[aria-expanded="true"] .path-head .dot::after{
+  content:"";position:absolute;inset:3px;border-radius:50%;background:var(--teal);
+}
+.path-head .t{font-weight:600;color:var(--ink);font-size:.95rem}
+.path-head .s{display:block;font-weight:400;color:var(--muted);font-size:.8rem;margin-top:2px}
+.path-body{padding-top:14px;display:none}
+.path[aria-expanded="true"] .path-body{display:block}
+.path .btn{width:100%;margin-top:4px}
+
+.trial-row{display:flex;gap:8px;margin-bottom:10px}
+.trial-row input{
+  flex:1;min-width:0;padding:11px 13px;border:1px solid var(--line);
+  border-radius:var(--r-md);font-family:var(--font-mono);font-size:.82rem;
+  text-transform:uppercase;background:var(--bg);color:var(--ink);
+}
+.trial-row input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+.trial-row .btn{width:auto;margin-top:0;flex:none}
+.trial-out{font-size:.82rem;line-height:1.5;margin-bottom:12px}
+.trial-out.ok{color:var(--teal)}
+.trial-out.bad{color:var(--coral)}
+.trial-out b{color:var(--ink)}
+.no-code{
+  font-size:.8rem;color:var(--muted);margin-top:12px;padding-top:12px;
+  border-top:1px solid var(--line);
+}
+.no-code a{color:var(--ink);text-decoration:underline;cursor:pointer}
+
+.fine{font-size:.74rem;color:var(--muted);margin-top:14px;line-height:1.55}
+
+/* Volume table: the "it gets cheaper" argument, which is the single most
+   effective thing on the existing Max page. */
+.bands{width:100%;border-collapse:collapse;margin-top:14px;font-size:.86rem}
+.bands th,.bands td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+.bands th{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:500}
+.bands td b{color:var(--ink)}
+.bands tr.on td{background:rgba(2,131,145,.06)}
+</style>
+</head>
+
+<body class="lp">
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<!-- HEADER -->
+<header class="lp-header">
+  <div class="lp-header-inner">
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/logo-color.png" alt="PrivacyPal"></a>
+    <div class="lp-header-right">
+      <span class="lp-header-note">Install in an afternoon</span>
+      <a class="btn btn-primary" href="#start" data-jump>Start Max</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="lp-hero">
+  <div class="lp-wrap">
+    <span class="lp-eyebrow">PrivacyPal Max</span>
+    <h1 class="lp-h2" style="max-width:17ch">Everyone already uses AI. Nobody wrote the <em>policy</em>.</h1>
+    <p class="lp-lede" style="max-width:62ch">Your people are pasting customer records, source code and board material
+    into ChatGPT, Claude, Copilot and half a dozen agents you have never
+    audited. Max does not block them. It puts a Privacy Twin in front of every
+    tool, on every device, so the sensitive thing never leaves the laptop and
+    the work still gets done.</p>
+    <div class="lp-cta-row">
+      <a class="btn btn-primary btn-lg" href="#start" data-jump>Start Max</a>
+      <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+    </div>
+    <p class="lp-cta-note">Twenty people or two thousand, the install is the same.</p>
+  </div>
+</section>
+
+<!-- THE STAKES -->
+<section class="lp-section">
+  <div class="lp-wrap">
+    <div class="lp-head center">
+      <span class="lp-eyebrow">what you are actually buying</span>
+      <h2 class="lp-h2">Three things you cannot get by writing a policy document</h2>
+    </div>
+    <div class="lp-benefits">
+      <div class="lp-benefit">
+        <h3>Protection that runs before the send</h3>
+        <p>Names, account numbers, salaries, patient details and source code are
+        swapped for Privacy Twins on the device, in about a third of a second.
+        The model gets a coherent prompt. The real value never crosses the wire.</p>
+      </div>
+      <div class="lp-benefit">
+        <h3>One policy plane, every surface</h3>
+        <p>The same rules hold in the browser, in desktop apps, inside Claude
+        Code and Microsoft Copilot, and across your agents and MCP servers. Push
+        a policy by department and it travels with the employee.</p>
+      </div>
+      <div class="lp-benefit">
+        <h3>An answer to the shadow-AI question</h3>
+        <p>See which tools are actually in use across every seat, in a dashboard
+        instead of a breach report. Your biggest customer's security
+        questionnaire finally gets a straight answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="lp-section alt">
+  <div class="lp-wrap">
+    <div class="lp-head center">
+      <span class="lp-eyebrow">rollout</span>
+      <h2 class="lp-h2">Governed by lunchtime</h2>
+      <p class="lp-sub">No infrastructure to stand up, no consultant, no security hire.</p>
+    </div>
+    <div class="lp-steps">
+      <div class="lp-step"><b>1. Attach your domain</b><p>Create the account below and claim your company's email domain. Everyone on it joins automatically.</p></div>
+      <div class="lp-step"><b>2. Send one installer</b><p>Mac and Windows. People sign in with their work account and carry on using the AI they already use.</p></div>
+      <div class="lp-step"><b>3. Set policy once</b><p>Pick what is sensitive, by department if you like. It applies everywhere, including to agents.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE OFFER: the conversion element -->
+<section class="lp-section" id="start">
+  <div class="lp-wrap">
+    <div class="offer-wrap">
+
+      <div>
+        <div class="lp-head">
+          <span class="lp-eyebrow">start max</span>
+          <h2 class="lp-h2">Two ways in</h2>
+          <p class="lp-sub">Put a card on it and start today, or run a
+          company-wide evaluation first. Both end in the same product.</p>
+        </div>
+
+        <h3 style="margin:28px 0 6px;font-size:1.05rem">It gets cheaper as the rollout grows</h3>
+        <p style="color:var(--muted);font-size:.9rem;max-width:56ch">The seat price
+        falls with the band you land in, and it falls automatically. Nothing to
+        renegotiate.</p>
+        <table class="bands" data-bands>
+          <thead><tr><th>Seats</th><th>Per seat / mo, annual</th><th>Monthly</th></tr></thead>
+          <tbody>
+            <tr data-band="0"><td>1 to 9</td><td><b>$30</b></td><td>$34</td></tr>
+            <tr data-band="1"><td>10 to 99</td><td><b>$25</b></td><td>$29</td></tr>
+            <tr data-band="2"><td>100 to 999</td><td><b>$21</b></td><td>$26</td></tr>
+            <tr data-band="3"><td>1,000 and up</td><td><b>$17</b></td><td>$22</td></tr>
+          </tbody>
+        </table>
+        <p class="fine">Max is the full product from the first seat. Everything in
+        Pro, plus the company layer: IP Protection sourced from Salesforce,
+        Slack, Notion, SQL and Workday, Governance Policies on every device and
+        every agent, Private Memory your organization owns, and shadow-AI
+        discovery across every seat.</p>
+      </div>
+
+      <!-- OFFER CARD -->
+      <aside class="offer">
+        <span class="offer-kick" data-offer-kick>PrivacyPal Max</span>
+
+        <div class="price-now">
+          <span class="was" data-was hidden>$30</span>
+          <span class="amt" data-amt>$30</span>
+          <span class="per">per seat / mo</span>
+        </div>
+        <p class="price-note" data-note>Billed annually. Volume pricing applies automatically.</p>
+        <div class="price-band" data-band-label></div>
+
+        <div data-code-chip hidden></div>
+
+        <div class="seats">
+          <div class="seats-head">
+            <label for="seatRange">Seats</label>
+            <b data-seats>25</b>
+          </div>
+          <input id="seatRange" type="range" min="0" max="39" value="12" step="1" aria-label="Number of seats"/>
+          <div class="seats-total">About <b data-total>$750</b> a month at that size.</div>
+        </div>
+
+        <div class="paths">
+          <!-- PATH A -->
+          <div class="path" data-path="card" aria-expanded="true">
+            <button class="path-head" type="button" data-path-toggle="card">
+              <span class="dot" aria-hidden="true"></span>
+              <span><span class="t">Put a card on it</span>
+              <span class="s">Start today, self-serve</span></span>
+            </button>
+            <div class="path-body">
+              <a class="btn btn-primary" href="https://portal.privacypal.ai/signup" data-signup>Create your account</a>
+              <p class="fine">You will claim your domain, set a password and add
+              your card. Cancel any time from the portal.</p>
+            </div>
+          </div>
+
+          <!-- PATH B -->
+          <div class="path" data-path="trial" aria-expanded="false">
+            <button class="path-head" type="button" data-path-toggle="trial">
+              <span class="dot" aria-hidden="true"></span>
+              <span><span class="t">Run a company-wide trial</span>
+              <span class="s">Talk to sales, or use a trial code</span></span>
+            </button>
+            <div class="path-body">
+              <div class="trial-row">
+                <input type="text" data-trial-input placeholder="TRIAL CODE" autocomplete="off" spellcheck="false" aria-label="Trial code"/>
+                <button class="btn btn-ghost" type="button" data-trial-check>Check</button>
+              </div>
+              <div class="trial-out" data-trial-out hidden></div>
+              <a class="btn btn-primary" href="https://portal.privacypal.ai/signup" data-signup data-trial-start hidden>Start the trial</a>
+              <div class="no-code">
+                No code yet? <a href="#" data-cta="demo">Book a 20 minute call</a>
+                and we will set up an evaluation for your whole company.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="fine" data-ref-note hidden></p>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="lp-section alt">
+  <div class="lp-wrap">
+    <div class="lp-head center">
+      <span class="lp-eyebrow">questions buyers ask</span>
+      <h2 class="lp-h2">Straight answers</h2>
+    </div>
+    <div class="lp-faq">
+      <details>
+        <summary>Does this block the AI tools people already use?</summary>
+        <div>No, and that is the whole design. Blocking moves the work to
+        personal laptops where you cannot see it. People keep ChatGPT, Claude,
+        Copilot, Gemini, Grok and Perplexity. What changes is that the sensitive
+        value is swapped for a Privacy Twin before the request leaves the
+        device.</div>
+      </details>
+      <details>
+        <summary>How long does a rollout actually take?</summary>
+        <div>An afternoon for the install, and policy from there. Attach the
+        domain, send one installer, and people sign in with their work account.
+        There is no infrastructure to stand up.</div>
+      </details>
+      <details>
+        <summary>Can we evaluate before we buy?</summary>
+        <div>Yes. Self-serve Max is paid from the first seat, but sales can
+        issue a company-wide evaluation against a trial code. Some trial codes
+        run as a normal subscription with a card on file; others are enterprise
+        evaluations that run for a fixed number of days with no card at all.
+        The code says which, and this page tells you before you commit.</div>
+      </details>
+      <details>
+        <summary>What does the seat price do as we grow?</summary>
+        <div>It falls, automatically, with the band you land in. From $30 per
+        seat a month at the entry band down to $17 from 1,000 seats, billed
+        annually. You do not renegotiate to get there.</div>
+      </details>
+      <details>
+        <summary>Where does our data actually go?</summary>
+        <div>The sensitive parts do not leave the device. Detection and
+        substitution run locally, and the mapping back is held on your side, so
+        the model provider only ever sees the twin.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="lp-final">
+  <div class="lp-wrap">
+    <div class="lp-final-card">
+      <h2 class="lp-h2">Govern every AI. Without blocking a single user.</h2>
+      <p class="lp-sub">Twenty people or two thousand. The install is the same.</p>
+      <div class="lp-cta-row">
+        <a class="btn btn-primary btn-lg" href="#start" data-jump>Start Max</a>
+        <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <img src="assets/logo-color.png" alt="PrivacyPal">
+    <div class="lp-footer-links">
+      <a href="privacypal-max.html">Max overview</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="privacypal-cloud.html">For Enterprise</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:hello@privacypal.ai">Contact</a>
+    </div>
+    <div class="lp-footer-copy">© 2026 PrivacyPal · Govern every AI. Without blocking a single user.</div>
+  </div>
+</footer>
+
+<div class="lp-sticky">
+  <a class="btn btn-primary" href="#start" data-jump>Start Max</a>
+</div>
+
+<script src="assets/v3.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* ================================================================
+     The Max offer: live pricing, the three codes, and the two paths.
+
+     API HOST. This page is static and is served from privacypal.ai, so the
+     API host is explicit rather than relative. Override it with
+     ?api=https://... when testing against a local or staging stack; that
+     override is read ONLY from the query string of this page and is never
+     persisted, so a stale value cannot follow a visitor around.
+     ================================================================ */
+  var DEFAULT_API = 'https://api.privacypal.ai';
+  var PORTAL = 'https://portal.privacypal.ai';
+
+  var here = new URLSearchParams(location.search);
+  var API = (function(){
+    var raw = here.get('api');
+    if (!raw) return DEFAULT_API;
+    try {
+      var u = new URL(raw);
+      return (u.protocol === 'https:' || u.protocol === 'http:') ? u.origin : DEFAULT_API;
+    } catch (e) { return DEFAULT_API; }
+  })();
+
+  /* The same normalization family-api applies on the way into the database:
+     trim, upper case, at most 64 characters, only A-Z 0-9 _ and -. A code
+     that fails it is treated as ABSENT, never as an error, so a mistyped
+     affiliate tag can never cost a visitor their signup. */
+  function normalize(raw){
+    if (typeof raw !== 'string') return '';
+    var code = raw.trim().toUpperCase();
+    if (!code || code.length > 64) return '';
+    return /^[A-Z0-9_-]{1,64}$/.test(code) ? code : '';
+  }
+  function fromQuery(keys){
+    for (var i = 0; i < keys.length; i++){
+      var v = normalize(here.get(keys[i]));
+      if (v) return v;
+    }
+    return '';
+  }
+
+  var PROMO = fromQuery(['promo']);
+  var TRIAL = fromQuery(['trial', 'trial_code']);
+  /* referral.js has already captured ?ref= / ?partner= / ?aff= and stored it
+     for 90 days, so a visitor who first met the partner link on another page
+     is still credited here. */
+  var REF = (window.PPReferral && window.PPReferral.get()) || fromQuery(['ref', 'partner', 'aff']);
+
+  /* Seat stops, matching assets/pricing.js: dense where teams actually buy,
+     sparse at the top end. The slider indexes into this. */
+  var STOPS = [1,2,3,4,5,6,7,8,9,10,15,20,25,30,40,50,60,70,80,90,
+               100,125,150,200,250,300,400,500,600,700,800,900,
+               1000,1250,1500,2000,2500,3000,4000,5000];
+
+  var $ = function(sel){ return document.querySelector(sel); };
+  var els = {
+    amt: $('[data-amt]'), was: $('[data-was]'), note: $('[data-note]'),
+    bandLabel: $('[data-band-label]'), chip: $('[data-code-chip]'),
+    seats: $('[data-seats]'), total: $('[data-total]'), range: $('#seatRange'),
+    kick: $('[data-offer-kick]'), refNote: $('[data-ref-note]'),
+    trialInput: $('[data-trial-input]'), trialOut: $('[data-trial-out]'),
+    trialStart: $('[data-trial-start]'), bands: document.querySelectorAll('[data-band]')
+  };
+
+  function usd(cents){
+    if (cents == null || !isFinite(cents)) return '';
+    var d = cents / 100;
+    return '$' + (d % 1 === 0 ? d.toFixed(0) : d.toFixed(2));
+  }
+  function seatCount(){ return STOPS[Number(els.range.value)] || 25; }
+  function bandIndex(n){ return n < 10 ? 0 : n < 100 ? 1 : n < 1000 ? 2 : 3; }
+
+  /* ---------- Pricing. The discounted number is always Stripe's. ---------- */
+
+  var inflight = 0;
+  function price(){
+    var seats = seatCount();
+    els.seats.textContent = seats.toLocaleString('en-US');
+    for (var i = 0; i < els.bands.length; i++){
+      els.bands[i].classList.toggle('on', Number(els.bands[i].dataset.band) === bandIndex(seats));
+    }
+
+    var url = API + '/api/billing/public/max-offer?plan=annual&seats=' + seats
+      + (PROMO ? '&promo=' + encodeURIComponent(PROMO) : '')
+      + (TRIAL ? '&trial=' + encodeURIComponent(TRIAL) : '');
+
+    var ticket = ++inflight;
+    fetch(url, { headers: { 'Accept': 'application/json' } })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(body){
+        if (ticket !== inflight) return;           // a later seat change won
+        var d = body && body.data;
+        if (!d) return;                            // keep the static fallback
+        render(d);
+      })
+      .catch(function(){ /* static prices stay on screen; never a blank card */ });
+  }
+
+  function render(d){
+    var listPerSeat = d.perSeatMonthlyCents;
+    var promo = d.promo;
+    var discounted = promo && promo.valid ? promo.perSeatMonthlyCents : null;
+
+    if (discounted != null && listPerSeat != null && discounted < listPerSeat){
+      els.was.hidden = false;
+      els.was.textContent = usd(listPerSeat);
+      els.amt.textContent = usd(discounted);
+      els.note.textContent = promoNote(promo);
+      els.kick.textContent = 'PrivacyPal Max · offer applied';
+    } else {
+      els.was.hidden = true;
+      if (listPerSeat != null) els.amt.textContent = usd(listPerSeat);
+      els.note.textContent = 'Billed annually. Volume pricing applies automatically.';
+      els.kick.textContent = 'PrivacyPal Max';
+    }
+
+    var perSeat = discounted != null ? discounted : listPerSeat;
+    if (perSeat != null) els.total.textContent = usd(perSeat * d.seats);
+    els.bandLabel.textContent = d.seats.toLocaleString('en-US') + ' seats · billed annually';
+
+    chip(promo);
+    if (d.trial) showTrial(d.trial, true);
+  }
+
+  function promoNote(promo){
+    var months = Number(promo.durationInMonths);
+    if (promo.duration === 'repeating' && isFinite(months) && months > 0){
+      return 'per seat a month for your first ' + months + ' months, then list price. Billed annually.';
+    }
+    if (promo.duration === 'once') return 'per seat for your first invoice, then list price.';
+    if (promo.duration === 'forever') return 'per seat a month, for as long as you stay.';
+    return 'Billed annually. Volume pricing applies automatically.';
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+  var ICON_BAD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+
+  function chip(promo){
+    if (!promo){ els.chip.hidden = true; return; }
+    els.chip.hidden = false;
+    if (promo.valid){
+      els.chip.className = 'code-chip ok';
+      els.chip.innerHTML = ICON_OK + '<span>' + (promo.name || 'Code') + ' ' + promo.code + ' applied</span>';
+    } else {
+      els.chip.className = 'code-chip bad';
+      els.chip.innerHTML = ICON_BAD + '<span>' + (promo.message || 'That code did not apply') + '</span>';
+    }
+  }
+
+  /* ---------- The trial path ---------- */
+
+  function showTrial(trial, fromUrl){
+    els.trialOut.hidden = false;
+    if (trial.valid){
+      els.trialOut.className = 'trial-out ok';
+      // requiresCard is the one fact this branches on. An enterprise code
+      // needs no card at all; a stripe-kind code still does.
+      els.trialOut.innerHTML = trial.requiresCard
+        ? '<b>' + trial.code + '</b> is valid. It runs Max as a normal subscription, so a card is still collected.'
+        : '<b>' + trial.code + '</b> is valid. Max for your whole company for <b>'
+          + trial.trialDays + ' days</b>, with no card. It reverts to Pro when the trial ends.';
+      els.trialStart.hidden = false;
+      if (fromUrl && els.trialInput && !els.trialInput.value) els.trialInput.value = trial.code;
+      openPath('trial');
+    } else {
+      els.trialOut.className = 'trial-out bad';
+      els.trialOut.textContent = trial.message || 'We could not find that trial code.';
+      els.trialStart.hidden = true;
+    }
+    links();
+  }
+
+  function checkTrial(){
+    var typed = normalize(els.trialInput.value);
+    if (!typed){
+      els.trialOut.hidden = false;
+      els.trialOut.className = 'trial-out bad';
+      els.trialOut.textContent = 'That does not look like one of our trial codes.';
+      els.trialStart.hidden = true;
+      return;
+    }
+    TRIAL = typed;
+    els.trialOut.hidden = false;
+    els.trialOut.className = 'trial-out';
+    els.trialOut.textContent = 'Checking...';
+    fetch(API + '/api/billing/public/max-offer?plan=annual&seats=' + seatCount()
+          + '&trial=' + encodeURIComponent(typed)
+          + (PROMO ? '&promo=' + encodeURIComponent(PROMO) : ''),
+          { headers: { 'Accept': 'application/json' } })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(body){
+        var t = body && body.data && body.data.trial;
+        if (!t) throw new Error('no answer');
+        showTrial(t, false);
+      })
+      .catch(function(){
+        els.trialOut.className = 'trial-out bad';
+        els.trialOut.textContent = 'We could not check that code just now. Try again in a moment.';
+        els.trialStart.hidden = true;
+      });
+  }
+
+  /* ---------- Handoff to signup ----------
+     Every CTA carries the codes the visitor arrived with. The three stay
+     separate all the way into the portal, which sends them on to
+     POST /api/user/register as promoCode, referralCode and trialCode. */
+  function links(){
+    var out = new URLSearchParams();
+    out.set('plan', 'max');
+    out.set('seats', String(seatCount()));
+    if (PROMO) out.set('promo', PROMO);
+    if (REF) out.set('ref', REF);
+    if (TRIAL) out.set('trial', TRIAL);
+    here.forEach(function(v, k){ if (/^utm_/i.test(k) || k === 'fbclid') out.set(k, v); });
+    var href = PORTAL + '/signup?' + out.toString();
+
+    var ctas = document.querySelectorAll('a[data-signup]');
+    for (var i = 0; i < ctas.length; i++) ctas[i].href = href;
+
+    if (REF && els.refNote){
+      els.refNote.hidden = false;
+      els.refNote.textContent = 'Referred by partner ' + REF + '. Your price is unaffected.';
+    }
+  }
+
+  /* ---------- Paths ---------- */
+  function openPath(which){
+    var paths = document.querySelectorAll('.path');
+    for (var i = 0; i < paths.length; i++){
+      paths[i].setAttribute('aria-expanded', String(paths[i].dataset.path === which));
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var toggle = e.target.closest ? e.target.closest('[data-path-toggle]') : null;
+    if (toggle){ openPath(toggle.dataset.pathToggle); return; }
+    var check = e.target.closest ? e.target.closest('[data-trial-check]') : null;
+    if (check){ checkTrial(); return; }
+    var jump = e.target.closest ? e.target.closest('[data-jump]') : null;
+    if (jump){
+      e.preventDefault();
+      var t = document.getElementById('start');
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  els.trialInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter'){ e.preventDefault(); checkTrial(); }
+  });
+  els.range.addEventListener('input', function(){
+    els.seats.textContent = seatCount().toLocaleString('en-US');
+    links();
+  });
+  els.range.addEventListener('change', price);
+
+  /* A trial code on the URL opens that path, since it is why they are here. */
+  if (TRIAL) openPath('trial');
+  links();
+  price();
+
+  if (typeof fbq === 'function'){
+    fbq('track', 'ViewContent', { content_name: 'Max offer landing', content_category: 'max' });
+  }
+})();
+</script>
+</body>
+</html>
