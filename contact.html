@@ -10,6 +10,47 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
+<style>
+/* Headquarters card. Mirrors the address block in the shared footer
+   (assets/v3.js); change both together. */
+.hq-card{
+  display:grid;grid-template-columns:1.12fr .88fr;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  background:#fff;box-shadow:var(--shadow-card);
+}
+.hq-body{padding:44px 44px 40px}
+.hq-body h2{font-size:1.7rem;letter-spacing:-.02em;margin:14px 0 10px}
+.hq-body .hq-note{font-size:.95rem;line-height:1.6;color:var(--muted);max-width:40ch}
+.hq-body address{font-style:normal;margin:24px 0 26px;font-size:1rem;line-height:1.7;color:var(--text)}
+.hq-body address b{display:block;color:var(--ink);font-weight:600;font-size:1.05rem}
+.hq-body address > span{display:block}
+.hq-plate{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;padding:40px 24px;min-height:280px;
+  background:var(--panel);border-left:1px solid var(--line);
+}
+.hq-plate::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(var(--line) 1.1px, transparent 1.1px);background-size:22px 22px;
+}
+.hq-plate::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(58% 54% at 50% 44%, rgba(2,131,145,.13), transparent 72%);
+}
+.hq-plate svg{position:relative;width:48px;height:48px;color:var(--teal)}
+.hq-plate span{
+  position:relative;font-family:var(--font-mono);font-size:.72rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--muted);text-align:center;
+}
+@media (max-width:760px){
+  .hq-card{grid-template-columns:1fr}
+  .hq-body{padding:32px 24px 28px}
+  .hq-plate{border-left:0;border-top:1px solid var(--line);min-height:180px;padding:32px 24px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"PrivacyPal","url":"https://privacypal.ai","logo":"https://privacypal.ai/assets/logo-color.png","email":"hello@privacypal.ai","address":{"@type":"PostalAddress","name":"Headquarters","streetAddress":"1691 Forum Pl, Ste B PMB 1186","addressLocality":"West Palm Beach","addressRegion":"FL","postalCode":"33401","addressCountry":"US"},"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@privacypal.ai"},{"@type":"ContactPoint","contactType":"press relations","email":"press@privacypal.ai"},{"@type":"ContactPoint","contactType":"customer support","email":"support@privacypal.ai"}]}
+</script>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/contact.html" />
@@ -57,6 +98,32 @@
         <h4>Help &amp; support</h4>
         <p>Our support and customer success teams, 24×7.</p>
         <a class="link-arrow" href="mailto:support@privacypal.ai">support@privacypal.ai</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="hq">
+  <div class="container">
+    <div class="hq-card reveal">
+      <div class="hq-body">
+        <span class="eyebrow blue">Mailing address</span>
+        <h2>Headquarters</h2>
+        <p class="hq-note">Post, contracts and anything that has to arrive on paper goes here. For anything faster, the teams above answer by email.</p>
+        <address itemscope itemtype="https://schema.org/PostalAddress">
+          <b>PrivacyPal</b>
+          <span itemprop="streetAddress">1691 Forum Pl<br/>Ste B PMB 1186</span>
+          <span><span itemprop="addressLocality">West Palm Beach</span>, <span itemprop="addressRegion">FL</span> <span itemprop="postalCode">33401</span></span>
+          <span itemprop="addressCountry">United States</span>
+        </address>
+        <div class="btn-row">
+          <button class="btn btn-ghost btn-sm" type="button" data-cli-copy="PrivacyPal, 1691 Forum Pl, Ste B PMB 1186, West Palm Beach, FL 33401, United States">Copy address</button>
+          <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=1691%20Forum%20Pl%20Ste%20B%2C%20West%20Palm%20Beach%2C%20FL%2033401" target="_blank" rel="noopener">Open in Maps</a>
+        </div>
+      </div>
+      <div class="hq-plate" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.4c0 5.9-8 11.6-8 11.6S4 16.3 4 10.4a8 8 0 0 1 16 0z"/><circle cx="12" cy="10.4" r="2.7"/></svg>
+        <span>West Palm Beach, Florida</span>
       </div>
     </div>
   </div>

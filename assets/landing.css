@@ -202,7 +202,8 @@ body.lp{background:var(--bg)}
 .lp-footer-links{display:flex;gap:20px;flex-wrap:wrap}
 .lp-footer-links a{font-size:.88rem;color:var(--muted)}
 .lp-footer-links a:hover{color:var(--ink)}
-.lp-footer-copy{margin-left:auto;font-size:.8rem;color:var(--muted)}
+.lp-footer-copy{margin-left:auto;font-size:.8rem;color:var(--muted);text-align:right}
+.lp-footer-addr{display:block;font-style:normal;color:var(--muted);margin-bottom:5px}
 
 /* ---------- sticky mobile CTA ---------- */
 .lp-sticky{
@@ -226,5 +227,7 @@ body.lp{background:var(--bg)}
   .lp-hero{padding:96px 0 56px}
   .lp-section{padding:64px 0}
   .lp-sticky{display:block}
-  .lp-footer-copy{margin-left:0;flex-basis:100%}
+  /* clear the sticky CTA so the address and copyright stay readable */
+  .lp-footer{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
+  .lp-footer-copy{margin-left:0;flex-basis:100%;text-align:left}
 }

@@ -283,6 +283,13 @@ body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-burger span{background
   transition:border-color .15s;min-width:0;
 }
 .footer-news input:focus{border-color:var(--teal)}
+/* Headquarters block, under the newsletter in the last footer column */
+.footer-addr{margin-top:30px;font-style:normal}
+.footer-addr-row{display:flex;gap:10px;align-items:flex-start}
+.footer-addr-row > svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--teal)}
+.footer-addr p{font-size:.85rem;line-height:1.65;color:var(--muted)}
+.footer-addr p b{display:block;color:var(--ink);font-weight:500}
+.footer-addr p > span{display:block}
 .footer-bottom{
   margin-top:56px;padding-top:26px;border-top:1px solid var(--line-soft);
   display:flex;align-items:center;gap:24px;flex-wrap:wrap;

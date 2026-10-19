@@ -52,6 +52,11 @@ nav transparent-over-photo until scroll; do not reuse that class elsewhere.
 ```
 
 2. **Never** hand-write a nav or footer; the slots + `assets/v3.js` inject them.
+   The footer carries the company address (`.footer-addr`, styled in `assets/v3.css`
+   and mirrored in `assets/family-chrome.css`). The same address appears in the
+   Headquarters card on `contact.html` and in the one-line footers of the `lp-*`
+   landing pages, `family/founding/` and `partners/`. If it ever changes, change
+   all of them, plus the `PostalAddress` JSON-LD in `contact.html`.
 3. All assets are root-relative, with no `../` prefixes
    (e.g. `assets/hero-shot-banking.png`, `product-shot-001.png`, `assets/v3.css`).
 4. Links between v3 pages are plain relative (`banking.html`, `pricing.html`).
