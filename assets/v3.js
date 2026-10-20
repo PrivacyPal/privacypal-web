@@ -343,8 +343,8 @@
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.4c0 5.9-8 11.6-8 11.6S4 16.3 4 10.4a8 8 0 0 1 16 0z"/><circle cx="12" cy="10.4" r="2.7"/></svg>' +
               '<p>' +
                 '<b>PrivacyPal</b>' +
-                '<span itemprop="streetAddress">1691 Forum Pl<br>Ste B PMB 1186</span>' +
-                '<span><span itemprop="addressLocality">West Palm Beach</span>, <span itemprop="addressRegion">FL</span> <span itemprop="postalCode">33401</span></span>' +
+                '<span itemprop="streetAddress">1601 Belvedere Rd<br>Suite E-300 PMB 1021</span>' +
+                '<span><span itemprop="addressLocality">West Palm Beach</span>, <span itemprop="addressRegion">FL</span> <span itemprop="postalCode">33406</span></span>' +
                 '<span itemprop="addressCountry">United States</span>' +
               '</p>' +
             '</div>' +
