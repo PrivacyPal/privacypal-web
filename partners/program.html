@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- PARTNER PROGRAM - NORTH AMERICA - standalone partner recruiting page.
+
+     Reachable by direct link only: noindex,nofollow, absent from sitemap.xml,
+     and linked from no nav anywhere on the site. The URL is sent straight to
+     a prospective partner, which is why this page carries its own header,
+     footer and design system and deliberately does NOT load assets/v3.css or
+     assets/v3.js. Nothing here is wired into the site chrome.
+
+     Both forms (#pilot and #apply) deliver to partners@privacypal.ai. See the
+     delivery block at the end of the file for the two channels and the
+     one-time FormSubmit activation they depend on. -->
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>PrivacyPal Partner Program</title>
+<meta name="description" content="Your clients are already using AI. Sell them the control layer: PrivacyPal Max, per seat, on the devices you already manage. Pilot it on your own team for 30 days, then take one SKU to every regulated client you have."/>
+<meta name="robots" content="noindex,nofollow"/>
+<!-- Unlisted path: do not hand it to anything this page talks to. The form
+     delivery at the end of the file re-grants the bare origin per request,
+     which FormSubmit requires. -->
+<meta name="referrer" content="no-referrer"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="PrivacyPal"/>
+<meta property="og:title" content="PrivacyPal Partner Program"/>
+<meta property="og:description" content="Demand without a SKU. Your clients are already using AI; sell them the control layer, per seat, on the devices you already manage."/>
+<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="PrivacyPal Partner Program"/>
+<meta name="twitter:description" content="Demand without a SKU. Sell the control layer for the AI your clients already use."/>
+<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png"/>
+<style>
+/* Layout: a long partner-recruiting page, one column of full-width bands, each band a 1100px content well; navy opener and closer, light working sections between. */
+:root{
+  --bg:#F6F5F1; --fg:#121A2B; --muted:#5B6578; --rule:#DED9CE; --card:#FFFFFF;
+  --navy:#0E1A33; --navy2:#172544; --ink-on-navy:#F4F6FA; --sub-on-navy:#B9C4D8;
+  --accent:#1E9E8A; --accent-ink:#0F6E5F; --gold:#D98C2B;
+  --display:"Source Serif 4", Georgia, serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#0B1221; --fg:#EEF1F6; --muted:#A5B0C3; --rule:#263148; --card:#131D33; --navy:#070D1A; --navy2:#111B30; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#0B1221; --fg:#EEF1F6; --muted:#A5B0C3; --rule:#263148; --card:#131D33; --navy:#070D1A; --navy2:#111B30; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5}
+a{color:var(--accent-ink)}
+.well{max-width:1100px;margin:0 auto;padding-inline:20px}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--ink-on-navy);border-bottom:1px solid #223150}
+header.nav .well{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.01em}
+.brand small{display:block;font-family:var(--body);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub-on-navy)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;font-weight:600}
+nav a{color:var(--ink-on-navy);text-decoration:none}
+nav a.cta{background:var(--accent);color:#fff;padding:7px 14px;border-radius:999px}
+section{padding-block:56px}
+section.dark{background:var(--navy);color:var(--ink-on-navy)}
+section.dark .muted{color:var(--sub-on-navy)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1{font-family:var(--display);font-size:clamp(34px,5vw,56px);line-height:1.05;margin:0 0 18px;text-wrap:balance;max-width:20ch}
+h2{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.12;margin:0 0 14px;text-wrap:balance}
+h3{font-size:18px;margin:0 0 8px}
+p{margin:0 0 14px;max-width:68ch}
+.lead{font-size:20px;max-width:60ch}
+.muted{color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{color:var(--ink-on-navy)}
+section:not(.dark) .btn.ghost{color:var(--accent-ink)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:20px;min-width:0}
+section.dark .card{background:var(--navy2);border-color:#2A3A5C}
+.stat{font-family:var(--display);font-size:40px;font-weight:700;color:var(--accent);line-height:1;margin:0 0 8px}
+.src{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+section.dark .src{color:var(--sub-on-navy)}
+.thesis{font-family:var(--display);font-size:clamp(22px,3vw,32px);font-weight:600;line-height:1.2;margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.tbl{overflow-x:auto}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+section.dark table{background:var(--navy2);border-color:#2A3A5C}
+section.dark td{color:var(--ink-on-navy);border-color:#2A3A5C}
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:18px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start}
+ul.clean{padding-left:20px;margin:0}
+ul.clean li{margin-bottom:6px}
+.callout{border-left:4px solid var(--gold);padding:10px 16px;background:var(--card);border-radius:0 10px 10px 0;margin:14px 0}
+section.dark .callout{background:var(--navy2)}
+.quote{font-family:var(--display);font-size:19px;line-height:1.35;padding:14px 18px;border-radius:10px;background:var(--card);border:1px solid var(--rule);margin:0 0 12px}
+section.dark .quote{background:var(--navy2);border-color:#2A3A5C}
+.chart{width:100%;max-width:100%;height:auto;display:block;margin:12px 0 6px}
+form{display:grid;gap:12px}
+label{font-size:14px;font-weight:600;display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--fg);width:100%}
+textarea{min-height:90px}
+.frow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ok{display:none;padding:14px 16px;border-radius:10px;background:var(--card);border:1px solid var(--accent)}
+.ok.show{display:block}
+.person{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:center}
+.person img{width:120px;height:120px;border-radius:50%;object-fit:cover}
+footer{padding-block:28px;background:var(--navy);color:var(--sub-on-navy);font-size:13.5px}
+footer .well{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.small{font-size:13.5px;color:var(--muted)}
+section.dark .small{color:var(--sub-on-navy)}
+@media (max-width:700px){.person{grid-template-columns:1fr}.person img{width:96px;height:96px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+/* form delivery: honeypot, live status, in-flight button, failure fallback */
+/* form{display:grid} outranks the UA's [hidden]{display:none}, so hiding a
+   submitted form needs this. The export scaffold carried the same rule. */
+[hidden]{display:none!important}
+.honey{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.fstatus{font-size:14px;line-height:1.45;margin:2px 0 0;max-width:none}
+.fstatus:empty{display:none}
+.fstatus.wait{color:var(--sub-on-navy)}
+.fstatus.err{color:#FFB4AB;font-weight:600}
+section:not(.dark) .fstatus.wait{color:var(--muted)}
+section:not(.dark) .fstatus.err{color:#B3261E}
+button[type=submit][disabled]{opacity:.55;cursor:progress}
+.ok .fallback{margin:12px 0 0;font-size:14px}
+.ok pre{white-space:pre-wrap;word-break:break-word;font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;
+  max-height:240px;overflow:auto;background:rgba(0,0,0,.22);border-radius:8px;padding:10px;margin:8px 0 0}
+html{scroll-behavior:smooth}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* see it working */
+.demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:start}
+.demo .pane{border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.14)}
+.demo .pane h4{margin:0 0 10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.demo .prompt{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;line-height:1.65;min-height:150px;white-space:pre-wrap}
+.pii{background:rgba(255,94,94,.22);border-bottom:2px solid #ff5e5e;border-radius:3px;padding:0 3px}
+.twin{background:rgba(70,200,140,.22);border-bottom:2px solid #46c88c;border-radius:3px;padding:0 3px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.tabs button{border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;border-radius:999px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:14px}
+.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:26px}
+.shots figure{margin:0}.shots img{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:block;background:#0b1626}
+.shots figcaption{font-size:13px;opacity:.75;margin-top:8px}
+.vid{margin-top:26px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
+.vid video{width:100%;display:block;background:#000}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="well">
+    <div class="brand">PrivacyPal <small>Partner Program · North America</small></div>
+    <nav><ul>
+      <li><a href="#why">Why now</a></li>
+      <li><a href="#sku">The SKU</a></li>
+      <li><a href="#demo">See it working</a></li>
+      <li><a href="#partners">Who we're looking for</a></li>
+      <li><a href="#customers">Your customers</a></li>
+      <li><a href="#earn">How you earn</a></li>
+      <li><a href="#playbook">Playbook</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a class="cta" href="#pilot">Start a pilot</a></li>
+    <li><a href="https://calendly.com/chat-sj/strategic_conversation" style="font-weight:700">Book a call</a></li></ul></nav>
+  </div>
+</header>
+
+<section class="dark" id="top">
+  <div class="well">
+    <p class="eyebrow">For MSPs, MSSPs, technology advisors, carriers and distributors</p>
+    <h1>Your clients are already using AI.</h1>
+    <p class="lead">How you can provide your clients security and peace of mind, without compromising the productivity and benefits AI offers?</p>
+    <p class="thesis" style="color:var(--accent);margin-top:18px">PrivacyPal.</p>
+    <p class="thesis">Use any AI. Give it nothing it can keep.</p>
+    <p class="lead muted">PrivacyPal swaps sensitive data for safe stand-ins on the device before a prompt reaches ChatGPT, Claude, Copilot, Gemini or any other AI. Your client gets the productivity. Nothing real leaves. You get a recurring line item that attaches to what you already sell.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://calendly.com/chat-sj/strategic_conversation">Book a 30-minute strategic conversation</a>
+      <a class="btn ghost" href="#pilot">Or run it on your own team first</a>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="well">
+    <p class="eyebrow">Why now</p>
+    <h2>Demand without a SKU</h2>
+    <p class="lead">Clients are asking for an AI line item. Almost no partner has one. The incumbents now bundle AI <em>discovery</em>; nobody gives the client a way to say yes.</p>
+    <div class="grid g4">
+      <div class="card"><p class="stat">48% / 13%</p><p>of MSPs say AI and automation is the #1 client need / earn meaningful revenue from it</p><p class="src">Kaseya 2026 State of the MSP, 1,000+ MSPs</p></div>
+      <div class="card"><p class="stat">57%</p><p>of MSPs expect AI among their biggest revenue gainers in the next 12 months, up from 37%</p><p class="src">MSP 501 Survey Insights, September 2026</p></div>
+      <div class="card"><p class="stat">28% → 7%</p><p>of organizations with outright bans on AI or limits on data entry into genAI, 2025 to 2026. The ban is over. The question is how to let it in safely.</p><p class="src">Cisco Data Privacy Benchmark 2026</p></div>
+      <div class="card"><p class="stat">65% / 61%</p><p>had an AI-agent security incident last year / of those incidents exposed sensitive data</p><p class="src">Cloud Security Alliance + Token Security, April 2026</p></div>
+    </div>
+    <div class="callout"><strong>The regulators wrote the pitch.</strong> NYDFS tells financial firms to block queries that could expose nonpublic information to public AI. FINRA's 2026 report wants prompt and output logs and controls on what agents touch. A federal court ruled in February that documents created in a consumer AI tool aren't privileged. Every one of those is a control someone gets paid to run per user.</div>
+  </div>
+</section>
+
+<section class="dark" id="sku">
+  <div class="well">
+    <p class="eyebrow">The SKU</p>
+    <h2>What you sell on Monday</h2>
+    <div class="two">
+      <div>
+        <h3>Two products. One governance plane.</h3>
+        <p class="muted">One agent on the device. Privacy Twins replace names, account numbers, patient identifiers, source code and IP with statistically faithful stand-ins before the prompt leaves. The AI answers normally. The real data never went anywhere. 47 PII, PHI, PCI and IP classes governed out of the box; SSO; a full audit trail your client's auditor can read.</p>
+        <ul class="clean muted">
+          <li><strong>PrivacyPal Max</strong>, the partner SKU: the governance layer for the whole company, 20 to 2,000 people. <strong>PrivacyPal Cloud</strong>: the sovereign version in the client's own cloud, on-prem or air-gapped, co-sold and priced per deployment.</li>
+          <li>Mac, Windows, iOS and Android. Zero-touch through Intune or Jamf Pro, or personal phones (BYOD) where only AI traffic ever enters the tunnel. SSO through Okta, Microsoft Entra ID or Google Workspace.</li>
+          <li>Every major AI: ChatGPT, Claude, Gemini, Copilot and Grok. Agents too: Claude Code, Copilot, Hermes and Private MCP. It isn't tied to one vendor's ecosystem.</li>
+          <li>Policies, shadow-AI discovery and on-device DSPM, plus Private Memory: one governed memory across every AI.</li>
+          <li>Multi-tenant console so you manage every client from one place.</li>
+          <li>Per-user AI usage and spend visibility: a second buyer (the CFO) off the same agent.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Where it attaches</h3>
+        <ul class="clean">
+          <li><strong>Security practice</strong> (MSP, MSSP, vCISO): next to EDR, email security and awareness training, as "AI data protection."</li>
+          <li><strong>Mobility line</strong> (carrier, managed mobility, TEM): per line, next to MDM and mobile threat defense.</li>
+          <li><strong>Supplier list</strong> (TSD, advisor): a security supplier with a managed-delivery option and residuals.</li>
+          <li><strong>Line card</strong> (distributor): an AI-security ISV with multi-tenancy, APIs and monthly billing.</li>
+        </ul>
+        <p class="small" style="margin-top:12px">You sell Max and Cloud. Pro is free for one individual and isn't in the partner catalog: hand it to the champion as your demo, because the second user on the domain is a Max sale. PrivacyPal Family ($9.99 a month, up to five family members) is bundled by carriers, banks and device makers under a co-branded agreement; see the <a href="/family/">Family program</a>. What it is not: blocking. Discovery tools tell the client what leaked. This lets the client use AI and keeps the data home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="dark" id="demo">
+  <div class="well">
+    <p class="eyebrow">See it working</p>
+    <h2>Your client's prompt, before and after the agent</h2>
+    <p class="muted" style="max-width:760px">Pick a client type. The left pane is what an employee types into ChatGPT or Claude today. The right pane is what actually leaves the device with PrivacyPal running. The AI answers the right-hand version normally, and the answer comes back with the real values restored on the device.</p>
+    <div class="tabs" id="demoTabs">
+      <button class="on" data-k="bank">Wealth advisor</button><button data-k="clinic">Clinic</button><button data-k="law">Law firm</button><button data-k="msp">Your own help desk</button>
+    </div>
+    <div class="demo">
+      <div class="pane"><h4>Typed by the employee</h4><div class="prompt" id="demoBefore"></div></div>
+      <div class="pane"><h4>Sent to the AI</h4><div class="prompt" id="demoAfter"></div></div>
+    </div>
+    <p class="small muted" style="margin-top:10px">Illustrative text. Privacy Twins are statistically faithful stand-ins, so the AI's answer stays useful; 47 classes of PII, PHI, PCI and IP are governed by default and your policy decides the rest.</p>
+    <div class="shots">
+      <figure><img loading="lazy" src="../family/assets/product/privacypal-desktop-claude-example.png" alt="PrivacyPal protecting a live Claude chat" onerror="this.parentNode.style.display='none'"><figcaption>Shipping product: protection running inside a live Claude chat.</figcaption></figure>
+      <figure><img loading="lazy" src="../family/assets/product/activity-feed-wide.png" alt="PrivacyPal realtime activity feed" onerror="this.parentNode.style.display='none'"><figcaption>Shipping product: the realtime activity feed. Every protected prompt, across Claude Code, Claude and ChatGPT, in one audit trail.</figcaption></figure>
+    </div>
+    <div class="btns" style="margin-top:22px"><a class="btn primary" href="https://calendly.com/chat-sj/strategic_conversation">See it live on your own data: book 30 minutes</a></div>
+  </div>
+</section>
+<script>
+(function(){
+var P=function(t){return '<span class="pii">'+t+'</span>'},T=function(t){return '<span class="twin">'+t+'</span>'};
+var D={
+ bank:{b:"Draft a note to "+P("Margaret Holloway")+" (acct "+P("4471-889-220")+") explaining why we trimmed her "+P("Vanguard")+" position by "+P("$215,000")+" ahead of her "+P("June 14")+" retirement. Keep it to 120 words.",
+       a:"Draft a note to "+T("Patricia Dunmore")+" (acct "+T("5160-224-917")+") explaining why we trimmed her "+T("Fidelity")+" position by "+T("$208,000")+" ahead of her "+T("May 30")+" retirement. Keep it to 120 words."},
+ clinic:{b:"Summarize this visit for the chart: "+P("Daniel Reyes")+", DOB "+P("03/22/1981")+", MRN "+P("00482913")+", presenting with "+P("uncontrolled type 2 diabetes")+", A1c "+P("9.4")+". Started "+P("metformin 1000mg")+".",
+         a:"Summarize this visit for the chart: "+T("Marcus Whitfield")+", DOB "+T("07/09/1979")+", MRN "+T("00917346")+", presenting with "+T("[condition]")+", A1c "+T("[lab value]")+". Started "+T("[medication, dose]")+"."},
+ law:{b:"Review this clause from the "+P("Hartwell v. Nordic Shipping")+" settlement and flag anything that weakens our client "+P("Hartwell Logistics")+"' indemnity. Opposing counsel is "+P("Baker & Lund")+". Settlement amount: "+P("$3.8M")+".",
+      a:"Review this clause from the "+T("Castellan v. Meridian Freight")+" settlement and flag anything that weakens our client "+T("Castellan Transport")+"' indemnity. Opposing counsel is "+T("Pryor & Haynes")+". Settlement amount: "+T("$3.6M")+"."},
+ msp:{b:"Write a ticket response for "+P("Karen at Brightwater Dental")+". Their "+P("FortiGate 60F")+" at "+P("72.14.203.9")+" dropped VPN again. Admin creds are "+P("bwadmin / Spring2026!")+". Tell her we'll be on at 7am.",
+      a:"Write a ticket response for "+T("Linda at Clearview Orthodontics")+". Their "+T("[firewall model]")+" at "+T("[IP address]")+" dropped VPN again. Admin creds are "+T("[credential removed]")+". Tell her we'll be on at 7am."}
+};
+var tabs=document.getElementById('demoTabs'),B=document.getElementById('demoBefore'),A=document.getElementById('demoAfter');
+function show(k){B.innerHTML=D[k].b;A.innerHTML=D[k].a;Array.prototype.forEach.call(tabs.children,function(x){x.classList.toggle('on',x.getAttribute('data-k')===k)});}
+tabs.addEventListener('click',function(e){var k=e.target.getAttribute('data-k');if(k)show(k)});
+show('bank');
+})();
+</script>
+
+<section id="partners">
+  <div class="well">
+    <p class="eyebrow">Who we're looking for</p>
+    <h2>Partners who already sell security, mobility or managed services to regulated clients</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Security practices</h3><p>MSPs, MSSPs, vCISO and compliance firms with clients in banking, healthcare, legal, accounting or technology. You already run the AI acceptable-use policy; this is what enforces it.</p></div>
+      <div class="card"><h3>Mobility and carriers</h3><p>Carriers, managed mobility and TEM providers with business lines under management. Per-line attach next to MDM and mobile threat defense.</p></div>
+      <div class="card"><h3>Advisors, TSDs and distribution</h3><p>Technology advisors with a security supplier portfolio, and distributors and marketplaces onboarding AI-security vendors.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:14px">If you sell to regulated clients and your name isn't on this list, apply anyway. We'd rather hear from you.</p>
+  </div>
+</section>
+
+<section class="dark" id="customers">
+  <div class="well">
+    <p class="eyebrow">Your customers</p>
+    <h2>Who buys, what they're measured on, and the sentence that opens the door</h2>
+    <p class="muted">Ideal customer: a regulated or data-sensitive business of 20 to 2,000 people whose staff already use AI. Banking and lending, healthcare, law, accounting and tax, insurance agencies, technology firms with IP to protect. The trigger is usually one of four: a Copilot rollout, a cyber-insurance renewal with AI questions on it, an exam or audit finding, or a BYOD policy that never covered AI.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Buyer</th><th>Measured on</th><th>The opening line</th><th>What they buy</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CISO / IT lead</strong></td><td>Incidents, audit findings, tool sprawl</td><td>"Your people are already using AI. Want to see what left the building last month, and then make it stop without blocking them?"</td><td>Protection that doesn't create a help-desk ticket</td></tr>
+        <tr><td><strong>CFO / COO</strong></td><td>AI spend, insurance premium, productivity</td><td>"You're paying for Copilot and ChatGPT seats and you can't see who uses what. We can show per-user AI usage and protect the data in the same agent."</td><td>Visibility, a defensible answer on the insurance form</td></tr>
+        <tr><td><strong>Compliance / General Counsel</strong></td><td>Regulator findings, privilege, client confidentiality</td><td>"Documents your team puts into a consumer AI tool aren't privileged. Here's how your people keep using it without that exposure."</td><td>A control that maps to the regulator's sentence</td></tr>
+        <tr><td><strong>Practice / operations leader</strong></td><td>Throughput, staff retention, the ban they hate</td><td>"Your staff wants the productivity. We can give them a yes instead of a policy they ignore."</td><td>The end of the shadow-AI argument</td></tr>
+      </tbody>
+    </table></div>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card"><h3>Banking &amp; lending</h3><p class="muted">NYDFS: monitor staff genAI use and block queries that could expose NPI. The Fed, OCC and FDIC excluded generative AI from model-risk guidance and told banks to govern it anyway.</p></div>
+      <div class="card"><h3>Healthcare</h3><p class="muted">PHI in a prompt is a disclosure. PrivacyPal signs a BAA and keeps identifiers on the device, so the AI vendor never becomes part of the client's compliance perimeter.</p></div>
+      <div class="card"><h3>Legal &amp; accounting</h3><p class="muted">A federal court found consumer-AI documents weren't privileged. Bar opinions require evaluating retention and training before client data goes in. Tax preparers carry §7216 and the Safeguards Rule.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="earn">
+  <div class="well">
+    <p class="eyebrow">How you earn</p>
+    <h2>A per-seat subscription you keep, plus the services around it</h2>
+    <div class="two">
+      <div>
+        <p>Buy at retail minus your margin. Sell at retail. Own the customer. Max is priced per seat per month and billed annually, with the per-seat price falling as the client's headcount grows: $30 (1–9 seats), $25 (10–99), $21 (100–999) and $17 (1,000+). The whole order prices at one band, and a customer that grows reprices down automatically at renewal.</p>
+        <div style="overflow-x:auto"><table>
+          <thead><tr><th>Tier</th><th>Annual target</th><th>You earn</th><th>Certification</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Referral</strong></td><td>None</td><td>10% referral fee</td><td>Basic onboarding</td></tr>
+            <tr><td><strong>Silver</strong></td><td>None</td><td>25% margin</td><td>Sales enablement training</td></tr>
+            <tr><td><strong>Gold</strong></td><td>$75,000</td><td>35% margin</td><td>Full technical certification</td></tr>
+            <tr><td><strong>Platinum</strong></td><td>$250,000</td><td>45% margin</td><td>VAR status, technical certification, joint business plan</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small" style="margin-top:10px">Targets are reviewed annually, with written notice and a 90-day cure period before any tier moves. Annual commitments of $100,000, $500,000 or $1,000,000 carry additional benefits, written into your Agreement. Remit retail minus your margin within 30 days. Non-exclusive, no territory lock-in.</p>
+        <p>Three streams, the same as every control layer before it: <strong>the subscription</strong> at partner margin, renewing annually; <strong>professional services</strong> for policy design, MDM deployment and the 30-day rollout; and <strong>managed services</strong>, the monthly AI-governance line you add to the client's invoice (policy, reporting, quarterly review, AI spend attribution).</p>
+        <div class="callout"><strong>Targeted population, not fleet.</strong> Most clients start with the 15–20% of staff who handle regulated data. A 500-person bank buys 75–100 seats, not 500. That's the deal size to expect, and the reason it closes in weeks rather than quarters.</div>
+      </div>
+      <div class="card">
+        <h3>Illustration at list price, not a forecast</h3>
+        <p class="small">Twenty clients added over twelve months, 50 seats each at the 10–99 band. Subscription revenue at list before your margin and before services.</p>
+        <svg class="chart" viewBox="0 0 520 240" role="img" aria-label="Cumulative annual subscription at list price grows from $15,000 with one client to $300,000 with twenty clients">
+          <g font-family="Source Sans 3, sans-serif" font-size="12" fill="currentColor">
+            <line x1="50" y1="200" x2="500" y2="200" stroke="currentColor" stroke-opacity=".3"/>
+            <line x1="50" y1="20" x2="50" y2="200" stroke="currentColor" stroke-opacity=".3"/>
+            <text x="8" y="24">$300K</text><text x="8" y="114">$150K</text><text x="22" y="204">$0</text>
+            <text x="50" y="222">Month 1</text><text x="455" y="222">Month 12</text>
+            <polyline fill="none" stroke="#1E9E8A" stroke-width="3" points="50,191 88,177 125,162 162,148 200,134 238,120 275,106 312,91 350,77 388,63 425,48 462,34 500,20"/>
+            <circle cx="500" cy="20" r="5" fill="#1E9E8A"/><text x="395" y="44">20 clients · $300K ARR</text>
+            <circle cx="50" cy="191" r="5" fill="#1E9E8A"/><text x="58" y="186">1 client · $15K</text>
+          </g>
+        </svg>
+        <p class="small">Each client renews. Each added client stacks. Services and the managed line sit on top.</p>
+      </div>
+    </div>
+    <h3 style="margin-top:28px">Your cost per Max seat, billed annually</h3>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Max band</th><th>Retail</th><th>Referral fee (10%)</th><th>Silver cost (25% off)</th><th>Gold cost (35% off)</th><th>Platinum cost (45% off)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1–9 seats</strong></td><td>$30/mo · $360/yr</td><td>$3.00/mo</td><td>$22.50/mo · keep $90/yr</td><td>$19.50/mo · keep $126/yr</td><td>$16.50/mo · keep $162/yr</td></tr>
+        <tr><td><strong>10–99 seats</strong></td><td>$25/mo · $300/yr</td><td>$2.50/mo</td><td>$18.75/mo · keep $75/yr</td><td>$16.25/mo · keep $105/yr</td><td>$13.75/mo · keep $135/yr</td></tr>
+        <tr><td><strong>100–999 seats</strong></td><td>$21/mo · $252/yr</td><td>$2.10/mo</td><td>$15.75/mo · keep $63/yr</td><td>$13.65/mo · keep $88.20/yr</td><td>$11.55/mo · keep $113.40/yr</td></tr>
+        <tr><td><strong>1,000+ seats</strong></td><td>$17/mo · $204/yr</td><td>$1.70/mo</td><td>$12.75/mo · keep $51/yr</td><td>$11.05/mo · keep $71.40/yr</td><td>$9.35/mo · keep $91.80/yr</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small" style="margin-top:10px">Month-to-month runs $34, $29, $26 and $22 per seat per month, same margins; lead with annual, which is 12% to 23% cheaper for the customer. Past 5,000 seats, register it and it's priced with sales; your margin applies. Cloud is a custom annual contract: register the opportunity, it's priced with you, and your margin applies.</p>
+  </div>
+</section>
+
+<section class="dark" id="pilot">
+  <div class="well">
+    <p class="eyebrow">The 30-day pilot</p>
+    <h2>Protect your own team first. Then sell it.</h2>
+    <div class="two">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Tonight: Pro on one laptop</h3><p class="muted">Any technician installs Pro for free, no card, no paperwork, and watches what it substitutes in their own ChatGPT or Copilot session. Ten minutes.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Week 1: Max on your domain</h3><p class="muted">NFR seats, or a company-wide evaluation code, for your own staff on corporate-managed machines, pushed through Intune or Jamf Pro. Your engineers see what their team pastes into public AI every day. That's the moment the SKU sells itself.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Weeks 2–4: policy, reports, one client</h3><p class="muted">Set the policy by user group and use case, pull the audit report, and take one client through the same path. A PrivacyPal engineer or AE joins your first client calls.</p></div></div>
+        <div class="step"><div class="n">4</div><div><h3>Day 30: sign, register, go</h3><p class="muted">Partner agreement signed, first opportunities registered, enablement kit in hand. Pay follows what the channel produces.</p></div></div>
+      </div>
+      <div class="card">
+        <h3>Request a pilot</h3>
+        <form id="pilotForm" action="https://formspree.io/f/mykbaere" method="POST" novalidate="" data-form>
+          <!-- Carried by the no-JS POST as-is; the delivery script at the end
+               of the file rebuilds them per channel for its AJAX calls. -->
+          <input type="hidden" name="_subject" value="Partner pilot request - PrivacyPal Partner Program"/>
+          <input type="hidden" name="_next" value="https://privacypal.ai/partners/program.html?sent=pilot"/>
+          <input type="hidden" name="route_to" value="partners@privacypal.ai"/>
+          <input type="hidden" name="Form" value="30-day pilot request"/>
+          <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+          <div class="frow">
+            <label>Name<input id="p_name" required autocomplete="name" name="Name"/></label>
+            <label>Company<input id="p_company" required autocomplete="organization" name="Company"/></label>
+          </div>
+          <div class="frow">
+            <label>Work email<input id="p_email" type="email" required autocomplete="email" name="email"/></label>
+            <label>Your role<input id="p_role" placeholder="CEO, VP Channel, vCISO…" name="Role"/></label>
+          </div>
+          <div class="frow">
+            <label>Partner type<select id="p_type" name="Partner type"><option>MSP / MSSP</option><option>vCISO / compliance practice</option><option>Technology advisor / TSD</option><option>Carrier / managed mobility / TEM</option><option>Distributor / marketplace</option><option>Other</option></select></label>
+            <label>Seats for the pilot<select id="p_seats" name="Pilot seats"><option>5–10</option><option>11–25</option><option>26–50</option><option>50+</option></select></label>
+          </div>
+          <label>MDM in use<select id="p_mdm" name="MDM in use"><option>Intune</option><option>Jamf</option><option>Other</option><option>None yet</option></select></label>
+          <label>Anything we should know<textarea id="p_notes" name="Notes" placeholder="Clients in regulated industries, a Copilot rollout underway, an insurance renewal coming up…"></textarea></label>
+          <button class="btn primary" type="submit">Request the pilot</button>
+          <p class="fstatus" id="pilotStatus" role="status" aria-live="polite"></p>
+          <p class="small">Or skip the form: <a href="https://calendly.com/chat-sj/strategic_conversation">book 30 minutes</a> and we'll set it up live.</p>
+        </form>
+        <div class="ok" id="pilotOk"><strong>Request received.</strong> <span id="pilotMsg"></span> Next: a 20-minute setup call and your pilot seats. If you'd rather not wait, <a href="https://calendly.com/chat-sj/strategic_conversation">book the call now</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="playbook">
+  <div class="well">
+    <p class="eyebrow">The partner playbook</p>
+    <h2>How you take this to your clients in the next 30 days</h2>
+    <div class="two">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Pick ten accounts by trigger, not by size</h3><p>Clients with a Copilot or ChatGPT rollout, a cyber-insurance renewal in the next 90 days, a recent audit or exam, or a BYOD policy written before AI. Regulated first: banking, healthcare, legal, accounting.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Ask three questions in the next QBR</h3><p>"Which AI tools are your people using today?" "What's your current answer on the insurance form about AI?" "If I could show you what left the building last month, would you want to see it?" The third question is the pilot.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Offer the 30-day pilot on their regulated team</h3><p>Fifteen to twenty percent of staff, the ones who touch client data. Same path you ran on your own team. The audit report at day 14 is the close.</p></div></div>
+        <div class="step"><div class="n">4</div><div><h3>Price it as a managed line, not a license</h3><p>Seats at partner margin plus your monthly AI-governance service: policy by user group, quarterly report, AI spend attribution, insurance-renewal support. The license is the floor; the service is the margin.</p></div></div>
+        <div class="step"><div class="n">5</div><div><h3>Register, close, renew</h3><p>Register the opportunity under your partner record on day one. Signed in weeks. Renews annually. Expand to the next department at the next QBR.</p></div></div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px">
+          <h3>Messages you can send this week</h3>
+          <p class="small">Each one in the client's language, not ours. Change the vertical sentence to match the account.</p>
+          <p class="quote">Email, line one: "Your team is using AI whether we've approved it or not. I can show you, by user and by tool, what's gone out in the last 30 days, and then make it stop without blocking anyone. 20 minutes?"</p>
+          <p class="quote">LinkedIn post: "Banned AI at your firm? Your people didn't stop. They moved to their phones. There's a way to let them use it and keep client data home. Ask me how we're doing it for our clients."</p>
+          <p class="quote">QBR slide, one line: "AI data protection: the line item your insurer, your examiner and your staff are all asking for."</p>
+        </div>
+        <div class="card">
+          <h3>When they push back</h3>
+          <ul class="clean">
+            <li><strong>"Purview does this."</strong> Purview inspects and blocks inside the Microsoft estate. This substitutes, so the AI still works, and it covers every AI tool and the phone. Run them together.</li>
+            <li><strong>"We blocked AI."</strong> Then it moved to personal accounts and personal phones. The pilot report will show it.</li>
+            <li><strong>"We're too small."</strong> Start with ten seats for the people who touch client data. That's the whole point of targeted population.</li>
+            <li><strong>"What about SOC 2 and security review?"</strong> Ask us for the security packet; we send it the same day.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="enablement">
+  <div class="well">
+    <p class="eyebrow">What you get</p>
+    <h2>Everything a partner needs to sell, deploy and renew</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Sell</h3><ul class="clean muted"><li>Onboarding: one session for your sellers on the product, the demo, the portal and the price book</li><li>Sales playbooks: discovery, objections, the three-minute demo, the pricing talk</li><li>90 days of ready-to-send messaging in your name, and LinkedIn posts written and designed for your page and your sellers</li><li>Customer deck by vertical with the regulator sentence up top</li></ul></div>
+      <div class="card"><h3>Deploy</h3><ul class="clean muted"><li>NFR seats for demos, training, pre-sales testing and support</li><li>Intune and Jamf Pro profiles: certificate, VPN, restrictions, app config; Apple Business Manager Custom Apps</li><li>Deal assistance: a PrivacyPal engineer or AE on your first calls and every registered deal</li><li>Security packet for client reviews</li></ul></div>
+      <div class="card"><h3>Renew</h3><ul class="clean muted"><li>A portal scoped to your book: users, usage, billing, forecasting</li><li>One management plane: block models, gate access, intercept prompts, find shadow AI</li><li>Quarterly review template for the managed line</li><li>MDF and SPIFs under the Channel Program Guidelines; trademark and brand license included</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="well">
+    <p class="eyebrow">Rules of engagement</p>
+    <h2>How registration, ownership and conflicts work</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Registration</h3><p>Register the deal through the portal; end-customer accounts register beneath your partner record. An approved deal carries 90 days of margin protection, extendable in writing.</p></div>
+      <div class="card"><h3>Decisions</h3><p>Registration decisions within two business days. No answer means approved.</p></div>
+      <div class="card"><h3>Terms</h3><p>Close at retail and remit retail minus your margin within 30 days. Non-exclusive, no territory lock-in. Tiers reviewed annually, with written notice and a 90-day cure period.</p></div>
+      <div class="card"><h3>Named accounts</h3><p>Submit your named-account list at onboarding. Those accounts are yours regardless of registration.</p></div>
+      <div class="card"><h3>Collisions</h3><p>A direct conversation that collides with a registered partner converts to partner-led. Conflicts escalate to the VP Channel and resolve in the registered partner's favor.</p></div>
+      <div class="card"><h3>Customer ownership</h3><p>You own the services relationship, the invoice for your managed line, and the renewal conversation. We don't call your client without you.</p></div>
+      <div class="card"><h3>Claims</h3><p>Partners quote published list prices and the program tier schedule. Product and compliance claims come from the fact sheet we give you, nothing else.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="apply">
+  <div class="well">
+    <p class="eyebrow">Next step</p>
+    <h2>Three conversations, in order</h2>
+    <div class="steps" style="margin-bottom:28px">
+      <div class="step"><div class="n">1</div><div><h3>Strategic conversation (30 minutes)</h3><p class="muted">Your clients, your lanes, where the SKU attaches. <a href="https://calendly.com/chat-sj/strategic_conversation">Book it.</a></p></div></div>
+      <div class="step"><div class="n">2</div><div><h3>Pilot on your own team</h3><p class="muted">Seats provisioned, policy set, report in hand by day 14.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h3>Agreement, enablement, first registered client</h3><p class="muted">Partner agreement signed, kit delivered, first opportunity registered. Pay follows proof.</p></div></div>
+    </div>
+    <div class="two">
+      <div class="person card">
+        <img alt="Scott Jonasz" src="scott-jonasz.jpg" width="400" height="400" loading="lazy" decoding="async">
+        <div><h3>Scott Jonasz</h3><p class="muted" style="margin:0 0 6px">VP Channel, North America · PrivacyPal</p><p class="small">Built $1B+ in partner revenue at Ingram Micro across 20,000 partners and scaled Insight's telecom and mobility practice from $5M to $80M. Two of the three control layers that came before this one. Orlando, Florida.</p><div class="btns" style="margin-top:12px"><a class="btn primary" style="padding:9px 16px;font-size:14px" href="https://calendly.com/chat-sj/strategic_conversation">Book 30 minutes with Scott</a><a class="btn ghost" style="padding:9px 16px;font-size:14px" href="https://www.linkedin.com/in/scottjonasz/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+      </div>
+      <div class="card">
+        <h3>Apply to the program</h3>
+        <form id="applyForm" action="https://formspree.io/f/mykbaere" method="POST" novalidate="" data-form>
+          <!-- Carried by the no-JS POST as-is; the delivery script at the end
+               of the file rebuilds them per channel for its AJAX calls. -->
+          <input type="hidden" name="_subject" value="Partner program application - PrivacyPal Partner Program"/>
+          <input type="hidden" name="_next" value="https://privacypal.ai/partners/program.html?sent=apply"/>
+          <input type="hidden" name="route_to" value="partners@privacypal.ai"/>
+          <input type="hidden" name="Form" value="Partner program application"/>
+          <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+          <div class="frow">
+            <label>Name<input id="a_name" required autocomplete="name" name="Name"/></label>
+            <label>Company<input id="a_company" required autocomplete="organization" name="Company"/></label>
+          </div>
+          <div class="frow">
+            <label>Work email<input id="a_email" type="email" required autocomplete="email" name="email"/></label>
+            <label>Partner type<select id="a_type" name="Partner type"><option>MSP / MSSP</option><option>vCISO / compliance practice</option><option>Technology advisor / TSD</option><option>Carrier / managed mobility / TEM</option><option>Distributor / marketplace</option><option>Other</option></select></label>
+          </div>
+          <label>Clients in regulated industries<select id="a_reg" name="Clients in regulated industries"><option>Yes, most of them</option><option>Some</option><option>Not yet</option></select></label>
+          <button class="btn primary" type="submit">Apply</button>
+          <p class="fstatus" id="applyStatus" role="status" aria-live="polite"></p>
+        </form>
+        <div class="ok" id="applyOk"><strong>Application received.</strong> <span id="applyMsg"></span> You'll hear from Scott within two business days. <a href="https://calendly.com/chat-sj/strategic_conversation">Book the first conversation now</a> if you'd rather not wait.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="well">
+    <div>PrivacyPal Partner Program · North America · <a href="https://privacypal.ai" style="color:inherit">privacypal.ai</a></div>
+    <div>Retail as published at privacypal.ai/pricing. Partner costs rounded to the cent; illustrations only. Margins, targets, commitment levels, certification, deal registration and payment terms per the Master Partner &amp; Reseller Agreement, which governs.</div>
+  </div>
+</footer>
+
+<script>
+/* ====================================================================
+   Partner Program form delivery. Both forms land in partners@privacypal.ai.
+
+   Two independent channels, each carrying the complete record, so either
+   email on its own is enough to work the lead. Same pattern, and same
+   reason, as ae-academy/assets/academy.js: a POST that is accepted and a
+   POST that is accepted and then discarded look identical from the browser,
+   so a single channel gives no signal when it silently fails.
+
+     Channel 1  FormSubmit, straight to partners@privacypal.ai, no dashboard
+                config. ONE-TIME ACTIVATION: the first submission makes
+                FormSubmit email partners@privacypal.ai an activation link,
+                and nothing is delivered until somebody clicks it. Measured
+                2026-10-22: while a form is unactivated that endpoint does
+                not merely fail, it HANGS, from curl and the browser alike.
+                That is why delivery below resolves on the first success
+                instead of waiting for both channels.
+     Channel 2  Formspree, the endpoint the rest of the site already uses.
+                Verified delivering 2026-10-22. Carries
+                route_to=partners@privacypal.ai so the record is recoverable
+                from that inbox and is obviously meant for partners@.
+
+   This page never claims a submission landed when it did not. If both
+   channels fail it says so, prints the record, and offers a mailto with the
+   answers already filled in.
+
+   Without JavaScript the <form action> posts natively to Formspree, the
+   channel that needs no activation, and returns to ?sent=pilot /
+   ?sent=apply, which this script renders as the success panel on load.
+   ==================================================================== */
+(function (w, d) {
+  'use strict';
+
+  var TO       = 'partners@privacypal.ai';
+  var OPS_URL  = 'https://formsubmit.co/ajax/' + TO;
+  var FS_URL   = 'https://formspree.io/f/mykbaere';
+  var MODE_KEY = 'pp_partner_send_mode';
+
+  function isLocal() {
+    return /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(w.location.hostname) ||
+           w.location.protocol === 'file:';
+  }
+
+  /* live posts for real; dry logs the record and sends nothing.
+     Default: dry on localhost, live everywhere else. ?live=1 / ?dry=1 override. */
+  function sendMode() {
+    var q = new URLSearchParams(w.location.search);
+    if (q.get('live') === '1') { try { w.localStorage.setItem(MODE_KEY, 'live'); } catch (e) {} return 'live'; }
+    if (q.get('dry')  === '1') { try { w.localStorage.setItem(MODE_KEY, 'dry');  } catch (e) {} return 'dry'; }
+    try { var v = w.localStorage.getItem(MODE_KEY); if (v === 'live' || v === 'dry') return v; } catch (e) {}
+    return isLocal() ? 'dry' : 'live';
+  }
+
+  function esc(x) {
+    return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function timeout(p, ms, label) {
+    return new Promise(function (res, rej) {
+      var t = setTimeout(function () { rej(new Error(label + ' timed out')); }, ms);
+      p.then(function (v) { clearTimeout(t); res(v); },
+             function (e) { clearTimeout(t); rej(e); });
+    });
+  }
+
+  function post(url, body, label) {
+    return timeout(fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      /* This page sets referrer=no-referrer so its unlisted path never leaks.
+         'origin' overrides that for this request only: the endpoint sees
+         https://privacypal.ai/ and never /partners/program.html. FormSubmit
+         rejects a request with no Referer at all, treating it as a local file. */
+      referrerPolicy: 'origin',
+      body: JSON.stringify(body)
+    }), 15000, label);
+  }
+
+  /* Channel 1: FormSubmit, straight to partners@. */
+  function toPartners(rec) {
+    var body = { _subject: rec.subject, _template: 'table', _captcha: 'false' };
+    if (rec.fields['Work email']) body._replyto = rec.fields['Work email'];
+    for (var k in rec.fields) {
+      if (Object.prototype.hasOwnProperty.call(rec.fields, k)) body[k] = rec.fields[k];
+    }
+    return post(OPS_URL, body, 'FormSubmit').then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        if (data.success === true || data.success === 'true') return { ok: true };
+        var msg = String(data.message || ('FormSubmit returned ' + r.status));
+        var err = new Error(msg);
+        if (/activat/i.test(msg)) err.needsActivation = true;
+        throw err;
+      });
+    });
+  }
+
+  /* Channel 2: Formspree, the same record, recoverable from the site inbox. */
+  function toFormspree(rec) {
+    var body = { _subject: rec.subject, route_to: TO };
+    if (rec.fields['Work email']) body._replyto = rec.fields['Work email'];
+    for (var k in rec.fields) {
+      if (Object.prototype.hasOwnProperty.call(rec.fields, k)) body[k] = rec.fields[k];
+    }
+    body.message = rec.text;
+    return post(FS_URL, body, 'Formspree').then(function (r) {
+      if (r.ok) return { ok: true };
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        throw new Error((data.errors && data.errors.map(function (e) { return e.message; }).join('; ')) ||
+                        data.error || ('Formspree returned ' + r.status));
+      });
+    });
+  }
+
+  /* Fire both, wait for both, report honestly. Resolves even on total
+     failure: the caller decides what to tell the partner. */
+  function deliver(rec) {
+    try { w.localStorage.setItem('pp_partner_last_payload', rec.text); } catch (e) {}
+
+    if (sendMode() === 'dry') {
+      console.log('%c[Partner Program] DRY RUN, nothing was sent',
+                  'background:#0E1A33;color:#1E9E8A;padding:3px 8px;border-radius:4px');
+      console.log('To: ' + TO + '\nSubject: ' + rec.subject + '\n\n' + rec.text);
+      return new Promise(function (res) {
+        setTimeout(function () {
+          res({ dry: true, anyOk: true, partners: 'dry', formspree: 'dry', errors: [] });
+        }, 450);
+      });
+    }
+
+    /* Resolve as soon as EITHER channel confirms, rather than waiting for
+       both: one slow or hanging endpoint must not make a partner sit and
+       watch a spinner after their record has already landed. The other
+       request is left running, so its email still arrives if it recovers. */
+    return new Promise(function (resolve) {
+      var state = { partners: 'pending', formspree: 'pending' },
+          errors = [], settled = 0, done = false;
+
+      function finish() {
+        done = true;
+        if (errors.length) console.warn('[Partner Program] ' + errors.join(' | '));
+        resolve({
+          dry: false,
+          partners: state.partners,
+          formspree: state.formspree,
+          anyOk: state.partners === 'ok' || state.formspree === 'ok',
+          errors: errors
+        });
+      }
+
+      function settle(key, ok, err) {
+        if (ok) {
+          state[key] = 'ok';
+        } else {
+          state[key] = (err && err.needsActivation) ? 'needs-activation' : 'failed';
+          errors.push((key === 'partners' ? 'partners@ direct: ' : 'Formspree: ') +
+                      ((err && err.message) || 'failed'));
+        }
+        settled++;
+        if (done) return;
+        if (ok || settled === 2) finish();
+      }
+
+      toPartners(rec).then(function ()  { settle('partners', true); },
+                           function (e) { settle('partners', false, e); });
+      toFormspree(rec).then(function ()  { settle('formspree', true); },
+                            function (e) { settle('formspree', false, e); });
+    });
+  }
+
+  /* ---------- building the record out of a form ---------- */
+
+  /* Reads the form's own named controls, so the email mirrors the page and a
+     new field needs no change here. Skips the plumbing: _subject, _next,
+     _honey and route_to are routing, not answers. */
+  function record(form) {
+    var fields = {}, order = [];
+    Array.prototype.forEach.call(form.elements, function (el) {
+      var n = el.name;
+      if (!n || n.charAt(0) === '_' || n === 'route_to' || el.type === 'submit') return;
+      var label = (n === 'email') ? 'Work email' : n;
+      var v = String(el.value == null ? '' : el.value).trim();
+      if (!v) return;
+      if (!(label in fields)) order.push(label);
+      fields[label] = v;
+    });
+
+    fields['Page'] = w.location.pathname + w.location.search;
+    fields['Submitted'] = new Date().toISOString();
+    order.push('Page', 'Submitted');
+
+    var subject = (form.querySelector('input[name=_subject]') || {}).value ||
+                  'PrivacyPal Partner Program';
+    var text = order.map(function (k) { return k + ': ' + fields[k]; }).join('\n');
+    return { subject: subject, fields: fields, text: text, order: order };
+  }
+
+  function mailto(rec) {
+    return 'mailto:' + TO +
+           '?subject=' + encodeURIComponent(rec.subject) +
+           '&body=' + encodeURIComponent(rec.text);
+  }
+
+  /* ---------- the panels ---------- */
+
+  function succeed(ui, rec, res) {
+    var who = (rec.fields['Name'] ? rec.fields['Name'] + ' at ' : '') +
+              (rec.fields['Company'] || 'your firm');
+    ui.msg.textContent = who + ' - ' + ui.label + '.';
+    ui.form.hidden = true;
+    ui.ok.classList.add('show');
+
+    /* A partial delivery is still a delivery; say nothing extra to the
+       partner, but leave the detail in the console for us. */
+    if (!res.dry && (res.partners !== 'ok' || res.formspree !== 'ok')) {
+      console.warn('[Partner Program] delivered, but not on every channel: ' +
+                   'partners@ = ' + res.partners + ', formspree = ' + res.formspree +
+                   (res.partners === 'needs-activation'
+                     ? ' (click the FormSubmit activation link in partners@privacypal.ai)' : ''));
+    }
+    ui.ok.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  function failed(ui, rec, res) {
+    ui.form.hidden = true;
+    ui.ok.classList.add('show');
+    ui.ok.innerHTML =
+      '<strong>That did not send.</strong> Nothing reached us, so please do not wait on a reply. ' +
+      'Send it straight to <a href="' + mailto(rec) + '">' + TO + '</a> ' +
+      '(the button fills the email in for you), or ' +
+      '<a href="https://calendly.com/chat-sj/strategic_conversation">book 30 minutes</a> and skip the form.' +
+      '<p class="fallback"><a class="btn primary" href="' + mailto(rec) + '">Email it to ' + TO + '</a></p>' +
+      '<p class="fallback muted">Your answers, ready to paste:</p>' +
+      '<pre>' + esc(rec.text) + '</pre>';
+    console.error('[Partner Program] delivery failed: ' + res.errors.join(' | '));
+    ui.ok.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  /* ---------- wiring ---------- */
+
+  function wire(formId, okId, msgId, label, sentKey) {
+    var form = d.getElementById(formId),
+        ok   = d.getElementById(okId),
+        msg  = d.getElementById(msgId),
+        status = d.getElementById(formId.replace('Form', 'Status'));
+    if (!form || !ok) return;
+
+    var ui = { form: form, ok: ok, msg: msg, status: status, label: label };
+
+    /* The no-JS path posts natively and comes back to ?sent=<key>. */
+    if (new URLSearchParams(w.location.search).get('sent') === sentKey) {
+      if (msg) msg.textContent = '';
+      form.hidden = true;
+      ok.classList.add('show');
+    }
+
+    var busy = false;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (busy) return;
+
+      /* novalidate is on the form so this runs on our terms, with a message
+         in the status line rather than a native bubble on a hidden field. */
+      if (!form.checkValidity()) {
+        if (status) { status.className = 'fstatus err'; status.textContent = 'Please fill in the required fields.'; }
+        var bad = form.querySelector(':invalid');
+        if (bad) bad.focus();
+        form.reportValidity();
+        return;
+      }
+      if ((form.querySelector('input[name=_honey]') || {}).value) return; /* bot */
+
+      var rec = record(form);
+      var btn = form.querySelector('button[type=submit]');
+      var was = btn ? btn.textContent : '';
+
+      busy = true;
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      if (status) { status.className = 'fstatus wait'; status.textContent = 'Sending to ' + TO + '…'; }
+
+      deliver(rec).then(function (res) {
+        busy = false;
+        if (btn) { btn.disabled = false; btn.textContent = was; }
+        if (status) { status.className = 'fstatus'; status.textContent = ''; }
+        if (res.anyOk) succeed(ui, rec, res); else failed(ui, rec, res);
+      });
+    });
+  }
+
+  wire('pilotForm', 'pilotOk', 'pilotMsg', 'pilot request received', 'pilot');
+  wire('applyForm', 'applyOk', 'applyMsg', 'application received', 'apply');
+
+  if (isLocal()) {
+    console.log('%c[Partner Program] ' + sendMode().toUpperCase() +
+                ' - forms ' + (sendMode() === 'dry' ? 'will NOT send' : 'WILL send') +
+                '. Toggle with ?live=1 or ?dry=1',
+                'background:#0E1A33;color:#D98C2B;padding:3px 8px;border-radius:4px');
+  }
+})(window, document);
+</script>
+
+</body></html>

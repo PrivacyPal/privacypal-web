@@ -64,6 +64,35 @@ Then visit:
 - The Privacy Log: http://localhost:8000/blog.html
 - RSS feed: http://localhost:8000/blog/rss.xml
 
+## Partner Program page (`partners/program.html`)
+
+The North America partner recruiting page. **Unlisted by design**: `noindex,nofollow`,
+absent from `sitemap.xml`, and linked from no nav anywhere on the site. The URL is sent
+straight to a prospective partner. It carries its own header, footer and design system
+and deliberately does **not** load `assets/v3.css` or `assets/v3.js`.
+
+Both forms on it (`#pilot` and `#apply`) deliver to **partners@privacypal.ai** over two
+independent channels, the same redundancy pattern as `ae-academy/assets/academy.js`:
+
+| Channel | Endpoint | Notes |
+| --- | --- | --- |
+| partners@ direct | `formsubmit.co/ajax/partners@privacypal.ai` | No dashboard config. **Needs one-time activation.** |
+| Redundancy | `formspree.io/f/mykbaere` | The endpoint the rest of the site uses. Carries `route_to=partners@privacypal.ai`. Verified delivering 2026-10-22. |
+
+Delivery resolves on the **first** channel to confirm, so one slow endpoint never makes a
+partner watch a spinner. If both fail the page says so plainly and offers a `mailto:` with
+the answers prefilled, rather than claiming a submission that never landed. Without
+JavaScript the `<form action>` posts natively to Formspree and returns to `?sent=pilot` /
+`?sent=apply`, which the page renders as the success panel.
+
+> **Pending setup:** FormSubmit emailed an activation link to partners@privacypal.ai on
+> 2026-10-22. Until somebody clicks it, the partners@ direct channel delivers nothing and
+> reports `needs-activation` in the console; submissions still arrive via Formspree, so the
+> forms work today. Click the link to turn the direct channel on.
+
+Local testing: forms are **dry run** on localhost (they log the record and send nothing).
+Append `?live=1` to send for real, `?dry=1` to go back.
+
 ## The Privacy Log (blog)
 
 PrivacyPal's blog, built the same way as the Newsroom: one JSON file is the
