@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Live room · PrivacyPal</title>
+<meta name="description" content="The PrivacyPal live room for registered guests." />
+<!-- Live room. Opened from the personal link in each registrant's calendar invite:
+     watch.html?w=<webinar id>&r=<registration token>. The YouTube id comes from
+     /webhook/webinar-join for a registered token only. Never indexed. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://automate.privacypal.ai" crossorigin>
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="webinars.css"/>
+<!-- Google tag (gtag.js) -->
+<script src="../assets/google-tag.js"></script>
+<!-- Meta Pixel Code -->
+<script src="../assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+</head>
+<body data-wb="watch">
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<div id="site-nav-slot"></div>
+
+<main class="wr">
+  <div class="container">
+
+    <div id="wr-msg" hidden>
+      <div class="wb-empty">
+        <span class="eyebrow">Live room</span>
+        <h1></h1>
+        <p class="lede"></p>
+        <div class="btn-row"><a class="btn btn-primary" id="wr-msg-register" href="./">Register free</a></div>
+      </div>
+    </div>
+
+    <div id="wr-live">
+      <div class="wr-head">
+        <div>
+          <span class="wb-badge" id="wr-badge">Loading</span>
+          <h1 id="wr-title"><span class="wb-skel" style="display:block;height:1.1em;width:22ch;max-width:80vw"></span></h1>
+          <p class="meta" id="wr-meta">&nbsp;</p>
+        </div>
+      </div>
+      <div class="wr-stage" id="wr-stage">
+        <div class="wr-video" id="wr-video"><div class="wr-wait"><span class="eyebrow">Connecting</span></div></div>
+        <div class="wr-chat" id="wr-chat" hidden></div>
+      </div>
+      <div class="wr-bar">
+        <a class="btn btn-ghost btn-sm" id="wr-yt" href="#" target="_blank" rel="noopener" hidden>Watch on YouTube</a>
+        <span class="wr-note">Trouble with the player? Reload the page, or open the stream on YouTube.</span>
+      </div>
+
+      <div class="wr-cta">
+        <div>
+          <span class="eyebrow orange">PrivacyPal Family</span>
+          <h3>Their world is full of AI. You hold the keys.</h3>
+          <p>Choose the AI your kids use, keep their identity at home, and see how AI shows up in their day. Mac and Windows, up to 5 family members.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="../family/founding/">See Founding Families</a>
+          <a class="btn btn-ghost" href="../family/">How it works</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div id="site-footer-slot"></div>
+<script src="../assets/v3.js"></script>
+<script src="webinars.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cancel registration · PrivacyPal</title>
+<meta name="description" content="Cancel your PrivacyPal webinar registration." />
+<!-- Opened from the cancel link in invite and reminder emails: cancel.html?r=<token>.
+     Cancelling takes a button press (a POST), so email link scanners that open
+     the link cannot cancel anyone. Never indexed. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="webinars.css"/>
+<!-- Google tag (gtag.js) -->
+<script src="../assets/google-tag.js"></script>
+</head>
+<body data-wb="cancel">
+
+<div id="site-nav-slot"></div>
+
+<main class="section">
+  <div class="container">
+    <div class="wb-narrow">
+      <div class="panel-white" id="wc-ask">
+        <span class="eyebrow">Webinar registration</span>
+        <h2 style="margin-top:14px;font-size:1.9rem">Cancel your registration?</h2>
+        <p class="lede" style="margin-top:14px;font-size:1rem">We will take the session off your calendar and stop the reminders. You can register again while registration is open.</p>
+        <div class="btn-row" style="margin-top:26px">
+          <button class="btn btn-primary" id="wc-confirm" type="button">Cancel my registration</button>
+          <a class="btn btn-ghost" href="../">Keep it</a>
+        </div>
+      </div>
+      <div class="panel-white" id="wc-done" hidden>
+        <span class="eyebrow blue">Done</span>
+        <h2 style="margin-top:14px;font-size:1.9rem" id="wc-done-title">Registration cancelled</h2>
+        <p class="lede" style="margin-top:14px;font-size:1rem" id="wc-done-text"></p>
+        <div class="btn-row" style="margin-top:26px"><a class="btn btn-ghost" id="wc-again" href="./" hidden>Register again</a></div>
+      </div>
+      <p class="wb-error on" id="wc-result" hidden></p>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer-slot"></div>
+<script src="../assets/v3.js"></script>
+<script src="webinars.js"></script>
+</body>
+</html>
