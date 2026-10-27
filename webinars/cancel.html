@@ -18,7 +18,7 @@
 <!-- Google tag (gtag.js) -->
 <script src="../assets/google-tag.js"></script>
 </head>
-<body data-wb="cancel">
+<body data-wb="cancel" data-wb-base="./">
 
 <div id="site-nav-slot"></div>
 
@@ -28,17 +28,17 @@
       <div class="panel-white" id="wc-ask">
         <span class="eyebrow">Webinar registration</span>
         <h2 style="margin-top:14px;font-size:1.9rem">Cancel your registration?</h2>
-        <p class="lede" style="margin-top:14px;font-size:1rem">We will take the session off your calendar and stop the reminders. You can register again while registration is open.</p>
+        <p class="lede" style="margin-top:14px;font-size:1rem">We will take the session off your calendar and stop the reminders. We run these sessions every week, so you can pick another date any time.</p>
         <div class="btn-row" style="margin-top:26px">
           <button class="btn btn-primary" id="wc-confirm" type="button">Cancel my registration</button>
-          <a class="btn btn-ghost" href="../">Keep it</a>
+          <a class="btn btn-ghost" href="./">Keep it</a>
         </div>
       </div>
       <div class="panel-white" id="wc-done" hidden>
         <span class="eyebrow blue">Done</span>
         <h2 style="margin-top:14px;font-size:1.9rem" id="wc-done-title">Registration cancelled</h2>
         <p class="lede" style="margin-top:14px;font-size:1rem" id="wc-done-text"></p>
-        <div class="btn-row" style="margin-top:26px"><a class="btn btn-ghost" id="wc-again" href="./" hidden>Register again</a></div>
+        <div class="btn-row" style="margin-top:26px"><a class="btn btn-primary" id="wc-again" href="./" hidden>Pick another date</a></div>
       </div>
       <p class="wb-error on" id="wc-result" hidden></p>
     </div>

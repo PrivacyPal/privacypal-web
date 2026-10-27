@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Live webinars · PrivacyPal</title>
-<meta name="description" content="Live sessions from PrivacyPal, streamed on YouTube. Register in ten seconds and get a calendar invite with your personal join link." />
-<!-- Webinar landing + registration. Content comes from the "PrivacyPal Webinars" sheet through
-     n8n (see webinars/README.md). Link a session as /webinars/?w=<id>; with no id the page shows the
-     next listed session. noindex until the first public session is listed; remove it then. -->
-<meta name="robots" content="noindex"/>
+<title>Live demos · PrivacyPal</title>
+<meta name="description" content="Free live group demos of PrivacyPal, twice a week: PrivacyPal for Business on Tuesdays and Thursdays at noon ET, PrivacyPal Family at 1 PM ET." />
+<!-- Live demo hub. Both standing series and their next session come from the
+     "PrivacyPal Webinars" sheet through n8n (see webinars/README.md). The day and
+     time text below is the fallback; webinars.js replaces it with the Series rows. -->
+<link rel="canonical" href="https://privacypal.ai/webinars/"/>
 <link rel="icon" href="../assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://automate.privacypal.ai" crossorigin>
 <link rel="stylesheet" href="../assets/v3.css"/>
 <link rel="stylesheet" href="webinars.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/webinars/" />
-<meta property="og:title" content="Live webinars · PrivacyPal" />
-<meta property="og:description" content="Live sessions from PrivacyPal, streamed on YouTube. Register and get a calendar invite with your personal join link." />
+<meta property="og:title" content="Live demos · PrivacyPal" />
+<meta property="og:description" content="Free live group demos, twice a week: PrivacyPal for Business and PrivacyPal Family." />
 <meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Live webinars · PrivacyPal" />
+<meta name="twitter:title" content="Live demos · PrivacyPal" />
 <meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
 <!-- Google tag (gtag.js) -->
 <script src="../assets/google-tag.js"></script>
@@ -31,119 +31,61 @@
 <script src="../assets/meta-pixel.js"></script>
 <!-- End Meta Pixel Code -->
 </head>
-<body data-wb="landing">
+<body data-wb="hub" data-wb-base="./">
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
 
 <div id="site-nav-slot"></div>
 
-<main id="wb-root" class="loading">
-
-  <section class="wb-hero" id="wb-empty" hidden>
+<main>
+  <header class="wb-hero">
     <div class="container">
-      <div class="wb-empty">
-        <span class="eyebrow">Webinars</span>
-        <h1></h1>
-        <p class="lede"></p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="../family/">Meet PrivacyPal Family</a>
-          <a class="btn btn-ghost" href="../events.html">See past events</a>
-        </div>
+      <div class="section-head" style="margin-bottom:40px">
+        <span class="wb-badge">Live demos</span>
+        <h1 style="max-width:20ch">See PrivacyPal live, twice a week</h1>
+        <p class="lede">Free live group demos, streamed on YouTube with time for your questions. Pick the one that fits: AI governance for your company, or AI safety for your family.</p>
+      </div>
+
+      <div class="wb-doors">
+        <a class="wb-door" href="business/" data-door="business">
+          <div class="ph" style="background-image:url('../assets/hero-shot-technology.png');background-position:center 20%"></div>
+          <div class="bd">
+            <span class="eyebrow blue">For Business</span>
+            <h2>Govern every AI at work</h2>
+            <p>Watch PrivacyPal catch a prompt full of sensitive data, swap in a Privacy Twin on the device before it leaves the machine, and log it for your CISO.</p>
+            <span class="when" data-sched>Tuesdays and Thursdays at 12:00 PM ET</span>
+            <span class="when" data-next hidden></span>
+            <span class="btn btn-primary">Save a seat</span>
+          </div>
+        </a>
+        <a class="wb-door fam" href="family/" data-door="family">
+          <div class="ph" style="background-image:url('../family/assets/photos/hero-dad-kids.jpg')"></div>
+          <div class="bd">
+            <span class="eyebrow orange">PrivacyPal Family</span>
+            <h2>Their world is full of AI. You hold the keys.</h2>
+            <p>See how parents choose the AI their kids use, keep their identity at home, and get signals, not transcripts.</p>
+            <span class="when" data-sched>Tuesdays and Thursdays at 1:00 PM ET</span>
+            <span class="when" data-next hidden></span>
+            <span class="btn btn-primary" style="background:#d97a35">Save a seat</span>
+          </div>
+        </a>
       </div>
     </div>
+  </header>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Ten seconds to register</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">01</span><h4>Pick a date</h4><p>Every Tuesday and Thursday. Choose the one that suits you.</p></div>
+        <div class="step"><span class="num">02</span><h4>Get the invite</h4><p>A calendar invite with your personal join link arrives by email, plus reminders the day before and an hour before.</p></div>
+        <div class="step"><span class="num">03</span><h4>Join live</h4><p>Watch on privacypal.ai or YouTube, on any device, and ask your questions in the chat.</p></div>
+      </div>
+      <p class="wb-alt">Prefer a private walkthrough for your team? <a href="#" data-cta="demo">Book a 1:1 demo</a>.</p>
+    </div>
   </section>
-
-  <div id="wb-main">
-    <header class="wb-hero">
-      <div class="container">
-        <div class="wb-grid">
-          <div>
-            <span class="wb-badge" id="wb-badge">Live webinar</span>
-            <h1 id="wb-title"><span class="wb-skel" style="display:block;height:1.1em;width:90%"></span><span class="wb-skel" style="display:block;height:1.1em;width:60%;margin-top:.2em"></span></h1>
-            <p class="lede" id="wb-lede"></p>
-            <div class="wb-when">
-              <div class="wb-date" aria-hidden="true"><span class="m" id="wb-month">&nbsp;</span><span class="d" id="wb-day">&nbsp;</span></div>
-              <div class="wb-when-text"><b id="wb-when-day">&nbsp;</b><span id="wb-when-time">&nbsp;</span></div>
-            </div>
-            <div class="wb-hosts" id="wb-hosts" hidden></div>
-            <a class="btn btn-primary btn-lg wb-jump" href="#wb-register">Register free</a>
-          </div>
-
-          <div class="wb-card" id="wb-register">
-            <form class="form" id="wb-form" method="post" action="https://automate.privacypal.ai/webhook/webinar-register" novalidate>
-              <div>
-                <h3>Save your seat</h3>
-                <p class="sub">Free. Streamed live on YouTube. Your calendar invite arrives in seconds.</p>
-              </div>
-              <input type="hidden" name="w" id="wb-w" value=""/>
-              <input type="hidden" name="_html" value="1"/>
-              <div class="wb-hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
-              <div class="row">
-                <div><label for="wb-first">First name</label><input id="wb-first" name="first_name" autocomplete="given-name" required maxlength="40"/></div>
-                <div><label for="wb-last">Last name</label><input id="wb-last" name="last_name" autocomplete="family-name" maxlength="40"/></div>
-              </div>
-              <div><label for="wb-email">Email</label><input id="wb-email" name="email" type="email" autocomplete="email" required maxlength="254"/></div>
-              <div><label for="wb-q">What should we cover? <span class="hint">(optional)</span></label><textarea id="wb-q" name="question" maxlength="500"></textarea></div>
-              <label class="wb-check"><input type="checkbox" name="marketing" value="yes"/> <span>Also send me PrivacyPal news and offers now and then.</span></label>
-              <div class="wb-error" id="wb-error" role="alert"></div>
-              <button class="btn btn-primary btn-lg" type="submit">Register free</button>
-              <p class="wb-fine">We use your details to send this session&rsquo;s calendar invite, reminders and replay, and nothing else unless you tick the box above. <a href="../privacy-policy.html">Privacy policy</a>.</p>
-            </form>
-
-            <div class="wb-done" id="wb-done" hidden>
-              <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <h3 id="wb-done-name">You&rsquo;re in.</h3>
-              <p id="wb-done-mail"></p>
-              <div id="wb-done-links" hidden>
-                <div class="wb-cal">
-                  <a class="btn btn-ghost btn-sm" id="wb-cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
-                  <a class="btn btn-ghost btn-sm" id="wb-cal-outlook" href="#" target="_blank" rel="noopener">Outlook</a>
-                  <a class="btn btn-ghost btn-sm" id="wb-cal-ics" href="#">Apple / .ics</a>
-                </div>
-                <a class="link-arrow" id="wb-room-link" href="#">Your live room link</a>
-              </div>
-            </div>
-            <noscript><p class="wb-fine" style="margin-top:14px">This page needs JavaScript. Email <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a> and we will register you by hand.</p></noscript>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section class="section-sm" id="wb-image-wrap" hidden style="padding-top:0">
-      <div class="container"><img id="wb-image" alt="" style="width:100%;border-radius:var(--r-lg);border:1px solid var(--line)"/></div>
-    </section>
-
-    <section class="section-sm" id="wb-learn-section" hidden>
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow blue">What we will cover</span>
-          <h2>In this session</h2>
-          <div id="wb-summary-wrap" hidden><p class="lede" id="wb-summary"></p></div>
-        </div>
-        <ol class="wb-learn" id="wb-learn"></ol>
-      </div>
-    </section>
-
-    <section class="section-sm">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">How it works</span>
-          <h2>Ten seconds to register</h2>
-        </div>
-        <div class="steps">
-          <div class="step"><span class="num">01</span><h4>Register</h4><p>Name and email. That is all we ask for.</p></div>
-          <div class="step"><span class="num">02</span><h4>Get the invite</h4><p>A calendar invite with your personal join link arrives by email, plus reminders the day before and an hour before.</p></div>
-          <div class="step"><span class="num">03</span><h4>Join live</h4><p>Open the link at start time and watch on privacypal.ai or YouTube, on any device.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-sm" id="wb-more-section" hidden>
-      <div class="container">
-        <div class="section-head"><span class="eyebrow orange">Also coming up</span></div>
-        <div class="wb-more" id="wb-more"></div>
-      </div>
-    </section>
-  </div>
 </main>
 
 <div id="site-footer-slot"></div>

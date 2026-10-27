@@ -136,6 +136,7 @@
               '<a href="' + FAMILY_OFFER + '"><b>Create a Family Account</b><small>Founding Families: 50% off your first year</small></a>' +
               '<a href="' + FAMILY_DOWNLOAD + '" data-cta="family-download"><b>Download the app</b><small>Mac &amp; Windows, up to 5 family members</small></a>' +
               '<a href="family/index.html#plans"><b>Plans &amp; pricing</b><small>Whole-family cover, $9.99/mo</small></a>' +
+              '<a href="webinars/family/"><b>Live family demo</b><small>Tue &amp; Thu, 1 PM ET. Free, with Q&amp;A</small></a>' +
               '<a href="' + FAMILY_LOGIN + '"><b>Sign in to Parent HQ</b><small>Already have a Family Account</small></a>' +
             '</div>' +
             '<a class="nav-feature" href="' + FAMILY_OFFER + '">' +
@@ -151,6 +152,7 @@
             '<div class="nav-group">' +
               '<h6>The business line</h6>' +
               '<a href="business.html"><b>PrivacyPal for Business</b><small>Govern every AI at work: the overview</small></a>' +
+              '<a href="webinars/business/"><b>Live group demo</b><small>Tue &amp; Thu, noon ET. Free, with Q&amp;A</small></a>' +
               '<a href="privacypal-pro.html"><b>PrivacyPal Pro</b><small>The individual seat, completely free</small></a>' +
               '<a href="privacypal-max.html"><b>PrivacyPal Max</b><small>IP Protection, Governance Policies &amp; Private Memory for your company</small></a>' +
               '<a href="privacypal-cloud.html"><b>PrivacyPal Cloud</b><small>Self-hosted gateway for sovereign infra</small></a>' +
@@ -186,6 +188,7 @@
               '<a href="team.html"><b>Team</b><small>The people behind PrivacyPal</small></a>' +
               '<a href="news.html"><b>Newsroom</b><small>News, press &amp; happenings</small></a>' +
               '<a href="events.html"><b>Events</b><small>Where to find us next</small></a>' +
+              '<a href="webinars/"><b>Live demos</b><small>Every Tuesday &amp; Thursday</small></a>' +
               '<a href="contact.html"><b>Contact</b><small>Talk to a human</small></a>' +
             '</div>' +
             '<a class="nav-feature" href="careers.html">' +
@@ -225,11 +228,13 @@
     '<a href="family/promise.html">The Family Promise</a>' +
     '<a href="family/guidebook.html">The Guidebook</a>' +
     '<a href="family/index.html#plans">Plans</a>' +
+    '<a href="webinars/family/">Live family demo</a>' +
     '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
     '<a href="' + FAMILY_DOWNLOAD + '" data-cta="family-download">Download the Family app</a>' +
     '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
     '<h6>For Business</h6>' +
     '<a href="business.html">PrivacyPal for Business</a>' +
+    '<a href="webinars/business/">Live group demo</a>' +
     '<a href="privacypal-pro.html">PrivacyPal Pro</a>' +
     '<a href="privacypal-max.html">PrivacyPal Max</a>' +
     '<a href="privacypal-cloud.html">PrivacyPal Cloud</a>' +
@@ -279,6 +284,7 @@
           '<a href="family/promise.html">The Family Promise</a>' +
           '<a href="family/guidebook.html">The Guidebook</a>' +
           '<a href="family/index.html#plans">Plans</a>' +
+          '<a href="webinars/family/">Live family demo</a>' +
           '<a href="' + FAMILY_OFFER + '">Create a Family Account <small>50% OFF</small></a>' +
           '<a href="' + FAMILY_DOWNLOAD + '" data-cta="family-download">Download the Family app</a>' +
           '<a href="' + FAMILY_LOGIN + '">Sign in to Parent HQ</a>' +
@@ -286,6 +292,7 @@
         '<div class="footer-col">' +
           '<h5>For Business</h5>' +
           '<a href="business.html">PrivacyPal for Business</a>' +
+          '<a href="webinars/business/">Live group demo</a>' +
           '<a href="device-control.html">On-Device Protection</a>' +
           '<a href="ai-dspm.html">AI-DSPM</a>' +
           '<a href="privacy-twins.html">Privacy Twins</a>' +
@@ -314,6 +321,7 @@
           '<a href="blog.html">The Privacy Log</a>' +
           '<a href="news.html">Newsroom</a>' +
           '<a href="events.html">Events</a>' +
+          '<a href="webinars/">Live demos</a>' +
           '<a href="https://portal.privacypal.ai" target="_blank" rel="noopener">User Portal</a>' +
         '</div>' +
         '<div class="footer-col">' +
@@ -371,6 +379,7 @@
       '<div class="pp-modal-head"><h3>Book a demo</h3>' +
       '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
       '<div class="pp-modal-body">' +
+        '<p class="pp-modal-alt">Prefer to see it with a group first? <a href="webinars/business/">Join the live demo</a>, every Tuesday and Thursday at noon ET.</p>' +
         '<div class="pp-modal-loading" id="ppDemoLoading"><div class="pp-spinner"></div>Loading…</div>' +
         '<iframe id="ppDemoFrame" title="Book a demo" data-src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0en3ttxqL4LChfrMDCbYeqxtKuKXOR4YRnGz0Sfg0RIwh7nO51zW3MqxBnQzAVcSkQoy3_6UJZ?gv=true" style="display:none"></iframe>' +
       '</div>' +

@@ -6,7 +6,7 @@
 <title>Live room · PrivacyPal</title>
 <meta name="description" content="The PrivacyPal live room for registered guests." />
 <!-- Live room. Opened from the personal link in each registrant's calendar invite:
-     watch.html?w=<webinar id>&r=<registration token>. The YouTube id comes from
+     watch.html?s=<session id>&r=<registration token> (older links used ?w=, still accepted). The YouTube id comes from
      /webhook/webinar-join for a registered token only. Never indexed. -->
 <meta name="robots" content="noindex,nofollow"/>
 <link rel="icon" href="../assets/favicon.ico"/>
@@ -22,7 +22,7 @@
 <script src="../assets/meta-pixel.js"></script>
 <!-- End Meta Pixel Code -->
 </head>
-<body data-wb="watch">
+<body data-wb="watch" data-wb-base="./">
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
 
 <div id="site-nav-slot"></div>
@@ -35,7 +35,7 @@
         <span class="eyebrow">Live room</span>
         <h1></h1>
         <p class="lede"></p>
-        <div class="btn-row"><a class="btn btn-primary" id="wr-msg-register" href="./">Register free</a></div>
+        <div class="btn-row"><a class="btn btn-primary" id="wr-msg-register" href="./">See upcoming sessions</a></div>
       </div>
     </div>
 
@@ -56,7 +56,18 @@
         <span class="wr-note">Trouble with the player? Reload the page, or open the stream on YouTube.</span>
       </div>
 
-      <div class="wr-cta">
+      <div class="wr-cta" data-cta-series="business" hidden>
+        <div>
+          <span class="eyebrow blue">PrivacyPal for Business</span>
+          <h3>Govern every AI. Without blocking a single user.</h3>
+          <p>PrivacyPal Pro is completely free for individuals: install once and every AI app on your machine is governed. When the whole company needs covering, that is Max.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#" data-cta="demo">Book a 1:1 demo</a>
+          <a class="btn btn-ghost" href="../privacypal-pro.html">Get Pro free</a>
+        </div>
+      </div>
+      <div class="wr-cta" data-cta-series="family" hidden>
         <div>
           <span class="eyebrow orange">PrivacyPal Family</span>
           <h3>Their world is full of AI. You hold the keys.</h3>

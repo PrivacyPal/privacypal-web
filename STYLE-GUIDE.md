@@ -20,7 +20,9 @@ photo hero, launch-film modal, Fredoka display type in the family sections),
 with the business line presented as the second door and living under
 `business.html` plus the "For Business" nav dropdown. Only the homepage borrows
 Family DNA at the root; every other root page stays in the corporate system
-below. The homepage sets `body.cinema`, which v3.css uses to render the shared
+below. The one other borrower is the live family demo page,
+`webinars/family/` (`body.wb-family` in `webinars/webinars.css`: Fredoka
+headings and warm accents inside `main`, corporate nav and footer). The homepage sets `body.cinema`, which v3.css uses to render the shared
 nav transparent-over-photo until scroll; do not reuse that class elsewhere.
 
 ## Hard rules
