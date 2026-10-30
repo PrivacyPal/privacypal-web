@@ -80,6 +80,7 @@ the ads say 12. That extra month is deliberate. Marketing stays at 12 months.
 | Page | Job |
 |---|---|
 | `index.html` | Flagship landing: hero, why-now, 3 steps, 4 pillars, twin demo, Parent HQ mock, wellbeing + sharing (early access), age ladder, devices, real screenshots, pricing, FAQ, CTA |
+| `roblox.html` | **Roblox protection** (new 2026-10-30): Roblox-dark hero with a chat mock showing a held message, AI shelf with Roblox beside it, why Roblox, the four protections, the Parent HQ Roblox panel (design preview), the separate setup step, the plain-words coverage block (held / your call / flagged), six promises kept in Roblox, the kid's view, FAQ. Styles live in `../assets/roblox.css`. |
 | `parents.html` | Parent HQ deep dive: realtime controls, Sunday digest phone mock, engine proof |
 | `kids.html` | Speaks to kids/teens: transparency table ("the deal"), armor framing, stage ladder |
 | `promise.html` | The Family Promise: 5 numbered promises, each naming its mechanism |
@@ -123,6 +124,49 @@ the ads say 12. That extra month is deliberate. Marketing stays at 12 months.
   marketed until it's back on the roadmap. Do not add social-sharing claims.
 - No invented testimonials, star ratings, or user counts. Social proof borrows
   from the company ("hundreds of companies") until real family quotes exist.
+
+### Roblox (added 2026-10-30)
+
+Roblox is an **addition** to Family, not its center. AI stays the lead story on
+every page: Roblox appears as a NEW card on the AI shelf, a hero news box on
+both home pages, one highlight on the Family home, a strip on `parents.html`,
+three rows in the kids' deal table, and its own page, `roblox.html`.
+
+The feature set and wording come from the EPIC-18 Roblox plan (Jason's plan
+file, `~/.claude/plans/ok-we-are-embarking-witty-key.md`). The Brain held
+nothing on Roblox as of 2026-10-30.
+
+- **Copy stays affirmative** (Jason, 2026-10-30): say what Family does, never
+  what it doesn't. No "not covered" / "what we can't do" blocks or disclaimers
+  of gaps; state the scope positively instead ("on the family Mac today,
+  Windows next", "through Roblox's own settings", "early access"). The only
+  negative wording kept is the legal trademark line and the kids' deal-table
+  "Never" column, which is a privacy promise.
+- Presented as shipping: on the family **Mac**, messages, profile text and group
+  posts are checked on the device against the never-share list and **held**
+  (withheld) before they send, never rewritten, with the kid told why and
+  nothing stored. Per-child switches in Parent HQ: play on; chat, friend
+  requests, voice and spending start off; the kid can ask. Guided setup in
+  Roblox's own parent settings, then alerts if they drift. A separate Roblox
+  setup step, opt-in per household. Roblox protection is part of the Family plan.
+- Labeled **early access**: danger alerts (grooming patterns, secrecy pressure,
+  pushes to move to another app or meet up) and the in-game chat check.
+- Platform line, used everywhere: "Roblox protection runs on the family Mac
+  today. Windows is next." The engine patch is validated on macOS only; the
+  Windows path is gated off in `roblox_trust_manager.py`.
+- **Never say:** "we watch / monitor your child's Roblox chat"; "we stop them
+  sharing personal information in a game" (in-game chat is UDP: it can be
+  flagged, never held); anything implying we see Roblox on phones, tablets or
+  consoles; "no alerts means nothing happened"; anything about recording other
+  players' voice. Roblox text is never twinned, so Roblox stays out of every
+  Privacy Twins / "identity swapped" line, including Promise 2.
+- Keep the trademark line ("Roblox is a trademark of Roblox Corporation.
+  PrivacyPal is not affiliated with ...") wherever Roblox is featured. The
+  chat and avatar art is hand-built SVG/CSS in Roblox's palette, not Roblox
+  screenshots or official artwork.
+- Palette (from roblox.com's Foundation CSS, theme-roblox dark): `#121215`
+  `#191a1f` `#202227` `#272930`, blue `#335fff`, green `#39c582`, yellow
+  `#f2ba2a`, red `#df281f`. Tokens are `--rbx-*` in `assets/roblox.css`.
 
 ## Assets
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Founding Families · 50% off your first year · PrivacyPal Family</title>
-<meta name="description" content="Founding Families get PrivacyPal Family at half price for a whole year. Choose the AI your kids use, keep their identity at home, and see how AI shapes them. Signals, never transcripts. Code applied automatically." />
+<meta name="description" content="Founding Families get PrivacyPal Family at half price for a whole year. Choose the AI your kids use on every device, from Mac and Windows to iPhone, iPad and Android, now with Roblox protection on the family Mac, keep their identity at home, and see how they are doing. Signals, never transcripts. Rated 5.0 on the Chrome Web Store." />
 <!-- Campaign landing page for ads and social posts, and since the launch also the
      public Founding Families offer page: linked from the nav, footer and sitemap,
      and indexable. It keeps its own minimal header and legal-only footer. -->
@@ -13,7 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://automate.privacypal.ai" crossorigin>
 <link rel="stylesheet" href="../family.css"/>
+<link rel="stylesheet" href="../../assets/roblox.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal Family" />
 <meta property="og:url" content="https://privacypal.ai/family/founding/" />
@@ -40,8 +42,21 @@
      The Family sub-site does not load assets/v3.js, so each page loads this itself. -->
 <script src="../../assets/referral.js"></script>
 <style>
-/* ---------- Landing-only layer (on top of family.css) ---------- */
+/* ---------- Landing-only layer (on top of family.css and roblox.css) ---------- */
 body{padding-bottom:0}
+h2,h3,.section-head .lede{text-wrap:balance}
+.btn{min-height:48px}
+.btn-line{
+  background:#fff;color:var(--ink);border:2px solid var(--ink);
+  box-shadow:0 3px 0 var(--ink);
+}
+.btn-line:hover{background:var(--cream);transform:translateY(-1px);box-shadow:0 4px 0 var(--ink)}
+.btn-line:active{transform:translateY(3px);box-shadow:0 0 0 var(--ink)}
+.stars{display:inline-flex;gap:2px;color:#fbbc04}
+.stars svg{width:16px;height:16px;fill:currentColor}
+.gmark{width:18px;height:18px;flex:none}
+
+/* header */
 .lph{
   position:sticky;top:0;z-index:60;
   background:rgba(255,253,248,.92);backdrop-filter:blur(14px);
@@ -59,86 +74,501 @@ body{padding-bottom:0}
   padding:3px 12px;border-radius:999px;
 }
 .lph-offer{
-  margin-left:auto;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
-  display:none;
+  margin-left:auto;display:none;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
 }
-@media(min-width:760px){.lph-offer{display:inline}}
-.lph .btn{margin-left:10px}
+.lph-offer .stars svg{width:13px;height:13px}
+.lph-offer i{width:4px;height:4px;border-radius:50%;background:var(--faint)}
+@media(min-width:860px){.lph-offer{display:inline-flex}}
+.lph .btn{margin-left:auto}
+@media(min-width:860px){.lph .btn{margin-left:10px}}
 .lph .btn.btn-sm{padding:10px 18px}
 
-/* hero */
-.fhero.lp{padding:56px 0 72px}
-.fhero.lp .fhero-grid{grid-template-columns:1.05fr .95fr;align-items:start}
-.fhero.lp h1{margin:16px 0 18px}
-.hero-ticks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:26px}
-.hero-ticks li{display:flex;gap:11px;align-items:flex-start;font-size:1.02rem;color:var(--text)}
-.hero-ticks li b{color:var(--ink)}
-.hero-ticks svg{width:22px;height:22px;flex:none;margin-top:2px;color:var(--sage-deep);background:var(--sage-tint);border-radius:7px;padding:4px}
+/* ================= HERO ================= */
+.fhero.lp{padding:44px 0 64px}
+.lp-grid{display:grid;grid-template-columns:1.16fr .84fr;gap:48px;align-items:start}
+.lp-main{display:flex;flex-direction:column;gap:28px;min-width:0}
+.lp-side{display:flex;flex-direction:column;gap:20px;min-width:0}
+.fhero.lp h1{margin:14px 0 16px;font-size:clamp(2.3rem,4.6vw,3.3rem)}
+.fhero.lp .lede{font-size:1.12rem}
 
-/* offer card: the conversion element */
+/* Google rating chip */
+.g-chip{
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:44px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:6px 16px 6px 7px;box-shadow:var(--shadow-card);
+  font-size:.86rem;color:var(--text);transition:transform .15s ease,box-shadow .15s ease;
+}
+.g-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow-float)}
+.g-chip .g{
+  width:30px;height:30px;border-radius:50%;background:#fff;flex:none;
+  border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;
+}
+.g-chip b{font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--ink)}
+.g-chip .rest{color:var(--muted)}
+.g-row{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+
+/* proof labels under the sub-headline: always one row. The column is a size
+   container, so the labels shorten (then drop the device label, which the
+   lede already states) before they would ever wrap. */
+.lp-copy{container-type:inline-size}
+.plabels{display:flex;flex-wrap:nowrap;gap:10px;margin-top:24px}
+/* measured: both labels 542px in full, 487px short; the first alone 330 / 275 */
+@container (max-width:544px){.pl-long{display:none}}
+@container (max-width:489px){.plabels .pl-dev{display:none}.plabels .pl-long{display:inline}}
+@container (max-width:334px){.plabels .pl-long{display:none}}
+.plabel{
+  flex:none;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:10px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:7px 14px 7px 7px;font-size:.86rem;line-height:1.3;color:var(--text);
+  box-shadow:var(--shadow-card);
+}
+.plabel .em{
+  width:32px;height:32px;border-radius:10px;flex:none;font-size:1.05rem;
+  display:flex;align-items:center;justify-content:center;background:var(--sage-tint);
+}
+.plabel b{color:var(--ink);font-weight:600}
+.plabel.big{background:var(--ink);border-color:var(--ink);color:#c6d2e4}
+.plabel.big b{color:#fff}
+.plabel.big .em{background:rgba(255,255,255,.12)}
+.plabel.sun .em{background:var(--tangerine-tint)}
+.plabel.teal .em{background:var(--teal-tint)}
+
+/* ---------- Interactive demo ---------- */
+.demo{
+  background:#fff;border:1px solid var(--line);border-radius:26px;
+  box-shadow:var(--shadow-float);overflow:hidden;
+}
+.demo-top{
+  display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;
+  padding:10px 12px 10px 18px;background:var(--cream);border-bottom:1px solid var(--line-soft);
+}
+.demo-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.02em;
+}
+.demo-label::before{
+  content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);
+  box-shadow:0 0 0 3px rgba(77,163,148,.2);animation:pulse 1.6s infinite;
+}
+.demo-tabs{
+  display:flex;gap:4px;margin-left:auto;padding:4px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+}
+.demo-tab{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 10px;
+  border:0;border-radius:999px;background:transparent;color:var(--muted);
+  font-family:var(--font-display);font-weight:600;font-size:.92rem;
+  transition:background .15s ease,color .15s ease;
+}
+.demo-tab:hover{color:var(--ink)}
+.demo-tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.demo-tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-tab .ti{
+  width:26px;height:26px;border-radius:8px;flex:none;background:#fff;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line-soft);
+}
+.demo-tab .ti img{width:16px;height:16px}
+.demo-tab .ti.rbx{background:var(--rbx-0);border-color:var(--rbx-0);color:#fff}
+.demo-tab .ti.rbx svg{width:17px;height:17px}
+.demo-tab .nw{
+  font-family:var(--font-mono);font-size:.55rem;font-weight:600;letter-spacing:.08em;
+  background:var(--rbx-blue);color:#fff;border-radius:5px;padding:2px 5px;
+}
+.demo-scenes{display:grid}
+.demo-scene{grid-area:1/1;padding:18px 20px 18px;transition:opacity .25s ease}
+.demo-scene.off{opacity:0;visibility:hidden}
+.demo-replay{
+  display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 6px;
+  border:0;background:none;font-family:var(--font-mono);font-size:.7rem;color:var(--muted);
+}
+.demo-replay:hover{color:var(--teal-ink)}
+.demo-replay svg{width:14px;height:14px}
+.demo-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  margin-top:12px;
+}
+.demo-foot p{display:flex;gap:8px;align-items:flex-start;font-size:.86rem;line-height:1.45;color:var(--text);flex:1 1 260px}
+.demo-foot p svg{width:18px;height:18px;flex:none;margin-top:1px;color:var(--sage-deep)}
+
+/* AI scene */
+.dm-cap{
+  display:flex;align-items:center;gap:8px;margin-bottom:7px;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.04em;color:var(--muted);
+}
+.dm-cap img{width:15px;height:15px}
+.dm-line{
+  font-size:1rem;line-height:1.55;color:var(--ink);
+  background:var(--panel);border-radius:16px;padding:12px 15px;min-height:76px;
+}
+.dm-in .dm-line{border-bottom-left-radius:5px}
+.dm-out .dm-line{background:var(--sage-tint);border-bottom-right-radius:5px}
+.dm-line mark{background:transparent;color:inherit;border-radius:6px;padding:1px 3px;transition:background .25s ease,color .25s ease}
+[data-phase="flag"] .dm-in mark,[data-phase="swap"] .dm-in mark{background:#f9d9d7;color:#a02020;font-weight:600}
+[data-phase="flag"] .dm-in mark{animation:flag .9s ease both}
+.dm-out mark{background:#cfe9da;color:#0d6b3d;font-weight:600}
+.dm-mid{
+  display:flex;align-items:center;gap:10px;margin:10px 0;
+  font-family:var(--font-mono);font-size:.68rem;color:var(--sage-deep);
+  transition:opacity .3s ease;
+}
+.dm-mid::after{content:"";flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--sage) 0 5px,transparent 5px 10px);opacity:.6}
+.dm-mid .sh{
+  width:30px;height:30px;border-radius:50%;flex:none;background:var(--sage);color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--sage-deep);
+}
+.dm-mid .sh svg{width:15px;height:15px}
+.dm-out{transition:opacity .45s ease,transform .45s ease}
+[data-phase="type"] .dm-out,[data-phase="flag"] .dm-out{opacity:0;transform:translateY(8px)}
+[data-phase="type"] .dm-mid{opacity:.35}
+[data-phase="swap"] .dm-out mark{animation:pop .5s ease both}
+[data-phase="swap"] .dm-out mark:nth-of-type(2){animation-delay:.12s}
+[data-phase="swap"] .dm-out mark:nth-of-type(3){animation-delay:.24s}
+.caret::after{
+  content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-3px;
+  background:currentColor;animation:blink 1s steps(1) infinite;
+}
+
+/* Roblox scene (Roblox palette from roblox.css) */
+.rb{background:var(--rbx-0);border-radius:18px;overflow:hidden;color:var(--rbx-text);font-size:.9rem}
+.rb-head{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:var(--rbx-2);border-bottom:1px solid var(--rbx-line);
+}
+.rb-av{width:30px;height:30px;border-radius:8px;flex:none;position:relative;background:#a766f5;box-shadow:inset 0 -4px 0 rgba(0,0,0,.18)}
+.rb-av::before,.rb-av::after{content:"";position:absolute;top:10px;width:4px;height:6px;border-radius:2px;background:var(--rbx-0)}
+.rb-av::before{left:8px}
+.rb-av::after{right:8px}
+.rb-head b{display:block;font-size:.86rem;font-weight:600;color:#fff;line-height:1.2}
+.rb-head small{display:block;font-size:.68rem;color:var(--rbx-dim)}
+.rb-head .on{width:8px;height:8px;border-radius:50%;background:var(--rbx-green);margin-left:auto;box-shadow:0 0 0 3px rgba(57,197,130,.18)}
+.rb-body{padding:14px 14px 10px;display:flex;flex-direction:column;gap:9px;min-height:172px}
+.rb-msg{max-width:80%;padding:9px 13px;border-radius:15px;font-size:.88rem;line-height:1.4}
+.rb-msg.them{background:var(--rbx-3);color:var(--rbx-soft);border-bottom-left-radius:5px}
+.rb-msg.held{
+  margin-left:auto;background:transparent;color:var(--rbx-dim);
+  border:1.5px dashed rgba(242,186,42,.6);border-bottom-right-radius:5px;
+  text-decoration:line-through;text-decoration-color:rgba(242,186,42,.85);
+}
+.rb-note{
+  display:flex;gap:10px;align-items:flex-start;
+  background:rgba(242,186,42,.1);border:1px solid rgba(242,186,42,.34);
+  border-radius:13px;padding:10px 12px;
+}
+.rb-note .i{
+  width:28px;height:28px;border-radius:9px;flex:none;background:var(--rbx-yellow);color:var(--rbx-0);
+  display:flex;align-items:center;justify-content:center;
+}
+.rb-note .i svg{width:15px;height:15px}
+.rb-note b{display:block;font-size:.82rem;color:#fff;font-weight:600;line-height:1.3}
+.rb-note small{display:block;font-size:.76rem;color:var(--rbx-muted);line-height:1.4;margin-top:2px}
+.rb-input{
+  display:flex;align-items:center;gap:10px;margin:0 12px 12px;min-height:46px;
+  background:var(--rbx-2);border:1px solid var(--rbx-line);border-radius:12px;
+  padding:7px 8px 7px 13px;font-size:.88rem;color:var(--rbx-soft);
+}
+.rb-input .ph{color:var(--rbx-dim)}
+.rb-input .send{
+  margin-left:auto;width:30px;height:30px;border-radius:50%;flex:none;
+  background:var(--rbx-blue);color:#fff;display:flex;align-items:center;justify-content:center;
+}
+.rb-input .send svg{width:13px;height:13px}
+[data-phase="type"] .rb-msg.held,[data-phase="type"] .rb-note,[data-phase="type"] .rb-input .ph{display:none}
+[data-phase="held"] .rb-input [data-type]{display:none}
+[data-phase="held"] .rb-msg.held{animation:pop .4s ease both}
+[data-phase="held"] .rb-note{animation:pop .45s .3s ease both}
+
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes flag{0%{box-shadow:0 0 0 0 rgba(213,71,81,.45)}100%{box-shadow:0 0 0 7px rgba(213,71,81,0)}}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- Offer card: the conversion element ---------- */
 .offer{
   background:#fff;border:2px solid var(--ink);border-radius:var(--r-xl);
-  padding:30px 30px 26px;box-shadow:8px 8px 0 var(--amber);position:relative;
+  padding:26px 28px 22px;box-shadow:8px 8px 0 var(--amber);position:relative;
 }
 .offer .ribbon{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
   background:var(--tangerine-tint);color:var(--tangerine-deep);
-  padding:5px 12px;border-radius:999px;margin-bottom:14px;
+  padding:5px 12px;border-radius:999px;margin-bottom:12px;
 }
 .offer .ribbon::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tangerine)}
-.offer h3{font-size:1.5rem;margin-bottom:6px}
-.offer .sub{color:var(--muted);font-size:.95rem}
-.offer .price{display:flex;align-items:baseline;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+.offer h3{font-size:1.5rem;margin-bottom:2px}
+.offer .price{display:flex;align-items:baseline;gap:10px;margin:12px 0 2px;flex-wrap:wrap}
 .offer .price .was{font-family:var(--font-display);font-size:1.5rem;color:var(--faint);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--coral)}
 .offer .price .now{font-family:var(--font-display);font-size:3.2rem;font-weight:600;line-height:1;color:var(--ink)}
 .offer .price .now small{font-family:var(--font-display);font-size:1.1rem;font-weight:500;color:var(--muted)}
 .offer .price-note{font-size:.86rem;color:var(--muted)}
 .offer .code{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  margin:18px 0 6px;padding:12px 14px;border-radius:14px;
+  margin:14px 0 4px;padding:10px 14px;border-radius:14px;
   background:var(--sage-tint);border:1px dashed var(--sage);
 }
-.offer .code .k{font-family:var(--font-mono);font-size:.82rem;font-weight:600;color:var(--sage-deep);letter-spacing:.02em;word-break:break-all}
+.offer .code .k{font-family:var(--font-mono);font-size:.8rem;font-weight:600;color:var(--sage-deep);letter-spacing:.02em;word-break:break-all}
 .offer .code .v{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--sage-deep);font-weight:600}
 .offer .code .v svg{width:14px;height:14px}
-.offer ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin:18px 0 22px}
-.offer li{display:flex;gap:10px;font-size:.95rem;align-items:flex-start}
+.offer ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0 18px}
+.offer li{display:flex;gap:10px;font-size:.94rem;align-items:flex-start}
 .offer li svg{width:18px;height:18px;color:var(--sage-deep);flex:none;margin-top:3px}
+.offer li .rbx-tag{
+  display:inline-block;vertical-align:1px;margin-left:4px;
+  font-family:var(--font-mono);font-size:.56rem;font-weight:600;letter-spacing:.08em;
+  background:var(--rbx-blue);color:#fff;border-radius:5px;padding:2px 6px;
+}
 .offer .btn{width:100%}
-.offer .fine{font-size:.78rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+.offer .fine{font-size:.78rem;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5}
 .offer .guarantee{
-  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;
+  display:flex;justify-content:center;gap:8px 14px;flex-wrap:wrap;margin-top:10px;
   font-family:var(--font-mono);font-size:.68rem;color:var(--muted);
 }
 .offer .guarantee span{display:inline-flex;align-items:center;gap:5px}
 .offer .guarantee svg{width:12px;height:12px;color:var(--sage-deep)}
 
-/* next-steps mini rail */
-.next{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.next .n{
-  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 20px;
-  display:flex;gap:14px;align-items:flex-start;
+/* ---------- Live family demo box ---------- */
+.live{
+  display:grid;grid-template-columns:160px 1fr;overflow:hidden;
+  background:linear-gradient(135deg,#ffffff 0%,#fdf4e3 100%);
+  border:1px solid #f1e2c2;border-radius:var(--r-xl);box-shadow:var(--shadow-card);
 }
-.next .n .num{
-  font-family:var(--font-display);font-weight:600;flex:none;
-  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:var(--ink);color:#fff;
+.live-thumb{
+  position:relative;display:block;min-height:100%;
+  background:url('../assets/photos/couch-tablet.jpg') 64% center/cover;
 }
-.next .n:nth-child(2) .num{background:var(--teal)}
-.next .n:nth-child(3) .num{background:var(--tangerine)}
-.next .n b{display:block;font-family:var(--font-display);font-size:1.02rem;margin-bottom:3px}
-.next .n p{color:var(--muted);font-size:.9rem}
-@media(max-width:900px){.next{grid-template-columns:1fr}}
+.live-thumb::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,32,78,.08) 20%,rgba(1,32,78,.7))}
+.live-badge{
+  position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;color:#fff;
+  background:#e5484d;border-radius:6px;padding:3px 8px;
+}
+.live-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite}
+.live-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:#fff;color:var(--teal);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -6px rgba(0,0,0,.45);
+  transition:transform .15s ease;
+}
+.live-play svg{width:20px;height:20px;margin-left:3px}
+.live-thumb:hover .live-play{transform:translate(-50%,-50%) scale(1.08)}
+.live-dur{
+  position:absolute;left:12px;bottom:10px;font-family:var(--font-mono);font-size:.64rem;color:#fff;
+}
+.live-body{padding:20px 22px 18px}
+.live-body h3{font-size:1.2rem;line-height:1.2;margin:8px 0 6px}
+.live-body p{font-size:.9rem;line-height:1.5;color:var(--muted)}
+.live-when{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.live-when > span{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 11px;
+  font-size:.8rem;font-weight:600;color:var(--ink);
+}
+.live-body .btn{width:100%}
+.live-body .tiny{display:block;margin-top:9px;font-family:var(--font-mono);font-size:.64rem;color:var(--muted);text-align:center}
 
-/* proof strip near the decision */
-.proof-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
-.proof-row .p{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 15px;
-  font-size:.86rem;font-weight:600;color:var(--ink);box-shadow:var(--shadow-card);
+/* ================= TRUST BAND ================= */
+.tband{background:var(--cream);border-bottom:1px solid var(--line);padding:34px 0 30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{
+  display:flex;align-items:center;gap:14px;
+  background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 18px;
+  box-shadow:var(--shadow-card);
 }
-.proof-row .p svg{width:16px;height:16px;color:var(--teal)}
+.stat .em{
+  width:50px;height:50px;border-radius:15px;flex:none;font-size:1.5rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.stat:nth-child(1) .em{background:var(--teal-tint)}
+.stat:nth-child(2) .em{background:#fff4d6}
+.stat:nth-child(3) .em{background:var(--navy-tint)}
+.stat:nth-child(4) .em{background:var(--sage-tint)}
+.stat b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.3rem;line-height:1.15;color:var(--ink)}
+.stat small{display:block;font-size:.8rem;line-height:1.35;color:var(--muted);margin-top:2px}
+.stat.hero-stat{background:var(--ink);border-color:var(--ink)}
+.stat.hero-stat b{color:#fff}
+.stat.hero-stat small{color:#b9c6da}
+.stat.hero-stat .em{background:rgba(255,255,255,.12)}
+.badges{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;justify-content:center;margin-top:22px}
+.badges img{height:36px;width:auto}
+.badges .p{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);
+}
+.badges .p svg{width:15px;height:15px;color:var(--teal)}
+.badges i{width:4px;height:4px;border-radius:50%;background:var(--faint)}
+
+/* ================= COVERAGE + ROBLOX ================= */
+/* every device the plan covers */
+.devrow{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:-18px auto 36px}
+.dev{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px 6px 12px;
+  font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--ink);
+  box-shadow:var(--shadow-card);
+}
+.dev > svg{width:20px;height:20px;color:var(--teal)}
+.dev .ok{width:18px;height:18px;border-radius:50%;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center}
+.dev .ok svg{width:11px;height:11px}
+@media(max-width:640px){.devrow{gap:8px;margin-top:-22px}.dev{font-size:.88rem;padding:5px 9px 5px 10px}}
+/* eight cards: keep them on one row at desktop width */
+@media(min-width:1000px){
+  .ai-pals .pal-shelf{gap:14px}
+  .ai-pals .pal-card{min-width:118px;padding:18px 16px 14px}
+}
+.rbx-box{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center;
+  margin-top:46px;padding:46px 46px 40px;border-radius:30px;color:var(--rbx-text);
+  background:
+    radial-gradient(55% 75% at 88% 18%,rgba(51,95,255,.38),transparent 62%),
+    radial-gradient(45% 60% at 4% 104%,rgba(167,102,245,.2),transparent 70%),
+    var(--rbx-0);
+  box-shadow:0 40px 100px -40px rgba(1,16,42,.55);
+}
+.rbx-box::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68'%3E%3Crect x='22' y='22' width='24' height='24' rx='3' fill='none' stroke='%23d0d9fb' stroke-opacity='.075' stroke-width='2' transform='rotate(15 34 34)'/%3E%3C/svg%3E");
+  -webkit-mask-image:linear-gradient(115deg,transparent 18%,#000 70%);
+  mask-image:linear-gradient(115deg,transparent 18%,#000 70%);
+}
+.rbx-box h3{
+  font-family:var(--rbx-display);font-weight:600;color:#fff;
+  font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.1;letter-spacing:-.01em;margin:14px 0 12px;
+}
+.rbx-box .lead{font-size:1.04rem;line-height:1.6;color:var(--rbx-muted);max-width:54ch}
+.rl{list-style:none;margin:24px 0 0;display:flex;flex-direction:column;gap:15px}
+.rl li{display:flex;gap:13px;align-items:flex-start;font-size:.94rem;line-height:1.55;color:var(--rbx-soft)}
+.rl li b{color:#fff;font-weight:600}
+.rl-ico{
+  width:34px;height:34px;border-radius:11px;flex:none;margin-top:1px;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.rl-ico svg{width:17px;height:17px}
+.rl-ico.blue{background:var(--rbx-blue);box-shadow:0 3px 0 var(--rbx-blue-deep)}
+.rl-ico.green{background:var(--rbx-green-deep);box-shadow:0 3px 0 #015f35}
+.rl-ico.yellow{background:#c49315;box-shadow:0 3px 0 #815d00}
+.rl-ico.purple{background:#8b4fdc;box-shadow:0 3px 0 #5b2aa0}
+.rbx-box .rbx-actions{margin-top:28px}
+
+/* Parent HQ Roblox card (Family skin: it is the parent's side). Interactive. */
+.rhq{
+  background:#fffdf8;color:var(--ink);border-radius:24px;padding:18px 18px 16px;
+  box-shadow:0 34px 80px -26px rgba(0,0,0,.75);
+}
+.rhq-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.rhq-top .t{
+  width:34px;height:34px;border-radius:10px;flex:none;background:var(--rbx-0);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.rhq-top .t svg{width:20px;height:20px}
+.rhq-top b{display:block;font-family:var(--font-display);font-weight:600;font-size:1rem;line-height:1.2}
+.rhq-top small{display:block;font-family:var(--font-mono);font-size:.62rem;color:var(--muted);letter-spacing:.03em}
+.rhq-top .kid{
+  margin-left:auto;width:34px;height:34px;border-radius:11px;background:var(--tangerine);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:.9rem;
+}
+.rsw{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;
+  min-height:48px;padding:6px 2px;border:0;border-top:1px dashed var(--line);background:none;
+  font-family:var(--font-primary);font-size:.92rem;font-weight:500;color:var(--text);text-align:left;
+}
+.rsw small{display:block;font-size:.72rem;color:var(--muted);font-weight:400}
+.rsw i{
+  position:relative;width:40px;height:24px;border-radius:999px;flex:none;
+  background:#d5d7dd;transition:background .2s ease;
+}
+.rsw i::after{
+  content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;
+  background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left .2s ease;
+}
+.rsw[aria-checked="true"] i{background:var(--rbx-green-deep)}
+.rsw[aria-checked="true"] i::after{left:19px}
+.rsw:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:8px}
+.rreq{
+  margin-top:8px;border-radius:16px;padding:12px 13px;
+  background:var(--navy-tint);border:1px solid #d9e1ee;
+}
+.rreq p{font-size:.86rem;line-height:1.4;color:var(--ink);font-weight:600}
+.rreq p small{display:block;font-weight:400;color:var(--muted);font-size:.74rem}
+.rreq-btns{display:flex;gap:8px;margin-top:10px}
+.rreq-btns button{
+  flex:1;min-height:44px;border-radius:12px;font-family:var(--font-display);font-weight:600;font-size:.9rem;
+}
+.rreq-btns .yes{background:var(--teal);color:#fff;border:0;box-shadow:0 3px 0 var(--teal-deep)}
+.rreq-btns .no{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.rreq-done{font-size:.84rem;color:var(--sage-deep);font-weight:600;margin-top:8px}
+.rhq-cap{margin-top:12px;text-align:center;font-family:var(--font-mono);font-size:.64rem;color:var(--rbx-dim)}
+.rbx-tm{max-width:760px;margin:16px auto 0;text-align:center;font-family:var(--font-mono);font-size:.66rem;line-height:1.7;color:var(--muted)}
+
+/* ================= REVIEWS ================= */
+.rv-grid{display:grid;grid-template-columns:1.05fr 1fr 1fr 1fr;gap:18px;align-items:stretch}
+.g-card{
+  position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;
+  background:#fff;border:2px solid var(--ink);border-radius:26px;padding:26px 24px 24px;
+  box-shadow:6px 6px 0 #fde6a6;
+}
+.g-card::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(251,188,4,.22),transparent 70%);pointer-events:none;
+}
+.g-brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;color:var(--ink)}
+.g-brand .gmark{width:24px;height:24px}
+.g-score{font-family:var(--font-display);font-weight:600;font-size:4.4rem;line-height:1;color:var(--ink);margin:18px 0 6px}
+.g-card .stars svg{width:28px;height:28px}
+.g-card .g-word{margin-top:10px;font-family:var(--font-display);font-weight:600;font-size:1.15rem;color:var(--ink)}
+.g-card p{font-size:.9rem;line-height:1.5;color:var(--muted);margin-top:4px}
+.g-card .btn{margin-top:auto;width:100%;font-size:.95rem}
+.g-card .g-spacer{flex:1;min-height:18px}
+.tcard{
+  position:relative;display:flex;flex-direction:column;gap:14px;
+  background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px 22px 20px;
+  box-shadow:var(--shadow-card);transition:transform .18s ease,box-shadow .18s ease;
+}
+.tcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-float)}
+.tcard::before{
+  content:"\201C";position:absolute;top:2px;right:18px;
+  font-family:var(--font-display);font-size:5.4rem;line-height:1;color:var(--tangerine-tint);
+}
+.t-out{
+  position:relative;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-mono);font-size:.66rem;letter-spacing:.04em;
+  color:var(--sage-deep);background:var(--sage-tint);border-radius:999px;padding:5px 11px;
+}
+.t-out::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.tcard blockquote{position:relative;flex:1;font-size:1rem;line-height:1.6;color:var(--ink)}
+.tcard figcaption{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px dashed var(--line)}
+.tcard .av{
+  width:52px;height:52px;border-radius:50%;flex:none;font-size:1.6rem;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid #fff;box-shadow:0 0 0 2px var(--amber);
+}
+.tcard figcaption b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--ink)}
+.tcard figcaption small{display:block;font-size:.76rem;line-height:1.38;color:var(--muted)}
+.rv-note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:20px}
+
+/* benefits: feature name as a small label over the benefit */
+.ptag{
+  display:inline-block;margin-bottom:8px;font-family:var(--font-mono);font-size:.68rem;
+  letter-spacing:.04em;color:var(--muted);
+}
+
+/* risk reversal */
+.rr{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:920px;margin:30px auto 0}
+.rr > div{
+  display:flex;gap:13px;align-items:flex-start;
+  background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 18px 16px;
+}
+.rr .ic{
+  width:40px;height:40px;border-radius:12px;flex:none;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.rr .ic svg{width:20px;height:20px}
+.rr b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.04rem;color:var(--ink)}
+.rr p{font-size:.88rem;line-height:1.5;color:var(--muted);margin-top:2px}
+.still{text-align:center;margin-top:26px;font-size:.98rem;color:var(--text)}
+.still a{color:var(--teal-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.fcta .alt{display:block;margin-top:16px;font-size:.92rem;color:#c6d2e4}
+.fcta .alt a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 
 /* footer */
 .lpf{border-top:1px solid var(--line);background:var(--cream);padding:30px 0 110px;margin-top:40px}
@@ -146,7 +576,7 @@ body{padding-bottom:0}
 .lpf a{color:var(--text);margin-left:16px}
 .lpf a:hover{color:var(--teal-ink)}
 .lpf-addr{flex-basis:100%;font-style:normal;font-size:.78rem;color:var(--muted)}
-@media(min-width:761px){.lpf{padding-bottom:36px}}
+@media(min-width:961px){.lpf{padding-bottom:36px}}
 
 /* sticky mobile CTA */
 .sticky{
@@ -155,19 +585,72 @@ body{padding-bottom:0}
   border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));
   display:none;align-items:center;gap:12px;
 }
-.sticky .s-txt{font-size:.82rem;line-height:1.25;color:var(--text)}
+.sticky .s-txt{font-size:.8rem;line-height:1.3;color:var(--text)}
 .sticky .s-txt b{display:block;font-family:var(--font-display);color:var(--ink);font-size:.95rem}
-.sticky .btn{margin-left:auto;white-space:nowrap;padding:12px 18px;font-size:.95rem}
-@media(max-width:760px){.sticky{display:flex}}
+.sticky .s-txt .stars svg{width:11px;height:11px}
+.sticky .btn{margin-left:auto;white-space:nowrap;padding:12px 20px;font-size:.98rem}
 
+/* ================= RESPONSIVE ================= */
+@media(max-width:1100px){
+  .rv-grid{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .rbx-box{grid-template-columns:1fr;gap:34px}
+  .rhq{max-width:440px;width:100%;margin:0 auto}
+}
 @media(max-width:960px){
-  .fhero.lp .fhero-grid{grid-template-columns:1fr;gap:36px}
+  .lp-grid{display:flex;flex-direction:column;align-items:stretch;gap:28px}
+  .lp-main{display:contents}
+  .lp-copy{order:1}
+  .lp-demo{order:2}
+  .lp-side{order:3}
   .offer{box-shadow:6px 6px 0 var(--amber)}
+  .sticky{display:flex}
+  .rr{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .fhero.lp{padding:24px 0 48px}
+  .fhero.lp .lede{font-size:1.04rem}
+  .g-chip{gap:8px;padding-right:13px;font-size:.82rem}
+  .g-chip .stars svg{width:14px;height:14px}
+  .wide-only{display:none}
+  .g-chip{flex-wrap:nowrap}
+  .plabels{gap:8px;margin-top:20px}
+  .plabel{font-size:.84rem}
+  .rv-grid{grid-template-columns:1fr}
+  .rbx-box{padding:34px 20px 26px;border-radius:24px;margin-top:36px}
+  .demo-top{padding:10px}
+  .demo-label{display:none}
+  .demo-tabs{margin-left:0;width:100%}
+  .demo-tab{flex:1;justify-content:center;padding:0 10px}
+  .demo-scene{padding:16px 14px}
+  .live{grid-template-columns:1fr}
+  .live-thumb{min-height:150px}
+  .offer{padding:22px 20px 20px}
+  .stat{flex-direction:column;align-items:flex-start;gap:10px;padding:14px}
+  .stat .em{width:44px;height:44px;font-size:1.3rem}
+  .stat b{font-size:1.12rem}
+  .g-score{font-size:3.6rem}
+  .lpf a{margin-left:0;margin-right:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .demo-label::before,.live-badge::before,.caret::after{animation:none}
+  [data-phase] .dm-out mark,[data-phase] .rb-msg.held,[data-phase] .rb-note,[data-phase] .dm-in mark{animation:none}
 }
 </style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<!-- Shared glyphs, referenced with <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.4l2.95 6 6.6.95-4.78 4.65 1.13 6.57L12 17.47l-5.9 3.1 1.13-6.57L2.45 9.35l6.6-.95z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gmark" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
+    <symbol id="i-rbx" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
 
 <!-- ================= MINIMAL HEADER (no site nav on purpose) ================= -->
 <header class="lph">
@@ -176,77 +659,182 @@ body{padding-bottom:0}
       <img src="../assets/product/logo-color.png" alt="PrivacyPal"/>
       <span class="fam">Family</span>
     </a>
-    <span class="lph-offer">Founding Families · 50% off your first year</span>
+    <span class="lph-offer">
+      <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+      5.0 on Chrome Web Store<i></i>Founding Families · 50% off your first year
+    </span>
     <a class="btn btn-key btn-sm" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim 50% off</a>
   </div>
 </header>
 
-<!-- ================= HERO + OFFER ================= -->
+<!-- ================= HERO: promise, product in action, offer, live demo ================= -->
 <section class="fhero lp" id="top">
   <div class="container">
-    <div class="fhero-grid">
-      <div>
-        <span class="eyebrow orange">Founding Families · half price for a whole year</span>
-        <h1>Their world is full of AI. <span class="hl-teal">You hold the keys.</span></h1>
-        <p class="lede">Your kids already talk to ChatGPT, Gemini and Claude every day. PrivacyPal Family lets you choose the AI they use, keeps their real name, school and address from ever leaving your house, and shows you how AI is shaping them. Signals, never transcripts.</p>
-
-        <ul class="hero-ticks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg><span><b>You pick the AI.</b> Approved tools open. Everything else is blocked and redirected to one you trust.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg><span><b>Their identity stays home.</b> Privacy Twins swap real details for safe stand-ins on the device, before anything is sent.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg><span><b>You see signals, not their words.</b> Parent HQ shows what got protected and how they are doing. Kids see exactly what you see.</span></li>
-        </ul>
-
-        <div class="trust-strip">
-          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on the device</span>
-          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Zero-knowledge</span>
-          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Set up in about 15 minutes</span>
+    <div class="lp-grid">
+      <div class="lp-main">
+        <div class="lp-copy">
+          <div class="g-row">
+            <a class="g-chip" href="#reviews" aria-label="PrivacyPal is rated 5.0 out of 5 on the Chrome Web Store. Read what parents say.">
+              <span class="g"><svg class="gmark" aria-hidden="true"><use href="#i-gmark"/></svg></span>
+              <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+              <b>5.0</b><span class="rest"><span class="wide-only">Rated 5 stars on the </span>Chrome Web Store</span>
+            </a>
+            <span class="eyebrow orange">Founding Families · half price for a whole year</span>
+          </div>
+          <h1>Their world is full of AI. <span class="hl-teal">You hold the keys.</span></h1>
+          <p class="lede">PrivacyPal Family puts your guardrails on every AI your kids use, on every device they own, and now on Roblox. You choose what they can use, their real name, school and address never leave your house, and you see how they are doing without reading their chats.</p>
+          <div class="plabels">
+            <span class="plabel big"><span class="em" aria-hidden="true">🛡️</span><span><b>Tens of millions</b> of <span class="pl-long">sensitive </span>details protected</span></span>
+            <span class="plabel teal pl-dev"><span class="em" aria-hidden="true">📱</span><span>Works on <b>every device</b></span></span>
+          </div>
         </div>
-        <p class="trust-note">Built on PrivacyPal, the same on-device protection hundreds of companies run at work.</p>
+
+        <!-- Product in action: plays itself once in view, tabs replay it. The final
+             state is in the markup, so it reads correctly without JavaScript. -->
+        <div class="lp-demo">
+          <div class="demo" id="demo">
+            <div class="demo-top">
+              <span class="demo-label">Watch it work, on the device</span>
+              <div class="demo-tabs" role="tablist" aria-label="Choose a demo">
+                <button class="demo-tab" role="tab" id="tab-ai" aria-selected="true" aria-controls="scene-ai" data-scene="ai"><span class="ti"><img src="../../assets/glyph-chatgpt.png" alt=""/></span>ChatGPT</button>
+                <button class="demo-tab" role="tab" id="tab-rbx" aria-selected="false" aria-controls="scene-rbx" data-scene="rbx" tabindex="-1"><span class="ti rbx"><svg aria-hidden="true"><use href="#i-rbx"/></svg></span>Roblox<span class="nw">NEW</span></button>
+              </div>
+            </div>
+            <div class="demo-scenes">
+              <div class="demo-scene" id="scene-ai" role="tabpanel" aria-labelledby="tab-ai" data-phase="swap">
+                <div class="dm-in">
+                  <div class="dm-cap">Your child types</div>
+                  <p class="dm-line" data-type>Help me write a speech about me, <mark>Maya Lopez</mark>. I'm in 6th grade at <mark>Lincoln Middle School</mark> in <mark>Austin</mark>.</p>
+                </div>
+                <div class="dm-mid"><span class="sh"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Swapped on the device, before anything is sent</div>
+                <div class="dm-out">
+                  <div class="dm-cap"><img src="../../assets/glyph-chatgpt.png" alt=""/>What ChatGPT receives</div>
+                  <p class="dm-line">Help me write a speech about me, <mark>Alex Rivera</mark>. I'm in 6th grade at <mark>Washington Middle School</mark> in <mark>Denver</mark>.</p>
+                </div>
+                <div class="demo-foot">
+                  <p><svg aria-hidden="true"><use href="#i-check"/></svg><span>ChatGPT still helps with the speech. Maya's real name, school and city never left the house.</span></p>
+                  <button class="demo-replay" type="button" data-replay><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Replay</button>
+                </div>
+              </div>
+
+              <div class="demo-scene off" id="scene-rbx" role="tabpanel" aria-labelledby="tab-rbx" data-phase="held">
+                <div class="rb">
+                  <div class="rb-head"><span class="rb-av" aria-hidden="true"></span><span><b>BlockBuilder77</b><small>Roblox message</small></span><span class="on" aria-hidden="true"></span></div>
+                  <div class="rb-body">
+                    <div class="rb-msg them">gg!! what school do u go to?</div>
+                    <div class="rb-msg held">Lincoln Middle, 6th grade</div>
+                    <div class="rb-note">
+                      <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+                      <span><b>Not sent. PrivacyPal held this message.</b><small>Your school is on your family's never-share list. Ask a parent if you think it should go.</small></span>
+                    </div>
+                  </div>
+                  <div class="rb-input"><span data-type>Lincoln Middle, 6th grade</span><span class="ph">Message…</span><span class="send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+                </div>
+                <div class="demo-foot">
+                  <p><svg aria-hidden="true"><use href="#i-check"/></svg><span>On the family Mac, Roblox messages are checked before they send. Held, never rewritten, and nothing is stored.</span></p>
+                  <button class="demo-replay" type="button" data-replay><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Replay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <aside class="offer reveal" aria-labelledby="offerTitle">
-        <span class="ribbon">Founding Family offer</span>
-        <h3 id="offerTitle">Half price for a whole year</h3>
-        <p class="sub">One plan for the whole household. The Founding Families rate is for families who join during early access.</p>
-        <div class="price">
-          <span class="was" aria-label="Regular price $9.99 per month">$9.99</span>
-          <span class="now">$4.99<small>/month</small></span>
-        </div>
-        <p class="price-note">50% off the $9.99 plan for your first 12 months, then $9.99 a month. Cancel anytime.</p>
+      <div class="lp-side">
+        <!-- Signup -->
+        <aside class="offer" aria-labelledby="offerTitle">
+          <span class="ribbon">Founding Family offer · 50% off</span>
+          <h3 id="offerTitle">Half price for a whole year</h3>
+          <div class="price">
+            <span class="was" aria-label="Regular price $9.99 per month">$9.99</span>
+            <span class="now">$4.99<small>/month</small></span>
+          </div>
+          <p class="price-note">For your first 12 months, then $9.99 a month. One plan for the whole household.</p>
 
-        <div class="code" role="status">
-          <span class="k">FOUNDINGFAMILY-0926-496</span>
-          <span class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg>applied automatically at signup</span>
-        </div>
+          <div class="code" role="status">
+            <span class="k">FOUNDINGFAMILY-0926-496</span>
+            <span class="v"><svg aria-hidden="true"><use href="#i-check"/></svg>applied automatically</span>
+          </div>
 
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 family members on Mac and PC</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Guardrails, Privacy Twins and Family Memory, all included</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Works with ChatGPT, Claude, Gemini, Copilot, Grok and Perplexity</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>First in line for Wellbeing Signal and Answer Guard</li>
-        </ul>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Up to 5 family members on Mac, Windows, iPhone, iPad and Android</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>ChatGPT, Claude, Gemini, Copilot, Grok and Perplexity</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Roblox on the family Mac<span class="rbx-tag">NEW</span></span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Guardrails, Privacy Twins and Family Memory included</span></li>
+          </ul>
 
-        <a class="btn btn-key btn-lg" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim my Founding Family spot</a>
-        <p class="fine">Starts with a 5-day free trial. No charge today, and we remind you before it ends. You will land on the PrivacyPal Family signup with your code already applied.</p>
-        <div class="guarantee">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>5-day free trial</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>30-day money-back</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Cancel anytime</span>
+          <a class="btn btn-key btn-lg" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Start my free trial</a>
+          <p class="fine">Sign up with Google or email. No charge for 5 days, and we remind you before the trial ends.</p>
+          <div class="guarantee">
+            <span><svg aria-hidden="true"><use href="#i-check"/></svg>5-day free trial</span>
+            <span><svg aria-hidden="true"><use href="#i-check"/></svg>30-day money-back</span>
+            <span><svg aria-hidden="true"><use href="#i-check"/></svg>Cancel anytime</span>
+          </div>
+        </aside>
+
+        <!-- Live family demo: the softer yes for parents who want to see it first.
+             The next real session comes from the webinar API (same source as
+             /webinars/family/); the static text is the fallback. -->
+        <div class="live" data-live>
+          <a class="live-thumb" href="../../webinars/family/" data-webinar aria-label="Watch the live family demo">
+            <span class="live-badge">LIVE</span>
+            <span class="live-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+            <span class="live-dur">45 min · free</span>
+          </a>
+          <div class="live-body">
+            <span class="eyebrow orange">Not sure yet?</span>
+            <h3>See it live before you decide</h3>
+            <p>Join our free family demo. Watch PrivacyPal Family work in real AI chats, then ask anything about your own kids.</p>
+            <div class="live-when">
+              <span><span aria-hidden="true">📅</span><span data-next-day>Tuesdays and Thursdays</span></span>
+              <span><span aria-hidden="true">🕐</span><span data-next-time>1:00 PM ET</span></span>
+            </div>
+            <a class="btn btn-line" href="../../webinars/family/" data-webinar>Save my free seat</a>
+            <span class="tiny">On YouTube · no camera · bring your questions</span>
+          </div>
         </div>
-      </aside>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="band" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
+<!-- ================= TRUST BAND ================= -->
+<section class="tband" aria-label="Why parents trust PrivacyPal">
+  <div class="container">
+    <div class="stats">
+      <div class="stat hero-stat"><span class="em" aria-hidden="true">🛡️</span><span><b>Tens of millions</b><small>sensitive details protected by PrivacyPal</small></span></div>
+      <div class="stat"><span class="em" aria-hidden="true">⭐</span><span><b>5.0 rating</b><small>on Google's Chrome Web Store</small></span></div>
+      <div class="stat"><span class="em" aria-hidden="true">🏢</span><span><b>140+ businesses</b><small>run the same engine at work</small></span></div>
+      <div class="stat"><span class="em" aria-hidden="true">🔒</span><span><b>0 bytes</b><small>of your child's real identity sent to AI companies</small></span></div>
+    </div>
+    <div class="badges">
+      <img src="../../nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program member" loading="lazy"/>
+      <i></i>
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Card goes straight to Stripe</span>
+      <i></i>
+      <span class="p"><svg aria-hidden="true"><use href="#i-shield"/></svg>Runs on the device</span>
+      <i></i>
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Mac, Windows, iOS and Android</span>
+      <i></i>
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>30-day money-back</span>
+    </div>
+  </div>
+</section>
 
-<!-- ================= COVERED EVERYWHERE ================= -->
-<section class="section-sm ai-pals" aria-label="AI apps PrivacyPal Family protects">
+<!-- ================= COVERED EVERYWHERE: every AI, plus Roblox ================= -->
+<section class="section ai-pals" aria-label="Apps PrivacyPal Family protects">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow">Nothing to ban</span>
-      <h2>The AI they already love. <span class="hl-teal">All protected.</span></h2>
-      <p class="lede">Your kids keep their favorite AI, in the browser and in desktop apps. One quiet app guards every one of them.</p>
+      <span class="eyebrow">One app, their whole digital world</span>
+      <h2>Every AI they use. <span class="hl-teal">Now Roblox too.</span></h2>
+      <p class="lede">Kids don't live in one app or on one screen. Your guardrails follow them into the AI they already love on their computer, phone and tablet, and now into Roblox, all from one Parent HQ.</p>
+    </div>
+    <div class="devrow reveal" role="list" aria-label="Devices covered">
+      <span class="dev" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>Mac<span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span></span>
+      <span class="dev" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>Windows<span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span></span>
+      <span class="dev" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>iPhone<span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span></span>
+      <span class="dev" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>iPad<span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span></span>
+      <span class="dev" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Android<span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span></span>
     </div>
     <div class="pal-shelf reveal" role="list">
       <div class="pal-card" role="listitem">
@@ -273,41 +861,102 @@ body{padding-bottom:0}
         <span class="pal-tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M16 5v22"/><path d="M6.5 10.5l19 11"/><path d="M25.5 10.5l-19 11"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
         <b>Perplexity</b><small>protected</small>
       </div>
+      <div class="pal-card pal-rbx" role="listitem"><span class="pal-new">NEW</span><span class="pal-tile"><svg class="rbx-mark" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span><b>Roblox</b><small>protected</small></div>
       <div class="pal-card pal-next" role="listitem">
         <span class="pal-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
         <b>Whatever's next</b><small>covered on day one</small>
       </div>
     </div>
+
+    <!-- Roblox highlight. Claims follow family/roblox.html: shipping on the family
+         Mac, Windows next, danger alerts early access, Roblox never twinned. -->
+    <div class="rbx-box reveal">
+      <div>
+        <span class="rbx-eyebrow">New · Roblox support is here</span>
+        <h3>Roblox, with <span class="rbx-hl">you holding the keys</span></h3>
+        <p class="lead">Kids don't stop at AI. Family now carries your guardrails into Roblox, from the same Parent HQ, with the same promise: guardrails, not surveillance.</p>
+        <ul class="rl">
+          <li><span class="rl-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><b>You decide who they talk to.</b> Play stays on. Chat, friend requests, voice and spending start off. Your kid asks, you decide.</span></li>
+          <li><span class="rl-ico green"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span><b>Their details stay home.</b> On the family Mac, messages, profile text and group posts are checked before they send. Anything on your never-share list is held, never rewritten, and your kid is told why.</span></li>
+          <li><span class="rl-ico yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></span><span><b>Trust, not spying.</b> We never ask for their Roblox password, never show you their messages, and never send their Roblox text to a server or an AI.</span></li>
+          <li><span class="rl-ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span><b>Danger alerts</b><span class="rbx-ea">EARLY ACCESS</span> A heads-up on grooming patterns, secrecy pressure, and pushes to move to another app or meet up.</span></li>
+        </ul>
+        <div class="rbx-actions">
+          <a class="rbx-btn" href="../roblox.html">See how Roblox protection works</a>
+        </div>
+        <p class="rbx-fine">Roblox protection runs on the family Mac today. Windows is next.</p>
+      </div>
+
+      <div>
+        <div class="rhq" aria-label="Parent HQ Roblox controls, a design preview you can try">
+          <div class="rhq-top">
+            <span class="t"><svg aria-hidden="true"><use href="#i-rbx"/></svg></span>
+            <span><b>Roblox · Maya</b><small>PARENT HQ · NAVIGATOR 10 TO 13</small></span>
+            <span class="kid" aria-hidden="true">M</span>
+          </div>
+          <button class="rsw" type="button" role="switch" aria-checked="true"><span>Play<small>Games and worlds</small></span><i aria-hidden="true"></i></button>
+          <button class="rsw" type="button" role="switch" aria-checked="false" data-sw="chat"><span>Chat<small>Messages with other players</small></span><i aria-hidden="true"></i></button>
+          <button class="rsw" type="button" role="switch" aria-checked="false"><span>Friend requests</span><i aria-hidden="true"></i></button>
+          <button class="rsw" type="button" role="switch" aria-checked="false"><span>Voice</span><i aria-hidden="true"></i></button>
+          <button class="rsw" type="button" role="switch" aria-checked="false"><span>Spending</span><i aria-hidden="true"></i></button>
+          <div class="rreq" data-req>
+            <p>Maya asked to turn on chat<small>Just now · from her own view</small></p>
+            <div class="rreq-btns"><button type="button" class="yes" data-req-yes>Allow</button><button type="button" class="no" data-req-no>Not now</button></div>
+          </div>
+        </div>
+        <p class="rhq-cap">Design preview · tap the switches</p>
+      </div>
+    </div>
+    <p class="rbx-tm">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox.</p>
   </div>
 </section>
 
-<!-- ================= TWIN DEMO ================= -->
-<section class="section wash-cream">
+<!-- ================= REVIEWS + PARENT VOICES ================= -->
+<!-- The 5.0 rating is PrivacyPal's Chrome Web Store listing (5.0 from 9 ratings,
+     read 2026-10-30); the button links straight to its reviews. The three quotes
+     are from PrivacyPal's founders and an advisor and investor, approved by
+     PrivacyPal, and carry a descriptor, not a name. The note under the cards
+     discloses that relationship and must stay: 16 CFR 465.5 bars an officer's
+     testimonial about their own company without a clear disclosure. To add verbatim
+     store reviews, copy a .tcard, keep the reviewer's words exactly as posted,
+     and caption it "Chrome Web Store review". -->
+<section class="section wash-cream" id="reviews">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow sage">Privacy Twins</span>
-      <h2>What the AI sees vs. who your child is</h2>
-      <p class="lede">The swap happens on the device, in about a third of a second, before anything is sent. The AI still helps with the homework. Your child's real identity never left your house.</p>
+      <span class="eyebrow orange">Loved by parents</span>
+      <h2>Rated five stars. <span class="hl-teal">Built by parents.</span></h2>
+      <p class="lede">PrivacyPal is rated 5.0 on Google's Chrome Web Store. And the people behind it are parents first.</p>
     </div>
-    <div class="twin-wrap reveal">
-      <div class="twin-card before">
-        <h5><span class="dot"></span>What your child types</h5>
-        "Write a story about me, <span class="mark-red">Timmy Johnson</span>, who goes to <span class="mark-red">Lincoln High School</span> in <span class="mark-red">Austin, TX</span>."
-        <div class="twin-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          Without PrivacyPal, this goes to corporate AI servers
-        </div>
+    <div class="rv-grid">
+      <div class="g-card reveal">
+        <span class="g-brand"><svg class="gmark" aria-hidden="true"><use href="#i-gmark"/></svg>Chrome Web Store</span>
+        <span class="g-score">5.0</span>
+        <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <span class="g-word">Excellent</span>
+        <p>PrivacyPal's rating on Google's Chrome Web Store, where every review is public.</p>
+        <span class="g-spacer"></span>
+        <a class="btn btn-line" id="g-reviews-link" href="https://chromewebstore.google.com/detail/privacypal/jejpbafongjgfknkpphahpfkcmaebbbn/reviews?hl=en-US" target="_blank" rel="noopener">Read the reviews</a>
       </div>
-      <div class="twin-mid"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="twin-card after">
-        <h5><span class="dot"></span>What the AI receives</h5>
-        "Write a story about me, <span class="mark-green">[Alex]</span>, who goes to <span class="mark-green">[Washington High]</span> in <span class="mark-green">[a sunny city]</span>."
-        <div class="twin-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Real identity swapped with a Privacy Twin, on the device
-        </div>
-      </div>
+
+      <figure class="tcard reveal reveal-delay-1">
+        <span class="t-out">Every AI, one app</span>
+        <blockquote>With five kids I can't read every chat, and I don't want to. I pick the AI they use, their names and school never leave the house, and they can see exactly what I see. Nobody has to hide anything.</blockquote>
+        <figcaption><span class="av" style="background:var(--teal-tint)" aria-hidden="true">👨</span><span><b>Dad of 5</b><small>CEO of a technology company</small></span></figcaption>
+      </figure>
+
+      <figure class="tcard reveal reveal-delay-2">
+        <span class="t-out">Calm, not control</span>
+        <blockquote>Every one of our kids uses AI differently. Parent HQ gives me one calm view of how they're all doing, and never their private words. That balance is everything.</blockquote>
+        <figcaption><span class="av" style="background:var(--tangerine-tint)" aria-hidden="true">👩</span><span><b>Mom of 5</b><small>Fund manager</small></span></figcaption>
+      </figure>
+
+      <figure class="tcard reveal reveal-delay-3">
+        <span class="t-out">AI and Roblox covered</span>
+        <blockquote>My three kids are on AI and Roblox every day. PrivacyPal Family is the one thing I've found that protects them across all of it, and I didn't have to become the bad guy to do it.</blockquote>
+        <figcaption><span class="av" style="background:var(--sage-tint)" aria-hidden="true">🧔</span><span><b>Dad of 3</b><small>Venture capitalist</small></span></figcaption>
+      </figure>
     </div>
+    <p class="rv-note">The parents quoted here are PrivacyPal's two founders and an advisor and investor in the company. They use Family with their own kids.</p>
   </div>
 </section>
 
@@ -316,58 +965,62 @@ body{padding-bottom:0}
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">How it works</span>
-      <h2>Three steps. Then it just works.</h2>
-      <p class="lede">No router surgery, no weekly rule tuning. Set it up once and protection follows your kids to every AI they touch.</p>
+      <h2>Protected before dinner. Three steps.</h2>
+      <p class="lede">No router changes, no weekly rule tuning. Set it up once and protection follows your kids into every AI they touch.</p>
     </div>
     <div class="fsteps">
       <div class="fstep reveal reveal-delay-1">
-        <div class="num">1</div><span class="mins">~5 min</span>
-        <h4>Sign up with your code applied</h4>
-        <p>Create your family account, add your kids, and pick each one's stage: Explorer (5 to 9), Navigator (10 to 13) or Pilot (14 to 17). Your Founding Family price is already on the plan.</p>
+        <div class="num">1</div><span class="mins">~2 min</span>
+        <h4>Claim your spot</h4>
+        <p>Sign up with Google or email. Your Founding Family price is already on the plan, and nothing is charged for 5 days.</p>
       </div>
       <div class="fstep reveal reveal-delay-2">
         <div class="num">2</div><span class="mins">~5 min</span>
-        <h4>Pick your keys</h4>
-        <p>Approve the AI tools you trust, and choose what can never leave your house: names, school, address, health details, feelings.</p>
+        <h4>Add your kids, pick your keys</h4>
+        <p>Choose each child's stage: Explorer (5 to 9), Navigator (10 to 13) or Pilot (14 to 17). Approve the AI they can use and what can never leave your house.</p>
       </div>
       <div class="fstep reveal reveal-delay-3">
         <div class="num">3</div><span class="mins">~5 min</span>
         <h4>Put a Pal on every device</h4>
-        <p>Install once on the family Mac or PC. Kids keep using ChatGPT, Gemini and Claude exactly as before. Parent HQ shows you what matters in realtime.</p>
+        <p>Install on each Mac, Windows PC, iPhone, iPad or Android device your kids use. They keep using their AI exactly as before. Using Roblox on the Mac? Its own setup step walks you through Roblox's parent settings too.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= PILLARS ================= -->
+<!-- ================= BENEFITS ================= -->
 <section class="section wash-teal">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">What you get</span>
-      <h2>Four superpowers. One quiet app.</h2>
+      <h2>Say yes to AI. Keep what matters at home.</h2>
       <p class="lede">Everything PrivacyPal builds for the world's most careful companies, re-imagined for the people you care about most.</p>
     </div>
     <div class="card-grid cols-2">
       <div class="pillar reveal reveal-delay-1">
         <div class="ico" style="background:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
-        <h3>Guardrails</h3>
-        <p>You approve the AI tools your kids can use. Anything else is blocked and gently redirected to a parent-approved alternative. Homework mode keeps school hours on task.</p>
+        <span class="ptag">Guardrails</span>
+        <h3>Say yes to the AI they love</h3>
+        <p>You approve the AI tools they can use. Anything else is blocked and gently redirected to one you trust. Homework mode keeps school hours on task.</p>
       </div>
       <div class="pillar tint-teal reveal reveal-delay-2">
         <div class="ico" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <h3>Privacy Twins</h3>
-        <p>The moment your child types their real name, school or address, PrivacyPal swaps in a safe stand-in on the device itself. The AI still helps. Their real identity never leaves your house.</p>
+        <span class="ptag">Privacy Twins</span>
+        <h3>Their identity never leaves home</h3>
+        <p>The moment your child types their real name, school or address, PrivacyPal swaps in a safe stand-in on the device. The AI still helps. Their real identity stays with you.</p>
       </div>
       <div class="pillar tint-sage reveal reveal-delay-1">
         <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 4.5-2 7H7c0-2.5-2-4-2-7a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></div>
-        <h3>Family Memory</h3>
+        <span class="ptag">Family Memory</span>
+        <h3>Make AI forget, for real</h3>
         <p>See what AI remembers about each child, in plain language. Keep the helpful parts and erase anything forever with one tap. Erase means erase, even for work in flight.</p>
       </div>
       <div class="pillar tint-sun reveal reveal-delay-2">
         <span class="soon-tag">early access</span>
         <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h3>Pal Agents</h3>
-        <p>Small helpers that watch out for your child, not over them. Wellbeing Signal spots mood shifts in how they talk to AI. Answer Guard checks that what AI says back is age-right and manipulation-free. Founding Families get them first.</p>
+        <span class="ptag">Pal Agents</span>
+        <h3>Know they're OK without reading their chats</h3>
+        <p>Wellbeing Signal spots mood shifts in how they talk to AI. Answer Guard checks that what AI says back is age-right and manipulation-free. Founding Families get them first.</p>
       </div>
     </div>
   </div>
@@ -384,7 +1037,7 @@ body{padding-bottom:0}
         <div class="deep-list">
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>You never see transcripts</b><p>Parent HQ shows which tools they used, what identity details were protected, and wellbeing trends. Never their words.</p></span>
+            <span><b>You never see transcripts</b><p>Parent HQ shows which tools they used, what identity details were protected, and wellbeing trends. Never their words, in AI or in Roblox.</p></span>
           </div>
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -408,11 +1061,11 @@ body{padding-bottom:0}
       <div>
         <span class="eyebrow">Real technology, shipping today</span>
         <h2>Not a promise. A product.</h2>
-        <p class="lede">PrivacyPal Family runs on the same engine that protects hundreds of companies right now: on-device interception, Privacy Twins, and private memory with mechanical erasure. Here it is working inside a real AI chat.</p>
+        <p class="lede">PrivacyPal Family runs on the same engine 140+ businesses rely on right now: on-device interception, Privacy Twins, and private memory with mechanical erasure. Here it is working inside a real AI chat.</p>
         <div class="deep-list">
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Milliseconds, not minutes</b><p>Interception averages a third of a second. Kids never notice it is there.</p></span>
+            <span><b>Milliseconds, not minutes</b><p>Interception takes a fraction of a second. Kids never notice it is there.</p></span>
           </div>
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -420,7 +1073,7 @@ body{padding-bottom:0}
           </div>
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Mac and Windows today</b><p>Browser and desktop AI apps, up to 5 family members. iPhone, iPad and Android are rolling out to early access families on the same plan.</p></span>
+            <span><b>Every device they use</b><p>Mac, Windows, iPhone, iPad and Android, for up to 5 family members on one plan, plus Roblox on the family Mac.</p></span>
           </div>
         </div>
       </div>
@@ -434,36 +1087,33 @@ body{padding-bottom:0}
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow orange">Founding Families</span>
-      <h2>Half price for a whole year. Code applied for you.</h2>
-      <p class="lede">Join during early access and lock in the Founding Families rate: 50% off PrivacyPal Family for your first 12 months.</p>
+      <h2>Try it free. Keep it only if you love it.</h2>
+      <p class="lede">Join during early access and lock in the Founding Families rate: 50% off PrivacyPal Family for your first 12 months. Your code is applied for you.</p>
     </div>
     <div class="fprice reveal">
       <div class="plan">PrivacyPal Family <span class="tag">founding families</span></div>
       <div class="amount"><span class="big">$4.99</span><small>/month, first year</small></div>
-      <p class="note">Regular price $9.99 a month. Covers up to 5 family members on Mac and PC. Mobile joins the same plan as it rolls out.</p>
+      <p class="note">Regular price $9.99 a month. Covers up to 5 family members on Mac, Windows, iPhone, iPad and Android.</p>
       <ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 family members</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Every device: Mac, Windows, iPhone, iPad and Android</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Guardrails: approve, block &amp; redirect AI tools</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Privacy Twins identity protection, on-device</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Family Memory with one-tap erase</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Works with ChatGPT, Gemini, Claude, Copilot, Grok &amp; Perplexity</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Roblox switches and protection on the family Mac</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Your Founding Family code, applied automatically</li>
       </ul>
-      <a class="btn btn-key btn-lg" style="width:100%" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim my Founding Family spot</a>
-      <p class="fine">5-day free trial · 30-day money-back guarantee · cancel anytime</p>
+      <a class="btn btn-key btn-lg" style="width:100%" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Start my free trial</a>
+      <p class="fine">Sign up with Google or email · code FOUNDINGFAMILY-0926-496 applied</p>
     </div>
 
-    <div class="proof-row reveal">
-      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on the device</span>
-      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Card goes straight to Stripe</span>
-      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>No charge for 5 days</span>
+    <div class="rr reveal">
+      <div><span class="ic" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span><b>5 days free</b><p>Nothing is charged today, and we remind you before the trial ends.</p></span></div>
+      <div><span class="ic" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg></span><span><b>30-day money-back</b><p>Paid and changed your mind? You're covered for 30 days.</p></span></div>
+      <div><span class="ic" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></span><span><b>Cancel anytime</b><p>From Parent HQ. Everything keeps running until the month you paid for is up.</p></span></div>
     </div>
-
-    <div class="next reveal">
-      <div class="n"><span class="num">1</span><span><b>Tap the button</b><p>You land on the PrivacyPal Family signup. Your Founding Family code is already applied to the plan.</p></span></div>
-      <div class="n"><span class="num">2</span><span><b>Add your kids, pick your keys</b><p>Stages, approved AI tools, and the details that can never leave your house. About ten minutes.</p></span></div>
-      <div class="n"><span class="num">3</span><span><b>Install on the family Mac or PC</b><p>Protection is on before dinner. Parent HQ shows you what matters, in realtime.</p></span></div>
-    </div>
+    <p class="still">Still deciding? <a href="../../webinars/family/" data-webinar>Watch a free live family demo first</a>.</p>
   </div>
 </section>
 
@@ -481,19 +1131,27 @@ body{padding-bottom:0}
       </details>
       <details>
         <summary>Is this spyware on my kid?</summary>
-        <div class="a">No, and we built it to be the opposite. PrivacyPal Family never shows you transcripts of what your child says to an AI. You see signals: which tools they used, what identity details we protected, and wellbeing trends. Your child can open their own view and see exactly what you see. Kids who know the deal don't need to hide.</div>
+        <div class="a">No, and we built it to be the opposite. PrivacyPal Family never shows you transcripts of what your child says to an AI or writes on Roblox. You see signals: which tools they used, what identity details we protected, and wellbeing trends. Your child can open their own view and see exactly what you see. Kids who know the deal don't need to hide.</div>
+      </details>
+      <details>
+        <summary>Does it work with Roblox?</summary>
+        <div class="a">Yes. Roblox gets its own switches in Parent HQ: play, chat, friend requests, voice and spending, with everything social starting off. On the family Mac, messages, profile text and group posts are checked before they send, and anything on your never-share list is held, never rewritten, with your kid told why. We never ask for their Roblox password and never show you their messages. Chat typed inside a game can't be held, so danger alerts for it are in early access. Roblox protection runs on the family Mac today; Windows is next. <a href="../roblox.html" style="color:var(--teal-ink);font-weight:600">More about Roblox protection</a>.</div>
       </details>
       <details>
         <summary>What exactly gets protected?</summary>
-        <div class="a">Real names, home address, phone numbers, school names, health details, and dozens more identity data types. The moment one is typed or uploaded, it is swapped with a safe stand-in (a Privacy Twin) before anything leaves the device. The AI's answer still makes sense. The real detail never left your house.</div>
+        <div class="a">Real names, home address, phone numbers, school names, health details, and dozens more identity data types. The moment one is typed or uploaded to an AI, it is swapped with a safe stand-in (a Privacy Twin) before anything leaves the device. The AI's answer still makes sense. The real detail never left your house.</div>
       </details>
       <details>
         <summary>Will it slow down or break the AI tools my kids use?</summary>
-        <div class="a">No. Protection runs on the device and adds around a third of a second. ChatGPT, Gemini, Claude, Copilot, Grok and Perplexity keep working exactly as before, in the browser and in desktop apps. Most kids never notice it is running.</div>
+        <div class="a">No. Protection runs on the device and adds a fraction of a second. ChatGPT, Gemini, Claude, Copilot, Grok and Perplexity keep working exactly as before, on computers, phones and tablets. Most kids never notice it is running.</div>
       </details>
       <details>
         <summary>Which devices are covered today?</summary>
-        <div class="a">Mac and Windows (browser and desktop AI apps) are covered now, for up to 5 family members. iPhone, iPad and Android are rolling out to early access families, and one plan covers all of it as it ships.</div>
+        <div class="a">All of them: Mac and Windows computers, iPhone and iPad, and Android phones and tablets, for up to 5 family members on one plan. Roblox protection runs on the family Mac today; Windows is next.</div>
+      </details>
+      <details>
+        <summary>Can I see it before I sign up?</summary>
+        <div class="a">Yes. We run a free live family demo every Tuesday and Thursday at 1 PM ET. It takes about 45 minutes, you watch on privacypal.ai or YouTube with no camera, and you can ask questions in the chat. <a href="../../webinars/family/" data-webinar style="color:var(--teal-ink);font-weight:600">Pick a date</a>.</div>
       </details>
       <details>
         <summary>What if it is not for us?</summary>
@@ -511,8 +1169,9 @@ body{padding-bottom:0}
       <h2>Hold the keys. Let them fly.</h2>
       <p>Give your kids the future without giving away who they are. Your Founding Family code is applied the moment you tap.</p>
       <div class="btn-row">
-        <a class="btn btn-sun btn-lg" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim my Founding Family spot</a>
+        <a class="btn btn-sun btn-lg" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Start my free trial</a>
       </div>
+      <span class="alt">or <a href="../../webinars/family/" data-webinar>join a free live demo</a> first</span>
     </div>
   </div>
 </section>
@@ -522,13 +1181,14 @@ body{padding-bottom:0}
     <span>© 2026 PrivacyPal. Guardrails, not surveillance.</span>
     <span><a href="../index.html" rel="nofollow">PrivacyPal Family</a><a href="../../privacy-policy.html" rel="nofollow">Privacy</a><a href="../../terms-of-service.html" rel="nofollow">Terms</a><a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></span>
     <address class="lpf-addr">PrivacyPal · 1601 Belvedere Rd, Suite E-300 · West Palm Beach, FL 33406 · United States</address>
+    <span class="lpf-addr">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox.</span>
   </div>
 </footer>
 
 <!-- Sticky mobile CTA -->
 <div class="sticky" aria-hidden="false">
-  <span class="s-txt"><b>50% off your first year</b>Founding Families · code applied</span>
-  <a class="btn btn-key" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim it</a>
+  <span class="s-txt"><b>50% off your first year</b><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span> 5.0 on Chrome Web Store</span>
+  <a class="btn btn-key" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Start free</a>
 </div>
 
 <script src="../family.js"></script>
@@ -575,6 +1235,187 @@ body{padding-bottom:0}
   if (typeof fbq === 'function'){
     fbq('track', 'ViewContent', { content_name: 'Founding Families landing', content_category: 'family' });
   }
+})();
+
+/* Live family demo: show the next real session, in the viewer's own time, and
+   deep-link to it (?s= preselects that date on /webinars/family/). Same API as
+   webinars/webinars.js. Any failure leaves the static "Tuesdays and Thursdays,
+   1:00 PM ET" text and the plain series link in place. */
+(function(){
+  'use strict';
+  var WEBINAR = '../../webinars/family/';
+  var links = document.querySelectorAll('a[data-webinar]');
+  Array.prototype.forEach.call(links, function(a){
+    a.addEventListener('click', function(){
+      try { if (window.gtag) window.gtag('event', 'select_content', { content_type: 'webinar', item_id: 'family', origin: 'founding' }); } catch (e) {}
+    });
+  });
+
+  var box = document.querySelector('[data-live]');
+  if (!box || !window.fetch) return;
+  function fmt(iso, opts){ try { return new Intl.DateTimeFormat('en-US', opts).format(new Date(iso)); } catch (e) { return ''; } }
+  fetch('https://automate.privacypal.ai/webhook/webinars?series=family', { cache: 'no-store' })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var s = (d.series || []).filter(function(x){ return x.id === 'family'; })[0];
+      if (!s) return;
+      var now = Date.now();
+      var next = (s.sessions || []).filter(function(x){
+        if (x.status === 'cancelled') return false;
+        var live = Date.parse(x.start) <= now && now < Date.parse(x.end);
+        return live || (x.registrationOpen && Date.parse(x.start) > now);
+      }).sort(function(a, b){ return Date.parse(a.start) - Date.parse(b.start); })[0];
+      if (!next) return;
+      var isLive = Date.parse(next.start) <= now;
+      var day = isLive ? 'Live now' : 'Next: ' + fmt(next.start, { weekday: 'long', month: 'short', day: 'numeric' });
+      var time = fmt(next.start, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+      var dayEl = box.querySelector('[data-next-day]');
+      var timeEl = box.querySelector('[data-next-time]');
+      if (dayEl && day) dayEl.textContent = day;
+      if (timeEl && time) timeEl.textContent = time;
+      var url = WEBINAR + '?s=' + encodeURIComponent(next.id);
+      Array.prototype.forEach.call(box.querySelectorAll('a[data-webinar]'), function(a){ a.href = url; });
+    })
+    .catch(function(){});
+})();
+
+/* Hero demo: type the child's line, flag the real details, show what the AI
+   (or Roblox) actually gets. Plays once in view and alternates scenes a few
+   times until the visitor takes over; tabs and Replay restart a scene. With
+   reduced motion it simply shows each scene's finished state. */
+(function(){
+  'use strict';
+  var demo = document.getElementById('demo');
+  if (!demo) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tabs = demo.querySelectorAll('.demo-tab');
+  var scenes = { ai: document.getElementById('scene-ai'), rbx: document.getElementById('scene-rbx') };
+  var FINAL = { ai: 'swap', rbx: 'held' };
+  var current = 'ai', touched = false, plays = 0, timers = [];
+
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function stop(){ timers.forEach(clearTimeout); timers = []; }
+
+  // Each typed line is kept as text + <mark> segments so it can be re-typed.
+  function segs(el){
+    if (!el._segs){
+      el._segs = Array.prototype.map.call(el.childNodes, function(n){
+        return n.nodeType === 3 ? { t: n.nodeValue } : { t: n.textContent, tag: n.tagName };
+      });
+    }
+    return el._segs;
+  }
+  function render(el, n){
+    var left = n;
+    el.textContent = '';
+    segs(el).forEach(function(g){
+      if (left <= 0) return;
+      var piece = g.t.slice(0, left);
+      left -= piece.length;
+      if (g.tag){ var m = document.createElement(g.tag); m.textContent = piece; el.appendChild(m); }
+      else el.appendChild(document.createTextNode(piece));
+    });
+  }
+  function typeLine(el, speed, done){
+    var total = segs(el).reduce(function(a, g){ return a + g.t.length; }, 0);
+    var n = 0;
+    el.classList.add('caret');
+    (function step(){
+      render(el, n);
+      if (n >= total){ el.classList.remove('caret'); done(); return; }
+      n += 1;
+      later(step, speed);
+    })();
+  }
+  Array.prototype.forEach.call(demo.querySelectorAll('[data-type]'), segs);
+
+  function select(name){
+    current = name;
+    Array.prototype.forEach.call(tabs, function(t){
+      var on = t.getAttribute('data-scene') === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    Object.keys(scenes).forEach(function(k){ scenes[k].classList.toggle('off', k !== name); });
+  }
+  function finish(name){
+    var line = scenes[name].querySelector('[data-type]');
+    render(line, 1e6);
+    line.classList.remove('caret');
+    scenes[name].setAttribute('data-phase', FINAL[name]);
+  }
+  function auto(){
+    if (touched || plays >= 4) return;
+    play(current === 'ai' ? 'rbx' : 'ai');
+  }
+  function play(name){
+    stop();
+    select(name);
+    var scene = scenes[name];
+    if (reduce){ finish(name); return; }
+    plays += 1;
+    var line = scene.querySelector('[data-type]');
+    scene.setAttribute('data-phase', 'type');
+    render(line, 0);
+    if (name === 'ai'){
+      typeLine(line, 26, function(){
+        later(function(){ scene.setAttribute('data-phase', 'flag'); }, 250);
+        later(function(){ scene.setAttribute('data-phase', 'swap'); }, 1350);
+        later(auto, 5200);
+      });
+    } else {
+      typeLine(line, 55, function(){
+        later(function(){ scene.setAttribute('data-phase', 'held'); }, 450);
+        later(auto, 5600);
+      });
+    }
+  }
+
+  Array.prototype.forEach.call(tabs, function(t, i){
+    t.addEventListener('click', function(){ touched = true; play(t.getAttribute('data-scene')); });
+    t.addEventListener('keydown', function(e){
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      next.focus();
+      touched = true;
+      play(next.getAttribute('data-scene'));
+    });
+  });
+  Array.prototype.forEach.call(demo.querySelectorAll('[data-replay]'), function(b){
+    b.addEventListener('click', function(){ touched = true; play(current); });
+  });
+
+  if (reduce) return;
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting){ io.disconnect(); play('ai'); }
+    }, { threshold: .35 });
+    io.observe(demo);
+  } else {
+    play('ai');
+  }
+})();
+
+/* Parent HQ Roblox card: a design preview the visitor can poke at. */
+(function(){
+  'use strict';
+  Array.prototype.forEach.call(document.querySelectorAll('.rsw'), function(sw){
+    sw.addEventListener('click', function(){
+      sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+    });
+  });
+  var req = document.querySelector('[data-req]');
+  if (!req) return;
+  function answer(text, chatOn){
+    if (chatOn){ var chat = document.querySelector('.rsw[data-sw="chat"]'); if (chat) chat.setAttribute('aria-checked', 'true'); }
+    req.innerHTML = '';
+    var p = document.createElement('p');
+    p.className = 'rreq-done';
+    p.textContent = text;
+    req.appendChild(p);
+  }
+  req.querySelector('[data-req-yes]').addEventListener('click', function(){ answer('Chat is on. Maya sees that you said yes.', true); });
+  req.querySelector('[data-req-no]').addEventListener('click', function(){ answer('Maya sees "not now". She can ask again anytime.', false); });
 })();
 </script>
 </body>

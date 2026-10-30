@@ -126,6 +126,7 @@
               '<h6>For your family</h6>' +
               '<a href="family/index.html"><b>Meet PrivacyPal Family</b><small>Safe, private AI for the whole household</small></a>' +
               '<a href="family/index.html#how"><b>How it works</b><small>Three steps, then it just works</small></a>' +
+              '<a href="family/roblox.html"><b>Roblox protection <span class="nav-new">New</span></b><small>Chat, friends and spending on your terms</small></a>' +
               '<a href="family/parents.html"><b>For parents</b><small>Parent HQ: signals, not transcripts</small></a>' +
               '<a href="family/kids.html"><b>For kids &amp; teens</b><small>Armor, not a leash</small></a>' +
               '<a href="family/promise.html"><b>The Family Promise</b><small>Guardrails, never surveillance</small></a>' +
@@ -223,6 +224,7 @@
     '<h6>PrivacyPal Family</h6>' +
     '<a href="family/index.html">Meet PrivacyPal Family</a>' +
     '<a href="family/index.html#how">How it works</a>' +
+    '<a href="family/roblox.html">Roblox protection <small>NEW</small></a>' +
     '<a href="family/parents.html">For parents</a>' +
     '<a href="family/kids.html">For kids &amp; teens</a>' +
     '<a href="family/promise.html">The Family Promise</a>' +
@@ -279,6 +281,7 @@
           '<h5>PrivacyPal Family</h5>' +
           '<a href="family/index.html">Meet PrivacyPal Family</a>' +
           '<a href="family/index.html#how">How it works</a>' +
+          '<a href="family/roblox.html">Roblox protection <small>NEW</small></a>' +
           '<a href="family/parents.html">For parents</a>' +
           '<a href="family/kids.html">For kids &amp; teens</a>' +
           '<a href="family/promise.html">The Family Promise</a>' +
