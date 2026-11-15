@@ -351,7 +351,7 @@ body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-burger span{background
   animation:ppspin .8s linear infinite;
 }
 @keyframes ppspin{to{transform:rotate(360deg)}}
-.pp-dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pp-dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .pp-dl-card{background:var(--panel);border-radius:var(--r-lg);padding:26px}
 .pp-dl-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;color:var(--muted)}
 .pp-dl-row svg{width:16px;height:16px}

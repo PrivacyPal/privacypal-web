@@ -995,6 +995,7 @@ table.compare td.max-link a:hover{opacity:.75}
 }
 .pp-modal.show .pp-modal-card{transform:translateY(0)}
 .pp-modal-card.demo{max-width:720px}
+#ppDownloadModal .pp-modal-card{max-width:1040px}
 .pp-modal-head{
   display:flex;align-items:center;justify-content:space-between;
   padding:20px 26px;border-bottom:1px solid var(--line);
@@ -1020,7 +1021,7 @@ table.compare td.max-link a:hover{opacity:.75}
   animation:ppspin .8s linear infinite;
 }
 @keyframes ppspin{to{transform:rotate(360deg)}}
-.pp-dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pp-dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .pp-dl-card{background:var(--panel);border-radius:var(--r-lg);padding:26px}
 .pp-dl-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;color:var(--muted)}
 .pp-dl-row svg{width:16px;height:16px}
@@ -1040,8 +1041,8 @@ table.compare td.max-link a:hover{opacity:.75}
 }
 .pp-dl-btn:hover{background:var(--teal-deep)}
 .pp-dl-btn + .pp-dl-btn{margin-top:8px}
-.pp-dl-btn.mac-secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
-.pp-dl-btn.mac-secondary:hover{border-color:var(--teal)}
+.pp-dl-btn.mac-secondary,.pp-dl-btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.pp-dl-btn.mac-secondary:hover,.pp-dl-btn.secondary:hover{border-color:var(--teal)}
 .pp-dl-filename{font-family:var(--font-mono);font-size:.68rem;color:var(--faint);margin-top:12px;text-align:center}
 .pp-dl-arch-hint{font-size:.78rem;color:var(--muted);margin-top:12px}
 .pp-dl-cli{margin-top:16px}

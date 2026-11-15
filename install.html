@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Install guide · PrivacyPal</title>
-<meta name="description" content="Install PrivacyPal and start governing AI in your business. Download for Windows 11 or macOS, follow the step-by-step guide, and control which tools are approved, what data they can access, and who can use them, in minutes." />
+<meta name="description" content="Install PrivacyPal and start governing AI in your business. Download for Windows 11, macOS or Linux, follow the step-by-step guide, and control which tools are approved, what data they can access, and who can use them, in minutes." />
 <link rel="icon" href="assets/favicon.ico"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,10 +18,10 @@
 <meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Install PrivacyPal: Take control of AI in your business" />
-<meta name="twitter:description" content="Download for Windows 11 or macOS and start governing AI in minutes. Zero configuration required." />
+<meta name="twitter:description" content="Download for Windows 11, macOS or Linux and start governing AI in minutes. Zero configuration required." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
 <style>
-.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;align-items:stretch}
 .dl-card{
   background:var(--panel);border-radius:var(--r-lg);padding:36px;
   display:flex;flex-direction:column;
@@ -102,7 +102,7 @@
 <!-- ================= HERO ================= -->
 <header class="page-hero center">
   <div class="container">
-    <span class="eyebrow">Install guide · v1.9.50</span>
+    <span class="eyebrow">Install guide · v1.9.72</span>
     <h1>Install PrivacyPal in minutes</h1>
     <p class="lede">PrivacyPal is live. Install in minutes and start governing the AI running in your business: approve tools, control data access, redirect unauthorized AI, all from one dashboard. Zero configuration required. Completely free for individuals on Pro: no credit card, no trial.</p>
     <div class="btn-row">
@@ -131,8 +131,8 @@
           <span class="pill">.exe installer</span>
           <span class="pill">Windows 11</span>
         </div>
-        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.50.exe" rel="noopener noreferrer">Install for Windows</a>
-        <p class="dl-file">PrivacyPal-Setup-1.9.50.exe</p>
+        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.72.exe" rel="noopener noreferrer">Install for Windows</a>
+        <p class="dl-file">PrivacyPal-Setup-1.9.72.exe</p>
         <div class="dl-cli-label">Or install via command line: PowerShell</div>
         <div class="code-block">
           <span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>
@@ -150,8 +150,28 @@
           <span class="pill">M1–M5+</span>
           <span class="pill">macOS 13+</span>
         </div>
-        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.50-arm64.dmg" rel="noopener noreferrer">Install for Apple Silicon</a>
-        <p class="dl-file">PrivacyPal-1.9.50-arm64.dmg</p>
+        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.72-arm64.dmg" rel="noopener noreferrer">Install for Apple Silicon</a>
+        <p class="dl-file">PrivacyPal-1.9.72-arm64.dmg</p>
+      </div>
+      <div class="dl-card reveal reveal-delay-3">
+        <div class="os-row">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 4v12h16V7H4zm2.7 2.3 3.3 3.3-3.3 3.3 1.4 1.4 4.7-4.7-4.7-4.7-1.4 1.4zM13 15h5v2h-5v-2z"/></svg>
+          <h3>Linux</h3>
+        </div>
+        <p class="sub">The headless agent for servers and WSL. Governs the command-line AI agents your engineers run on Ubuntu and Fedora.</p>
+        <div class="pill-row">
+          <span class="pill">x86_64</span>
+          <span class="pill">aarch64</span>
+          <span class="pill">.tar.gz</span>
+        </div>
+        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.71-linux-x86_64.tar.gz" rel="noopener noreferrer">Download for x86_64</a>
+        <a class="btn btn-ghost btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.71-linux-aarch64.tar.gz" rel="noopener noreferrer" style="margin-top:8px">Download for aarch64</a>
+        <p class="dl-file">privacypal-agent-1.9.71-linux-x86_64.tar.gz</p>
+        <div class="dl-cli-label">Then extract and run</div>
+        <div class="code-block">
+          <span><span class="prompt">$</span>tar -xzf privacypal-agent-*.tar.gz</span>
+          <button class="copy" type="button" data-cli-copy="tar -xzf privacypal-agent-*.tar.gz">Copy</button>
+        </div>
       </div>
     </div>
     <div class="panel reveal" style="margin-top:16px;padding:24px 32px;display:flex;gap:14px;align-items:flex-start">
@@ -172,7 +192,7 @@
       <div class="step">
         <span class="num">01</span>
         <h4>Download the installer</h4>
-        <p>Grab PrivacyPal-Setup-1.9.50.exe above, or skip the browser entirely and run <span class="mono">winget install PrivacyPal.AI</span> from PowerShell.</p>
+        <p>Grab PrivacyPal-Setup-1.9.72.exe above, or skip the browser entirely and run <span class="mono">winget install PrivacyPal.AI</span> from PowerShell.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
@@ -207,6 +227,33 @@
         <div class="media" style="margin-top:0">
           <img src="assets/privacypal-installer.png" alt="PrivacyPal installer for macOS: drag to Applications" loading="lazy">
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LINUX STEPS ================= -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Step by step · Linux</span>
+      <h2>Installing the headless agent</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="num">01</span>
+        <h4>Download and verify</h4>
+        <p>Take the tarball for your architecture above, x86_64 or aarch64. Each one ships a matching <span class="mono">.sha256</span> file: check it with <span class="mono">sha256sum -c</span> before you extract.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h4>Extract and run</h4>
+        <p>Run <span class="mono">tar -xzf privacypal-agent-*.tar.gz</span>, then start the agent from the extracted directory. It runs as your own user, with no desktop session required.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h4>Agents are covered</h4>
+        <p>The agent governs the command-line AI tools on that machine. Tested on Ubuntu 24.04 and Fedora 40, on both architectures, and it works the same way under WSL.</p>
       </div>
     </div>
   </div>

@@ -37,8 +37,15 @@
     (document.head || document.documentElement).appendChild(s);
   })();
 
-  var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.50.exe';
-  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.50-arm64.dmg';
+  var DOWNLOAD_WIN = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.72.exe';
+  var DOWNLOAD_MACOS_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.72-arm64.dmg';
+  /* Linux is the headless agent build: CLI only, for servers and WSL. It publishes to
+     proxy/linux/cloud/ and is versioned independently of the Windows and macOS desktop
+     app, cut only when the agent or engine changes. It therefore sits at 1.9.71 while
+     the desktop app is 1.9.72. Each button points at the newest build that actually
+     resolves for its platform, and the filename under it discloses the split. */
+  var DOWNLOAD_LINUX_X64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.71-linux-x86_64.tar.gz';
+  var DOWNLOAD_LINUX_ARM64 = 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.71-linux-aarch64.tar.gz';
 
   /* PrivacyPal Family is a separate product with its own account system, its own
      desktop build and its own release feed. Never point a Family link at the Pro
@@ -390,7 +397,7 @@
   '</div>' +
   '<div class="pp-modal" id="ppDownloadModal" aria-hidden="true">' +
     '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-label="Install PrivacyPal">' +
-      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.9.50</h3>' +
+      '<div class="pp-modal-head"><h3>Install PrivacyPal · v1.9.72</h3>' +
       '<button class="pp-modal-close" type="button" data-modal-close aria-label="Close">&times;</button></div>' +
       '<div class="pp-modal-body">' +
         '<p style="margin:0 0 18px;font-size:.92rem;line-height:1.55;color:var(--muted)"><b style="color:var(--ink)">PrivacyPal Pro is completely free for individuals.</b> No credit card, no trial clock: install, sign in, and you are covered. Looking for the household app? <a href="' + FAMILY_OFFER + '" style="color:var(--ink);text-decoration:underline">PrivacyPal Family</a> is separate.</p>' +
@@ -401,7 +408,7 @@
             '<p>Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>' +
             '<div class="pp-dl-pills"><span class="pp-dl-pill">64-bit</span><span class="pp-dl-pill">.exe installer</span><span class="pp-dl-pill">Windows 11</span></div>' +
             '<a class="pp-dl-btn win" href="' + DOWNLOAD_WIN + '" rel="noopener noreferrer">Install for Windows</a>' +
-            '<p class="pp-dl-filename">PrivacyPal-Setup-1.9.50.exe</p>' +
+            '<p class="pp-dl-filename">PrivacyPal-Setup-1.9.72.exe</p>' +
             '<div class="pp-dl-cli"><div class="cli-label">Or install via PowerShell</div>' +
             '<div class="cli-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>' +
             '<button class="cli-copy" type="button" data-cli-copy="winget install PrivacyPal.AI">Copy</button></div></div>' +
@@ -412,7 +419,19 @@
             '<p>Native build for Apple Silicon Macs. Every M-series chip is supported.</p>' +
             '<div class="pp-dl-pills"><span class="pp-dl-pill">.dmg installer</span><span class="pp-dl-pill">M1–M5+</span><span class="pp-dl-pill">macOS 13+</span></div>' +
             '<a class="pp-dl-btn mac" href="' + DOWNLOAD_MACOS_ARM64 + '" rel="noopener noreferrer">Install for Apple Silicon</a>' +
-            '<p class="pp-dl-filename">PrivacyPal-1.9.50-arm64.dmg</p>' +
+            '<p class="pp-dl-filename">PrivacyPal-1.9.72-arm64.dmg</p>' +
+          '</div>' +
+          '<div class="pp-dl-card linux">' +
+            '<div class="pp-dl-row"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 4v12h16V7H4zm2.7 2.3 3.3 3.3-3.3 3.3 1.4 1.4 4.7-4.7-4.7-4.7-1.4 1.4zM13 15h5v2h-5v-2z\"/></svg><span class="label">Linux · Headless agent</span></div>' +
+            '<h4>Linux</h4>' +
+            '<p>The headless agent for servers and WSL. Governs the command-line AI agents your engineers run on Ubuntu and Fedora.</p>' +
+            '<div class="pp-dl-pills"><span class="pp-dl-pill">x86_64</span><span class="pp-dl-pill">aarch64</span><span class="pp-dl-pill">.tar.gz</span></div>' +
+            '<a class="pp-dl-btn" href="' + DOWNLOAD_LINUX_X64 + '" rel="noopener noreferrer">Download for x86_64</a>' +
+            '<a class="pp-dl-btn secondary" href="' + DOWNLOAD_LINUX_ARM64 + '" rel="noopener noreferrer">Download for aarch64</a>' +
+            '<p class="pp-dl-filename">privacypal-agent-1.9.71-linux-x86_64.tar.gz</p>' +
+            '<div class="pp-dl-cli"><div class="cli-label">Then extract and run</div>' +
+            '<div class="cli-block"><span><span class="prompt">$</span>tar -xzf privacypal-agent-*.tar.gz</span>' +
+            '<button class="cli-copy" type="button" data-cli-copy="tar -xzf privacypal-agent-*.tar.gz">Copy</button></div></div>' +
           '</div>' +
         '</div>' +
         '<div class="pp-dl-trust">' +
