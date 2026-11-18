@@ -1,12 +1,21 @@
 /* ============================================================
-   PrivacyPal Family — standalone sub-site design system
-   A consumer, family-friendly evolution of the PrivacyPal v3
-   system. Same brand palette, warmer rotation: navy ink, teal
-   action, tangerine joy, sage trust, amber/ivory washes.
+   PrivacyPal for families: the /family/ content design system.
+   A warm, family-friendly rotation of the PrivacyPal system
+   (navy, teal and Penguin Gold): navy ink, teal action, Penguin
+   Gold warmth, sage trust, ivory washes.
    Type: Fredoka (rounded display) + Overused Grotesk (body)
    + IBM Plex Mono (eyebrow labels, PrivacyPal DNA).
    Shapes: big radii, pill buttons with pressed edges, squircle
    photo masks. Inspired by Duolingo & LEGO Education warmth.
+
+   Gold rules (2026-11 rebrand, same as assets/v3.css): gold is a
+   slight accent, about 10% of a surface at most. Gold fills carry
+   navy text or icons, never white. Never gold text on white or
+   cream (use --gold-ink). Never gold with coral in one element.
+   The legacy class names that said tangerine (.btn-sun, .ic-sun,
+   .tint-sun, .r-sun, .hl-tang, .eyebrow.orange) now render gold.
+   The shared header, footer and modals come from assets/v3.js and
+   are styled by assets/family-chrome.css.
    ============================================================ */
 
 @font-face{
@@ -52,6 +61,13 @@
   --ivory:#f0ecc9;
   --navy-tint:#e8edf5;
 
+  /* Penguin Gold (2026-11 rebrand), mirrored from assets/v3.css */
+  --gold:#ffac33;
+  --gold-deep:#e8941a;
+  --gold-ink:#8a5a00;
+  --gold-tint:#fff4e0;
+  --gold-soft:#ffe3b3;
+
   --r-md:14px;
   --r-lg:22px;
   --r-xl:30px;
@@ -90,6 +106,7 @@ h2,.h2{
   font-weight:600;line-height:1.1;letter-spacing:-.012em;
 }
 h3,.h3{font-family:var(--font-display);font-size:1.4rem;font-weight:600;line-height:1.2}
+h2,.h2{text-wrap:balance}
 h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-height:1.3}
 .lede{font-size:1.15rem;line-height:1.62;color:var(--muted);max-width:62ch}
 .eyebrow{
@@ -98,12 +115,17 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   color:var(--muted);letter-spacing:.03em;
 }
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:3px;background:var(--teal)}
-.eyebrow.orange::before{background:var(--tangerine)}
+.eyebrow.orange::before,.eyebrow.gold::before{background:var(--gold)}
 .eyebrow.sage::before{background:var(--sage)}
 .eyebrow.coral::before{background:var(--coral)}
 .mono{font-family:var(--font-mono)}
 .hl-teal{color:var(--teal)}
-.hl-tang{color:var(--tangerine-deep)}
+/* gold highlighter behind one or two words (never gold text on light) */
+.hl-tang,.mark-gold{
+  background:linear-gradient(transparent 62%,var(--gold-soft) 62%,var(--gold-soft) 94%,transparent 94%);
+  padding:0 .06em;border-radius:2px;color:inherit;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
 .hl-sage{color:var(--sage-deep)}
 
 /* ---------- Layout ---------- */
@@ -132,12 +154,13 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 }
 .btn-key:hover{background:#039aaa;transform:translateY(-1px);box-shadow:0 5px 0 var(--teal-deep)}
 .btn-key:active{transform:translateY(3px);box-shadow:0 1px 0 var(--teal-deep)}
-.btn-sun{
-  background:var(--tangerine);color:#fff;
-  box-shadow:0 4px 0 var(--tangerine-deep);
+/* gold primary: ONLY on navy or dark photography, always navy text */
+.btn-sun,.btn-gold{
+  background:var(--gold);color:var(--ink);
+  box-shadow:0 4px 0 var(--gold-deep);
 }
-.btn-sun:hover{background:#f79d5e;transform:translateY(-1px)}
-.btn-sun:active{transform:translateY(3px);box-shadow:0 1px 0 var(--tangerine-deep)}
+.btn-sun:hover,.btn-gold:hover{background:#ffbd5c;transform:translateY(-1px);box-shadow:0 5px 0 var(--gold-deep)}
+.btn-sun:active,.btn-gold:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold-deep)}
 .btn-ghost{
   background:#fff;color:var(--ink);border:2px solid var(--line);
   box-shadow:0 3px 0 var(--line);
@@ -168,7 +191,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .fnav-logo img{height:30px;width:auto}
 .fnav-logo .fam{
   font-family:var(--font-display);font-weight:600;font-size:1.05rem;
-  background:var(--tangerine-tint);color:var(--tangerine-deep);
+  background:var(--gold-tint);color:var(--gold-ink);
   padding:3px 12px;border-radius:999px;
 }
 .fnav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
@@ -183,8 +206,8 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .fnav-cta{margin-left:6px}
 .preview-pill{
   font-family:var(--font-mono);font-size:.68rem;letter-spacing:.04em;
-  color:var(--tangerine-deep);background:var(--tangerine-tint);
-  border:1px dashed var(--tangerine);
+  color:var(--gold-ink);background:var(--gold-tint);
+  border:1px dashed var(--gold);
   padding:4px 10px;border-radius:999px;flex:none;
 }
 .fnav-burger{
@@ -251,7 +274,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .float-chip .ic svg{width:18px;height:18px}
 .ic-teal{background:var(--teal)}
 .ic-sage{background:var(--sage)}
-.ic-sun{background:var(--tangerine)}
+.ic-sun{background:var(--gold);color:var(--ink)}
 .chip-a{top:6%;left:-4%;animation-delay:0s}
 .chip-b{bottom:24%;left:-7%;animation-delay:1.6s}
 .chip-c{top:38%;right:-3%;animation-delay:3.2s}
@@ -262,14 +285,15 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   .chip-a{left:0}.chip-b{left:-2%}
 }
 
-/* confetti strip (LEGO-ish color band) */
+/* confetti strip (LEGO-ish color band): the brand's three core colours
+   with the two support washes. Gold sits beside navy, never coral. */
 .band{display:flex;height:10px}
 .band span{flex:1}
 .band .b1{background:var(--teal)}
 .band .b2{background:var(--sage)}
 .band .b3{background:var(--amber)}
-.band .b4{background:var(--tangerine)}
-.band .b5{background:var(--coral)}
+.band .b4{background:var(--gold)}
+.band .b5{background:var(--ink)}
 
 /* ---------- Cards ---------- */
 .card-grid{display:grid;gap:22px}
@@ -295,13 +319,13 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .pillar p{color:var(--muted);font-size:.98rem}
 .pillar.tint-teal{background:var(--teal-tint);border-color:#d3e8e6}
 .pillar.tint-sage{background:var(--sage-tint);border-color:#d8ebe2}
-.pillar.tint-sun{background:var(--tangerine-tint);border-color:#f6e2cc}
+.pillar.tint-sun{background:var(--gold-tint);border-color:#f6e4b5}
 .pillar.tint-navy{background:var(--navy-tint);border-color:#d9e1ee}
 .soon-tag{
   position:absolute;top:22px;right:22px;
   font-family:var(--font-mono);font-size:.65rem;letter-spacing:.05em;
-  background:#fff;color:var(--tangerine-deep);
-  border:1px solid var(--tangerine);border-radius:999px;padding:3px 10px;
+  background:#fff;color:var(--gold-ink);
+  border:1px solid var(--gold);border-radius:999px;padding:3px 10px;
 }
 .feature-card{
   border-radius:var(--r-lg);padding:26px 24px;
@@ -328,7 +352,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   background:var(--ink);color:#fff;font-size:1.15rem;margin-bottom:18px;
 }
 .fstep:nth-child(2) .num{background:var(--teal)}
-.fstep:nth-child(3) .num{background:var(--tangerine)}
+.fstep:nth-child(3) .num{background:var(--gold);color:var(--ink)}
 .fstep h4{margin-bottom:8px;font-size:1.15rem}
 .fstep p{color:var(--muted);font-size:.96rem}
 .fstep .mins{
@@ -422,7 +446,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   padding:3px 9px;border-radius:999px;flex:none;
 }
 .hq-ok{background:var(--sage-tint);color:var(--sage-deep)}
-.hq-warn{background:var(--tangerine-tint);color:var(--tangerine-deep)}
+.hq-warn{background:var(--gold-tint);color:var(--gold-ink)}
 .hq-block{background:var(--coral-tint);color:var(--coral-deep)}
 .hq-stat{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
 .hq-stat b{font-family:var(--font-display);font-size:1.7rem;font-weight:600}
@@ -451,7 +475,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .phone-head{display:flex;align-items:center;gap:9px;margin-bottom:14px}
 .phone-head .avatar{
   width:34px;height:34px;border-radius:50%;
-  background:var(--tangerine);color:#fff;
+  background:var(--gold);color:var(--ink);
   display:flex;align-items:center;justify-content:center;
   font-family:var(--font-display);font-weight:600;
 }
@@ -491,12 +515,39 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .mosaic .photo-card:nth-child(1){border-radius:28px 28px 28px 100px}
 .mosaic .photo-card:nth-child(3){border-radius:28px 100px 28px 28px}
 @media(max-width:860px){.mosaic{grid-template-columns:1fr;gap:14px}.mosaic .photo-card{aspect-ratio:1.5}}
+/* one wide photo while the row has a single unique stand-in */
+.mosaic.mosaic-one{grid-template-columns:1fr}
+.mosaic.mosaic-one .photo-card{aspect-ratio:2.4;border-radius:28px 100px 28px 100px}
+.mosaic.mosaic-one .photo-card img{object-position:50% 20%}
+@media(max-width:860px){.mosaic.mosaic-one .photo-card{aspect-ratio:1.5;border-radius:28px 64px 28px 64px}}
 
 /* ---------- Deep split rows ---------- */
 .deep{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:44px 0}
 .deep .media{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-float)}
 .deep .media img{width:100%}
 .deep.flip .media{order:-1}
+/* Answer Guard concept card (uses the Parent HQ mock parts) */
+.deep .media.ag{background:#fff;border:1px solid var(--line);font-size:.86rem}
+.ag-body{display:flex;flex-direction:column;gap:16px;padding:22px}
+.ag-chat{display:flex;flex-direction:column;gap:10px}
+.ag-q{
+  align-self:flex-end;max-width:78%;background:var(--ink);color:#fff;
+  padding:10px 15px;border-radius:18px 18px 6px 18px;font-size:.88rem;
+}
+.ag-a{
+  align-self:flex-start;max-width:92%;background:#fffdfa;border:1px solid var(--line-soft);
+  padding:12px 15px 13px;border-radius:18px 18px 18px 6px;font-size:.88rem;line-height:1.55;color:var(--text);
+}
+.ag-from{display:block;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.ag .hq-live{white-space:nowrap}
+.ag-stamp{
+  display:flex;width:fit-content;align-items:center;gap:6px;margin-top:10px;
+  font-family:var(--font-mono);font-size:.68rem;color:var(--sage-deep);
+  background:var(--sage-tint);padding:4px 10px;border-radius:999px;
+}
+.ag-stamp svg{width:12px;height:12px}
+.ag-nudge{background:var(--teal-tint);color:var(--teal-ink)}
+@media(max-width:520px){.ag .hq-top{padding:14px 16px}.ag .hq-dots{display:none}.ag-body{padding:16px}.ag-q{max-width:88%}.ag-a{max-width:100%}}
 .num-tag{
   font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
   display:inline-block;margin-bottom:14px;
@@ -536,7 +587,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .rung li::before{content:"";width:7px;height:7px;border-radius:50%;margin-top:8px;flex:none}
 .rung.r-sage li::before{background:var(--sage)}
 .rung.r-teal li::before{background:var(--teal)}
-.rung.r-sun li::before{background:var(--tangerine)}
+.rung.r-sun li::before{background:var(--gold)}
 @media(max-width:900px){.ladder{grid-template-columns:1fr}}
 
 /* ---------- Device row ---------- */
@@ -554,8 +605,9 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .device b{font-size:.92rem;display:block}
 .device small{font-family:var(--font-mono);font-size:.66rem;color:var(--muted)}
 .device small.on{color:var(--sage-deep)}
-.device small.soon{color:var(--tangerine-deep)}
-@media(max-width:960px){.devices{grid-template-columns:repeat(2,1fr)}}
+.device small.soon,.device small.invite{color:var(--gold-ink)}
+.device small.d-sub{display:block;margin-top:2px}
+@media(max-width:960px){.devices{grid-template-columns:repeat(2,1fr)}.devices .device:last-child:nth-child(odd){grid-column:1/-1}}
 
 /* ---------- Compare table (what parents see) ---------- */
 .see-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -570,7 +622,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
 .fprice{
   max-width:460px;margin:0 auto;background:#fff;
   border:2px solid var(--ink);border-radius:var(--r-xl);
-  padding:36px 34px;box-shadow:8px 8px 0 var(--amber);
+  padding:36px 34px;box-shadow:8px 8px 0 var(--gold-soft);
 }
 .fprice .plan{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:1.2rem}
 .fprice .plan .tag{
@@ -615,7 +667,7 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;
 }
 .fcta::before{width:340px;height:340px;background:var(--teal);left:-90px;top:-120px}
-.fcta::after{width:300px;height:300px;background:var(--tangerine);right:-70px;bottom:-130px}
+.fcta::after{width:300px;height:300px;background:var(--teal);right:-70px;bottom:-130px;opacity:.22}
 .fcta>*{position:relative;z-index:1}
 .fcta h2{color:#fff;max-width:640px;margin:14px auto 16px}
 .fcta p{color:#c6d2e4;max-width:520px;margin:0 auto}
@@ -637,10 +689,10 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   font-size:.8rem;color:var(--muted);
 }
 
-/* ---------- Early-access form ---------- */
+/* ---------- Invitation request form (early-access.html) ---------- */
 .fform-card{
   background:#fff;border:2px solid var(--ink);border-radius:var(--r-xl);
-  padding:34px 32px;box-shadow:8px 8px 0 var(--amber);
+  padding:34px 32px;box-shadow:8px 8px 0 var(--gold-soft);
 }
 .fform-card h3{margin-bottom:6px}
 .fform-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
@@ -727,13 +779,55 @@ h4,.h4{font-family:var(--font-display);font-size:1.12rem;font-weight:600;line-he
   display:flex;align-items:center;justify-content:center;
 }
 .pal-check svg{width:11px;height:11px}
-.pal-next{border-style:dashed;border-color:var(--faint);background:transparent;box-shadow:none}
-.pal-next .pal-tile{background:#fff;color:var(--tangerine-deep)}
-.pal-next small{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){.pal-card,.pal-card:nth-child(even){transform:none}}
 @media(max-width:760px){
   .pal-shelf{gap:12px}
   .pal-card{min-width:104px;padding:15px 14px 11px}
   .pal-tile{width:50px;height:50px;border-radius:15px}
   .pal-tile img,.pal-tile > svg{width:26px;height:26px}
+}
+
+/* ---------- One PrivacyPal (2026-11 rebrand) ----------
+   .pack-chip mirrors the component in assets/v3.css (the /family/
+   pages do not load v3.css): an inline label for a pack, with the
+   pack's dot colour (Personal teal, Family gold, Max navy; the class
+   name .business stays). .fcta .guide is the penguin emoji
+   (penguin-guide*.svg) as a sign-off on a navy CTA.
+   One penguin per view, only at a sign-off or an empty state. */
+.pack-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:.74rem;font-weight:500;letter-spacing:.02em;
+  color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:5px 12px;line-height:1.3;white-space:nowrap;
+}
+.pack-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pack-accent,var(--teal))}
+.pack-chip.personal{--pack-accent:var(--teal)}
+.pack-chip.family{--pack-accent:var(--gold)}
+.pack-chip.business{--pack-accent:var(--ink)}
+a.pack-chip{transition:border-color .15s ease,transform .15s ease}
+a.pack-chip:hover{border-color:var(--teal);transform:translateY(-1px)}
+.pack-chip.is-here{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-tint)}
+.fcta .pack-chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#fff}
+.dot-gold{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
+
+/* the three doors under the Family price card */
+.doors{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin-top:34px}
+.doors .doors-l{font-family:var(--font-mono);font-size:.74rem;color:var(--muted);letter-spacing:.03em;margin-right:4px}
+.doors-note{text-align:center;font-size:.88rem;color:var(--muted);margin-top:12px}
+.doors-note a{color:var(--teal-ink);font-weight:600}
+
+/* proof line under a hero or a proof section */
+.proof-line{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.9rem;color:var(--text)}
+.proof-line b{color:var(--ink);font-weight:600}
+
+/* penguin sign-off on the navy CTA banner */
+.fcta.has-guide{padding-left:56px;padding-right:56px}
+.fcta .guide{
+  position:absolute;right:40px;bottom:28px;width:128px;height:auto;z-index:1;
+  pointer-events:none;
+}
+@media(max-width:1000px){.fcta .guide{right:16px;width:104px}}
+@media(max-width:760px){
+  .fcta.has-guide{padding:56px 24px 52px}
+  .fcta .guide{position:relative;right:auto;bottom:auto;width:84px;margin:0 auto 10px}
 }

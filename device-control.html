@@ -4,8 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>AI device control · PrivacyPal</title>
-<meta name="description" content="See every AI tool your team uses, on every device, in real time. Block unauthorized AI apps, enforce access policies, and get a full audit trail, without slowing anyone down." />
-<link rel="icon" href="assets/favicon.ico"/>
+<meta name="description" content="See every AI tool your team uses, on every Mac and Windows device, in real time. Approve, block and redirect AI apps per team, enforce one policy and keep a full audit trail. Device control comes with the Max pack." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,10 +18,13 @@
 <meta property="og:url" content="https://privacypal.ai/device-control.html" />
 <meta property="og:title" content="AI device control · PrivacyPal" />
 <meta property="og:description" content="See every AI tool your team uses, on every device, in real time. Block unauthorized AI apps, enforce access policies, and keep a full audit trail, without slowing anyone down." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="AI device control · PrivacyPal" />
 <meta name="twitter:description" content="See every AI tool your team uses, on every device, in real time. Block unauthorized AI apps, enforce access policies, and keep a full audit trail." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <style>
   .ticks{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:10px;padding:0}
   .ticks li{position:relative;padding-left:26px;font-size:.95rem;color:var(--muted);line-height:1.5}
@@ -26,7 +32,13 @@
   .scenario{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
   .case-ex{margin-top:14px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--ink);padding:12px 14px;border-radius:0 10px 10px 0;font-size:.84rem;color:var(--muted);line-height:1.55}
   .case-ex b{color:var(--ink);font-weight:600}
-  .soon-tag{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:middle}
+  .pack-note{margin-top:20px;font-size:.9rem;color:var(--muted);line-height:2}
+  .pack-note .pack-chip{margin:0 3px;vertical-align:1px}
+  .live-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);background:#eaf5f2;border:1px solid rgba(77,163,148,.45);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:middle}
+  .live-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage)}
+  /* the screenshot starts below its window title bars (3210x1926 source, top 416px trimmed) */
+  .shot-trim{aspect-ratio:3210/1510;overflow:hidden;border-radius:var(--r-md);border:1px solid var(--line)}
+  .deep .media .shot-trim img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%;border:0;border-radius:0}
 </style>
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
@@ -42,13 +54,14 @@
 <!-- ================= HERO ================= -->
 <header class="page-hero center">
   <div class="container">
-    <span class="eyebrow blue" style="justify-content:center">PrivacyPal platform</span>
+    <span class="eyebrow blue" style="justify-content:center">PrivacyPal for business</span>
     <h1>AI device control</h1>
-    <p class="lede">See every AI tool your team uses, on every device, in real time. Set which tools are approved, block unauthorized AI apps, redirect users to sanctioned alternatives, and maintain a full audit trail, all without adding friction for your team.</p>
+    <p class="lede">See every AI tool your team uses, on every Mac and Windows device, in real time. Set which tools are approved, block unauthorized AI apps, redirect users to sanctioned alternatives, and maintain a full audit trail, all without adding friction for your team.</p>
     <div class="btn-row">
-      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Pro free</a>
+      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Download free</a>
       <a class="btn btn-ghost btn-lg" href="#how-it-works">How it works</a>
     </div>
+    <p class="pack-note">Device control comes with the <span class="pack-chip business">Max</span> pack</p>
     <div class="page-hero-media reveal" style="max-width:520px;margin-left:auto;margin-right:auto">
       <img src="assets/gemini-protected-card.png" alt="PrivacyPal Gemini protection card" loading="eager">
     </div>
@@ -59,8 +72,8 @@
 <section class="section-sm" style="padding-top:0">
   <div class="container">
     <div class="stats reveal">
-      <div class="stat"><div class="n">100<small>%</small></div><div class="l">Device visibility across your whole organization.</div></div>
-      <div class="stat"><div class="n">&lt;5<small>min</small></div><div class="l">Deployment per seat. No VPN, no network changes.</div></div>
+      <div class="stat"><div class="n">1<small>policy plane</small></div><div class="l">One set of AI rules across every enrolled Mac and Windows device.</div></div>
+      <div class="stat"><div class="n">3<small>actions</small></div><div class="l">Approve, block or redirect any AI tool, per team or role.</div></div>
       <div class="stat"><div class="n">0<small>VPN</small></div><div class="l">Zero VPN required. Zero reconfiguration.</div></div>
       <div class="stat"><div class="n">24/7</div><div class="l">Always audit-ready logs, on every enrolled device.</div></div>
     </div>
@@ -73,18 +86,18 @@
     <div class="section-head reveal">
       <span class="eyebrow">How it works</span>
       <h2>Deploy once. Control everything.</h2>
-      <p class="lede">Device Control runs silently on every team device (browser and desktop), enforcing your AI policies and reporting back to a single governance dashboard in real time.</p>
+      <p class="lede">Device Control runs silently on every team Mac and Windows device, enforcing your AI policies and reporting back to a single governance dashboard in real time.</p>
     </div>
     <div class="steps reveal">
       <div class="step">
         <span class="num">01</span>
-        <h4>Install in under 5 minutes</h4>
-        <p>Push the PrivacyPal agent to your team via MDM or a download link. No VPN. No network reconfiguration. No IT ticket required. One installer covers browser extension and desktop app.</p>
+        <h4>Install once</h4>
+        <p>Push PrivacyPal to your team via MDM or a download link. It works on the network you already have: no VPN, no reconfiguration, no IT ticket. One installer for Mac and one for Windows.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
         <h4>Every AI interaction is logged</h4>
-        <p>From the moment the agent is active, every AI prompt (in every browser, every desktop app, every SaaS tool) is logged with the app used, data types detected, and any policy actions taken.</p>
+        <p>From the moment PrivacyPal is active, every AI interaction on a protected surface (web chat, desktop apps and agents) is logged with the app used, data types detected, and any policy actions taken.</p>
       </div>
       <div class="step">
         <span class="num">03</span>
@@ -103,7 +116,7 @@
         <div class="num-tag">01 · Admin dashboard</div>
         <span class="eyebrow blue">One pane of glass</span>
         <h2 style="margin-top:12px">One dashboard for every device</h2>
-        <p class="lede">The Device Control dashboard gives IT and security teams a single pane of glass across all enrolled devices (Mac, Windows, browser and desktop apps) with no agents to manage per-platform.</p>
+        <p class="lede">The Device Control dashboard gives IT and security teams a single pane of glass across all enrolled Mac and Windows devices, with one install per device and one policy for all of them.</p>
       </div>
       <div>
         <p style="color:var(--muted);line-height:1.65">See which employees are using AI, which tools they're using, what data types have been detected, and whether any policy violations have occurred, all in one place, updated in real time.</p>
@@ -127,19 +140,19 @@
     <div class="deep reveal">
       <div>
         <div class="num-tag">02 · Full coverage</div>
-        <span class="eyebrow pink">Browser + desktop</span>
-        <h2 style="margin-top:12px">Browser and desktop: covered</h2>
-        <p class="lede">Most AI security tools only see browser traffic. PrivacyPal monitors both: the browser extension intercepts web-based AI tools like ChatGPT, Claude and Grok, while the desktop agent covers native apps like Copilot for Microsoft 365, GitHub Copilot, and local AI tools.</p>
-        <p style="color:var(--muted);margin-top:14px">No gaps. No shadow AI usage. Full visibility regardless of how your team accesses AI.</p>
+        <span class="eyebrow pink">Web, desktop and agents</span>
+        <h2 style="margin-top:12px">Web, desktop and agents: covered</h2>
+        <p class="lede">PrivacyPal protects AI where your team actually uses it, on the device itself: web chat in the browser they already use, Microsoft Copilot on the desktop, and the coding agents your engineers run, from Claude Code to Codex.</p>
+        <p style="color:var(--muted);margin-top:14px">One view of every AI your team uses, whichever way they reach it.</p>
         <ul class="ticks">
-          <li>Chrome, Edge, Firefox, and Safari browser extensions</li>
-          <li>Windows and macOS desktop app coverage</li>
-          <li>Monitors 50+ AI tools out of the box</li>
+          <li>ChatGPT, Claude, Gemini, Grok and Perplexity web chat, attachments included</li>
+          <li>Microsoft Copilot, Claude Code, Codex and Hermes Agent</li>
+          <li>Mac and Windows 11, plus the Linux headless agent for servers and WSL</li>
           <li>Custom app rules for internal AI deployments</li>
         </ul>
       </div>
       <div>
-        <div class="media"><img src="assets/privacypal-desktop-claude-example.png" alt="PrivacyPal protecting a Claude desktop conversation" loading="lazy"></div>
+        <div class="media"><div class="shot-trim"><img src="assets/privacypal-desktop-claude-example.png" alt="PrivacyPal protecting a Claude desktop conversation" loading="lazy"></div></div>
       </div>
     </div>
   </div>
@@ -163,7 +176,7 @@
         </ul>
       </div>
       <div>
-        <div class="media"><img src="product-shot-005.png" alt="PrivacyPal policy enforcement controls" loading="lazy"></div>
+        <div class="media"><img src="product-shot-002-activity.png" alt="PrivacyPal activity view: requests to ChatGPT, Claude, Gemini and Copilot charted over four days, with a table of each platform's provider, request volume and status" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -179,14 +192,14 @@
     </div>
     <div class="card-grid cols-4">
       <div class="feature-card reveal reveal-delay-1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-        <h4>Immutable storage</h4>
-        <p>Immutable log storage with configurable retention.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <h4>One activity feed</h4>
+        <p>Every interception logged to one feed, attributed to the user, the device and the app.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h4>Compliance-aligned</h4>
-        <p>SOC 2 and HIPAA-aligned audit trail format.</p>
+        <h4>Full usage history</h4>
+        <p>Max keeps the full usage history for every seat, ready when the review comes.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12M8 11l4 4 4-4M4 19h16"/></svg></div>
@@ -194,9 +207,9 @@
         <p>CSV and JSON export for third-party SIEM integration.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-        <h4>Data residency</h4>
-        <p>Residency controls for EU and other regulated regions.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.5 5.5-4.5s4.8 1.5 5.5 4.5"/><path d="M16 8h5M16 12h5M16 16h3"/></svg></div>
+        <h4>Central admin</h4>
+        <p>Team sign-in, domain accounts and seats provisioned and de-provisioned from one console.</p>
       </div>
     </div>
   </div>
@@ -216,14 +229,14 @@
         <div class="scenario">IT &amp; security</div>
         <h4>Shadow AI discovery</h4>
         <p>Your team is using AI tools you don't know about. Device Control surfaces every app on day one so you can make informed decisions about what to allow, not react after a breach.</p>
-        <div class="case-ex">An engineer starts using a new AI coding tool that isn't on the approved list. <b>Device Control flags it within minutes</b> and the admin can approve or block with one click.</div>
+        <div class="case-ex">An engineer starts using a new AI coding tool that isn't on the approved list. <b>Device Control flags it</b> and the admin can approve or block with one click.</div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <div class="scenario">Compliance</div>
         <h4>Pre-audit AI inventory</h4>
         <p>Auditors are increasingly asking organizations to account for AI tool usage. Device Control gives you a complete, exportable record before the audit request arrives.</p>
-        <div class="case-ex">A SOC 2 auditor asks for evidence of AI usage controls. <b>Export 90 days of logs in one click</b>: timestamped, user-attributed, and categorized by data type.</div>
+        <div class="case-ex">An auditor asks for evidence of AI usage controls. <b>Export the logs in one click</b>: timestamped, user-attributed, and categorized by data type.</div>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.5 5.5-4.5s4.8 1.5 5.5 4.5"/><path d="M16 8h5M16 12h5M16 16h3"/></svg></div>
@@ -236,8 +249,8 @@
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
         <div class="scenario">Engineering</div>
         <h4>Developer toolchain governance</h4>
-        <p>Developers use more AI tools than any other team: Copilot, Cursor, Codeium, Claude, Hermes Agent, and more. Device Control gives engineering managers visibility without micromanaging individual workflows.</p>
-        <div class="case-ex">An engineering org approves GitHub Copilot and Cursor but blocks direct Claude API calls without code review. <b>Policy is enforced automatically across 40 engineers.</b></div>
+        <p>Developers use more AI tools than any other team: Claude Code, Codex, Copilot, Hermes Agent, and more. Device Control gives engineering managers visibility without micromanaging individual workflows.</p>
+        <div class="case-ex">An engineering org approves Claude Code and Codex for its engineers and redirects other coding agents to them. <b>Policy is enforced automatically across 40 engineers.</b></div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
@@ -250,8 +263,8 @@
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
         <div class="scenario">Remote &amp; distributed teams</div>
         <h4>Consistent policy across locations</h4>
-        <p>Remote teams across multiple regions often use different tools and operate under different compliance requirements. Device Control lets you maintain one policy baseline with per-region overrides.</p>
-        <div class="case-ex">EU-based employees automatically operate under a stricter GDPR-aligned policy. <b>US and EU data residency rules are enforced at the device level</b>: no manual configuration per employee.</div>
+        <p>Remote teams across multiple regions often use different tools and operate under different compliance requirements. Device Control lets you maintain one policy baseline with per-team overrides.</p>
+        <div class="case-ex">The EU team automatically operates under a stricter GDPR-aligned policy. <b>The rule is enforced at the device level</b>: no manual configuration per employee.</div>
       </div>
     </div>
   </div>
@@ -263,38 +276,38 @@
     <div class="section-head reveal">
       <span class="eyebrow">Platform coverage</span>
       <h2>Every surface. Every app. Covered.</h2>
-      <p class="lede">PrivacyPal Device Control monitors AI usage across every way your team accesses AI today.</p>
+      <p class="lede">PrivacyPal Device Control protects and logs AI usage across the ways your team reaches AI today.</p>
     </div>
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-        <h4>Web browsers</h4>
-        <p>Chrome, Edge, Firefox, and Safari. Every web-based AI tool is monitored via the browser extension.</p>
+        <h4>Web chat</h4>
+        <p>ChatGPT, Claude, Gemini, Grok and Perplexity, attachments included, in the browser your team already uses.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h4>Desktop apps</h4>
-        <p>Native apps including GitHub Copilot, Cursor, Codeium, and Microsoft Copilot for M365.</p>
+        <p>Microsoft Copilot on Mac and Windows: chat is twinned, and Copilot agent actions are controlled at the device level.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6M9 17h6"/></svg></div>
         <h4>File uploads</h4>
-        <p>Documents, spreadsheets, and PDFs uploaded to AI tools are scanned for sensitive data before transmission.</p>
+        <p>Word and Excel files attached to a chat are protected in place before transmission, and PowerPoint too with one setting.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 6L2 12l6 6M16 6l6 6-6 6M14 4l-4 16"/></svg></div>
-        <h4>API calls</h4>
-        <p>Developer API calls to OpenAI, Anthropic, and other AI providers are logged and classified.</p>
+        <h4>Agents &amp; API calls</h4>
+        <p>Claude Code, Codex and Hermes Agent, plus OpenAI and xAI API calls: prompts and tool calls protected before they leave the machine.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h4>SaaS integrations</h4>
-        <p>AI features embedded in Salesforce, HubSpot, Notion, Slack, and other business tools.</p>
+        <h4>Connections</h4>
+        <p>Connect Salesforce, Slack, Notion, Workday, Google Drive and more, and PrivacyPal learns what is sensitive where it actually lives.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
-        <h4>Mobile<span class="soon-tag">Coming soon</span></h4>
-        <p>iOS and Android coverage for on-the-go AI usage across company-managed mobile devices.</p>
+        <h4>iPhone, iPad &amp; Android<span class="live-tag">Live today</span></h4>
+        <p>Company phones and tablets are protected today with the Max pack. Install by invitation.</p>
       </div>
     </div>
   </div>
@@ -304,15 +317,14 @@
 <section class="section-sm">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Technical performance</span>
-      <h2>Lightweight by design</h2>
-      <p class="lede">Device Control is built to be invisible to end users: zero performance impact, zero workflow changes.</p>
+      <span class="eyebrow">Proof</span>
+      <h2>The same engine, at scale</h2>
+      <p class="lede">Device Control runs on the same on-device engine that protects every PrivacyPal user: built to be invisible to end users, with zero workflow changes.</p>
     </div>
-    <div class="stats reveal">
-      <div class="stat"><div class="n">&lt;1<small>%</small></div><div class="l">CPU overhead. The agent uses less than 1% CPU on modern devices in continuous monitoring mode.</div></div>
-      <div class="stat"><div class="n">&lt;5<small>min</small></div><div class="l">Deploy time per seat via MDM push, download link, or direct install: no network changes, no VPN.</div></div>
-      <div class="stat"><div class="n">50<small>+</small></div><div class="l">AI tools monitored out of the box, with custom rules for new and internal tools.</div></div>
-      <div class="stat"><div class="n">90<small>days</small></div><div class="l">Default log retention, with extended retention available on Max.</div></div>
+    <div class="stats cols-3 reveal">
+      <div class="stat"><div class="n"><span class="ul-gold">140+</span></div><div class="l">Companies protected by the same technology, alongside global banks.</div></div>
+      <div class="stat"><div class="n">10s<small>of millions</small></div><div class="l">Sensitive data elements protected on the device.</div></div>
+      <div class="stat"><div class="n">0<small>bytes</small></div><div class="l">Of sensitive data sent to AI providers. Protection runs before a prompt or file leaves the device.</div></div>
     </div>
   </div>
 </section>
@@ -323,10 +335,10 @@
     <div class="cta-banner dark reveal">
       <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
       <h2 style="margin-top:14px">Know exactly what AI your team is using</h2>
-      <p>Pro is completely free for individuals. No credit card, no trial clock.</p>
+      <p>Download PrivacyPal free: every individual gets Personal, with no credit card and no trial clock. Device control switches on with the Max pack.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Pro free</a>
-        <a class="btn btn-ghost btn-lg" href="privacypal-ai.html">Explore agent governance</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="download">Download free</a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html#business">Get Max</a>
       </div>
     </div>
   </div>

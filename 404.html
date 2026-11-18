@@ -4,31 +4,76 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Page not found · PrivacyPal</title>
-<meta name="description" content="The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL." />
+<meta name="description" content="This page has moved. Download PrivacyPal, see pricing, or explore PrivacyPal for families and for business from here." />
 <meta name="robots" content="noindex" />
-<link rel="icon" href="assets/favicon.ico"/>
+<!-- GitHub Pages serves this page for a missing URL at any depth, so every
+     path here is root-absolute (/assets/...). v3.js reads its own src and
+     prefixes the injected nav and footer links with "/" to match. -->
+<link rel="icon" href="/assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/v3.css"/>
+<link rel="stylesheet" href="/assets/v3.css"/>
 <style>
-.err-wrap{min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:90px 24px}
-.err-code{font-family:var(--font-mono);font-size:clamp(4.5rem,12vw,7.5rem);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--ink)}
-.err-wrap h1{font-size:clamp(1.5rem,3vw,2rem);margin-top:20px}
-.err-wrap p{color:var(--muted);margin-top:12px;max-width:44ch}
-.err-wrap .btn-row{justify-content:center;margin-top:30px}
-.err-inner{display:flex;flex-direction:column;align-items:center}
+/* 404: the penguin emoji, at big-emoji size, greets the visitor above one
+   centered column. It stays still and unaltered (brand guide: never tilt,
+   shadow or animate the penguin). */
+.nf{position:relative;overflow:hidden;padding:44px 0 96px;text-align:center}
+.nf::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(28% 34% at 50% 12%, rgba(255,244,224,.95), transparent 72%),
+    radial-gradient(36% 46% at 96% 0%, rgba(2,131,145,.07), transparent 70%);
+}
+.nf > .container{position:relative}
+.nf-hello{position:relative;width:148px;height:148px;margin:0 auto 22px}
+.nf-hello img{display:block;width:100%;height:100%}
+.nf-code{font-family:var(--font-mono);font-size:.85rem;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.nf-code b{font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.nf h1{margin:16px auto 0;max-width:15ch;font-size:clamp(2.4rem,4.6vw,3.6rem)}
+.nf .lede{margin:18px auto 0;max-width:46ch}
+.nf-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px;margin:34px auto 0;text-align:left}
+.nf-link{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px 18px 18px 16px;
+  box-shadow:var(--shadow-card);transition:border-color .18s,box-shadow .18s,transform .18s;
+}
+.nf-link:hover{border-color:var(--teal);box-shadow:var(--shadow-menu);transform:translateY(-2px)}
+.nf-link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.nf-link .ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--panel);color:var(--ink)}
+.nf-link .ico svg{width:18px;height:18px}
+.nf-link b{display:block;font-weight:500;font-size:1rem;line-height:1.3}
+.nf-link small{display:block;font-size:.86rem;color:var(--muted);line-height:1.45;margin-top:3px}
+.nf-link .go{color:var(--teal-ink);font-size:1.05rem;line-height:1.3;transition:transform .18s}
+.nf-link:hover .go{transform:translateX(3px)}
+.nf .btn-row{margin-top:26px;justify-content:center}
+@media (max-width:900px){
+  .nf{padding:36px 0 72px}
+  .nf-hello{width:120px;height:120px;margin-bottom:20px}
+}
+@media (max-width:560px){
+  .nf-links{grid-template-columns:1fr;margin-top:32px}
+  .nf-hello{width:108px;height:108px}
+}
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/404.html" />
 <meta property="og:title" content="Page not found · PrivacyPal" />
-<meta property="og:description" content="The page you're looking for doesn't exist." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:description" content="This page has moved. Download PrivacyPal, see pricing, or explore PrivacyPal for families and for business." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal: we protect your data from AI, at home and at work." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
 <!-- Google tag (gtag.js) -->
-<script src="assets/google-tag.js"></script>
+<script src="/assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
-<script src="assets/meta-pixel.js"></script>
+<script src="/assets/meta-pixel.js"></script>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
@@ -36,20 +81,48 @@
 
 <div id="site-nav-slot"></div>
 
-<section class="err-wrap">
-  <div class="err-inner">
-    <div class="err-code">404</div>
-    <h1>This page doesn't exist</h1>
-    <p>It might have been moved, deleted, or you entered the wrong URL.</p>
+<main class="nf">
+  <div class="container">
+    <div class="nf-hello" aria-hidden="true">
+      <img src="/assets/brand/penguin-guide.svg" alt="" width="148" height="148">
+    </div>
+
+    <span class="nf-code"><b>404</b>Page not found</span>
+    <h1>Let&rsquo;s get you to the right page.</h1>
+    <p class="lede">This link has moved or picked up a typo along the way. Here is where most people are headed next.</p>
+
+    <nav class="nf-links" aria-label="Popular pages">
+      <a class="nf-link" href="/download.html">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
+        <span><b>Download PrivacyPal</b><small>One app for Mac and Windows. Personal is included free, no card.</small></span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="nf-link" href="/pricing.html">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+        <span><b>Pricing</b><small>Personal free. Family $9.99 a month. Max $34 per user a month.</small></span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="nf-link" href="/family/">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 19.5s-3.5-2.1-3.5-4.6a1.9 1.9 0 0 1 3.5-1 1.9 1.9 0 0 1 3.5 1c0 2.5-3.5 4.6-3.5 4.6z"/></svg></span>
+        <span><b>PrivacyPal for families</b><small>Guardrails for the AI your kids use, with Parent HQ. Start with a 5-day free trial.</small></span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="nf-link" href="/business.html">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
+        <span><b>PrivacyPal for business</b><small>Privacy and governance for every AI your team uses at work.</small></span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+    </nav>
+
     <div class="btn-row">
-      <a class="btn btn-primary" href="index.html">Go home</a>
-      <a class="btn btn-ghost" href="contact.html">Contact us</a>
+      <a class="btn btn-primary" href="/">Go to the homepage</a>
+      <a class="btn btn-ghost" href="/contact.html">Contact us</a>
     </div>
   </div>
-</section>
+</main>
 
 <div id="site-footer-slot"></div>
 
-<script src="assets/v3.js"></script>
+<script src="/assets/v3.js"></script>
 </body>
 </html>

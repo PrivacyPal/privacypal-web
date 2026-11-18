@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Agent governance: native control of Claude Code, Copilot &amp; MCP · PrivacyPal</title>
 <meta name="description" content="Real on-device governance for agents, copilots and the MCP layer. Native control of Claude Code, Microsoft Copilot, ChatGPT, Gemini, Grok, Hermes Agent and any agent your team uses. Visibility and control across every AI surface, regardless of which AI." />
-<link rel="icon" href="assets/favicon.ico"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,15 +18,34 @@
 <meta property="og:url" content="https://privacypal.ai/privacypal-ai.html" />
 <meta property="og:title" content="Agent governance: native control of Claude Code, Copilot &amp; MCP" />
 <meta property="og:description" content="Real on-device governance for agents, copilots and the MCP layer. Govern what every agent can read, write, prompt and exfiltrate: across every AI surface, every MCP server, every endpoint." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Agent governance: native control of Claude Code, Copilot &amp; MCP" />
 <meta name="twitter:description" content="Real on-device governance for agents, copilots and the MCP layer. Visibility and control of AI, regardless of which AI." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <style>
   .ticks{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:10px;padding:0}
   .ticks li{position:relative;padding-left:26px;font-size:.95rem;color:var(--muted);line-height:1.5}
   .ticks li::before{content:"✓";position:absolute;left:0;font-weight:600;color:var(--ink)}
-  .soon-tag{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:middle}
+  .pack-note{margin-top:20px;font-size:.9rem;color:var(--muted);line-height:2}
+  .pack-note .pack-chip{margin:0 3px;vertical-align:1px}
+  .live-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);background:#eaf5f2;border:1px solid rgba(77,163,148,.45);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:middle}
+  .live-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage)}
+  /* macOS installer window, drawn in markup so it carries the current app icon */
+  .dmg-win{background:#2b2a28;border-radius:12px;border:1px solid rgba(0,0,0,.4);box-shadow:0 18px 40px -20px rgba(1,32,78,.5);overflow:hidden;color:#ecebe7}
+  .dmg-bar{display:flex;align-items:center;gap:14px;padding:12px 14px}
+  .dmg-dots{display:flex;gap:7px}
+  .dmg-dots i{width:12px;height:12px;border-radius:50%;background:#ff5f57}
+  .dmg-dots i:nth-child(2){background:#febc2e}
+  .dmg-dots i:nth-child(3){background:#28c840}
+  .dmg-title{font-size:.86rem;font-weight:600;color:#a9a7a2;letter-spacing:.01em}
+  .dmg-body{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;padding:clamp(26px,5vw,48px) clamp(12px,3vw,28px) clamp(30px,5.5vw,54px)}
+  .dmg-item{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:.95rem;font-weight:500;color:#ecebe7}
+  .deep .media .dmg-item img,.dmg-item svg{width:clamp(60px,15vw,104px);height:clamp(60px,15vw,104px);border:0;border-radius:0}
+  .deep .media .dmg-item img{filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+  .dmg-arrow{width:clamp(64px,16vw,124px);height:auto;margin-bottom:28px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
@@ -43,9 +65,10 @@
     <h1>Agent governance for the AI Operating System</h1>
     <p class="lede" style="max-width:60ch">Real on-device agent governance, not just a chat wrapper. PrivacyPal sits inside <b>Claude Code</b>, <b>Microsoft Copilot</b>, ChatGPT, Gemini, Grok and Hermes Agent at the device level. Govern what every agent can read, write, prompt and exfiltrate across every AI surface, every MCP server, every endpoint. Visibility and control of AI, regardless of which AI.</p>
     <div class="btn-row">
-      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Download free</a>
       <a class="btn btn-ghost btn-lg" href="#how-it-works">See the mechanism</a>
     </div>
+    <p class="pack-note">Agent governance comes with the <span class="pack-chip business">Max</span> pack</p>
     <div class="page-hero-media reveal">
       <img src="product-shot-001.png" alt="PrivacyPal agent governance in action" loading="eager">
     </div>
@@ -56,10 +79,10 @@
 <section class="section-sm" style="padding-top:0">
   <div class="container">
     <div class="stats reveal">
-      <div class="stat"><div class="n">100<small>%</small></div><div class="l">AI tool visibility across your team, from day one.</div></div>
-      <div class="stat"><div class="n">&lt;50<small>ms</small></div><div class="l">Governance latency: invisible to users.</div></div>
-      <div class="stat"><div class="n">5<small>min</small></div><div class="l">Average team deployment time.</div></div>
-      <div class="stat"><div class="n">99.99<small>%</small></div><div class="l">Platform uptime SLA.</div></div>
+      <div class="stat"><div class="n"><span class="ul-gold">140+</span></div><div class="l">Companies protected by the same technology, alongside global banks.</div></div>
+      <div class="stat"><div class="n">0<small>bytes</small></div><div class="l">Of sensitive data sent to AI providers. Governance runs on the device, first.</div></div>
+      <div class="stat"><div class="n">3<small>actions</small></div><div class="l">Approve, block or redirect any AI tool, per team or role.</div></div>
+      <div class="stat"><div class="n">1<small>policy plane</small></div><div class="l">One set of rules across every agent, copilot and chat your team uses.</div></div>
     </div>
   </div>
 </section>
@@ -76,7 +99,7 @@
       <div class="step">
         <span class="num">01</span>
         <h4>Intercept</h4>
-        <p>PrivacyPal's lightweight on-device agent monitors every AI interaction in real time, across browsers and desktop apps, checking whether the tool is approved and who is using it.</p>
+        <p>PrivacyPal runs on the device and sees every AI interaction in real time, across web chat, desktop apps and agents, checking whether the tool is approved and who is using it.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
@@ -113,7 +136,7 @@
         </div>
       </div>
       <div>
-        <div class="media"><img src="product-shot-002.png" alt="Real-time data classification interface" loading="lazy"></div>
+        <div class="media"><img src="product-shot-002-activity.png" alt="PrivacyPal activity stream: prompts per AI platform over four days, with request counts by provider" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -126,12 +149,12 @@
       <div>
         <div class="num-tag">02 · Deployment</div>
         <span class="eyebrow pink">Zero friction</span>
-        <h2 style="margin-top:12px">Up and running in under 5 minutes</h2>
+        <h2 style="margin-top:12px">Protected from the moment it's installed</h2>
         <p class="lede">No enterprise IT team. No configuration headaches. PrivacyPal installs silently and begins protecting the moment it's active, for your entire team simultaneously.</p>
         <ul class="ticks">
           <li>One-click install for Mac and Windows</li>
           <li>Zero configuration required out of the box</li>
-          <li>Deploy to 100 devices from the admin dashboard</li>
+          <li>Seats, sign-in and policy managed centrally from the admin console</li>
           <li>Silent background operation: zero user friction</li>
           <li>Automatic updates: protection improves continuously</li>
         </ul>
@@ -140,7 +163,16 @@
         </div>
       </div>
       <div>
-        <div class="media"><img src="assets/privacypal-installer.png" alt="PrivacyPal installer for macOS: drag to Applications" loading="lazy"></div>
+        <div class="media">
+          <div class="dmg-win" role="img" aria-label="PrivacyPal installer for macOS: drag to Applications">
+            <div class="dmg-bar"><span class="dmg-dots"><i></i><i></i><i></i></span><span class="dmg-title">PrivacyPal</span></div>
+            <div class="dmg-body">
+              <div class="dmg-item"><img src="assets/brand/app-icon.svg" alt="" width="104" height="104"><span>PrivacyPal</span></div>
+              <svg class="dmg-arrow" viewBox="0 0 120 64" aria-hidden="true"><path d="M6 56C30 16 74 6 104 26" fill="none" stroke="#d7dad8" stroke-width="7" stroke-linecap="round"/><path d="M116 34 93.7 32.4 105.9 14.2Z" fill="#d7dad8"/></svg>
+              <div class="dmg-item"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M8 24a6 6 0 0 1 6-6h21a4 4 0 0 1 2.8 1.2L44 25h38a6 6 0 0 1 6 6v6H8z" fill="#4fa6e3"/><rect x="8" y="30" width="80" height="52" rx="6" fill="#7cc4f5"/><path d="M48 41 36 68M48 41l12 27M39.5 60h17" fill="none" stroke="#4d9fd9" stroke-width="4.5" stroke-linecap="round"/><circle cx="17" cy="78" r="10" fill="#f1f1f1"/><path d="M13 82.5 20.5 75M14.5 74.5h6.5V81" fill="none" stroke="#2b2a28" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Applications</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -159,11 +191,11 @@
           <li>Precision classification minimizes false positives</li>
           <li>Context-aware engine understands intent, not just patterns</li>
           <li>Sensitive data is replaced, not removed; AI responses stay useful</li>
-          <li>Privacy Twins allow full AI productivity with zero exposure</li>
+          <li>Privacy Twins keep AI fully productive while the real data never reaches the AI provider</li>
         </ul>
       </div>
       <div>
-        <div class="media"><img src="product-shot-004.png" alt="PrivacyPal accuracy and precision" loading="lazy"></div>
+        <div class="media"><img src="product-shot-004-agents.png" alt="Privacy Agents in the PrivacyPal portal: an anomaly detector and a critical alert trigger, both enabled" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -180,28 +212,28 @@
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-        <h4>Web browsers</h4>
-        <p>Chrome, Edge, Firefox, Safari: full protection for ChatGPT, Claude, Gemini, and Grok in any browser.</p>
+        <h4>Web chat</h4>
+        <p>Full protection for ChatGPT, Claude, Gemini, Grok and Perplexity, attachments included, in the browser your team already uses.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h4>Desktop apps</h4>
-        <p>Microsoft Copilot, Claude Desktop, and other native AI applications running directly on Mac or PC.</p>
+        <p>Microsoft Copilot and Claude Desktop on Mac or PC: Copilot chat is twinned and Copilot agent actions are controlled at the device level.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div>
         <h4>File uploads</h4>
-        <p>Documents, spreadsheets, and PDFs attached to AI prompts are scanned and sanitized before upload.</p>
+        <p>Word and Excel files attached to a prompt are protected in place before upload, and PowerPoint too with one setting.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
         <h4>Claude Code &amp; agentic dev tools</h4>
-        <p>Native on-device governance for Claude Code, Cursor, Hermes Agent and AI coding agents: source, secrets and customer data protected at the IDE level, not just in chat.</p>
+        <p>Native on-device governance for Claude Code, Codex and Hermes Agent: prompts and tool calls scrubbed before they leave the laptop, so source, secrets and customer data stay protected beyond chat.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
-        <h4>Mobile<span class="soon-tag">Coming soon</span></h4>
-        <p>iOS and Android support arriving soon: the same on-device protection for your team's phones.</p>
+        <h4>iPhone, iPad &amp; Android<span class="live-tag">Live today</span></h4>
+        <p>With the Max pack, the same on-device protection reaches your team's phones and tablets today. Install by invitation.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
@@ -217,9 +249,9 @@
   <div class="container">
     <div class="bigquote reveal">
       <blockquote>
-        "We had developers pasting internal API specs into ChatGPT every day without realizing the risk. After installing PrivacyPal, that surface area went to <b>zero</b>, and our engineering team didn't change a single workflow."
+        Privacy and governance for every AI at work, from the same technology that protects <b>140+ companies</b> and global banks.
       </blockquote>
-      <div class="who">CTO, Global 100 MSP</div>
+      <div class="who">PrivacyPal for business · NVIDIA Inception member</div>
     </div>
   </div>
 </section>
@@ -230,9 +262,9 @@
     <div class="cta-banner dark reveal">
       <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
       <h2 style="margin-top:14px">Stop blocking AI. Start governing it.</h2>
-      <p>Real on-device agent governance, not just policy theater. Free for individuals on Pro; Max covers the whole company from day one. You're in charge from minute one.</p>
+      <p>Real on-device agent governance, not just policy theater. Personal is free for every individual; the Max pack covers the whole company from day one. You're in charge from minute one.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Install once. Get protected.</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="download">Download free</a>
         <a class="btn btn-ghost btn-lg" href="pricing.html">View pricing</a>
       </div>
     </div>

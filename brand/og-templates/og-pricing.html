@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1200"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>OG card: pricing · PrivacyPal</title>
+<link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="stylesheet" href="../../assets/v3.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit.css"/>
+<!-- Renders assets/brand/og/og-pricing.png (1200x630). One app, three packs, three prices. -->
+<style>
+  .k-packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .k-pk{position:relative;overflow:hidden;border-radius:20px;padding:26px 26px 24px;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+  .k-pk::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--acc)}
+  .k-pk .nm{display:flex;align-items:center;justify-content:space-between;font-size:25px;font-weight:500;letter-spacing:-.015em}
+  .k-pk .who{font-family:var(--font-mono);font-size:14.5px;color:#b9c6dc;letter-spacing:.02em}
+  .k-pk .pr{display:flex;align-items:baseline;gap:8px;margin-top:20px}
+  .k-pk .pr b{font-size:58px;font-weight:500;letter-spacing:-.035em;line-height:1}
+  .k-pk .pr small{font-size:18px;color:#c9d4e6}
+  .k-pk p{margin:12px 0 0;font-size:17.5px;line-height:1.4;color:#c9d4e6}
+</style>
+</head>
+<body>
+<div class="k-canvas k-og ground-navy">
+  <div class="k-rings" style="--rings-x:100%;--rings-y:0%;--rings-size:1000px;--ring-a:.05"></div>
+  <div class="k-og-top">
+    <img class="k-logo" src="../../assets/brand/logo-white.svg" alt="PrivacyPal"/>
+    <span class="k-eyebrow" style="font-size:18px">Pricing</span>
+  </div>
+  <div class="k-og-body">
+    <h1 class="k-h" style="font-size:72px">One app. Three packs.</h1>
+    <div class="k-packs">
+      <div class="k-pk" style="--acc:var(--teal)">
+        <div class="nm">Personal <span class="who">For you</span></div>
+        <div class="pr"><b>Free</b></div>
+        <p>No card, no trial clock, no&nbsp;expiry.</p>
+      </div>
+      <div class="k-pk" style="--acc:var(--gold)">
+        <div class="nm">Family <span class="who">For your family</span></div>
+        <div class="pr"><b>$9.99</b><small>/month</small></div>
+        <p>Up to 5 family members. <span style="white-space:nowrap">5-day free trial.</span></p>
+      </div>
+      <div class="k-pk" style="--acc:#fff">
+        <div class="nm">Max <span class="who">For your business</span></div>
+        <div class="pr"><b>$34</b><small>/user/month</small></div>
+        <p>Volume pricing from 10&nbsp;users.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

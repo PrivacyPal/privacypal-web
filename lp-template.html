@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ================================================================
+     PRIVACYPAL · CAMPAIGN LANDING TEMPLATE (lp-template.html)
+
+     Copy this file to start any campaign page:
+         cp lp-template.html lp-<campaign>.html
+     Full guide: LANDING-PAGES.md. Design system: assets/v3.css +
+     assets/landing.css. Live examples: lp-banking.html (light hero),
+     lp-ciso.html (dark hero), max-offer.html (offer page).
+
+     Markers used in the comments below:
+       EDIT       change this value for every campaign
+       OPTION A/B two versions of the same block: keep one, delete the other
+       OPTIONAL   a block you may delete
+       KEEP       machinery: leave exactly as it is
+
+     House rules that apply to every value you type:
+       - No em dashes anywhere (copy, title, meta, alt text, comments).
+         Use a comma, colon, full stop or parentheses. Ranges use an
+         unspaced en dash (1–9).
+       - Sentence-case headlines, short. Second person. Name the mechanism
+         (on the device, Privacy Twins). Say what PrivacyPal does, never
+         what it does not do.
+       - Numbers and claims only from the approved list in
+         LANDING-PAGES.md. Never invent a stat, quote or customer.
+       - Product: "PrivacyPal", always alone. Packs: Personal (free),
+         the Family pack, the Max pack; on cards and chips just Personal,
+         Family, Max ("Get Max"). "Business" names the audience only
+         ("PrivacyPal for business"). Retired plan names never appear.
+       - Devices: Personal runs on Mac and Windows. iPhone, iPad and
+         Android are protected today with the Family or Max pack and
+         install by invitation ("Protected today on iPhone, iPad and
+         Android with Family or Max. Install by invitation."). The Linux
+         headless agent comes with Max. Never list phones for Personal.
+         Copilot and Claude Code are Max only.
+       - Max is paid from day one. For a larger rollout the CTA is "Talk
+         to sales" or "Book a demo".
+       - US spelling (license, color, center).
+       - Gold is an accent: one gold moment per section. Gold buttons only
+         on navy or dark photos; on white the primary button is teal.
+     ================================================================ -->
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<!-- EDIT: page title. Pattern: "<promise> · PrivacyPal for <audience>"
+     (audience in lowercase: business, banking, families). -->
+<title>Every AI at work, protected · PrivacyPal for business</title>
+
+<!-- EDIT: meta description, one or two sentences, about 150 characters. -->
+<meta name="description" content="Your team keeps every AI. PrivacyPal swaps names, numbers and secrets for Privacy Twins on the device, before a prompt reaches the AI provider." />
+
+<!-- EDIT: campaign pages use "noindex,follow" and stay out of sitemap.xml.
+     This template file itself is "noindex,nofollow". -->
+<meta name="robots" content="noindex,nofollow" />
+
+<!-- KEEP: the shared head snippet (favicons and browser theme color). -->
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+
+<!-- KEEP: fonts and the two stylesheets, in this order. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<link rel="stylesheet" href="assets/landing.css"/>
+
+<!-- EDIT: social share tags. og:url is this page's own URL. og:image is an
+     absolute https://privacypal.ai/ URL to a 1200x630 card from
+     assets/brand/og/: og-business.png for business campaigns,
+     og-family.png for family campaigns, og-personal.png for the free app,
+     og-default.png otherwise. -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/lp-template.html" />
+<meta property="og:title" content="Every AI at work, protected · PrivacyPal for business" />
+<meta property="og:description" content="Your team keeps every AI. PrivacyPal swaps sensitive details for Privacy Twins on the device, before a prompt reaches the AI provider." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Every AI at work, protected · PrivacyPal for business" />
+<meta name="twitter:description" content="Your team keeps every AI. The real data never reaches the AI provider." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+
+<!-- KEEP: analytics. Every campaign page loads both. -->
+<!-- Google tag (gtag.js) -->
+<script src="assets/google-tag.js"></script>
+<!-- Meta Pixel Code -->
+<script src="assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+
+<!-- OPTIONAL: referral attribution. assets/v3.js already loads
+     assets/referral.js on every page, which captures ?ref= / ?partner= /
+     ?aff= for 90 days. Include it here as well only when a script on this
+     page reads window.PPReferral before v3.js runs (max-offer.html does).
+<script src="assets/referral.js"></script>
+-->
+
+<!-- TEMPLATE PREVIEW ONLY: styles for the hero switcher at the bottom
+     left of this file. Delete this <style> block in your page. -->
+<style data-template-only>
+.tpl-switch{
+  position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:4px;
+  background:rgba(1,32,78,.94);color:#fff;border-radius:999px;padding:5px 6px 5px 14px;
+  font-family:var(--font-mono);font-size:.7rem;box-shadow:0 12px 30px -10px rgba(1,32,78,.5);
+}
+.tpl-switch span{color:rgba(236,242,250,.7);margin-right:6px}
+.tpl-switch a{color:#fff;padding:6px 11px;border-radius:999px}
+.tpl-switch a[aria-current="true"]{background:var(--gold);color:var(--ink)}
+@media (max-width:760px){.tpl-switch{bottom:84px}}
+</style>
+</head>
+
+<body class="lp">
+<!-- KEEP: Meta Pixel fallback for visitors without JavaScript. -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+
+<!-- ================================================================
+     OPTION A · DARK PHOTO HERO (with its header)
+     For business, security and paid-social campaigns. Full-bleed photo
+     under a navy grade, copy on the left, the Privacy Twin card on the
+     right. The header sits over the photo, so it uses the WHITE lockup.
+     On navy the primary CTA is gold (.btn-primary turns gold here).
+     Delete the two data-hero="dark" blocks if you use OPTION B.
+     ================================================================ -->
+<header class="lp-header on-dark" data-hero="dark">
+  <div class="lp-header-inner">
+    <!-- KEEP: the logo. White lockup on dark, never a CSS filter. -->
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/brand/logo-white.svg" alt="PrivacyPal" width="146" height="28"></a>
+    <div class="lp-header-right">
+      <!-- EDIT: header note (short, mono; hidden on phones). -->
+      <span class="lp-header-note">For security and IT leaders</span>
+      <!-- EDIT: the header CTA. Same action as the hero's primary CTA. -->
+      <a class="btn btn-primary" href="#" data-cta="demo">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<section class="lp-hero on-dark lp-hero--photo" data-hero="dark">
+  <!-- EDIT: the photo. Landscape, about 2400x1500, subject in the right
+       two thirds, calm and dark on the left third. Optimize it (JPEG
+       quality 82, ideally under 400 KB). --pos sets object-position
+       (desktop), --pos-m the phone crop. Keep alt="" (decorative).
+       data-standin marks a temporary photo and names its replacement. -->
+  <div class="lp-hero-bg" aria-hidden="true" style="--pos:58% 38%;--pos-m:72% 40%">
+    <img src="assets/hero-shot-banking.png" alt="" data-standin="assets/photos/hero-work.jpg" fetchpriority="high">
+  </div>
+  <div class="lp-wrap">
+    <div class="lp-hero-inner">
+      <div class="lp-hero-copy reveal in">
+        <!-- EDIT: eyebrow (the audience). The gold dot is automatic. -->
+        <span class="lp-eyebrow">PrivacyPal for business</span>
+        <!-- EDIT: headline, sentence case, under about 8 words. Wrap ONE or
+             TWO words in <em> for the gold underline. -->
+        <h1>Every AI at work, <em>protected</em>.</h1>
+        <!-- EDIT: lede, two sentences. Name the mechanism. Use <b> for at
+             most two words. -->
+        <p class="lp-lede">PrivacyPal is the filter between your company's data and every AI. On each device it swaps names, numbers and secrets for <b>Privacy Twins</b> before a prompt reaches ChatGPT, Claude or Copilot, so the AI still helps and only the twins reach the AI provider.</p>
+        <!-- KEEP (or delete): the approved proof line, word for word. -->
+        <p class="lp-proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>The same technology that protects 140+ companies and global banks.</span></p>
+        <!-- EDIT: two CTAs. Pick ONE goal: the primary is demo
+             (data-cta="demo") or download (data-cta="download",
+             href="download.html"). The other one is the .btn-ghost. -->
+        <div class="lp-cta-row">
+          <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
+          <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
+        </div>
+        <!-- EDIT (OPTIONAL): one line that lowers the cost of the click. -->
+        <span class="lp-cta-note">15 minutes, on your own prompts. Personal is free, no card.</span>
+      </div>
+      <!-- OPTIONAL: the Privacy Twin card. Illustrative UI, so it always
+           carries the "Example" tag. EDIT the destination and the prompt:
+           <s> is the real value, .twin its stand-in. Hidden on phones. -->
+      <div class="lp-hero-aside reveal in reveal-delay-1">
+        <div class="lp-swap glass" role="group" aria-label="Example: a prompt protected by PrivacyPal">
+          <div class="lp-swap-head">PrivacyPal <span class="lp-swap-live">Live protection</span><span class="lp-swap-tag">Example</span></div>
+          <span class="lp-swap-to">To Claude · your laptop</span>
+          <p class="lp-swap-text">Summarize the renewal terms for <s>Acme Holdings</s> <span class="twin">Birch Lane Group</span>, contract <s>CN-20418</s> <span class="twin">CN-77352</span></p>
+          <div class="lp-swap-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 details swapped on this device</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     OPTION B · LIGHT SPLIT HERO (with its header)
+     For warmer, self-serve or industry campaigns. Copy left, photo right
+     with the Privacy Twin card overlapping it. Sticky light header with
+     the NAVY lockup. On white the primary CTA stays teal.
+     Delete the two data-hero="light" blocks if you use OPTION A, and
+     remove their `hidden` attribute if you keep them.
+     ================================================================ -->
+<header class="lp-header" data-hero="light" hidden>
+  <div class="lp-header-inner">
+    <!-- KEEP: the logo. Navy lockup on light. -->
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/brand/logo.svg" alt="PrivacyPal" width="146" height="28"></a>
+    <div class="lp-header-right">
+      <!-- EDIT: header note and header CTA. -->
+      <span class="lp-header-note">For security and IT leaders</span>
+      <a class="btn btn-primary" href="#" data-cta="demo">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<section class="lp-hero lp-hero--split" data-hero="light" hidden>
+  <div class="lp-wrap">
+    <div class="lp-hero-inner">
+      <div class="reveal in">
+        <!-- EDIT: eyebrow. .gold gives the gold dot (the one gold moment
+             here is the headline underline, so the dot may also be plain). -->
+        <span class="lp-eyebrow gold">PrivacyPal for business</span>
+        <!-- EDIT: headline; <em> = gold underline on one or two words. -->
+        <h1>Every AI at work, <em>protected</em>.</h1>
+        <!-- EDIT: lede. -->
+        <p class="lp-lede">PrivacyPal is the filter between your company's data and every AI. On each device it swaps names, numbers and secrets for <b>Privacy Twins</b> before a prompt reaches ChatGPT, Claude or Copilot, so the AI still helps and only the twins reach the AI provider.</p>
+        <!-- KEEP (or delete): the approved proof line. -->
+        <p class="lp-proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>The same technology that protects 140+ companies and global banks.</span></p>
+        <!-- EDIT: CTAs (teal primary on light). -->
+        <div class="lp-cta-row">
+          <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
+          <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
+        </div>
+        <!-- OPTIONAL: pack chips. Use the exact prices below; they come
+             from the published price book. -->
+        <div class="lp-packs">
+          <span class="pack-chip personal">Personal · Free</span>
+          <span class="pack-chip family">Family · $9.99/mo</span>
+          <span class="pack-chip business">Max · $34/user/mo</span>
+        </div>
+      </div>
+      <!-- EDIT: the photo (portrait-ish crop works best, about 4:4.3) and the
+           optional Privacy Twin card. -->
+      <div class="lp-hero-photo reveal in reveal-delay-1">
+        <img src="assets/hero-shot-legal.png" alt="Colleagues at work in a bright office" data-standin="assets/photos/pack-business.jpg">
+        <div class="lp-swap" role="group" aria-label="Example: a prompt protected by PrivacyPal">
+          <div class="lp-swap-head">PrivacyPal <span class="lp-swap-live">Live protection</span><span class="lp-swap-tag">Example</span></div>
+          <span class="lp-swap-to">To ChatGPT · your laptop</span>
+          <p class="lp-swap-text">Summarize the renewal terms for <s>Acme Holdings</s> <span class="twin">Birch Lane Group</span>, contract <s>CN-20418</s> <span class="twin">CN-77352</span></p>
+          <div class="lp-swap-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 details swapped on this device</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     TRUST STRIP · the AI your audience already uses
+     EDIT the label. Logos: keep to these files. Claude and Gemini are
+     full wordmarks and carry class="wordmark" (set smaller so they match
+     the ChatGPT and Copilot lockups). Grok, Perplexity and Hermes Agent
+     have no official mark in the repo: set them as names with
+     .lp-trust-name. Hermes Agent and Copilot belong on business (Max)
+     campaigns only.
+     ================================================================ -->
+<div class="lp-trust">
+  <div class="lp-trust-inner">
+    <span class="lp-trust-label">Protects the AI your team already uses</span>
+    <div class="lp-trust-logos">
+      <img src="assets/chatgpt.png" alt="ChatGPT">
+      <img class="wordmark" src="assets/claude.png" alt="Claude">
+      <img class="wordmark" src="assets/gemini.png" alt="Gemini">
+      <img src="assets/copilot.webp" alt="Microsoft Copilot">
+      <span class="lp-trust-name">Grok</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     STAKES · the human "why now"
+     EDIT: eyebrow, lead (the <b> part turns teal), sub, three cards.
+     The third card (.answer) is the resolution and gets the teal rule.
+     ================================================================ -->
+<section class="lp-section">
+  <div class="lp-wrap">
+    <div class="reveal" style="max-width:760px">
+      <span class="lp-eyebrow">Shadow AI at work</span>
+      <p class="lp-stakes-lead" style="margin-top:18px">Your team already uses AI. <b>Now you can govern it.</b></p>
+      <p class="lp-sub" style="margin-top:18px">People paste client names, contracts and code into chat apps because the work goes faster. PrivacyPal keeps the speed and brings the work on the record.</p>
+    </div>
+    <div class="lp-stakes-grid">
+      <div class="lp-stake reveal reveal-delay-1"><div class="k">Today</div><h4>AI on every desk</h4><p>Chat apps, copilots and agents are already part of the workday, often through personal accounts.</p></div>
+      <div class="lp-stake reveal reveal-delay-1"><div class="k">The trap</div><h4>The blanket ban</h4><p>Say "no AI" and the work moves to a personal laptop. The risk stays. Only the visibility goes.</p></div>
+      <div class="lp-stake answer reveal reveal-delay-2"><div class="k">The way out</div><h4>Governed enablement</h4><p>Keep every tool. Swap the sensitive details on the device, and keep a record of every prompt.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     HOW IT WORKS · three steps
+     EDIT: eyebrow, headline (<em> turns teal here, not gold), sub, and
+     the three steps. Step labels are "01", "02", "03".
+     ================================================================ -->
+<section class="lp-section alt">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">How it works</span>
+      <h2 class="lp-h2">Real values out. <em>Twins to the model.</em> Real values back.</h2>
+      <p class="lp-sub">Same tools, same workflow. The real data never reaches the AI provider.</p>
+    </div>
+    <div class="lp-steps">
+      <div class="lp-step reveal reveal-delay-1"><div class="num">01</div><h4>You type as usual</h4><p>A prompt or a file with a client name, an account number or a line of source code.</p></div>
+      <div class="lp-step reveal reveal-delay-1"><div class="num">02</div><h4>PrivacyPal swaps</h4><p>On the device, before anything is sent, sensitive details become Privacy Twins: realistic stand-ins.</p></div>
+      <div class="lp-step reveal reveal-delay-2"><div class="num">03</div><h4>The answer comes back real</h4><p>The AI works on the twins. On the way back, the real values are restored on your device.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     BENEFITS · three cards
+     EDIT: eyebrow, headline, three cards (icon, title, one or two
+     sentences). Icons: inline stroke SVGs, 24px viewBox, no fill.
+     ================================================================ -->
+<section class="lp-section">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">Why teams choose PrivacyPal</span>
+      <h2 class="lp-h2">Governed AI beats a blanket ban.</h2>
+    </div>
+    <div class="lp-benefits">
+      <div class="lp-benefit reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Protection on the device</h3><p>Protection runs on the device, before a prompt or file reaches an AI provider.</p>
+      </div>
+      <div class="lp-benefit reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h3>Full-quality answers</h3><p>Redaction blinds the model. Privacy Twins keep the context it needs, so the AI still works.</p>
+      </div>
+      <div class="lp-benefit reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+        <h3>Every AI, one policy</h3><p>ChatGPT, Claude, Gemini, Grok and Perplexity, plus Microsoft Copilot, Claude Code and Codex with the Max pack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     OPTIONAL · PACKS
+     One PrivacyPal: one app, three packs. Use it when the campaign sells
+     more than one pack. Prices and features are fixed facts: change them
+     only when the published price book changes. Components come from
+     assets/v3.css (.pack-grid / .pack-card).
+     ================================================================ -->
+<section class="lp-section alt">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">One app · three packs</span>
+      <h2 class="lp-h2">One download. Add what you need.</h2>
+      <p class="lp-sub">Everyone starts with Personal, free. Family and Max switch on in the same app, on one PrivacyPal account.</p>
+    </div>
+    <div class="pack-grid">
+      <div class="pack-card personal reveal reveal-delay-1">
+        <div><div class="pack-head"><span class="pack-name">Personal</span></div><div class="pack-for">For you</div></div>
+        <div class="pack-price"><span class="big">Free</span><small>no card, no expiry</small></div>
+        <p class="pack-desc">Personal PII protection across the AI chat apps.</p>
+        <ul>
+          <li>ChatGPT, Claude, Gemini, Grok and Perplexity</li>
+          <li>Attachments included</li>
+          <li>The last 24 hours of usage history</li>
+          <li>On Mac and Windows</li>
+        </ul>
+        <div class="pack-cta"><a class="btn btn-primary" href="download.html" data-cta="download">Download free</a></div>
+      </div>
+      <div class="pack-card family reveal reveal-delay-1">
+        <div><div class="pack-head"><span class="pack-name">Family</span></div><div class="pack-for">For your family</div></div>
+        <div class="pack-price"><span class="big">$9.99</span><small>/month per household</small></div>
+        <p class="pack-desc">Guardrails for the AI kids use and for games like Roblox.</p>
+        <ul>
+          <li>Up to 5 family members</li>
+          <li>Parent HQ: signals, not transcripts</li>
+          <li>5-day free trial, 30-day money-back guarantee</li>
+          <li>Mac, Windows, iPhone, iPad and Android</li>
+        </ul>
+        <div class="pack-cta"><a class="btn btn-ghost" href="family/founding/">Start Family free</a></div>
+      </div>
+      <div class="pack-card business dark reveal reveal-delay-2">
+        <div><div class="pack-head"><span class="pack-name">Max</span></div><div class="pack-for">For your business</div></div>
+        <div class="pack-price"><span class="big">$34</span><small>/user/month</small></div>
+        <p class="pack-desc">Privacy and governance for every AI at work.</p>
+        <ul>
+          <li>Everything in Personal</li>
+          <li>Claude Code, Codex, Copilot and agent surfaces</li>
+          <li>Admin, domain accounts and full usage history</li>
+          <li>Mac, Windows, iPhone, iPad, Android and the Linux agent</li>
+        </ul>
+        <div class="pack-cta"><a class="btn btn-gold" href="max-offer.html">Get Max</a><span class="pack-fine">From $17/user/mo at volume, billed annually</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     OPTIONAL · SPLIT · image + checklist
+     EDIT: eyebrow, headline, up to four checks (<b> lead + one sentence),
+     CTA, and the figure. A product screenshot sits in a framed card; for a
+     photo add class "photo" to .lp-split-figure.
+     ================================================================ -->
+<section class="lp-section">
+  <div class="lp-wrap">
+    <div class="lp-split">
+      <div class="reveal">
+        <span class="lp-eyebrow">For the person who owns the risk</span>
+        <h2 class="lp-h2" style="margin-top:14px">See every prompt. Prove every control.</h2>
+        <ul class="lp-check">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Activity feed.</b> Every interception logged in one place.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Shadow-AI discovery.</b> See which AI tools are in use across the company.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>SSO and admin.</b> Team sign-in, org-wide policy and centralized seat management.</span></li>
+        </ul>
+        <div class="lp-cta-row"><a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a></div>
+      </div>
+      <div class="lp-split-figure reveal reveal-delay-1">
+        <img src="assets/activity-feed-wide.png" alt="PrivacyPal activity feed: each protected prompt listed with what was swapped">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     PROOF BAND · navy, gold numbers
+     KEEP the wording: these are the approved figures (LANDING-PAGES.md).
+     You may drop a column (the grid is four wide on desktop, two on
+     phones) or swap in another approved line. .n.word is for a figure
+     written in words; it renders white, so gold stays on the numbers.
+     ================================================================ -->
+<div class="lp-stats dark">
+  <div class="lp-stat"><span class="n">140+</span><span class="l">companies run the same engine at work</span></div>
+  <div class="lp-stat"><span class="n word">Tens of millions</span><span class="l">of sensitive details protected</span></div>
+  <div class="lp-stat"><span class="n">0<small>bytes</small></span><span class="l">of sensitive data sent to AI providers</span></div>
+  <div class="lp-stat"><span class="n word">NVIDIA Inception</span><span class="l">member, optimizing on-device protection</span></div>
+</div>
+
+
+<!-- ================================================================
+     FAQ · three to five questions
+     EDIT: eyebrow, headline, questions and answers. The first one is open.
+     ================================================================ -->
+<section class="lp-section">
+  <div class="lp-wrap">
+    <div class="lp-head center reveal">
+      <span class="lp-eyebrow">Straight answers</span>
+      <h2 class="lp-h2">What your team will ask.</h2>
+    </div>
+    <div class="lp-faq reveal reveal-delay-1">
+      <details open><summary>Where does our data go?</summary><p>Protection runs on the device, before a prompt or file reaches an AI provider. Sensitive details are swapped for Privacy Twins, realistic stand-ins, so the AI still works and the real values are restored in the answer on your device.</p></details>
+      <details><summary>Which AI tools are covered?</summary><p>Personal covers ChatGPT, Claude, Gemini, Grok and Perplexity web chat, attachments included. The Max pack adds Claude Code, Codex, Microsoft Copilot and Copilot agents, Hermes Agent and the OpenAI and xAI APIs.</p></details>
+      <details><summary>Which devices does it run on?</summary><p>Personal runs on Mac and Windows. iPhone, iPad and Android are protected today with the Family or Max pack, and install by invitation. The Max pack also adds the headless agent for Linux servers.</p></details>
+      <details><summary>What does it cost?</summary><p>Personal is free for every individual. The Max pack is $34 per user a month, or $30 billed annually, falling to $17 at volume. The Family pack is $9.99 a month per household. Your company can add Max to anyone's PrivacyPal account under a license it provisions, and it stacks with their own Family pack.</p></details>
+      <details><summary>Can it run inside our own environment?</summary><p>Yes. PrivacyPal Cloud is the sovereign deployment: the governance plane in your VPC, with an air-gapped option and custom annual pricing.</p></details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FINAL CTA · navy card
+     EDIT: headline, one sentence, the same two CTAs as the hero. On navy
+     the primary button is gold automatically.
+     ================================================================ -->
+<section class="lp-final">
+  <div class="lp-wrap">
+    <div class="lp-final-card reveal">
+      <h2>Say yes to every AI your team uses.</h2>
+      <p>Book 15 minutes and watch PrivacyPal protect a real prompt, or download it free and try it on your own.</p>
+      <div class="lp-cta-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
+        <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     EDIT: the links (three to six, relevant to the campaign).
+     KEEP: the logo, the address (it must match contact.html and the site
+     footer), the copyright line and the penguin credit line.
+     ================================================================ -->
+<footer class="lp-footer">
+  <div class="lp-footer-inner">
+    <a class="lp-footer-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/brand/logo.svg" alt="PrivacyPal" width="125" height="24"></a>
+    <div class="lp-footer-links">
+      <a href="business.html">PrivacyPal for business</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:hello@privacypal.ai">Contact</a>
+    </div>
+    <div class="lp-footer-copy">
+      <address class="lp-footer-addr">PrivacyPal · 1601 Belvedere Rd, Suite E-300 · West Palm Beach, FL 33406 · United States</address>
+      © 2026 PrivacyPal · We protect your data from AI, at home and at work.
+    </div>
+    <!-- KEEP: the penguin credit. The logo penguin is the Twemoji emoji
+         under CC BY 4.0, which requires this line wherever the logo shows. -->
+    <p class="footer-credit">Penguin emoji graphic from <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, &copy; Twitter, Inc. and other contributors, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
+  </div>
+</footer>
+
+
+<!-- EDIT: the sticky mobile CTA (shows at 760px and below). Same action as
+     the hero's primary CTA. -->
+<div class="lp-sticky">
+  <a class="btn btn-primary" href="#" data-cta="demo">Book a demo</a>
+</div>
+
+
+<!-- TEMPLATE PREVIEW ONLY: the hero switcher. Delete this nav and the
+     script after v3.js in your page. -->
+<nav class="tpl-switch" data-template-only aria-label="Template preview">
+  <span>Hero</span>
+  <a href="?hero=dark" data-tpl="dark">Dark photo</a>
+  <a href="?hero=light" data-tpl="light">Light</a>
+</nav>
+
+<!-- KEEP: assets/v3.js. On a campaign page it injects no nav or footer
+     (there are no slots); it adds the shared demo and download modals,
+     binds every data-cta, loads the referral script and runs .reveal. -->
+<script src="assets/v3.js"></script>
+
+<!-- TEMPLATE PREVIEW ONLY: shows OPTION B when the URL has ?hero=light. -->
+<script data-template-only>
+(function(){
+  var light = /[?&]hero=light(&|$)/.test(location.search);
+  var blocks = document.querySelectorAll('[data-hero]');
+  for (var i = 0; i < blocks.length; i++){
+    blocks[i].hidden = (blocks[i].getAttribute('data-hero') === 'light') !== light;
+  }
+  var links = document.querySelectorAll('[data-tpl]');
+  for (var j = 0; j < links.length; j++){
+    links[j].setAttribute('aria-current', String((links[j].getAttribute('data-tpl') === 'light') === light));
+  }
+})();
+</script>
+</body>
+</html>

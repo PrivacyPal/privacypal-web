@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>PrivacyPal SDK | Documentation</title>
   <meta name="description" content="Documentation for the PrivacyPal SDK for Node.js and Python. Detect, encode, and decode sensitive data with Privacy Twins technology.">
+  <link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+  <link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+  <meta name="theme-color" content="#01204E"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PrivacyPal" />
+  <meta property="og:url" content="https://privacypal.ai/documentation/sdk/" />
+  <meta property="og:title" content="PrivacyPal SDK documentation" />
+  <meta property="og:description" content="Encode sensitive data into Privacy Twins before it reaches an AI model, then decode the response. Node.js and Python SDKs plus a REST API." />
+  <meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PrivacyPal SDK documentation" />
+  <meta name="twitter:description" content="Encode sensitive data into Privacy Twins before it reaches an AI model, then decode the response. Node.js and Python SDKs plus a REST API." />
+  <meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 
   <!-- Stoplight Elements -->
   <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
@@ -57,14 +73,8 @@
     .top-bar-logo {
       width: 32px;
       height: 32px;
-      background: linear-gradient(135deg, var(--cobalt), var(--cobalt-light));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-      color: white;
+      display: block;
+      flex: none;
     }
 
     .top-bar-title {
@@ -76,10 +86,10 @@
     .top-bar-version {
       font-size: 12px;
       padding: 2px 8px;
-      background: rgba(99, 102, 241, 0.15);
-      color: var(--purple);
+      background: rgba(255,172,51, 0.12);
+      color: #ffac33;
       border-radius: 12px;
-      border: 1px solid rgba(99, 102, 241, 0.3);
+      border: 1px solid rgba(255,172,51, 0.35);
     }
 
     .lang-badges {
@@ -509,6 +519,11 @@
     }
 
     @media (max-width: 640px) {
+      .top-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+      .lang-badges { display: none; }
+      .top-bar-links { gap: 14px; flex-wrap: wrap; }
+      .top-bar-links a { font-size: 13px; }
+      .error-table { display: block; overflow-x: auto; }
       .sdk-cards { grid-template-columns: 1fr; }
       .gs-container { padding: 32px 16px 60px; }
       .doc-block h2 { font-size: 1.3rem; }
@@ -526,7 +541,7 @@
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="top-bar-left">
-      <div class="top-bar-logo">P</div>
+      <a href="/" aria-label="PrivacyPal home"><img class="top-bar-logo" src="../../assets/brand/penguin-dark.svg" alt="PrivacyPal" width="32" height="32"></a>
       <span class="top-bar-title">PrivacyPal SDK</span>
       <span class="top-bar-version">v1.0.2</span>
       <div class="lang-badges">
@@ -561,7 +576,7 @@
           then decode the response to restore original values. Available for both Node.js and Python:
           identical API surface, same endpoint, same behavior. The same clients work against the enterprise
           data plane at <code style="color:var(--teal);background:rgba(78,201,176,.1);padding:1px 6px;border-radius:4px;">api.privacypal.ai</code>
-          and the PrivacyPal Family data plane at
+          and the Family data plane at
           <code style="color:var(--teal);background:rgba(78,201,176,.1);padding:1px 6px;border-radius:4px;">api.family.privacypal.ai</code>.
         </p>
 
@@ -586,8 +601,8 @@
         <h2>Developer Quickstart</h2>
         <p>
           Zero to protected in five minutes: install, initialize, then run the full
-          encode &rarr; AI &rarr; decode loop. Real PII never leaves your boundary; the model only ever
-          sees Privacy Twins.
+          encode &rarr; AI &rarr; decode loop. The model only ever sees Privacy Twins; real PII never
+          reaches it.
         </p>
 
         <p><strong>1. Install</strong></p>
@@ -708,7 +723,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
           <li><strong>Python reliability</strong>: <code>health_check</code> now reports a healthy API correctly (the <code>/health</code> endpoint returns plain text, not JSON), and errors are typed exceptions on a common <code>PrivacyPalError</code> base carrying <code>status_code</code>.</li>
           <li><strong>Entitlement leases (Python)</strong>: on-device deployments can attach a lease via <code>entitlement_lease</code> / <code>update_entitlement_lease</code>, sent as <code>x-pp-entitlement-lease</code> and checked on the encode, batch, file, and decode routes.</li>
           <li><strong>Private Memory API</strong>: new authenticated <code>/api/memory</code> endpoint group (episodes, recall, stats, settings, audit, export, correction, and crypto-shred erase).</li>
-          <li><strong>PrivacyPal Family</strong>: a dedicated Family data plane at <code>api.family.privacypal.ai</code> and a family detection profile that additionally protects school names and city-level geography. See the Family API section below.</li>
+          <li><strong>Family pack</strong>: a dedicated Family data plane at <code>api.family.privacypal.ai</code> and a family detection profile that additionally protects school names and city-level geography. See the Family API section below.</li>
         </ul>
       </div>
 
@@ -836,7 +851,7 @@ console.<span class="fn">log</span>(<span class="pr">encoded</span>.<span class=
 
         <p>To encode multiple items in one request, use <code style="color:var(--teal)">encodeBatch</code> / <code style="color:var(--teal)">encode_batch</code>. To encode a file (PDF, DOCX, CSV, image), use <code style="color:var(--teal)">encodeFile</code> / <code style="color:var(--teal)">encode_file</code>: it accepts an optional <code style="color:var(--teal)">platform</code> identifier, defaults to a 120s upload timeout, and (Python) takes a per-call <code style="color:var(--teal)">timeout</code> override for interactive callers.</p>
         <p>
-          Detection is policy-driven on the server. Accounts on the PrivacyPal Family data plane automatically
+          Detection is policy-driven on the server. Accounts on the Family data plane automatically
           get the family detection profile (school names and city-level geography protected, on top of standard PII);
           enterprise accounts get the standard profile. The profile is resolved from the authenticated account and
           cannot be switched from the client, so there is no SDK parameter for it, by design.
@@ -929,7 +944,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
           </div>
           <div class="code-panel active" data-group="chat" data-lang="node">
 <pre><span class="kw">const</span> <span class="pr">result</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">chatWithAI</span>({
-  <span class="pr">prompt</span>: <span class="st">'Summarise the patient notes for Jane Doe.'</span>,
+  <span class="pr">prompt</span>: <span class="st">'Summarize the patient notes for Jane Doe.'</span>,
   <span class="pr">model</span>: <span class="st">'gemini-2.0-flash-exp'</span>,
   <span class="pr">provider</span>: <span class="st">'vertex'</span>,
 });
@@ -938,7 +953,7 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
           </div>
           <div class="code-panel" data-group="chat" data-lang="python">
 <pre><span class="pr">result</span> = <span class="pr">client</span>.<span class="fn">chat_with_ai</span>(
-  <span class="pr">prompt</span>=<span class="st">'Summarise the patient notes for Jane Doe.'</span>,
+  <span class="pr">prompt</span>=<span class="st">'Summarize the patient notes for Jane Doe.'</span>,
   <span class="pr">model</span>=<span class="st">'gemini-2.0-flash-exp'</span>,
   <span class="pr">provider</span>=<span class="st">'vertex'</span>,
 )
@@ -952,7 +967,7 @@ console.<span class="fn">log</span>(<span class="pr">result</span>.<span class="
       <div class="doc-block">
         <h2>Family API</h2>
         <p>
-          <a href="/family/" style="color:var(--cobalt-light)">PrivacyPal Family</a> runs on its own,
+          The <a href="/family/" style="color:var(--cobalt-light)">Family pack</a> runs on its own,
           fully isolated deployment of the PrivacyPal API. Two surfaces matter to developers:
         </p>
         <ul>
@@ -1185,8 +1200,8 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
           </div>
         </div>
 
-        <h3>Financial services: decentralized dark pool <span class="future-tag">x402 coming soon</span></h3>
-        <p class="example-desc">Encode trade info to protect trader identity, match through Privacy Twins, and (in a future release) decode only after x402 payment is settled.</p>
+        <h3>Financial services: private counterparty matching</h3>
+        <p class="example-desc">Encode trade info to protect trader identity, match through Privacy Twins, and decode real values only once a counterparty is found.</p>
 
         <div class="code-block">
           <div class="code-block-header">
@@ -1198,9 +1213,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
             </div>
           </div>
           <div class="code-panel active" data-group="ex-fin" data-lang="node">
-<pre><span class="cm">// Future: import { x402Middleware } from '@x402/payment';</span>
-
-<span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
+<pre><span class="kw">const</span> <span class="pr">encoded</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">encode</span>({
   <span class="pr">data</span>: <span class="st">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
   <span class="pr">sourceContainer</span>: <span class="st">'dark-pool'</span>,
   <span class="pr">sourceElement</span>: <span class="st">'trade-request'</span>,
@@ -1209,7 +1222,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
 <span class="kw">const</span> <span class="pr">match</span> = <span class="kw">await</span> <span class="fn">findCounterparty</span>(<span class="pr">encoded</span>.<span class="pr">encodedData</span>);
 
 <span class="kw">if</span> (<span class="pr">match</span>.<span class="pr">found</span>) {
-  <span class="cm">// Future: x402 payment required before decode</span>
+  <span class="cm">// Matched: restore the real trade details</span>
   <span class="kw">const</span> <span class="pr">realData</span> = <span class="kw">await</span> <span class="pr">client</span>.<span class="fn">decode</span>({
     <span class="pr">continuationId</span>: <span class="pr">encoded</span>.<span class="pr">continuationId</span>,
     <span class="pr">data</span>: <span class="pr">match</span>.<span class="pr">counterpartyData</span>,
@@ -1218,9 +1231,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
 }</pre>
           </div>
           <div class="code-panel" data-group="ex-fin" data-lang="python">
-<pre><span class="cm"># Future: from x402 import middleware</span>
-
-<span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
+<pre><span class="pr">encoded</span> = <span class="pr">client</span>.<span class="fn">encode</span>(
   <span class="st">'Trader: trader-789, Symbol: AAPL, Qty: 1000'</span>,
   <span class="pr">source_container</span>=<span class="st">'dark-pool'</span>,
   <span class="pr">source_element</span>=<span class="st">'trade-request'</span>,
@@ -1229,7 +1240,7 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
 <span class="pr">match</span> = <span class="fn">find_counterparty</span>(<span class="pr">encoded</span>[<span class="st">'encodedData'</span>])
 
 <span class="kw">if</span> <span class="pr">match</span>[<span class="st">'found'</span>]:
-  <span class="cm"># Future: x402 payment required before decode</span>
+  <span class="cm"># Matched: restore the real trade details</span>
   <span class="pr">real_data</span> = <span class="pr">client</span>.<span class="fn">decode</span>(
     <span class="pr">continuation_id</span>=<span class="pr">encoded</span>[<span class="st">'continuationId'</span>],
     <span class="pr">data</span>=<span class="pr">match</span>[<span class="st">'counterpartyData'</span>],
@@ -1247,6 +1258,8 @@ console.<span class="fn">log</span>(<span class="pr">decoded</span>.<span class=
           <a href="#" onclick="showSection('api-reference', document.querySelector('.section-nav-tab:nth-child(2)')); return false;" style="color:var(--cobalt-light)">Open API Reference →</a>
         </p>
       </div>
+
+      <p class="gs-credit" style="margin-top:40px;font-size:.78rem;color:var(--text-muted)">Penguin emoji graphic from <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:underline">Twemoji</a>, &copy; Twitter, Inc. and other contributors, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:underline">CC BY 4.0</a>.</p>
 
     </div>
   </div>

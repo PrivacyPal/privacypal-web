@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Social: square post · PrivacyPal</title>
+<link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="stylesheet" href="../../assets/v3.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../og-templates/kit.css"/>
+<!-- Square post template, 1080 x 1080 (LinkedIn, X, Instagram).
+     Renders assets/brand/social/post-square-1080.png (navy) and post-square-light-1080.png (light).
+     Make a new post by opening this page with parameters, then screenshot at 1080 x 1080
+     (or add a job to scripts/brand/build-og.js):
+       ?ground=navy|light
+       &eyebrow=How PrivacyPal works
+       &title=The AI still works. Your real data [never reaches it].
+       &body=One or two sentences.
+     Square brackets in the title mark the one gold moment: a gold underline on navy,
+     a gold highlighter on light. Keep titles under about 60 characters, body under about 160.
+     Copy rules: no em dashes, affirmative only, grounded claims only. -->
+<style>
+  .k-post{width:1080px;height:1080px;box-sizing:border-box;padding:84px 88px 76px;display:flex;flex-direction:column}
+  .k-post .k-logo{--logo-h:48px}
+  .k-post .k-main{margin-top:auto}
+  .k-post .k-eyebrow{font-size:22px}
+  .k-post .k-h{font-size:92px;margin-top:30px;line-height:1.0}
+  .k-post .k-sub{font-size:31px;margin-top:34px;max-width:840px;line-height:1.42}
+  .k-post .k-foot{display:flex;align-items:center;justify-content:space-between;margin-top:64px;padding-top:30px;border-top:1px solid rgba(255,255,255,.16)}
+  .k-post .k-foot .k-mono{font-size:20px}
+  .k-post .k-foot .k-url{font-size:23px}
+  /* light ground */
+  .k-post.light{background:var(--panel);color:var(--ink)}
+  .k-post.light .k-h{color:var(--ink)}
+  .k-post.light .k-sub{color:var(--text)}
+  .k-post.light .k-eyebrow,.k-post.light .k-mono{color:var(--muted)}
+  .k-post.light .k-url{color:var(--ink)}
+  .k-post.light .k-foot{border-top-color:var(--line)}
+  .k-post.light .mark-gold{padding:0 .06em}
+  .k-post.light .k-rings{display:none}
+  .k-post .k-logo-light{display:none}
+  .k-post.light .k-logo-dark{display:none}
+  .k-post.light .k-logo-light{display:block}
+</style>
+</head>
+<body>
+<div class="k-canvas k-post ground-navy" id="post">
+  <div class="k-rings" style="--rings-x:100%;--rings-y:0%;--rings-size:1500px;--ring-gap:54px;--ring-a:.05"></div>
+  <div>
+    <img class="k-logo k-logo-dark" src="../../assets/brand/logo-white.svg" alt="PrivacyPal"/>
+    <img class="k-logo k-logo-light" src="../../assets/brand/logo.svg" alt="PrivacyPal"/>
+  </div>
+  <div class="k-main">
+    <span class="k-eyebrow gold" id="eyebrow">How PrivacyPal works</span>
+    <h1 class="k-h" id="title">The AI still works. Your real data <span class="k-ul">never reaches&nbsp;it</span>.</h1>
+    <p class="k-sub" id="body">Sensitive details are swapped for Privacy Twins, realistic <span style="white-space:nowrap">stand-ins</span>, on your device, before a prompt or file reaches an AI provider.</p>
+  </div>
+  <div class="k-foot">
+    <span class="k-mono">Personal · Family · Max</span>
+    <span class="k-url">privacypal.ai</span>
+  </div>
+</div>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var post = document.getElementById('post');
+    var light = q.get('ground') === 'light';
+    if (light) { post.classList.remove('ground-navy'); post.classList.add('light'); }
+    if (q.has('eyebrow')) document.getElementById('eyebrow').textContent = q.get('eyebrow');
+    if (q.has('body')) document.getElementById('body').textContent = q.get('body');
+    var title = document.getElementById('title');
+    if (q.has('title')) {
+      title.textContent = '';
+      q.get('title').split(/(\[[^\]]+\])/).forEach(function (part) {
+        if (!part) return;
+        if (part.charAt(0) === '[' && part.charAt(part.length - 1) === ']') {
+          var s = document.createElement('span');
+          s.className = light ? 'mark-gold' : 'k-ul';
+          s.textContent = part.slice(1, -1);
+          title.appendChild(s);
+        } else {
+          title.appendChild(document.createTextNode(part));
+        }
+      });
+    } else if (light) {
+      title.querySelectorAll('.k-ul').forEach(function (s) { s.className = 'mark-gold'; });
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,10 +1,11 @@
 # PrivacyPal Website
 
-Landing page for PrivacyPal - AI Without Compromise
+The website at https://privacypal.ai. One product, **PrivacyPal**, with the Personal
+(free), Family and Max packs, and one download. Plain static HTML on GitHub Pages.
 
 ## Site structure
 
-- **Repository root** – Live site (the v3 redesign, promoted to root). This is what GitHub Pages serves.
+- **Repository root**: the live site. This is what GitHub Pages serves.
 
 > `v2.archive/` (the previous site) and `v3/` (redirect stubs for pre-launch `/v3/…`
 > links) were deleted on 2026-09-09: crawlers were picking them up despite the
@@ -16,15 +17,107 @@ Landing page for PrivacyPal - AI Without Compromise
 ## Site architecture
 
 - Plain static HTML. `assets/v3.css` is the entire design system; see `STYLE-GUIDE.md`
-  for the component reference and page-building rules.
+  for the component reference, the brand rules and the page-building rules, and the
+  brand guidelines page `brand/index.html` (https://privacypal.ai/brand/) for the
+  visual reference.
 - `assets/v3.js` injects the announcement bar, nav (mega menus, mobile menu), footer
-  and the shared demo/download modals into the `#site-nav-slot` / `#site-footer-slot`
-  placeholders on every page; also handles dropdowns, reveal-on-scroll, copy buttons
-  and CTA bindings (`data-cta="demo"` / `data-cta="download"`).
+  and the shared modals (the one download modal and the demo modal) into the
+  `#site-nav-slot` / `#site-footer-slot` placeholders on every page; it also handles
+  dropdowns, reveal-on-scroll, copy buttons and CTA bindings (`data-cta="demo"`,
+  `data-cta="download"`, `data-cta="family-download"`).
+- The footer `v3.js` injects carries the Twemoji credit line (`p.footer-credit`), which
+  the penguin's CC BY 4.0 license requires; keep it. `v3.js` also renders every typed
+  🐧 on a page as the logo's penguin (`assets/brand/penguin.svg`), except inside form
+  fields, `code`, `pre`, scripts and anything marked `data-raw-emoji`.
+- **Downloads:** build URLs live in exactly one place, the `DOWNLOADS` config at the
+  top of `assets/v3.js`. Pages never hardcode a build URL; they use
+  `data-cta="download"` or link to `download.html`, the canonical download page
+  (`install.html` and `desktop.html` point to it). The config's comment explains a
+  release bump and the `FAMILY_SEPARATE_APP` transition flag.
+- `assets/family-chrome.css` mirrors the chrome sections of `v3.css` for the `/family/`
+  sub-site; change both in the same commit.
 - `assets/blog.js`, `news.js`, `careers.js`, `events.js` render their pages from
   `blog/blog.json`, `news/news.json`, `careers/jobs.json`, `events/events.json`.
 - Campaign landing pages (`lp-banking.html`, `lp-ciso.html`, via `assets/landing.css`)
   are standalone funnels, marked `noindex`, not wired into the main nav.
+
+## Brand assets
+
+The November 2026 rebrand: the Privacy Penguin and One PrivacyPal. The logo mark is the
+penguin emoji itself, **Twemoji 🐧 (U+1F427) v17.0.3, unaltered**, Copyright Twitter,
+Inc. and other contributors, licensed under CC BY 4.0. The credit appears in the site
+footer (`assets/v3.js`), on the brand guide and in the brand pack README; see
+`STYLE-GUIDE.md` (The logo and the penguin) for the rules. Every brand file is generated
+from committed sources by the scripts in `scripts/brand/`. Edit the sources, run the
+builds, commit the outputs.
+
+| Where | What |
+|---|---|
+| `assets/brand/src/` | Sources: `twemoji-1f427.svg` (the emoji as Twemoji publishes it) and its copies on a 512 canvas, and the wordmark outlined from Overused Grotesk 600 (`scripts/brand/outline-wordmark.py`). `src/README.md` records the provenance. |
+| `assets/brand/*.svg` | The logo lockups, `penguin.svg` (the mark), `app-icon.svg` (the white tile) and `favicon.svg`. What pages reference. `penguin-flat`, `penguin-dark` and `penguin-guide*` are the same emoji under earlier names. There are no one-ink versions: the mark is the emoji unaltered, never recolored. |
+| `assets/brand/png/` | PNG exports of the logos, penguin and app icon. |
+| `assets/brand/og/` | Open Graph share cards, 1200x630. |
+| `assets/brand/social/` | Profile pictures, LinkedIn, X and YouTube banners, square post examples. |
+| Repo root and `assets/` | Favicons under their historical names (`favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, `android-chrome-*.png`, `assets/favicon.ico`, `assets/favicon-32x32.png`). |
+| Legacy logo PNGs | `assets/logo-color.png`, `assets/logo-light.png`, `privacypal-logo.png`, `privacypal-logo-color.png`, `privacypal-logo-light.png`, `family/assets/product/logo-color.png`. They hold the new lockup and stay only because emails, the RSS feed, JSON-LD and third parties hotlink them. Page code never uses them. |
+| `brand/index.html` | The brand guidelines page (`noindex,nofollow`, not in the sitemap), with `brand/assets/guide.css`, `guide.js` (reads `logo.svg` to draw the lockup diagrams) and the brand pack ZIP `brand/assets/PrivacyPal-brand-assets.zip`. |
+| `brand/collateral/` | Print collateral as HTML (one-pagers, brochure) and their PDFs in `brand/collateral/pdf/`. |
+| `brand/og-templates/`, `brand/social-templates/`, `brand/slides/` | HTML templates for the share cards, social images and the 16:9 slide template. |
+| `brand/email-signature.html` | The email signature. |
+
+**Build** (puppeteer 21 needs Node 20 and the system Chrome on this machine; Python 3 with
+Pillow builds the `.ico` files and compresses PNGs; the collateral build uses macOS `sips`
+to downsize photos; the brand pack uses `zip`). The npm scripts run `node` from the PATH,
+so put Node 20 first:
+
+```bash
+export PATH=~/.nvm/versions/node/v20.20.2/bin:$PATH
+npm run brand              # build-brand.js, then legacy-logos.js: penguin files, logos, app icon,
+                           #   favicons, PNGs, legacy logo PNGs, the brand pack ZIP
+npm run brand:og           # build-og.js: share cards, social images, slide template PDF
+npm run brand:collateral   # build-collateral.js: brand/collateral/*.html to PDF (+ first-page PNG)
+npm run brand:all          # build-brand.js, build-og.js, build-collateral.js, the partner link PDFs
+                           #   (scripts/generate-partner-pdf.js), then legacy-logos.js last
+```
+
+The brand pack ZIP includes the social images. `brand:all` builds it last, after
+`build-og.js`, so it already holds the current ones. The refresh below is needed only
+after a standalone `brand:og`:
+
+```bash
+node scripts/brand/legacy-logos.js --pack-only
+```
+
+Single steps, with their options:
+
+```bash
+node scripts/brand/build-og.js og           # one group: og | social | slides, or one output: og-home
+node scripts/brand/build-collateral.js brochure one-pager-family   # some documents only
+node scripts/brand/legacy-logos.js --logos-only                   # or --pack-only
+```
+
+- **The penguin:** the mark is Twemoji's 1f427 drawing, used unaltered. Taking a later
+  Twemoji release means replacing `assets/brand/src/twemoji-1f427.svg` and its canvas
+  copies, updating the version here, in `assets/brand/src/README.md` and in
+  `scripts/brand/legacy-logos.js` (`TWEMOJI`), and running all the builds; every page,
+  card, document and the ZIP pick it up, because everything references the files by
+  path. Keep the credit line in the footer whatever the version.
+- **Legacy logos:** `legacy-logos.js` renders the color lockup into `assets/logo-color.png`,
+  `privacypal-logo-color.png`, `privacypal-logo.png` and `family/assets/product/logo-color.png`,
+  and the white lockup into `assets/logo-light.png` and `privacypal-logo-light.png`: 4000px
+  wide, transparent, on the historical 4000x1108 canvas so a hotlink that hardcodes the old
+  width and height never stretches the new logo.
+- **Final photography:** placeholder photos carry `data-standin="<final file path>"`. Drop
+  the final file at that path; the collateral and OG builds use it automatically, and a
+  search for `data-standin` lists every page `src` to switch. Family images follow the
+  casting rule in `STYLE-GUIDE.md` (Photography): mothers with children aged 7 to 17.
+- **Homepage photos:** `index.html` serves graded, cropped derivatives from `assets/home/`,
+  not the raw photos. `scripts/home/home_images.py` (desktop and tablet scenes, panels,
+  thumbnails, the Families photo) and `scripts/home/home_mobile.py` (phone bands) build
+  them, from the photo list and shared grade in `scripts/home/home_common.py`. They need
+  Python 3 with Pillow and NumPy, OpenCV for one stand-in, and `cwebp`. Preview with
+  `--out <folder>` before writing into `assets/home/`; the header of `home_common.py`
+  explains how to swap in a final photo.
 
 ## GitHub Pages setup
 
@@ -36,13 +129,16 @@ This site is configured for GitHub Pages with custom domain:
 
 ## Key files (at repo root)
 
-- `index.html` – Home page
-- `about.html`, `contact.html`, `developers.html`, `install.html` – Main pages
-- `privacy-policy.html`, `terms-of-service.html` – Legal
-- `404.html` – Custom 404 page
-- `CNAME` – Custom domain (privacypal.ai) for GitHub Pages
-- `robots.txt` – SEO
-- `sitemap.xml` – Sitemap for privacypal.ai
+- `index.html`: home page
+- `download.html`: the one download page (Mac, Windows, Linux, iPhone and iPad, Android)
+- `pricing.html`, `business.html`: the packs, and PrivacyPal for business (the Max pack)
+- `about.html`, `contact.html`, `developers.html`: main pages
+- `privacy-policy.html`, `terms-of-service.html`: legal
+- `404.html`: custom 404 page
+- `brand/`: brand guidelines, collateral and templates (internal, `noindex`)
+- `CNAME`: custom domain (privacypal.ai) for GitHub Pages
+- `robots.txt`: SEO
+- `sitemap.xml`: sitemap for privacypal.ai (internal pages stay out of it)
 
 ## Local Development
 
@@ -57,10 +153,12 @@ npm run serve -- 3000    # custom port
 
 `npm run serve` (aliases: `npm run dev`, `npm start`) runs a tiny zero-dependency
 static server (`scripts/serve.js`). Any static server works too, e.g.
-`python3 -m http.server 8000` or `npx serve .`.
+`python3 -m http.server 8000` or `npx serve .`. Video playback in Safari needs a server
+that supports HTTP Range requests.
 
 Then visit:
 - Home: http://localhost:8000/
+- Brand guidelines: http://localhost:8000/brand/
 - The Privacy Log: http://localhost:8000/blog.html
 - RSS feed: http://localhost:8000/blog/rss.xml
 

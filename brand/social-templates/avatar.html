@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Social: avatar · PrivacyPal</title>
+<link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="stylesheet" href="../../assets/v3.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../og-templates/kit.css"/>
+<!-- Renders the 400x400 social avatar from the app icon, full bleed (platforms crop to a circle):
+     assets/brand/app-icon.svg -> assets/brand/social/avatar-400.png
+     One tile: white. The gold tile is retired (the emoji's beak and feet are the same gold and vanish
+     on it), and so is the navy tile (the emoji's dark body sits at about 1.2:1 on Deep Navy, so at
+     avatar size the penguin reads as a white egg with a beak).
+     The tile color also fills the canvas, so the icon's rounded corners disappear into it.
+     Open with ?circle to preview the circle crop. -->
+<style>
+  html,body{background:transparent}
+  .k-av{width:400px;height:400px;background:var(--tile)}
+  .k-av img{position:absolute;inset:0;width:100%;height:100%}
+  .k-av.k-circle{border-radius:50%}
+</style>
+</head>
+<body>
+<div class="k-canvas k-av" id="av" style="--tile:#fff">
+  <img id="icon" src="../../assets/brand/app-icon.svg" alt="PrivacyPal"/>
+</div>
+<script>
+  (function () {
+    if (new URLSearchParams(location.search).has('circle')) {
+      document.getElementById('av').classList.add('k-circle');
+    }
+  })();
+</script>
+</body>
+</html>

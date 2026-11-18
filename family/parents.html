@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Parent HQ · PrivacyPal Family</title>
+<title>Parent HQ for families · PrivacyPal</title>
 <meta name="description" content="Parent HQ is the calm control room for your family's relationship with AI: approve tools, protect identity, watch wellbeing trends, and erase AI memory, all in realtime." />
-<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,21 +16,21 @@
 <link rel="stylesheet" href="../assets/roblox.css"/>
 <link rel="stylesheet" href="../assets/family-chrome.css"/>
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="PrivacyPal Family" />
+<meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/family/parents.html" />
-<meta property="og:title" content="Parent HQ · PrivacyPal Family" />
+<meta property="og:title" content="Parent HQ · PrivacyPal for families" />
 <meta property="og:description" content="Parent HQ is the calm control room for your family's relationship with AI: approve tools, protect identity, watch wellbeing trends, and erase AI memory, all in realtime." />
-<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta property="og:image:secure_url" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-family.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/brand/og/og-family.png" />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1214" />
-<meta property="og:image:height" content="658" />
-<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal for families. Their world is full of AI. You hold the keys." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Parent HQ · PrivacyPal Family" />
+<meta name="twitter:title" content="Parent HQ · PrivacyPal for families" />
 <meta name="twitter:description" content="The calm control room for your family's relationship with AI: approve tools, protect identity, watch wellbeing trends, and erase AI memory." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta name="twitter:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-family.png" />
+<meta name="twitter:image:alt" content="PrivacyPal for families. Their world is full of AI. You hold the keys." />
 <!-- Google tag (gtag.js) -->
 <script src="../assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -35,7 +38,8 @@
 <!-- End Meta Pixel Code -->
 <!-- Referral attribution: captures ?ref= (partner, reseller and creator codes)
      and forwards it to the Founding Families signup, alongside the promo code.
-     The Family sub-site does not load assets/v3.js, so each page loads this itself. -->
+     Loaded here in the head so it runs first; assets/v3.js (end of body)
+     finds window.PPReferral and skips loading a second copy. -->
 <script src="../assets/referral.js"></script>
 </head>
 <body>
@@ -52,7 +56,7 @@
         <h1>The calm control room for <span class="hl-tang">AI in your home</span></h1>
         <p class="lede">Parent HQ is one warm screen that answers the three questions that matter: what AI are my kids using, is their identity safe, and how are they doing? And when you want to change something, it is one tap, applied in realtime.</p>
         <div class="btn-row">
-          <a class="btn btn-key btn-lg" href="founding/index.html">Start your free trial</a>
+          <a class="btn btn-key btn-lg" href="founding/index.html">Start Family free</a>
           <a class="btn btn-ghost btn-lg" href="index.html#hq">See the dashboard</a>
         </div>
       </div>
@@ -96,16 +100,16 @@
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
         <h4>The never-share list</h4>
-        <p>Your home address, school names, the little one's name, medical details. Put them on the list once and PrivacyPal keeps them out of every AI conversation.</p>
+        <p>Your home address, school names, your kids' names, medical details. Put them on the list once and PrivacyPal keeps them out of every AI conversation.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
-        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>Wellbeing Signal <span class="mono" style="font-size:.62rem;color:var(--tangerine-deep)">early access</span></h4>
+        <div class="ico" style="background:var(--gold);color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>Wellbeing Signal <span class="mono" style="font-size:.62rem;color:var(--gold-ink)">early access</span></h4>
         <p>A gentle mood trend per child, computed on their device from how they talk to AI, with Deep Insights (early access, off by default) refining it by transiently reading the twin-protected conversation, the same version the AI tool receives, never storing it. You see the weather, never the words, and get a nudge when the forecast shifts.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico" style="background:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg></div>
-        <h4>Answer Guard <span class="mono" style="font-size:.62rem;color:var(--tangerine-deep)">early access</span></h4>
+        <h4>Answer Guard <span class="mono" style="font-size:.62rem;color:var(--gold-ink)">early access</span></h4>
         <p>What the AI says back gets checked on the device: age-right for their stage, and hidden manipulation like prompt injection blocked before it ever reaches your kid.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
@@ -199,18 +203,18 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Under the hood</span>
-      <h2>The engine is already protecting hundreds of companies</h2>
+      <h2>The engine already protects 140+ companies and global banks</h2>
       <p class="lede">Parent HQ is the family face of PrivacyPal's shipping product: the same on-device interception, the same Privacy Twins, the same private memory vault. These are actual screenshots from the product today.</p>
     </div>
     <div class="shot-banner reveal">
-      <img src="assets/product/activity-feed-wide.png" alt="Actual PrivacyPal screenshot: realtime activity feed of protected items"/>
+      <img src="assets/product/activity-feed-family.png" alt="Actual PrivacyPal screenshot: realtime activity feed of protected items"/>
       <div class="body"><b>Realtime activity feed</b><small>actual product screenshot</small></div>
     </div>
     <div class="shot-frame reveal" style="max-width:760px;margin-top:22px">
-      <img src="assets/product/privacypal-desktop-claude-example.png" alt="Actual PrivacyPal screenshot: protection running inside a Claude chat"/>
+      <img src="assets/product/privacypal-desktop-claude-example-trim.png" alt="Actual PrivacyPal screenshot: protection running inside a Claude chat"/>
       <div class="body"><b>Protection inside a live AI chat</b><small>actual product screenshot</small></div>
     </div>
-    <p class="trust-note reveal" style="margin-top:18px">Family-specific screens on this page are design previews of what early access families are helping us finish.</p>
+    <p class="trust-note reveal" style="margin-top:18px">Family-specific screens on this page are design previews of what our Founding Families are helping us finish.</p>
   </div>
 </section>
 
@@ -220,9 +224,9 @@
     <div class="fcta reveal">
       <span class="eyebrow">Founding families</span>
       <h2>Be the parent with the keys</h2>
-      <p>Early access families get Wellbeing Signal and Answer Guard first, and a direct line to the team building them.</p>
+      <p>Founding Families get Wellbeing Signal and Answer Guard first, and a direct line to the team building them.</p>
       <div class="btn-row">
-        <a class="btn btn-sun btn-lg" href="founding/index.html">Start your free trial</a>
+        <a class="btn btn-sun btn-lg" href="founding/index.html">Start Family free</a>
         <a class="btn btn-ghost btn-lg" style="background:transparent;color:#fff;border-color:#3d5578;box-shadow:0 3px 0 #3d5578" href="promise.html">Read the Family Promise</a>
       </div>
     </div>

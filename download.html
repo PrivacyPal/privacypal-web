@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Download PrivacyPal for Mac, Windows and Linux · PrivacyPal</title>
+<meta name="description" content="Download PrivacyPal for Mac and Windows. Personal is included free; the Family and Max packs switch on in the same app and protect iPhone, iPad and Android today, installed by invitation. Linux runs the Max headless agent." />
+<link rel="canonical" href="https://privacypal.ai/download.html"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/download.html" />
+<meta property="og:title" content="Download PrivacyPal: one download, everything PrivacyPal" />
+<meta property="og:description" content="One download for you, your family and your business. Personal is free on Mac and Windows. Protected today on iPhone, iPad and Android with Family or Max: install by invitation." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-download.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="One download, free to start. PrivacyPal for Mac and Windows, Linux as the Max headless agent, and iPhone, iPad and Android protected today with the Family or Max pack" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Download PrivacyPal: one download, everything PrivacyPal" />
+<meta name="twitter:description" content="One download for you, your family and your business. Personal is free on Mac and Windows. Protected today on iPhone, iPad and Android with Family or Max: install by invitation." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-download.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PrivacyPal",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "macOS 13 or later (Apple Silicon), Windows 11",
+  "downloadUrl": "https://privacypal.ai/download.html",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "PrivacyPal", "url": "https://privacypal.ai/" }
+}
+</script>
+<style>
+/* ---------- Download (2026-11 rebrand): the one download page ---------- */
+h1,h2,h3{text-wrap:balance}
+
+/* hero */
+.dl-hero{padding:52px 0 30px;text-align:center;position:relative;overflow:hidden}
+.dl-hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(30% 34% at 50% 6%, rgba(255,172,51,.15), transparent 70%),
+    radial-gradient(38% 44% at 14% 28%, rgba(2,131,145,.10), transparent 72%),
+    radial-gradient(36% 42% at 86% 22%, rgba(246,220,172,.42), transparent 72%);
+}
+.dl-hero > .container{position:relative}
+.dl-icon{
+  width:84px;height:84px;margin:0 auto 24px;border-radius:18.9px;
+  box-shadow:0 0 0 1px rgba(1,32,78,.07),0 24px 50px -20px rgba(1,32,78,.5);
+}
+.dl-hero .eyebrow{justify-content:center}
+.dl-hero h1{max-width:none;margin:14px auto 0}
+.dl-hero h1 .ln{display:inline-block}
+.dl-hero .lede{margin:20px auto 0;max-width:56ch}
+.dl-hero .btn-row{justify-content:center;margin-top:28px}
+.dl-hero .btn-primary svg{width:17px;height:17px}
+.dl-hero [data-dl="auto"][data-os="ios"] svg,.dl-hero [data-dl="auto"][data-os="android"] svg{display:none}
+.dl-facts{
+  margin-top:20px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 22px;
+  font-family:var(--font-mono);font-size:.76rem;color:var(--muted);
+}
+.dl-facts span{display:inline-flex;align-items:center;gap:7px}
+.dl-facts svg{width:13px;height:13px;color:var(--ok);flex:none}
+
+/* platforms */
+.dl-platforms{padding:28px 0 0}
+.dl-platforms .platform{scroll-margin-top:120px}
+@media (min-width:561px){.dl-platforms .platform{min-height:176px}}
+.dl-winget{
+  margin-top:16px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+  font-size:.9rem;color:var(--muted);
+}
+.dl-winget .code-block{display:inline-flex;padding:9px 10px 9px 14px;gap:14px}
+
+/* one app, packs switch on */
+.dl-packs{display:grid;gap:12px;margin-top:28px}
+.dl-pack{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-md);background:#fff}
+.dl-pack .pack-chip{grid-row:1 / span 2;align-self:start}
+.dl-pack b{font-weight:500;font-size:.98rem}
+.dl-pack p{grid-column:2;font-size:.9rem;color:var(--muted);line-height:1.55}
+.dl-app.stack-app{max-width:470px;width:100%;margin-left:auto}
+.dl-app .bar .status{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-mono);font-size:.66rem;color:#1e6f61;background:#dcefe9;border-radius:999px;padding:3px 9px;
+}
+.dl-app .bar .status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.dl-app .row .ico{color:var(--ink)}
+.dl-app .row .ico.teal{background:#e3f2f1;color:var(--teal-ink)}
+.dl-app .row .ico.gold{background:var(--gold-tint);color:var(--gold-ink)}
+.dl-app .row .ico.ink{background:#e6ebf3;color:var(--ink)}
+.dl-app .foot{padding:13px 18px;background:var(--panel-2);font-family:var(--font-mono);font-size:.68rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.dl-app .foot .dot-gold{width:7px;height:7px}
+
+/* requirements */
+.req-list{border-top:1px solid var(--line)}
+.req-row{
+  display:grid;grid-template-columns:44px 190px minmax(0,1fr) minmax(0,.9fr);gap:20px;align-items:start;
+  padding:22px 6px;border-bottom:1px solid var(--line);scroll-margin-top:110px;
+}
+.req-row .ico{width:40px;height:40px;border-radius:var(--r-md);background:var(--panel);display:grid;place-items:center;color:var(--ink)}
+.req-row .ico svg{width:20px;height:20px}
+.req-row h3{font-size:1.08rem;margin-top:8px}
+.req-row ul{list-style:none;display:grid;gap:6px;margin-top:8px}
+.req-row li{font-size:.93rem;color:var(--text);padding-left:18px;position:relative;line-height:1.5}
+.req-row li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.req-row .how{margin-top:8px;font-size:.88rem;color:var(--muted);line-height:1.55}
+.req-row .how b{display:block;font-family:var(--font-mono);font-size:.66rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.req-row .how a{color:var(--teal-ink);font-weight:500}
+
+/* install */
+.steps .step p a{color:var(--teal-ink);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.dl-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.dl-note{border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;background:#fff}
+.dl-note h4{display:flex;align-items:center;gap:10px;font-size:1rem}
+.dl-note h4 svg{width:18px;height:18px;flex:none}
+.dl-note p{font-size:.9rem;color:var(--muted);margin-top:8px;line-height:1.55}
+
+/* linux */
+.dl-linux{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.dl-linux .ticks{list-style:none;display:grid;gap:9px;margin-top:22px}
+.dl-linux .ticks li{padding-left:24px;position:relative;font-size:.95rem;color:var(--text)}
+.dl-linux .ticks li::before{content:"✓";position:absolute;left:0;font-weight:600;color:var(--ok)}
+.dl-linux .btn-row{margin-top:26px}
+.dl-linux .sums{margin-top:14px;font-family:var(--font-mono);font-size:.72rem;color:var(--muted)}
+.dl-linux .sums a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:3px}
+.term{background:var(--ink);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow-pop)}
+.term-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.term-top .t{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:.72rem;color:#9fb0cc}
+.term-top .t i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18)}
+.term .billing-toggle{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
+.term .billing-toggle button{color:#b9c6dc}
+.term .billing-toggle button.active{background:var(--gold);color:var(--ink);box-shadow:none}
+.term-step + .term-step{margin-top:14px}
+.term-step .lbl{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#8ea2c4;margin-bottom:7px}
+.term .code-block{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.term .code-block{align-items:flex-start}
+.term .code-block > span{min-width:0;white-space:normal;word-break:break-all;line-height:1.6}
+.term .code-block .copy{margin-top:1px}
+.term .note{margin-top:16px;font-size:.84rem;color:#b9c6dc;line-height:1.55}
+
+/* faq */
+.faq-list{max-width:820px;margin:0 auto;border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:22px 4px;font-size:1.08rem;font-weight:500;color:var(--ink);
+}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{
+  content:"";flex:none;width:22px;height:22px;border-radius:50%;
+  background:
+    linear-gradient(var(--ink),var(--ink)) center/10px 1.6px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) center/1.6px 10px no-repeat,
+    var(--panel);
+  transition:transform .2s;
+}
+.faq-list details[open] summary::after{transform:rotate(45deg)}
+.faq-list summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:8px}
+.faq-list .a{padding:0 4px 22px;max-width:68ch}
+.faq-list .a p{font-size:.97rem;color:var(--text);line-height:1.65}
+.faq-list .a p + p{margin-top:10px}
+.faq-list .a a{color:var(--teal-ink);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+
+/* closing band, with the guide penguin as a sign-off */
+.dl-cta.cta-banner{padding:64px 48px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;text-align:left}
+.dl-cta .copy{padding-bottom:64px}
+.dl-cta h2{margin:14px 0 0;max-width:18ch}
+.dl-cta p{margin:16px 0 0;max-width:46ch}
+.dl-cta .btn-row{justify-content:flex-start}
+.dl-cta .eyebrow{color:#b8c3d6}
+.dl-cta .guide{width:210px;height:auto;margin:0 16px 40px 0}
+
+@media (max-width:1080px){
+  .dl-linux{grid-template-columns:1fr;gap:36px}
+  .req-row{grid-template-columns:44px minmax(0,1fr) minmax(0,1fr)}
+  .req-row .req-name{grid-column:2 / span 2}
+  .req-row ul{grid-column:2}
+}
+@media (max-width:760px){
+  .dl-hero{padding:48px 0 24px}
+  .dl-icon{width:80px;height:80px;border-radius:18px;margin-bottom:22px}
+  .dl-hero .btn-row .btn{width:100%}
+  .dl-notes{grid-template-columns:1fr}
+  .req-row{grid-template-columns:40px minmax(0,1fr);gap:4px 16px;padding:20px 2px}
+  .req-row .ico{grid-row:1 / span 3}
+  .req-row .req-name,.req-row ul,.req-row .how{grid-column:2}
+  .req-row h3{margin-top:6px}
+  .dl-cta.cta-banner{grid-template-columns:1fr;padding:48px 24px 0;text-align:center}
+  .dl-cta .copy{padding-bottom:0}
+  .dl-cta h2,.dl-cta p{margin-left:auto;margin-right:auto}
+  .dl-cta .btn-row{justify-content:center}
+  .dl-cta .guide{width:150px;margin:0 auto 32px}
+  .term{padding:18px 16px}
+  .term .code-block{font-size:.76rem}
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script src="assets/google-tag.js"></script>
+<!-- Meta Pixel Code -->
+<script src="assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<div id="site-nav-slot"></div>
+
+<!-- ================= HERO ================= -->
+<header class="dl-hero">
+  <div class="container">
+    <img class="dl-icon" src="assets/brand/app-icon.svg" alt="" width="84" height="84">
+    <span class="eyebrow gold">Download · <span data-dl-version>Latest release</span></span>
+    <h1><span class="ln">One download.</span> <span class="ln">Everything PrivacyPal.</span></h1>
+    <p class="lede">PrivacyPal protects your data from AI, at home and at work. Download it free: Personal is included, and the Family and Max packs switch on in the same app.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-lg" href="#platforms" data-dl="auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg><span data-dl-label>Download free</span></a>
+      <a class="btn btn-ghost btn-lg" href="pricing.html">Compare packs</a>
+    </div>
+    <div class="dl-facts">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free, no credit card</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Signed and notarized</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Live in about 20 minutes</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PLATFORMS =================
+     This page carries no build URL and no version number. Every [data-dl]
+     href below (and the Linux buttons, checksums, curl lines and version
+     labels further down) is a version-free fallback: an anchor on this page.
+     assets/v3.js fills them from its DOWNLOADS config on load (and points Mac
+     and Windows at the Family portal routes in a Family context), so
+     DOWNLOADS stays the one place a release is updated. -->
+<section class="dl-platforms" id="platforms" aria-label="Choose your platform">
+  <div class="container">
+    <div class="platform-grid list-sm">
+      <a class="platform" id="mac" data-os="mac" data-dl="mac" href="#install" rel="noopener">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span class="os-name">Mac</span>
+        <span class="os-meta">Apple Silicon · macOS 13+</span>
+        <span class="os-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download .dmg</span>
+      </a>
+      <a class="platform" id="windows" data-os="windows" data-dl="windows" href="#install" rel="noopener">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
+        <span class="os-name">Windows</span>
+        <span class="os-meta">Windows 11 · 64-bit</span>
+        <span class="os-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download .exe</span>
+      </a>
+      <div class="platform multi" id="linux-tile" data-os="linux">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.6"/><path d="m6.8 9.3 3.1 2.7-3.1 2.7M12.4 15.2h4.8"/></svg>
+        <span class="os-name">Linux</span>
+        <span class="os-meta">The Max headless agent · CLI</span>
+        <span class="os-links">
+          <a data-dl="linux-x64" href="#linux-cli" rel="noopener" aria-label="Download the Linux agent for x86_64">x86_64</a>
+          <a data-dl="linux-arm64" href="#linux-cli" rel="noopener" aria-label="Download the Linux agent for aarch64">aarch64</a>
+        </span>
+      </div>
+      <a class="platform" id="ios" data-os="ios" data-dl="ios" href="family/early-access.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.8"/><path d="M10.6 5.4h2.8M10.8 18.5h2.4"/></svg>
+        <span class="os-name">iPhone and iPad</span>
+        <span class="os-meta">Protected today with Family or Max · install by invitation</span>
+        <span class="os-go">Request an invite <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="platform" id="android" data-os="android" data-dl="android" href="family/early-access.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 17.5a7.4 7.4 0 0 1 14.8 0z"/><path d="m8.2 10.9-1.7-2.6M15.8 10.9l1.7-2.6"/><circle cx="9.3" cy="14.4" r=".55" fill="currentColor"/><circle cx="14.7" cy="14.4" r=".55" fill="currentColor"/></svg>
+        <span class="os-name">Android</span>
+        <span class="os-meta">Protected today with Family or Max · install by invitation</span>
+        <span class="os-go">Request an invite <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+    <div class="dl-winget">
+      <span>Windows from PowerShell</span>
+      <div class="code-block"><span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span><button class="copy" type="button" data-cli-copy="winget install PrivacyPal.AI">Copy</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ONE APP, PACKS SWITCH ON ================= -->
+<section class="section" id="packs">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">One app</span>
+        <h2>One app. Packs switch on.</h2>
+        <p class="lede">Everyone starts with Personal, free on Mac and Windows. Add the Family pack for your household, or the Max pack for work. Packs stack: your company can add Max to your PrivacyPal account, alongside your own Family pack.</p>
+        <div class="dl-packs">
+          <div class="dl-pack"><span class="pack-chip personal">Personal</span><b>Included free</b><p>Protection for you on Mac and Windows across ChatGPT, Claude, Gemini, Grok and Perplexity, attachments included. No credit card, no trial clock, no expiry.</p></div>
+          <div class="dl-pack"><span class="pack-chip family">Family</span><b>$9.99 a month per household</b><p>Parent HQ and guardrails for the AI your kids use, for up to 5 family members, with iPhone, iPad and Android protected today, installed by invitation. One PrivacyPal account for you; your kids keep their own protected profiles. 5-day free trial. <a class="link-arrow" href="family/index.html">The Family pack</a></p></div>
+          <div class="dl-pack"><span class="pack-chip business">Max</span><b>$34 per user per month, or from your company</b><p>Privacy and governance for every AI at work, including Claude Code and Microsoft Copilot, with iPhone, iPad and Android protected today (installed by invitation) and the Linux headless agent. Volume pricing for larger teams. <a class="link-arrow" href="privacypal-max.html">The Max pack</a></p></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stack-app dl-app" aria-label="The PrivacyPal app with its three packs switched on">
+          <div class="bar">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="title">PrivacyPal</span>
+            <span class="status">Protected</span>
+          </div>
+          <div class="row">
+            <span class="ico teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.9-3.6 3.6-5.6 7-5.6s6.1 2 7 5.6"/></svg></span>
+            <div><b>Personal</b><small>Included free · you</small></div>
+            <span class="toggle on"></span>
+          </div>
+          <div class="row">
+            <span class="ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg></span>
+            <div><b>Family</b><small>Parent HQ and the kids&rsquo; guardrails</small></div>
+            <span class="toggle on gold"></span>
+          </div>
+          <div class="row">
+            <span class="ico ink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="1.5"/><path d="M8 7.5h2M14 7.5h2M8 11.5h2M14 11.5h2M10.5 20.5v-4h3v4"/></svg></span>
+            <div><b>Max</b><small>Added by your company&rsquo;s license</small></div>
+            <span class="toggle on ink"></span>
+          </div>
+          <div class="foot"><span class="dot-gold"></span>Same engine for every pack: on the device, before data reaches an AI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REQUIREMENTS ================= -->
+<section class="section" id="requirements" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">System requirements</span>
+      <h2>What each platform needs</h2>
+    </div>
+    <div class="req-list reveal">
+      <div class="req-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg></span>
+        <h3 class="req-name">Mac</h3>
+        <ul><li>Apple Silicon: every M-series chip, M1 and later</li><li>macOS 13 or later</li></ul>
+        <p class="how"><b>Installer</b>.dmg, notarized by Apple</p>
+      </div>
+      <div class="req-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg></span>
+        <h3 class="req-name">Windows</h3>
+        <ul><li>Windows 11, 64-bit</li><li>Permission to install applications</li></ul>
+        <p class="how"><b>Installer</b>.exe from a trusted publisher, or <span class="mono">winget install PrivacyPal.AI</span></p>
+      </div>
+      <div class="req-row" id="linux">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.6"/><path d="m6.8 9.3 3.1 2.7-3.1 2.7M12.4 15.2h4.8"/></svg></span>
+        <h3 class="req-name">Linux</h3>
+        <ul><li>The Max headless agent, with the Max pack</li><li>Ubuntu and Fedora servers, and WSL</li><li>x86_64 or aarch64</li><li>Tested on Ubuntu 24.04 and Fedora 40</li></ul>
+        <p class="how"><b>Package</b>.tar.gz with a .sha256 checksum: the headless agent, run from the command line. <a href="#linux-cli">Install steps</a></p>
+      </div>
+      <div class="req-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.8"/><path d="M10.6 5.4h2.8M10.8 18.5h2.4"/></svg></span>
+        <h3 class="req-name">iPhone and iPad</h3>
+        <ul><li>Protected today with the Family or Max pack</li><li>Install by invitation</li></ul>
+        <p class="how"><b>Delivered through</b>Apple TestFlight. <a href="family/early-access.html">Request an invitation</a></p>
+      </div>
+      <div class="req-row">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 17.5a7.4 7.4 0 0 1 14.8 0z"/><path d="m8.2 10.9-1.7-2.6M15.8 10.9l1.7-2.6"/><circle cx="9.3" cy="14.4" r=".55" fill="currentColor"/><circle cx="14.7" cy="14.4" r=".55" fill="currentColor"/></svg></span>
+        <h3 class="req-name">Android</h3>
+        <ul><li>Protected today with the Family or Max pack</li><li>Install by invitation</li></ul>
+        <p class="how"><b>Delivered through</b>Google Play testing. <a href="family/early-access.html">Request an invitation</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTALL ================= -->
+<section class="section" id="install" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Install</span>
+      <h2>Three steps to protected</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="num">01 · Download</span>
+        <h4>Pick your platform</h4>
+        <p>Choose Mac or Windows above. On a Windows PC you can also run <span class="mono">winget install PrivacyPal.AI</span> from PowerShell. Linux servers on Max run the <a href="#linux-cli">headless agent</a>.</p>
+      </div>
+      <div class="step">
+        <span class="num">02 · Sign in</span>
+        <h4>Open PrivacyPal and sign in</h4>
+        <p>Personal is on from the first minute. A Family or Max pack on your account switches on in the same app.</p>
+      </div>
+      <div class="step">
+        <span class="num">03 · Protected</span>
+        <h4>Use AI the way you already do</h4>
+        <p>Protection runs on the device, before a prompt or file reaches an AI provider. Sensitive details become Privacy Twins, so the AI still works.</p>
+      </div>
+    </div>
+    <div class="dl-notes reveal">
+      <div class="dl-note">
+        <h4><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>On a Mac</h4>
+        <p>Open the .dmg and drag PrivacyPal to Applications. Approve the permissions it asks for: they let PrivacyPal protect every AI app on the Mac.</p>
+      </div>
+      <div class="dl-note">
+        <h4><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>On Windows</h4>
+        <p>Run the installer as a user who can install applications. PrivacyPal starts at sign-in, so protection is on every time you log in.</p>
+      </div>
+      <div class="dl-note">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3 2"/></svg>Before you install</h4>
+        <p>Close other AI apps if the installer asks you to. PrivacyPal updates itself in the background after that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LINUX CLI ================= -->
+<section class="section" id="linux-cli" style="padding-top:24px">
+  <div class="container">
+    <div class="dl-linux">
+      <div class="reveal">
+        <span class="eyebrow">Linux · the Max headless agent</span>
+        <h2 style="margin-top:14px">For servers and WSL</h2>
+        <p class="lede" style="margin-top:16px">The headless agent protects the command-line AI agents your engineers run: Claude Code, Codex, Hermes Agent and the OpenAI and xAI APIs. It comes with the Max pack.</p>
+        <ul class="ticks">
+          <li>x86_64 and aarch64 builds, <span data-dl-version="linux" data-dl-prefix="agent version ">the current agent release</span></li>
+          <li>Runs as your own user, with no desktop session</li>
+          <li>Tested on Ubuntu 24.04 and Fedora 40, and the same under WSL</li>
+          <li>Every tarball ships with a matching .sha256 checksum</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" data-dl="linux-x64" href="#linux-cli" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>x86_64 .tar.gz</a>
+          <a class="btn btn-ghost" data-dl="linux-arm64" href="#linux-cli" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>aarch64 .tar.gz</a>
+        </div>
+        <p class="sums">Checksums: <a data-dl="linux-x64-sha256" href="#linux-cli" rel="noopener">x86_64</a> · <a data-dl="linux-arm64-sha256" href="#linux-cli" rel="noopener">aarch64</a></p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="term" data-arch="x64">
+          <div class="term-top">
+            <span class="t"><i></i><i></i><i></i>From the shell</span>
+            <div class="billing-toggle" role="group" aria-label="Architecture">
+              <button type="button" class="active" data-arch-btn="x64" aria-pressed="true">x86_64</button>
+              <button type="button" data-arch-btn="arm64" aria-pressed="false">aarch64</button>
+            </div>
+          </div>
+          <div class="term-step">
+            <div class="lbl">01 · Download</div>
+            <div class="code-block" data-dl-cmd="curl -LO {linux-x64}" data-cmd-x64="curl -LO {linux-x64}" data-cmd-arm64="curl -LO {linux-arm64}"><span><span class="prompt">$</span><span data-dl-cmd-text>curl -LO</span></span><button class="copy" type="button" data-cli-copy="curl -LO">Copy</button></div>
+          </div>
+          <div class="term-step">
+            <div class="lbl">02 · Verify</div>
+            <div class="code-block" data-dl-cmd="curl -LO {linux-x64-sha256} &amp;&amp; sha256sum -c privacypal-agent-*.tar.gz.sha256" data-cmd-x64="curl -LO {linux-x64-sha256} &amp;&amp; sha256sum -c privacypal-agent-*.tar.gz.sha256" data-cmd-arm64="curl -LO {linux-arm64-sha256} &amp;&amp; sha256sum -c privacypal-agent-*.tar.gz.sha256"><span><span class="prompt">$</span><span data-dl-cmd-text>sha256sum -c privacypal-agent-*.tar.gz.sha256</span></span><button class="copy" type="button" data-cli-copy="sha256sum -c privacypal-agent-*.tar.gz.sha256">Copy</button></div>
+          </div>
+          <div class="term-step">
+            <div class="lbl">03 · Extract and run</div>
+            <div class="code-block"><span><span class="prompt">$</span>tar -xzf privacypal-agent-*.tar.gz</span><button class="copy" type="button" data-cli-copy="tar -xzf privacypal-agent-*.tar.gz">Copy</button></div>
+          </div>
+          <p class="note">Then start the agent from the extracted directory. It protects the command-line AI agents on that machine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Questions</span>
+      <h2>Before you download</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Is PrivacyPal free?</summary>
+        <div class="a"><p>Yes, for you. Personal is included free on Mac and Windows: no credit card, no trial clock, no expiry. It protects ChatGPT, Claude, Gemini, Grok and Perplexity, attachments included.</p><p>The Family pack is $9.99 a month per household, for up to 5 family members, with a 5-day free trial and a 30-day money-back guarantee. The Max pack is $34 per user per month, with volume pricing for larger teams. <a href="pricing.html">Compare packs</a>.</p></div>
+      </details>
+      <details>
+        <summary>Do the Family and Max packs need their own download?</summary>
+        <div class="a"><p>One download covers every pack. Sign in, and the packs on your account switch on in the same app. Packs stack: you can hold the Max pack from work and the Family pack for your kids at the same time.</p></div>
+      </details>
+      <details>
+        <summary>Can my company add Max to my PrivacyPal account?</summary>
+        <div class="a"><p>Yes. Your company can invite you into its Max account under a license it provisions, whether you use Personal or hold the Family pack. Accept the invitation and sign in: Max switches on with your company&rsquo;s policies, and your own Family pack keeps running alongside it.</p><p>Your IT team may also send you the installer directly. A partner license works the same way.</p></div>
+      </details>
+      <details>
+        <summary>Which computers does PrivacyPal run on?</summary>
+        <div class="a"><p>Macs with Apple Silicon (M1 and later) on macOS 13 or later, and Windows 11 PCs (64-bit), on every pack. Linux servers and WSL run the Max headless agent, on x86_64 or aarch64. See the <a href="#requirements">system requirements</a>.</p></div>
+      </details>
+      <details>
+        <summary>Can I use PrivacyPal on iPhone, iPad and Android?</summary>
+        <div class="a"><p>Yes, with the Family or Max pack. PrivacyPal protects iPhone, iPad and Android today, and you install it by invitation: <a href="family/early-access.html">request your invitation</a> and it arrives by email, through Apple TestFlight or Google Play testing. Personal protects you on Mac and Windows.</p></div>
+      </details>
+      <details>
+        <summary>How do accounts work for a family?</summary>
+        <div class="a"><p>One PrivacyPal account for you. Your kids keep their own protected profiles in your Family pack household. If your company adds Max, it stacks on the same account, next to your Family pack.</p></div>
+      </details>
+      <details>
+        <summary>How do I know the download is genuine?</summary>
+        <div class="a"><p>The Mac app is notarized by Apple and the Windows installer comes from a trusted publisher. Every Linux tarball ships with a .sha256 checksum you can check with <span class="mono">sha256sum -c</span> before you extract it.</p></div>
+      </details>
+      <details>
+        <summary>Where does the protection run?</summary>
+        <div class="a"><p>On your device, before a prompt or file reaches an AI provider. Sensitive details are swapped for Privacy Twins, realistic stand-ins, so the AI still works and the real data never reaches the AI provider. <a href="privacy-twins.html">How Privacy Twins work</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container cta-stack">
+    <div class="cta-banner dark dl-cta reveal">
+      <div class="copy">
+        <span class="eyebrow gold">One download</span>
+        <h2>Protect your data from AI, at home and at work.</h2>
+        <p>The same technology that protects 140+ companies and global banks, in one free download.</p>
+        <div class="btn-row">
+          <a class="btn btn-gold btn-lg" href="#platforms" data-cta="download">Download free</a>
+          <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+        </div>
+      </div>
+      <img class="guide" src="assets/brand/penguin-guide-dark.svg" alt="" width="210" height="210">
+    </div>
+  </div>
+</section>
+
+<div id="site-footer-slot"></div>
+
+<script src="assets/v3.js"></script>
+<script>
+/* Linux architecture switch: swaps the download and checksum commands
+   between x86_64 and aarch64, resolving URLs from v3.js (DOWNLOADS). */
+(function(){
+  var term = document.querySelector('.term[data-arch]');
+  if (!term || !window.PPDownloads) return;
+  function resolve(cmd){
+    return cmd.replace(/\{([a-z0-9-]+)\}/g, function(_, k){ return window.PPDownloads.hrefFor(k); });
+  }
+  term.querySelectorAll('[data-arch-btn]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var arch = b.getAttribute('data-arch-btn');
+      term.setAttribute('data-arch', arch);
+      term.querySelectorAll('[data-arch-btn]').forEach(function(o){
+        var on = o === b;
+        o.classList.toggle('active', on);
+        o.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      term.querySelectorAll('[data-cmd-' + arch + ']').forEach(function(el){
+        var cmd = resolve(el.getAttribute('data-cmd-' + arch));
+        var out = el.querySelector('[data-dl-cmd-text]');
+        if (out) out.textContent = cmd;
+        var copy = el.querySelector('[data-cli-copy]');
+        if (copy) copy.setAttribute('data-cli-copy', cmd);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Social: X header · PrivacyPal</title>
+<link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="stylesheet" href="../../assets/v3.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../og-templates/kit.css"/>
+<!-- Renders assets/brand/social/x-header-1500x500.png. The profile photo covers the lower left
+     (about 0 to 260px across, the bottom 140px): the copy sits above and right of it. -->
+<style>
+  .k-xh{width:1500px;height:500px;box-sizing:border-box;padding:0 80px 0 96px;display:flex;align-items:center}
+  .k-xh .k-copy{width:830px;margin-top:-40px}
+  .k-doors{position:absolute;right:72px;top:62px;bottom:62px;width:500px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .k-door{position:relative;border-radius:20px;overflow:hidden;background:#0e3364;margin:0}
+  .k-door:nth-child(2){margin-top:26px;margin-bottom:-26px}
+  .k-door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04) sepia(.08)}
+  .k-door::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,32,78,0) 50%,rgba(1,32,78,.86) 100%)}
+  .k-door figcaption{position:absolute;left:16px;right:12px;bottom:16px;z-index:1;font-size:19px;font-weight:500;letter-spacing:-.012em;line-height:1.15;white-space:nowrap}
+  .k-door figcaption span{display:flex;align-items:center;gap:8px;margin-top:6px;font-family:var(--font-mono);font-size:13px;font-weight:500;letter-spacing:.02em;color:#c9d4e6}
+  .k-door figcaption span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dot);flex:none}
+</style>
+</head>
+<body>
+<div class="k-canvas k-xh ground-navy">
+  <div class="k-rings" style="--rings-x:44%;--rings-y:120%;--rings-size:1200px;--ring-a:.045"></div>
+  <div class="k-copy">
+    <span class="k-eyebrow" style="font-size:17px">Personal · Family · Max</span>
+    <h1 class="k-h" style="font-size:62px;margin-top:20px">We protect your data <span class="k-ul">from&nbsp;AI</span>,<br/>at home and at work.</h1>
+    <p class="k-sub" style="font-size:21px;margin-top:20px">The same technology that protects 140+ companies and global banks.</p>
+  </div>
+  <div class="k-doors">
+    <figure class="k-door" style="--dot:var(--teal)">
+      <img src="../../assets/hero-shot-accounting.png" data-standin="assets/photos/hero-you.jpg" alt="" style="object-position:72% 50%"/>
+      <figcaption>You<span>Personal</span></figcaption>
+    </figure>
+    <figure class="k-door" style="--dot:var(--gold)">
+      <img src="../../family/assets/photos/homework-boy.jpg" data-standin="assets/photos/hero-home.jpg" alt="" style="object-position:22% 50%"/>
+      <figcaption>Your family<span>Family</span></figcaption>
+    </figure>
+    <figure class="k-door" style="--dot:#fff">
+      <img src="../../assets/hero-shot-banking.png" data-standin="assets/photos/hero-work.jpg" alt="" style="object-position:30% 70%"/>
+      <figcaption>Your business<span>Max</span></figcaption>
+    </figure>
+  </div>
+</div>
+</body>
+</html>

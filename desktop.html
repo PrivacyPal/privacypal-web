@@ -3,60 +3,44 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Download for desktop · PrivacyPal</title>
-<meta name="description" content="Download PrivacyPal for Windows 11, macOS or Linux. Control which AI tools your team uses, govern data access, and redirect unauthorized AI, natively on every device." />
-<link rel="icon" href="assets/favicon.ico"/>
+<title>Download PrivacyPal · PrivacyPal</title>
+<meta name="description" content="Download PrivacyPal for Mac and Windows from the one PrivacyPal download page. Personal is included free; the Family and Max packs switch on in the same app." />
+<!-- This page moved to download.html, the one download page. The canonical
+     link, the meta refresh (for visitors without JavaScript) and the script
+     below send every old link there, keeping its query string (for example
+     ?ref= partner codes) and mapping the old anchors. -->
+<link rel="canonical" href="https://privacypal.ai/download.html"/>
+<meta http-equiv="refresh" content="2;url=download.html"/>
+<script>
+(function(){
+  var map = {'#downloads':'#platforms'};
+  var h = location.hash;
+  location.replace('download.html' + location.search + (map[h] || h || ''));
+})();
+</script>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
-<meta property="og:url" content="https://privacypal.ai/desktop.html" />
-<meta property="og:title" content="Download PrivacyPal: AI governance for Windows, macOS &amp; Linux" />
-<meta property="og:description" content="Download PrivacyPal for Windows 11, macOS or Linux. Control which AI tools your team uses, govern data access, and redirect unauthorized AI, natively on every device." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:url" content="https://privacypal.ai/download.html" />
+<meta property="og:title" content="Download PrivacyPal: one download, every platform" />
+<meta property="og:description" content="One download for you, your family and your business. Personal is free on Mac and Windows. Protected today on iPhone, iPad and Android with Family or Max: install by invitation." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-download.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Download PrivacyPal: AI governance for Windows, macOS &amp; Linux" />
-<meta name="twitter:description" content="Download PrivacyPal for Windows 11, macOS or Linux. Govern every AI natively on every device." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:title" content="Download PrivacyPal: one download, every platform" />
+<meta name="twitter:description" content="One download for you, your family and your business. Personal is free on Mac and Windows. Protected today on iPhone, iPad and Android with Family or Max: install by invitation." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-download.png" />
 <style>
-.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;align-items:stretch}
-.dl-card{
-  background:var(--panel);border-radius:var(--r-lg);padding:36px;
-  display:flex;flex-direction:column;
-}
-.dl-card .os-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.dl-card .os-row svg{width:26px;height:26px}
-.dl-card h3{font-size:1.4rem;letter-spacing:-.01em}
-.dl-card .sub{color:var(--muted);font-size:.95rem;margin:10px 0 18px}
-.dl-card .pill-row{margin-bottom:22px}
-.dl-card .btn{justify-content:center}
-.dl-file{
-  font-family:var(--font-mono);font-size:.76rem;color:var(--muted);
-  margin-top:14px;word-break:break-all;
-}
-.dl-cli-label{
-  font-family:var(--font-mono);font-size:.72rem;color:var(--muted);
-  text-transform:uppercase;letter-spacing:.06em;
-  margin:20px 0 10px;padding-top:18px;border-top:1px solid var(--line);
-}
-.arch-hint{font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.55}
-.arch-hint b{color:var(--ink);font-weight:600}
-.ver-pill{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-mono);font-size:.78rem;color:var(--muted);
-  border:1px solid var(--line);border-radius:999px;padding:6px 14px;
-  margin-bottom:22px;background:#fff;
-}
-.ver-pill b{color:var(--ink);font-weight:600}
-.notes-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:18px}
-.notes-list li{padding-left:26px;position:relative;font-size:.95rem;color:var(--muted);line-height:1.6}
-.notes-list li::before{
-  content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;
-  border-radius:50%;background:var(--ink);
-}
-@media(max-width:860px){.dl-grid{grid-template-columns:1fr}}
+.moved{padding:72px 0 0}
+.moved .platform-grid{margin-top:44px}
 </style>
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
@@ -69,195 +53,48 @@
 
 <div id="site-nav-slot"></div>
 
-<!-- ================= HERO ================= -->
-<header class="page-hero center">
+<header class="page-hero center moved">
   <div class="container">
-    <span class="eyebrow">PrivacyPal for desktop</span>
-    <div style="margin-top:18px"><span class="ver-pill">Latest release <b>v1.9.72</b></span></div>
-    <h1 style="margin-top:0">AI governance for Windows, macOS &amp; Linux</h1>
-    <p class="lede">Control which AI tools your team uses, govern data access, and redirect unauthorized AI, natively on every device. One installer, full coverage. Completely free for individuals on Pro: no credit card, no trial.</p>
+    <span class="eyebrow gold">Download</span>
+    <h1>One download page for every platform</h1>
+    <p class="lede">PrivacyPal for Mac and Windows, iPhone, iPad and Android with the Family and Max packs, and the Linux agent with Max, all on one page. Taking you there now.</p>
     <div class="btn-row">
-      <a class="btn btn-primary btn-lg" href="#downloads">Install now</a>
-      <a class="btn btn-ghost btn-lg" href="install.html">Install guide</a>
+      <a class="btn btn-primary btn-lg" href="download.html">Go to the download page</a>
     </div>
-    <div class="page-hero-media">
-      <img src="product-shot-001.png" alt="The PrivacyPal desktop app governing AI in real time" loading="eager">
+    <div class="platform-grid list-sm">
+      <a class="platform" data-os="mac" data-dl="mac" href="download.html#mac">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span class="os-name">Mac</span>
+        <span class="os-meta">Apple Silicon · macOS 13+</span>
+        <span class="os-go">Download .dmg</span>
+      </a>
+      <a class="platform" data-os="windows" data-dl="windows" href="download.html#windows">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
+        <span class="os-name">Windows</span>
+        <span class="os-meta">Windows 11 · 64-bit</span>
+        <span class="os-go">Download .exe</span>
+      </a>
+      <div class="platform multi" data-os="linux">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.6"/><path d="m6.8 9.3 3.1 2.7-3.1 2.7M12.4 15.2h4.8"/></svg>
+        <span class="os-name">Linux</span>
+        <span class="os-meta">The Max headless agent · CLI</span>
+        <span class="os-links"><a data-dl="linux-x64" href="download.html#linux-cli" aria-label="Download the Linux agent for x86_64">x86_64</a><a data-dl="linux-arm64" href="download.html#linux-cli" aria-label="Download the Linux agent for aarch64">aarch64</a></span>
+      </div>
+      <a class="platform" data-os="ios" data-dl="ios" href="family/early-access.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.8"/><path d="M10.6 5.4h2.8M10.8 18.5h2.4"/></svg>
+        <span class="os-name">iPhone and iPad</span>
+        <span class="os-meta">Protected today with Family or Max · install by invitation</span>
+        <span class="os-go">Request an invite <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="platform" data-os="android" data-dl="android" href="family/early-access.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 17.5a7.4 7.4 0 0 1 14.8 0z"/><path d="m8.2 10.9-1.7-2.6M15.8 10.9l1.7-2.6"/><circle cx="9.3" cy="14.4" r=".55" fill="currentColor"/><circle cx="14.7" cy="14.4" r=".55" fill="currentColor"/></svg>
+        <span class="os-name">Android</span>
+        <span class="os-meta">Protected today with Family or Max · install by invitation</span>
+        <span class="os-go">Request an invite <span aria-hidden="true">→</span></span>
+      </a>
     </div>
   </div>
 </header>
-
-<!-- ================= DOWNLOADS ================= -->
-<section class="section-sm" id="downloads">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow blue">Downloads · v1.9.72</span>
-      <h2>Native on every platform</h2>
-    </div>
-    <div class="dl-grid">
-      <div class="dl-card reveal reveal-delay-1">
-        <div class="os-row">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
-          <h3>Windows 11</h3>
-        </div>
-        <p class="sub">Run PrivacyPal on your PC with a full installer. Optimized for the Windows 11 experience.</p>
-        <div class="pill-row">
-          <span class="pill">64-bit</span>
-          <span class="pill">.exe installer</span>
-          <span class="pill">Windows 11</span>
-        </div>
-        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.72.exe" rel="noopener noreferrer">Install for Windows</a>
-        <p class="dl-file">PrivacyPal-Setup-1.9.72.exe</p>
-        <div class="dl-cli-label">Or install via command line: PowerShell</div>
-        <div class="code-block">
-          <span><span class="prompt">&gt;</span>winget install PrivacyPal.AI</span>
-          <button class="copy" type="button" data-cli-copy="winget install PrivacyPal.AI">Copy</button>
-        </div>
-      </div>
-      <div class="dl-card reveal reveal-delay-2">
-        <div class="os-row">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-          <h3>macOS</h3>
-        </div>
-        <p class="sub">Native build for Apple Silicon Macs. Every M-series chip is supported.</p>
-        <div class="pill-row">
-          <span class="pill">.dmg installer</span>
-          <span class="pill">M1–M5+</span>
-          <span class="pill">macOS 13+</span>
-        </div>
-        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.72-arm64.dmg" rel="noopener noreferrer">Install for Apple Silicon</a>
-        <p class="dl-file">PrivacyPal-1.9.72-arm64.dmg</p>
-      </div>
-      <div class="dl-card reveal reveal-delay-3">
-        <div class="os-row">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 4v12h16V7H4zm2.7 2.3 3.3 3.3-3.3 3.3 1.4 1.4 4.7-4.7-4.7-4.7-1.4 1.4zM13 15h5v2h-5v-2z"/></svg>
-          <h3>Linux</h3>
-        </div>
-        <p class="sub">The headless agent for servers and WSL. Governs the command-line AI agents your engineers run on Ubuntu and Fedora.</p>
-        <div class="pill-row">
-          <span class="pill">x86_64</span>
-          <span class="pill">aarch64</span>
-          <span class="pill">.tar.gz</span>
-        </div>
-        <a class="btn btn-primary btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.71-linux-x86_64.tar.gz" rel="noopener noreferrer">Download for x86_64</a>
-        <a class="btn btn-ghost btn-lg" href="https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.71-linux-aarch64.tar.gz" rel="noopener noreferrer" style="margin-top:8px">Download for aarch64</a>
-        <p class="dl-file">privacypal-agent-1.9.71-linux-x86_64.tar.gz</p>
-        <div class="dl-cli-label">Then extract and run</div>
-        <div class="code-block">
-          <span><span class="prompt">$</span>tar -xzf privacypal-agent-*.tar.gz</span>
-          <button class="copy" type="button" data-cli-copy="tar -xzf privacypal-agent-*.tar.gz">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= WHY DESKTOP ================= -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Why the desktop app</span>
-      <h2>Governance at the system edge</h2>
-      <p class="lede">The desktop agent sits where data actually leaks: beneath every browser, chat app, copilot and agent on the machine. Install once and every AI on the device is governed.</p>
-    </div>
-    <div class="card-grid cols-3">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
-        <h4>One-click install</h4>
-        <p>One-click install for Mac and Windows. Zero configuration required out of the box. Protection starts the moment it's active.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h4>Silent operation</h4>
-        <p>Silent background operation with zero user friction. Automatic updates mean protection improves continuously.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.5 5.5-4.5s4.8 1.5 5.5 4.5"/><path d="M16 8h5M16 12h5M16 16h3"/></svg></div>
-        <h4>Team deployment</h4>
-        <p>Deploy to 100 devices from the admin dashboard. Average team deployment time is under 5 minutes.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-        <h4>100% on-device</h4>
-        <p>Detection and interception happen locally: nothing is sent anywhere to be scanned. PrivacyPal never sees your unencrypted data.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h4>Every major AI</h4>
-        <p>ChatGPT, Claude, Gemini, Copilot and Grok (desktop apps and browsers), governed the moment the words are typed.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="2 3"/></svg></div>
-        <h4>Agents &amp; MCP too</h4>
-        <p>Claude Code, Copilot agents, Hermes Agent and Private MCP calls: visible, logged and governed alongside your chat apps.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SHOWCASE ================= -->
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow pink">On your desktop</span>
-      <h2>What it looks like in the wild</h2>
-    </div>
-    <div class="card-grid cols-3">
-      <div class="showcase reveal reveal-delay-1">
-        <div class="shot"><img src="assets/privacypal-desktop-claude-example.png" alt="PrivacyPal governing a Claude desktop session" loading="lazy"></div>
-        <div class="body">
-          <h4>Chat apps, governed</h4>
-          <p>ChatGPT, Claude, Gemini, Copilot and Grok: protected the moment the words are typed.</p>
-        </div>
-      </div>
-      <div class="showcase reveal reveal-delay-2">
-        <div class="shot"><img src="assets/claude-processing-banner.png" alt="PrivacyPal processing a prompt before it reaches Claude" loading="lazy"></div>
-        <div class="body">
-          <h4>Privacy Twins in-line</h4>
-          <p>Sensitive values are swapped for synthetic twins before the request leaves the machine.</p>
-        </div>
-      </div>
-      <div class="showcase reveal reveal-delay-3">
-        <div class="shot"><img src="assets/activity-feed-wide.png" alt="The PrivacyPal activity feed" loading="lazy"></div>
-        <div class="body">
-          <h4>One pane of glass</h4>
-          <p>Every interception logged: usage, shadow AI and agent calls in a single activity feed.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= BEFORE YOU INSTALL ================= -->
-<section class="section-sm" style="padding-top:0">
-  <div class="container">
-    <div class="panel reveal">
-      <span class="eyebrow orange">Before you install</span>
-      <h3 style="margin-top:12px">Four things worth knowing</h3>
-      <ul class="notes-list">
-        <li>Close other AI apps if the installer prompts you. PrivacyPal hooks in at the system edge for full coverage.</li>
-        <li>Windows: run the installer as a user with permission to install applications; SmartScreen may ask you to confirm the publisher.</li>
-        <li>macOS: open the .dmg and drag PrivacyPal to your Applications folder. On first launch Gatekeeper may block the app. Right-click PrivacyPal in Applications and choose Open, then confirm to grant any privacy or accessibility permissions it requests.</li>
-        <li>Linux: the build is the headless agent, for Ubuntu and Fedora servers and WSL. Extract the tarball for your architecture and run the binary; it covers the command-line AI agents on that machine. Verify the download against its .sha256 file first.</li>
-      </ul>
-      <a class="link-arrow" href="install.html" style="margin-top:20px;display:inline-flex">Read the full install guide</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="section-sm">
-  <div class="container cta-stack">
-    <div class="cta-banner dark reveal">
-      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get the app</span>
-      <h2 style="margin-top:14px">Govern every AI on every device</h2>
-      <p>Download PrivacyPal v1.9.72 for Windows 11, macOS or Linux and start governing the AI running in your business, in minutes. Free for individuals on Pro.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#downloads">Install now</a>
-        <a class="btn btn-ghost btn-lg" href="install.html">Install guide</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div id="site-footer-slot"></div>
 

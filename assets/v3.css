@@ -1,12 +1,15 @@
 /* ============================================================
-   PrivacyPal — Version 3 Design System
+   PrivacyPal design system (v3, with the 2026-11 Privacy Penguin
+   and One PrivacyPal rebrand)
    Aesthetic direction: minimal dev-tool SaaS. White base, deep
    navy ink, quiet warm panels, mono eyebrow labels, brand-color
    accents, generous whitespace, 12/20px radii.
-   Colors: PrivacyPal brand palette — Deep Navy #01204E ink,
-   Signal Teal #028391 actions, Forest Sage #4DA394 trust/success,
-   Burnt Tangerine #FAA968 warmth, Muted Coral #D54751 risk,
-   Warm Amber #F6DCAC / Soft Ivory #F0ECC9 background washes.
+   Core colors: Deep Navy #01204E ink, Signal Teal #028391 actions,
+   Penguin Gold #ffac33 accent (about 10% of a surface at most).
+   Supporting: Forest Sage #4DA394 trust/success, Muted Coral
+   #D54751 risk, Warm Amber #F6DCAC / Soft Ivory #F0ECC9 washes.
+   Logo: assets/brand/logo.svg (light grounds), logo-white.svg
+   (dark grounds and photos); never recolor it with a filter.
    Fonts: Overused Grotesk (OFL, self-hosted) + IBM Plex Mono.
    ============================================================ */
 
@@ -48,6 +51,16 @@
   --ivory:#f0ecc9;
   --espresso:#503d2d;
 
+  /* Penguin Gold: the third core color (2026-11 rebrand), the
+     beak and feet of the penguin emoji (Twemoji #FFAC33). A slight accent, never a
+     theme: about 10% of a surface at most. Never text on white
+     (use --gold-ink); text or CTA fill on navy is fine (8.4:1). */
+  --gold:#ffac33;
+  --gold-deep:#e8941a;
+  --gold-ink:#8a5a00;
+  --gold-tint:#fff4e0;
+  --gold-soft:#ffe3b3;
+
   --grad-blue:linear-gradient(90deg,#028391,#4da394);
   --grad-blue-soft:linear-gradient(135deg,#9ed9db,#cfe8d6);
   --grad-pink:linear-gradient(90deg,#d54751,#e8827a);
@@ -76,6 +89,9 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:none;text-size-adjust:none}
+/* an anchored section lands below the sticky nav; :where keeps it at zero
+   specificity, so a page's own scroll-margin-top wins */
+:where(section[id]){scroll-margin-top:calc(var(--nav-h) + 16px)}
 body{
   font-family:var(--font-primary);
   font-size:16px;line-height:1.55;
@@ -111,7 +127,32 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
 .eyebrow.blue::before{background:linear-gradient(135deg,#028391,#4da394)}
 .eyebrow.pink::before{background:linear-gradient(135deg,#d54751,#e8827a)}
 .eyebrow.orange::before{background:linear-gradient(135deg,#f0914d,#faa968)}
+.eyebrow.gold::before{background:var(--gold)}
 .mono{font-family:var(--font-mono)}
+
+/* ---------- Penguin Gold accents (2026-11 rebrand) ----------
+   .mark-gold   highlighter stroke behind one or two words
+   .ul-gold     gold underline under a key number or word
+   .text-gold   gold text, ONLY on navy or dark photography
+   .badge-gold  small pill ("Free", "New") with navy text
+   .btn-gold    primary CTA, ONLY on navy or dark photography
+   .dot-gold    small round gold dot (status, bullets)        */
+.mark-gold{
+  background:linear-gradient(transparent 58%,var(--gold-soft) 58%,var(--gold-soft) 92%,transparent 92%);
+  padding:0 .08em;border-radius:2px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+.ul-gold{
+  text-decoration:underline;text-decoration-color:var(--gold);
+  text-decoration-thickness:.12em;text-underline-offset:.18em;
+}
+.text-gold{color:var(--gold)}
+.badge-gold{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.02em;
+  background:var(--gold);color:var(--ink);border-radius:999px;padding:3px 10px;line-height:1.4;
+}
+.dot-gold{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
 .grad-text{
   background:var(--grad-blue);
   -webkit-background-clip:text;background-clip:text;
@@ -147,6 +188,9 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
 .btn svg{width:16px;height:16px;flex:none}
 .btn-primary{background:var(--teal);color:#fff}
 .btn-primary:hover{background:var(--teal-deep)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#ffbd5c}
+.btn-gold:active{background:var(--gold-deep)}
 .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal-ink)}
 .btn-panel{background:var(--panel);color:var(--ink)}
@@ -167,19 +211,27 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
    mirrored (scoped) in assets/family-chrome.css for the /family/ sub-site.
    If you change them here, update family-chrome.css to match. */
 
+/* Reserve the chrome's height before assets/v3.js injects it, so nothing
+   jumps: announce bar (38px) + nav (64px). */
+#site-nav-slot{display:block;min-height:102px}
+
 /* ---------- Announcement bar ---------- */
 .announce{
   background:var(--ink);color:#fff;
-  font-family:var(--font-mono);font-size:.78rem;
-  text-align:center;padding:9px 16px;
-  position:relative;z-index:60;
+  font-family:var(--font-mono);font-size:.78rem;line-height:1.2;
+  height:38px;padding:0 16px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:60;overflow:hidden;
 }
-.announce a{color:#fff;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.announce a{color:#fff;display:inline-flex;align-items:center;gap:10px;min-width:0;max-width:100%;white-space:nowrap}
 .announce .tag{
-  background:var(--tangerine);color:var(--ink);border-radius:5px;padding:1px 7px;
-  font-weight:600;margin-right:4px;
+  flex:none;background:var(--gold);color:var(--ink);border-radius:999px;padding:2px 8px;
+  font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.4;
 }
-.announce .arrow{transition:transform .18s;display:inline-block}
+.announce .msg{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.announce .short{display:none}
+.announce .arrow{flex:none;display:inline-block;color:var(--gold);transition:transform .18s}
+.announce a:hover .msg{text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}
 .announce a:hover .arrow{transform:translateX(4px)}
 
 /* ---------- Nav ---------- */
@@ -192,14 +244,19 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
   transform:translateZ(0); /* own compositor layer: keeps the blurred backdrop from re-rasterizing (flicker) when layers animate beneath it */
 }
 .site-nav.scrolled{border-bottom-color:var(--line)}
+/* Never put overflow (clip or hidden, on either axis) on .site-nav: with its
+   translateZ layer, Chrome then stops hit-testing a drop below the bar (it
+   still paints, but its links cannot be clicked). The drops stay inside the
+   page because a closed one is display:none and v3.js fits an open one. */
 .nav-inner{
   max-width:var(--maxw-wide);margin:0 auto;padding:0 24px;
   height:var(--nav-h);
-  display:flex;align-items:center;gap:28px;
+  display:flex;align-items:center;gap:24px;
 }
-.nav-logo{display:flex;align-items:center;flex:none}
-.nav-logo img{height:26px;width:auto}
-.nav-menu{display:flex;align-items:center;gap:4px;flex:1}
+.nav-logo{display:flex;align-items:center;flex:none;border-radius:8px}
+.nav-logo img{height:28px;width:auto}
+.nav-logo .logo-light{display:none}
+.nav-menu{display:flex;align-items:center;gap:2px;flex:1}
 .nav-item{position:relative}
 .nav-item > a,
 .nav-item > button{
@@ -219,63 +276,104 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
   transition:transform .18s;opacity:.55;
 }
 .nav-item.open .caret{transform:rotate(225deg) translateY(-1px)}
-.nav-item .ext{width:11px;height:11px;opacity:.45}
+.nav-item .ext{width:11px;height:11px;opacity:.45;display:inline-block}
+.site-nav a:focus-visible,.site-nav button:focus-visible,
+.mobile-menu a:focus-visible,.mobile-menu summary:focus-visible,
+.site-footer a:focus-visible,.pp-modal a:focus-visible,.pp-modal button:focus-visible{
+  outline:2px solid var(--teal);outline-offset:2px;
+}
 
-/* mega dropdown */
+/* mega dropdown. A closed drop is display:none, so it takes no layout: a
+   hidden 780px drop under Company used to widen the page at 1081-1312px.
+   It fades in from @starting-style and fades out with display kept
+   (allow-discrete); browsers without those simply show and hide it.
+   assets/v3.js shifts an open drop back inside the viewport (fitDrop). */
 .nav-drop{
   position:absolute;top:calc(100% + 10px);left:0;
-  background:#fff;border:1px solid var(--line);border-radius:16px;
+  background:#fff;border:1px solid var(--line);border-radius:18px;
   box-shadow:var(--shadow-menu);
-  padding:20px;display:flex;gap:28px;
-  opacity:0;visibility:hidden;transform:translateY(6px);
-  transition:opacity .18s,transform .18s,visibility .18s;
+  padding:20px;display:none;gap:24px;
+  opacity:0;visibility:hidden;
+  transition:opacity .16s,visibility .16s;
+  transition:opacity .16s,visibility .16s,display .16s allow-discrete;
   min-width:280px;
 }
-.nav-item.open .nav-drop{opacity:1;visibility:visible;transform:translateY(0)}
-
-/* The Family drop carries two groups plus the feature card (~790px wide). As
-   the first nav item it anchors ~150px in, so it clears the desktop breakpoint;
-   hide the photo card just above it as a defensive margin. */
-@media (max-width:1120px){
-  .nav-item--family .nav-feature{display:none}
+/* hover bridge: from the button's bottom edge across the 10px gap and 18px
+   into the drop's 20px top padding (no content there, and it covers the
+   rounded corners), the full border-box width (left and right -1px over
+   the 1px border) */
+.nav-drop::before{content:"";position:absolute;left:-1px;right:-1px;top:-11px;height:29px}
+/* each button and plain link wins its own pixels over a neighbouring
+   drop's bridge (a drop shifted left by fitDrop sits under them) */
+.nav-item > button{position:relative;z-index:1}
+.nav-menu > .nav-item:not([data-drop]){z-index:1}
+/* the plain link matches the buttons' height and baseline */
+.nav-menu > .nav-item > a{line-height:normal}
+.nav-item.open .nav-drop{display:flex;opacity:1;visibility:visible}
+@starting-style{
+  .nav-item.open .nav-drop{opacity:0;visibility:hidden}
 }
-.nav-group{min-width:230px}
-.nav-group + .nav-group{border-left:1px solid var(--line-soft);padding-left:28px}
+/* every column gets the same 250px of text: a later column also holds its
+   24px padding and 1px rule */
+.nav-group{min-width:250px;max-width:262px}
+.nav-group + .nav-group{border-left:1px solid var(--line-soft);padding-left:24px;min-width:275px;max-width:287px}
 .nav-group h6{
   font-family:var(--font-mono);font-size:.68rem;font-weight:500;
   text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-  margin:2px 0 10px 10px;
+  margin:2px 0 8px 10px;
 }
 .nav-group a{
-  display:block;padding:9px 10px;border-radius:10px;
+  display:block;padding:8px 10px;border-radius:10px;
   transition:background .15s;
 }
 .nav-group a:hover{background:var(--panel)}
-.nav-group a b{display:block;font-size:.92rem;font-weight:500;color:var(--ink)}
-.nav-group a small{display:block;font-size:.8rem;color:var(--muted);margin-top:1px;line-height:1.4}
-/* "New" badge on a dropdown entry (Roblox blue, from roblox.com's palette) */
-.nav-new{
-  display:inline-block;margin-left:7px;vertical-align:2px;
+.nav-group a b{display:flex;align-items:center;gap:7px;font-size:.92rem;font-weight:500;color:var(--ink)}
+.nav-group a small{display:block;font-size:.8rem;color:var(--muted);margin-top:1px;line-height:1.4;text-wrap:balance}
+/* pack dots (Personal teal, Family gold, Max navy; the Max class is .business), as on .pack-chip */
+.pk{display:inline-block;width:8px;height:8px;border-radius:50%;flex:none;background:var(--teal)}
+.pk.family{background:var(--gold)}
+.pk.business{background:var(--ink)}
+/* "Free" badge (gold) */
+.nav-badge{
+  display:inline-block;margin-left:6px;
   font-family:var(--font-mono);font-size:.58rem;font-weight:600;letter-spacing:.07em;
-  text-transform:uppercase;color:#fff;background:#335fff;border-radius:5px;padding:2px 6px;
+  text-transform:uppercase;border-radius:5px;padding:2px 6px;line-height:1.3;vertical-align:2px;
 }
+.nav-badge{color:var(--ink);background:var(--gold)}
+.nav-group a b .nav-badge{margin-left:0}
 .nav-feature{
-  width:230px;flex:none;border-radius:12px;overflow:hidden;position:relative;
-  background:var(--panel);display:flex;flex-direction:column;justify-content:flex-end;
-  min-height:200px;
+  width:230px;flex:none;border-radius:14px;overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
 }
-.nav-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.nav-feature .cap{
-  position:relative;padding:12px 14px;
-  background:linear-gradient(180deg,transparent,rgba(1,32,78,.78));
-  color:#fff;
-}
+.nav-feature .cap{position:relative;color:#fff}
 .nav-feature .cap b{display:block;font-size:.92rem;font-weight:500}
-.nav-feature .cap small{font-size:.78rem;opacity:.8}
+.nav-feature .cap small{font-size:.78rem;opacity:.82}
+/* Company: a typographic card on a quiet dot grid */
+.nav-feature--note{
+  padding:16px 16px 0;justify-content:space-between;
+  background:
+    radial-gradient(90% 60% at 100% 0%, rgba(2,131,145,.38), transparent 70%),
+    radial-gradient(80% 50% at 0% 100%, rgba(255,172,51,.14), transparent 70%),
+    var(--ink);
+}
+.nav-feature--note .cap{padding:0 0 14px}
+.nav-feature--note::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.4px) 0 0/16px 16px;
+  -webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 70%);mask-image:linear-gradient(200deg,#000 0%,transparent 70%);
+}
+.nav-feature--note > *{position:relative}
+.nav-feature--note .nf-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:.66rem;font-weight:500;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold);
+}
+.nav-feature--note .nf-kicker::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--gold)}
+.nav-feature--note .cap b{font-size:1.3rem;letter-spacing:-.015em;line-height:1.15;margin-bottom:4px}
 
 /* nav right side */
-.nav-right{display:flex;align-items:center;gap:6px;flex:none}
-.nav-social{display:flex;align-items:center;gap:2px;margin-right:8px}
+.nav-right{display:flex;align-items:center;gap:6px;flex:none;position:relative;z-index:1}
+.nav-social{display:flex;align-items:center;gap:2px;margin-right:6px}
 .nav-social a{
   width:32px;height:32px;border-radius:9px;
   display:flex;align-items:center;justify-content:center;
@@ -283,15 +381,14 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
 }
 .nav-social a:hover{background:var(--panel)}
 .nav-social svg{width:16px;height:16px}
-.nav-signin{
-  font-size:.92rem;font-weight:450;color:var(--ink);
-  padding:9px 10px;border-radius:10px;
-}
-.nav-signin:hover{background:var(--panel)}
+
+/* right-anchored dropdown (the Sign in split: Parent HQ / PrivacyPal portal) */
+.nav-drop.drop-right{left:auto;right:0;min-width:0}
+.nav-group.slim{min-width:226px}
 
 /* hamburger + mobile */
 .nav-burger{
-  display:none;background:none;border:0;width:40px;height:40px;
+  display:none;background:none;border:0;width:40px;height:40px;border-radius:10px;
   flex-direction:column;align-items:center;justify-content:center;gap:5px;
 }
 .nav-burger span{width:20px;height:1.6px;background:var(--ink);transition:transform .25s,opacity .2s}
@@ -300,52 +397,59 @@ h4,.h4{font-size:1.05rem;font-weight:500;line-height:1.3}
 .nav-burger.active span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
 .mobile-menu{
   display:none;position:fixed;inset:0;top:0;z-index:49;
-  background:#fff;padding:120px 28px 40px;overflow-y:auto;
+  background:#fff;padding:114px 20px 40px;overflow-y:auto;overscroll-behavior:contain;
+  scroll-padding-bottom:16px;
 }
 .mobile-menu.active{display:block}
-.mobile-menu h6{
-  font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;
-  letter-spacing:.08em;color:var(--muted);margin:26px 0 8px;font-weight:500;
+.mm-sec{border-bottom:1px solid var(--line-soft)}
+.mm-sec > summary{
+  list-style:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 2px;font-size:1.15rem;font-weight:500;color:var(--ink);
 }
-.mobile-menu h6:first-child{margin-top:0}
-.mobile-menu a{
-  display:block;padding:10px 0;font-size:1.05rem;font-weight:450;
-  border-bottom:1px solid var(--line-soft);
+.mm-sec > summary::-webkit-details-marker{display:none}
+.mm-sec > summary::after{
+  content:"";width:9px;height:9px;margin-right:4px;
+  border-right:1.6px solid var(--muted);border-bottom:1.6px solid var(--muted);
+  transform:rotate(45deg) translateY(-3px);transition:transform .18s;
 }
-.mobile-menu .mm-ctas{display:flex;gap:10px;margin-top:28px}
+.mm-sec[open] > summary::after{transform:rotate(225deg) translateY(-1px)}
+.mm-links{padding:0 2px 14px}
+.mm-links a{display:flex;align-items:center;gap:9px;padding:9px 0;font-size:1rem;color:var(--text)}
+.mm-links a .nav-badge{margin-left:0}
+.mm-links h6{
+  font-family:var(--font-mono);font-size:.66rem;font-weight:500;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted);margin:14px 0 4px;
+}
+.mm-links h6:first-child{margin-top:2px}
+.mm-link{display:block;padding:16px 2px;font-size:1.15rem;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line-soft)}
+.mm-signin{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.mm-signin a{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.mm-signin b{display:block;font-size:.95rem;font-weight:500;color:var(--ink)}
+.mm-signin small{display:block;font-size:.76rem;color:var(--muted);margin-top:2px;line-height:1.35}
+.mobile-menu .mm-ctas{display:flex;gap:10px;margin-top:12px}
 .mobile-menu .mm-ctas .btn{flex:1}
-.mobile-menu .mm-social{display:flex;gap:14px;margin-top:24px}
-.mobile-menu .mm-social a{border-bottom:0;padding:6px}
+.mobile-menu .mm-social{display:flex;gap:14px;margin-top:22px}
+.mobile-menu .mm-social a{padding:6px;color:var(--ink)}
 .mobile-menu .mm-social svg{width:18px;height:18px}
 
-/* right-anchored dropdown (the Sign in split: Parent HQ / Business portal) */
-.nav-drop.drop-right{left:auto;right:0;min-width:0}
-.nav-group.slim{min-width:216px}
-
-/* The For Business drop carries three groups (~790px). It clears the desktop
-   nav breakpoint from its anchor position, but wrap it defensively just above. */
-@media (max-width:1120px){
-  .nav-item--biz .nav-drop{flex-wrap:wrap;max-width:580px}
-  .nav-item--biz .nav-group + .nav-group{border-left:0;padding-left:0}
-}
-
 /* Cinema mode: the homepage sets body.cinema and pulls a full-bleed dark hero
-   up behind the nav. The nav starts transparent with light chrome, and returns
-   to the standard white blur once scrolled (or while the mobile menu is open). */
+   up behind the nav. The nav starts transparent with light chrome and the
+   white logo file, and returns to the standard white blur and the navy logo
+   once scrolled (or while the mobile menu is open). */
 body.cinema .site-nav:not(.scrolled):not(.menu-open){
   background:transparent;
   -webkit-backdrop-filter:none;backdrop-filter:none;
 }
 body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > a,
 body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > button,
-body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-social a,
-body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-signin{color:#fff}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-social a{color:#fff}
 body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > a:hover,
 body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item > button:hover,
 body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-item.open > button,
-body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-social a:hover,
-body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-signin:hover{background:rgba(255,255,255,.14)}
-body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-logo img{filter:brightness(0) invert(1)}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-social a:hover{background:rgba(255,255,255,.14)}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-logo .logo-ink{display:none}
+body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-logo .logo-light{display:block}
 body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-right .btn-ghost{
   background:transparent;color:#fff;border-color:rgba(255,255,255,.5);
 }
@@ -663,7 +767,7 @@ body.cinema .site-nav:not(.scrolled):not(.menu-open) .nav-burger span{background
 .price-card .amount-note b{color:var(--ink);font-weight:600}
 .price-card.dark .amount-note b{color:#fff}
 
-/* ---------- Plan scope note (Pro is one person) ---------- */
+/* ---------- Plan scope note (Personal is one person) ---------- */
 .scope-note{
   display:flex;gap:13px;align-items:flex-start;
   border:1px solid var(--line);border-radius:var(--r-md);
@@ -806,7 +910,7 @@ table.compare tr.tier-on td b{color:var(--ink)}
   content:"";position:absolute;inset:0;
   background:
     radial-gradient(46% 60% at 28% 108%, rgba(47,196,210,.4), transparent 70%),
-    radial-gradient(42% 55% at 72% 112%, rgba(250,169,104,.34), transparent 70%),
+    radial-gradient(42% 55% at 72% 112%, rgba(255,172,51,.26), transparent 70%),
     radial-gradient(36% 48% at 50% 118%, rgba(120,205,185,.28), transparent 72%);
   pointer-events:none;
 }
@@ -834,45 +938,52 @@ table.compare tr.tier-on td b{color:var(--ink)}
 
 /* ---------- Footer ---------- */
 .site-footer{border-top:1px solid var(--line);background:#fff;margin-top:96px}
-.footer-inner{max-width:var(--maxw-wide);margin:0 auto;padding:64px 24px 36px}
-.footer-grid{
-  display:grid;grid-template-columns:repeat(5,1fr) 1.3fr;gap:32px;
-}
-.footer-col h5{
+.footer-inner{max-width:var(--maxw-wide);margin:0 auto;padding:64px 24px 30px}
+.footer-top{display:grid;grid-template-columns:minmax(250px,1.2fr) 4fr;gap:56px}
+.foot-logo{display:inline-flex;border-radius:8px}
+.foot-logo img{height:30px;width:auto}
+.footer-tag{margin-top:20px;font-size:1.06rem;font-weight:500;line-height:1.4;letter-spacing:-.005em;color:var(--ink);max-width:24ch}
+.footer-proof{margin-top:8px;font-size:.86rem;line-height:1.55;color:var(--muted);max-width:30ch}
+/* a column is never narrower than its longest link, so "Zero-configuration
+   shield" stays on one line from 1081px up */
+.footer-grid{display:grid;grid-template-columns:repeat(5,minmax(max-content,1fr));gap:24px}
+.footer-col h5,.footer-news h5,.footer-addr h5{
   font-family:var(--font-mono);font-size:.7rem;font-weight:500;
   text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 .footer-col a{
   display:block;font-size:.9rem;color:var(--text);padding:5px 0;
   transition:color .15s;
 }
 .footer-col a:hover{color:var(--ink)}
-.footer-col a small{color:var(--faint);font-family:var(--font-mono);font-size:.68rem;margin-left:6px}
-.footer-news h5{
-  font-family:var(--font-mono);font-size:.7rem;font-weight:500;
-  text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px;
+.footer-col a small{color:var(--muted);font-family:var(--font-mono);font-size:.66rem;margin-left:6px}
+.footer-col h6{
+  font-family:var(--font-mono);font-size:.62rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+  margin:16px 0 3px;
 }
-.footer-news p{font-size:.9rem;color:var(--muted);line-height:1.55;margin-bottom:16px}
+.footer-col h5 + h6{margin-top:0}
+.footer-news{margin-top:30px}
 .footer-news form{display:flex;gap:8px}
 .footer-news input{
-  flex:1;border:1px solid var(--line);border-radius:var(--r-md);
-  padding:10px 14px;font-family:var(--font-primary);font-size:.9rem;outline:none;
+  flex:1;border:1px solid var(--line);border-radius:var(--r-md);background:#fff;
+  padding:10px 14px;font-family:var(--font-primary);font-size:.9rem;color:var(--ink);outline:none;
   transition:border-color .15s;min-width:0;
 }
 .footer-news input:focus{border-color:var(--teal)}
-/* Headquarters block, under the newsletter in the last footer column */
-.footer-addr{margin-top:30px;font-style:normal}
+.footer-news p{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:10px}
+/* Headquarters block, in the brand column under the newsletter */
+.footer-addr{margin-top:28px;font-style:normal}
 .footer-addr-row{display:flex;gap:10px;align-items:flex-start}
 .footer-addr-row > svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--teal)}
 .footer-addr p{font-size:.85rem;line-height:1.65;color:var(--muted)}
 .footer-addr p b{display:block;color:var(--ink);font-weight:500}
 .footer-addr p > span{display:block}
 .footer-bottom{
-  margin-top:56px;padding-top:26px;border-top:1px solid var(--line-soft);
-  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  margin-top:52px;padding-top:22px;border-top:1px solid var(--line-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;
 }
-.footer-bottom .foot-logo img{height:22px}
 .footer-social{display:flex;gap:2px}
 .footer-social a{
   width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;
@@ -880,9 +991,18 @@ table.compare tr.tier-on td b{color:var(--ink)}
 }
 .footer-social a:hover{color:var(--ink);background:var(--panel)}
 .footer-social svg{width:15px;height:15px}
-.footer-legal{margin-left:auto;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.footer-legal{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .footer-legal span,.footer-legal a{font-size:.8rem;color:var(--muted)}
 .footer-legal a:hover{color:var(--ink)}
+
+/* Penguin emoji: a typed 🐧 rendered as the logo mark (v3.js), sized to match the logo
+   lockup: the penguin stands 1.6x the cap height with its feet 0.14 cap height below the
+   baseline (penguin.svg pads 16 of 512 units, so 1.11em tall at -.13em). Mirrored in
+   family-chrome.css. */
+.pp-emoji{display:inline-block;height:1.11em;width:auto;vertical-align:-.13em;margin:0 .04em}
+.footer-credit{margin-top:14px;font-size:.72rem;line-height:1.5;color:var(--muted)}
+.footer-credit a{text-decoration:underline;text-underline-offset:2px}
+.footer-credit a:hover{color:var(--ink)}
 
 /* ---------- Page hero (sub-pages) ---------- */
 .page-hero{padding:90px 0 64px;position:relative;overflow:hidden}
@@ -962,7 +1082,7 @@ table.compare thead th{
 }
 table.compare tr:last-child td{border-bottom:0}
 table.compare td.yes{color:var(--ok);font-weight:600}
-table.compare td.no{color:var(--faint)}
+table.compare td.no{color:var(--muted)}
 table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-weight:400;margin-top:3px}
 table.compare .ai-cell{display:flex;align-items:center;gap:11px}
 table.compare .ai-cell .tile{flex:none;width:28px;height:28px;border-radius:8px;background:#fff;box-shadow:inset 0 0 0 1px rgba(1,32,78,.12);display:grid;place-items:center}
@@ -981,13 +1101,14 @@ table.compare td.max-link a:hover{opacity:.75}
 }
 .pill-row{display:flex;gap:8px;flex-wrap:wrap}
 
-/* ---------- Modals (demo + download) ---------- */
+/* ---------- Modals (demo + the one download) ---------- */
 .pp-modal{
   position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  opacity:0;pointer-events:none;transition:opacity .25s;padding:20px;
+  background:rgba(1,16,42,.52);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;padding:20px;
+  visibility:hidden;transition:opacity .25s,visibility .25s;
 }
-.pp-modal.show{opacity:1;pointer-events:auto}
+.pp-modal.show{opacity:1;pointer-events:auto;visibility:visible;transition:opacity .25s,visibility 0s}
 .pp-modal-card{
   background:#fff;border-radius:var(--r-lg);max-width:860px;width:100%;
   max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-pop);
@@ -995,19 +1116,19 @@ table.compare td.max-link a:hover{opacity:.75}
 }
 .pp-modal.show .pp-modal-card{transform:translateY(0)}
 .pp-modal-card.demo{max-width:720px}
-#ppDownloadModal .pp-modal-card{max-width:1040px}
+#ppDownloadModal .pp-modal-card{max-width:980px}
 .pp-modal-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 26px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:18px 24px;border-bottom:1px solid var(--line);
   position:sticky;top:0;background:#fff;z-index:2;border-radius:var(--r-lg) var(--r-lg) 0 0;
 }
 .pp-modal-head h3{font-size:1.15rem}
 .pp-modal-close{
-  background:var(--panel);border:0;width:32px;height:32px;border-radius:9px;
+  flex:none;background:var(--panel);border:0;width:32px;height:32px;border-radius:9px;
   font-size:1.1rem;line-height:1;color:var(--ink);
 }
 .pp-modal-close:hover{background:#ecebe0}
-.pp-modal-body{padding:26px}
+.pp-modal-body{padding:24px}
 .pp-modal-body iframe{width:100%;height:62vh;border:0;border-radius:var(--r-md)}
 .pp-modal-alt{margin:-6px 0 14px;font-size:.9rem;color:var(--muted)}
 .pp-modal-alt a{color:var(--teal-ink);font-weight:500;text-decoration:underline}
@@ -1021,52 +1142,153 @@ table.compare td.max-link a:hover{opacity:.75}
   animation:ppspin .8s linear infinite;
 }
 @keyframes ppspin{to{transform:rotate(360deg)}}
-.pp-dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.pp-dl-card{background:var(--panel);border-radius:var(--r-lg);padding:26px}
-.pp-dl-row{display:flex;align-items:center;gap:9px;margin-bottom:14px;color:var(--muted)}
-.pp-dl-row svg{width:16px;height:16px}
-.pp-dl-row .label{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
-.pp-dl-card h4{font-size:1.15rem;margin-bottom:8px}
-.pp-dl-card > p{font-size:.88rem;color:var(--muted);margin-bottom:14px}
-.pp-dl-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
-.pp-dl-pill{
-  font-family:var(--font-mono);font-size:.66rem;color:var(--muted);
-  background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+/* the one download modal: app icon + title, the packs line, five platform
+   tiles (.platform-grid, shared with download.html), a trust line */
+.pp-dl-title{display:flex;align-items:center;gap:14px;min-width:0}
+.pp-dl-title img{width:40px;height:40px;flex:none;border-radius:9px;box-shadow:0 0 0 1px var(--line),0 6px 14px -6px rgba(1,32,78,.3)}
+.pp-dl-title h3{font-size:1.2rem;line-height:1.2}
+.pp-dl-ver{display:block;font-family:var(--font-mono);font-size:.7rem;color:var(--muted);margin-top:3px}
+.pp-dl-lede{font-size:1rem;line-height:1.55;color:var(--text);max-width:64ch}
+.pp-dl-packs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px}
+.pp-dl-trust{
+  display:flex;align-items:center;flex-wrap:wrap;gap:12px 28px;
+  margin-top:20px;padding-top:18px;border-top:1px solid var(--line-soft);
 }
-.pp-dl-btn{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  background:var(--teal);color:#fff;border-radius:var(--r-md);
-  padding:12px 16px;font-size:.92rem;font-weight:500;width:100%;
-  transition:background .15s;
+.pp-dl-trust-item{display:flex;align-items:flex-start;gap:10px;flex:0 1 300px}
+.pp-dl-trust-ico{color:var(--teal);flex:none;margin-top:1px}
+.pp-dl-trust-ico svg{width:18px;height:18px}
+.pp-dl-trust-item p{font-size:.84rem;line-height:1.5;color:var(--muted)}
+.pp-dl-trust-item b{color:var(--ink);font-weight:500}
+.pp-dl-more{margin-left:auto;font-size:.88rem;font-weight:500;color:var(--teal-ink);white-space:nowrap}
+.pp-dl-more:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ============================================================
+   One PrivacyPal (2026-11 rebrand): shared components
+   - .pp-penguin      inline mascot <img src="assets/brand/penguin.svg">
+   - .pack-chip       inline label for a pack (Personal/Family/Max; Max uses .business)
+   - .pack-grid/.pack-card   the three packs, used on home, pricing, download
+   - .platform-grid/.platform  one-download tiles (Mac, Windows, Linux, iOS, Android)
+   - .stack-app       "one app, packs switch on" mock window
+   ============================================================ */
+.pp-penguin{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.18em;flex:none}
+
+.pack-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:.74rem;font-weight:500;letter-spacing:.02em;
+  color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 11px;line-height:1.3;
+  white-space:nowrap;
 }
-.pp-dl-btn:hover{background:var(--teal-deep)}
-.pp-dl-btn + .pp-dl-btn{margin-top:8px}
-.pp-dl-btn.mac-secondary,.pp-dl-btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
-.pp-dl-btn.mac-secondary:hover,.pp-dl-btn.secondary:hover{border-color:var(--teal)}
-.pp-dl-filename{font-family:var(--font-mono);font-size:.68rem;color:var(--faint);margin-top:12px;text-align:center}
-.pp-dl-arch-hint{font-size:.78rem;color:var(--muted);margin-top:12px}
-.pp-dl-cli{margin-top:16px}
-.pp-dl-cli .cli-label{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);margin-bottom:8px}
-.pp-dl-cli .cli-block{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  background:var(--ink);color:#e1e1e1;border-radius:10px;padding:10px 14px;
-  font-family:var(--font-mono);font-size:.78rem;
+.pack-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pack-accent,var(--teal))}
+.pack-chip.personal{--pack-accent:var(--teal)}
+.pack-chip.family{--pack-accent:var(--gold)}
+.pack-chip.business{--pack-accent:var(--ink)}
+.on-dark .pack-chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#fff}
+.on-dark .pack-chip.business{--pack-accent:#fff}
+
+.pack-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pack-card{
+  --pack-accent:var(--teal);
+  position:relative;display:flex;flex-direction:column;gap:16px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 28px 28px;box-shadow:var(--shadow-card);overflow:hidden;
 }
-.pp-dl-cli .prompt{color:#6e87ad;margin-right:8px}
-.cli-copy{
-  background:rgba(255,255,255,.1);border:0;color:#fff;
-  font-family:var(--font-mono);font-size:.66rem;border-radius:6px;padding:4px 9px;
+.pack-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--pack-accent);
 }
-.cli-copy:hover{background:rgba(255,255,255,.2)}
-.pp-dl-trust{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-.pp-dl-trust-card{
-  display:flex;gap:14px;align-items:flex-start;
-  border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;
+.pack-card.personal{--pack-accent:var(--teal)}
+.pack-card.family{--pack-accent:var(--gold)}
+.pack-card.business{--pack-accent:var(--ink)}
+.pack-card .pack-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pack-card .pack-name{font-size:1.45rem;font-weight:500;letter-spacing:-.015em;line-height:1.1}
+.pack-card .pack-for{font-family:var(--font-mono);font-size:.76rem;color:var(--muted);margin-top:4px}
+.pack-card .pack-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pack-card .pack-price .big{font-size:2.6rem;font-weight:500;letter-spacing:-.03em;line-height:1}
+.pack-card .pack-price small{font-size:.86rem;color:var(--muted)}
+.pack-card .pack-desc{font-size:.95rem;color:var(--text);line-height:1.55}
+.pack-card ul{list-style:none;display:grid;gap:9px;font-size:.92rem;color:var(--text);margin:2px 0 6px}
+.pack-card li{position:relative;padding-left:24px;line-height:1.45}
+.pack-card li::before{
+  content:"";position:absolute;left:2px;top:.42em;width:11px;height:6px;
+  border-left:2px solid var(--sage);border-bottom:2px solid var(--sage);transform:rotate(-45deg);
 }
-.pp-dl-trust-ico{color:var(--ink);flex:none}
-.pp-dl-trust-ico svg{width:20px;height:20px}
-.pp-dl-trust-body h5{font-size:.92rem;font-weight:500;margin-bottom:3px}
-.pp-dl-trust-body p{font-size:.8rem;color:var(--muted)}
+.pack-card .pack-cta{margin-top:auto;display:grid;gap:10px}
+.pack-card .pack-cta .btn{width:100%}
+.pack-card .pack-fine{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);text-align:center;line-height:1.5}
+.pack-card.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+.pack-card.dark .pack-for,.pack-card.dark .pack-price small,.pack-card.dark .pack-fine{color:#aebbd3}
+.pack-card.dark .pack-desc,.pack-card.dark li{color:#dbe3f0}
+/* checks on a dark card: the light sage of .price-card.dark, so gold stays on
+   the CTA only. The navy Max card is its own pack color: no top stripe (as
+   on the homepage and pricing). */
+.pack-card.dark li::before{border-color:#8fd9c8}
+.pack-card.business.dark::before{display:none}
+
+.platform-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.platform{
+  display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px 18px 16px;
+  transition:border-color .18s,box-shadow .18s,transform .18s;color:var(--ink);
+}
+a.platform:hover{border-color:var(--teal);box-shadow:var(--shadow-menu);transform:translateY(-2px)}
+.platform .os-ico{width:30px;height:30px;color:var(--ink)}
+.platform .os-name{font-weight:500;font-size:1rem;line-height:1.2}
+.platform .os-meta{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);line-height:1.45}
+.platform .os-go{margin-top:auto;font-size:.86rem;font-weight:500;color:var(--teal-ink);display:inline-flex;align-items:center;gap:6px}
+.platform.is-you{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-tint)}
+.platform.is-you .os-meta::after{content:" · your device";color:var(--gold-ink)}
+.platform .os-go svg{width:15px;height:15px;flex:none}
+/* Linux carries two architectures: a div tile with two links inside */
+div.platform.multi:hover{border-color:var(--faint)}
+.platform .os-links{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}
+.platform .os-links a{
+  font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--teal-ink);
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 9px;
+  transition:border-color .15s,background .15s;
+}
+.platform .os-links a:hover{border-color:var(--teal);background:var(--panel-2)}
+
+.stack-app{
+  background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-pop);
+  overflow:hidden;max-width:440px;
+}
+.stack-app .bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line-soft);background:var(--panel-2)}
+.stack-app .bar .dots{display:flex;gap:6px}
+.stack-app .bar .dots i{width:9px;height:9px;border-radius:50%;background:#dcd9cc}
+.stack-app .bar .title{display:flex;align-items:center;gap:8px;font-weight:500;font-size:.92rem}
+.stack-app .row{display:flex;align-items:center;gap:14px;padding:15px 18px;border-bottom:1px solid var(--line-soft)}
+.stack-app .row:last-child{border-bottom:0}
+.stack-app .row .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--panel);flex:none}
+.stack-app .row .ico svg{width:18px;height:18px}
+.stack-app .row b{display:block;font-weight:500;font-size:.95rem}
+.stack-app .row small{display:block;font-size:.8rem;color:var(--muted)}
+.stack-app .toggle{margin-left:auto;width:38px;height:22px;border-radius:999px;background:#d9dbe2;position:relative;flex:none}
+.stack-app .toggle::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(1,32,78,.2);transition:left .2s}
+.stack-app .toggle.on{background:var(--teal)}
+.stack-app .toggle.on.gold{background:var(--gold)}
+.stack-app .toggle.on.ink{background:var(--ink)}
+.stack-app .toggle.on::after{left:19px}
+
+@media (max-width:1080px){
+  .platform-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .pack-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* .list-sm: on phones the tiles become compact rows, the visitor's own first */
+  .platform-grid.list-sm{grid-template-columns:1fr;gap:8px}
+  .platform-grid.list-sm .platform{
+    display:grid;grid-template-columns:28px minmax(0,1fr) auto;column-gap:14px;row-gap:1px;
+    align-items:center;padding:13px 14px;
+  }
+  .platform-grid.list-sm .platform.is-you{order:-1}
+  .platform-grid.list-sm .os-ico{grid-row:1 / span 2;width:26px;height:26px}
+  .platform-grid.list-sm .os-name{grid-column:2}
+  .platform-grid.list-sm .os-meta{grid-column:2;grid-row:2}
+  .platform-grid.list-sm .os-go,
+  .platform-grid.list-sm .os-links{grid-column:3;grid-row:1 / span 2;margin-top:0}
+}
 
 /* ---------- Reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -1077,18 +1299,30 @@ table.compare td.max-link a:hover{opacity:.75}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ---------- Responsive ---------- */
+@media (max-width:1280px){
+  .nav-social{display:none}
+}
 @media (max-width:1080px){
   .nav-menu{display:none}
-  .nav-social{display:none}
-  .nav-signin{display:none}
+  .nav-right{margin-left:auto}
   .nav-right .nav-item{display:none}
   .nav-right .btn-ghost{display:none}
   .nav-burger{display:flex}
-  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr;gap:44px}
+  .footer-brand{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;align-items:start}
+  .footer-brand .footer-news{grid-column:2;grid-row:1 / span 4;margin-top:0}
+  .footer-brand .footer-addr{grid-column:1}
   .deep{grid-template-columns:1fr;gap:36px}
   .split{grid-template-columns:1fr;gap:36px}
   .card-grid.cols-4{grid-template-columns:repeat(2,1fr)}
   .card-grid.cols-3{grid-template-columns:repeat(2,1fr)}
+}
+/* 761-1080: the footer columns differ a lot in height (Platform is the
+   tallest), so they flow in three balanced columns instead of a grid */
+@media (min-width:761px) and (max-width:1080px){
+  .footer-grid{display:block;columns:3;column-gap:24px}
+  .footer-col{break-inside:avoid;margin-bottom:36px}
+  .footer-col:last-child{margin-bottom:0}
 }
 @media (max-width:760px){
   .section{padding:64px 0}
@@ -1103,9 +1337,27 @@ table.compare td.max-link a:hover{opacity:.75}
   .twin-compare{grid-template-columns:1fr}
   .twin-mid .bubble{transform:rotate(90deg)}
   .deep-item{grid-template-columns:1fr;gap:4px}
-  .pp-dl-grid,.pp-dl-trust{grid-template-columns:1fr}
   .form .row{grid-template-columns:1fr}
   .cta-banner{padding:56px 24px}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-legal{margin-left:0}
+  .announce .long{display:none}
+  .announce .short{display:inline}
+  .nav-inner{padding:0 16px;gap:16px}
+  .nav-right .btn-primary{padding:9px 14px;font-size:.88rem}
+  .footer-inner{padding:52px 16px 28px}
+  .footer-brand{display:block}
+  .footer-brand .footer-news{margin-top:28px}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}
+  .pp-modal{padding:12px;align-items:flex-end}
+  .pp-modal-card{max-height:92vh}
+  .pp-modal-head{padding:14px 16px}
+  .pp-modal-body{padding:18px 16px 20px}
+  .pp-dl-trust{gap:12px}
+  .pp-dl-more{margin-left:0}
+}
+
+/* the smallest phones (320 to 359px): the nav row fits without sideways scroll */
+@media (max-width:359px){
+  .nav-inner{padding:0 12px;gap:10px}
+  .nav-logo img{height:24px}
+  .nav-right .btn-primary{padding:8px 11px;font-size:.84rem}
 }

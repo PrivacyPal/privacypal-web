@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Banking &amp; FSI: AI governance for financial services · PrivacyPal</title>
 <meta name="description" content="AI governance for community banks, credit unions, lenders and wealth advisory firms. Keep client PII, account numbers and proprietary models out of every LLM. GLBA, SOX and FINRA-aligned. Day one." />
-<link rel="icon" href="assets/favicon.ico"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,16 +18,20 @@
 <meta property="og:url" content="https://privacypal.ai/banking.html" />
 <meta property="og:title" content="Banking &amp; FSI: AI governance for financial services · PrivacyPal" />
 <meta property="og:description" content="The governance &amp; enablement layer for AI in banking, wealth and lending. Keep PII, account numbers and proprietary models out of every LLM. GLBA, SOX and FINRA-aligned." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Banking &amp; FSI: AI governance for financial services · PrivacyPal" />
 <meta name="twitter:description" content="The governance &amp; enablement layer for AI in banking, wealth and lending. Keep PII, account numbers and proprietary models out of every LLM. GLBA, SOX and FINRA-aligned." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <style>
 .hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-split h1{max-width:15ch}
 .hero-media{background:var(--panel);border-radius:var(--r-lg);padding:16px}
 .hero-media img{display:block;width:100%;border-radius:var(--r-md);border:1px solid var(--line)}
+.pack-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.nw{white-space:nowrap}
 .twin-note{margin-top:20px;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 @media (max-width:920px){.hero-split{grid-template-columns:1fr;gap:32px}}
 </style>
@@ -44,11 +51,11 @@
   <div class="container">
     <div class="hero-split">
       <div class="reveal">
-        <span class="eyebrow blue">For banking</span>
+        <span class="eyebrow gold">For banking</span>
         <h1>AI governance your regulators can live with</h1>
         <p class="lede">A 30-person RIA or a community bank with 1,200 employees: same install, same afternoon. PrivacyPal is the on-device governance layer that keeps client PII, account numbers, MNPI and proprietary models out of every third-party AI your people use. Credit unions, commercial lenders, wealth advisors. GLBA, SOX and FINRA stop being blockers. Your team keeps moving.</p>
         <div class="btn-row">
-          <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Pro free</a>
+          <a class="btn btn-primary btn-lg" href="download.html" data-cta="download">Download free</a>
           <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
         </div>
       </div>
@@ -69,9 +76,9 @@
     </div>
 
     <div class="stats cols-3 reveal">
-      <div class="stat"><div class="n">$340<small>B</small></div><div class="l">McKinsey's estimate of the annual value banking stands to capture from generative AI.</div></div>
-      <div class="stat"><div class="n">68<small>%</small></div><div class="l">Of bank employees already paste sensitive data into public chatbots.</div></div>
-      <div class="stat"><div class="n">100<small>s</small></div><div class="l">Of companies trust PrivacyPal to govern AI.</div></div>
+      <div class="stat"><div class="n"><span class="ul-gold">140+</span><small>companies</small></div><div class="l">Trust PrivacyPal to govern AI, and global banks run the same technology.</div></div>
+      <div class="stat"><div class="n">0<small>bytes</small></div><div class="l">Of real client data sent to any AI provider. Twins go out, and the real values return on the device.</div></div>
+      <div class="stat"><div class="n">7<small>platforms</small></div><div class="l">Chat apps and agent surfaces governed under one institution-wide policy.</div></div>
     </div>
 
     <div class="twin-compare reveal" style="margin-top:56px">
@@ -87,7 +94,7 @@
         "Draft a Q3 narrative for <span class="green">Nancy Grace</span>, account <span class="green">7912-4408-3617</span>, currently holding <span class="green">$3,815,000</span> in <span class="green">MSFT</span>."
       </div>
     </div>
-    <p class="twin-note reveal">Real values out · realistic twins to the model · real values back on return · mapping held on-device, never leaves the bank · every hop logged to SIEM</p>
+    <p class="twin-note reveal">Real values out · realistic twins to the model · real values back on return · mapping held on-device · every hop logged to SIEM</p>
   </div>
 </section>
 
@@ -107,12 +114,12 @@
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10l9-6 9 6M4 10v9h16v-9M8 19v-6M12 19v-6M16 19v-6"/></svg></div>
         <h4>Commercial lending</h4>
-        <p>Let underwriters run AI against borrower financials. Cap tables, covenants and side-letter terms stay inside the bank.</p>
+        <p>Let underwriters run AI against borrower financials. Cap tables, covenants and side-letter terms reach the model only as twins.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 13a8 8 0 0 1 16 0M4 13v4a2 2 0 0 0 2 2h2v-6H6M20 13v4a2 2 0 0 1-2 2h-2v-6h2"/></svg></div>
         <h4>Customer operations</h4>
-        <p>Automate ticket triage and response drafting. Account numbers, SSNs, and routing codes never leave the perimeter.</p>
+        <p>Automate ticket triage and response drafting. Account numbers, SSNs, and routing codes never reach the AI provider.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 5v10M7 8h-2v5h2M12 3v14M12 6h-2v7h2M17 8v10M17 11h2v5h-2"/></svg></div>
@@ -145,24 +152,15 @@
   </div>
 </section>
 
-<!-- ================= QUOTE ================= -->
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="bigquote reveal">
-      <blockquote>We went from a blanket <b>"no AI" memo</b> to onboarding <b>all our users in two weeks</b>.</blockquote>
-      <div class="who">Chief Information Security Officer, top-50 US bank</div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= WHICH PLAN ================= -->
 <section class="section-sm" style="padding-top:0">
   <div class="container">
     <div class="panel reveal" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between">
       <div style="max-width:600px">
-        <span class="eyebrow pink">Which plan</span>
-        <h3 style="margin-top:12px">Banks and advisory firms run PrivacyPal Max</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Max covers the whole institution: attach your domain, provision every advisor, analyst and branch employee centrally, and hold one AI policy across the firm. $30 per seat a month at 1 to 9 seats, $25 at 10, $21 at 100, billed annually. An advisor covering only themselves runs Pro, which is completely free for individuals. Institutions with a hard data-residency mandate run Cloud inside their own VPC.</p>
+        <span class="eyebrow gold">Which pack</span>
+        <h3 style="margin-top:12px">Banks and advisory firms run Max</h3>
+        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Max covers the whole institution: attach your domain, provision every advisor, analyst and branch employee centrally, and hold one AI policy across the firm. $34 per user a month, or $30 billed annually, at <span class="nw">1&ndash;9 users</span>; $25 at 10 users and $21 at 100, billed annually. Employees already on Personal or the Family pack join the institution's Max account under a license you provision. An advisor covering only themselves starts on Personal, free for every individual. Institutions with a hard data-residency mandate deploy PrivacyPal Cloud inside their own VPC.</p>
+        <div class="pack-chips"><span class="pack-chip business">Max · $34/user/mo</span><span class="pack-chip personal">Personal · Free</span></div>
       </div>
       <div class="btn-row">
         <a class="btn btn-primary" href="privacypal-max.html">Explore Max</a>
@@ -196,10 +194,10 @@
     <div class="cta-banner dark reveal">
       <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For banking</span>
       <h2 style="margin-top:14px">Stop negotiating between AI and compliance</h2>
-      <p>Talk to a banker on our team. Yes, we hire from the industry on purpose.</p>
+      <p>Talk to our team about your examiners, your policies and your rollout.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a>
-        <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Get Pro free</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="demo">Book a banking demo</a>
+        <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
       </div>
     </div>
   </div>

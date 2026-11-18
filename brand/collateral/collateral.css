@@ -1,0 +1,571 @@
+/* ============================================================
+   PrivacyPal print collateral: shared stylesheet (2026-11 rebrand)
+
+   Every file in brand/collateral/*.html is a printable document:
+   one <section class="sheet"> per US Letter page (8.5 x 11 in).
+   scripts/brand/build-collateral.js renders each document to
+   brand/collateral/pdf/<name>.pdf plus a PNG of its first page.
+
+   Print rules this system depends on
+   1. @page is Letter with margin 0; each .sheet carries its own
+      0.5 in safe margin as padding, so all ink (text, photos,
+      panels) sits inside the 7.5 x 10 in live area. Nothing
+      bleeds, so any office printer reproduces the page whole.
+   2. A sheet never grows: content that does not fit is clipped.
+      The build reports any element that crosses the live area.
+   3. Colors print exactly as on screen (print-color-adjust).
+
+   Tokens mirror assets/v3.css :root. Gold is an accent, about
+   10% of a page at most: eyebrow dots, one highlight or
+   underline, numbers on navy, the gold CTA on navy, the Family
+   pack dot. Never gold text on white (use --gold-ink).
+
+   Building blocks (see brochure.html for every one in use)
+   .sheet                 one Letter page; .sheet.cover-page and
+                          .sheet.back-page for brochure covers
+   .mast                  logo + document label (top of a page)
+   .run / .folio          running header and page footer (brochure)
+   .photo                 framed photograph; children: img,
+                          img.soft (stand-in blur layer),
+                          .scrim (bottom|top|left), .over (content)
+   .eyebrow[.gold|.on-dark] mono label with a square dot
+   .display .h1 .h2 .h3   type scale; .lede for intro copy
+   .chip.personal|.family|.business   pack label (dot color; .business = Max)
+   .steps > .step         three-step mechanism ("01 · Name")
+   .feats > .feat         feature list with an icon box
+   .price-card            pack price panel
+   .navy                  dark panel (radial sheen)
+   .cta-pill              gold CTA on navy; .cta-pill.teal on white
+   .url                   a printed privacypal.ai address
+   .fine                  legal and address line
+   .stack-app             "one app, packs switch on" mock window
+   .twin-flow             typed / filter / sent / answer example
+   .tiers                 Max volume pricing table
+   .platforms > .plat     one-download platform tiles
+   ============================================================ */
+
+@font-face{
+  font-family:'Overused Grotesk';
+  src:url('../../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2-variations'),
+      url('../../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2');
+  font-weight:300 900;font-style:normal;font-display:block;
+}
+
+:root{
+  --font:'Overused Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --ink:#01204e;
+  --ink-soft:#0e3364;
+  --ink-lift:#163c78;
+  --text:#3a4763;
+  --muted:#68758e;
+  --faint:#97a1b5;
+  --on-navy:#dbe3f0;
+  --on-navy-muted:#aebbd3;
+
+  --paper:#fff;
+  --panel:#f6f5ef;
+  --panel-2:#fafaf5;
+  --line:#e8e6dc;
+  --line-soft:#f0efe7;
+
+  --teal:#028391;
+  --teal-ink:#02707c;
+  --teal-tint:#e6f3f2;
+  --sage:#4da394;
+  --coral:#d54751;
+  --coral-tint:#fbebec;
+
+  --gold:#ffac33;
+  --gold-deep:#e8941a;
+  --gold-ink:#8a5a00;
+  --gold-tint:#fff4e0;
+  --gold-soft:#ffe3b3;
+
+  --safe:.5in;
+  --r-photo:16pt;
+  --r-card:11pt;
+  --r-sm:7pt;
+}
+
+@page{size:8.5in 11in;margin:0}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{
+  font-family:var(--font);
+  font-size:9.4pt;line-height:1.45;
+  color:var(--text);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+b,strong{font-weight:600;color:var(--ink)}
+ul{list-style:none}
+
+/* ---------- The sheet ---------- */
+.sheet{
+  position:relative;
+  width:8.5in;height:11in;
+  padding:var(--safe);
+  overflow:hidden;
+  background:var(--paper);
+  display:flex;flex-direction:column;
+  break-after:page;page-break-after:always;
+}
+.sheet:last-child{break-after:auto;page-break-after:auto}
+
+/* Screen preview only (the PDF and the PNGs use print media).
+   Sheets sit on a warm desk; narrow screens scale them to fit. */
+.screen-bar{display:none}
+@media screen{
+  body{background:#e6e4dc;padding:0 0 64px}
+  .screen-bar{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;
+    max-width:calc(816px * var(--fit,1));margin:0 auto;padding:22px 0 18px;
+    font-family:var(--mono);font-size:12px;color:var(--muted);
+  }
+  .screen-bar b{font-family:var(--font);font-size:15px;font-weight:600;color:var(--ink)}
+  .screen-bar a{color:var(--teal-ink);font-weight:500}
+  .doc{display:flex;flex-direction:column;align-items:center;gap:28px}
+  .sheet{
+    zoom:var(--fit,1);
+    box-shadow:0 1px 2px rgba(1,32,78,.08),0 22px 60px -24px rgba(1,32,78,.38);
+  }
+}
+@media print{
+  .screen-bar{display:none!important}
+  .doc{display:block}
+}
+
+/* ---------- Type ---------- */
+.display,.h1,.h2,.h3{color:var(--ink);font-weight:500;letter-spacing:-.024em}
+.display{font-size:46pt;line-height:1.0}
+.h1{font-size:30pt;line-height:1.04}
+.h2{font-size:25pt;line-height:1.06;letter-spacing:-.022em}
+.h3{font-size:12.5pt;line-height:1.2;letter-spacing:-.01em}
+.lede{font-size:10.4pt;line-height:1.5;color:var(--text)}
+.small{font-size:8.2pt;line-height:1.45}
+.on-dark .display,.on-dark .h1,.on-dark .h2,.on-dark .h3,.on-dark b,.on-dark strong{color:#fff}
+.on-dark .lede,.on-dark p{color:var(--on-navy)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:6pt;
+  font-family:var(--mono);font-size:7.6pt;font-weight:500;line-height:1.2;
+  letter-spacing:.04em;color:var(--muted);
+}
+.eyebrow::before{content:"";width:5pt;height:5pt;border-radius:1.2pt;background:var(--teal);flex:none}
+.eyebrow.gold::before{background:var(--gold)}
+.on-dark .eyebrow{color:var(--on-navy-muted)}
+
+.label{
+  font-family:var(--mono);font-size:6.6pt;font-weight:500;line-height:1.2;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+.on-dark .label{color:var(--on-navy-muted)}
+
+/* Gold accents, as on the site */
+.mark-gold{
+  background:linear-gradient(transparent 60%,var(--gold-soft) 60%,var(--gold-soft) 92%,transparent 92%);
+  padding:0 .06em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+.ul-gold{
+  text-decoration:underline;text-decoration-color:var(--gold);
+  text-decoration-thickness:.075em;text-underline-offset:.16em;text-decoration-skip-ink:none;
+}
+.text-gold{color:var(--gold)}
+.badge-gold{
+  display:inline-flex;align-items:center;
+  font-family:var(--mono);font-size:6.8pt;font-weight:600;letter-spacing:.04em;line-height:1;
+  background:var(--gold);color:var(--ink);border-radius:999px;padding:3pt 7pt;
+}
+
+/* Printed addresses and contact lines */
+.url{font-weight:600;color:var(--teal-ink);white-space:nowrap}
+.on-dark .url{color:#fff}
+.fine{
+  font-family:var(--mono);font-size:6.6pt;line-height:1.55;letter-spacing:.02em;color:var(--faint);
+}
+.on-dark .fine{color:#8d9bb8}
+
+/* ---------- Masthead, running header, folio ---------- */
+.mast{display:flex;align-items:center;justify-content:space-between;gap:.2in;flex:none}
+.mast .logo{height:.27in;width:auto}
+.mast .doc-label{text-align:right}
+
+.run{display:flex;align-items:center;justify-content:space-between;flex:none;height:.25in;margin-bottom:.3in}
+.run .logo{height:.25in;width:auto}
+.folio{
+  margin-top:auto;flex:none;display:flex;align-items:center;justify-content:space-between;
+  padding-top:.12in;border-top:.75pt solid var(--line);
+}
+.folio .label b{color:var(--ink);font-weight:600}
+
+/* ---------- Pack chip ---------- */
+.chip{
+  --dot:var(--teal);
+  display:inline-flex;align-items:center;gap:5pt;white-space:nowrap;
+  font-family:var(--mono);font-size:7.2pt;font-weight:500;letter-spacing:.03em;line-height:1;
+  color:var(--ink);background:#fff;border:.75pt solid var(--line);border-radius:999px;padding:4.5pt 9pt 4.5pt 8pt;
+}
+.chip::before{content:"";width:5.5pt;height:5.5pt;border-radius:50%;background:var(--dot);flex:none}
+.chip.personal{--dot:var(--teal)}
+.chip.family{--dot:var(--gold)}
+.chip.business{--dot:var(--ink)}
+.on-dark .chip{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.on-dark .chip.business{--dot:#fff}
+.chip-row{display:flex;flex-wrap:wrap;gap:6pt}
+
+/* ---------- Photography ---------- */
+.photo{position:relative;overflow:hidden;border-radius:var(--r-photo);background:var(--ink);isolation:isolate}
+.photo > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+/* img.soft: shallow depth of field for a stand-in whose screens are readable.
+   A blurred copy of the photo (same src, object-position and transform as the
+   img before it), masked so the subject stays sharp: opaque mask = blurred.
+   Set --soft-mask per photo, in the img box's own coordinates (before its
+   transform). --soft-clip (an inset() in the same coordinates) trims the
+   layer to the part that shows, which keeps the blur raster, and the PDF,
+   small. Mark it data-standin-only="<final file>": the build drops it once
+   the final photo (screens out of focus) exists. */
+.photo > img.soft{filter:blur(var(--soft-blur,5px));clip-path:var(--soft-clip,none);
+  -webkit-mask:var(--soft-mask,linear-gradient(90deg,#000 0,#000 50%,rgba(0,0,0,0) 65%));
+          mask:var(--soft-mask,linear-gradient(90deg,#000 0,#000 50%,rgba(0,0,0,0) 65%))}
+.photo .scrim{position:absolute;inset:0;z-index:1;pointer-events:none}
+.photo .scrim.bottom{background:linear-gradient(180deg,rgba(1,32,78,0) 28%,rgba(1,32,78,.55) 58%,rgba(1,32,78,.93) 100%)}
+.photo .scrim.top{background:linear-gradient(180deg,rgba(1,32,78,.9) 0%,rgba(1,32,78,.55) 38%,rgba(1,32,78,0) 66%)}
+.photo .scrim.left{background:linear-gradient(90deg,rgba(1,32,78,.9) 0%,rgba(1,32,78,.6) 42%,rgba(1,32,78,0) 75%)}
+.photo .scrim.soft{background:linear-gradient(180deg,rgba(1,32,78,0) 45%,rgba(1,32,78,.82) 100%)}
+/* .photo.fade: navy on the left for the headline, the photo on the
+   right (--photo-w of the width) fading in. Works with any stand-in
+   and with final photos composed with a calm left third. */
+.photo.fade{--photo-w:62%}
+.photo.fade > img{left:auto;right:0;width:var(--photo-w)}
+.photo.fade .scrim{
+  background:linear-gradient(90deg,
+    #01204e 0%,#01204e calc(100% - var(--photo-w)),
+    rgba(1,32,78,.62) calc(100% - var(--photo-w) + 8%),
+    rgba(1,32,78,.18) calc(100% - var(--photo-w) + 20%),
+    rgba(1,32,78,0) calc(100% - var(--photo-w) + 30%));
+}
+.photo .over{position:relative;z-index:2;color:#fff}
+.photo .over .lede,.photo .over p{color:var(--on-navy)}
+.photo .tag{position:absolute;z-index:2;top:.24in;right:.26in}
+
+/* ---------- Section head (label + hairline) ---------- */
+.sec-head{display:flex;align-items:center;gap:8pt;margin-bottom:.12in}
+.sec-head::after{content:"";flex:1;height:.75pt;background:var(--line)}
+
+/* ---------- Three-step mechanism ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.2in}
+.step{border-top:1.5pt solid var(--ink);padding-top:.1in}
+.step.filter{border-top-color:var(--gold)}
+.step .n{font-family:var(--mono);font-size:7pt;font-weight:500;letter-spacing:.06em;color:var(--teal-ink)}
+.step b{display:block;font-size:11pt;font-weight:600;letter-spacing:-.008em;margin:3pt 0 3pt;line-height:1.2}
+.step p{font-size:8.5pt;line-height:1.45}
+
+/* ---------- Feature list ---------- */
+.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.12in .2in}
+.feat{display:grid;grid-template-columns:.27in 1fr;gap:.1in;align-items:start}
+.feat .ico{
+  width:.27in;height:.27in;border-radius:var(--r-sm);
+  background:var(--panel);color:var(--ink);display:grid;place-items:center;
+}
+.feat .ico svg{width:.15in;height:.15in}
+.feat b{display:block;font-size:9.3pt;line-height:1.25;margin:0 0 1.5pt}
+.feat p{font-size:8.1pt;line-height:1.4}
+.badge-soft{
+  display:inline-flex;align-items:center;
+  font-family:var(--mono);font-size:6pt;font-weight:600;letter-spacing:.05em;line-height:1;
+  background:var(--gold-tint);color:var(--gold-ink);border:.6pt solid var(--gold-soft);border-radius:999px;padding:2pt 5pt;
+}
+.feat .badge-gold,.feat .badge-soft{margin-left:4pt;vertical-align:1pt;font-size:6pt;padding:2pt 5pt}
+.on-dark .feat .ico{background:rgba(255,255,255,.08);color:#fff}
+
+/* Icons: inline stroke SVG, 24 viewBox */
+.i{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Price card ---------- */
+.price-card{
+  --accent:var(--teal);
+  position:relative;overflow:hidden;
+  background:var(--panel);border-radius:var(--r-card);
+  padding:.2in .2in .18in;display:flex;flex-direction:column;gap:7pt;
+}
+.price-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3pt;background:var(--accent)}
+.price-card.family{--accent:var(--gold)}
+.price-card.business{--accent:var(--ink)}
+.price-card .amount{display:flex;align-items:baseline;gap:5pt;flex-wrap:wrap;color:var(--ink)}
+.price-card .amount .big{font-size:30pt;font-weight:500;letter-spacing:-.03em;line-height:.95}
+.price-card .amount small{font-size:8.6pt;color:var(--muted)}
+.price-card .small{font-size:7.9pt;line-height:1.4}
+.price-card .label{margin-top:1pt}
+.price-card .terms{display:grid;gap:4pt;font-size:8.2pt;line-height:1.35}
+.price-card .terms li{position:relative;padding-left:12pt}
+.price-card .terms li::before{
+  content:"";position:absolute;left:1pt;top:.38em;width:6pt;height:3.2pt;
+  border-left:1.3pt solid var(--sage);border-bottom:1.3pt solid var(--sage);transform:rotate(-45deg);
+}
+.price-card hr{border:0;border-top:.75pt solid var(--line);margin:2pt 0}
+
+/* ---------- Navy panel ---------- */
+.navy{
+  position:relative;overflow:hidden;color:#fff;border-radius:var(--r-card);
+  background:radial-gradient(130% 160% at 0% 0%,#123a73 0%,#0a2b5e 34%,#01204e 68%);
+}
+
+/* ---------- CTA ---------- */
+.cta-pill{
+  display:inline-flex;align-items:center;gap:6pt;white-space:nowrap;
+  font-size:10pt;font-weight:600;line-height:1;letter-spacing:-.005em;
+  background:var(--gold);color:var(--ink);border-radius:8pt;padding:8pt 13pt;
+}
+.cta-pill svg{width:10pt;height:10pt}
+.cta-pill.teal{background:var(--teal);color:#fff}
+
+/* Navy CTA band at the foot of a one-pager */
+.band{
+  display:grid;grid-template-columns:.86in 1fr auto;gap:.22in;align-items:center;
+  padding:.17in .26in .17in .2in;
+}
+.band .guide{width:.86in;height:auto;align-self:end;margin-bottom:-.04in}
+.band .proof{font-size:12.6pt;line-height:1.28;font-weight:500;letter-spacing:-.012em;color:#fff}
+.band .proof .text-gold{font-weight:600;white-space:nowrap}
+.band .facts{display:flex;flex-wrap:wrap;gap:3pt 12pt;margin-top:6pt}
+.band .facts span{font-family:var(--mono);font-size:6.8pt;letter-spacing:.03em;color:var(--on-navy-muted);display:inline-flex;align-items:center;gap:5pt}
+.band .facts span::before{content:"";width:3.5pt;height:3.5pt;border-radius:50%;background:var(--gold)}
+.band .go{display:grid;justify-items:end;gap:6pt;text-align:right}
+.band .go .url{font-size:9pt}
+.band .go .sub{font-family:var(--mono);font-size:6.8pt;color:var(--on-navy-muted);line-height:1.5}
+
+/* ---------- One-pager frame ---------- */
+.op > *{flex:none}
+.op .mast{margin-bottom:.22in}
+.op .cover{height:2.6in}
+.op .cover .over{height:100%;width:var(--over-w,3.62in);display:flex;flex-direction:column;justify-content:space-between;padding:.26in 0 .28in .3in}
+.op .cover .h1{color:#fff;font-size:27pt}
+.op .cover .eyebrow{margin-bottom:8pt}
+.op .cover .lede{margin-top:9pt;font-size:9.6pt;line-height:1.48}
+.op .how{margin-top:.2in}
+.op .body{display:grid;grid-template-columns:minmax(0,1fr) 2.12in;gap:.24in;margin-top:.2in;margin-bottom:.2in;align-items:start}
+.op .band{margin-top:auto}
+.op .fine{margin-top:.1in;display:grid;gap:1pt}
+
+/* ---------- Stack app (one app, packs switch on) ---------- */
+.stack-app{
+  background:#fff;border:.75pt solid var(--line);border-radius:12pt;overflow:hidden;
+  box-shadow:0 16pt 36pt -18pt rgba(1,32,78,.4);
+}
+.stack-app .bar{display:flex;align-items:center;gap:8pt;padding:8pt 11pt;border-bottom:.75pt solid var(--line-soft);background:var(--panel-2)}
+.stack-app .bar .dots{display:flex;gap:4pt}
+.stack-app .bar .dots i{width:6pt;height:6pt;border-radius:50%;background:#dcd9cc}
+.stack-app .bar .title{display:flex;align-items:center;gap:6pt;font-weight:600;font-size:8.6pt;color:var(--ink)}
+.stack-app .bar .title img{width:12pt;height:12pt}
+.stack-app .row{display:flex;align-items:center;gap:9pt;padding:9pt 12pt;border-bottom:.75pt solid var(--line-soft)}
+.stack-app .row:last-child{border-bottom:0}
+.stack-app .row .ico{width:22pt;height:22pt;border-radius:7pt;display:grid;place-items:center;background:var(--panel);color:var(--ink);flex:none}
+.stack-app .row .ico svg{width:12pt;height:12pt}
+.stack-app .row b{display:block;font-size:9pt;line-height:1.2}
+.stack-app .row small{display:block;font-size:7.4pt;color:var(--muted);line-height:1.3}
+.stack-app .toggle{margin-left:auto;width:24pt;height:14pt;border-radius:999px;background:#d9dbe2;position:relative;flex:none}
+.stack-app .toggle::after{content:"";position:absolute;top:2pt;left:2pt;width:10pt;height:10pt;border-radius:50%;background:#fff;box-shadow:0 .5pt 1.5pt rgba(1,32,78,.25)}
+.stack-app .toggle.on{background:var(--teal)}
+.stack-app .toggle.on.gold{background:var(--gold)}
+.stack-app .toggle.on.ink{background:var(--ink)}
+.stack-app .toggle.on::after{left:12pt}
+.stack-app .foot{display:flex;align-items:center;justify-content:space-between;padding:7pt 12pt;background:var(--panel-2);border-top:.75pt solid var(--line-soft)}
+
+/* ---------- Doors: You, Your family, Your business ----------
+   .doors > .door: a photo with a pack chip, then the pack summary. */
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.18in}
+.door{display:flex;flex-direction:column;border:.75pt solid var(--line);border-radius:var(--r-card);overflow:hidden;background:#fff}
+.door .photo{border-radius:0;height:1.42in;flex:none}
+.door .photo .scrim{background:linear-gradient(180deg,rgba(1,32,78,0) 45%,rgba(1,32,78,.78) 100%)}
+.door .photo .over{position:absolute;left:.13in;right:.13in;bottom:.12in;display:flex;align-items:center;justify-content:space-between;gap:6pt}
+.door .photo .who{font-size:12.5pt;font-weight:600;letter-spacing:-.01em;color:#fff}
+.door .txt{padding:.13in .15in .14in;display:flex;flex-direction:column;gap:6pt;flex:1}
+.door .price{display:flex;align-items:baseline;gap:4pt;color:var(--ink)}
+.door .price .big{font-size:17pt;font-weight:500;letter-spacing:-.025em;line-height:1}
+.door .price small{font-size:7.8pt;color:var(--muted)}
+.door ul{display:grid;gap:3.5pt;font-size:8.1pt;line-height:1.38}
+.door li{position:relative;padding-left:11pt}
+.door li::before{content:"";position:absolute;left:1pt;top:.36em;width:5.5pt;height:3pt;border-left:1.2pt solid var(--sage);border-bottom:1.2pt solid var(--sage);transform:rotate(-45deg)}
+.door .fine{margin-top:auto;padding-top:5pt;border-top:.75pt solid var(--line-soft)}
+.door::before{content:"";flex:none;height:3pt;background:var(--accent,var(--teal))}
+.door.family{--accent:var(--gold)}
+.door.business{--accent:var(--ink)}
+
+/* Hero row: headline left, stack-app right (platform one-pager) */
+.hero-row{display:grid;grid-template-columns:minmax(0,1fr) 2.75in;gap:.3in;align-items:center}
+.hero-row .h1{margin-top:8pt}
+.hero-row .lede{margin-top:9pt;font-size:10pt}
+
+/* ---------- Twin flow (typed, filter, sent, answer) ---------- */
+.twin-flow{display:grid;grid-template-columns:minmax(0,1fr) .5in minmax(0,1fr) .26in minmax(0,1fr);align-items:stretch}
+.twin-card{background:#fff;border-radius:9pt;padding:.17in .18in .19in;color:var(--text);display:flex;flex-direction:column;gap:8pt}
+.twin-card .label{color:var(--muted)}
+.twin-card p{font-size:10.8pt;line-height:1.55;color:var(--ink)}
+.twin-card.sent{background:#eaf1f8}
+.tok{border-radius:3pt;padding:.5pt 1.6pt;margin:0 -.3pt;font-weight:600;white-space:nowrap}
+.tok.real{background:var(--coral-tint);color:#a8323b}
+.tok.twin{background:var(--teal-tint);color:var(--teal-ink)}
+.tok.back{background:#e9f4ef;color:#2c6e62}
+.filter-line{position:relative;display:flex;align-items:center;justify-content:center}
+.filter-line::before{content:"";position:absolute;top:-.08in;bottom:-.08in;left:50%;width:2pt;margin-left:-1pt;background:var(--gold);border-radius:2pt}
+.filter-line span{
+  position:relative;writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:var(--mono);font-size:6.4pt;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);background:var(--ink);padding:6pt 0;
+}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--on-navy-muted)}
+.flow-arrow svg{width:12pt;height:12pt}
+
+/* ---------- AI shelf: the AI tools PrivacyPal protects ----------
+   Real marks for ChatGPT, Claude, Gemini and Copilot; Grok and
+   Perplexity as names (their marks in the repo are stand-ins). */
+.ai-shelf{display:grid;grid-template-columns:1.02in minmax(0,1fr);gap:.15in .18in;align-items:center}
+.ai-shelf .marks{display:flex;align-items:center;flex-wrap:wrap;gap:.12in .3in}
+.ai-shelf .marks img{height:var(--h,17pt);width:auto}
+.ai-shelf .marks .name{font-size:13.5pt;font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1}
+.ai-shelf .tags{display:flex;flex-wrap:wrap;gap:5pt}
+.ai-shelf .tags{flex-wrap:nowrap;gap:4pt}
+.ai-shelf .tag{font-family:var(--mono);font-size:6.8pt;color:var(--ink);background:var(--panel);border-radius:999px;padding:3.5pt 7pt;white-space:nowrap}
+.ai-shelf .row-rule{grid-column:1 / -1;height:.75pt;background:var(--line-soft)}
+
+/* ---------- Max volume table ---------- */
+.tiers{width:100%;border-collapse:collapse;font-size:8.6pt}
+.tiers th{font-family:var(--mono);font-size:6.6pt;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:right;padding:0 0 5pt}
+.tiers th:first-child,.tiers td:first-child{text-align:left}
+.tiers td{padding:3.6pt 0;border-top:.75pt solid var(--line);text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+.tiers td:first-child{color:var(--text)}
+.tiers td b{font-size:10pt}
+.tiers tr.list td b{font-size:10pt}
+
+/* ---------- Platform tiles ---------- */
+.platforms{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.1in}
+.plat{border:.75pt solid var(--line);border-radius:9pt;padding:.13in .13in .12in;display:flex;flex-direction:column;gap:5pt;background:#fff}
+.plat svg{width:.24in;height:.24in;color:var(--ink)}
+.plat b{font-size:9.4pt;line-height:1.2}
+.plat span{font-family:var(--mono);font-size:6.6pt;line-height:1.45;color:var(--muted)}
+.plat .badge{align-self:flex-start;margin-top:auto;font-family:var(--mono);font-size:6pt;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2.5pt 6pt;background:var(--teal-tint);color:var(--teal-ink)}
+.plat .badge.invite{background:var(--gold-tint);color:var(--gold-ink)}
+
+/* Spec row: two or three short label + text pairs under a list */
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2in;margin-top:.13in;padding-top:.1in;border-top:.75pt solid var(--line)}
+.specs.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.specs p{font-size:8.1pt;line-height:1.4;margin-top:3pt}
+
+/* ---------- Generic cards ---------- */
+.card{background:var(--panel);border-radius:var(--r-card);padding:.18in .2in}
+.card.white{background:#fff;border:.75pt solid var(--line)}
+.card.gold{background:var(--gold-tint)}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2in}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.2in}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.18in}
+
+/* ---------- Stats on navy ---------- */
+.stat .n{height:.5in;display:flex;align-items:flex-end;font-size:28pt;font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--gold);white-space:nowrap}
+.stat .n.words{font-size:19pt;letter-spacing:-.018em;line-height:1.02}
+.stat{border-left:.75pt solid rgba(255,255,255,.16);padding-left:.14in}
+.stat:first-child{border-left:0;padding-left:0}
+
+/* Q and A block */
+.qa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.14in}
+.qa .card b{display:block;font-size:9.6pt;margin-bottom:4pt}
+.qa .card p{font-size:8.4pt;line-height:1.45}
+.stat .l{margin-top:6pt;font-size:8.4pt;line-height:1.4;color:var(--on-navy)}
+
+/* ============================================================
+   Brochure (brochure.html): cover, inner pages, back cover
+   ============================================================ */
+
+/* Inner page head: eyebrow, h2, lede */
+.page-head{flex:none;margin-bottom:.24in}
+.page-head .h2{margin-top:7pt}
+.page-head .lede{margin-top:9pt;max-width:5.7in}
+
+/* Pack page photo band (use with .photo.fade) */
+.band-photo{height:3.05in;flex:none}
+.band-photo .over{height:100%;width:var(--over-w,3.85in);display:flex;flex-direction:column;justify-content:space-between;padding:.28in 0 .3in .32in}
+.band-photo .h2{color:#fff}
+.band-photo .eyebrow{margin-bottom:8pt}
+.band-photo .lede{margin-top:9pt;font-size:9.8pt}
+
+.band-photo + div .feats{gap:.2in .22in}
+
+/* CTA row at the foot of an inner page (white page: teal CTA) */
+.cta-row{
+  flex:none;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:.26in;align-items:center;
+  background:var(--panel);border-radius:var(--r-card);padding:.18in .22in;
+}
+.cta-row .amount{display:flex;align-items:baseline;gap:5pt;color:var(--ink)}
+.cta-row .amount .big{font-size:24pt;font-weight:500;letter-spacing:-.03em;line-height:1}
+.cta-row .amount small{font-size:8.4pt;color:var(--muted)}
+.cta-row p{font-size:8.1pt;line-height:1.42;margin-top:4pt}
+.cta-row .go{display:grid;justify-items:end;gap:5pt;text-align:right}
+.cta-row .go .url{font-size:9pt}
+.cta-row .go .sub{font-family:var(--mono);font-size:6.6pt;color:var(--muted);line-height:1.5}
+
+/* Cover. The LinkedIn Featured thumbnail is a center crop near 1.91:1
+   of page 1: at 96 dpi (816 x 1056 px) it keeps y 314 to 741 px, so
+   the logo, headline and key line sit inside 3.27 to 7.72 in from the
+   top of the page; the contents line and the footer sit below it. */
+.cover-page .cover-photo{flex:1;border-radius:18pt}
+.cover-page .cover-photo > img{height:120%;top:0;bottom:auto;object-position:50% 0}
+.cover-page .cover-photo .scrim{
+  background:linear-gradient(180deg,
+    rgba(1,32,78,.6) 0%,rgba(1,32,78,.56) 26%,rgba(1,32,78,.62) 50%,rgba(1,32,78,.6) 62%,
+    rgba(1,32,78,.18) 71%,rgba(1,32,78,0) 77%,rgba(1,32,78,.12) 86%,rgba(1,32,78,.84) 100%);
+}
+/* Brochure cover stand-in (teens-sunset.jpg, landscape 3:2): full width
+   (about 210 dpi in print), set low so the teens sit in the lower third
+   below the chips, as the final portrait photo will. Above it, the scrim
+   paints an opaque navy-to-dusk sky that fades into the photo's own pale
+   sky (an opaque layer, not a mask on the photo: a masked photo's top edge
+   prints as a thin line in the PDF). The navy stays dark through the chips
+   and clears from the hands down. Keyed to the stand-in's file name, so the
+   final photo (swapped in by the build) gets the default crop and scrim. */
+.cover-page .cover-photo > img[src$="teens-sunset.jpg"]{
+  height:auto;aspect-ratio:1600 / 1069;top:auto;bottom:-12%;object-position:50% 50%;
+}
+.cover-page .cover-photo:has(> img[src$="teens-sunset.jpg"]) .scrim{
+  background:
+    linear-gradient(180deg,
+      rgba(1,32,78,.6) 0%,rgba(1,32,78,.6) 58%,rgba(1,32,78,.68) 67.5%,rgba(1,32,78,.32) 73%,
+      rgba(1,32,78,.06) 80%,rgba(1,32,78,.12) 88%,rgba(1,32,78,.84) 100%),
+    linear-gradient(180deg,
+      #01204e 0%,#0a2a5c 34%,#2f4775 50%,#8a7f98 57%,#e4cfc4 62%,#f2e8e2 64.5%,
+      rgba(242,232,226,.55) 68%,rgba(242,232,226,0) 73%);
+}
+.cover-page .over{position:absolute;inset:0;padding:.34in .4in}
+.cover-top{display:flex;justify-content:space-between;align-items:center}
+.cover-key{position:absolute;left:.4in;right:.4in;top:2.97in}
+.cover-key .logo{height:.42in;width:auto}
+.cover-key .display{color:#fff;margin-top:.42in;font-size:44pt;line-height:1;letter-spacing:-.028em}
+.cover-key .lede{margin-top:.16in;font-size:12pt;line-height:1.45;color:#e8eef8;max-width:5in}
+.cover-key .chip-row{margin-top:.17in}
+.cover-foot{position:absolute;left:.4in;right:.4in;bottom:.34in;display:flex;justify-content:space-between;align-items:flex-end;gap:.3in}
+.cover-foot .toc{display:flex;flex-wrap:wrap;gap:4pt 12pt}
+.cover-foot .toc span{font-family:var(--mono);font-size:7pt;letter-spacing:.04em;color:#dfe6f2}
+.cover-foot .toc span b{color:var(--gold);font-weight:600;margin-right:4pt}
+
+/* Back cover */
+.back-page .back-panel{flex:1;padding:.42in .46in .38in;display:flex;flex-direction:column}
+.back-panel .logo{height:.32in;width:auto;align-self:flex-start}
+.back-hero{display:grid;grid-template-columns:2.4in 1fr;gap:.3in;align-items:center;margin-top:auto}
+.back-hero .guide-wrap{display:grid;place-items:center;aspect-ratio:1;background:radial-gradient(circle at 50% 52%,rgba(62,112,186,.42) 0%,rgba(22,60,120,.22) 42%,rgba(1,32,78,0) 68%)}
+.back-hero .guide{width:2.05in;height:auto}
+.back-hero .display{font-size:40pt;color:#fff}
+.back-hero .lede{margin-top:.12in;font-size:11pt;color:var(--on-navy)}
+.back-hero .cta{display:flex;align-items:center;gap:12pt;margin-top:.2in}
+.back-hero .cta .url{font-size:11pt}
+.back-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.2in;margin-top:auto;padding-top:.22in;border-top:.75pt solid rgba(255,255,255,.16)}
+.back-grid .label{display:block;margin-bottom:5pt}
+.back-grid p,.back-grid a{font-size:8.6pt;line-height:1.45;color:#fff}
+.back-grid p span{color:var(--on-navy-muted)}
+.back-meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:.3in;margin-top:.24in;align-items:end}
+.back-meta address{font-style:normal;display:flex;gap:8pt;align-items:flex-start;font-size:8.6pt;line-height:1.45;color:#fff}
+.back-meta address svg{width:14pt;height:14pt;color:var(--gold);flex:none;margin-top:1pt}
+.back-meta .fine{text-align:right}

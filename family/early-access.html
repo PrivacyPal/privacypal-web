@@ -3,30 +3,104 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Early access: mobile &amp; Pal Agents · PrivacyPal Family</title>
-<meta name="description" content="PrivacyPal Family is live on Mac and Windows. Join the early access list to be first on iPhone, iPad and Android, and first to test Wellbeing Signal and Answer Guard." />
-<link rel="icon" href="../assets/favicon.ico"/>
+<title>Phone install invitation: iPhone, iPad and Android · PrivacyPal</title>
+<meta name="description" content="Protected today on iPhone, iPad and Android with Family or Max. Install by invitation, through Apple TestFlight and Google Play testing: request yours for your household or your team on Max. Mac and Windows download directly." />
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="family.css"/>
 <link rel="stylesheet" href="../assets/family-chrome.css"/>
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="PrivacyPal Family" />
+<meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/family/early-access.html" />
-<meta property="og:title" content="Early access: mobile &amp; Pal Agents · PrivacyPal Family" />
-<meta property="og:description" content="PrivacyPal Family is live on Mac and Windows. Join the early access list to be first on iPhone, iPad and Android, and first to test Wellbeing Signal and Answer Guard." />
-<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta property="og:image:secure_url" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:title" content="PrivacyPal on iPhone, iPad and Android · Protected today, install by invitation" />
+<meta property="og:description" content="Protected today on iPhone, iPad and Android with Family or Max. Install by invitation, through Apple TestFlight and Google Play testing. Request yours for your household or your team on Max." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-download.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/brand/og/og-download.png" />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1214" />
-<meta property="og:image:height" content="658" />
-<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="One download, free to start. PrivacyPal for Mac and Windows, Linux as the Max headless agent, and iPhone, iPad and Android with the Family or Max pack" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Early access: mobile &amp; Pal Agents · PrivacyPal Family" />
-<meta name="twitter:description" content="PrivacyPal Family is live on Mac and Windows. Join the list to be first on mobile and first to test the Pal Agents." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta name="twitter:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta name="twitter:title" content="PrivacyPal on iPhone, iPad and Android · Protected today, install by invitation" />
+<meta name="twitter:description" content="Protected today on iPhone, iPad and Android with Family or Max. Request your install invitation for your household or your team on Max. It arrives by email, through Apple TestFlight or Google Play testing." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-download.png" />
+<meta name="twitter:image:alt" content="One download, free to start. PrivacyPal for Mac and Windows, Linux as the Max headless agent, and iPhone, iPad and Android with the Family or Max pack" />
+<style>
+/* Phone install invitations: page-only layer on top of family.css */
+.ea-hero{padding-bottom:76px}
+.ea-hero h1{font-size:clamp(2.3rem,4.4vw,3.35rem)}
+.ea-devices{grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.ea-devices .device{padding:18px 8px 16px}
+.ea-devices .device b{font-size:.9rem;white-space:nowrap}
+.ea-devices .device .d-ico{width:42px;height:42px;margin-bottom:10px}
+.ea-devices a.device{transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+.ea-devices a.device:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:var(--shadow-card)}
+.ea-devices a.device small{color:var(--teal-ink);font-weight:500}
+.ea-devices .device.today .d-ico{background:var(--teal-tint);color:var(--teal-ink)}
+@media(max-width:960px){.ea-devices{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.ea-devices{grid-template-columns:repeat(2,1fr)}}
+
+/* who-is-it-for segmented control */
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;background:var(--cream);border:2px solid var(--line);border-radius:18px}
+.fform .seg label{margin:0;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{
+  display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;cursor:pointer;
+  font-family:var(--font-display);font-weight:600;font-size:.98rem;color:var(--muted);
+  border-radius:13px;transition:background .15s ease,color .15s ease,box-shadow .15s ease;user-select:none;
+}
+.seg span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--faint)}
+.seg input[value^="Household"]+span::before{background:var(--gold)}
+.seg input[value^="Team"]+span::before{background:var(--ink)}
+.seg input:checked+span{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(1,32,78,.10)}
+.seg input:focus-visible+span{outline:2px solid var(--teal);outline-offset:2px}
+@media(max-width:420px){.seg span{font-size:.86rem;gap:6px;white-space:nowrap}}
+.fform .fine a{color:var(--teal-ink);font-weight:600}
+
+/* success state: the one penguin on this page */
+.form-success .guide{width:116px;height:auto;margin:0 auto 14px}
+
+/* two doors */
+.ea-doors{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.ea-door{
+  position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:34px 32px 30px;
+  box-shadow:var(--shadow-card);
+}
+.ea-door::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--gold)}
+.ea-door h3{font-size:1.6rem}
+.ea-door p{color:var(--muted);font-size:1rem;line-height:1.6}
+.ea-door ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin:4px 0 8px}
+.ea-door li{display:flex;gap:11px;font-size:.96rem;line-height:1.5;color:var(--text)}
+.ea-door li svg{width:19px;height:19px;color:var(--sage-deep);flex:none;margin-top:2px}
+.ea-door .btn-row{margin-top:auto;padding-top:6px}
+.ea-door.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+/* the navy Max door is its own pack color: no top stripe (as .pack-card.business.dark in v3.css) */
+.ea-door.dark::before{display:none}
+.ea-door.dark p{color:#c6d2e4}
+.ea-door.dark li{color:#dbe3f0}
+.ea-door.dark li svg{color:#8fd9c8}
+.ea-door.dark .pack-chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#fff}
+.ea-door.dark .pack-chip.business::before{background:#fff}
+.ea-door.dark .btn-ghost{background:transparent;color:#fff;border-color:#3d5578;box-shadow:0 3px 0 #3d5578}
+.ea-door .link-arrow{font-size:.95rem}
+@media(max-width:860px){.ea-doors{grid-template-columns:1fr}.ea-door{padding:30px 24px 26px}}
+
+/* Parent HQ on a phone (design preview) */
+.ea-phone .phone-body{padding:14px 14px 20px}
+.ea-req{display:flex;gap:8px;margin-top:10px}
+.ea-req span{flex:1;text-align:center;font-family:var(--font-display);font-weight:600;font-size:.74rem;padding:7px 0;border-radius:10px}
+.ea-req .y{background:var(--teal);color:#fff;box-shadow:0 2px 0 var(--teal-deep)}
+.ea-req .n{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.ea-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ea-list i{font-style:normal;font-size:.68rem;background:var(--gold-tint);color:var(--gold-ink);border-radius:999px;padding:3px 8px}
+.ea-cap{text-align:center;font-family:var(--font-mono);font-size:.68rem;color:var(--muted);margin-top:16px}
+</style>
 <!-- Google tag (gtag.js) -->
 <script src="../assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -34,7 +108,8 @@
 <!-- End Meta Pixel Code -->
 <!-- Referral attribution: captures ?ref= (partner, reseller and creator codes)
      and forwards it to the Founding Families signup, alongside the promo code.
-     The Family sub-site does not load assets/v3.js, so each page loads this itself. -->
+     Loaded here in the head so it runs first; assets/v3.js (end of body)
+     finds window.PPReferral and skips loading a second copy. -->
 <script src="../assets/referral.js"></script>
 </head>
 <body>
@@ -42,40 +117,38 @@
 
 <div id="site-nav-slot"></div>
 
-<!-- ================= HERO + FORM ================= -->
-<header class="fhero" style="padding-bottom:72px">
+<!-- ================= HERO + INVITATION REQUEST FORM ================= -->
+<header class="fhero ea-hero">
   <div class="container">
     <div class="fhero-grid" style="align-items:start">
       <div>
-        <span class="eyebrow orange">Family is live · mobile &amp; Pal Agents are next</span>
-        <h1>Mac and PC today. <span class="hl-teal">Everything else next.</span></h1>
-        <p class="lede">PrivacyPal Family is available right now on Mac and Windows: create your Family Account and you are protected in about 15 minutes. iPhone, iPad, Android and the Pal Agents (Wellbeing Signal and Answer Guard) are in early access. Tell us about your crew and you go first.</p>
+        <span class="eyebrow gold">Protected today · install by invitation</span>
+        <h1>PrivacyPal for <span class="hl-teal">iPhone, iPad and Android.</span></h1>
+        <p class="lede">Protected today on iPhone, iPad and Android with Family or Max. Install by invitation: request yours here and it arrives by email, through Apple TestFlight or Google Play testing. Mac and Windows download directly.</p>
 
-        <div class="btn-row" style="margin-top:24px">
-          <a class="btn btn-key btn-lg" href="founding/index.html">Start your free trial</a>
-          <a class="btn btn-ghost btn-lg" href="https://family.privacypal.ai/download" data-cta="family-download">Download for Mac &amp; Windows</a>
-        </div>
-        <p class="trust-note" style="margin-top:12px">Founding Families get 50% off their first year, code applied for you.</p>
-
-        <div class="deep-list" style="margin-top:30px">
-          <div class="deep-item">
-            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Today: protect the family computers</b><p>Mac and Windows ship now, up to 5 family members. Guardrails, Privacy Twins and Family Memory are on from day one.</p></span>
+        <div class="devices ea-devices" role="list" aria-label="Where PrivacyPal runs">
+          <div class="device" role="listitem">
+            <div class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+            <b>iPhone</b><small class="on">protected today</small>
           </div>
-          <div class="deep-item">
-            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Next: pockets and backpacks</b><p>iPhone, iPad and Android are in early access. The list below decides who gets a build first, and it costs nothing extra: one plan covers every device as it ships.</p></span>
+          <div class="device" role="listitem">
+            <div class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div>
+            <b>iPad</b><small class="on">protected today</small>
           </div>
-          <div class="deep-item">
-            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Then: the Pal Agents</b><p>Wellbeing Signal (mood trends, computed on the device) and Answer Guard (age-right answers) are in active testing with real families. Early access families shape how both behave.</p></span>
+          <div class="device" role="listitem">
+            <div class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><circle cx="12" cy="18" r="1"/></svg></div>
+            <b>Android</b><small class="on">protected today</small>
           </div>
+          <a class="device today" role="listitem" href="../download.html?pack=family" data-cta="family-download" data-pack="family">
+            <div class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <b>Mac &amp; Windows</b><small>download now</small>
+          </a>
         </div>
 
-        <div class="trust-strip" style="margin-top:30px">
-          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No spam, ever</span>
-          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Your info stays with us</span>
-          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Unsubscribe anytime</span>
+        <div class="trust-strip">
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><polyline points="22 6 12 13 2 6"/></svg>Invitations by email</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on the device</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Plans set up on the web</span>
         </div>
       </div>
 
@@ -83,59 +156,90 @@
         <form class="fform" id="waitlistForm"
               action="https://formsubmit.co/hi@privacypal.ai"
               method="POST">
-          <input type="hidden" name="_subject" value="PrivacyPal Family: mobile &amp; Pal Agents early access list"/>
+          <!-- Machinery: the endpoint, field names, the "Invite for" values and the
+               "Early access list:" subject prefix stay as they were, so inbox rules and
+               anything keyed on them keep working. The subject is never shown on the page. -->
+          <input type="hidden" name="_subject" value="Early access list: mobile invite request"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" id="wlNext" value=""/>
           <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off" style="display:none"/>
-          <input type="hidden" name="Devices at home" id="wlDevices" value=""/>
+          <input type="hidden" name="Devices" id="wlDevices" value=""/>
           <input type="hidden" name="Kids ages" id="wlAges" value=""/>
-          <h3>Get on the early access list</h3>
-          <p class="sub">About 60 seconds. This is for mobile and the Pal Agents. Mac and Windows need no list: <a href="founding/index.html" style="color:var(--teal-ink);font-weight:600">start your trial now</a>.</p>
+          <h3>Request your install invitation</h3>
+          <p class="sub">About 60 seconds. Your invitation arrives by email.</p>
+
+          <label>Who is it for?</label>
+          <div class="seg" role="radiogroup" aria-label="Who is the invitation for">
+            <label><input type="radio" name="Invite for" value="Household (Family pack)" checked/><span>My household</span></label>
+            <label><input type="radio" name="Invite for" value="Team (Max pack)"/><span>My team on Max</span></label>
+          </div>
 
           <label for="wl-name">Your first name</label>
-          <input type="text" id="wl-name" name="Parent first name" autocomplete="given-name" placeholder="e.g. Sam" required/>
+          <input type="text" id="wl-name" name="First name" autocomplete="given-name" placeholder="e.g. Sam" required/>
 
-          <label for="wl-email">Email <small>where your build lands</small></label>
+          <label for="wl-email">Email <small>where your invitation lands</small></label>
           <input type="email" id="wl-email" name="Email" autocomplete="email" placeholder="you@example.com" required/>
 
-          <label>Devices in your home <small>pick all that apply</small></label>
-          <div class="chip-picks" role="group" aria-label="Devices in your home">
-            <label><input type="checkbox" data-pick="devices" value="Mac"/><span>Mac</span></label>
-            <label><input type="checkbox" data-pick="devices" value="Windows PC"/><span>Windows PC</span></label>
-            <label><input type="checkbox" data-pick="devices" value="iPhone / iPad"/><span>iPhone / iPad</span></label>
-            <label><input type="checkbox" data-pick="devices" value="Android"/><span>Android</span></label>
+          <div data-only="team" hidden>
+            <label for="wl-company">Company</label>
+            <input type="text" id="wl-company" name="Company" autocomplete="organization" placeholder="e.g. Rivera &amp; Co." disabled/>
+            <label for="wl-seats">Team size <small>optional</small></label>
+            <select id="wl-seats" name="Team size" disabled>
+              <option value="">Choose one (or skip)</option>
+              <option>1–9 people</option>
+              <option>10–99 people</option>
+              <option>100–999 people</option>
+              <option>1,000+ people</option>
+            </select>
           </div>
 
-          <label>Your kids' ages <small>pick all that apply</small></label>
-          <div class="chip-picks" role="group" aria-label="Your kids' ages">
-            <label><input type="checkbox" data-pick="ages" value="Explorer (5-9)"/><span>5–9</span></label>
-            <label><input type="checkbox" data-pick="ages" value="Navigator (10-13)"/><span>10–13</span></label>
-            <label><input type="checkbox" data-pick="ages" value="Pilot (14-17)"/><span>14–17</span></label>
+          <label>Devices to protect <small>pick all that apply</small></label>
+          <div class="chip-picks" role="group" aria-label="Devices to protect">
+            <label><input type="checkbox" data-pick="devices" value="iPhone"/><span>iPhone</span></label>
+            <label><input type="checkbox" data-pick="devices" value="iPad"/><span>iPad</span></label>
+            <label><input type="checkbox" data-pick="devices" value="Android phone"/><span>Android phone</span></label>
+            <label><input type="checkbox" data-pick="devices" value="Android tablet"/><span>Android tablet</span></label>
           </div>
 
-          <label for="wl-priority">What matters most to you? <small>optional</small></label>
-          <select id="wl-priority" name="What matters most">
-            <option value="">Choose one (or skip)</option>
-            <option>Choosing which AI tools my kids can use</option>
-            <option>Keeping their identity out of AI</option>
-            <option>Understanding how AI affects their wellbeing</option>
-            <option>Kid-safe AI answers</option>
-            <option>All of it, honestly</option>
-          </select>
+          <div data-only="household">
+            <label>Your kids' ages <small>pick all that apply</small></label>
+            <div class="chip-picks" role="group" aria-label="Your kids' ages">
+              <label><input type="checkbox" data-pick="ages" value="Explorer (5-9)"/><span>5–9</span></label>
+              <label><input type="checkbox" data-pick="ages" value="Navigator (10-13)"/><span>10–13</span></label>
+              <label><input type="checkbox" data-pick="ages" value="Pilot (14-17)"/><span>14–17</span></label>
+            </div>
+            <label for="wl-priority">What matters most to you? <small>optional</small></label>
+            <select id="wl-priority" name="What matters most">
+              <option value="">Choose one (or skip)</option>
+              <option>Choosing which AI tools my kids can use</option>
+              <option>Keeping their identity out of AI</option>
+              <option>Understanding how AI affects their wellbeing</option>
+              <option>Kid-safe AI answers</option>
+              <option>All of it</option>
+            </select>
+          </div>
 
-          <button class="btn btn-key btn-lg" type="submit" id="wlSubmit"><span class="lbl">Put me on the list</span></button>
+          <div data-only="team" hidden>
+            <label for="wl-priority-team">What matters most to you? <small>optional</small></label>
+            <select id="wl-priority-team" name="What matters most" disabled>
+              <option value="">Choose one (or skip)</option>
+              <option>Keeping company and client data out of AI on phones</option>
+              <option>Covering my team on every device they use</option>
+              <option>All of it</option>
+            </select>
+          </div>
+
+          <button class="btn btn-key btn-lg" type="submit" id="wlSubmit"><span class="lbl">Request my invitation</span></button>
           <div class="apply-status" id="wlStatus" aria-live="polite" style="margin-top:12px;font-size:.88rem;color:var(--coral-deep);text-align:center"></div>
-          <p class="fine">Mac and Windows are available today and need no invite. This list is for iPhone, iPad, Android, Wellbeing Signal and Answer Guard. We use these answers only to decide who gets a build first, never for marketing lists.</p>
+          <p class="fine">Mac and Windows install directly, no invitation needed: <a href="../download.html?pack=family" data-cta="family-download" data-pack="family">download PrivacyPal</a>. We use your answers only to send your invitation.</p>
         </form>
 
         <div class="form-success" id="formSuccess" hidden>
-          <div class="big-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 id="successTitle">You're on the list!</h3>
-          <p>We'll email you the moment a build for your devices is ready. Nothing else lands in your inbox.</p>
-          <p>You do not have to wait for the family computers: <a class="link-arrow" href="founding/index.html">start your free trial on Mac &amp; Windows</a></p>
+          <img class="guide" src="../assets/brand/penguin-guide.svg" alt="" width="116" height="116"/>
+          <h3 id="successTitle">Request received!</h3>
+          <p>Your install invitation arrives by email from Apple TestFlight or Google Play testing. Open it on the phone or tablet you want protected. Nothing else lands in your inbox.</p>
+          <p>Start today on the computers: <a class="link-arrow" href="../download.html?pack=family" data-cta="family-download" data-pack="family">Download PrivacyPal for Mac and Windows</a></p>
         </div>
       </div>
     </div>
@@ -144,28 +248,189 @@
 
 <div class="band" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
 
-<!-- ================= REASSURANCE ================= -->
-<section class="section wash-cream">
+<!-- ================= HOW THE INVITATION WORKS ================= -->
+<section class="section wash-cream" id="how">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow">Available today</span>
-      <h2>You don't have to wait for the part that's shipping.</h2>
+      <span class="eyebrow">How the invitation works</span>
+      <h2>Request it. Accept it. Sign in.</h2>
+      <p class="lede">Phones and tablets install PrivacyPal by invitation, through Apple TestFlight and Google Play testing: Apple's and Google's own channels for invited installs.</p>
     </div>
-    <div class="card-grid cols-3">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="ico" style="background:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
-        <h4>The keys to AI in your home</h4>
-        <p>Approve the AI your kids use, protect who they are, and see how it shapes them. <a class="link-arrow" href="index.html#how">How it works</a></p>
+    <div class="fsteps">
+      <div class="fstep reveal reveal-delay-1">
+        <div class="num">1</div><span class="mins">~1 min</span>
+        <h4>Request your invitation</h4>
+        <p>Tell us whether it is for your household or your team on Max, which devices you use and, for a household, your kids' ages.</p>
       </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>Founding Family perks</h4>
-        <p>50% off your entire first year, first in line for Wellbeing Signal and Answer Guard, and a direct line to the team building them. <a class="link-arrow" href="founding/index.html">See the offer</a></p>
+      <div class="fstep reveal reveal-delay-2">
+        <div class="num">2</div><span class="mins">by email</span>
+        <h4>Accept it on the device</h4>
+        <p>Open the invitation on the phone or tablet you want protected. On iPhone and iPad it installs through TestFlight; on Android, through Google Play testing.</p>
       </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-        <h4>A promise, in writing</h4>
-        <p>Guardrails, not surveillance. Kids see what you see. Read the whole thing before you sign up. <a class="link-arrow" href="promise.html">The Family Promise</a></p>
+      <div class="fstep reveal reveal-delay-3">
+        <div class="num">3</div><span class="mins">one account</span>
+        <h4>Sign in to PrivacyPal</h4>
+        <p>One PrivacyPal account for you, the same one you use on the web. Your kids keep their own protected profiles. Plans are set up on the web, so the app has nothing to buy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TWO DOORS ================= -->
+<section class="section" id="doors">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow gold">Households and teams</span>
+      <h2>One app on every phone. Your pack decides the rest.</h2>
+      <p class="lede">Phones and tablets are protected today with the Family and Max packs. A household gets the Family pack's guardrails and Parent HQ; a team gets the Max pack its company runs.</p>
+    </div>
+    <div class="ea-doors">
+      <div class="ea-door reveal reveal-delay-1">
+        <span class="pack-chip family" style="align-self:flex-start">Family</span>
+        <h3>For your household</h3>
+        <p>PrivacyPal protects the AI your kids use on their phones and tablets, and puts Parent HQ in your pocket.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Protection on your kids' phones and tablets, with the guardrails you set</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Parent HQ on your phone: the feed, alerts, approvals and the never-share list</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Founding Families get Wellbeing Signal and Answer Guard first (early access)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>One Family pack, $9.99 a month, up to 5 family members. Founding Families get 50% off the first year</span></li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-key" href="#formCard" data-aud-set="household">Request a household invitation</a>
+          <a class="link-arrow" href="founding/index.html">Start Family free</a>
+        </div>
+      </div>
+      <div class="ea-door dark reveal reveal-delay-2">
+        <span class="pack-chip business" style="align-self:flex-start">Max</span>
+        <h3 style="color:#fff">For your team</h3>
+        <p>PrivacyPal for business, protected today on iPhone, iPad and Android for teams on the Max pack. Install by invitation.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Install invitations for the people on your company's Max pack</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Seats and policy stay with your admin</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Billing stays on the web; the app has nothing to buy</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Mac, Windows and the Linux agent for servers are available today: <a href="../download.html" data-cta="download" data-pack="business" style="color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px">download</a></span></li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-sun" href="#formCard" data-aud-set="team">Request a team invitation</a>
+          <a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARENT HQ IN YOUR POCKET ================= -->
+<section class="section wash-teal">
+  <div class="container">
+    <div class="deep">
+      <div>
+        <span class="num-tag">Parent HQ · on your phone</span>
+        <h2>The calm control room, in your pocket</h2>
+        <p class="lede">On a parent's phone, PrivacyPal is Parent HQ: the signals and one-tap controls you use on the web, wherever you are.</p>
+        <div class="deep-list">
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>The feed, child by child</b><p>Which AI tools they used and what got protected. Signals, not transcripts.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Alerts and approvals</b><p>A request from your kid or a moment that needs you, answered in one tap.</p></span>
+          </div>
+          <div class="deep-item">
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><b>Guardrails and the never-share list</b><p>Approve an AI tool or add a detail to the list from anywhere. It applies to their devices in realtime.</p></span>
+          </div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-key" href="#formCard" data-aud-set="household">Request a household invitation</a>
+          <a class="link-arrow" href="parents.html">Tour Parent HQ</a>
+        </div>
+      </div>
+      <div class="ea-phone">
+        <div class="phone" role="img" aria-label="Design preview of Parent HQ on a phone: Leo asks to use a new AI app with approve and not now buttons, Maya's ChatGPT session marked protected, and a never-share list with home address, school and phone number.">
+          <div class="phone-screen">
+            <div class="phone-notch"><i></i></div>
+            <div class="phone-body">
+              <div class="phone-head">
+                <span class="avatar">R</span>
+                <span><b>Rivera family</b><small>Parent HQ · today</small></span>
+                <span class="hq-live" style="margin-left:auto">live</span>
+              </div>
+              <div class="hq-card" style="margin-bottom:10px">
+                <h6>Waiting on you</h6>
+                <p class="hq-note" style="color:var(--ink);font-weight:600">Leo asked to use a new AI app</p>
+                <div class="ea-req"><span class="y">Approve</span><span class="n">Not now</span></div>
+              </div>
+              <div class="hq-card" style="margin-bottom:10px">
+                <h6>Today</h6>
+                <div class="hq-row">
+                  <span class="app" style="background:var(--teal)">M</span>
+                  <span><b>Maya · ChatGPT</b><small>history essay · protected</small></span>
+                </div>
+                <div class="hq-row">
+                  <span class="app" style="background:var(--gold);color:var(--ink)">L</span>
+                  <span><b>Leo · Gemini</b><small>volcano facts · protected</small></span>
+                </div>
+              </div>
+              <div class="hq-card">
+                <h6>Never-share list</h6>
+                <div class="ea-list"><i>home address</i><i>school</i><i>phone number</i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="ea-cap">Design preview of Parent HQ on a phone</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Questions</span>
+      <h2>Fair questions. Straight answers.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>How does the invitation reach me?</summary>
+        <div class="a">By email. On iPhone and iPad the invitation installs PrivacyPal through TestFlight, Apple's free app for installing apps by invitation. On Android it comes through Google Play testing, straight from the Play Store. Open it on the device you want protected.</div>
+      </details>
+      <details>
+        <summary>Which packs include phones and tablets?</summary>
+        <div class="a">The Family pack and the Max pack. A household on Family protects the kids' phones and tablets and puts Parent HQ on a parent's phone. On Max, a company's people get PrivacyPal on their phones and tablets, with seats and policy set by its admin. Both protect phones and tablets today, with installs by invitation, and Mac and Windows come with every pack.</div>
+      </details>
+      <details>
+        <summary>Can I request for my household and my team?</summary>
+        <div class="a">Yes. Send one request for each. A household invitation comes with the Family pack's guardrails and Parent HQ; a team invitation comes with the Max pack your company runs. Your company can add Max to your PrivacyPal account under a license it provisions, and it stacks with your Family pack.</div>
+      </details>
+      <details>
+        <summary>Do I pay inside the app?</summary>
+        <div class="a">Plans are set up on the web, so the phone apps have nothing to buy. The Family pack is $9.99 a month for the whole household, with a 5-day free trial. The Max pack is billed per user through your company. See <a href="../pricing.html" style="color:var(--teal-ink);font-weight:600">pricing</a>.</div>
+      </details>
+      <details>
+        <summary>What about Mac and Windows?</summary>
+        <div class="a">They install directly, no invitation needed. <a href="../download.html?pack=family" data-cta="family-download" data-pack="family" style="color:var(--teal-ink);font-weight:600">Download PrivacyPal</a> for Mac (Apple Silicon) or Windows, and sign in. Your phone and tablet invitation follows by email.</div>
+      </details>
+      <details>
+        <summary>What happens to my answers?</summary>
+        <div class="a">They go to our team at hi@privacypal.ai and are used only to send your invitation. Nothing else lands in your inbox.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-sm">
+  <div class="container">
+    <div class="fcta reveal">
+      <span class="eyebrow">Available today</span>
+      <h2>Start on the family computers now</h2>
+      <p>Mac and Windows install directly, today. Your phone and tablet invitation follows by email.</p>
+      <div class="btn-row">
+        <a class="btn btn-sun btn-lg" href="../download.html?pack=family" data-cta="family-download" data-pack="family">Download PrivacyPal</a>
+        <a class="btn btn-ghost btn-lg" style="background:transparent;color:#fff;border-color:#3d5578;box-shadow:0 3px 0 #3d5578" href="founding/index.html">Start Family free</a>
       </div>
     </div>
   </div>
@@ -191,6 +456,44 @@
   document.getElementById('wlNext').value =
     location.origin + location.pathname + '?saved=1';
 
+  /* Household or team. Fields for the other audience are hidden AND disabled,
+     so they are never submitted. ?for=team (or #team) preselects the team door. */
+  var radios = form.querySelectorAll('input[name="Invite for"]');
+  function audience(){
+    var on = form.querySelector('input[name="Invite for"]:checked');
+    return on && /^Team/.test(on.value) ? 'team' : 'household';
+  }
+  function applyAudience(){
+    var aud = audience();
+    Array.prototype.forEach.call(form.querySelectorAll('[data-only]'), function(box){
+      var show = box.getAttribute('data-only') === aud;
+      box.hidden = !show;
+      Array.prototype.forEach.call(box.querySelectorAll('input,select,textarea'), function(el){
+        if (el.hasAttribute('data-pick')) return; /* picks are read by script, never posted */
+        el.disabled = !show;
+      });
+    });
+  }
+  function setAudience(aud){
+    Array.prototype.forEach.call(radios, function(r){
+      r.checked = (aud === 'team') === /^Team/.test(r.value);
+    });
+    applyAudience();
+  }
+  Array.prototype.forEach.call(radios, function(r){ r.addEventListener('change', applyAudience); });
+  var q = new URLSearchParams(location.search);
+  if (q.get('for') === 'team' || location.hash === '#team') setAudience('team'); else applyAudience();
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-aud-set]'), function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      setAudience(a.getAttribute('data-aud-set'));
+      var card = document.getElementById('formCard');
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function(){ var n = document.getElementById('wl-name'); if (n) n.focus({ preventScroll: true }); }, 500);
+    });
+  });
+
   function picks(group){
     return Array.prototype.map.call(
       form.querySelectorAll('input[data-pick="' + group + '"]:checked'),
@@ -208,10 +511,11 @@
     }
 
     var name = document.getElementById('wl-name').value.trim();
+    var aud = audience();
     document.getElementById('wlDevices').value = picks('devices');
-    document.getElementById('wlAges').value = picks('ages');
+    document.getElementById('wlAges').value = aud === 'team' ? 'n/a (team)' : picks('ages');
     form.querySelector('input[name="_subject"]').value =
-      'Early access list: ' + name + ' wants mobile and the Pal Agents';
+      'Early access list: ' + name + ' wants PrivacyPal on mobile (' + (aud === 'team' ? 'team' : 'household') + ')';
 
     var iframeName = 'pp-family-wl-' + Date.now();
     var iframe = document.createElement('iframe');
@@ -222,7 +526,7 @@
     form.target = iframeName;
 
     btn.disabled = true;
-    btn.querySelector('.lbl').textContent = 'Adding you…';
+    btn.querySelector('.lbl').textContent = 'Sending your request…';
     if (status) status.textContent = '';
 
     iframe.addEventListener('load', function(){
@@ -235,19 +539,19 @@
         /* cross-origin → FormSubmit served its own page → not delivered */
       }
       if (landedHere){
-        if (title) title.textContent = "You're on the list, " + name + '!';
+        if (title) title.textContent = 'Request received, ' + name + '!';
         form.hidden = true;
         success.hidden = false;
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(function(){ iframe.remove(); }, 800);
       } else {
         if (status){
-          status.innerHTML = 'We couldn\'t add you just now. Email '
-            + '<a href="mailto:hi@privacypal.ai?subject=Founding%20Family%20spot" style="color:var(--teal-ink);font-weight:600">hi@privacypal.ai</a>'
-            + ' and we\'ll add you by hand.';
+          status.innerHTML = 'We couldn\'t send your request just now. Email '
+            + '<a href="mailto:hi@privacypal.ai?subject=Phone%20install%20invitation" style="color:var(--teal-ink);font-weight:600">hi@privacypal.ai</a>'
+            + ' and we\'ll send your invitation by hand.';
         }
         btn.disabled = false;
-        btn.querySelector('.lbl').textContent = 'Put me on the list';
+        btn.querySelector('.lbl').textContent = 'Request my invitation';
         iframe.remove();
       }
     });

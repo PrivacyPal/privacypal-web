@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /* =========================================================
-   Privacy Log — RSS feed generator
+   Privacy Log: RSS feed generator
    Reads blog/blog.json (the single source of truth that also
-   drives blog.html) and writes blog/rss.xml — a valid RSS 2.0
+   drives blog.html) and writes blog/rss.xml, a valid RSS 2.0
    feed. Re-run this whenever posts change so the feed stays
    live/current:  node scripts/generate-rss.js
-   No dependencies — Node standard library only.
+   No dependencies: Node standard library only.
    ========================================================= */
 'use strict';
 const fs = require('fs');
@@ -14,6 +14,8 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SRC = path.join(ROOT, 'blog', 'blog.json');
 const OUT = path.join(ROOT, 'blog', 'rss.xml');
+// Channel logo: the PrivacyPal lockup (penguin + wordmark), PNG as RSS 2.0 requires.
+const CHANNEL_IMAGE = 'assets/brand/png/logo-1200.png';
 
 function xml(s){
   return String(s == null ? '' : s)
@@ -103,7 +105,7 @@ ${cats ? cats + '\n' : ''}      <description>${cdata(a.excerpt || '')}</descript
     <pubDate>${latest}</pubDate>
     <ttl>60</ttl>
     <image>
-      <url>${xml(abs(site, 'assets/logo-color.png'))}</url>
+      <url>${xml(abs(site, CHANNEL_IMAGE))}</url>
       <title>${xml(meta.title || 'The Privacy Log')}</title>
       <link>${xml(pageUrl)}</link>
     </image>
@@ -113,7 +115,7 @@ ${items}
 `;
 
   fs.writeFileSync(OUT, feed, 'utf8');
-  console.log(`Wrote ${path.relative(ROOT, OUT)} — ${articles.length} item(s), built ${nowRfc822()}`);
+  console.log(`Wrote ${path.relative(ROOT, OUT)}: ${articles.length} item(s), built ${nowRfc822()}`);
 }
 
 main();

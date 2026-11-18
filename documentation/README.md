@@ -17,8 +17,8 @@ Both SDKs support user JWTs, provisioned developer keys (`x-pp-developer-key`), 
 The main PrivacyPal API serves encoding, decoding, AI chat, Private Memory, user management, and company features. This is what the SDK (`@privacypal/sdk` / `privacypal-sdk`) connects to.
 
 **Base URLs:**
-- `https://api.privacypal.ai` (enterprise plane: Pro / Max / Cloud / SDK)
-- `https://api.family.privacypal.ai` (PrivacyPal Family plane: same API, fully isolated credentials; tokens are not valid across planes)
+- `https://api.privacypal.ai` (enterprise plane: Personal / Max / Cloud / SDK)
+- `https://api.family.privacypal.ai` (Family plane: same API, fully isolated credentials; tokens are not valid across planes)
 
 **Key paths:**
 - `/health`: Health check (no auth)
@@ -37,7 +37,7 @@ The main PrivacyPal API serves encoding, decoding, AI chat, Private Memory, user
 
 **OpenAPI Spec:** `family/openapi.yaml`
 
-The consumer household platform behind PrivacyPal Family: households, members, age stages, guardrails, never-share list, devices, signals-only telemetry, alerts, approvals, wellbeing, digests, and billing ($9.99/mo, 5-day trial, up to 5 household devices). All routes live under `/api/family`.
+The consumer household platform behind the Family pack: households, members, age stages, guardrails, never-share list, devices, signals-only telemetry, alerts, approvals, wellbeing, digests, and billing ($9.99/mo, 5-day trial, up to 5 household devices). All routes live under `/api/family`.
 
 **Auth model:** parents hold a family session (httpOnly cookie or bearer token); kids sign in with a Family Code plus optional PIN and never hold an email or password; registered devices use `x-pp-device-token`; partner JWTs get read-only aggregate admin endpoints only. Members reach the Family data plane via short-lived member tokens from the device member-token exchange.
 

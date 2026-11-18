@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- CAMPAIGN LANDING · BANKING & FSI · primary goal = book a demo -->
+<!-- CAMPAIGN LANDING · BANKING & FSI · primary goal = book a demo
+     Light split hero. Built on assets/landing.css; see LANDING-PAGES.md. -->
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AI in the bank, examiner-ready · PrivacyPal for Banking</title>
-<meta name="description" content="Let analysts use ChatGPT, Claude, Copilot & Grok without client PII, account numbers or MNPI ever reaching an LLM. On-device Privacy Twins keep you GLBA-, SOX- and FINRA-aligned. Book a banking demo." />
+<title>AI in the bank, examiner-ready · PrivacyPal for banking</title>
+<meta name="description" content="Let analysts use ChatGPT, Claude, Copilot and Grok while Privacy Twins swap client PII, account numbers and MNPI on the device, before a prompt reaches the AI provider. Every swap logged, per user. Book a banking demo." />
 <meta name="robots" content="noindex,follow" />
-<link rel="icon" href="assets/favicon.ico"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,13 +20,15 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/lp-banking.html" />
-<meta property="og:title" content="AI in the bank, examiner-ready · PrivacyPal for Banking" />
-<meta property="og:description" content="Analysts keep their AI. Client PII, account numbers and MNPI never reach an LLM. GLBA · SOX · FINRA aligned." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:title" content="AI in the bank, examiner-ready · PrivacyPal for banking" />
+<meta property="og:description" content="Analysts keep their AI. Client PII, account numbers and MNPI are swapped for Privacy Twins on the device, and every swap is logged." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AI in the bank, examiner-ready · PrivacyPal for Banking" />
-<meta name="twitter:description" content="Analysts keep their AI. Client PII, account numbers and MNPI never reach an LLM." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:title" content="AI in the bank, examiner-ready · PrivacyPal for banking" />
+<meta name="twitter:description" content="Analysts keep their AI. Client PII, account numbers and MNPI never reach the AI provider." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -36,9 +42,9 @@
 <!-- HEADER -->
 <header class="lp-header">
   <div class="lp-header-inner">
-    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/logo-color.png" alt="PrivacyPal"></a>
+    <a class="lp-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/brand/logo.svg" alt="PrivacyPal" width="146" height="28"></a>
     <div class="lp-header-right">
-      <span class="lp-header-note">GLBA · SOX · FINRA aligned</span>
+      <span class="lp-header-note">Trusted by global banks</span>
       <a class="btn btn-primary" href="#" data-cta="demo">Book a demo</a>
     </div>
   </div>
@@ -49,24 +55,29 @@
   <div class="lp-wrap">
     <div class="lp-hero-inner">
       <div class="reveal in">
-        <span class="lp-eyebrow">For Banking &amp; Financial Services</span>
-        <h1>Let the analysts run. <em>Keep the examiners calm.</em></h1>
-        <p class="lp-lede">Your people already use AI. PrivacyPal makes sure the bank can <b>prove</b> nothing sensitive left. On-device Privacy Twins swap client PII, account numbers and MNPI for realistic synthetic data <b>before</b> a single prompt reaches ChatGPT, Claude or Copilot.</p>
+        <span class="lp-eyebrow gold">For banking &amp; financial services</span>
+        <h1>Let the analysts run. Keep the examiners <em>calm</em>.</h1>
+        <p class="lp-lede">Your people already use AI. PrivacyPal gives the bank the <b>proof</b>: on the device, Privacy Twins swap client PII, account numbers and MNPI for realistic stand-ins <b>before</b> a prompt reaches ChatGPT, Claude or Copilot, and every swap is logged.</p>
+        <p class="lp-proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>The same technology that protects 140+ companies and global banks.</span></p>
         <div class="lp-cta-row">
           <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a>
-          <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Get Pro free</a>
+          <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
         </div>
-        <div class="lp-cta-row" style="margin-top:14px">
-          <span class="lp-cta-note">15 minutes. Bring your hardest compliance question.</span>
-        </div>
+        <span class="lp-cta-note">15 minutes. Bring your hardest compliance question.</span>
         <div class="lp-hero-trust">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> On-device. Zero-knowledge.</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/></svg> Per-prompt SIEM trail</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> NVIDIA Inception</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg> Protection on the device</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/></svg> Per-prompt audit trail</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> NVIDIA Inception member</span>
         </div>
       </div>
       <div class="lp-hero-photo reveal in reveal-delay-1">
-        <img src="assets/hero-shot-banking.png" alt="Banking analysts working with PrivacyPal-protected AI">
+        <img src="assets/hero-shot-banking.png" alt="Analysts on a bank trading floor working with AI" fetchpriority="high">
+        <div class="lp-swap" role="group" aria-label="Example: a prompt protected by PrivacyPal">
+          <div class="lp-swap-head">PrivacyPal <span class="lp-swap-live">Live protection</span><span class="lp-swap-tag">Example</span></div>
+          <span class="lp-swap-to">To ChatGPT · analyst laptop</span>
+          <p class="lp-swap-text">Draft a Q3 narrative for <s>Margaret Chen</s> <span class="twin">Nancy Grace</span>, account <s>4521-8893</s> <span class="twin">7912-4408</span></p>
+          <div class="lp-swap-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 details swapped on this device</div>
+        </div>
       </div>
     </div>
   </div>
@@ -78,11 +89,11 @@
     <span class="lp-trust-label">Protects the AI your desks already use</span>
     <div class="lp-trust-logos">
       <img src="assets/chatgpt.png" alt="ChatGPT">
-      <img src="assets/claude.png" alt="Claude">
-      <img src="assets/gemini.png" alt="Gemini">
+      <img class="wordmark" src="assets/claude.png" alt="Claude">
+      <img class="wordmark" src="assets/gemini.png" alt="Gemini">
       <img src="assets/copilot.webp" alt="Microsoft Copilot">
-      <img src="assets/grok.svg" alt="Grok">
-      <img src="assets/hermes.svg" alt="Hermes Agent">
+      <span class="lp-trust-name">Grok</span>
+      <span class="lp-trust-name">Hermes Agent</span>
     </div>
   </div>
 </div>
@@ -91,14 +102,14 @@
 <section class="lp-section">
   <div class="lp-wrap">
     <div class="reveal" style="max-width:760px">
-      <span class="lp-eyebrow">The $340B problem</span>
-      <p class="lp-stakes-lead" style="margin-top:18px">Your analysts are already using AI. <b>Your risk team just can't see it.</b></p>
-      <p class="lp-sub" style="margin-top:18px">McKinsey puts banking's generative-AI upside at up to $340B a year. The catch: most of that value is being captured in public chatbots. Off the record, off the radar.</p>
+      <span class="lp-eyebrow">Shadow AI on the desk</span>
+      <p class="lp-stakes-lead" style="margin-top:18px">Your analysts are already using AI. <b>Now your risk team can see it.</b></p>
+      <p class="lp-sub" style="margin-top:18px">Generative AI is already doing real work in banking, and much of that work happens in public chatbots. PrivacyPal brings it on the record: every tool kept, every prompt protected, every swap logged.</p>
     </div>
     <div class="lp-stakes-grid">
-      <div class="lp-stake reveal reveal-delay-1"><div class="k">Today</div><h4>Shadow AI on the desk</h4><p>68% of employees admit to pasting sensitive data into public chatbots. Account numbers, positions, client notes, with no log to show an examiner.</p></div>
-      <div class="lp-stake reveal reveal-delay-1"><div class="k">The trap</div><h4>The blanket ban</h4><p>Say "no AI" and productivity walks to a personal laptop. You haven't removed the risk. You've just lost sight of it.</p></div>
-      <div class="lp-stake reveal reveal-delay-2"><div class="k">The way out</div><h4>Governed enablement</h4><p>Keep every tool and every analyst. Just guarantee the real data never crosses the perimeter, and log every hop.</p></div>
+      <div class="lp-stake reveal reveal-delay-1"><div class="k">Today</div><h4>Shadow AI on the desk</h4><p>Account numbers, positions and client notes go into public chatbots, with no log to show an examiner.</p></div>
+      <div class="lp-stake reveal reveal-delay-1"><div class="k">The trap</div><h4>The blanket ban</h4><p>Say "no AI" and productivity walks to a personal laptop. The risk stays. Only the visibility goes.</p></div>
+      <div class="lp-stake answer reveal reveal-delay-2"><div class="k">The way out</div><h4>Governed enablement</h4><p>Keep every tool and every analyst. The real data never reaches the AI provider, and every hop is logged.</p></div>
     </div>
   </div>
 </section>
@@ -109,12 +120,12 @@
     <div class="lp-head center reveal">
       <span class="lp-eyebrow">How it works</span>
       <h2 class="lp-h2">Real values out. <em>Twins to the model.</em> Real values back.</h2>
-      <p class="lp-sub">No workflow change for the analyst. No data leaving the bank.</p>
+      <p class="lp-sub">The analyst keeps the same workflow. The client data never reaches the AI provider.</p>
     </div>
     <div class="lp-steps">
-      <div class="lp-step reveal reveal-delay-1"><div class="num">1</div><h4>The analyst writes</h4><p>"Draft a Q3 narrative for Margaret Chen, account 4521-8893, $4.2M in AAPL." Business as usual.</p></div>
-      <div class="lp-step reveal reveal-delay-1"><div class="num">2</div><h4>PrivacyPal swaps</h4><p>On-device, real values become realistic twins: Nancy Grace, 7912-4408, $3.8M in MSFT. The mapping never leaves the bank.</p></div>
-      <div class="lp-step reveal reveal-delay-2"><div class="num">3</div><h4>The model answers</h4><p>The LLM works a fully synthetic prompt. On return, twins swap back to the real client, and every hop is logged to your SIEM.</p></div>
+      <div class="lp-step reveal reveal-delay-1"><div class="num">01</div><h4>The analyst writes</h4><p>"Draft a Q3 narrative for Margaret Chen, account 4521-8893, $4.2M in AAPL." Business as usual.</p></div>
+      <div class="lp-step reveal reveal-delay-1"><div class="num">02</div><h4>PrivacyPal swaps</h4><p>On the device, real values become realistic twins: Nancy Grace, 7912-4408, $3.8M in MSFT. Only the twins go to the model.</p></div>
+      <div class="lp-step reveal reveal-delay-2"><div class="num">03</div><h4>The model answers</h4><p>The LLM works a fully synthetic prompt. On return, twins swap back to the real client, and every hop is logged, per user, in a SIEM-ready record.</p></div>
     </div>
   </div>
 </section>
@@ -124,20 +135,20 @@
   <div class="lp-wrap">
     <div class="lp-head center reveal">
       <span class="lp-eyebrow">Why banks choose PrivacyPal</span>
-      <h2 class="lp-h2">Over a blanket ban. Every time.</h2>
+      <h2 class="lp-h2">Governed AI beats a blanket ban. Every time.</h2>
     </div>
     <div class="lp-benefits">
       <div class="lp-benefit reveal reveal-delay-1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Zero data exposure</h3><p>NPI, MNPI and account data are swapped before send. Nothing real reaches OpenAI, Anthropic or Google, and we never see it either.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>0 bytes to the AI provider</h3><p>NPI, MNPI and account data are swapped on the device, before send. OpenAI, Anthropic and Google receive the twins, never the real values.</p>
       </div>
       <div class="lp-benefit reveal reveal-delay-1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-        <h3>No quality tax</h3><p>Redaction blinds the model. Privacy Twins keep the statistical bandwidth, so the market analysis and client narratives stay sharp.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h3>Full-quality answers</h3><p>Redaction blinds the model. Privacy Twins keep the statistical bandwidth, so the market analysis and client narratives stay sharp.</p>
       </div>
       <div class="lp-benefit reveal reveal-delay-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/><path d="m8 10 2 2 4-4"/></svg></div>
-        <h3>Examiner-ready</h3><p>Every prompt and every swap is logged, per-user, SIEM-ready. Pre-mapped to GLBA, SOX, FFIEC, FINRA and NYDFS Part 500.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4z"/><path d="M4 20h16"/><path d="m8 10 2 2 4-4"/></svg></div>
+        <h3>Examiner-ready</h3><p>Every prompt and every swap is logged, per user, SIEM-ready. Each record shows who sent it, to which AI, when, and which kinds of data were protected.</p>
       </div>
     </div>
   </div>
@@ -149,60 +160,56 @@
     <div class="lp-split">
       <div class="reveal">
         <span class="lp-eyebrow">Four workflows, one guardrail</span>
-        <h2 class="lp-h2" style="margin:6px 0 0">Wherever your desks touch AI.</h2>
+        <h2 class="lp-h2" style="margin:14px 0 0">Wherever your desks touch AI.</h2>
         <ul class="lp-check">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Wealth management.</b> Draft client narratives and explain market moves, without household positions reaching the model.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Commercial lending.</b> Run AI on borrower financials. Cap tables, covenants and side-letters stay inside the bank.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Customer operations.</b> Automate triage and response drafting. SSNs and routing codes never leave the perimeter.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Trading &amp; research.</b> Accelerate memos and diligence. Proprietary screens and position data stay where they belong.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Wealth management.</b> Draft client narratives and explain market moves while household positions reach the model only as twins.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Commercial lending.</b> Run AI on borrower financials. Cap tables, covenants and side-letters go out as twins.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Customer operations.</b> Automate triage and response drafting. SSNs and routing codes never reach the AI provider.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Trading &amp; research.</b> Accelerate memos and diligence. Proprietary screens and position data stay where they belong.</span></li>
         </ul>
         <div class="lp-cta-row"><a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a></div>
       </div>
       <div class="lp-split-figure reveal reveal-delay-1">
-        <img src="assets/gemini-protected-card.png" alt="A prompt protected by PrivacyPal: masked, encoded and decoded on-device">
+        <img src="assets/gemini-protected-card.png" alt="A prompt protected by PrivacyPal: sensitive values swapped on the device and restored in the answer">
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF QUOTE -->
-<section class="lp-quote">
-  <blockquote>"We went from a blanket <em>'no AI'</em> memo to onboarding all our users in two weeks."</blockquote>
-  <cite>Chief Information Security Officer, top-50 US bank</cite>
-</section>
-
-<!-- STAT BAND -->
-<div class="lp-stats">
-  <div class="lp-stat"><span class="n">$340<small>B</small></span><span class="l">annual GenAI upside in banking</span></div>
-  <div class="lp-stat"><span class="n">68<small>%</small></span><span class="l">of staff paste sensitive data into chatbots</span></div>
-  <div class="lp-stat"><span class="n">0</span><span class="l">real records on the wire</span></div>
-  <div class="lp-stat"><span class="n">2<small>wk</small></span><span class="l">from "no AI" to fully onboarded</span></div>
+<!-- PROOF BAND (approved figures only; see LANDING-PAGES.md) -->
+<div class="lp-stats dark">
+  <div class="lp-stat"><span class="n">140+</span><span class="l">companies run the same engine at work</span></div>
+  <div class="lp-stat"><span class="n word">Tens of millions</span><span class="l">of sensitive details protected</span></div>
+  <div class="lp-stat"><span class="n">0<small>bytes</small></span><span class="l">of sensitive data sent to AI providers</span></div>
+  <div class="lp-stat"><span class="n word">Global banks</span><span class="l">trust the same technology</span></div>
 </div>
 
 <!-- FAQ -->
-<section class="lp-section alt">
+<section class="lp-section">
   <div class="lp-wrap">
     <div class="lp-head center reveal">
       <span class="lp-eyebrow">Straight answers for risk &amp; compliance</span>
       <h2 class="lp-h2">What your examiners will ask.</h2>
     </div>
     <div class="lp-faq reveal reveal-delay-1">
-      <details open><summary>Where does the data actually go?</summary><p>Nowhere sensitive. Detection and substitution happen on-device, before the prompt leaves the endpoint. The real-to-twin mapping is held locally and never transmitted. The LLM only ever sees synthetic values.</p></details>
-      <details><summary>Can we prove it to an examiner?</summary><p>Yes. Every prompt, interception and swap is logged per-user and streamed to your SIEM. Detectors ship pre-mapped to GLBA, SOX, FFIEC, FINRA and NYDFS Part 500.</p></details>
-      <details><summary>Do we have to pick one AI vendor?</summary><p>No. Unlike a walled-garden tool, PrivacyPal is platform-agnostic: ChatGPT, Claude, Gemini, Copilot, Grok, Hermes Agent and Claude Code all stay in play, all protected.</p></details>
-      <details><summary>Can it run inside our own environment?</summary><p>Yes. PrivacyPal Cloud is a self-hosted gateway that lives in your data center for full data sovereignty and DSPM scanning across databases.</p></details>
+      <details open><summary>Where does the data actually go?</summary><p>Protection runs on the device, before a prompt or file reaches an AI provider. Sensitive values are swapped for Privacy Twins on the endpoint and swapped back to the real values in the answer on the same device. The LLM only ever sees the twins.</p></details>
+      <details><summary>Can we prove it to an examiner?</summary><p>Yes. Every prompt, interception and swap gets an audit record: the user, the AI tool, the time, the kinds of data protected and the risk level. The logs are SIEM-ready, and your admins can review them user by user.</p></details>
+      <details><summary>Can analysts keep the AI they use today?</summary><p>Yes. With the Max pack, PrivacyPal works across ChatGPT, Claude, Gemini, Copilot, Grok, Hermes Agent and Claude Code, all protected under one policy.</p></details>
+      <details><summary>Can it run inside our own environment?</summary><p>Yes. PrivacyPal Cloud is a self-hosted gateway that lives in your data center or VPC, for full data sovereignty and DSPM scanning across your databases.</p></details>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="lp-final">
-  <div class="lp-final-card reveal">
-    <h2>Stop negotiating between AI and compliance.</h2>
-    <p>Talk to a banker on our team. Yes, we hire from the industry on purpose. Or install Pro free and see it protect a real prompt today.</p>
-    <div class="lp-cta-row">
-      <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a>
-      <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Get Pro free</a>
+  <div class="lp-wrap">
+    <div class="lp-final-card reveal">
+      <h2>Stop negotiating between AI and compliance.</h2>
+      <p>Talk to a banker on our team. Yes, we hire from the industry on purpose. Or download PrivacyPal free and watch it protect a real prompt today.</p>
+      <div class="lp-cta-row">
+        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a banking demo</a>
+        <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
+      </div>
     </div>
   </div>
 </section>
@@ -210,18 +217,20 @@
 <!-- FOOTER -->
 <footer class="lp-footer">
   <div class="lp-footer-inner">
-    <img src="assets/logo-color.png" alt="PrivacyPal">
+    <a class="lp-footer-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/brand/logo.svg" alt="PrivacyPal" width="125" height="24"></a>
     <div class="lp-footer-links">
       <a href="banking.html">Banking overview</a>
-      <a href="privacypal-cloud.html">For Enterprise</a>
+      <a href="business.html">PrivacyPal for business</a>
+      <a href="privacypal-cloud.html">PrivacyPal Cloud</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="mailto:hello@privacypal.ai">Contact</a>
     </div>
     <div class="lp-footer-copy">
       <address class="lp-footer-addr">PrivacyPal · 1601 Belvedere Rd, Suite E-300 · West Palm Beach, FL 33406 · United States</address>
-      © 2026 PrivacyPal · Govern every AI. Without blocking a single user.
+      © 2026 PrivacyPal · We protect your data from AI, at home and at work.
     </div>
+    <p class="footer-credit">Penguin emoji graphic from <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, &copy; Twitter, Inc. and other contributors, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
   </div>
 </footer>
 

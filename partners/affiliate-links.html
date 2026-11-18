@@ -2,25 +2,47 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<title>PrivacyPal Family · Partner Program · Your affiliate link</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Family pack · Partner affiliate link · PrivacyPal</title>
+<meta name="description" content="Your PrivacyPal partner link for the Family pack: build it in one line, and every family who signs up through it is credited to you."/>
 <!-- Partner collateral, not a marketing page. Reachable so the link can be
      sent directly, but kept out of search the same way the campaign landing
      pages are (see LANDING-PAGES.md). -->
 <meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="PrivacyPal"/>
+<meta property="og:title" content="PrivacyPal for families · Partner affiliate link"/>
+<meta property="og:description" content="Your link. Your credit. Every family who signs up through your partner link is credited to you, automatically."/>
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-family.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="PrivacyPal for families · Partner affiliate link"/>
+<meta name="twitter:description" content="Your link. Your credit. Every family who signs up through your partner link is credited to you."/>
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-family.png"/>
 <!-- Source for partners/PrivacyPal-Family-Partner-Links.pdf.
 
-     A single Letter page, rendered by scripts/generate-partner-pdf.js. Built
-     on the PrivacyPal Family design system (family/family.css): Fredoka for
-     display, Overused Grotesk for body, IBM Plex Mono for labels, navy ink,
-     teal for action, tangerine for warmth.
+     A single Letter page, rendered by scripts/generate-partner-pdf.js. One
+     brand with its Max pack sibling (max-affiliate-links.html): Overused
+     Grotesk for type, IBM Plex Mono for labels, Deep Navy ink, Signal Teal
+     for action, Penguin Gold as the Family pack accent. The Family warmth
+     comes from the photograph, the cream ground and the gold, not from a
+     second type family.
 
      Print rules this layout depends on:
        the page is exactly 8.5in x 11in with its own padding, so the PDF is
        generated with margin:0 and printBackground:true;
-       nothing may overflow, there is no second page by design. -->
+       nothing may overflow, there is no second page by design.
+     The @media screen block at the end only changes how the page shows in a
+     browser (a sheet on a desk, or a stacked layout on a phone); the PDF is
+     printed with print media and never sees it. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 @font-face{
   font-family:'Overused Grotesk';
@@ -30,7 +52,6 @@
 }
 
 :root{
-  --font-display:'Fredoka','Overused Grotesk',system-ui,sans-serif;
   --font-primary:'Overused Grotesk',system-ui,-apple-system,sans-serif;
   --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
 
@@ -38,23 +59,27 @@
   --ink-soft:#0e3364;
   --text:#3a4763;
   --muted:#68758e;
-  --faint:#aeb7c8;
+  --faint:#9aa5b9;
 
   --bg:#fffdf8;
-  --cream:#fdf8ee;
-  --line:#eee8d9;
+  --cream:#fbf7ec;
+  --line:#ece6d6;
   --line-soft:#f3efe4;
 
   --teal:#028391;
-  --teal-deep:#015a63;
-  --teal-tint:#e3f2f1;
+  --teal-ink:#02707c;
+  --teal-deep:#01656f;
+  --teal-tint:#e6f3f3;
   --sage:#4da394;
   --sage-deep:#357e71;
-  --sage-tint:#e8f3ee;
-  --tangerine:#f0914d;
-  --tangerine-deep:#d97a35;
-  --tangerine-tint:#fdeede;
-  --amber:#f6dcac;
+
+  /* Penguin Gold: the Family pack accent (pack chip, eyebrow dot, step 3,
+     the code slot, the offer panel). Gold text on light is --gold-ink only. */
+  --gold:#ffac33;
+  --gold-deep:#e8941a;
+  --gold-ink:#8a5a00;
+  --gold-tint:#fff4e0;
+  --gold-soft:#ffe3b3;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -73,51 +98,60 @@ body{
 
 .page{
   width:8.5in;height:11in;
-  padding:0.52in 0.58in 0.44in;
+  padding:0.44in 0.58in 0.38in;
   display:flex;flex-direction:column;
   position:relative;overflow:hidden;
   background:
-    radial-gradient(120% 60% at 100% 0%, #fdf6e6 0%, rgba(255,253,248,0) 58%),
+    radial-gradient(115% 58% at 100% 0%, var(--gold-tint) 0%, rgba(255,253,248,0) 60%),
     var(--bg);
 }
 
 /* ---------- masthead ---------- */
-.mast{display:flex;align-items:center;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid var(--line)}
-.mast img{height:27px;width:auto;display:block}
-.mast .kick{
-  font-family:var(--font-mono);font-size:7.6pt;font-weight:500;
-  text-transform:uppercase;letter-spacing:.2em;color:var(--teal);
+.mast{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.mast img{height:26px;width:auto;display:block}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:7.4pt;font-weight:500;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--ink);
+  border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px 5px 10px;
 }
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.chip span{color:var(--muted)}
 
 /* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:1fr 2.26in;gap:0.32in;align-items:center;padding:0.2in 0 0.18in}
+.hero{display:grid;grid-template-columns:1fr 2.26in;gap:0.32in;align-items:center;padding:0.17in 0 0.14in}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:7.4pt;font-weight:500;
   text-transform:uppercase;letter-spacing:.19em;color:var(--muted);
 }
-.eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--tangerine)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--gold)}
 h1{
-  font-family:var(--font-display);font-weight:600;
-  font-size:35pt;line-height:1.02;letter-spacing:-.016em;
-  color:var(--ink);margin:11px 0 10px;
+  font-weight:500;
+  font-size:37pt;line-height:.98;letter-spacing:-.035em;
+  color:var(--ink);margin:11px 0 11px;
 }
 h1 em{font-style:normal;color:var(--teal)}
 .lede{font-size:11pt;line-height:1.5;color:var(--text);max-width:3.95in}
+.proof{display:flex;align-items:center;gap:7px;margin-top:12px;font-size:8.4pt;line-height:1.35;color:var(--ink-soft);font-weight:500}
+.proof svg{width:15px;height:15px;flex:none;color:var(--sage-deep)}
 
 .shot{
-  border-radius:30px 30px 92px 30px;overflow:hidden;
+  border-radius:22px 22px 22px 72px;overflow:hidden;
   aspect-ratio:1/1;background:var(--line-soft);
   box-shadow:0 16px 40px -18px rgba(1,32,78,.34);
 }
-.shot img{width:100%;height:100%;object-fit:cover;display:block}
+/* Stand-in: study-together.jpg (1400x789), a mother and daughter at
+   homework (Family casting: moms with kids aged 7 to 17). The square crop
+   pans sideways only; 48% keeps the girl's head and the mother's face in. */
+.shot img{width:100%;height:100%;object-fit:cover;object-position:48% 50%;display:block}
 
 /* ---------- the link, the centrepiece ---------- */
 .linkcard{
-  background:linear-gradient(180deg,#fff 0%,var(--teal-tint) 100%);
-  border:2px solid var(--teal);border-radius:22px;
-  padding:0.23in 0.3in 0.25in;
-  box-shadow:0 5px 0 var(--teal-deep);
+  background:#fff;
+  border:1.5px solid var(--teal);border-radius:18px;
+  padding:0.21in 0.3in 0.22in;
+  box-shadow:0 4px 0 var(--teal-tint),0 18px 36px -24px rgba(1,32,78,.3);
 }
 .linkcard .cap{
   font-family:var(--font-mono);font-size:7.2pt;font-weight:600;
@@ -129,9 +163,9 @@ h1 em{font-style:normal;color:var(--teal)}
   color:var(--ink);letter-spacing:-.012em;line-height:1.3;word-break:break-all;
 }
 .url .slot{
-  color:var(--tangerine-deep);background:var(--tangerine-tint);
+  color:var(--gold-ink);background:var(--gold-soft);
   border-radius:6px;padding:1px 5px;
-  box-shadow:inset 0 0 0 1px rgba(217,122,53,.32);
+  box-shadow:inset 0 0 0 1px rgba(232,148,26,.45);
 }
 .linkcard .sub{
   margin-top:10px;font-size:9.1pt;line-height:1.45;color:var(--ink-soft);
@@ -139,22 +173,22 @@ h1 em{font-style:normal;color:var(--teal)}
 .linkcard .sub b{color:var(--ink);font-weight:600;white-space:nowrap}
 
 /* ---------- three steps ---------- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0.19in;padding:0.2in 0 0.2in}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0.19in;padding:0.17in 0 0.13in}
 .step{
-  background:#fff;border:1px solid var(--line);border-radius:18px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:0.2in 0.19in 0.21in;
 }
 .step .num{
-  width:27px;height:27px;border-radius:50%;
+  width:26px;height:26px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);font-weight:600;font-size:11.5pt;
+  font-weight:600;font-size:10.5pt;
   color:#fff;background:var(--ink);margin-bottom:11px;
 }
 .step:nth-child(2) .num{background:var(--teal)}
-.step:nth-child(3) .num{background:var(--tangerine)}
+.step:nth-child(3) .num{background:var(--gold);color:var(--ink)}
 .step b{
-  display:block;font-family:var(--font-display);font-weight:600;
-  font-size:12pt;color:var(--ink);margin-bottom:5px;letter-spacing:-.006em;
+  display:block;font-weight:600;
+  font-size:12pt;color:var(--ink);margin-bottom:5px;letter-spacing:-.012em;
 }
 .step p{font-size:9.1pt;line-height:1.48;color:var(--text)}
 .step code{
@@ -166,15 +200,15 @@ h1 em{font-style:normal;color:var(--teal)}
 .know-head{
   font-family:var(--font-mono);font-size:7.4pt;font-weight:500;
   text-transform:uppercase;letter-spacing:.19em;color:var(--muted);
-  display:flex;align-items:center;gap:11px;margin-bottom:0.13in;
+  display:flex;align-items:center;gap:11px;margin-bottom:0.12in;
 }
 .know-head::after{content:"";flex:1;height:1px;background:var(--line)}
-.know{display:grid;grid-template-columns:1fr 1fr;gap:0.15in 0.3in}
+.know{display:grid;grid-template-columns:1fr 1fr;gap:0.14in 0.3in}
 .k{display:flex;gap:11px;align-items:flex-start}
-.k svg{width:17px;height:17px;flex:none;margin-top:1px;color:var(--sage-deep)}
+.k svg{width:17px;height:17px;flex:none;margin-top:1px;color:var(--teal)}
 .k b{
-  display:block;font-family:var(--font-display);font-weight:600;
-  font-size:10.4pt;color:var(--ink);margin-bottom:2px;
+  display:block;font-weight:600;
+  font-size:10.4pt;color:var(--ink);margin-bottom:2px;letter-spacing:-.006em;
 }
 .k p{font-size:8.9pt;line-height:1.46;color:var(--text)}
 .k code{font-family:var(--font-mono);font-size:8.2pt;font-weight:600;color:var(--teal-deep);white-space:nowrap}
@@ -182,20 +216,64 @@ h1 em{font-style:normal;color:var(--teal)}
 /* ---------- footer ---------- */
 .foot{margin-top:auto;padding-top:0.15in;border-top:1px solid var(--line)}
 .offer{
-  background:var(--cream);border:1px dashed var(--amber);border-radius:14px;
-  padding:0.13in 0.2in;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
-  margin-bottom:0.11in;
+  background:var(--gold-tint);border:1px solid var(--gold-soft);border-left:3px solid var(--gold);
+  border-radius:4px 14px 14px 4px;
+  padding:0.13in 0.2in;margin-bottom:0.11in;
 }
 .offer .t{
   font-family:var(--font-mono);font-size:7pt;font-weight:600;
-  text-transform:uppercase;letter-spacing:.16em;color:var(--tangerine-deep);
+  text-transform:uppercase;letter-spacing:.16em;color:var(--gold-ink);
+  display:block;margin-bottom:4px;
 }
 .offer .d{font-size:9pt;line-height:1.45;color:var(--ink-soft)}
 .offer .d b{color:var(--ink);font-weight:600}
 .meta{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.meta span{font-family:var(--font-mono);font-size:7.4pt;color:var(--faint);letter-spacing:.05em}
-.meta a{font-family:var(--font-mono);font-size:7.4pt;color:var(--teal);text-decoration:none;letter-spacing:.05em}
-.addr{display:block;margin-top:7px;font-style:normal;font-family:var(--font-mono);font-size:7.4pt;color:var(--faint);letter-spacing:.05em}
+.meta span{font-family:var(--font-mono);font-size:7.4pt;color:var(--muted);letter-spacing:.05em}
+.meta a{font-family:var(--font-mono);font-size:7.4pt;color:var(--teal-ink);text-decoration:none;letter-spacing:.05em}
+.addr{display:block;margin-top:5px;font-style:normal;font-family:var(--font-mono);font-size:7.4pt;color:var(--faint);letter-spacing:.05em}
+/* The logo mark is the Twemoji penguin, used unaltered under CC BY 4.0,
+   which requires this credit wherever the logo is shared. */
+.credit{margin-top:3px;font-family:var(--font-mono);font-size:6.4pt;line-height:1.3;color:var(--faint);letter-spacing:.03em}
+.credit a{color:inherit;text-decoration:none}
+
+/* ---------- screen only: how the page shows in a browser ---------- */
+@media screen{
+  html,body{width:auto;height:auto}
+  body{background:#eeebe1;padding:40px 16px 56px}
+  .page{margin:0 auto;border-radius:6px;box-shadow:0 1px 2px rgba(1,32,78,.06),0 30px 80px -30px rgba(1,32,78,.32)}
+}
+@media screen and (max-width:860px){
+  body{background:var(--bg);padding:0}
+  .page{width:auto;height:auto;overflow:visible;border-radius:0;box-shadow:none;padding:22px 18px 30px}
+  .mast{gap:12px;flex-wrap:wrap}
+  .mast img{height:24px}
+  .chip{font-size:9px;letter-spacing:.12em}
+  .hero{grid-template-columns:1fr;gap:20px;padding:22px 0 22px}
+  .shot{aspect-ratio:16/10;border-radius:18px 18px 18px 56px}
+  h1{font-size:40px}
+  .lede{font-size:16px;max-width:none}
+  .proof{font-size:13px}
+  .linkcard{padding:18px 18px 20px}
+  .linkcard .cap{font-size:10px}
+  .url{font-size:15px;word-break:normal;overflow-wrap:anywhere}
+  .linkcard .sub{font-size:14px}
+  .steps{grid-template-columns:1fr;gap:12px;padding:22px 0}
+  .step{padding:16px 18px;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:14px;align-items:start}
+  .step .num{grid-row:span 2;margin:0}
+  .step b{font-size:17px}
+  .step p{font-size:14.5px}
+  .step code,.k code{font-size:13px}
+  .eyebrow,.know-head,.meta span,.meta a,.addr{font-size:10.5px}
+  .credit{font-size:9.5px;line-height:1.45;margin-top:6px}
+  .know{grid-template-columns:1fr;gap:16px}
+  .k b{font-size:16px}
+  .k p{font-size:14.5px}
+  .foot{margin-top:26px;padding-top:18px}
+  .offer{padding:14px 16px}
+  .offer .t{font-size:10px}
+  .offer .d{font-size:14px}
+  .meta{flex-direction:column;align-items:flex-start;gap:6px}
+}
 </style>
 <script src="../assets/google-tag.js"></script>
 </head>
@@ -203,8 +281,8 @@ h1 em{font-style:normal;color:var(--teal)}
 <div class="page">
 
   <header class="mast">
-    <img src="../family/assets/product/logo-color.png" alt="PrivacyPal"/>
-    <span class="kick">Family · Partner Program</span>
+    <img src="../assets/brand/logo.svg" alt="PrivacyPal" width="136" height="26"/>
+    <span class="chip">Family pack <span>· Partner Program</span></span>
   </header>
 
   <section class="hero">
@@ -213,15 +291,16 @@ h1 em{font-style:normal;color:var(--teal)}
       <h1>Your link.<br/><em>Your credit.</em></h1>
       <p class="lede">Every family who signs up through your link is credited to
       you, automatically. One line to build, nothing to install.</p>
+      <p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.6-7 10-4-1.4-7-5.4-7-10V6l7-3z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg>The same technology that protects 140+ companies and global banks.</p>
     </div>
     <div class="shot">
-      <img src="../family/assets/photos/hero-dad-kids.jpg" alt="A dad laughing with his two young kids outside at golden hour"/>
+      <img src="../family/assets/photos/study-together.jpg" data-standin="assets/photos/pack-family.jpg" alt="A mother and her daughter doing homework together at a desk"/>
     </div>
   </section>
 
   <section class="linkcard">
     <span class="cap">Your affiliate link</span>
-    <div class="url">https://privacypal.ai/family/founding/?ref=<span class="slot">YOUR-CODE</span></div>
+    <div class="url">https://privacypal.ai/<wbr>family/<wbr>founding/<wbr>?ref=<span class="slot">YOUR-CODE</span></div>
     <p class="sub">Swap <b>YOUR-CODE</b> for the partner code we send you at onboarding.
     That is the whole setup. A link for Alex Rivera would end
     <b>?ref=RIVERA-ALEX</b>.</p>
@@ -253,7 +332,7 @@ h1 em{font-style:normal;color:var(--teal)}
     <div class="know">
 
       <div class="k">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         <div>
           <b>You are credited for 90 days</b>
           <p>Your code sits in their browser for 90 days, so a family who
@@ -263,7 +342,7 @@ h1 em{font-style:normal;color:var(--teal)}
       </div>
 
       <div class="k">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7"/><rect x="2" y="7" width="20" height="5" rx="1"/><path d="M12 20V7M12 7H7.5a2.5 2.5 0 1 1 2.5-2.5V7zM12 7h4.5A2.5 2.5 0 1 0 14 4.5V7z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7"/><rect x="2" y="7" width="20" height="5" rx="1"/><path d="M12 20V7M12 7H7.5a2.5 2.5 0 1 1 2.5-2.5V7zM12 7h4.5A2.5 2.5 0 1 0 14 4.5V7z"/></svg>
         <div>
           <b>The price never changes</b>
           <p>Your families still get the full Founding Families offer, 50% off
@@ -273,7 +352,7 @@ h1 em{font-style:normal;color:var(--teal)}
       </div>
 
       <div class="k">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>
         <div>
           <b>Your own tracking survives</b>
           <p>Add <code>utm_source</code>, <code>utm_campaign</code> or anything
@@ -283,7 +362,7 @@ h1 em{font-style:normal;color:var(--teal)}
       </div>
 
       <div class="k">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
         <div>
           <b>Shorteners and bio links are fine</b>
           <p>Any link tool works, as long as it keeps the <code>?ref=</code>
@@ -298,15 +377,19 @@ h1 em{font-style:normal;color:var(--teal)}
   <footer class="foot">
     <div class="offer">
       <span class="t">What you are sharing</span>
-      <span class="d"><b>PrivacyPal Family</b>, $9.99 a month for up to 5 people.
-      Founding Families get <b>50% off the first year</b>, after a 5 day free
-      trial and with a 30 day money-back guarantee.</span>
+      <span class="d"><b>The Family pack</b>: PrivacyPal for the whole household,
+      $9.99 a month for up to 5 family members, on Mac and Windows and
+      <b>protected today on iPhone, iPad and Android</b> (install by
+      invitation). Founding Families pay
+      <b>$4.99 a month for the first year</b> (50% off), after a 5-day free
+      trial and with a 30-day money-back guarantee.</span>
     </div>
     <div class="meta">
       <span>Guardrails, not surveillance.</span>
       <a href="mailto:hi@privacypal.ai">Questions: hi@privacypal.ai</a>
     </div>
     <address class="addr">PrivacyPal · 1601 Belvedere Rd, Suite E-300 · West Palm Beach, FL 33406 · United States</address>
+    <p class="credit">Penguin emoji graphic from <a href="https://github.com/jdecked/twemoji">Twemoji</a>, &copy; Twitter, Inc. and other contributors, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
   </footer>
 
 </div>

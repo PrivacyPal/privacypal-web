@@ -4,8 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Technology: AI governance for B2B SaaS &amp; software teams · PrivacyPal</title>
-<meta name="description" content="The governance layer that lets B2B SaaS ship AI features without putting customer data on a vendor list. Sidecar architecture, sovereign by design, agent-native for Claude Code, Copilot, Hermes Agent &amp; MCP." />
-<link rel="icon" href="assets/favicon.ico"/>
+<meta name="description" content="The governance layer that lets B2B SaaS ship AI features without putting customer data on a vendor list. Sidecar architecture, sovereign by design, agent-native for Claude Code, Copilot agents, Hermes Agent &amp; MCP." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,16 +18,20 @@
 <meta property="og:url" content="https://privacypal.ai/technology.html" />
 <meta property="og:title" content="Technology: PrivacyPal for software teams" />
 <meta property="og:description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Technology: PrivacyPal for software teams" />
 <meta name="twitter:description" content="PrivacyPal creates Privacy Twins for your sensitive data so every prompt, file and connected source is safe before it ever reaches an AI." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <style>
 .hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-split h1{max-width:15ch}
 .hero-media{background:var(--panel);border-radius:var(--r-lg);padding:16px}
 .hero-media img{display:block;width:100%;border-radius:var(--r-md);border:1px solid var(--line)}
+.pack-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.nw{white-space:nowrap}
 .twin-note{margin-top:20px;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 @media (max-width:920px){.hero-split{grid-template-columns:1fr;gap:32px}}
 </style>
@@ -44,11 +51,11 @@
   <div class="container">
     <div class="hero-split">
       <div class="reveal">
-        <span class="eyebrow blue">For B2B SaaS &amp; technology</span>
-        <h1>Ship AI features. Pass every security review.</h1>
-        <p class="lede">You are 25 people or 900, and your customers are reading your TOS with red pens. PrivacyPal is the governance layer that lets you build on GPT, Claude, Gemini and Grok without putting your customers' data on a subprocessor list. Sidecar topology, sovereign by design, agent-native for Claude Code, Copilot, Hermes Agent &amp; MCP, so you keep velocity and don't get lapped.</p>
+        <span class="eyebrow gold">For B2B SaaS &amp; technology</span>
+        <h1>Ship AI features. Clear the security review.</h1>
+        <p class="lede">You are 25 people or 900, and your customers are reading your TOS with red pens. PrivacyPal is the governance layer that lets you build on GPT, Claude, Gemini and Grok without putting your customers' data on a subprocessor list. Sidecar topology, sovereign by design, agent-native for Claude Code, Copilot agents, Hermes Agent &amp; MCP, so you keep velocity and don't get lapped.</p>
         <div class="btn-row">
-          <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Pro free</a>
+          <a class="btn btn-primary btn-lg" href="download.html" data-cta="download">Download free</a>
           <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
         </div>
       </div>
@@ -102,7 +109,7 @@
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
         <h4>Developer tools &amp; Claude Code workflows</h4>
-        <p>Let AI agents see user code without shipping proprietary IP to a model vendor. Native governance for Claude Code, Copilot, Hermes Agent &amp; MCP: secret detection on the way out, real values stitched back on the way in.</p>
+        <p>Let AI agents see user code without shipping proprietary IP to a model vendor. Native governance for Claude Code, Copilot agents, Hermes Agent &amp; MCP: secret detection on the way out, real values stitched back on the way in.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
@@ -118,22 +125,12 @@
   </div>
 </section>
 
-<!-- ================= QUOTE ================= -->
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="bigquote reveal">
-      <blockquote>Our <b>fastest-ever security review</b>. Three enterprise customers said yes to AI <b>the week we launched</b> with PrivacyPal.</blockquote>
-      <div class="who">CTO, Series C data infrastructure</div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= BUILT FOR ENGINEERS ================= -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Built for engineers</span>
-      <h2>Deploy in a sprint, not a quarter</h2>
+      <h2>Deploy in <span class="mark-gold">a sprint</span>, not a quarter</h2>
     </div>
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
@@ -160,9 +157,10 @@
   <div class="container">
     <div class="panel reveal" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between">
       <div style="max-width:600px">
-        <span class="eyebrow pink">Which plan</span>
+        <span class="eyebrow gold">Which pack</span>
         <h3 style="margin-top:12px">Software companies run Max on the team, Cloud in the product</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Max governs your own people: every engineer in Claude Code, every AE in ChatGPT, every laptop under one policy. $30 per seat a month at 1 to 9 seats, $25 at 10, $21 at 100, billed annually. Cloud is the enterprise tier that runs the sidecar inside your VPC so customer data never reaches a model vendor, and the SDK puts the same engine in your own pipelines.</p>
+        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">The Max pack governs your own people: every engineer in Claude Code, every AE in ChatGPT, every laptop under one policy. $34 per user a month, or $30 billed annually, at <span class="nw">1&ndash;9 users</span>; $25 at 10 users and $21 at 100, billed annually. Engineers already on Personal or the Family pack join your Max account under a license you provision. To deploy, PrivacyPal Cloud runs the sidecar inside your VPC so customer data never reaches a model vendor. To build, the PrivacyPal SDK puts the same engine in your own pipelines.</p>
+        <div class="pack-chips"><span class="pack-chip business">Max · $34/user/mo</span><span class="pack-chip business">Cloud · Deploy</span><span class="pack-chip business">SDK · Build</span></div>
       </div>
       <div class="btn-row">
         <a class="btn btn-primary" href="privacypal-max.html">Explore Max</a>
@@ -177,11 +175,11 @@
   <div class="container cta-stack">
     <div class="cta-banner dark reveal">
       <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For technology</span>
-      <h2 style="margin-top:14px">Ship AI fast. Pass every security review.</h2>
+      <h2 style="margin-top:14px">Ship AI fast. Clear the security review.</h2>
       <p>30-minute technical walkthrough with one of our deployment engineers. Install once. Run sovereign. Get governance the CISO greenlights.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
-        <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Get Pro free</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="demo">Book a demo</a>
+        <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
       </div>
     </div>
   </div>

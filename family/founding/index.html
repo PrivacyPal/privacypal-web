@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Founding Families · 50% off your first year · PrivacyPal Family</title>
-<meta name="description" content="Founding Families get PrivacyPal Family at half price for a whole year. Choose the AI your kids use on every device, from Mac and Windows to iPhone, iPad and Android, now with Roblox protection on the family Mac, keep their identity at home, and see how they are doing. Signals, never transcripts. Rated 5 stars on Google." />
+<title>Founding Families · 50% off your first year · PrivacyPal</title>
+<meta name="description" content="Founding Families get the Family pack at half price for a whole year. Choose the AI your kids use, protected today on Mac, Windows, iPhone, iPad and Android, now with Roblox protection on the family Mac, keep their real identity away from AI providers, and see how they are doing. Signals, never transcripts. Rated 5 stars on Google." />
 <!-- Campaign landing page for ads and social posts, and since the launch also the
-     public Founding Families offer page: linked from the nav, footer and sitemap,
-     and indexable. It keeps its own minimal header and legal-only footer. -->
+     public Founding Families offer page: linked from the Family pages' announcement
+     bar, from page copy across the site and from the sitemap, and indexable. It keeps its own minimal header and legal-only footer. -->
 <link rel="canonical" href="https://privacypal.ai/family/founding/"/>
-<link rel="icon" href="../../assets/favicon.ico"/>
+<link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,21 +20,21 @@
 <link rel="stylesheet" href="../family.css"/>
 <link rel="stylesheet" href="../../assets/roblox.css"/>
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="PrivacyPal Family" />
+<meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/family/founding/" />
-<meta property="og:title" content="Founding Families: 50% off your first year of PrivacyPal Family" />
-<meta property="og:description" content="Their world is full of AI. You hold the keys. Founding Families get PrivacyPal Family at half price for a whole year, code applied automatically." />
-<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta property="og:image:secure_url" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:title" content="Founding Families: 50% off your first year of the Family pack · PrivacyPal" />
+<meta property="og:description" content="Their world is full of AI. You hold the keys. Founding Families get the Family pack at half price for a whole year, code applied automatically." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-family.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/brand/og/og-family.png" />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1214" />
-<meta property="og:image:height" content="658" />
-<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal for families. Their world is full of AI. You hold the keys." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Founding Families: 50% off your first year of PrivacyPal Family" />
+<meta name="twitter:title" content="Founding Families: 50% off your first year of the Family pack · PrivacyPal" />
 <meta name="twitter:description" content="Their world is full of AI. You hold the keys. Half price for a whole year, code applied automatically." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta name="twitter:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-family.png" />
+<meta name="twitter:image:alt" content="PrivacyPal for families. Their world is full of AI. You hold the keys." />
 <!-- Google tag (gtag.js) -->
 <script src="../../assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -39,7 +42,8 @@
 <!-- End Meta Pixel Code -->
 <!-- Referral attribution: captures ?ref= (partner, reseller and creator codes)
      and forwards it to the Founding Families signup, alongside the promo code.
-     The Family sub-site does not load assets/v3.js, so each page loads this itself. -->
+     This page keeps its own minimal header and does not load assets/v3.js,
+     so it loads this itself, before its CTA script reads window.PPReferral. -->
 <script src="../../assets/referral.js"></script>
 <style>
 /* ---------- Landing-only layer (on top of family.css and roblox.css) ---------- */
@@ -68,20 +72,17 @@ h2,h3,.section-head .lede{text-wrap:balance}
 }
 .lph-logo{display:flex;align-items:center;gap:10px}
 .lph-logo img{height:28px;width:auto}
-.lph-logo .fam{
-  font-family:var(--font-display);font-weight:600;font-size:1rem;
-  background:var(--tangerine-tint);color:var(--tangerine-deep);
-  padding:3px 12px;border-radius:999px;
-}
+/* the penguin lockup is wider than the old mark: on phones keep the logo and the CTA */
+@media(max-width:440px){.lph-logo img{height:24px}}
 .lph-offer{
   margin-left:auto;display:none;align-items:center;gap:10px;
-  font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
+  font-family:var(--font-mono);font-size:.74rem;color:var(--muted);white-space:nowrap;
 }
 .lph-offer .stars svg{width:13px;height:13px}
 .lph-offer i{width:4px;height:4px;border-radius:50%;background:var(--faint)}
-@media(min-width:860px){.lph-offer{display:inline-flex}}
+@media(min-width:1000px){.lph-offer{display:inline-flex}}
 .lph .btn{margin-left:auto}
-@media(min-width:860px){.lph .btn{margin-left:10px}}
+@media(min-width:1000px){.lph .btn{margin-left:10px}}
 .lph .btn.btn-sm{padding:10px 18px}
 
 /* ================= HERO ================= */
@@ -110,7 +111,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
 
 /* proof labels under the sub-headline: always one row. The column is a size
    container, so the labels shorten (then drop the device label, which the
-   lede already states) before they would ever wrap. */
+   offer card restates) before they would ever wrap. */
 .lp-copy{container-type:inline-size}
 .plabels{display:flex;flex-wrap:nowrap;gap:10px;margin-top:24px}
 /* measured: both labels 542px in full, 487px short; the first alone 330 / 275 */
@@ -132,7 +133,9 @@ h2,h3,.section-head .lede{text-wrap:balance}
 .plabel.big{background:var(--ink);border-color:var(--ink);color:#c6d2e4}
 .plabel.big b{color:#fff}
 .plabel.big .em{background:rgba(255,255,255,.12)}
-.plabel.sun .em{background:var(--tangerine-tint)}
+.plabel .em svg{width:18px;height:18px;color:var(--teal-ink)}
+.plabel.big .em svg{color:var(--gold)}
+.plabel.sun .em{background:var(--gold-tint)}
 .plabel.teal .em{background:var(--teal-tint)}
 
 /* ---------- Interactive demo ---------- */
@@ -286,15 +289,15 @@ h2,h3,.section-head .lede{text-wrap:balance}
 /* ---------- Offer card: the conversion element ---------- */
 .offer{
   background:#fff;border:2px solid var(--ink);border-radius:var(--r-xl);
-  padding:26px 28px 22px;box-shadow:8px 8px 0 var(--amber);position:relative;
+  padding:26px 28px 22px;box-shadow:8px 8px 0 var(--gold-soft);position:relative;
 }
 .offer .ribbon{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
-  background:var(--tangerine-tint);color:var(--tangerine-deep);
+  background:var(--gold-tint);color:var(--gold-ink);
   padding:5px 12px;border-radius:999px;margin-bottom:12px;
 }
-.offer .ribbon::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tangerine)}
+.offer .ribbon::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
 .offer h3{font-size:1.5rem;margin-bottom:2px}
 .offer .price{display:flex;align-items:baseline;gap:10px;margin:12px 0 2px;flex-wrap:wrap}
 .offer .price .was{font-family:var(--font-display);font-size:1.5rem;color:var(--faint);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:var(--coral)}
@@ -334,7 +337,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
 }
 .live-thumb{
   position:relative;display:block;min-height:100%;
-  background:url('../assets/photos/couch-tablet.jpg') 64% center/cover;
+  background:url('../assets/photos/homework-boy.jpg') 24% 40%/cover;
 }
 .live-thumb::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,32,78,.08) 20%,rgba(1,32,78,.7))}
 .live-badge{
@@ -363,6 +366,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
   background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 11px;
   font-size:.8rem;font-weight:600;color:var(--ink);
 }
+.live-when svg{width:14px;height:14px;flex:none;color:var(--teal-ink)}
 .live-body .btn{width:100%}
 .live-body .tiny{display:block;margin-top:9px;font-family:var(--font-mono);font-size:.64rem;color:var(--muted);text-align:center}
 
@@ -382,12 +386,16 @@ h2,h3,.section-head .lede{text-wrap:balance}
 .stat:nth-child(2) .em{background:#fff4d6}
 .stat:nth-child(3) .em{background:var(--navy-tint)}
 .stat:nth-child(4) .em{background:var(--sage-tint)}
+.stat .em svg{width:24px;height:24px}
+.stat:nth-child(2) .em{color:var(--gold-ink)}
+.stat:nth-child(3) .em{color:var(--ink)}
+.stat:nth-child(4) .em{color:var(--sage-deep)}
 .stat b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.3rem;line-height:1.15;color:var(--ink)}
 .stat small{display:block;font-size:.8rem;line-height:1.35;color:var(--muted);margin-top:2px}
 .stat.hero-stat{background:var(--ink);border-color:var(--ink)}
 .stat.hero-stat b{color:#fff}
 .stat.hero-stat small{color:#b9c6da}
-.stat.hero-stat .em{background:rgba(255,255,255,.12)}
+.stat.hero-stat .em{background:rgba(255,255,255,.12);color:var(--gold)}
 .badges{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;justify-content:center;margin-top:22px}
 .badges img{height:36px;width:auto}
 .badges .p{
@@ -409,6 +417,11 @@ h2,h3,.section-head .lede{text-wrap:balance}
 .dev > svg{width:20px;height:20px;color:var(--teal)}
 .dev .ok{width:18px;height:18px;border-radius:50%;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center}
 .dev .ok svg{width:11px;height:11px}
+.dev .inv{
+  font-family:var(--font-mono);font-size:.62rem;font-weight:500;letter-spacing:.03em;
+  color:var(--gold-ink);background:var(--gold-tint);border:1px solid var(--gold-soft);
+  border-radius:999px;padding:2px 8px;
+}
 @media(max-width:640px){.devrow{gap:8px;margin-top:-22px}.dev{font-size:.88rem;padding:5px 9px 5px 10px}}
 /* eight cards: keep them on one row at desktop width */
 @media(min-width:1000px){
@@ -464,7 +477,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
 .rhq-top b{display:block;font-family:var(--font-display);font-weight:600;font-size:1rem;line-height:1.2}
 .rhq-top small{display:block;font-family:var(--font-mono);font-size:.62rem;color:var(--muted);letter-spacing:.03em}
 .rhq-top .kid{
-  margin-left:auto;width:34px;height:34px;border-radius:11px;background:var(--tangerine);color:#fff;
+  margin-left:auto;width:34px;height:34px;border-radius:11px;background:var(--gold);color:var(--ink);
   display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:.9rem;
 }
 .rsw{
@@ -527,7 +540,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
 .tcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-float)}
 .tcard::before{
   content:"\201C";position:absolute;top:2px;right:18px;
-  font-family:var(--font-display);font-size:5.4rem;line-height:1;color:var(--tangerine-tint);
+  font-family:var(--font-display);font-size:5.4rem;line-height:1;color:var(--gold-soft);
 }
 .t-out{
   position:relative;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;
@@ -542,6 +555,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
   display:flex;align-items:center;justify-content:center;
   border:2px solid #fff;box-shadow:0 0 0 2px var(--amber);
 }
+.tcard .av svg{width:24px;height:24px}
 .tcard figcaption b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--ink)}
 .tcard figcaption small{display:block;font-size:.76rem;line-height:1.38;color:var(--muted)}
 .rv-note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:20px}
@@ -576,6 +590,8 @@ h2,h3,.section-head .lede{text-wrap:balance}
 .lpf a{color:var(--text);margin-left:16px}
 .lpf a:hover{color:var(--teal-ink)}
 .lpf-addr{flex-basis:100%;font-style:normal;font-size:.78rem;color:var(--muted)}
+/* the logo is the Twemoji penguin (CC BY 4.0): this page has its own footer, so it carries the credit itself */
+.lpf .lpf-credit a{margin:0!important;color:inherit;text-decoration:underline;text-underline-offset:2px}
 @media(min-width:961px){.lpf{padding-bottom:36px}}
 
 /* sticky mobile CTA */
@@ -603,7 +619,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
   .lp-copy{order:1}
   .lp-demo{order:2}
   .lp-side{order:3}
-  .offer{box-shadow:6px 6px 0 var(--amber)}
+  .offer{box-shadow:6px 6px 0 var(--gold-soft)}
   .sticky{display:flex}
   .rr{grid-template-columns:1fr}
 }
@@ -628,6 +644,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
   .offer{padding:22px 20px 20px}
   .stat{flex-direction:column;align-items:flex-start;gap:10px;padding:14px}
   .stat .em{width:44px;height:44px;font-size:1.3rem}
+  .stat .em svg{width:21px;height:21px}
   .stat b{font-size:1.12rem}
   .g-score{font-size:3.6rem}
   .lpf a{margin-left:0;margin-right:16px}
@@ -649,19 +666,27 @@ h2,h3,.section-head .lede{text-wrap:balance}
     <symbol id="i-gmark" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
     <symbol id="i-rbx" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <!-- Line icons for chips, stat tiles and avatars (24px grid, 1.8 stroke). The penguin is the only emoji on the page. -->
+    <symbol id="i-l-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7.5-3.75 7.5-9.4V5.3L12 2.5 4.5 5.3v6.8c0 5.65 7.5 9.4 7.5 9.4z"/><polyline points="8.8 12 11 14.2 15.2 10"/></symbol>
+    <symbol id="i-l-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4.5" width="16" height="11.5" rx="1.6"/><path d="M2 19.5h20"/></symbol>
+    <symbol id="i-l-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="2"/><path d="M16 2.5v4M8 2.5v4M3.5 10h17"/></symbol>
+    <symbol id="i-l-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></symbol>
+    <symbol id="i-l-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.5 6.05.88-4.38 4.27 1.03 6.03L12 16.84l-5.4 2.84 1.03-6.03-4.38-4.27 6.05-.88z"/></symbol>
+    <symbol id="i-l-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3" width="15" height="18" rx="1.6"/><path d="M10 21v-4h4v4M8.5 7h1M14.5 7h1M8.5 11h1M14.5 11h1"/></symbol>
+    <symbol id="i-l-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-l-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></symbol>
   </defs>
 </svg>
 
 <!-- ================= MINIMAL HEADER (no site nav on purpose) ================= -->
 <header class="lph">
   <div class="lph-inner">
-    <a class="lph-logo" href="#top" aria-label="PrivacyPal Family">
-      <img src="../assets/product/logo-color.png" alt="PrivacyPal"/>
-      <span class="fam">Family</span>
+    <a class="lph-logo" href="#top" aria-label="PrivacyPal, back to top">
+      <img src="../../assets/brand/logo.svg" alt="PrivacyPal" width="146" height="28"/>
     </a>
     <span class="lph-offer">
       <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-      5.0 on Google<i></i>Founding Families · 50% off your first year
+      5.0 on Google<i></i>Family pack · Founding Families · 50% off your first year
     </span>
     <a class="btn btn-key btn-sm" href="https://family.privacypal.ai/signup?promo=FOUNDINGFAMILY-0926-496" data-signup>Claim 50% off</a>
   </div>
@@ -682,10 +707,10 @@ h2,h3,.section-head .lede{text-wrap:balance}
             <span class="eyebrow orange">Founding Families · half price for a whole year</span>
           </div>
           <h1>Their world is full of AI. <span class="hl-teal">You hold the keys.</span></h1>
-          <p class="lede">PrivacyPal Family puts your guardrails on every AI your kids use, on every device they own, and now on Roblox. You choose what they can use, their real name, school and address never leave your house, and you see how they are doing without reading their chats.</p>
+          <p class="lede">With the Family pack, PrivacyPal puts your guardrails on every AI your kids use, and now on Roblox. You choose what they can use, their real name, school and address never reach the AI, and you see how they are doing without reading their chats.</p>
           <div class="plabels">
-            <span class="plabel big"><span class="em" aria-hidden="true">🛡️</span><span><b>Tens of millions</b> of <span class="pl-long">sensitive </span>details protected</span></span>
-            <span class="plabel teal pl-dev"><span class="em" aria-hidden="true">📱</span><span>Works on <b>every device</b></span></span>
+            <span class="plabel big"><span class="em"><svg aria-hidden="true"><use href="#i-l-shield"/></svg></span><span><b>Tens of millions</b> of <span class="pl-long">sensitive </span>details protected</span></span>
+            <span class="plabel teal pl-dev"><span class="em"><svg aria-hidden="true"><use href="#i-l-laptop"/></svg></span><span><b>Computers and phones</b> today</span></span>
           </div>
         </div>
 
@@ -712,7 +737,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
                   <p class="dm-line">Help me write a speech about me, <mark>Alex Rivera</mark>. I'm in 6th grade at <mark>Washington Middle School</mark> in <mark>Denver</mark>.</p>
                 </div>
                 <div class="demo-foot">
-                  <p><svg aria-hidden="true"><use href="#i-check"/></svg><span>ChatGPT still helps with the speech. Maya's real name, school and city never left the house.</span></p>
+                  <p><svg aria-hidden="true"><use href="#i-check"/></svg><span>ChatGPT still helps with the speech. Maya's real name, school and city never reached ChatGPT.</span></p>
                   <button class="demo-replay" type="button" data-replay><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Replay</button>
                 </div>
               </div>
@@ -758,7 +783,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
 
           <ul>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Up to 5 family members on Mac, Windows, iPhone, iPad and Android</span></li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>ChatGPT, Claude, Gemini, Copilot, Grok and Perplexity</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>ChatGPT, Claude, Gemini, Grok and Perplexity</span></li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Roblox on the family Mac<span class="rbx-tag">NEW</span></span></li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Guardrails, Privacy Twins and Family Memory included</span></li>
           </ul>
@@ -776,7 +801,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
              The next real session comes from the webinar API (same source as
              /webinars/family/); the static text is the fallback. -->
         <div class="live" data-live>
-          <a class="live-thumb" href="../../webinars/family/" data-webinar aria-label="Watch the live family demo">
+          <a class="live-thumb" href="../../webinars/family/" data-webinar data-standin="assets/photos/hero-home.jpg" aria-label="Watch the live family demo">
             <span class="live-badge">LIVE</span>
             <span class="live-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
             <span class="live-dur">45 min · free</span>
@@ -784,10 +809,10 @@ h2,h3,.section-head .lede{text-wrap:balance}
           <div class="live-body">
             <span class="eyebrow orange">Not sure yet?</span>
             <h3>See it live before you decide</h3>
-            <p>Join our free family demo. Watch PrivacyPal Family work in real AI chats, then ask anything about your own kids.</p>
+            <p>Join our free family demo. Watch PrivacyPal work in real AI chats, then ask anything about your own kids.</p>
             <div class="live-when">
-              <span><span aria-hidden="true">📅</span><span data-next-day>Tuesdays and Thursdays</span></span>
-              <span><span aria-hidden="true">🕐</span><span data-next-time>1:00 PM ET</span></span>
+              <span><svg aria-hidden="true"><use href="#i-l-calendar"/></svg><span data-next-day>Tuesdays and Thursdays</span></span>
+              <span><svg aria-hidden="true"><use href="#i-l-clock"/></svg><span data-next-time>1:00 PM ET</span></span>
             </div>
             <a class="btn btn-line" href="../../webinars/family/" data-webinar>Save my free seat</a>
             <span class="tiny">On YouTube · no camera · bring your questions</span>
@@ -802,10 +827,10 @@ h2,h3,.section-head .lede{text-wrap:balance}
 <section class="tband" aria-label="Why parents trust PrivacyPal">
   <div class="container">
     <div class="stats">
-      <div class="stat hero-stat"><span class="em" aria-hidden="true">🛡️</span><span><b>Tens of millions</b><small>sensitive details protected by PrivacyPal</small></span></div>
-      <div class="stat"><span class="em" aria-hidden="true">⭐</span><span><b>5.0 on Google</b><small>rated 5 stars</small></span></div>
-      <div class="stat"><span class="em" aria-hidden="true">🏢</span><span><b>140+ businesses</b><small>run the same engine at work</small></span></div>
-      <div class="stat"><span class="em" aria-hidden="true">🔒</span><span><b>0 bytes</b><small>of your child's real identity sent to AI companies</small></span></div>
+      <div class="stat hero-stat"><span class="em"><svg aria-hidden="true"><use href="#i-l-shield"/></svg></span><span><b>Tens of millions</b><small>sensitive details protected by PrivacyPal</small></span></div>
+      <div class="stat"><span class="em"><svg aria-hidden="true"><use href="#i-l-star"/></svg></span><span><b>5.0 on Google</b><small>rated 5 stars</small></span></div>
+      <div class="stat"><span class="em"><svg aria-hidden="true"><use href="#i-l-building"/></svg></span><span><b>140+ businesses</b><small>run the same engine at work</small></span></div>
+      <div class="stat"><span class="em"><svg aria-hidden="true"><use href="#i-l-lock"/></svg></span><span><b>0 bytes</b><small>of your child's real identity sent to AI companies</small></span></div>
     </div>
     <div class="badges">
       <img src="../../nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program member" loading="lazy"/>
@@ -814,7 +839,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
       <i></i>
       <span class="p"><svg aria-hidden="true"><use href="#i-shield"/></svg>Runs on the device</span>
       <i></i>
-      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Mac, Windows, iOS and Android</span>
+      <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Computers and phones, protected today</span>
       <i></i>
       <span class="p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>30-day money-back</span>
     </div>
@@ -822,12 +847,12 @@ h2,h3,.section-head .lede{text-wrap:balance}
 </section>
 
 <!-- ================= COVERED EVERYWHERE: every AI, plus Roblox ================= -->
-<section class="section ai-pals" aria-label="Apps PrivacyPal Family protects">
+<section class="section ai-pals" aria-label="Apps PrivacyPal protects for families">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">One app, their whole digital world</span>
       <h2>Every AI they use. <span class="hl-teal">Now Roblox too.</span></h2>
-      <p class="lede">Kids don't live in one app or on one screen. Your guardrails follow them into the AI they already love on their computer, phone and tablet, and now into Roblox, all from one Parent HQ.</p>
+      <p class="lede">Kids don't live in one app or on one screen. Your guardrails follow them into the AI they already love, protected today on Mac, Windows, iPhone, iPad and Android, and now into Roblox, all from one Parent HQ.</p>
     </div>
     <div class="devrow reveal" role="list" aria-label="Devices covered">
       <span class="dev" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>Mac<span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span></span>
@@ -850,10 +875,6 @@ h2,h3,.section-head .lede{text-wrap:balance}
         <b>Gemini</b><small>protected</small>
       </div>
       <div class="pal-card" role="listitem">
-        <span class="pal-tile"><img src="../../assets/glyph-copilot.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Copilot</b><small>protected</small>
-      </div>
-      <div class="pal-card" role="listitem">
         <span class="pal-tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
         <b>Grok</b><small>protected</small>
       </div>
@@ -862,10 +883,6 @@ h2,h3,.section-head .lede{text-wrap:balance}
         <b>Perplexity</b><small>protected</small>
       </div>
       <div class="pal-card pal-rbx" role="listitem"><span class="pal-new">NEW</span><span class="pal-tile"><svg class="rbx-mark" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span><b>Roblox</b><small>protected</small></div>
-      <div class="pal-card pal-next" role="listitem">
-        <span class="pal-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
-        <b>Whatever's next</b><small>covered on day one</small>
-      </div>
     </div>
 
     <!-- Roblox highlight. Claims follow family/roblox.html: shipping on the family
@@ -874,10 +891,10 @@ h2,h3,.section-head .lede{text-wrap:balance}
       <div>
         <span class="rbx-eyebrow">New · Roblox support is here</span>
         <h3>Roblox, with <span class="rbx-hl">you holding the keys</span></h3>
-        <p class="lead">Kids don't stop at AI. Family now carries your guardrails into Roblox, from the same Parent HQ, with the same promise: guardrails, not surveillance.</p>
+        <p class="lead">Kids don't stop at AI. The Family pack now carries your guardrails into Roblox, from the same Parent HQ, with the same promise: guardrails, not surveillance.</p>
         <ul class="rl">
           <li><span class="rl-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><b>You decide who they talk to.</b> Play stays on. Chat, friend requests, voice and spending start off. Your kid asks, you decide.</span></li>
-          <li><span class="rl-ico green"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span><b>Their details stay home.</b> On the family Mac, messages, profile text and group posts are checked before they send. Anything on your never-share list is held, never rewritten, and your kid is told why.</span></li>
+          <li><span class="rl-ico green"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span><b>Their details are held back.</b> On the family Mac, messages, profile text and group posts are checked before they send. Anything on your never-share list is held, never rewritten, and your kid is told why.</span></li>
           <li><span class="rl-ico yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></span><span><b>Trust, not spying.</b> We never ask for their Roblox password, never show you their messages, and never send their Roblox text to a server or an AI.</span></li>
           <li><span class="rl-ico purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span><b>Danger alerts</b><span class="rbx-ea">EARLY ACCESS</span> A heads-up on grooming patterns, secrecy pressure, and pushes to move to another app or meet up.</span></li>
         </ul>
@@ -913,7 +930,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
 
 <!-- ================= REVIEWS + PARENT VOICES ================= -->
 <!-- The 5.0 rating links to PrivacyPal's Chrome Web Store reviews (5.0 from 9
-     ratings, read 2026-10-30). The three cards are PrivacyPal Family parents,
+     ratings, read 2026-10-30). The three cards are parents on the Family pack,
      per PrivacyPal (2026-10-30), shown by role, not name. Match each quote to
      that parent's own words when they are to hand. -->
 <section class="section wash-cream" id="reviews">
@@ -936,23 +953,23 @@ h2,h3,.section-head .lede{text-wrap:balance}
 
       <figure class="tcard reveal reveal-delay-1">
         <span class="t-out">Every AI, one app</span>
-        <blockquote>With five kids I can't read every chat, and I don't want to. I pick the AI they use, their names and school never leave the house, and they can see exactly what I see. Nobody has to hide anything.</blockquote>
-        <figcaption><span class="av" style="background:var(--teal-tint)" aria-hidden="true">👨</span><span><b>Dad of 5</b><small>Financial analyst</small></span></figcaption>
+        <blockquote>With five kids I can't read every chat, and I don't want to. I pick the AI they use, their names and school never reach the AI, and they can see exactly what I see. Nobody has to hide anything.</blockquote>
+        <figcaption><span class="av" style="background:var(--teal-tint);color:var(--teal-ink)"><svg aria-hidden="true"><use href="#i-l-user"/></svg></span><span><b>Dad of 5</b><small>Financial analyst</small></span></figcaption>
       </figure>
 
       <figure class="tcard reveal reveal-delay-2">
         <span class="t-out">Calm, not control</span>
         <blockquote>Every one of our kids uses AI differently. Parent HQ gives me one calm view of how they're all doing, and never their private words. That balance is everything.</blockquote>
-        <figcaption><span class="av" style="background:var(--tangerine-tint)" aria-hidden="true">👩</span><span><b>Mom of 5</b><small>Realtor</small></span></figcaption>
+        <figcaption><span class="av" style="background:var(--gold-tint);color:var(--gold-ink)"><svg aria-hidden="true"><use href="#i-l-user"/></svg></span><span><b>Mom of 5</b><small>Realtor</small></span></figcaption>
       </figure>
 
       <figure class="tcard reveal reveal-delay-3">
         <span class="t-out">AI and Roblox covered</span>
-        <blockquote>My three kids are on AI and Roblox every day. PrivacyPal Family is the one thing I've found that protects them across all of it, and I didn't have to become the bad guy to do it.</blockquote>
-        <figcaption><span class="av" style="background:var(--sage-tint)" aria-hidden="true">🧔</span><span><b>Dad of 3</b><small>Commercial banker</small></span></figcaption>
+        <blockquote>My three kids are on AI and Roblox every day. Now they're protected across all of it, and I didn't have to become the bad guy to do it.</blockquote>
+        <figcaption><span class="av" style="background:var(--sage-tint);color:var(--sage-deep)"><svg aria-hidden="true"><use href="#i-l-user"/></svg></span><span><b>Dad of 3</b><small>Commercial banker</small></span></figcaption>
       </figure>
     </div>
-    <p class="rv-note">Testimonials from PrivacyPal Family parents.</p>
+    <p class="rv-note">Testimonials from PrivacyPal parents on the Family pack.</p>
   </div>
 </section>
 
@@ -973,12 +990,12 @@ h2,h3,.section-head .lede{text-wrap:balance}
       <div class="fstep reveal reveal-delay-2">
         <div class="num">2</div><span class="mins">~5 min</span>
         <h4>Add your kids, pick your keys</h4>
-        <p>Choose each child's stage: Explorer (5 to 9), Navigator (10 to 13) or Pilot (14 to 17). Approve the AI they can use and what can never leave your house.</p>
+        <p>Choose each child's stage: Explorer (5 to 9), Navigator (10 to 13) or Pilot (14 to 17). Approve the AI they can use and the details it never sees.</p>
       </div>
       <div class="fstep reveal reveal-delay-3">
         <div class="num">3</div><span class="mins">~5 min</span>
-        <h4>Put a Pal on every device</h4>
-        <p>Install on each Mac, Windows PC, iPhone, iPad or Android device your kids use. They keep using their AI exactly as before. Using Roblox on the Mac? Its own setup step walks you through Roblox's parent settings too.</p>
+        <h4>Put a Pal on their devices</h4>
+        <p>Install on each Mac, Windows PC, iPhone, iPad or Android device your kids use; phones and tablets install by invitation, sent by email. They keep using their AI exactly as before. Using Roblox on the Mac? Its own setup step walks you through Roblox's parent settings too.</p>
       </div>
     </div>
   </div>
@@ -1002,8 +1019,8 @@ h2,h3,.section-head .lede{text-wrap:balance}
       <div class="pillar tint-teal reveal reveal-delay-2">
         <div class="ico" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <span class="ptag">Privacy Twins</span>
-        <h3>Their identity never leaves home</h3>
-        <p>The moment your child types their real name, school or address, PrivacyPal swaps in a safe stand-in on the device. The AI still helps. Their real identity stays with you.</p>
+        <h3>Their real identity never reaches the AI</h3>
+        <p>The moment your child types their real name, school or address, PrivacyPal swaps in a safe stand-in on the device. The AI still helps. Their real identity never reaches the AI provider.</p>
       </div>
       <div class="pillar tint-sage reveal reveal-delay-1">
         <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 4.5-2 7H7c0-2.5-2-4-2-7a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></div>
@@ -1013,7 +1030,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
       </div>
       <div class="pillar tint-sun reveal reveal-delay-2">
         <span class="soon-tag">early access</span>
-        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="ico" style="background:var(--gold);color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <span class="ptag">Pal Agents</span>
         <h3>Know they're OK without reading their chats</h3>
         <p>Wellbeing Signal spots mood shifts in how they talk to AI. Answer Guard checks that what AI says back is age-right and manipulation-free. Founding Families get them first.</p>
@@ -1029,7 +1046,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
       <div>
         <span class="eyebrow coral">The part we care most about</span>
         <h2>Guardrails, not surveillance</h2>
-        <p class="lede">Spyware makes kids hide. PrivacyPal Family is built to protect your child and your relationship with them. Trust is the feature.</p>
+        <p class="lede">Spyware makes kids hide. PrivacyPal is built to protect your child and your relationship with them. Trust is the feature.</p>
         <div class="deep-list">
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -1057,11 +1074,11 @@ h2,h3,.section-head .lede{text-wrap:balance}
       <div>
         <span class="eyebrow">Real technology, shipping today</span>
         <h2>Not a promise. A product.</h2>
-        <p class="lede">PrivacyPal Family runs on the same engine 140+ businesses rely on right now: on-device interception, Privacy Twins, and private memory with mechanical erasure. Here it is working inside a real AI chat.</p>
+        <p class="lede">The Family pack runs on the same engine 140+ businesses rely on right now: on-device interception, Privacy Twins, and private memory with mechanical erasure. Here it is working inside a real AI chat.</p>
         <div class="deep-list">
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Milliseconds, not minutes</b><p>Interception takes a fraction of a second. Kids never notice it is there.</p></span>
+            <span><b>Quiet in the background</b><p>Protection runs on the device while they work. Kids keep using their AI exactly as before.</p></span>
           </div>
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -1069,11 +1086,11 @@ h2,h3,.section-head .lede{text-wrap:balance}
           </div>
           <div class="deep-item">
             <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <span><b>Every device they use</b><p>Mac, Windows, iPhone, iPad and Android, for up to 5 family members on one plan, plus Roblox on the family Mac.</p></span>
+            <span><b>The devices they use</b><p>Protected today on Mac, Windows, iPhone, iPad and Android, with phones and tablets installed by invitation. Up to 5 family members on one plan, plus Roblox on the family Mac.</p></span>
           </div>
         </div>
       </div>
-      <div class="media"><img src="../assets/product/privacypal-desktop-claude-example.png" alt="Actual PrivacyPal screenshot: a Claude conversation with sensitive details being protected in realtime" loading="lazy"/></div>
+      <div class="media"><img src="../assets/product/privacypal-desktop-claude-example-trim.png" alt="Actual PrivacyPal screenshot: a Claude conversation with sensitive details being protected in realtime" loading="lazy"/></div>
     </div>
   </div>
 </section>
@@ -1084,19 +1101,19 @@ h2,h3,.section-head .lede{text-wrap:balance}
     <div class="section-head center reveal">
       <span class="eyebrow orange">Founding Families</span>
       <h2>Try it free. Keep it only if you love it.</h2>
-      <p class="lede">Join during early access and lock in the Founding Families rate: 50% off PrivacyPal Family for your first 12 months. Your code is applied for you.</p>
+      <p class="lede">Join as a Founding Family and lock in the rate: 50% off the Family pack for your first 12 months. Your code is applied for you.</p>
     </div>
     <div class="fprice reveal">
-      <div class="plan">PrivacyPal Family <span class="tag">founding families</span></div>
+      <div class="plan">Family <span class="tag">founding families</span></div>
       <div class="amount"><span class="big">$4.99</span><small>/month, first year</small></div>
-      <p class="note">Regular price $9.99 a month. Covers up to 5 family members on Mac, Windows, iPhone, iPad and Android.</p>
+      <p class="note">Regular price $9.99 a month. Covers up to 5 family members. Protected today on Mac, Windows, iPhone, iPad and Android.</p>
       <ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 family members</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Every device: Mac, Windows, iPhone, iPad and Android</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Mac, Windows, iPhone, iPad and Android, protected today</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Guardrails: approve, block &amp; redirect AI tools</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Privacy Twins identity protection, on-device</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Family Memory with one-tap erase</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Works with ChatGPT, Gemini, Claude, Copilot, Grok &amp; Perplexity</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Works with ChatGPT, Gemini, Claude, Grok &amp; Perplexity</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Roblox switches and protection on the family Mac</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Your Founding Family code, applied automatically</li>
       </ul>
@@ -1107,7 +1124,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
     <div class="rr reveal">
       <div><span class="ic" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span><b>5 days free</b><p>Nothing is charged today, and we remind you before the trial ends.</p></span></div>
       <div><span class="ic" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg></span><span><b>30-day money-back</b><p>Paid and changed your mind? You're covered for 30 days.</p></span></div>
-      <div><span class="ic" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></span><span><b>Cancel anytime</b><p>From Parent HQ. Everything keeps running until the month you paid for is up.</p></span></div>
+      <div><span class="ic" style="background:var(--gold);color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></span><span><b>Cancel anytime</b><p>From Parent HQ. Everything keeps running until the month you paid for is up.</p></span></div>
     </div>
     <p class="still">Still deciding? <a href="../../webinars/family/" data-webinar>Watch a free live family demo first</a>.</p>
   </div>
@@ -1123,27 +1140,27 @@ h2,h3,.section-head .lede{text-wrap:balance}
     <div class="faq reveal">
       <details>
         <summary>How does the Founding Family price work?</summary>
-        <div class="a">Tap any button on this page and you land on the PrivacyPal Family signup with code FOUNDINGFAMILY-0926-496 applied. The plan shows the discounted price before you enter a card. Your first 5 days are free. After that, you pay 50% off the $9.99 plan for 12 months, then $9.99 a month. If the code is not showing on your plan, type it into the promo code field and it applies the same way.</div>
+        <div class="a">Tap any button on this page and you land on the PrivacyPal signup for the Family pack with code FOUNDINGFAMILY-0926-496 applied. The plan shows the discounted price before you enter a card. Your first 5 days are free. After that, you pay 50% off the $9.99 plan for 12 months, then $9.99 a month. If the code is not showing on your plan, type it into the promo code field and it applies the same way.</div>
       </details>
       <details>
         <summary>Is this spyware on my kid?</summary>
-        <div class="a">No, and we built it to be the opposite. PrivacyPal Family never shows you transcripts of what your child says to an AI or writes on Roblox. You see signals: which tools they used, what identity details we protected, and wellbeing trends. Your child can open their own view and see exactly what you see. Kids who know the deal don't need to hide.</div>
+        <div class="a">No, and we built it to be the opposite. PrivacyPal never shows you transcripts of what your child says to an AI or writes on Roblox. You see signals: which tools they used, what identity details we protected, and wellbeing trends. Your child can open their own view and see exactly what you see. Kids who know the deal don't need to hide.</div>
       </details>
       <details>
         <summary>Does it work with Roblox?</summary>
-        <div class="a">Yes. Roblox gets its own switches in Parent HQ: play, chat, friend requests, voice and spending, with everything social starting off. On the family Mac, messages, profile text and group posts are checked before they send, and anything on your never-share list is held, never rewritten, with your kid told why. We never ask for their Roblox password and never show you their messages. Chat typed inside a game can't be held, so danger alerts for it are in early access. Roblox protection runs on the family Mac today; Windows is next. <a href="../roblox.html" style="color:var(--teal-ink);font-weight:600">More about Roblox protection</a>.</div>
+        <div class="a">Yes. Roblox gets its own switches in Parent HQ: play, chat, friend requests, voice and spending, with everything social starting off. On the family Mac, messages, profile text and group posts are checked before they send, and anything on your never-share list is held, never rewritten, with your kid told why. Their Roblox password stays theirs, and their messages stay private to them. Danger alerts for in-game chat are in early access. Roblox protection runs on the family Mac today; Windows is next. <a href="../roblox.html" style="color:var(--teal-ink);font-weight:600">More about Roblox protection</a>.</div>
       </details>
       <details>
         <summary>What exactly gets protected?</summary>
-        <div class="a">Real names, home address, phone numbers, school names, health details, and dozens more identity data types. The moment one is typed or uploaded to an AI, it is swapped with a safe stand-in (a Privacy Twin) before anything leaves the device. The AI's answer still makes sense. The real detail never left your house.</div>
+        <div class="a">Real names, home address, phone numbers, school names, health details, and dozens more identity data types. The moment one is typed or uploaded to an AI, it is swapped with a safe stand-in (a Privacy Twin) before anything leaves the device. The AI's answer still makes sense. The real detail never reached the AI provider.</div>
       </details>
       <details>
         <summary>Will it slow down or break the AI tools my kids use?</summary>
-        <div class="a">No. Protection runs on the device and adds a fraction of a second. ChatGPT, Gemini, Claude, Copilot, Grok and Perplexity keep working exactly as before, on computers, phones and tablets. Most kids never notice it is running.</div>
+        <div class="a">No. Protection runs on the device and adds a fraction of a second. ChatGPT, Gemini, Claude, Grok and Perplexity keep working exactly as before. Most kids never notice it is running.</div>
       </details>
       <details>
         <summary>Which devices are covered today?</summary>
-        <div class="a">All of them: Mac and Windows computers, iPhone and iPad, and Android phones and tablets, for up to 5 family members on one plan. Roblox protection runs on the family Mac today; Windows is next.</div>
+        <div class="a">Mac and Windows computers, iPhone and iPad, and Android phones and tablets are all protected today, for up to 5 family members on one plan. Phones and tablets install by invitation, sent to you by email, through Apple TestFlight and Google Play testing. Roblox protection runs on the family Mac today; Windows is next.</div>
       </details>
       <details>
         <summary>Can I see it before I sign up?</summary>
@@ -1151,7 +1168,7 @@ h2,h3,.section-head .lede{text-wrap:balance}
       </details>
       <details>
         <summary>What if it is not for us?</summary>
-        <div class="a">Your first 5 days are free and we remind you before the trial ends. After that there is a 30-day money-back guarantee, and you can cancel anytime from Parent HQ. Cancelling keeps everything running until the month you paid for is up.</div>
+        <div class="a">Your first 5 days are free and we remind you before the trial ends. After that there is a 30-day money-back guarantee, and you can cancel anytime from Parent HQ. Canceling keeps everything running until the month you paid for is up.</div>
       </details>
     </div>
   </div>
@@ -1175,9 +1192,10 @@ h2,h3,.section-head .lede{text-wrap:balance}
 <footer class="lpf">
   <div class="lpf-inner">
     <span>© 2026 PrivacyPal. Guardrails, not surveillance.</span>
-    <span><a href="../index.html" rel="nofollow">PrivacyPal Family</a><a href="../../privacy-policy.html" rel="nofollow">Privacy</a><a href="../../terms-of-service.html" rel="nofollow">Terms</a><a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></span>
+    <span><a href="../index.html" rel="nofollow">PrivacyPal for families</a><a href="../../privacy-policy.html" rel="nofollow">Privacy</a><a href="../../terms-of-service.html" rel="nofollow">Terms</a><a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a></span>
     <address class="lpf-addr">PrivacyPal · 1601 Belvedere Rd, Suite E-300 · West Palm Beach, FL 33406 · United States</address>
     <span class="lpf-addr">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox.</span>
+    <span class="lpf-addr lpf-credit">Penguin emoji graphic from <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, &copy; Twitter, Inc. and other contributors, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</span>
   </div>
 </footer>
 

@@ -3,36 +3,226 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>PrivacyPal Max: IP Protection, Governance Policies, Private Memory &amp; shadow-AI discovery for the whole company</title>
-<meta name="description" content="PrivacyPal Max is the plan for the whole company, at 20 people or 2,000. IP Protection sourced from Salesforce, Slack, Notion, SQL and Workday, Governance Policies enforced on every device and every agent, Private Memory your organization owns, and shadow-AI discovery across every seat. From $30 per seat a month, falling to $17." />
-<link rel="icon" href="assets/favicon.ico"/>
+<title>The Max pack: governance for every AI at work · PrivacyPal</title>
+<meta name="description" content="The Max pack adds the company layer to PrivacyPal: Claude Code, Cowork, Codex and Copilot agents, the OpenAI and xAI APIs, Connections, Privacy Agents, Private Memory, hosted Private MCP, on-device DSPM, device control, admin and full history. $34 per user a month, with volume pricing." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
 <style>
-.price-strip{display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:.76rem;color:var(--muted)}
-.price-strip b{font-size:1.15rem;font-weight:500;color:var(--ink);margin-right:6px;letter-spacing:-.02em}
-.price-strip a{color:var(--ink);border-bottom:1px solid var(--line);margin-left:8px}
-.price-strip a:hover{border-bottom-color:var(--ink)}
+/* ---------- Max pack page (2026-11 rebrand) ---------- */
+h1,h2,h3{text-wrap:balance}
+.bz-hero{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:84px 0 96px}
+.bz-hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(42% 60% at 88% 14%,rgba(2,131,145,.34),transparent 70%),
+    radial-gradient(34% 46% at 4% 108%,rgba(255,172,51,.10),transparent 70%),
+    radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.3px) 0 0/22px 22px;
+}
+.bz-hero > .container{position:relative}
+.bz-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.bz-hero .eyebrow{color:rgba(255,255,255,.72)}
+.bz-hero h1{text-wrap:balance;margin-top:18px;max-width:15ch;font-size:clamp(2.4rem,4.3vw,3.6rem)}
+.bz-hero .lede{margin-top:22px;color:rgba(255,255,255,.74);max-width:56ch}
+.bz-hero .btn-row{margin-top:32px}
+.bz-live{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px 8px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.05);font-size:.88rem;line-height:1.4;color:rgba(255,255,255,.84)}
+.bz-live::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 4px rgba(77,163,148,.22)}
+.bz-live b{font-weight:500;color:#fff}
+.bz-hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.34)}
+.bz-hero .btn-ghost:hover{border-color:#fff;color:#fff}
+.bz-strip{display:flex;gap:12px 26px;flex-wrap:wrap;align-items:baseline;margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-family:var(--font-mono);font-size:.74rem;color:rgba(255,255,255,.66)}
+.bz-strip b{font-family:var(--font-primary);font-size:1.2rem;font-weight:500;color:#fff;margin-right:6px;letter-spacing:-.02em}
+.bz-strip a{color:#fff;border-bottom:1px solid rgba(255,255,255,.35)}
+.bz-strip a:hover{border-bottom-color:#fff}
+
+.bz-visual{position:relative;padding:0 0 150px}
+.bz-photo{position:relative;width:80%;margin-left:auto;border-radius:22px;overflow:hidden;aspect-ratio:892/1000;background:#0e3364;box-shadow:0 30px 70px -30px rgba(0,8,30,.6)}
+.bz-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.92) contrast(1.02)}
+.bz-photo::before{content:"";position:absolute;left:0;top:0;bottom:0;width:58%;z-index:1;-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)}
+.bz-photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(1,32,78,.62),rgba(1,32,78,.18) 52%,rgba(1,32,78,0) 70%),linear-gradient(180deg,rgba(1,32,78,.28),rgba(1,32,78,0) 30%,rgba(1,32,78,0) 62%,rgba(1,32,78,.55))}
+.bz-photo .tag{position:absolute;top:16px;right:16px;z-index:2;background:rgba(1,32,78,.72);border-color:rgba(255,255,255,.28);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.bz-console{
+  position:absolute;left:0;bottom:0;width:min(440px,92%);z-index:2;
+  background:rgba(4,24,58,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.14);border-radius:18px;color:#fff;overflow:hidden;
+  box-shadow:0 30px 80px -24px rgba(0,8,30,.75);
+}
+.bz-console .head{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.bz-console .head b{font-weight:500;font-size:.92rem}
+.bz-console .head .live{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.66rem;color:#a6e3d6}
+.bz-console .head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.bz-console .head .ex{margin-left:auto;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;border:1px solid rgba(255,255,255,.26);border-radius:6px;padding:2px 7px;color:rgba(255,255,255,.72)}
+.bz-console .main{margin:14px 14px 10px;padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.04)}
+.bz-console .main .to{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.64rem;color:rgba(255,255,255,.62)}
+.bz-console .main .to svg{width:14px;height:14px;color:#a6e3d6}
+.bz-console .main p{margin-top:8px;font-family:var(--font-mono);font-size:.78rem;line-height:1.9;color:#e6ecf5}
+.bz-console .main p .pr{color:#7fe0ea;margin-right:6px}
+.bz-console s{white-space:nowrap;color:rgba(255,255,255,.42);text-decoration-color:rgba(255,255,255,.42);margin-right:4px}
+.bz-console .tw{white-space:nowrap;background:rgba(2,131,145,.3);border:1px solid rgba(127,224,234,.38);color:#c8f4f7;border-radius:6px;padding:0 6px}
+.bz-ev{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 16px;border-top:1px solid rgba(255,255,255,.08)}
+.bz-ev .ic{width:28px;height:28px;border-radius:8px;background:#fff;display:grid;place-items:center;color:var(--ink)}
+.bz-ev .ic img,.bz-ev .ic svg{width:16px;height:16px;object-fit:contain}
+.bz-ev b{display:block;font-size:.84rem;font-weight:500;line-height:1.25}
+.bz-ev small{display:block;font-size:.72rem;color:rgba(255,255,255,.6);line-height:1.3}
+.bz-ev .n{font-family:var(--font-mono);font-size:.62rem;color:#a6e3d6;white-space:nowrap}
+.bz-console .foot{display:flex;align-items:center;gap:8px;padding:11px 16px;border-top:1px solid rgba(255,255,255,.1);font-size:.76rem;color:rgba(255,255,255,.82)}
+.bz-console .foot svg{width:14px;height:14px;color:#a6e3d6;flex:none}
+.bz-cap{margin-top:14px;text-align:right;font-family:var(--font-mono);font-size:.66rem;color:rgba(255,255,255,.62)}
+
+/* proof strip */
+.bz-proof{border-bottom:1px solid var(--line);overflow:hidden}
+.bz-proof .container-wide{display:flex;align-items:center;gap:36px;padding-top:22px;padding-bottom:22px}
+.bz-proof .lbl{flex:none;font-size:.98rem;color:var(--ink);font-weight:450}
+.bz-proof .marquee{flex:1;min-width:0}
+
+/* feature map */
+.bz-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.bz-tile{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px 20px;transition:border-color .18s,box-shadow .18s,transform .18s}
+a.bz-tile:hover{border-color:var(--teal);box-shadow:var(--shadow-menu);transform:translateY(-2px)}
+.bz-tile .ico{width:38px;height:38px;border-radius:11px;background:var(--panel);display:grid;place-items:center;color:var(--ink)}
+.bz-tile .ico svg{width:19px;height:19px}
+.bz-tile h4{font-size:1.02rem}
+.bz-tile p{font-size:.86rem;color:var(--muted);line-height:1.5}
+.bz-tile .go{margin-top:auto;padding-top:4px;font-size:.82rem;font-weight:500;color:var(--teal-ink)}
+
+/* coverage table */
+table.compare td .pack-chip{font-size:.66rem;padding:3px 9px}
+table.compare tr.group td{background:var(--panel-2);font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 20px}
+table.compare .ai-cell small{display:block;margin-top:2px;font-family:var(--font-mono);font-size:.62rem;color:var(--muted);font-weight:400}
+
+/* connections */
 .logo-ico{background:#fff;border:1px solid var(--line);width:auto !important;min-width:42px;padding:0 12px;align-self:flex-start}
 .logo-ico img{max-height:22px;max-width:104px;width:auto;height:auto}
-.guard{display:inline-block;margin-top:14px;font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.pillar-num{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.guard{display:inline-block;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.agent-tag{display:block;font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:-4px}
+.bz-kicker{font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* memory + mcp */
+.bz-two{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.bz-card{border-radius:var(--r-lg);padding:36px 34px;display:flex;flex-direction:column;gap:14px;background:var(--panel)}
+.bz-card.navy{background:var(--ink);color:#fff}
+.bz-card.navy p,.bz-card.navy li{color:#c9d3e4}
+.bz-card.navy .bz-kicker{color:#9fb1cf}
+.bz-card h3{font-size:1.5rem;letter-spacing:-.015em;max-width:22ch}
+.bz-card p{font-size:.95rem;color:var(--muted);line-height:1.6}
+.bz-card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-top:4px}
+.bz-card li{position:relative;padding-left:22px;font-size:.9rem;color:var(--text);line-height:1.45}
+.bz-card li::before{content:"";position:absolute;left:2px;top:.42em;width:10px;height:5px;border-left:2px solid var(--sage);border-bottom:2px solid var(--sage);transform:rotate(-45deg)}
+.bz-card.navy li::before{border-color:var(--gold)}
+.bz-card .link-arrow{margin-top:auto}
+.bz-card.navy .link-arrow{color:#fff}
+
+/* control */
+.bz-ctrl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.bz-ctrl .feature-card.wide{grid-column:span 2}
+.bz-sensors{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+/* rollout */
+.bz-roll{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.bz-roll h2{max-width:14ch}
+.bz-roll .note{margin-top:22px;display:flex;gap:12px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--panel-2);font-size:.9rem;color:var(--text);line-height:1.55}
+.bz-roll .note .pack-chip{flex:none;margin-top:1px}
+.bz-steps .deep-item{grid-template-columns:200px 1fr}
+.bz-steps .deep-item b{display:flex;flex-direction:column;gap:4px}
+.bz-steps .deep-item b span{font-family:var(--font-mono);font-size:.68rem;font-weight:400;color:var(--muted)}
+.pillar-num{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em;display:flex;align-items:center;gap:12px}
 .pillar-num::after{content:"";height:1px;flex:1;background:var(--line)}
-.agent-tag{display:block;font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-weight:400;margin-top:3px}
+.bz-plat-note{margin-top:14px;font-family:var(--font-mono);font-size:.7rem;color:var(--muted)}
+.platform .os-ico{display:block}
+
+/* pricing */
+.bz-price{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:44px 44px 40px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.bz-price::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--ink)}
+.bz-price .amt{display:flex;align-items:baseline;gap:10px;margin-top:18px}
+.bz-price .amt .big{font-size:4rem;font-weight:500;letter-spacing:-.04em;line-height:1}
+.bz-price .amt small{font-size:.95rem;color:var(--muted)}
+.bz-price .sub{margin-top:10px;font-size:.95rem;color:var(--text)}
+.bz-price .fine{margin-top:18px;font-family:var(--font-mono);font-size:.72rem;color:var(--muted);line-height:1.7}
+.bz-price .btn-row{margin-top:26px}
+.bz-tiers{width:100%;border-collapse:collapse;font-size:.95rem}
+.bz-tiers th,.bz-tiers td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line)}
+.bz-tiers th{font-family:var(--font-mono);font-size:.66rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.bz-tiers td small{display:block;font-size:.78rem;color:var(--muted);margin-top:2px}
+.bz-tiers td.p{font-size:1.15rem;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
+.bz-tiers tr:last-child td{border-bottom:0}
+.bz-price .foot{margin-top:16px;display:flex;gap:10px 22px;flex-wrap:wrap;align-items:center;font-family:var(--font-mono);font-size:.7rem;color:var(--muted)}
+.bz-price .foot .link-arrow{font-family:var(--font-primary);font-size:.88rem}
+.bz-price .amt .big.ul-gold{text-decoration-thickness:4px;text-underline-offset:10px}
+
+/* deploy + build */
+.bz-db{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bz-db .bz-card{background:#fff;border:1px solid var(--line)}
+.bz-db .pill-row{margin-top:2px}
+.bz-db .code-block{margin-top:2px}
+
+@media (max-width:1080px){
+  .bz-hero .wrap{gap:36px}
+  .bz-console{width:94%}
+}
+@media (max-width:900px){
+  .bz-hero .wrap{grid-template-columns:1fr;gap:48px}
+  .bz-visual{max-width:620px;margin:0 auto;width:100%}
+}
+@media (max-width:1080px){
+  .bz-map{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bz-roll{grid-template-columns:1fr;gap:36px}
+  .bz-price{grid-template-columns:1fr;gap:32px}
+  .bz-two,.bz-db{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .bz-hero{padding:48px 0 60px}
+  .bz-hero .btn-row .btn{flex:1 1 auto}
+  .bz-visual{padding:0}
+  .bz-photo{display:none}
+  .bz-console{position:relative;width:100%}
+  .bz-proof .container-wide{flex-direction:column;gap:10px;align-items:flex-start}
+  .bz-map{grid-template-columns:1fr 1fr;gap:10px}
+  .bz-tile{padding:18px 16px}
+  .bz-tile p{display:none}
+  .bz-ctrl{grid-template-columns:1fr}
+  .bz-ctrl .feature-card.wide{grid-column:auto}
+  .bz-card{padding:28px 22px}
+  .bz-card ul{grid-template-columns:1fr}
+  .bz-steps .deep-item{grid-template-columns:1fr}
+  .bz-price{padding:32px 22px 28px}
+  .bz-price .amt .big{font-size:3.2rem}
+  .bz-tiers th,.bz-tiers td{padding:12px 6px}
+}
+@media (max-width:760px){
+  .bz-cov .table-wrap{overflow:hidden}
+  .bz-cov table.compare{min-width:0}
+  .bz-cov table.compare thead{display:none}
+  .bz-cov table.compare tbody{display:block}
+  .bz-cov table.compare tr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .bz-cov table.compare tr:last-child{border-bottom:0}
+  .bz-cov table.compare td{display:block;padding:0;border:0}
+  .bz-cov table.compare td:nth-child(2){grid-column:1/-1;grid-row:2;font-size:.86rem;color:var(--muted);line-height:1.5}
+  .bz-cov table.compare tr.group{display:block;padding:0;border-bottom:1px solid var(--line)}
+  .bz-cov table.compare tr.group td{padding:9px 16px}
+  .bz-cov table.compare .ai-cell b{white-space:normal;min-width:0}
+}
+@media (max-width:560px){
+  .platform-grid .platform:last-child{grid-column:1/-1}
+}
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/privacypal-max.html" />
-<meta property="og:title" content="PrivacyPal Max: IP Protection, Governance Policies, Private Memory &amp; shadow-AI discovery for the whole company" />
-<meta property="og:description" content="The plan for the whole company, at 20 people or 2,000. Everything in Pro, plus IP Protection sourced from Salesforce, Slack, Notion, SQL & Workday, Governance Policies on every device and every agent, Private Memory your organization owns, and shadow-AI discovery." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:title" content="The Max pack: governance for every AI at work" />
+<meta property="og:description" content="Claude Code, Cowork, Codex and Copilot agents, Connections, Privacy Agents, Private Memory, hosted Private MCP, on-device DSPM, admin and full history, in the same PrivacyPal app. $34 per user a month, with volume pricing." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="The Max pack from PrivacyPal" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PrivacyPal Max: IP Protection, Governance Policies, Private Memory &amp; shadow-AI discovery" />
-<meta name="twitter:description" content="The plan for the whole company, at 20 people or 2,000. IP Protection, Governance Policies, Private Memory, and shadow-AI discovery." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:title" content="The Max pack: governance for every AI at work" />
+<meta name="twitter:description" content="Agents, APIs, Connections, Privacy Agents, Private Memory and Private MCP, governed on the device. $34 per user a month, with volume pricing." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -44,82 +234,192 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
 
 <div id="site-nav-slot"></div>
 
-<!-- ================= PAGE HERO ================= -->
-<header class="page-hero">
+<!-- ================= HERO ================= -->
+<header class="bz-hero on-dark">
   <div class="container">
-    <span class="eyebrow pink">PrivacyPal Max · Governance for the whole company</span>
-    <h1 style="max-width:20ch">The governance layer for your whole company</h1>
-    <p class="lede" style="max-width:64ch">Twenty people or two thousand, the install is the same and it takes an afternoon. Everything in Pro, plus the company layer: IP Protection that learns what's sensitive in Salesforce, Slack, Notion, SQL, Workday and more, Governance Policies that travel with every employee and hold inside Claude Code, Microsoft Copilot, Hermes Agent &amp; Private MCP, Private Memory your organization owns, and shadow-AI discovery across every seat.</p>
-    <div class="btn-row">
-      <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
-      <a class="btn btn-ghost btn-lg" href="#pillars">See what's inside</a>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow gold">PrivacyPal · The Max pack</span>
+        <h1>The governance layer for every AI at work</h1>
+        <p class="lede">The Max pack adds the company layer to PrivacyPal: agents like Claude Code, Cowork, Codex and Copilot, the OpenAI and xAI APIs, Connections, Privacy Agents, Private Memory and hosted Private MCP, plus device control, admin and full history. Twenty people or two thousand, the install is the same.</p>
+        <p class="bz-live"><span><b>Live today:</b> Max protects iPhone, iPad and Android. Install by invitation.</span></p>
+        <div class="btn-row">
+          <a class="btn btn-gold btn-lg" href="pricing.html#business">Get Max</a>
+          <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+        </div>
+        <div class="bz-strip">
+          <span><b>$34</b>per user / month</span>
+          <span><b>$30</b>annual</span>
+          <span><b>$17</b>at volume · <a href="pricing.html#volume">see tiers</a></span>
+        </div>
+      </div>
+
+      <div class="bz-visual reveal">
+        <div class="bz-photo">
+          <img src="partners/max-hero.jpg" alt="A product team working through a plan together at a whiteboard" data-standin="assets/photos/pack-business.jpg" width="892" height="1000" loading="lazy">
+          <span class="pack-chip business tag">At work · Max pack</span>
+        </div>
+        <div class="bz-console" role="img" aria-label="Illustrative PrivacyPal window: a Claude Code prompt with a customer name and account ID swapped for Privacy Twins, and protected events from Cowork, Codex, a Copilot agent and the OpenAI API">
+          <div class="head"><b>PrivacyPal</b><span class="live">Live protection</span><span class="ex">EXAMPLE</span></div>
+          <div class="main">
+            <div class="to"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6.5 9.5l3.5 2.8-3.5 2.8"/><path d="M12.5 15.5h5"/></svg>To Claude Code · dev laptop</div>
+            <p><span class="pr">&gt;</span>fix the failing invoice test for <s>Northwind Health</s><span class="tw">Bluefield Care</span>, account <s>AC-20931</s><span class="tw">AC-58204</span></p>
+          </div>
+          <div class="bz-ev">
+            <span class="ic"><img src="assets/glyph-claude.png" alt=""></span>
+            <div><b>Claude Cowork</b><small>Attachment protected</small></div>
+            <span class="n">3 twins</span>
+          </div>
+          <div class="bz-ev">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 4v12h16V7H4zm2.7 2.3 3.3 3.3-3.3 3.3 1.4 1.4 4.7-4.7-4.7-4.7-1.4 1.4zM13 15h5v2h-5v-2z"/></svg></span>
+            <div><b>OpenAI Codex</b><small>File read protected</small></div>
+            <span class="n">2 twins</span>
+          </div>
+          <div class="bz-ev">
+            <span class="ic"><img src="assets/glyph-copilot.png" alt=""></span>
+            <div><b>Copilot agent</b><small>Action checked against policy</small></div>
+            <span class="n">Policy</span>
+          </div>
+          <div class="foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Swapped on the device. Customer data never reaches the AI provider.</div>
+        </div>
+      </div>
     </div>
-    <div class="price-strip">
-      <span><b>$30</b>per seat / mo · billed annually</span>
-      <span><b>$34</b>per seat / mo · monthly</span>
-      <span>Volume pricing to <b>$17</b><a href="#volume">size your rollout</a></span>
-      <span>Domain accounts · no infrastructure · everything in Pro</span>
-      <span>Paid from day one · <a href="privacypal-pro.html">Pro is free for individuals</a></span>
-    </div>
+    <p class="bz-cap">Illustrative product UI · names and numbers are examples</p>
   </div>
 </header>
 
-<!-- ================= WHO RUNS MAX ================= -->
-<section class="section-sm" style="padding-top:0">
+<!-- ================= PROOF ================= -->
+<section class="bz-proof" aria-label="Trusted by">
+  <div class="container-wide">
+    <span class="lbl">Trusted by <span class="ul-gold">140+</span> companies and global banks</span>
+    <div class="marquee">
+      <div class="marquee-track">
+        <div class="marquee-item"><img src="assets/coreplus-logo.png" alt="CorePLUS Technologies"></div>
+        <div class="marquee-item"><img src="assets/peaq.png" alt="peaq" data-tone="faint"></div>
+        <div class="marquee-item"><img src="assets/496capital.svg" alt="Four Ninety Six Capital"></div>
+        <div class="marquee-item"><img src="assets/vodafone.png" alt="Vodafone"></div>
+        <div class="marquee-item"><img src="assets/fastweb.png" alt="Fastweb"></div>
+        <div class="marquee-item"><img src="assets/cyphlens.svg" alt="Cyphlens"></div>
+        <div class="marquee-item"><img src="assets/gorillabow.avif" alt="Gorilla Bow"></div>
+        <div class="marquee-item"><img src="assets/Purewater+Financial.webp" alt="Purewater Financial"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/coreplus-logo.png" alt=""></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/peaq.png" alt="" data-tone="faint"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/496capital.svg" alt=""></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/vodafone.png" alt=""></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/fastweb.png" alt=""></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/cyphlens.svg" alt=""></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/gorillabow.avif" alt=""></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/Purewater+Financial.webp" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section class="section" id="inside">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Who runs Max</span>
-      <h2>Same plan at 20 people, 200 and 2,000</h2>
-      <p class="lede">Max is not a plan you graduate into. It is the plan the moment a second person on your domain needs covering, and it stays the plan as you grow. What changes is the seat price, not the product. Self-serve Max is the full paid product from the first seat. Sales can issue a company-wide evaluation against a trial code when a larger rollout needs one, and the free way to feel the engine first is <a href="privacypal-pro.html" style="color:var(--ink);text-decoration:underline">Pro</a>.</p>
+      <span class="eyebrow">What's inside</span>
+      <h2>Everything in Personal, plus the company layer</h2>
+      <p class="lede">Personal protects five AI chat apps for one person. Max switches on everything a company needs, in the same app, for every user on your domain. Together it turns whoever owns risk, the CISO, the COO or the founder, from blocker into enabler.</p>
     </div>
-    <div class="card-grid cols-3">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="pillar-num">20 people</div>
-        <h4>You are the CEO and the security team</h4>
-        <p>Everyone already uses ChatGPT and nobody wrote a policy. Attach your domain, send one installer, and the whole firm is governed by lunchtime. No infrastructure to stand up, no consultant, no security hire. $25 per seat a month at 10 to 99 seats, billed annually.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="pillar-num">200 people</div>
-        <h4>IT owns the laptops. The COO owns the risk.</h4>
-        <p>Provision and de-provision from the domain account, push policy by department, and watch shadow AI surface in a dashboard instead of a breach report. Your biggest customer's security questionnaire gets a straight answer. $21 per seat a month at 100 to 999 seats.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="pillar-num">2,000 people</div>
-        <h4>Departments are already running agents</h4>
-        <p>Roll out department by department or all at once. One policy plane holds across Claude Code, Copilot, every chat app and every MCP server, and your auditor gets evidence in one click. $17 per seat a month from 1,000 seats, 43% off the entry rate.</p>
-      </div>
+    <div class="bz-map reveal">
+      <a class="bz-tile" href="#agents">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6.5 9.5l3.5 2.8-3.5 2.8"/><path d="M12.5 15.5h5"/></svg></span>
+        <h4>Agents</h4><p>Claude Code, Cowork, Codex, Copilot agents and Hermes Agent.</p><span class="go">Coverage →</span>
+      </a>
+      <a class="bz-tile" href="#agents">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4c-2 0-3 1-3 3v2.5c0 1-.7 2-2 2.5 1.3.5 2 1.5 2 2.5V17c0 2 1 3 3 3M16 4c2 0 3 1 3 3v2.5c0 1 .7 2 2 2.5-1.3.5-2 1.5-2 2.5V17c0 2-1 3-3 3"/></svg></span>
+        <h4>APIs and keys</h4><p>OpenAI and xAI API surfaces, plus API and developer keys.</p><span class="go">Coverage →</span>
+      </a>
+      <a class="bz-tile" href="#connections">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6M4.5 11.5v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6"/></svg></span>
+        <h4>Connections</h4><p>IP Protection learned from Salesforce, Slack, Workday, Notion and more.</p><span class="go">Connections →</span>
+      </a>
+      <a class="bz-tile" href="#privacy-agents">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h4>Privacy Agents</h4><p>Policies that reason about privacy, intent and risk on the device.</p><span class="go">Privacy Agents →</span>
+      </a>
+      <a class="bz-tile" href="#memory">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a3 3 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></svg></span>
+        <h4>Private Memory</h4><p>One governed memory across every AI, owned by your organization.</p><span class="go">Memory →</span>
+      </a>
+      <a class="bz-tile" href="#memory">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M12 2.5v6M12 15.5v6M2.5 12h6M15.5 12h6"/></svg></span>
+        <h4>Private MCP</h4><p>Hosted. Internal tools over MCP, kept off any public host.</p><span class="go">Private MCP →</span>
+      </a>
+      <a class="bz-tile" href="#control">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
+        <h4>On-device DSPM</h4><p>Every laptop becomes a sensor for sensitive data and shadow AI.</p><span class="go">Visibility →</span>
+      </a>
+      <a class="bz-tile" href="#control">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+        <h4>Device control</h4><p>Approve, block and redirect AI tools per team or role.</p><span class="go">Control →</span>
+      </a>
+      <a class="bz-tile" href="#control">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.5 5.5-4.5s4.8 1.5 5.5 4.5"/><path d="M16 8h5M16 12h5M16 16h3"/></svg></span>
+        <h4>Admin and SSO</h4><p>Team sign-in, org-wide policy and centralized seat management.</p><span class="go">Admin →</span>
+      </a>
+      <a class="bz-tile" href="#control">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></span>
+        <h4>Full history</h4><p>Every interception in one activity feed, with the full usage history.</p><span class="go">History →</span>
+      </a>
+      <a class="bz-tile" href="#privacy-agents">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></span>
+        <h4>Agent marketplace</h4><p>Privacy, security and governance agents, ready to switch on.</p><span class="go">Marketplace →</span>
+      </a>
+      <a class="bz-tile" href="#rollout">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.6"/><path d="M6 18h6M9 14v4"/><rect x="17" y="8" width="5" height="12" rx="1.2"/></svg></span>
+        <h4>Every device</h4><p>Mac, Windows and Linux servers, plus iPhone, iPad and Android, protected today.</p><span class="go">Rollout →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ================= GOVERNANCE POLICIES PANEL ================= -->
-<section class="section-sm" style="padding-top:0">
+<!-- ================= AGENTS + COVERAGE ================= -->
+<section class="section bz-cov" id="agents" style="padding-top:24px">
   <div class="container">
-    <div class="panel reveal" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between">
-      <div style="max-width:380px">
-        <span class="eyebrow pink">Max Privacy Core</span>
-        <h3 style="margin-top:12px">Governance Policies on every device</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Policies enforced on-device that reason about privacy, intent and risk in real time: out of the box, custom-built, or from the marketplace.</p>
-      </div>
-      <div class="pill-row" style="max-width:520px">
-        <span class="pill">Intent Detection</span>
-        <span class="pill">Prompt Injection Guard</span>
-        <span class="pill">Legal Enrichment</span>
-        <span class="pill">Financial Enrichment</span>
-        <span class="pill">Marketplace Agent</span>
-        <span class="pill">Custom Agent</span>
-      </div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Agents, apps and APIs</span>
+      <h2>Every AI your people run, under one policy</h2>
+      <p class="lede">Real work now happens in agents that read files, run commands and call tools. Max governs what each of them can read, write and send off the device, on top of the five chat apps every Personal account protects.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="width:30%">AI system or agent</th>
+            <th>What Max protects</th>
+            <th style="width:20%">Pack</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group"><td colspan="3">Agents</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6.5 9.5l3.5 2.8-3.5 2.8"/><path d="M12.5 15.5h5"/></svg></span><b>Claude Code</b></span></td><td>Repo-aware agent governance: prompts and tool calls scrubbed before they leave the laptop</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/glyph-claude.png" alt="" loading="lazy"></span><b>Claude Cowork</b></span></td><td>Typed messages and attachments protected</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="#01204e" aria-hidden="true"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 4v12h16V7H4zm2.7 2.3 3.3 3.3-3.3 3.3 1.4 1.4 4.7-4.7-4.7-4.7-1.4 1.4zM13 15h5v2h-5v-2z"/></svg></span><b>OpenAI Codex</b></span></td><td>The Codex CLI, standalone or in the ChatGPT desktop app: the prompt and the output of every file read and command, protected before it leaves the machine</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/glyph-copilot.png" alt="" loading="lazy"></span><b>Copilot agents</b></span></td><td>What agent actions can read, write and send, enforced on-device</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 27V9"/><path d="M8 13.5 16 7l8 6.5"/><path d="M9.5 20 16 14.8 22.5 20"/></svg></span><b>Hermes Agent</b></span></td><td>Covered via the Nous Portal and default Fireworks endpoints</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M12 2.5v6M12 15.5v6M2.5 12h6M15.5 12h6"/></svg></span><b>Private MCP</b></span></td><td>Hosted for you: internal tools over MCP, without leaking connections to a public host</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr class="group"><td colspan="3">Apps and APIs</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/glyph-copilot.png" alt="" loading="lazy"></span><b>Microsoft Copilot</b></span></td><td>Chat twinned; agent actions controlled at the device level</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg></span><b>Grok Bot</b></span></td><td>Prompts and uploads twinned</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4c-2 0-3 1-3 3v2.5c0 1-.7 2-2 2.5 1.3.5 2 1.5 2 2.5V17c0 2 1 3 3 3M16 4c2 0 3 1 3 3v2.5c0 1 .7 2 2 2.5-1.3.5-2 1.5-2 2.5V17c0 2-1 3-3 3"/></svg></span><b>OpenAI API · xAI API</b></span></td><td>Requests your scripts and agents send, protected before they leave the machine</td><td><span class="pack-chip business">Max</span></td></tr>
+          <tr class="group"><td colspan="3">Chat, also in Personal</td></tr>
+          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/glyph-chatgpt.png" alt="" loading="lazy"></span><b>ChatGPT, Claude, Gemini, Grok, Perplexity</b></span></td><td>Prompts and attachments twinned in real time, on the web and in the desktop apps</td><td><span class="pack-chip personal">Personal + Max</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- ================= IP PROTECTION ================= -->
+<!-- ================= CONNECTIONS ================= -->
 <section class="section" id="connections" style="padding-top:24px">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow pink">IP Protection · exclusive to Max</span>
-      <h2>IP Protection for the systems your company runs on</h2>
-      <p class="lede">IP Protection starts where your most critical data lives. Max connects to those platforms and learns what's sensitive at the source (customer records, employee data, IP, secrets), so the moment it surfaces in any AI, in a prompt, a paste or an agent's tool call, it's intercepted before it leaves the device.</p>
+      <span class="eyebrow">Connections · IP Protection</span>
+      <h2>Protection that knows your systems</h2>
+      <p class="lede">IP Protection starts where your most critical data lives. Max connects to those platforms and learns what is sensitive at the source (customer records, employee data, IP, secrets), so the moment it surfaces in any AI, in a prompt, a paste or an agent's tool call, it is protected before it leaves the device.</p>
     </div>
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
@@ -131,19 +431,19 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico logo-ico"><img src="assets/slack.svg" alt="Slack" loading="lazy"></div>
         <h4>Slack</h4>
-        <p>Channels are where secrets leak. Keys, credentials and internal chatter are recognized and protected everywhere AI reads or writes.</p>
+        <p>Keys, credentials and internal chatter are recognized and protected everywhere AI reads or writes.</p>
         <span class="guard">Secrets &amp; comms</span>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico logo-ico"><img src="assets/workday.svg" alt="Workday" loading="lazy"></div>
         <h4>Workday</h4>
-        <p>Compensation, reviews and personal employee records: governed wherever HR and managers put AI to work.</p>
+        <p>Compensation, reviews and personal employee records, governed wherever HR and managers put AI to work.</p>
         <span class="guard">Employee data</span>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico logo-ico"><img src="assets/oracle.svg" alt="Oracle" loading="lazy"></div>
         <h4>Oracle</h4>
-        <p>ERP and financials (vendor terms, margins, forecasts): shielded from exfiltration across every AI surface your org touches.</p>
+        <p>ERP and financials (vendor terms, margins, forecasts), shielded across every AI surface your org touches.</p>
         <span class="guard">Financials</span>
       </div>
       <div class="feature-card reveal reveal-delay-3">
@@ -155,120 +455,128 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico logo-ico"><img src="assets/gdrive.svg" alt="Google Drive" loading="lazy"></div>
         <h4>Google Drive</h4>
-        <p>Contracts, board decks and shared files: classified at the source and protected the moment they meet a model.</p>
+        <p>Contracts, board decks and shared files, classified at the source and protected the moment they meet a model.</p>
         <span class="guard">Files &amp; contracts</span>
       </div>
     </div>
-    <div class="panel reveal" style="margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:26px 32px">
-      <span style="font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:6px">Protected across every AI</span>
+    <div class="panel reveal" style="margin-top:16px;display:flex;align-items:center;gap:12px 14px;flex-wrap:wrap;padding:24px 30px">
+      <span class="bz-kicker" style="margin-right:6px">Protected across every AI</span>
       <span class="pill">Customer data</span>
       <span class="pill">Employee data</span>
       <span class="pill">IP &amp; trade secrets</span>
       <span class="pill">Credentials &amp; keys</span>
       <span class="pill">Financials &amp; deals</span>
-      <span style="margin-left:auto;font-family:var(--font-mono);font-size:.76rem;color:var(--faint)">+ SQL, Google Docs, Word &amp; more</span>
+      <span style="margin-left:auto;font-family:var(--font-mono);font-size:.76rem;color:var(--muted)">+ SQL, Google Docs, Word &amp; more</span>
     </div>
   </div>
 </section>
 
-<!-- ================= EVERYTHING IN PRO, PLUS ================= -->
-<section class="section-sm" style="padding-top:0">
-  <div class="container">
-    <div class="panel reveal" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:26px 32px">
-      <span style="font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Everything in Pro, plus</span>
-      <span class="pill">IP Protection: Salesforce, Slack, Notion, SQL &amp; Workday</span>
-      <span class="pill">Governance Policies</span>
-      <span class="pill">Private Memory</span>
-      <span class="pill">Shadow-AI discovery</span>
-      <span class="pill">Claude Code, Copilot &amp; Hermes Agent governance</span>
-      <span class="pill">Private MCP</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOUR PILLARS ================= -->
-<section class="section" id="pillars" style="padding-top:24px">
+<!-- ================= PRIVACY AGENTS ================= -->
+<section class="section" id="privacy-agents" style="padding-top:24px">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">What's in Max · the framework</span>
-      <h2>Four governance pillars for the whole company</h2>
-      <p class="lede">Max keeps everything you love about Pro (Privacy Twins, real-time on-device interception, SSO) and adds the four things a company needs: IP Protection, Governance Policies, Private Memory and shadow-AI discovery. Together they turn whoever owns risk in your company, the CISO, the COO or the founder, from blocker into enabler.</p>
+      <span class="eyebrow">Privacy Agents</span>
+      <h2>Policies that reason about privacy, intent and risk</h2>
+      <p class="lede">Privacy Agents are governance policies enforced on the device that reason about privacy, intent and risk in real time: out of the box, custom-built, or from the marketplace. Block models, gate access behind training paths, intercept and steer prompts, redact at the wire.</p>
     </div>
     <div class="card-grid cols-2">
       <div class="feature-card reveal reveal-delay-1">
-        <div class="pillar-num">01 · IP Protection</div>
-        <h4>Your secrets and IP, protected at the source</h4>
-        <p>Max connects to Salesforce, Slack, Notion, SQL, Workday and more, and learns what is sensitive where it actually lives: customer records, employee data, deal terms, credentials, know-how. The moment any of it surfaces in a prompt, a paste or an agent's tool call, it is intercepted before it leaves the device.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="pillar-num">02 · Governance Policies</div>
-        <h4>One policy plane. Every prompt. Every agent.</h4>
-        <p>Define what your company can do with AI and enforce it on-device. Block models, gate access behind training paths, intercept and steer prompts, redact at the wire. The same policies hold inside Claude Code, Microsoft Copilot, ChatGPT, Gemini, Grok and Hermes Agent, governing what agents can read, write and send.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="pillar-num">03 · Private Memory</div>
-        <h4>One governed memory across every AI</h4>
-        <p>What one teammate establishes in their AI, the whole team's AIs can know: in twin-space, under policy, with a full audit trail. Team and org scopes, fleet Memory Guard, and a Private MCP memory server so internal agents reach tools, data and org memory without anything leaking to a public host. <a href="private-memory.html" style="color:var(--ink);text-decoration:underline">Explore Private Memory</a>.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="pillar-num">04 · Shadow-AI discovery</div>
-        <h4>Every AI your company touches, in a dashboard, not a breach report</h4>
-        <p>Max turns every laptop into its own sensor: the first DSPM that lives on the endpoint discovers, classifies and continuously monitors sensitive IP, PII, PHI and PCI where it actually lives, and surfaces every unsanctioned AI tool before it becomes an incident. Prove it to your auditors with one click.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= GOVERNANCE POLICIES DEEP DIVE ================= -->
-<section class="section" style="padding-top:24px">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow pink">The main event · Governance Policies</span>
-      <h2>The first AI-native policies protecting your interests</h2>
-      <p class="lede">On-device. Autonomous. Purpose-built to reason about privacy, intent and risk in real time, across every AI your team touches. The policies ship out of the box, you build your own, or you pull from the marketplace. This is what policy management looks like when it's built for the AI OS instead of bolted onto a legacy stack.</p>
-    </div>
-    <div class="card-grid cols-2">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
         <span class="agent-tag">Detection &amp; authorization</span>
-        <h4>Agent &amp; prompt intent detection</h4>
-        <p>Understand what an agent is actually trying to do before it does it. Authorize, alert or quietly redact based on intent, not just keywords.</p>
+        <h4>Agent and prompt intent detection</h4>
+        <p>Understand what an agent is trying to do before it does it. Authorize, alert or quietly redact based on intent, not just keywords.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
-        <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <span class="agent-tag">Adversarial defense</span>
-        <h4>Prompt injection prevention</h4>
-        <p>Catch jailbreaks, tool-call hijacks and exfiltration patterns at the endpoint. The policy reasons about adversarial intent so your humans don't have to.</p>
+        <h4>Prompt Injection Guard</h4>
+        <p>Catch jailbreaks, tool-call hijacks and exfiltration patterns at the endpoint. The policy reasons about adversarial intent so your people can keep working.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-        <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 4h18M3 12h18M3 20h18"/><circle cx="6" cy="4" r="1.4" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="10" cy="20" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 4h18M3 12h18M3 20h18"/><circle cx="6" cy="4" r="1.4" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="10" cy="20" r="1.4" fill="currentColor" stroke="none"/></svg></div>
         <span class="agent-tag">Vertical enrichment</span>
-        <h4>Legal, Financial &amp; domain agents</h4>
-        <p>Drop in a Legal Agent that knows privilege, or a Financial Agent that knows MNPI. Agents bring vertical intelligence to every interaction, without retraining a model.</p>
+        <h4>Legal, Financial and domain agents</h4>
+        <p>Drop in a Legal Agent that knows privilege, or a Financial Agent that knows MNPI. Agents bring vertical intelligence to every interaction, with no model to retrain.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-        <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
+        <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
         <span class="agent-tag">Build &amp; marketplace</span>
         <h4>Bring your own, or pick from the shelf</h4>
-        <p>Customize and ship your own policies, or enable privacy, security and governance policies from the marketplace. Enrich any AI conversation across Claude, ChatGPT, Gemini, Copilot, Grok, Perplexity, Hermes Agent and more.</p>
+        <p>Customize and ship your own policies, or switch on privacy, security and governance agents from the marketplace, across Claude, ChatGPT, Gemini, Copilot, Grok, Perplexity, Hermes Agent and more.</p>
       </div>
     </div>
-    <div class="panel reveal" style="margin-top:20px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center">
-      <div>
-        <h3>Same governance. Every model. Every endpoint.</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:10px">Governance Policies are enforced on-device, so the same rules apply whether your team is in Claude Code, ChatGPT, Gemini, Microsoft Copilot, Grok, Perplexity, Hermes Agent, or a custom MCP stack you built yesterday. Visibility and control of AI, regardless of which AI.</p>
+    <div class="panel reveal" style="margin-top:16px;display:flex;align-items:center;gap:12px 14px;flex-wrap:wrap;padding:24px 30px">
+      <span class="bz-kicker" style="margin-right:6px">Ready to switch on</span>
+      <span class="pill">Intent Detection</span>
+      <span class="pill">Prompt Injection Guard</span>
+      <span class="pill">Legal Enrichment</span>
+      <span class="pill">Financial Enrichment</span>
+      <span class="pill">Marketplace Agent</span>
+      <span class="pill">Custom Agent</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIVATE MEMORY + PRIVATE MCP ================= -->
+<section class="section" id="memory" style="padding-top:24px">
+  <div class="container">
+    <div class="bz-two">
+      <div class="bz-card navy reveal reveal-delay-1">
+        <span class="bz-kicker">Private Memory</span>
+        <h3>One governed memory across every AI</h3>
+        <p>What one teammate establishes in their AI, the whole team's AIs can know: in twin-space, under policy, with a full audit trail. Promotion to team memory is always explicit.</p>
+        <ul>
+          <li>Team and org scopes</li>
+          <li>Fleet Memory Guard</li>
+          <li>Private MCP memory server</li>
+          <li>Audit console</li>
+        </ul>
+        <a class="link-arrow" href="private-memory.html">Explore Private Memory</a>
       </div>
-      <div class="pill-row">
-        <span class="pill">Claude Code</span>
-        <span class="pill">Copilot</span>
-        <span class="pill">ChatGPT</span>
-        <span class="pill">Claude</span>
-        <span class="pill">Gemini</span>
-        <span class="pill">Grok</span>
-        <span class="pill">Perplexity</span>
-        <span class="pill">Hermes Agent</span>
-        <span class="pill">MCP</span>
-        <span class="pill">+ any LLM</span>
+      <div class="bz-card reveal reveal-delay-2">
+        <span class="bz-kicker">Private MCP · hosted</span>
+        <h3>Your internal tools, over MCP</h3>
+        <p>Give engineers, analysts and internal agents the same tools, data and org memory over MCP, hosted for you, without leaking connections to a public host. Same fluency, full audit.</p>
+        <div class="pill-row"><span class="pill">Tools</span><span class="pill">Data</span><span class="pill">Org memory</span><span class="pill">Audit</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIBILITY + CONTROL ================= -->
+<section class="section" id="control" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visibility and control</span>
+      <h2>See every AI. Set the rules once.</h2>
+      <p class="lede">One policy plane for the whole company: block models, gate access behind training, intercept prompts, and discover shadow AI before it hits the breach report.</p>
+    </div>
+    <div class="bz-ctrl">
+      <div class="feature-card wide reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h4>On-device DSPM and shadow-AI discovery</h4>
+        <p>Max turns every laptop into its own sensor. On-device DSPM discovers, classifies and continuously monitors sensitive IP, PII, PHI and PCI where it actually lives, and surfaces every unsanctioned AI tool before it becomes an incident.</p>
+        <div class="bz-sensors"><span class="pill">IP</span><span class="pill">PII</span><span class="pill">PHI</span><span class="pill">PCI</span><span class="pill">Shadow AI</span></div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+        <h4>Device control</h4>
+        <p>Approve, block and redirect AI tools per team or role, enforced on every device.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.5 5.5-4.5s4.8 1.5 5.5 4.5"/><path d="M16 8h5M16 12h5M16 16h3"/></svg></div>
+        <h4>Admin and SSO</h4>
+        <p>Team sign-in, org-wide policy and centralized seat management. Domain accounts let you provision and de-provision centrally.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg></div>
+        <h4>Full history</h4>
+        <p>Every interception logged to one activity feed, with the full usage history for the whole team.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg></div>
+        <h4>API and developer keys</h4>
+        <p>Keys for the developers and agents your company builds with, included in Max.</p>
       </div>
     </div>
   </div>
@@ -284,194 +592,176 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
     <div class="card-grid cols-2">
       <div class="step reveal reveal-delay-1">
         <span class="num">01</span>
-        <h4>A developer kicks off a Claude Code session on customer code</h4>
-        <p>Agent governance recognizes the repo, the on-device DSPM knows the secrets and PII inside it, and Privacy Twins substitute customer identifiers before any prompt or tool call leaves the laptop. Claude Code keeps moving. Your IP stays put.</p>
+        <h4>A developer starts a Claude Code session on customer code</h4>
+        <p>Agent governance recognizes the repo, the on-device DSPM knows the secrets and PII inside it, and Privacy Twins substitute customer identifiers before any prompt or tool call leaves the laptop. Claude Code keeps moving, and your IP never reaches the AI provider.</p>
       </div>
       <div class="step reveal reveal-delay-1">
         <span class="num">02</span>
         <h4>A sales engineer pastes a customer architecture into ChatGPT</h4>
-        <p>Intent Detection recognizes the workflow, the Legal Agent flags an NDA clause, and Privacy Twins scrub vendor names, all before the request leaves the device. The CISO sees the event in the audit log. Nobody loses time.</p>
+        <p>Intent Detection recognizes the workflow, the Legal Agent flags an NDA clause, and Privacy Twins swap vendor names, all before the request leaves the device. The CISO sees the event in the activity feed. Nobody loses time.</p>
       </div>
       <div class="step reveal reveal-delay-2">
         <span class="num">03</span>
-        <h4>Microsoft Copilot tries to summarize a finance folder</h4>
-        <p>On-device DSPM has already classified the data as MNPI. Org-wide controls require Copilot users to be in the "client-facing" training cohort. Not enrolled? Blocked at the endpoint. Enrolled? Privacy Twins keep the names out. Either way: no exfiltration.</p>
+        <h4>Microsoft Copilot is asked to summarize a finance folder</h4>
+        <p>On-device DSPM has already classified the data as MNPI. Org-wide controls require Copilot users to be in the client-facing training cohort. Enrolled users get their summary with Privacy Twins in place of the names; everyone else is redirected at the endpoint.</p>
       </div>
       <div class="step reveal reveal-delay-2">
         <span class="num">04</span>
-        <h4>Finance wires up a Private MCP for the GL</h4>
-        <p>Engineers, analysts and a custom Financial Agent all share the same internal context, without that context ever leaving the org. Same fluency. Zero exfiltration. Full audit.</p>
+        <h4>Finance wires up a Private MCP for the general ledger</h4>
+        <p>Engineers, analysts and a custom Financial Agent all share the same internal context over MCP, under one policy, kept off any public host. Same fluency. Full audit.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= COVERAGE TABLE ================= -->
-<section class="section" id="coverage" style="padding-top:24px">
+<!-- ================= ROLLOUT ================= -->
+<section class="section" id="rollout" style="padding-top:24px">
+  <div class="container">
+    <div class="bz-roll">
+      <div class="reveal">
+        <span class="eyebrow">How teams roll it out</span>
+        <h2 style="margin-top:14px">Live across the company in an afternoon</h2>
+        <p class="lede" style="margin-top:16px;font-size:1.05rem">No infrastructure to stand up, no consultant, no security hire. Max is the same PrivacyPal app your people already know, with the company layer switched on.</p>
+        <div class="note"><span class="pack-chip family">Family</span><span>Packs stack. Invite your people into your Max account under the license you provision. Anyone already on Personal or Family keeps their own account, and their Family pack stays on beside your Max seat.</span></div>
+        <div class="btn-row" style="margin-top:26px">
+          <a class="btn btn-primary" href="pricing.html#business">Get Max</a>
+          <a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>
+          <a class="link-arrow" href="business.html">PrivacyPal for business</a>
+        </div>
+      </div>
+      <div class="deep-list bz-steps reveal reveal-delay-1">
+        <div class="deep-item"><b><span>01</span>Choose your users</b><p>Monthly or annual, per user. Volume tiers apply automatically at checkout and at renewal.</p></div>
+        <div class="deep-item"><b><span>02</span>Attach your domain</b><p>A company domain with more than one user runs Max for every user on it: one policy plane, one invoice.</p></div>
+        <div class="deep-item"><b><span>03</span>Send one installer</b><p>The same PrivacyPal download for every Mac and Windows PC, signed and notarized, plus the Linux headless agent for servers and WSL. iPhone, iPad and Android are protected today with Max: install by invitation.</p></div>
+        <div class="deep-item"><b><span>04</span>Set policy by team</b><p>Provision and de-provision from the domain account, push policy by department, and watch shadow AI surface in a dashboard instead of a breach report.</p></div>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3" style="margin-top:56px">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="pillar-num">20 people</div>
+        <h4>You are the CEO and the security team</h4>
+        <p>Everyone already uses ChatGPT and nobody wrote a policy. Attach your domain, send one installer, and the whole firm is governed by lunchtime. $25 per user a month at 10 to 99 users, billed annually.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="pillar-num">200 people</div>
+        <h4>IT owns the laptops. The COO owns the risk.</h4>
+        <p>Provision from the domain account, push policy by department, and give your biggest customer's security questionnaire a straight answer. $21 per user a month at 100 to 999 users, billed annually.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="pillar-num">2,000 people</div>
+        <h4>Departments are already running agents</h4>
+        <p>Roll out department by department or all at once. One policy plane holds across Claude Code, Copilot, every chat app and every MCP server. $17 per user a month from 1,000 users, billed annually.</p>
+      </div>
+    </div>
+
+    <div class="platform-grid reveal" style="margin-top:16px">
+      <a class="platform" href="download.html" data-cta="download">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span class="os-name">Mac</span>
+        <span class="os-meta">Apple Silicon · macOS 13+</span>
+        <span class="os-go">Download →</span>
+      </a>
+      <a class="platform" href="download.html" data-cta="download">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
+        <span class="os-name">Windows</span>
+        <span class="os-meta">Windows 11 · 64-bit</span>
+        <span class="os-go">Download →</span>
+      </a>
+      <a class="platform" href="download.html" data-cta="download">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 4v12h16V7H4zm2.7 2.3 3.3 3.3-3.3 3.3 1.4 1.4 4.7-4.7-4.7-4.7-1.4 1.4zM13 15h5v2h-5v-2z"/></svg>
+        <span class="os-name">Linux</span>
+        <span class="os-meta">Headless agent · Ubuntu, Fedora, WSL · x86_64 and aarch64</span>
+        <span class="os-go">Download →</span>
+      </a>
+      <a class="platform" href="download.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 5h3M11 18.5h2"/></svg>
+        <span class="os-name">iPhone &amp; iPad</span>
+        <span class="os-meta">Protected today · install by invitation</span>
+        <span class="os-go">Details →</span>
+      </a>
+      <a class="platform" href="download.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.2 4.1a.6.6 0 0 1 .82.22l1.2 2.08A8.6 8.6 0 0 1 12 5.9c.99 0 1.93.17 2.78.5l1.2-2.08a.6.6 0 1 1 1.04.6l-1.16 2A8.1 8.1 0 0 1 20 13.5H4a8.1 8.1 0 0 1 4.14-6.58l-1.16-2a.6.6 0 0 1 .22-.82zM8.5 10.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM4 14.7h16v4.1A2.2 2.2 0 0 1 17.8 21H6.2A2.2 2.2 0 0 1 4 18.8v-4.1z"/></svg>
+        <span class="os-name">Android</span>
+        <span class="os-meta">Protected today · install by invitation</span>
+        <span class="os-go">Details →</span>
+      </a>
+    </div>
+    <p class="bz-plat-note">The Linux headless agent governs the command-line agents your engineers run: Hermes Agent, Claude Code, Codex and the OpenAI and xAI APIs.</p>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="section" id="pricing" style="padding-top:24px">
+  <div class="container">
+    <div class="bz-price reveal">
+      <div>
+        <span class="eyebrow">Pricing</span>
+        <div class="amt"><span class="big ul-gold">$34</span><small>per user / month</small></div>
+        <p class="sub">$30 per user a month billed annually, and less per user as your rollout grows.</p>
+        <p class="fine">Paid from day one · annual billing saves up to 23%<br>Volume tiers apply automatically at checkout and at renewal</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="pricing.html#business">Get Max</a>
+          <a class="btn btn-ghost" href="#" data-cta="demo">Talk to sales</a>
+        </div>
+      </div>
+      <div>
+        <table class="bz-tiers">
+          <thead><tr><th>Users</th><th>Monthly</th><th>Annual</th></tr></thead>
+          <tbody>
+            <tr><td><b>1–9</b><small>Small teams and practices</small></td><td class="p">$34</td><td class="p">$30</td></tr>
+            <tr><td><b>10–99</b><small>Departments and growing firms</small></td><td class="p">$29</td><td class="p">$25</td></tr>
+            <tr><td><b>100–999</b><small>Company-wide rollout</small></td><td class="p">$26</td><td class="p">$21</td></tr>
+            <tr><td><b>1000+</b><small>Every employee, company-wide</small></td><td class="p">$22</td><td class="p">$17</td></tr>
+          </tbody>
+        </table>
+        <div class="foot">
+          <span>Per user per month</span>
+          <a class="link-arrow" href="pricing.html#volume">See volume pricing</a>
+          <a class="link-arrow muted" href="#" data-cta="demo">Past 5,000 seats? Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPLOY + BUILD ================= -->
+<section class="section" id="deploy" style="padding-top:24px">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow pink">Coverage · systems &amp; agents</span>
-      <h2>Ten surfaces. One governance plane.</h2>
-      <p class="lede">Everything <a href="privacypal-pro.html" style="color:var(--ink);text-decoration:underline">Pro</a> protects, plus the agent surfaces where real work now happens. Max governs what every one of them can read, write and send off the device.</p>
+      <span class="eyebrow">Deploy and build</span>
+      <h2>Need it in your own cloud, or inside your own software?</h2>
+      <p class="lede">The Max pack runs on your people's devices. When a sovereignty requirement or your own product calls for more, the same governance comes with you.</p>
     </div>
-    <div class="table-wrap reveal">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th style="width:32%">AI system / agent</th>
-            <th>What Max governs</th>
-            <th style="width:18%">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/chatgpt.png" alt="" loading="lazy"></span><b>ChatGPT</b></span></td><td>Prompts &amp; uploads twinned in real time, web &amp; desktop</td><td class="yes">Governed</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/claude.png" alt="" loading="lazy"></span><b>Claude</b></span></td><td>Prompts &amp; attachments twinned, web &amp; desktop</td><td class="yes">Governed</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/gemini.png" alt="" loading="lazy"></span><b>Gemini</b></span></td><td>Prompts &amp; uploads twinned, web &amp; desktop</td><td class="yes">Governed</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/copilot.webp" alt="" loading="lazy"></span><b>Microsoft Copilot</b></span></td><td>Chat twinned; agent actions controlled at the device level</td><td class="yes">Governed</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg></span><b>Grok</b></span></td><td>Prompts &amp; uploads twinned on grok.com &amp; Grok Bot</td><td class="yes">Governed</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round"><path d="M16 5v22"/><path d="M6.5 10.5l19 11"/><path d="M25.5 10.5l-19 11"/></svg></span><b>Perplexity</b><span class="new-tag">New</span></span></td><td>Questions &amp; attachments protected on perplexity.ai, on by default</td><td class="yes">Governed</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6.5 9.5l3.5 2.8-3.5 2.8"/><path d="M12.5 15.5h5"/></svg></span><b>Claude Code</b></span></td><td>Repo-aware agent governance: prompts &amp; tool calls scrubbed before they leave the laptop</td><td class="yes">Governed · Max</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><img src="assets/copilot.webp" alt="" loading="lazy"></span><b>Copilot agents</b></span></td><td>What agent actions can read, write &amp; exfiltrate, enforced on-device</td><td class="yes">Governed · Max</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27V9"/><path d="M8 13.5 16 7l8 6.5"/><path d="M9.5 20 16 14.8 22.5 20"/></svg></span><b>Hermes Agent</b></span></td><td>Covered via the Nous Portal &amp; default Fireworks endpoints</td><td class="yes">Governed · Max</td></tr>
-          <tr><td><span class="ai-cell"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#01204e" stroke-width="2" stroke-linecap="round"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M12 2.5v6M12 15.5v6M2.5 12h6M15.5 12h6"/></svg></span><b>Private MCP</b></span></td><td>Internal tools over MCP, without leaking connections to a public host</td><td class="yes">Governed · Max</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VOLUME PRICING ================= -->
-<section class="section-sm" id="volume" style="padding-top:24px">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow pink">Volume pricing</span>
-      <h2>Max gets cheaper per seat as the rollout grows</h2>
-      <p class="lede">Four tiers, applied automatically at checkout and at renewal. Drag to your headcount and the numbers move with you.</p>
-      <div class="btn-row" style="margin-top:22px">
-        <div class="billing-toggle" role="tablist" aria-label="Billing period">
-          <button type="button" role="tab" data-billing="monthly" aria-selected="false">Monthly</button>
-          <button type="button" role="tab" data-billing="annual" class="active" aria-selected="true">Annual <span class="save-tag">Save up to 23%</span></button>
+    <div class="bz-db">
+      <div class="bz-card reveal reveal-delay-1">
+        <span class="bz-kicker">Deploy · PrivacyPal Cloud</span>
+        <h3>The sovereign AI governance plane. In your VPC. On your terms.</h3>
+        <p>A self-hosted AI governance gateway plus a network DSPM for the AI data layer: databases, lakes, RAG, vector stores and agent memory. OpenAI, Anthropic and Google compatible, with one base_url change and no code changes.</p>
+        <div class="pill-row"><span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">GCP</span><span class="pill">Bare metal</span><span class="pill">Single container</span><span class="pill">Air-gapped option</span></div>
+        <div class="btn-row" style="margin-top:8px">
+          <a class="btn btn-primary" href="privacypal-cloud.html">Explore Cloud</a>
+          <a class="btn btn-ghost" href="#" data-cta="demo">Talk to us</a>
+        </div>
+        <span class="bz-kicker" style="font-weight:500;letter-spacing:.04em;text-transform:none">Custom annual pricing</span>
+      </div>
+      <div class="bz-card reveal reveal-delay-2">
+        <span class="bz-kicker">Build · PrivacyPal SDK</span>
+        <h3>The secure entry point for AI agents to share data</h3>
+        <p>One agent encodes sensitive data into Privacy Twins, shares it with another agent, an MCP server or a third-party API, then decodes the response back to real values. Node.js 18+ and Python 3.10+, plus a REST API for any JSON runtime.</p>
+        <div class="code-block">
+          <span><span class="prompt">$</span>npm install @privacypal/sdk</span>
+          <button class="copy" type="button" data-cli-copy="npm install @privacypal/sdk">Copy</button>
+        </div>
+        <div class="code-block" style="margin-top:-4px">
+          <span><span class="prompt">$</span>pip install privacypal-sdk</span>
+          <button class="copy" type="button" data-cli-copy="pip install privacypal-sdk">Copy</button>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <a class="btn btn-primary" href="developers.html">Explore the SDK</a>
+          <a class="btn btn-ghost" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">Read the docs</a>
         </div>
       </div>
-    </div>
-
-    <div class="seat-calc reveal" data-seat-calc="50">
-      <div class="seat-calc-top">
-        <div>
-          <span class="eyebrow blue">Seat calculator</span>
-          <h3>Move the slider. Watch the seat price fall.</h3>
-          <p>Every Max seat carries the full governance plane: IP Protection, Governance Policies, Private Memory and shadow-AI discovery.</p>
-        </div>
-        <div class="seat-calc-count">
-          <span class="n" data-calc="seats">50</span>
-          <span class="u" data-calc="seat-word">seats</span>
-        </div>
-      </div>
-
-      <div class="seat-slider">
-        <input type="range" class="seat-range" min="0" max="39" step="1" value="15" aria-label="Number of Max seats">
-        <div class="seat-tiers">
-          <button type="button" class="seat-tier" data-tier="0" style="--w:9"><b>1-9</b>seats</button>
-          <button type="button" class="seat-tier" data-tier="1" style="--w:11"><b>10-99</b>seats</button>
-          <button type="button" class="seat-tier" data-tier="2" style="--w:12"><b>100-999</b>seats</button>
-          <button type="button" class="seat-tier" data-tier="3" style="--w:8"><b>1000+</b>seats</button>
-        </div>
-      </div>
-
-      <div class="seat-metrics">
-        <div class="seat-metric">
-          <span class="k">Per seat</span>
-          <span class="v" data-calc="unit">$25<small>/seat/mo</small></span>
-          <span class="sub">PrivacyPal Max</span>
-        </div>
-        <div class="seat-metric accent">
-          <span class="k" data-calc="total-label">Billed annually</span>
-          <span class="v" data-calc="total">$15,000<small>/yr</small></span>
-          <span class="sub">Whole rollout, all seats</span>
-        </div>
-        <div class="seat-metric">
-          <span class="k">Your volume tier</span>
-          <span class="v" data-calc="tier">10-99 seats</span>
-          <span class="sub" data-calc="tier-sub">17% off the 1-9 seat rate</span>
-        </div>
-        <div class="seat-metric">
-          <span class="k">Annual plan saves</span>
-          <span class="v" data-calc="save">$2,400<small>/yr</small></span>
-          <span class="sub">vs paying monthly</span>
-        </div>
-      </div>
-
-      <div class="seat-calc-foot">
-        <span>A company domain runs on Max, across every user on it.</span>
-        <a class="link-arrow" href="pricing.html">See every plan</a>
-        <a class="link-arrow" href="#" data-cta="demo">Past 5,000 seats? Talk to us</a>
-      </div>
-    </div>
-
-    <div class="table-wrap reveal" style="margin-top:20px">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th style="width:38%">Max volume tier</th>
-            <th>Annual · per seat / mo</th>
-            <th>Monthly · per seat / mo</th>
-            <th>Off the 1-9 rate</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr data-tier-row="0"><td><b>1-9 seats</b><small>Small teams and pilots</small></td><td><b>$30</b></td><td><b>$34</b></td><td>List price</td></tr>
-          <tr data-tier-row="1"><td><b>10-99 seats</b><small>Departments and growing firms</small></td><td><b>$25</b></td><td><b>$29</b></td><td>17% annual<small>15% monthly</small></td></tr>
-          <tr data-tier-row="2"><td><b>100-999 seats</b><small>Company-wide rollout</small></td><td><b>$21</b></td><td><b>$26</b></td><td>30% annual<small>24% monthly</small></td></tr>
-          <tr data-tier-row="3"><td><b>1000+ seats</b><small>Every employee, company-wide</small></td><td><b>$17</b></td><td><b>$22</b></td><td>43% annual<small>35% monthly</small></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRO VS MAX ================= -->
-<section class="section" style="padding-top:24px">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow" style="justify-content:center">Pro vs Max</span>
-      <h2>Pick the governance footprint that matches your scale</h2>
-      <p class="lede">Max is a strict superset of <a href="privacypal-pro.html" style="color:var(--ink);text-decoration:underline">Pro</a>. Use Pro, free for individuals, when it is one person protecting themselves. Use Max, paid from day one, the moment it is the business that needs protecting: IP Protection at the source, Governance Policies across every device and agent, Private Memory your organization owns, and shadow-AI discovery on every seat on your domain. For a self-hosted, sovereign deployment in your own VPC, that is <a href="privacypal-cloud.html" style="color:var(--ink);text-decoration:underline">Cloud</a>, our enterprise tier.</p>
-    </div>
-    <div class="table-wrap reveal">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th style="width:46%">Capability</th>
-            <th>Pro</th>
-            <th>Max</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Privacy Twins on-device<small>Real-time interception across every AI app, web &amp; desktop</small></td><td class="yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>PII, HIPAA, PCI &amp; GDPR coverage</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>SSO support</td><td class="yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>IP Protection<small>Salesforce, Slack, Notion, SQL, Workday &amp; more: your secrets &amp; IP protected at the source</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Shadow-AI discovery<small>First-of-its-kind on-device DSPM. Every staff device becomes a sensor</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Agent governance · Claude Code, Copilot &amp; Hermes Agent<small>Native control across real on-device agents, not just chat</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Private MCP</td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Governance Policies<small>Intent detection, injection guard, vertical &amp; custom policies; block models, require training, intercept</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Private Memory<small>One governed memory across every AI, held in twin-space</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Agent marketplace</td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Account scope<small>Who the account belongs to</small></td><td>One individual</td><td>The whole company, 2 seats to 2,000</td></tr>
-          <tr><td>Company domain accounts &amp; volume pricing<small>More than one user on a domain? The domain runs on Max</small></td><td class="no">–</td><td class="yes">Max only</td></tr>
-          <tr><td>Pricing<small>Annual billing on Max saves up to 23%</small></td><td><b>Free</b><small>One person · no credit card, ever</small></td><td><b>$34</b> to <b>$22</b>/mo · <b>$360</b> to <b>$204</b>/yr<small>By volume, see the tiers above · paid from day one</small></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ================= QUOTE ================= -->
-<section class="section-sm" style="padding-top:0">
-  <div class="container">
-    <div class="bigquote reveal">
-      <blockquote>Our loan officers were pasting spreadsheets into ChatGPT every day to draft narratives. PrivacyPal made that <b>safe overnight</b>. We didn't have to change a single habit.</blockquote>
-      <div class="who">Managing Partner, 280-person wealth advisory</div>
     </div>
   </div>
 </section>
@@ -480,13 +770,14 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
 <section class="section-sm">
   <div class="container cta-stack">
     <div class="cta-banner dark reveal">
-      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For the whole company</span>
-      <h2 style="margin-top:14px">Cover every employee. Change nobody's workflow.</h2>
-      <p>Attach your domain, push one installer, and the whole company is governed the same afternoon. Agents, copilots, edge models and on-device language models, all under one policy plane. From $30 per seat a month at 1 to 9 seats, falling to $17 at 1,000. The shift is here. Don't get lapped.</p>
+      <span class="eyebrow" style="justify-content:center;color:#b8c3d6">The Max pack</span>
+      <h2 style="margin-top:14px">Cover every employee. Keep every workflow.</h2>
+      <p>Attach your domain, send one installer, and the whole company is governed the same afternoon: agents, copilots and chat apps under one policy plane. $34 per user a month, as low as $17 at volume on annual billing.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
-        <a class="btn btn-ghost btn-lg" href="privacypal-pro.html">Just covering yourself? Pro is free</a>
+        <a class="btn btn-gold btn-lg" href="pricing.html#business">Get Max</a>
+        <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
       </div>
+      <p style="margin-top:22px;font-size:.92rem">Just covering yourself? <a href="privacypal-pro.html" style="color:#fff;text-decoration:underline;text-underline-offset:3px">Personal is free</a>.</p>
     </div>
   </div>
 </section>
@@ -494,6 +785,5 @@ table.compare td small{display:block;color:var(--muted);font-size:.8rem;font-wei
 <div id="site-footer-slot"></div>
 
 <script src="assets/v3.js"></script>
-<script src="assets/pricing.js"></script>
 </body>
 </html>

@@ -4,8 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Private Memory: memory that follows you across every AI · PrivacyPal</title>
-<meta name="description" content="Private Memory is a user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Copilot, Grok, Hermes Agent and custom agents, stored in twin-space so it never contains a real secret. Hardened against memory poisoning, cheaper than replaying history, erasable by crypto-shredding, born governed on PrivacyPal Max." />
-<link rel="icon" href="assets/favicon.ico"/>
+<meta name="description" content="Private Memory is a user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Grok and Perplexity, and with the Max pack across Copilot, Hermes Agent and custom agents, stored in twin-space so it never contains a real secret. Hardened against memory poisoning, cheaper than replaying history, erasable by crypto-shredding, born governed on the Max pack." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,11 +17,12 @@
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/private-memory.html" />
 <meta property="og:title" content="Private Memory: memory that follows you. Secrets that don't." />
-<meta property="og:description" content="One memory across ChatGPT, Claude, Gemini, Copilot, Grok, Hermes Agent and your agents: stored in twin-space, hardened against memory poisoning, owned by you, erasable in one action, born governed on Max." />
+<meta property="og:description" content="One memory across ChatGPT, Claude, Gemini, Grok and Perplexity, and with the Max pack across Copilot, Hermes Agent and your agents: stored in twin-space, hardened against memory poisoning, owned by you, erasable in one action, born governed on the Max pack." />
 <meta property="og:image" content="https://privacypal.ai/news/images/private-memory.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Private Memory: memory that follows you. Secrets that don't." />
-<meta name="twitter:description" content="One memory across every AI: stored in twin-space, owned by you, erasable in one action, born governed on Max." />
+<meta name="twitter:description" content="One memory across every AI: stored in twin-space, owned by you, erasable in one action, born governed on the Max pack." />
+<meta name="twitter:image" content="https://privacypal.ai/news/images/private-memory.jpg" />
 <style>
   /* dark showcase hero */
   .mem-hero{
@@ -29,7 +33,7 @@
     content:"";position:absolute;inset:0;pointer-events:none;
     background:
       radial-gradient(48% 62% at 20% 112%, rgba(47,196,210,.34), transparent 70%),
-      radial-gradient(44% 56% at 82% 116%, rgba(250,169,104,.26), transparent 70%),
+      radial-gradient(44% 56% at 82% 116%, rgba(255,172,51,.2), transparent 70%),
       radial-gradient(58% 58% at 52% -16%, rgba(2,131,145,.28), transparent 72%);
   }
   .mem-hero > .container{position:relative}
@@ -132,6 +136,7 @@
     .flow{flex-direction:column}
     .flow-arrow{padding:8px 0;justify-content:center}
   }
+  .eyebrow .pack-chip{margin-left:4px}
   .scenario{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
   .case-ex{margin-top:14px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);padding:12px 14px;border-radius:0 10px 10px 0;font-size:.84rem;color:var(--muted);line-height:1.55}
   .case-ex b{color:var(--ink);font-weight:600}
@@ -166,14 +171,14 @@
       <circle cx="1050" cy="330" r="4.5"/><circle cx="1390" cy="160" r="4"/><circle cx="1330" cy="480" r="4.5"/>
     </g>
     <circle cx="340" cy="190" r="15" stroke="rgba(47,196,210,.4)" stroke-width="1.6"/>
-    <circle cx="1260" cy="220" r="15" stroke="rgba(250,169,104,.4)" stroke-width="1.6"/>
+    <circle cx="1260" cy="220" r="15" stroke="rgba(255,172,51,.45)" stroke-width="1.6"/>
   </svg>
   <div class="container">
     <span class="eyebrow" style="justify-content:center">PrivacyPal platform · Private Memory</span>
     <h1>Memory that <span class="grad-text">follows you</span>. Secrets that don't.</h1>
-    <p class="lede">Every AI you use is brilliant for an hour and a stranger by morning. And every vendor's fix is to lock your memory inside their garden. Private Memory is the user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Copilot, Grok, Hermes Agent and your own agents, while the secrets underneath it never leave your control.</p>
+    <p class="lede">Every AI you use is brilliant for an hour and a stranger by morning. And every vendor's fix is to lock your memory inside their garden. Private Memory is the user- and org-owned memory layer that follows you across ChatGPT, Claude, Gemini, Grok and Perplexity, and with the Max pack across Copilot, Hermes Agent and your own agents, while the real values stay in a vault under your own keys.</p>
     <div class="btn-row">
-      <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Private Memory</a>
+      <a class="btn btn-gold btn-lg" href="#" data-cta="download">Get Private Memory</a>
       <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
     </div>
     <div class="hero-note">
@@ -191,7 +196,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">The problem</span>
       <h2>Four assistants. Four strangers.</h2>
-      <p class="lede">ChatGPT remembers inside ChatGPT. Gemini builds its own profile. Copilot remembers inside the mailbox. Switch models and you start from zero, so your best context stays trapped wherever you happened to type it. Nobody has solved memory <em>across</em> the gardens, because whoever holds cross-provider memory holds the most sensitive longitudinal dataset in your working life. No model vendor is structurally trustable with it. PrivacyPal is built to be exactly that owner, because our memory never contains a real secret at all.</p>
+      <p class="lede">ChatGPT remembers inside ChatGPT. Gemini builds its own profile. Copilot remembers inside the mailbox. Switch models and you start from zero, so your best context stays trapped wherever you happened to type it. Whoever holds cross-provider memory holds the most sensitive longitudinal dataset in your working life. No model vendor is structurally trustable with it. PrivacyPal is built to be exactly that owner, because our memory never contains a real secret at all.</p>
     </div>
     <div class="mem-compare reveal">
       <div class="mem-box walled">
@@ -227,11 +232,11 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">The mechanism</span>
-      <h2>Captured where you work. Stored where nobody can read it.</h2>
+      <h2>Captured where you work. Stored in twin-space, under your keys.</h2>
       <p class="lede">Private Memory runs on the interception plane PrivacyPal already operates, the same place <a href="privacy-twins.html" style="text-decoration:underline;text-underline-offset:3px">Privacy Twins</a> swap your secrets out of every prompt.</p>
     </div>
     <div class="card-grid cols-4 reveal">
-      <div class="step"><span class="num">01</span><h4>Capture</h4><p>Every AI exchange (prompt and response, whichever model served it) is captured at the interception point with zero added latency in the hot path.</p></div>
+      <div class="step"><span class="num">01</span><h4>Capture</h4><p>Every AI exchange (prompt and response, whichever model served it) is captured at the interception point, off the request path.</p></div>
       <div class="step"><span class="num">02</span><h4>Consolidate</h4><p>A background "sleep-time" process distills durable facts and reconciles them: new facts supersede old ones, contradictions are invalidated, never silently deleted.</p></div>
       <div class="step"><span class="num">03</span><h4>Recall</h4><p>At the moment you prompt any AI, relevant memory is assembled into a token-budgeted Memory Pack (no LLM in the read path) and injected in twin-space, at a fraction of the tokens of replaying your history.</p></div>
       <div class="step"><span class="num">04</span><h4>Erase</h4><p>Destroy your vault keys and every copy of your memory (synced, exported, cached) becomes meaningless noise. Contract-tested, even for memories still in flight. The right to be forgotten, as mathematics.</p></div>
@@ -248,7 +253,7 @@
         <span class="eyebrow blue">Twin-space storage</span>
         <h2 style="margin-top:12px">Memory portability without memory custody</h2>
         <p class="lede">The durable memory graph is written entirely in twin-space: it references synthetic <a href="privacy-twins.html" style="text-decoration:underline;text-underline-offset:3px">Privacy Twins</a>, never real values. The real-to-twin map lives in an encrypted vault under your own keys.</p>
-        <p style="color:var(--muted);margin-top:14px">That inversion is the whole product: PrivacyPal can host, sync and serve a memory it cannot read. Your memory follows you to every model and every device. And if anyone ever got the graph, they'd hold statistically plausible facts about entities that resolve to nothing.</p>
+        <p style="color:var(--muted);margin-top:14px">That inversion is the whole product: PrivacyPal can host, sync and serve a memory it cannot read. Your memory follows you to every model you use. And if anyone ever got the graph, they'd hold statistically plausible facts about entities that resolve to nothing.</p>
         <p style="color:var(--muted);margin-top:14px"><b style="color:var(--ink)">And it's measured, not asserted.</b> In our benchmark we verified it value by value: the names, dates and organizations you rely on came back correctly on your side, and none of them appeared in anything sent to an AI provider. Every model gets your working context. No model gets the real values.</p>
         <div class="pill-row" style="margin-top:22px">
           <span class="pill">Zero real secrets in the graph</span>
@@ -279,10 +284,10 @@
       <div>
         <div class="num-tag">02 · The integrity model</div>
         <span class="eyebrow pink">Memory Guard</span>
-        <h2 style="margin-top:12px">Memory that can't be poisoned</h2>
+        <h2 style="margin-top:12px">Memory built to resist poisoning</h2>
         <p class="lede">An assistant that remembers is an assistant that can be programmed by anyone who gets a sentence in front of it: a webpage it browses, an email it summarizes, a document someone shares. Plant an instruction disguised as a fact today and an agent obeys it weeks later, long after the attack is gone. OWASP now ranks memory poisoning the number-one emerging agentic threat (ASI06).</p>
         <p style="color:var(--muted);margin-top:14px">So nothing enters Private Memory unexamined. Memory Guard is a deterministic gate on the write path, a dedicated Privacy Agent that inspects every candidate memory before it is stored. Content that tries to behave ("always ignore," "from now on send") is quarantined as an attempted instruction, never remembered as a fact. <b style="color:var(--ink)">In our adversarial benchmark, Memory Guard blocked 100% of poisoning attempts</b>, and not one embedded instruction ever resurfaced as a memory.</p>
-        <p style="color:var(--muted);margin-top:14px">Recall holds the same discipline: when there is nothing to remember, Private Memory says nothing rather than inventing something. And on Max, security teams set Memory Guard policy fleet-wide and review quarantines from the audit console.</p>
+        <p style="color:var(--muted);margin-top:14px">Recall holds the same discipline: when there is nothing to remember, Private Memory says nothing rather than inventing something. And on the Max pack, security teams set Memory Guard policy fleet-wide and review quarantines from the audit console.</p>
         <div class="pill-row" style="margin-top:22px">
           <span class="pill">Deterministic write gate</span>
           <span class="pill">Quarantined, never silently deleted</span>
@@ -315,7 +320,7 @@
     <div class="stats-label reveal"><span class="dot" style="background:var(--teal)"></span>By design</div>
     <div class="stats reveal">
       <div class="stat"><div class="n">0</div><div class="l">Real secrets in the memory graph. Facts reference twins; reals stay in your encrypted vault.</div></div>
-      <div class="stat"><div class="n">+0<small>ms</small></div><div class="l">Added to the hot path. Capture and consolidation happen off the request path, in the background.</div></div>
+      <div class="stat"><div class="n" style="white-space:nowrap">Off-path</div><div class="l">Capture and consolidation run in the background, off the request path.</div></div>
       <div class="stat"><div class="n">0</div><div class="l">LLMs in the recall path. Memory Packs are assembled by deterministic retrieval: fast, and nothing to leak.</div></div>
       <div class="stat"><div class="n">1</div><div class="l">Action to erase everything, everywhere. Crypto-shredding makes deletion a property of math, not a promise.</div></div>
     </div>
@@ -323,20 +328,20 @@
     <div class="stats reveal">
       <div class="stat"><div class="n">100<small>%</small></div><div class="l">Of adversarial poisoning cases blocked by Memory Guard. Embedded instructions never resurfaced as memories.</div></div>
       <div class="stat"><div class="n">~56<small>%</small></div><div class="l">Less context cost. Memory Packs carried the working context at roughly half the tokens of replaying raw history.</div></div>
-      <div class="stat"><div class="n">&lt;100<small>ms</small></div><div class="l">Recall overhead at p95, with a 9ms median. Deterministic retrieval, no LLM in the read path.</div></div>
+      <div class="stat"><div class="n">&lt;100<small>ms</small></div><div class="l">Added by recall. Deterministic retrieval, no LLM in the read path.</div></div>
       <div class="stat"><div class="n">0</div><div class="l">Remembered values found in anything sent to a provider. Names, dates and organizations, verified value by value.</div></div>
     </div>
     <p class="bench-note reveal">Internal benchmark, 2026, run on the shipping pipeline with deterministic scoring and no LLM judge, twin-space against an identical plaintext control. Twin-space matched or beat plaintext, so privacy carries no accuracy tax. Methodology available on request.</p>
   </div>
 </section>
 
-<!-- ================= PRO USE CASES ================= -->
+<!-- ================= PERSONAL USE CASES ================= -->
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">For individuals · PrivacyPal Pro</span>
+      <span class="eyebrow">For individuals <span class="pack-chip personal">Personal</span></span>
       <h2>Your canonical context, in every AI you open</h2>
-      <p class="lede">Stop re-introducing yourself to machines. With Pro, your projects, preferences and working context become one portable memory: on-device, opt-in, and yours.</p>
+      <p class="lede">Stop re-introducing yourself to machines. With Personal, your projects, preferences and working context become one portable memory: on-device, opt-in, and yours.</p>
     </div>
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
@@ -351,7 +356,7 @@
         <div class="scenario">Freedom</div>
         <h4>Pick the best model per task</h4>
         <p>Memory is how vendors lock you in. When your context travels with you, you choose models on merit (reasoning here, drafting there) without amnesia as the switching cost.</p>
-        <div class="case-ex">Use <b>Gemini for research, Claude for writing, Copilot in the inbox</b>: all four working from the same canonical memory of who you are and what you're building.</div>
+        <div class="case-ex">Use <b>Gemini for research, Claude for writing, ChatGPT for analysis and Perplexity for sources</b>: all four working from the same canonical memory of who you are and what you're building.</div>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico grad-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.5-8 11-8 11z"/></svg></div>
@@ -364,19 +369,19 @@
   </div>
 </section>
 
-<!-- ================= MAX / THE COMPANY ================= -->
+<!-- ================= BUSINESS / THE COMPANY ================= -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="deep reveal">
       <div>
         <div class="num-tag">03 · The company</div>
-        <span class="eyebrow orange">PrivacyPal Max</span>
+        <span class="eyebrow">For companies <span class="pack-chip business">Max</span></span>
         <h2 style="margin-top:12px">Cross-team, cross-AI collaboration. Born governed.</h2>
-        <p class="lede">On Max, memory becomes an organizational capability: what one teammate establishes in their AI, the whole team's AIs can know: in twin-space, under policy, with a full audit trail.</p>
+        <p class="lede">On the Max pack, memory becomes an organizational capability: what one teammate establishes in their AI, the whole team's AIs can know: in twin-space, under policy, with a full audit trail.</p>
         <p style="color:var(--muted);margin-top:14px">Companies don't fail at agent adoption for lack of models. They fail because every agent starts ignorant and every workaround becomes an ungoverned shadow database. Max gives the org one governed memory plane instead: team and org scopes, fleet-level Memory Guard policies, an audit console, and a <a href="privacypal-max.html" style="text-decoration:underline;text-underline-offset:3px">Private MCP</a> memory server so internal agents and tools query org memory without anything leaking to a public host.</p>
         <p style="color:var(--muted);margin-top:14px"><b style="color:var(--ink)">Promotion is always explicit.</b> Personal memory is never silently harvested into the org. People choose what the team should know, and policy governs the rest.</p>
         <div class="btn-row" style="margin-top:26px">
-          <a class="btn btn-primary" href="privacypal-max.html">Explore PrivacyPal Max</a>
+          <a class="btn btn-primary" href="privacypal-max.html">Explore the Max pack</a>
           <a class="link-arrow muted" href="#" data-cta="demo">See it on your org's workflows</a>
         </div>
       </div>
@@ -407,26 +412,26 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Where you get it</span>
-      <h2>Private Memory across the ecosystem</h2>
+      <h2>Private Memory across PrivacyPal</h2>
     </div>
     <div class="card-grid cols-4">
       <div class="feature-card reveal reveal-delay-1">
-        <h4>Pro</h4>
+        <h4>Personal</h4>
         <p>Personal cross-LLM memory, on-device. Viewer, incognito and one-action erase included. Opt-in, off by default.</p>
-        <a class="link-arrow" href="privacypal-pro.html" style="margin-top:auto">PrivacyPal Pro</a>
+        <a class="link-arrow" href="privacypal-pro.html" style="margin-top:auto">PrivacyPal for you</a>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <h4>Max</h4>
-        <p>Everything in Pro plus team &amp; org scopes, the policy plane, fleet Memory Guard, Private MCP memory server and audit console. Rolling out now.</p>
-        <a class="link-arrow" href="privacypal-max.html" style="margin-top:auto">PrivacyPal Max</a>
+        <p>Everything in Personal plus team &amp; org scopes, the policy plane, fleet Memory Guard, Private MCP memory server and audit console. Rolling out now.</p>
+        <a class="link-arrow" href="privacypal-max.html" style="margin-top:auto">The Max pack</a>
       </div>
       <div class="feature-card reveal reveal-delay-3">
-        <h4>Cloud</h4>
-        <p>The sovereign memory plane: in-VPC, bring-your-own-key, air-gap support, Memory DSPM and data residency.</p>
+        <h4>Cloud · deploy</h4>
+        <p>The sovereign memory plane, deployed with Max: in-VPC, bring-your-own-key, air-gap support, Memory DSPM and data residency.</p>
         <a class="link-arrow" href="privacypal-cloud.html" style="margin-top:auto">PrivacyPal Cloud</a>
       </div>
       <div class="feature-card reveal reveal-delay-3">
-        <h4>SDK</h4>
+        <h4>SDK · build</h4>
         <p><span class="mono" style="font-size:.88em">remember()</span> and <span class="mono" style="font-size:.88em">recall()</span>: compliant cross-LLM memory for any application, in two calls.</p>
         <a class="link-arrow" href="developers.html" style="margin-top:auto">PrivacyPal SDK</a>
       </div>
@@ -440,9 +445,9 @@
     <div class="cta-banner dark reveal">
       <span class="eyebrow" style="justify-content:center;color:#b8b8b8">Get started</span>
       <h2 style="margin-top:14px">Give every AI you work with the same memory. Yours.</h2>
-      <p>Install once and your context follows you across ChatGPT, Claude, Gemini, Copilot, Grok, Hermes Agent and every agent, with the secrets stored nowhere at all. Opt-in. Erasable. Born governed.</p>
+      <p>Install once and your context follows you across ChatGPT, Claude, Gemini, Grok and Perplexity, and with the Max pack across Copilot, Hermes Agent and your agents, with the real values kept in a vault under your own keys. Opt-in. Erasable. Born governed.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Private Memory</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="download">Get Private Memory</a>
         <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
       </div>
     </div>

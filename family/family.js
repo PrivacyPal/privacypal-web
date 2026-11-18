@@ -1,6 +1,10 @@
-/* PrivacyPal Family — standalone sub-site behaviors.
-   Intentionally self-contained: this site does NOT load assets/v3.js
-   (no shared nav/footer/announcement injection). */
+/* PrivacyPal for families: content behaviors for the /family/ pages.
+   Every /family/ page also loads assets/v3.js, which injects the shared
+   announcement bar, nav, footer and modals into #site-nav-slot and
+   #site-footer-slot (family/founding/ is the one exception: it keeps its
+   own minimal header and loads only this file). This file adds the Family
+   content behaviors: reveal on scroll, plus the burger for the legacy
+   .fnav header, which no page uses today. */
 (function(){
   'use strict';
 

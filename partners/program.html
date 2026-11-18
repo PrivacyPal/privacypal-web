@@ -14,105 +14,221 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>PrivacyPal Partner Program</title>
-<meta name="description" content="Your clients are already using AI. Sell them the control layer: PrivacyPal Max, per seat, on the devices you already manage. Pilot it on your own team for 30 days, then take one SKU to every regulated client you have."/>
+<title>Partner Program · PrivacyPal</title>
+<meta name="description" content="Your clients are already using AI. Sell them the control layer: PrivacyPal with the Max pack, per seat, on the devices you already manage. Pilot it on your own team for 30 days, then take one SKU to every regulated client you have."/>
 <meta name="robots" content="noindex,nofollow"/>
 <!-- Unlisted path: do not hand it to anything this page talks to. The form
      delivery at the end of the file re-grants the bare origin per request,
      which FormSubmit requires. -->
 <meta name="referrer" content="no-referrer"/>
-<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
 <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="PrivacyPal"/>
 <meta property="og:title" content="PrivacyPal Partner Program"/>
 <meta property="og:description" content="Demand without a SKU. Your clients are already using AI; sell them the control layer, per seat, on the devices you already manage."/>
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png"/>
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="PrivacyPal Partner Program"/>
 <meta name="twitter:description" content="Demand without a SKU. Sell the control layer for the AI your clients already use."/>
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png"/>
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png"/>
 <style>
-/* Layout: a long partner-recruiting page, one column of full-width bands, each band a 1100px content well; navy opener and closer, light working sections between. */
-:root{
-  --bg:#F6F5F1; --fg:#121A2B; --muted:#5B6578; --rule:#DED9CE; --card:#FFFFFF;
-  --navy:#0E1A33; --navy2:#172544; --ink-on-navy:#F4F6FA; --sub-on-navy:#B9C4D8;
-  --accent:#1E9E8A; --accent-ink:#0F6E5F; --gold:#D98C2B;
-  --display:"Source Serif 4", Georgia, serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+/* Overused Grotesk is the brand typeface (the wordmark is set in it). Self-hosted, same file as assets/v3.css. */
+@font-face{
+  font-family:'Overused Grotesk';
+  src:url('../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2-variations'),
+      url('../assets/fonts/OverusedGrotesk-VF.woff2') format('woff2');
+  font-weight:300 900;font-style:normal;font-display:swap;
 }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#0B1221; --fg:#EEF1F6; --muted:#A5B0C3; --rule:#263148; --card:#131D33; --navy:#070D1A; --navy2:#111B30; color-scheme:dark } }
-:root[data-theme="dark"]{ --bg:#0B1221; --fg:#EEF1F6; --muted:#A5B0C3; --rule:#263148; --card:#131D33; --navy:#070D1A; --navy2:#111B30; color-scheme:dark }
+/* Layout: a long partner-recruiting page, one column of full-width bands, each band a 1100px content well; navy opener and closer, light working sections between.
+   Palette: the brand core (Deep Navy, Signal Teal, Penguin Gold) with the same values as assets/v3.css. Gold is a slight accent: eyebrow dots on navy, the hero CTA, the active demo tab, step rings on navy, thin rules, focus rings. Never gold text on a light surface. */
+:root{
+  --ink:#01204E; --teal:#028391; --teal-ink:#02707C;
+  --gold:#ffac33; --gold-deep:#e8941a; --gold-ink:#8A5A00; --gold-tint:#fff4e0; --gold-soft:#ffe3b3;
+  --sage:#4DA394; --coral:#D54751;
+  --bg:#F6F5EF; --fg:#01204E; --text:#3A4763; --muted:#5D6A82; --rule:#E3E0D3; --card:#FFFFFF;
+  --navy:#01204E; --navy2:#0A2D63; --navy-line:#1D3E72; --ink-on-navy:#F4F6FA; --sub-on-navy:#B4C2DA; --teal-on-navy:#7FD3DB;
+  --accent:#028391; --accent-ink:#02707C;
+  --display:'Overused Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Overused Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#071833; --fg:#EEF2F8; --text:#CAD4E5; --muted:#A3B1CB; --rule:#203A66; --card:#0E2448; --navy:#000F27; --navy2:#0A1F42; --navy-line:#1A3360; --accent-ink:#6CCBD4; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#071833; --fg:#EEF2F8; --text:#CAD4E5; --muted:#A3B1CB; --rule:#203A66; --card:#0E2448; --navy:#000F27; --navy2:#0A1F42; --navy-line:#1A3360; --accent-ink:#6CCBD4; color-scheme:dark }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:var(--accent-ink)}
+section.dark a:not(.btn){color:var(--teal-on-navy)}
 .well{max-width:1100px;margin:0 auto;padding-inline:20px}
-header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--ink-on-navy);border-bottom:1px solid #223150}
-header.nav .well{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
-.brand{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.01em}
-.brand small{display:block;font-family:var(--body);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub-on-navy)}
-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;font-weight:600}
-nav a{color:var(--ink-on-navy);text-decoration:none}
-nav a.cta{background:var(--accent);color:#fff;padding:7px 14px;border-radius:999px}
-section{padding-block:56px}
+
+/* header: logo, program label, section links. One scrolling row on phones so the sticky bar stays short. */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--ink-on-navy);border-bottom:1px solid var(--navy-line)}
+header.nav .well{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 24px;padding-block:12px 0}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand img{height:26px;width:auto;display:block;flex:none}
+.brand small{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sub-on-navy);padding-left:14px;border-left:1px solid var(--navy-line);line-height:1.35;white-space:nowrap}
+.actions{display:flex;align-items:center;gap:20px}
+.actions a{color:var(--ink-on-navy);text-decoration:none;font-size:14.5px;font-weight:600;white-space:nowrap}
+.actions a.cta{background:var(--teal);color:#fff;padding:8px 16px;border-radius:999px}
+.actions a.cta:hover{background:#01737f}
+header.nav nav{grid-column:1 / -1;margin-top:11px;border-top:1px solid rgba(255,255,255,.08)}
+nav ul{list-style:none;margin:0;padding:10px 0 11px;display:flex;align-items:center;gap:6px 24px;flex-wrap:wrap;font-size:14px;font-weight:500}
+nav a{color:var(--sub-on-navy);text-decoration:none;white-space:nowrap;transition:color .15s}
+nav a:hover{color:#fff}
+
+section{padding-block:64px}
 section.dark{background:var(--navy);color:var(--ink-on-navy)}
+section.dark + section.dark{border-top:1px solid var(--navy-line)}
 section.dark .muted{color:var(--sub-on-navy)}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
-h1{font-family:var(--display);font-size:clamp(34px,5vw,56px);line-height:1.05;margin:0 0 18px;text-wrap:balance;max-width:20ch}
-h2{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1.12;margin:0 0 14px;text-wrap:balance}
-h3{font-size:18px;margin:0 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.eyebrow{align-items:flex-start}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--teal);flex:none;margin-top:.5em}
+section.dark .eyebrow{color:var(--sub-on-navy)}
+section.dark .eyebrow::before{background:var(--gold)}
+h1,h2,h3{color:var(--fg);font-family:var(--display)}
+section.dark h1,section.dark h2,section.dark h3{color:var(--ink-on-navy)}
+h1{font-size:clamp(38px,5.4vw,64px);font-weight:500;line-height:1.02;letter-spacing:-.028em;margin:0 0 20px;text-wrap:balance;max-width:16ch}
+h2{font-size:clamp(28px,3.4vw,42px);font-weight:500;line-height:1.08;letter-spacing:-.022em;margin:0 0 16px;text-wrap:balance;max-width:28ch}
+h3{font-size:18.5px;font-weight:600;line-height:1.25;letter-spacing:-.008em;margin:0 0 8px}
 p{margin:0 0 14px;max-width:68ch}
-.lead{font-size:20px;max-width:60ch}
+.lead{font-size:20px;line-height:1.5;max-width:60ch}
 .muted{color:var(--muted)}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:2px solid var(--accent)}
-.btn.primary{background:var(--accent);color:#fff}
-.btn.ghost{color:var(--ink-on-navy)}
-section:not(.dark) .btn.ghost{color:var(--accent-ink)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;line-height:1.2;border:1.5px solid var(--teal);font-family:var(--body);cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.btn.primary{background:var(--teal);color:#fff}
+.btn.primary:hover{background:#01737f;border-color:#01737f}
+/* gold CTA: navy surfaces only (spec 2, rule 4); navy text on gold is 8.4:1 */
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn.gold:hover{background:#ffbd5c;border-color:#ffbd5c}
+.btn.gold:active{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn.ghost{background:transparent;color:var(--ink-on-navy);border-color:rgba(255,255,255,.34)}
+.btn.ghost:hover{border-color:#fff}
+section:not(.dark) .btn.ghost{color:var(--accent-ink);border-color:var(--rule)}
 .grid{display:grid;gap:18px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:20px;min-width:0}
-section.dark .card{background:var(--navy2);border-color:#2A3A5C}
-.stat{font-family:var(--display);font-size:40px;font-weight:700;color:var(--accent);line-height:1;margin:0 0 8px}
-.src{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:22px;min-width:0}
+section.dark .card{background:var(--navy2);border-color:var(--navy-line)}
+.stat{font-family:var(--display);font-size:40px;font-weight:500;letter-spacing:-.03em;color:var(--fg);line-height:1;margin:0 0 10px;font-variant-numeric:tabular-nums}
+.src{font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--muted);margin:10px 0 0}
 section.dark .src{color:var(--sub-on-navy)}
-.thesis{font-family:var(--display);font-size:clamp(22px,3vw,32px);font-weight:600;line-height:1.2;margin:0 0 10px}
-table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.thesis{font-family:var(--display);font-size:clamp(24px,3vw,34px);font-weight:500;letter-spacing:-.02em;line-height:1.15;margin:0 0 10px}
+.thesis.answer{color:var(--teal-on-navy);margin-top:22px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
 .tbl{overflow-x:auto}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
-th{background:var(--navy);color:#fff;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+th{background:var(--navy);color:#fff;font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+td strong{color:var(--fg);font-weight:600}
 tr:last-child td{border-bottom:0}
-section.dark table{background:var(--navy2);border-color:#2A3A5C}
-section.dark td{color:var(--ink-on-navy);border-color:#2A3A5C}
-.steps{counter-reset:s;display:grid;gap:14px}
+section.dark table{background:var(--navy2);border-color:var(--navy-line)}
+section.dark th{background:#00163A}
+section.dark td{color:var(--ink-on-navy);border-color:var(--navy-line)}
+section.dark td strong{color:#fff}
+.steps{counter-reset:s;display:grid;gap:16px}
 .step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
-.step .n{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:18px}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:17px;font-variant-numeric:tabular-nums}
+/* on navy the step numbers become thin gold rings */
+section.dark .step .n{background:transparent;color:var(--gold);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;align-items:start}
 ul.clean{padding-left:20px;margin:0}
-ul.clean li{margin-bottom:6px}
-.callout{border-left:4px solid var(--gold);padding:10px 16px;background:var(--card);border-radius:0 10px 10px 0;margin:14px 0}
+ul.clean li{margin-bottom:8px}
+ul.clean li::marker{color:var(--teal)}
+section.dark ul.clean li::marker{color:var(--teal-on-navy)}
+.callout{border-left:3px solid var(--gold);padding:14px 18px;background:var(--card);border-radius:0 12px 12px 0;margin:22px 0 0;max-width:none}
 section.dark .callout{background:var(--navy2)}
-.quote{font-family:var(--display);font-size:19px;line-height:1.35;padding:14px 18px;border-radius:10px;background:var(--card);border:1px solid var(--rule);margin:0 0 12px}
-section.dark .quote{background:var(--navy2);border-color:#2A3A5C}
-.chart{width:100%;max-width:100%;height:auto;display:block;margin:12px 0 6px}
+.callout strong{color:var(--fg)}
+.quote{font-family:var(--display);font-size:18.5px;line-height:1.4;padding:14px 18px;border-radius:12px;background:var(--panel-2,#FAFAF5);border:1px solid var(--rule);margin:0 0 12px;color:var(--fg)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .quote{background:#0A1E40} }
+:root[data-theme="dark"] .quote{background:#0A1E40}
+section.dark .quote{background:var(--navy2);border-color:var(--navy-line);color:var(--ink-on-navy)}
+.chart{width:100%;max-width:100%;height:auto;display:block;margin:12px 0 6px;color:var(--fg)}
 form{display:grid;gap:12px}
-label{font-size:14px;font-weight:600;display:grid;gap:4px}
-input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--fg);width:100%}
+label{font-size:14px;font-weight:600;display:grid;gap:5px}
+input,select,textarea{font:inherit;font-weight:400;padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--card);color:var(--fg);width:100%}
+section.dark input,section.dark select,section.dark textarea{background:#fff;color:var(--ink);border-color:transparent}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) section.dark :is(input,select,textarea){background:#071833;color:var(--fg);border-color:var(--navy-line)} }
+:root[data-theme="dark"] section.dark :is(input,select,textarea){background:#071833;color:var(--fg);border-color:var(--navy-line)}
 textarea{min-height:90px}
 .frow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.ok{display:none;padding:14px 16px;border-radius:10px;background:var(--card);border:1px solid var(--accent)}
+.ok{display:none;padding:16px 18px;border-radius:12px;background:var(--card);border:1px solid var(--accent)}
+section.dark .ok{background:var(--navy2);border-color:var(--sage)}
 .ok.show{display:block}
 .person{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:center}
-.person img{width:120px;height:120px;border-radius:50%;object-fit:cover}
-footer{padding-block:28px;background:var(--navy);color:var(--sub-on-navy);font-size:13.5px}
-footer .well{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.small{font-size:13.5px;color:var(--muted)}
+.person img{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(255,255,255,.22)}
+footer{padding-block:30px;background:var(--navy);color:var(--sub-on-navy);font-size:13.5px;border-top:1px solid var(--navy-line)}
+footer .well{display:flex;justify-content:space-between;gap:14px 28px;flex-wrap:wrap}
+footer .well > div{max-width:62ch}
+footer .credit{flex-basis:100%;max-width:none;margin:2px 0 0;font-size:12.5px;line-height:1.5;color:var(--sub-on-navy)}
+footer .credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.small{font-size:14px;color:var(--muted)}
 section.dark .small{color:var(--sub-on-navy)}
-@media (max-width:700px){.person{grid-template-columns:1fr}.person img{width:96px;height:96px}}
+
+/* hero: copy left, the partner deal at a glance right */
+.hero{padding-block:76px 72px;background:radial-gradient(820px 460px at 88% 0%,rgba(2,131,145,.22),rgba(2,131,145,0) 65%),var(--navy)}
+.hero .well{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:center}
+.proof{display:flex;align-items:center;gap:10px;margin:22px 0 0;font-size:14.5px;color:var(--sub-on-navy);max-width:none}
+.proof svg{width:18px;height:18px;flex:none;color:var(--sage)}
+.glance{background:rgba(10,45,99,.72);border:1px solid var(--navy-line);border-top:2px solid var(--gold);border-radius:4px 4px 16px 16px;padding:24px 24px 10px}
+.glance .cap{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sub-on-navy);margin:0 0 6px}
+.glance dl{margin:0}
+.glance dl > div{padding:14px 0;border-bottom:1px solid var(--navy-line)}
+.glance dl > div:last-child{border-bottom:0}
+.glance dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--sub-on-navy);margin:0 0 4px}
+.glance dd{margin:0;font-size:15.5px;line-height:1.45;color:var(--ink-on-navy)}
+.glance dd b{display:block;font-family:var(--display);font-size:24px;font-weight:500;letter-spacing:-.02em;color:#fff;line-height:1.15;margin-bottom:2px}
+
+@media (max-width:900px){
+  .hero .well{grid-template-columns:1fr;gap:36px}
+}
+@media (max-width:860px){
+  header.nav .well{padding-block:10px 0}
+  header.nav nav{margin:9px -20px 0}
+  /* the row scrolls sideways with no scrollbar, so a fixed 64px fade on the right says there is more;
+     the matching right padding lets the last link (Apply) scroll fully clear of the fade */
+  nav ul{flex-wrap:nowrap;overflow-x:auto;padding:9px 64px 10px 20px;gap:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent)}
+  nav ul::-webkit-scrollbar{display:none}
+  nav li{flex:none}
+}
+@media (max-width:560px){
+  .brand{flex-direction:column;align-items:flex-start;gap:4px}
+  .brand img{height:24px}
+  .brand small{border-left:0;padding-left:0;font-size:9.5px;letter-spacing:.07em}
+  .actions .call{display:none}
+  .actions a.cta{padding:8px 14px;font-size:14px}
+}
+/* tables on phones: the buyer table stacks into labelled cards; the price tables keep their columns and scroll sideways */
+@media (max-width:700px){
+  table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:100%}
+  table.stack thead{display:none}
+  table.stack{border-radius:14px}
+  table.stack tr{padding:6px 0;border-bottom:1px solid var(--navy-line)}
+  table.stack tr:last-child{border-bottom:0}
+  table.stack td{border:0;padding:6px 16px}
+  table.stack td::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub-on-navy);margin-bottom:2px}
+  table.stack td:first-child::before{display:none}
+  table.stack td:first-child{padding-top:12px;font-size:17px}
+  table.tiers{min-width:540px}
+  table.costs{min-width:820px}
+  .tbl{margin-inline:-20px;padding-inline:20px}
+}
+@media (max-width:700px){
+  body{font-size:16.5px}
+  section{padding-block:48px}
+  .hero{padding-block:44px 52px}
+  .lead{font-size:18.5px}
+  .person{grid-template-columns:1fr}.person img{width:96px;height:96px}
+  .btn{width:100%}
+  .btns .btn{white-space:normal;text-align:center}
+}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 
 /* form delivery: honeypot, live status, in-flight button, failure fallback */
@@ -128,24 +244,34 @@ section:not(.dark) .fstatus.wait{color:var(--muted)}
 section:not(.dark) .fstatus.err{color:#B3261E}
 button[type=submit][disabled]{opacity:.55;cursor:progress}
 .ok .fallback{margin:12px 0 0;font-size:14px}
-.ok pre{white-space:pre-wrap;word-break:break-word;font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;
+.ok pre{white-space:pre-wrap;word-break:break-word;font:12.5px/1.5 var(--mono);
   max-height:240px;overflow:auto;background:rgba(0,0,0,.22);border-radius:8px;padding:10px;margin:8px 0 0}
-html{scroll-behavior:smooth}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+/* focus: a gold ring, with a navy inner ring so it reads on light and dark alike */
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 6px var(--gold)}
+section.dark :focus-visible,header.nav :focus-visible,footer :focus-visible{outline-color:var(--gold);box-shadow:none}
 
 /* see it working */
 .demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:start}
-.demo .pane{border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.14)}
-.demo .pane h4{margin:0 0 10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
-.demo .prompt{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;line-height:1.65;min-height:150px;white-space:pre-wrap}
-.pii{background:rgba(255,94,94,.22);border-bottom:2px solid #ff5e5e;border-radius:3px;padding:0 3px}
-.twin{background:rgba(70,200,140,.22);border-bottom:2px solid #46c88c;border-radius:3px;padding:0 3px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
-.tabs button{border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;border-radius:999px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:14px}
-.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:26px}
-.shots figure{margin:0}.shots img{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:block;background:#0b1626}
-.shots figcaption{font-size:13px;opacity:.75;margin-top:8px}
+.demo .pane{border-radius:14px;padding:18px 20px;border:1px solid var(--navy-line);background:rgba(10,45,99,.45)}
+.demo .pane.after{border-color:rgba(77,163,148,.55)}
+.demo .pane h4{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sub-on-navy)}
+.demo .pane h4 i{width:7px;height:7px;border-radius:50%;background:var(--coral)}
+.demo .pane.after h4 i{background:var(--sage)}
+.demo .prompt{font-family:var(--mono);font-size:14.5px;line-height:1.7;min-height:150px;white-space:pre-wrap;color:var(--ink-on-navy)}
+.pii{background:rgba(213,71,81,.26);border-bottom:2px solid #E2656E;border-radius:3px;padding:0 3px}
+.twin{background:rgba(77,163,148,.26);border-bottom:2px solid #5FC1AF;border-radius:3px;padding:0 3px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.tabs button{border:1px solid rgba(255,255,255,.26);background:transparent;color:inherit;border-radius:999px;padding:8px 15px;font-weight:600;cursor:pointer;font-size:14px;font-family:var(--body)}
+.tabs button:hover{border-color:rgba(255,255,255,.6)}
+/* the active tab is one of gold's allowed jobs */
+.tabs button.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:28px;align-items:start}
+.shots figure{margin:0}.shots img{width:100%;border-radius:12px;border:1px solid var(--navy-line);display:block;background:#0b1626}
+/* crops the window title bars off the desktop capture, so the panel reads by its "Protected by PrivacyPal" line */
+.shots .crop{aspect-ratio:3210/1500;overflow:hidden;border-radius:12px;border:1px solid var(--navy-line);background:#0b1626}
+.shots .crop img{height:100%;object-fit:cover;object-position:50% 100%;border:0;border-radius:0}
+.shots figcaption{font-size:13.5px;color:var(--sub-on-navy);margin-top:10px}
 .vid{margin-top:26px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
 .vid video{width:100%;display:block;background:#000}
 </style>
@@ -156,33 +282,49 @@ html{scroll-behavior:smooth}
 
 <header class="nav">
   <div class="well">
-    <div class="brand">PrivacyPal <small>Partner Program · North America</small></div>
-    <nav><ul>
+    <div class="brand"><img src="../assets/brand/logo-white.svg" alt="PrivacyPal" width="136" height="26"/><small>Partner Program · North America</small></div>
+    <div class="actions">
+      <a class="call" href="https://calendly.com/chat-sj/strategic_conversation">Book a call</a>
+      <a class="cta" href="#pilot">Start a pilot</a>
+    </div>
+    <nav aria-label="Sections"><ul>
       <li><a href="#why">Why now</a></li>
       <li><a href="#sku">The SKU</a></li>
       <li><a href="#demo">See it working</a></li>
       <li><a href="#partners">Who we're looking for</a></li>
       <li><a href="#customers">Your customers</a></li>
       <li><a href="#earn">How you earn</a></li>
+      <li><a href="#pilot">The pilot</a></li>
       <li><a href="#playbook">Playbook</a></li>
       <li><a href="#rules">Rules</a></li>
-      <li><a class="cta" href="#pilot">Start a pilot</a></li>
-    <li><a href="https://calendly.com/chat-sj/strategic_conversation" style="font-weight:700">Book a call</a></li></ul></nav>
+      <li><a href="#apply">Apply</a></li></ul></nav>
   </div>
 </header>
 
-<section class="dark" id="top">
+<section class="dark hero" id="top">
   <div class="well">
-    <p class="eyebrow">For MSPs, MSSPs, technology advisors, carriers and distributors</p>
-    <h1>Your clients are already using AI.</h1>
-    <p class="lead">How you can provide your clients security and peace of mind, without compromising the productivity and benefits AI offers?</p>
-    <p class="thesis" style="color:var(--accent);margin-top:18px">PrivacyPal.</p>
-    <p class="thesis">Use any AI. Give it nothing it can keep.</p>
-    <p class="lead muted">PrivacyPal swaps sensitive data for safe stand-ins on the device before a prompt reaches ChatGPT, Claude, Copilot, Gemini or any other AI. Your client gets the productivity. Nothing real leaves. You get a recurring line item that attaches to what you already sell.</p>
-    <div class="btns">
-      <a class="btn primary" href="https://calendly.com/chat-sj/strategic_conversation">Book a 30-minute strategic conversation</a>
-      <a class="btn ghost" href="#pilot">Or run it on your own team first</a>
+    <div>
+      <p class="eyebrow">For MSPs, MSSPs, technology advisors, carriers and distributors</p>
+      <h1>Your clients are already using AI.</h1>
+      <p class="lead">How do you give your clients security and peace of mind without giving up the productivity AI offers?</p>
+      <p class="thesis answer">PrivacyPal.</p>
+      <p class="thesis">Use any AI. Give it nothing it can keep.</p>
+      <p class="lead muted">PrivacyPal swaps sensitive data for safe stand-ins on the device before a prompt reaches ChatGPT, Claude, Copilot, Gemini or any other AI. Your client gets the productivity, and the real data never reaches the AI provider. You get a recurring line item that attaches to what you already sell.</p>
+      <div class="btns">
+        <a class="btn gold" href="https://calendly.com/chat-sj/strategic_conversation">Book a 30-minute strategic conversation</a>
+        <a class="btn ghost" href="#pilot">Or run it on your own team first</a>
+      </div>
+      <p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.6-7 10-4-1.4-7-5.4-7-10V6l7-3z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg>The same technology that protects 140+ companies and global banks.</p>
     </div>
+    <aside class="glance" aria-label="The partner deal at a glance">
+      <p class="cap">The partner deal at a glance</p>
+      <dl>
+        <div><dt>What you sell</dt><dd><b>The Max pack</b>Per seat, billed annually. PrivacyPal Cloud for sovereign deployments.</dd></div>
+        <div><dt>Retail per seat, per month</dt><dd><b>$30 falling to $17</b>The price steps down as the client's headcount grows.</dd></div>
+        <div><dt>What you earn</dt><dd><b>25% to 45% margin</b>By tier, or a 10% referral fee. Non-exclusive, no territory lock-in.</dd></div>
+        <div><dt>How you start</dt><dd><b>A 30-day partner pilot</b>On your own team first, then your first client on Max.</dd></div>
+      </dl>
+    </aside>
   </div>
 </section>
 
@@ -207,12 +349,12 @@ html{scroll-behavior:smooth}
     <h2>What you sell on Monday</h2>
     <div class="two">
       <div>
-        <h3>Two products. One governance plane.</h3>
-        <p class="muted">One agent on the device. Privacy Twins replace names, account numbers, patient identifiers, source code and IP with statistically faithful stand-ins before the prompt leaves. The AI answers normally. The real data never went anywhere. 47 PII, PHI, PCI and IP classes governed out of the box; SSO; a full audit trail your client's auditor can read.</p>
+        <h3>One platform. Two ways to deploy it.</h3>
+        <p class="muted">One agent on the device. Privacy Twins replace names, account numbers, patient identifiers, source code and IP with statistically faithful stand-ins before the prompt leaves. The AI answers normally, and the real data never reaches the AI provider. PII, PHI, PCI and IP governed out of the box; SSO; a full audit trail your client's auditor can read.</p>
         <ul class="clean muted">
-          <li><strong>PrivacyPal Max</strong>, the partner SKU: the governance layer for the whole company, 20 to 2,000 people. <strong>PrivacyPal Cloud</strong>: the sovereign version in the client's own cloud, on-prem or air-gapped, co-sold and priced per deployment.</li>
-          <li>Mac, Windows, iOS and Android. Zero-touch through Intune or Jamf Pro, or personal phones (BYOD) where only AI traffic ever enters the tunnel. SSO through Okta, Microsoft Entra ID or Google Workspace.</li>
-          <li>Every major AI: ChatGPT, Claude, Gemini, Copilot and Grok. Agents too: Claude Code, Copilot, Hermes and Private MCP. It isn't tied to one vendor's ecosystem.</li>
+          <li><strong>The Max pack</strong>, the partner SKU: PrivacyPal for the whole company, 20 to 2,000 people, switched on inside the same app every user downloads. <strong>PrivacyPal Cloud</strong>: the sovereign deployment in the client's own cloud, on-prem or air-gapped, co-sold and priced per deployment.</li>
+          <li>Mac and Windows, zero-touch through Intune or Jamf Pro. A headless Linux agent for the command-line AI agents engineers run on servers and WSL. iPhone, iPad and Android are protected today with Max: install by invitation. SSO through Okta, Microsoft Entra ID or Google Workspace.</li>
+          <li>Every major AI: ChatGPT, Claude, Gemini, Copilot, Grok and Perplexity. Agents too: Claude Code, Codex, Copilot agents, Hermes Agent and Private MCP. It works across vendors, so the client's choice of AI stays open.</li>
           <li>Policies, shadow-AI discovery and on-device DSPM, plus Private Memory: one governed memory across every AI.</li>
           <li>Multi-tenant console so you manage every client from one place.</li>
           <li>Per-user AI usage and spend visibility: a second buyer (the CFO) off the same agent.</li>
@@ -222,11 +364,11 @@ html{scroll-behavior:smooth}
         <h3>Where it attaches</h3>
         <ul class="clean">
           <li><strong>Security practice</strong> (MSP, MSSP, vCISO): next to EDR, email security and awareness training, as "AI data protection."</li>
-          <li><strong>Mobility line</strong> (carrier, managed mobility, TEM): per line, next to MDM and mobile threat defense.</li>
+          <li><strong>Mobility line</strong> (carrier, managed mobility, TEM): per line, next to MDM and mobile threat defense. Max protects iPhone, iPad and Android today, installed by invitation.</li>
           <li><strong>Supplier list</strong> (TSD, advisor): a security supplier with a managed-delivery option and residuals.</li>
           <li><strong>Line card</strong> (distributor): an AI-security ISV with multi-tenancy, APIs and monthly billing.</li>
         </ul>
-        <p class="small" style="margin-top:12px">You sell Max and Cloud. Pro is free for one individual and isn't in the partner catalog: hand it to the champion as your demo, because the second user on the domain is a Max sale. PrivacyPal Family ($9.99 a month, up to five family members) is bundled by carriers, banks and device makers under a co-branded agreement; see the <a href="/family/">Family program</a>. What it is not: blocking. Discovery tools tell the client what leaked. This lets the client use AI and keeps the data home.</p>
+        <p class="small" style="margin-top:12px">You sell the Max pack and PrivacyPal Cloud. Personal is free for any individual and sits outside the partner catalog: hand it to the champion as your demo, because the second user on the domain is a Max sale. Staff already on Personal or a Family pack join the client's Max account by invite, under the licenses the client provisions, and a Family pack stacks with the company seat. The Family pack ($9.99 a month per household, up to five family members) is bundled by carriers, banks and device makers under a co-branded agreement; see the <a href="/family/">Family program</a>. Protected today on iPhone, iPad and Android with Family or Max. Install by invitation. Discovery tools tell the client what leaked. PrivacyPal lets the client use AI, and the sensitive data never reaches the AI provider.</p>
       </div>
     </div>
   </div>
@@ -242,12 +384,12 @@ html{scroll-behavior:smooth}
       <button class="on" data-k="bank">Wealth advisor</button><button data-k="clinic">Clinic</button><button data-k="law">Law firm</button><button data-k="msp">Your own help desk</button>
     </div>
     <div class="demo">
-      <div class="pane"><h4>Typed by the employee</h4><div class="prompt" id="demoBefore"></div></div>
-      <div class="pane"><h4>Sent to the AI</h4><div class="prompt" id="demoAfter"></div></div>
+      <div class="pane"><h4><i></i>Typed by the employee</h4><div class="prompt" id="demoBefore"></div></div>
+      <div class="pane after"><h4><i></i>Sent to the AI</h4><div class="prompt" id="demoAfter"></div></div>
     </div>
-    <p class="small muted" style="margin-top:10px">Illustrative text. Privacy Twins are statistically faithful stand-ins, so the AI's answer stays useful; 47 classes of PII, PHI, PCI and IP are governed by default and your policy decides the rest.</p>
+    <p class="small muted" style="margin-top:12px">Illustrative text. Privacy Twins are statistically faithful stand-ins, so the AI's answer stays useful; PII, PHI, PCI and IP are governed by default and your policy decides the rest.</p>
     <div class="shots">
-      <figure><img loading="lazy" src="../family/assets/product/privacypal-desktop-claude-example.png" alt="PrivacyPal protecting a live Claude chat" onerror="this.parentNode.style.display='none'"><figcaption>Shipping product: protection running inside a live Claude chat.</figcaption></figure>
+      <figure><div class="crop"><img loading="lazy" src="../family/assets/product/privacypal-desktop-claude-example.png" alt="PrivacyPal protecting a live Claude chat" onerror="this.closest('figure').style.display='none'"></div><figcaption>Shipping product: protection running inside a live Claude chat.</figcaption></figure>
       <figure><img loading="lazy" src="../family/assets/product/activity-feed-wide.png" alt="PrivacyPal realtime activity feed" onerror="this.parentNode.style.display='none'"><figcaption>Shipping product: the realtime activity feed. Every protected prompt, across Claude Code, Claude and ChatGPT, in one audit trail.</figcaption></figure>
     </div>
     <div class="btns" style="margin-top:22px"><a class="btn primary" href="https://calendly.com/chat-sj/strategic_conversation">See it live on your own data: book 30 minutes</a></div>
@@ -279,7 +421,7 @@ show('bank');
     <h2>Partners who already sell security, mobility or managed services to regulated clients</h2>
     <div class="grid g3">
       <div class="card"><h3>Security practices</h3><p>MSPs, MSSPs, vCISO and compliance firms with clients in banking, healthcare, legal, accounting or technology. You already run the AI acceptable-use policy; this is what enforces it.</p></div>
-      <div class="card"><h3>Mobility and carriers</h3><p>Carriers, managed mobility and TEM providers with business lines under management. Per-line attach next to MDM and mobile threat defense.</p></div>
+      <div class="card"><h3>Mobility and carriers</h3><p>Carriers, managed mobility and TEM providers with business lines under management. Max protects iPhone, iPad and Android today, installed by invitation: a per-line attach next to MDM and mobile threat defense.</p></div>
       <div class="card"><h3>Advisors, TSDs and distribution</h3><p>Technology advisors with a security supplier portfolio, and distributors and marketplaces onboarding AI-security vendors.</p></div>
     </div>
     <p class="small muted" style="margin-top:14px">If you sell to regulated clients and your name isn't on this list, apply anyway. We'd rather hear from you.</p>
@@ -291,13 +433,13 @@ show('bank');
     <p class="eyebrow">Your customers</p>
     <h2>Who buys, what they're measured on, and the sentence that opens the door</h2>
     <p class="muted">Ideal customer: a regulated or data-sensitive business of 20 to 2,000 people whose staff already use AI. Banking and lending, healthcare, law, accounting and tax, insurance agencies, technology firms with IP to protect. The trigger is usually one of four: a Copilot rollout, a cyber-insurance renewal with AI questions on it, an exam or audit finding, or a BYOD policy that never covered AI.</p>
-    <div class="tbl"><table>
+    <div class="tbl"><table class="stack">
       <thead><tr><th>Buyer</th><th>Measured on</th><th>The opening line</th><th>What they buy</th></tr></thead>
       <tbody>
-        <tr><td><strong>CISO / IT lead</strong></td><td>Incidents, audit findings, tool sprawl</td><td>"Your people are already using AI. Want to see what left the building last month, and then make it stop without blocking them?"</td><td>Protection that doesn't create a help-desk ticket</td></tr>
-        <tr><td><strong>CFO / COO</strong></td><td>AI spend, insurance premium, productivity</td><td>"You're paying for Copilot and ChatGPT seats and you can't see who uses what. We can show per-user AI usage and protect the data in the same agent."</td><td>Visibility, a defensible answer on the insurance form</td></tr>
-        <tr><td><strong>Compliance / General Counsel</strong></td><td>Regulator findings, privilege, client confidentiality</td><td>"Documents your team puts into a consumer AI tool aren't privileged. Here's how your people keep using it without that exposure."</td><td>A control that maps to the regulator's sentence</td></tr>
-        <tr><td><strong>Practice / operations leader</strong></td><td>Throughput, staff retention, the ban they hate</td><td>"Your staff wants the productivity. We can give them a yes instead of a policy they ignore."</td><td>The end of the shadow-AI argument</td></tr>
+        <tr><td data-label="Buyer"><strong>CISO / IT lead</strong></td><td data-label="Measured on">Incidents, audit findings, tool sprawl</td><td data-label="The opening line">"Your people are already using AI. Want to see what left the building last month, and then make it stop without blocking them?"</td><td data-label="What they buy">Protection that doesn't create a help-desk ticket</td></tr>
+        <tr><td data-label="Buyer"><strong>CFO / COO</strong></td><td data-label="Measured on">AI spend, insurance premium, productivity</td><td data-label="The opening line">"You're paying for Copilot and ChatGPT seats and you can't see who uses what. We can show per-user AI usage and protect the data in the same agent."</td><td data-label="What they buy">Visibility, a defensible answer on the insurance form</td></tr>
+        <tr><td data-label="Buyer"><strong>Compliance / General Counsel</strong></td><td data-label="Measured on">Regulator findings, privilege, client confidentiality</td><td data-label="The opening line">"Documents your team puts into a consumer AI tool aren't privileged. Here's how your people keep using it without that exposure."</td><td data-label="What they buy">A control that maps to the regulator's sentence</td></tr>
+        <tr><td data-label="Buyer"><strong>Practice / operations leader</strong></td><td data-label="Measured on">Throughput, staff retention, the ban they hate</td><td data-label="The opening line">"Your staff wants the productivity. We can give them a yes instead of a policy they ignore."</td><td data-label="What they buy">The end of the shadow-AI argument</td></tr>
       </tbody>
     </table></div>
     <div class="grid g3" style="margin-top:18px">
@@ -314,8 +456,8 @@ show('bank');
     <h2>A per-seat subscription you keep, plus the services around it</h2>
     <div class="two">
       <div>
-        <p>Buy at retail minus your margin. Sell at retail. Own the customer. Max is priced per seat per month and billed annually, with the per-seat price falling as the client's headcount grows: $30 (1–9 seats), $25 (10–99), $21 (100–999) and $17 (1,000+). The whole order prices at one band, and a customer that grows reprices down automatically at renewal.</p>
-        <div style="overflow-x:auto"><table>
+        <p>Buy at retail minus your margin. Sell at retail. Own the customer. The Max pack is priced per seat per month and billed annually, with the per-seat price falling as the client's headcount grows: $30 (1–9 seats), $25 (10–99), $21 (100–999) and $17 (1,000+). The whole order prices at one band, and a customer that grows reprices down automatically at renewal.</p>
+        <div class="tbl"><table class="tiers">
           <thead><tr><th>Tier</th><th>Annual target</th><th>You earn</th><th>Certification</th></tr></thead>
           <tbody>
             <tr><td><strong>Referral</strong></td><td>None</td><td>10% referral fee</td><td>Basic onboarding</td></tr>
@@ -332,22 +474,22 @@ show('bank');
         <h3>Illustration at list price, not a forecast</h3>
         <p class="small">Twenty clients added over twelve months, 50 seats each at the 10–99 band. Subscription revenue at list before your margin and before services.</p>
         <svg class="chart" viewBox="0 0 520 240" role="img" aria-label="Cumulative annual subscription at list price grows from $15,000 with one client to $300,000 with twenty clients">
-          <g font-family="Source Sans 3, sans-serif" font-size="12" fill="currentColor">
+          <g font-family="Overused Grotesk, system-ui, sans-serif" font-size="12.5" fill="currentColor">
             <line x1="50" y1="200" x2="500" y2="200" stroke="currentColor" stroke-opacity=".3"/>
             <line x1="50" y1="20" x2="50" y2="200" stroke="currentColor" stroke-opacity=".3"/>
             <text x="8" y="24">$300K</text><text x="8" y="114">$150K</text><text x="22" y="204">$0</text>
             <text x="50" y="222">Month 1</text><text x="455" y="222">Month 12</text>
-            <polyline fill="none" stroke="#1E9E8A" stroke-width="3" points="50,191 88,177 125,162 162,148 200,134 238,120 275,106 312,91 350,77 388,63 425,48 462,34 500,20"/>
-            <circle cx="500" cy="20" r="5" fill="#1E9E8A"/><text x="395" y="44">20 clients · $300K ARR</text>
-            <circle cx="50" cy="191" r="5" fill="#1E9E8A"/><text x="58" y="186">1 client · $15K</text>
+            <polyline fill="none" stroke="#028391" stroke-width="3" stroke-linejoin="round" points="50,191 88,177 125,162 162,148 200,134 238,120 275,106 312,91 350,77 388,63 425,48 462,34 500,20"/>
+            <circle cx="500" cy="20" r="6" fill="#ffac33" stroke="#01204E" stroke-width="1.5"/><text x="482" y="22" text-anchor="end" font-weight="600">20 clients · $300K ARR</text>
+            <circle cx="50" cy="191" r="5" fill="#028391"/><text x="98" y="195">1 client · $15K</text>
           </g>
         </svg>
         <p class="small">Each client renews. Each added client stacks. Services and the managed line sit on top.</p>
       </div>
     </div>
-    <h3 style="margin-top:28px">Your cost per Max seat, billed annually</h3>
-    <div style="overflow-x:auto">
-    <table>
+    <h3 style="margin-top:32px">Your cost per Max seat, billed annually</h3>
+    <div class="tbl">
+    <table class="costs">
       <thead><tr><th>Max band</th><th>Retail</th><th>Referral fee (10%)</th><th>Silver cost (25% off)</th><th>Gold cost (35% off)</th><th>Platinum cost (45% off)</th></tr></thead>
       <tbody>
         <tr><td><strong>1–9 seats</strong></td><td>$30/mo · $360/yr</td><td>$3.00/mo</td><td>$22.50/mo · keep $90/yr</td><td>$19.50/mo · keep $126/yr</td><td>$16.50/mo · keep $162/yr</td></tr>
@@ -367,9 +509,9 @@ show('bank');
     <h2>Protect your own team first. Then sell it.</h2>
     <div class="two">
       <div class="steps">
-        <div class="step"><div class="n">1</div><div><h3>Tonight: Pro on one laptop</h3><p class="muted">Any technician installs Pro for free, no card, no paperwork, and watches what it substitutes in their own ChatGPT or Copilot session. Ten minutes.</p></div></div>
-        <div class="step"><div class="n">2</div><div><h3>Week 1: Max on your domain</h3><p class="muted">NFR seats, or a company-wide evaluation code, for your own staff on corporate-managed machines, pushed through Intune or Jamf Pro. Your engineers see what their team pastes into public AI every day. That's the moment the SKU sells itself.</p></div></div>
-        <div class="step"><div class="n">3</div><div><h3>Weeks 2–4: policy, reports, one client</h3><p class="muted">Set the policy by user group and use case, pull the audit report, and take one client through the same path. A PrivacyPal engineer or AE joins your first client calls.</p></div></div>
+        <div class="step"><div class="n">1</div><div><h3>Tonight: PrivacyPal on one laptop</h3><p class="muted">Any technician downloads PrivacyPal free (Personal: no card, no paperwork) and watches what it substitutes in their own ChatGPT or Claude session. Ten minutes.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Week 1: a demo, then Max on your domain</h3><p class="muted"><a href="https://calendly.com/chat-sj/strategic_conversation">Book a demo</a> and a PrivacyPal engineer walks your team through the console. Then your partner NFR seats go on your own staff's corporate-managed machines, pushed through Intune or Jamf Pro. Your engineers see what their team pastes into public AI every day. That's the moment the SKU sells itself.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Weeks 2–4: policy, reports, your first client</h3><p class="muted">Set the policy by user group and use case and pull the audit report. Then bring one client to a demo: their regulated team starts on Max, paid from day one at the published band price. A PrivacyPal engineer or AE joins your first client calls, and a larger rollout goes to our sales team with you.</p></div></div>
         <div class="step"><div class="n">4</div><div><h3>Day 30: sign, register, go</h3><p class="muted">Partner agreement signed, first opportunities registered, enablement kit in hand. Pay follows what the channel produces.</p></div></div>
       </div>
       <div class="card">
@@ -413,8 +555,8 @@ show('bank');
     <div class="two">
       <div class="steps">
         <div class="step"><div class="n">1</div><div><h3>Pick ten accounts by trigger, not by size</h3><p>Clients with a Copilot or ChatGPT rollout, a cyber-insurance renewal in the next 90 days, a recent audit or exam, or a BYOD policy written before AI. Regulated first: banking, healthcare, legal, accounting.</p></div></div>
-        <div class="step"><div class="n">2</div><div><h3>Ask three questions in the next QBR</h3><p>"Which AI tools are your people using today?" "What's your current answer on the insurance form about AI?" "If I could show you what left the building last month, would you want to see it?" The third question is the pilot.</p></div></div>
-        <div class="step"><div class="n">3</div><div><h3>Offer the 30-day pilot on their regulated team</h3><p>Fifteen to twenty percent of staff, the ones who touch client data. Same path you ran on your own team. The audit report at day 14 is the close.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Ask three questions in the next QBR</h3><p>"Which AI tools are your people using today?" "What's your current answer on the insurance form about AI?" "If I could show you what left the building last month, would you want to see it?" The third question is the demo.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Book the demo, then start their regulated team on Max</h3><p>Fifteen to twenty percent of staff, the ones who touch client data, on Max from day one at the band price. The same deployment you ran on your own team. The audit report at day 14 makes the case for the rest of the firm.</p></div></div>
         <div class="step"><div class="n">4</div><div><h3>Price it as a managed line, not a license</h3><p>Seats at partner margin plus your monthly AI-governance service: policy by user group, quarterly report, AI spend attribution, insurance-renewal support. The license is the floor; the service is the margin.</p></div></div>
         <div class="step"><div class="n">5</div><div><h3>Register, close, renew</h3><p>Register the opportunity under your partner record on day one. Signed in weeks. Renews annually. Expand to the next department at the next QBR.</p></div></div>
       </div>
@@ -423,14 +565,14 @@ show('bank');
           <h3>Messages you can send this week</h3>
           <p class="small">Each one in the client's language, not ours. Change the vertical sentence to match the account.</p>
           <p class="quote">Email, line one: "Your team is using AI whether we've approved it or not. I can show you, by user and by tool, what's gone out in the last 30 days, and then make it stop without blocking anyone. 20 minutes?"</p>
-          <p class="quote">LinkedIn post: "Banned AI at your firm? Your people didn't stop. They moved to their phones. There's a way to let them use it and keep client data home. Ask me how we're doing it for our clients."</p>
+          <p class="quote">LinkedIn post: "Banned AI at your firm? Your people didn't stop. They moved to their phones. There's a way to let them use it without client data ever reaching the AI provider. Ask me how we're doing it for our clients."</p>
           <p class="quote">QBR slide, one line: "AI data protection: the line item your insurer, your examiner and your staff are all asking for."</p>
         </div>
         <div class="card">
           <h3>When they push back</h3>
           <ul class="clean">
-            <li><strong>"Purview does this."</strong> Purview inspects and blocks inside the Microsoft estate. This substitutes, so the AI still works, and it covers every AI tool and the phone. Run them together.</li>
-            <li><strong>"We blocked AI."</strong> Then it moved to personal accounts and personal phones. The pilot report will show it.</li>
+            <li><strong>"Purview does this."</strong> Purview inspects and blocks inside the Microsoft estate. This substitutes, so the AI still works, and it covers the AI tools outside Microsoft too. Run them together.</li>
+            <li><strong>"We blocked AI."</strong> Then it moved to personal accounts. The first audit report will show it.</li>
             <li><strong>"We're too small."</strong> Start with ten seats for the people who touch client data. That's the whole point of targeted population.</li>
             <li><strong>"What about SOC 2 and security review?"</strong> Ask us for the security packet; we send it the same day.</li>
           </ul>
@@ -446,7 +588,7 @@ show('bank');
     <h2>Everything a partner needs to sell, deploy and renew</h2>
     <div class="grid g3">
       <div class="card"><h3>Sell</h3><ul class="clean muted"><li>Onboarding: one session for your sellers on the product, the demo, the portal and the price book</li><li>Sales playbooks: discovery, objections, the three-minute demo, the pricing talk</li><li>90 days of ready-to-send messaging in your name, and LinkedIn posts written and designed for your page and your sellers</li><li>Customer deck by vertical with the regulator sentence up top</li></ul></div>
-      <div class="card"><h3>Deploy</h3><ul class="clean muted"><li>NFR seats for demos, training, pre-sales testing and support</li><li>Intune and Jamf Pro profiles: certificate, VPN, restrictions, app config; Apple Business Manager Custom Apps</li><li>Deal assistance: a PrivacyPal engineer or AE on your first calls and every registered deal</li><li>Security packet for client reviews</li></ul></div>
+      <div class="card"><h3>Deploy</h3><ul class="clean muted"><li>NFR seats for demos, training, pre-sales testing and support</li><li>Intune and Jamf Pro deployment profiles, and Apple Business Manager Custom Apps</li><li>Deal assistance: a PrivacyPal engineer or AE on your first calls and every registered deal</li><li>Security packet for client reviews</li></ul></div>
       <div class="card"><h3>Renew</h3><ul class="clean muted"><li>A portal scoped to your book: users, usage, billing, forecasting</li><li>One management plane: block models, gate access, intercept prompts, find shadow AI</li><li>Quarterly review template for the managed line</li><li>MDF and SPIFs under the Channel Program Guidelines; trademark and brand license included</li></ul></div>
     </div>
   </div>
@@ -514,6 +656,10 @@ show('bank');
   <div class="well">
     <div>PrivacyPal Partner Program · North America · <a href="https://privacypal.ai" style="color:inherit">privacypal.ai</a></div>
     <div>Retail as published at privacypal.ai/pricing. Partner costs rounded to the cent; illustrations only. Margins, targets, commitment levels, certification, deal registration and payment terms per the Master Partner &amp; Reseller Agreement, which governs.</div>
+    <!-- The logo mark is the Twemoji penguin, used unaltered under CC BY 4.0,
+         which requires this credit. assets/v3.js carries the same line in the
+         site footer; this page does not load v3.js, so it carries its own. -->
+    <p class="credit">Penguin emoji graphic from <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, &copy; Twitter, Inc. and other contributors, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
   </div>
 </footer>
 
@@ -633,14 +779,14 @@ show('bank');
     });
   }
 
-  /* Fire both, wait for both, report honestly. Resolves even on total
+  /* Fire both, wait for both, report what really happened. Resolves even on total
      failure: the caller decides what to tell the partner. */
   function deliver(rec) {
     try { w.localStorage.setItem('pp_partner_last_payload', rec.text); } catch (e) {}
 
     if (sendMode() === 'dry') {
       console.log('%c[Partner Program] DRY RUN, nothing was sent',
-                  'background:#0E1A33;color:#1E9E8A;padding:3px 8px;border-radius:4px');
+                  'background:#01204E;color:#7FD3DB;padding:3px 8px;border-radius:4px');
       console.log('To: ' + TO + '\nSubject: ' + rec.subject + '\n\n' + rec.text);
       return new Promise(function (res) {
         setTimeout(function () {
@@ -727,7 +873,7 @@ show('bank');
   function succeed(ui, rec, res) {
     var who = (rec.fields['Name'] ? rec.fields['Name'] + ' at ' : '') +
               (rec.fields['Company'] || 'your firm');
-    ui.msg.textContent = who + ' - ' + ui.label + '.';
+    ui.msg.textContent = who + ': ' + ui.label + '.';
     ui.form.hidden = true;
     ui.ok.classList.add('show');
 
@@ -815,7 +961,7 @@ show('bank');
     console.log('%c[Partner Program] ' + sendMode().toUpperCase() +
                 ' - forms ' + (sendMode() === 'dry' ? 'will NOT send' : 'WILL send') +
                 '. Toggle with ?live=1 or ?dry=1',
-                'background:#0E1A33;color:#D98C2B;padding:3px 8px;border-radius:4px');
+                'background:#01204E;color:#ffac33;padding:3px 8px;border-radius:4px');
   }
 })(window, document);
 </script>

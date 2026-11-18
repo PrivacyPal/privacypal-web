@@ -4,8 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Healthcare: HIPAA-aligned AI governance · PrivacyPal</title>
-<meta name="description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting, PrivacyPal keeps PHI on-device, no BAA-roulette with public LLMs." />
-<link rel="icon" href="assets/favicon.ico"/>
+<meta name="description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting, PrivacyPal swaps PHI on the device, so it never reaches the AI provider." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,17 +17,21 @@
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/healthcare.html" />
 <meta property="og:title" content="Healthcare: HIPAA-aligned AI governance · PrivacyPal" />
-<meta property="og:description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting, PrivacyPal keeps PHI on-device, no BAA-roulette with public LLMs." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting, PrivacyPal swaps PHI on the device, so it never reaches the AI provider." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Healthcare: HIPAA-aligned AI governance · PrivacyPal" />
-<meta name="twitter:description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting, PrivacyPal keeps PHI on-device, no BAA-roulette with public LLMs." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:description" content="The HIPAA-aligned governance &amp; enablement layer for AI in healthcare. From ambient note-taking to prior-auth drafting, PrivacyPal swaps PHI on the device, so it never reaches the AI provider." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <style>
 .hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-split h1{max-width:15ch}
 .hero-media{background:var(--panel);border-radius:var(--r-lg);padding:16px}
 .hero-media img{display:block;width:100%;border-radius:var(--r-md);border:1px solid var(--line)}
+.pack-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.nw{white-space:nowrap}
 .twin-note{margin-top:20px;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 @media (max-width:920px){.hero-split{grid-template-columns:1fr;gap:32px}}
 </style>
@@ -44,11 +51,11 @@
   <div class="container">
     <div class="hero-split">
       <div class="reveal">
-        <span class="eyebrow blue">For healthcare</span>
+        <span class="eyebrow gold">For healthcare</span>
         <h1>Govern AI in the clinic. Keep PHI at home.</h1>
-        <p class="lede">A six-provider practice or a 900-person multi-site group: PrivacyPal is the HIPAA-aligned on-device governance layer between your staff and every AI tool they already want to use. Ambient note-taking, prior-auth drafting, ChatGPT, Claude, Copilot, Grok, Claude Code. PHI never leaves the device. No BAA-roulette. No clinician friction. No IT department required. Compliance, by construction.</p>
+        <p class="lede">A six-provider practice or a 900-person multi-site group: PrivacyPal is the HIPAA-aligned on-device governance layer between your staff and every AI tool they already want to use. Ambient note-taking, prior-auth drafting, ChatGPT, Claude, Copilot, Grok, Claude Code. PHI never reaches the AI provider. No clinician friction. No IT department required.</p>
         <div class="btn-row">
-          <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Pro free</a>
+          <a class="btn btn-primary btn-lg" href="download.html" data-cta="download">Download free</a>
           <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
         </div>
       </div>
@@ -89,7 +96,7 @@
       <span class="pill">MRN · §164.514(b)(8)</span>
       <span class="pill">Date · §164.514(b)(3)</span>
     </div>
-    <p class="twin-note reveal">Clinical context intact · zero PHI on the wire · mapping held on-device · no BAA with OpenAI</p>
+    <p class="twin-note reveal">Clinical context intact · zero PHI on the wire · mapping held on-device</p>
   </div>
 </section>
 
@@ -104,7 +111,7 @@
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg></div>
         <h4>Ambient documentation</h4>
-        <p>Let clinicians use Abridge, Nuance DAX or ChatGPT for note generation. PHI stays inside your Epic tenancy.</p>
+        <p>Let clinicians use Abridge, Nuance DAX or ChatGPT for note generation. Names, MRNs and dates reach the model only as twins.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico grad-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 14l2 2 4-4"/></svg></div>
@@ -125,23 +132,13 @@
   </div>
 </section>
 
-<!-- ================= QUOTE ================= -->
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="bigquote reveal">
-      <blockquote>Our clinicians were going to use AI either way. PrivacyPal made it <b>a compliance story instead of a crisis</b>.</blockquote>
-      <div class="who">Chief Medical Information Officer, 14-hospital IDN</div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= COMPLIANCE POSTURE ================= -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Compliance posture</span>
-      <h2>Compliance, by construction</h2>
-      <p class="lede">Because PHI never reaches the LLM, you don't need a BAA with OpenAI, Anthropic or Google. Your existing covered-entity contracts already cover PrivacyPal: we sign a BAA, nobody downstream needs to.</p>
+      <h2>HIPAA-aligned, <span class="mark-gold">on the device</span></h2>
+      <p class="lede">Because PHI is swapped on the device, OpenAI, Anthropic and Google receive Privacy Twins, never the real PHI. Your clinicians keep the AI, and your compliance team keeps the evidence.</p>
       <div class="pill-row" style="justify-content:center;margin-top:24px">
         <span class="pill">HIPAA</span>
         <span class="pill">HITECH</span>
@@ -161,9 +158,9 @@
         <p>Every prompt, every swap, every model call: logged with user, patient context, and timestamp.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
-        <h4>SOC 2 Type II</h4>
-        <p>Annual audits. Penetration tests. Named security contact. The paperwork you need for risk review.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9.5 10l1.8 1.8 3.4-3.6"/></svg></div>
+        <h4>Protection on the device</h4>
+        <p>Patent-pending Privacy Twins replace PHI before a prompt or file reaches an AI provider. The real values return to the answer on the clinician's own device.</p>
       </div>
     </div>
   </div>
@@ -174,9 +171,10 @@
   <div class="container">
     <div class="panel reveal" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:space-between">
       <div style="max-width:600px">
-        <span class="eyebrow pink">Which plan</span>
-        <h3 style="margin-top:12px">Practices and groups run PrivacyPal Max</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Max covers everyone who touches a chart: attach your domain, provision clinicians, front desk and billing centrally, and hold one PHI policy across every site. $30 per seat a month at 1 to 9 seats, $25 at 10, $21 at 100, billed annually. A single practitioner covering only themselves runs Pro, which is completely free for individuals. Health systems with a data-residency mandate run Cloud in their own VPC.</p>
+        <span class="eyebrow gold">Which pack</span>
+        <h3 style="margin-top:12px">Practices and groups run Max</h3>
+        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Max covers everyone who touches a chart: attach your domain, provision clinicians, front desk and billing centrally, and hold one PHI policy across every site. $34 per user a month, or $30 billed annually, at <span class="nw">1&ndash;9 users</span>; $25 at 10 users and $21 at 100, billed annually. Staff already on Personal or the Family pack join the practice's Max account under a license you provision. A single practitioner covering only themselves starts on Personal, free for every individual. Health systems with a data-residency mandate deploy PrivacyPal Cloud in their own VPC.</p>
+        <div class="pack-chips"><span class="pack-chip business">Max · $34/user/mo</span><span class="pack-chip personal">Personal · Free</span></div>
       </div>
       <div class="btn-row">
         <a class="btn btn-primary" href="privacypal-max.html">Explore Max</a>
@@ -192,10 +190,10 @@
     <div class="cta-banner dark reveal">
       <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For healthcare</span>
       <h2 style="margin-top:14px">Safer AI at the bedside. And everywhere else.</h2>
-      <p>Talk to a solution architect who's been on the hospital side of this conversation.</p>
+      <p>Talk to a solution architect about your clinical workflows, your sites and your compliance program.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a healthcare demo</a>
-        <a class="btn btn-ghost btn-lg" href="#" data-cta="download">Get Pro free</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="demo">Book a healthcare demo</a>
+        <a class="btn btn-ghost btn-lg" href="download.html" data-cta="download">Download free</a>
       </div>
     </div>
   </div>

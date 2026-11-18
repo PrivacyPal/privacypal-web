@@ -16,7 +16,10 @@
 <title>You're in: next step · PrivacyPal</title>
 <meta name="description" content="You're one step from private AI. Here's what happens next." />
 <meta name="robots" content="noindex" /> <!-- funnel step: keep out of search -->
-<link rel="icon" href="assets/favicon.ico"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -29,10 +32,12 @@
 .fn-steps .st.now{color:var(--ink)}
 .fn-steps .dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;border:1px solid var(--line);background:var(--panel)}
 .fn-steps .st.done .dot{background:var(--ink);color:#fff;border-color:var(--ink)}
-.fn-steps .st.now .dot{border-color:var(--ink)}
+.fn-steps .st.now .dot{border-color:var(--gold);background:var(--gold-tint);box-shadow:0 0 0 3px var(--gold-tint)}
 .fn-steps .bar{width:56px;height:1px;background:var(--line)}
-.fn-check{width:64px;height:64px;border-radius:50%;background:#dcf5e7;border:1px solid #b6e8cd;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:#0d6b3d}
-.fn-check svg{width:30px;height:30px}
+.fn-guide{position:relative;width:104px;height:104px;margin:0 auto 18px}
+.fn-guide img{width:104px;height:104px}
+.fn-guide .fn-check{position:absolute;right:-24px;bottom:2px;width:32px;height:32px;border-radius:50%;background:var(--sage);border:3px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 6px rgba(1,32,78,.18)}
+.fn-guide .fn-check svg{width:15px;height:15px}
 .fn-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px}
 .fn-badge svg{width:13px;height:13px}
 .fn-wrap h1{font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.02em;max-width:22ch;margin:0 auto}
@@ -58,7 +63,11 @@
 <meta property="og:url" content="https://privacypal.ai/funnel-thanks.html" />
 <meta property="og:title" content="You're in: next step · PrivacyPal" />
 <meta property="og:description" content="You're one step from private AI. Here's what happens next." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -81,8 +90,9 @@
       <div class="st now"><span class="dot">2</span><span class="lbl" id="fnStepLbl">Finish setup</span></div>
     </div>
 
-    <div class="fn-check">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    <div class="fn-guide" aria-hidden="true">
+      <img src="assets/brand/penguin-guide.svg" alt="" width="104" height="104"/>
+      <span class="fn-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
     </div>
 
     <span class="fn-badge" id="fnBadge">
@@ -91,15 +101,15 @@
     </span>
 
     <h1 id="fnTitle">You're one step from <em>private AI.</em></h1>
-    <p class="fn-lede" id="fnLede">Nice move. While you're here, lock in the other half of the setup. It takes about a minute.</p>
+    <p class="fn-lede" id="fnLede">Nice move. While you're here, lock in the other half of the setup. It takes a few minutes.</p>
 
     <!-- next-step choices (the "feat" one is emphasized by JS depending on path) -->
     <div class="fn-choices">
       <div class="fn-choice feat" id="fnCardDownload">
         <div class="k">Do this now</div>
-        <h3>Install PrivacyPal</h3>
-        <p>Drop it on your Mac or PC, sign in, and your AI guardrails are live everywhere: no configuration.</p>
-        <a class="btn btn-primary" href="#" data-cta="download">Install now</a>
+        <h3>Download PrivacyPal</h3>
+        <p>Drop it on your Mac or PC, sign in, and protection is live on that computer, with nothing to configure.</p>
+        <a class="btn btn-primary" href="download.html" data-cta="download">Download free</a>
       </div>
       <div class="fn-choice" id="fnCardDemo">
         <div class="k">15 minutes</div>
@@ -121,7 +131,7 @@
       </a>
       <a class="fn-res" href="pricing.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-        <div><h5>Compare plans</h5><p>Pro, Max &amp; Cloud. Pick the right fit.</p></div>
+        <div><h5>Compare packs</h5><p>Personal is free. Add Family or Max when you need them.</p></div>
       </a>
     </div>
   </div>
@@ -148,7 +158,7 @@
     badgeEl.textContent = 'Demo booked';
     stepLbl.textContent = 'While you wait';
     titleEl.innerHTML = "You're booked. <em>Now get protected today.</em>";
-    ledeEl.textContent = "Your walkthrough is on the calendar. No reason to wait. Install PrivacyPal now and you'll walk into the call already protected.";
+    ledeEl.textContent = "Your walkthrough is on the calendar. No reason to wait. Download PrivacyPal now and you'll walk into the call already protected.";
     plain(cardDemo); feature(cardDl);
     cardDl.querySelector('.k').textContent = "Don't wait for the call";
     cardDemo.querySelector('.k').textContent = "Already done";
@@ -159,11 +169,11 @@
     badgeEl.textContent = 'Download started';
     stepLbl.textContent = 'Activate';
     titleEl.innerHTML = "It's installing. <em>Let's make it count.</em>";
-    ledeEl.textContent = "Open the installer, sign in, and you're protected everywhere. Want a hand rolling it out to a team? Book 15 minutes.";
+    ledeEl.textContent = "Open the installer, sign in, and protection is live on that computer. Want a hand rolling it out to a team? Book 15 minutes.";
     plain(cardDl); feature(cardDemo);
     cardDl.querySelector('.k').textContent = "In progress";
     cardDl.querySelector('h3').textContent = "Finish installing";
-    cardDl.querySelector('p').textContent = "Didn't start? Grab the Mac or Windows build again; it's signed & notarized.";
+    cardDl.querySelector('p').textContent = "Didn't start? Open the download again and pick your device. The Mac build is notarized by Apple, and the Windows installer comes from a trusted publisher.";
     cardDl.querySelector('.btn').textContent = "Get the installer";
     cardDemo.querySelector('.k').textContent = "Roll it out";
   }

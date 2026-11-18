@@ -12,7 +12,11 @@
     "start": "node scripts/serve.js",
     "rss": "node scripts/generate-rss.js",
     "test": "node --test scripts/test-referral.js",
-    "test:referral": "node --test scripts/test-referral.js"
+    "test:referral": "node --test scripts/test-referral.js",
+    "brand": "node scripts/brand/build-brand.js && node scripts/brand/legacy-logos.js",
+    "brand:og": "node scripts/brand/build-og.js",
+    "brand:collateral": "node scripts/brand/build-collateral.js",
+    "brand:all": "node scripts/brand/build-brand.js && node scripts/brand/build-og.js && node scripts/brand/build-collateral.js && node scripts/generate-partner-pdf.js && node scripts/brand/legacy-logos.js"
   },
   "dependencies": {
     "puppeteer": "^21.5.0",

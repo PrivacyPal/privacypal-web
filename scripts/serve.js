@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /* =========================================================
-   PrivacyPal — local dev server (zero dependencies)
+   PrivacyPal: local dev server (zero dependencies)
    Serves the static site over HTTP so pages that fetch()
-   JSON (the Privacy Log, Newsroom, etc.) work locally —
+   JSON (the Privacy Log, Newsroom, etc.) work locally;
    opening the .html files as file:// will NOT work.
 
      npm run serve            # http://localhost:8000

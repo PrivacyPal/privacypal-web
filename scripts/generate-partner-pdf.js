@@ -11,9 +11,18 @@
  * printing uses margin:0. printBackground is on because the whole look is
  * background washes, tinted panels and photography.
  *
- * Fonts: Fredoka and IBM Plex Mono come from Google Fonts and Overused
- * Grotesk is loaded from assets/fonts. The run waits for document.fonts.ready
- * before printing, otherwise a cold cache prints the fallback stack.
+ * The pages also carry an @media screen layer (a sheet on a desk, or a
+ * stacked phone layout) for when the HTML link is opened in a browser. The
+ * PDF is printed with print media, and the fit check below runs in print
+ * media at Letter size too, so the screen layer never reaches the PDF.
+ *
+ * Fonts: IBM Plex Mono comes from Google Fonts and Overused Grotesk (the
+ * brand typeface, the wordmark's face) is loaded from assets/fonts. The run
+ * waits for document.fonts.ready before printing, otherwise a cold cache
+ * prints the fallback stack. The logo is assets/brand/logo.svg (the Twemoji
+ * penguin and the wordmark), so a logo change reaches the PDFs on the next
+ * run with no edit here. Each page prints the Twemoji CC BY 4.0 credit under
+ * its address line; keep it there.
  */
 const puppeteer = require('puppeteer');
 const path = require('path');
@@ -21,20 +30,29 @@ const fs = require('fs');
 
 const ROOT = path.resolve(__dirname, '..');
 
+// Output filenames are fixed: partners already hold links to these PDFs.
 const DOCS = [
   {
-    html: 'partners/affiliate-links.html',
+    html: 'partners/affiliate-links.html',        // Family pack
     pdf: 'partners/PrivacyPal-Family-Partner-Links.pdf',
     width: '8.5in',
     height: '11in'
   },
   {
-    html: 'partners/max-affiliate-links.html',
+    html: 'partners/max-affiliate-links.html',    // Max pack
     pdf: 'partners/PrivacyPal-Max-Partner-Links.pdf',
     width: '8.5in',
     height: '11in'
   }
 ];
+
+// Letter at 96 dpi, the size the page is laid out for.
+const VIEWPORT = { width: 816, height: 1056 };
+
+function pdfPageCount(file) {
+  const text = fs.readFileSync(file).toString('latin1');
+  return (text.match(/\/Type\s*\/Page(?!s)/g) || []).length;
+}
 
 async function run() {
   const browser = await puppeteer.launch({
@@ -45,6 +63,7 @@ async function run() {
       || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
   });
 
+  let problems = 0;
   try {
     for (const doc of DOCS) {
       const src = path.join(ROOT, doc.html);
@@ -56,7 +75,9 @@ async function run() {
         if (m.type() === 'error') console.warn(`  page error: ${m.text()}`);
       });
 
+      await page.setViewport(VIEWPORT);
       await page.goto(`file://${src}`, { waitUntil: 'networkidle0', timeout: 30000 });
+      await page.emulateMediaType('print');
       await page.evaluate(() => document.fonts.ready);
 
       // A one-pager that silently became two pages is the failure this catches.
@@ -65,6 +86,7 @@ async function run() {
         return el ? el.scrollHeight - el.clientHeight : 0;
       });
       if (overflow > 1) {
+        problems++;
         console.warn(`  WARNING: content overflows the page by ${overflow}px`);
       }
 
@@ -79,11 +101,17 @@ async function run() {
 
       await page.close();
       const kb = Math.round(fs.statSync(out).size / 1024);
-      console.log(`${doc.pdf}  (${kb} KB)`);
+      const pages = pdfPageCount(out);
+      if (pages !== 1) {
+        problems++;
+        console.warn(`  WARNING: ${doc.pdf} has ${pages} pages, expected 1`);
+      }
+      console.log(`${doc.pdf}  (${kb} KB, ${pages} page${pages === 1 ? '' : 's'})`);
     }
   } finally {
     await browser.close();
   }
+  if (problems) process.exitCode = 1;
 }
 
 run().catch((err) => {

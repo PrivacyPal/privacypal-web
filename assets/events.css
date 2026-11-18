@@ -1,4 +1,4 @@
-/* PrivacyPal v3 — Events styles.
+/* PrivacyPal v3: Events styles.
    Styles the events.js markup: listing cards + single-event detail
    (facts, highlights, videos, gallery, album carousel, lightbox). */
 
@@ -142,7 +142,7 @@
 .album-thumb:hover{opacity:.85}
 .album-thumb.active{opacity:1;outline:2px solid var(--teal)}
 
-/* lightbox — hidden until events.js adds .show */
+/* lightbox: hidden until events.js adds .show */
 .lightbox,#lightbox{
   position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);
   display:none;align-items:center;justify-content:center;padding:40px;

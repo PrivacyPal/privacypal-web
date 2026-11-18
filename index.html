@@ -3,745 +3,811 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>PrivacyPal: You hold the keys. Safe, private AI for your family.</title>
-<meta name="description" content="Their world is full of AI. PrivacyPal Family lets you choose the AI your kids use, protect who they are, and understand how it shapes them. $9.99 a month, up to 5 family members. And for work: Pro, Max and Cloud govern every AI your company touches." />
-<link rel="icon" href="assets/favicon.ico"/>
+<title>PrivacyPal: protect your family, your business and yourself from AI</title>
+<meta name="description" content="PrivacyPal is the filter between your data and every AI. On your device, it swaps names, numbers and secrets for Privacy Twins before anything reaches ChatGPT, Claude or Gemini. One app: Personal is free, the Family pack is $9.99 a month, the Max pack is $34 per user per month." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="canonical" href="https://privacypal.ai/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/OverusedGrotesk-VF.woff2" as="font" type="font/woff2" crossorigin>
+<!-- The opening scene (Family) is the largest paint: fetch the right crop first -->
+<link rel="preload" as="image" type="image/webp" href="assets/home/scene-family-m.webp" media="(max-width: 760px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/home/scene-family-960.webp" media="(min-width: 761px) and (max-width: 980px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/home/scene-family-1600.webp" media="(min-width: 981px)" fetchpriority="high">
 <link rel="stylesheet" href="assets/v3.css"/>
-<link rel="stylesheet" href="assets/roblox.css"/>
+<link rel="stylesheet" href="assets/home/home.css"/>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/" />
-<meta property="og:title" content="PrivacyPal: You hold the keys. Safe, private AI for your family." />
-<meta property="og:description" content="Choose the AI your kids use, protect who they are, and understand how it shapes them. All without reading a single private word. Plus Pro, Max and Cloud for AI governance at work." />
-<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta property="og:image:width" content="1214" />
-<meta property="og:image:height" content="658" />
-<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta property="og:title" content="PrivacyPal: protect your family, your business and yourself from AI" />
+<meta property="og:description" content="One app between your data and every AI. On your device, PrivacyPal swaps names, numbers and secrets for Privacy Twins. Personal is free; add the Family or Max pack. The same technology that protects 140+ companies and global banks." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-home.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal: protect your family, your business and yourself from AI." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PrivacyPal: You hold the keys." />
-<meta name="twitter:description" content="Safe, private AI for your family. Governed AI for your business. One on-device engine, two front doors." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta name="twitter:title" content="PrivacyPal: protect your family, your business and yourself from AI" />
+<meta name="twitter:description" content="One app between your data and every AI. Personal is free; add the Family or Max pack. The same technology that protects 140+ companies and global banks." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-home.png" />
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
 <script src="assets/meta-pixel.js"></script>
 <!-- End Meta Pixel Code -->
-<style>
-/* ============================================================
-   Home: consumer-first cinematic homepage. Family is the main
-   show; business is the second door. Family sections borrow the
-   /family/ design DNA (Fredoka, warm tints, pressed-pill
-   buttons); business sections stay in the corporate v3 system.
-   ============================================================ */
-:root{
-  --fam-display:'Fredoka','Overused Grotesk',system-ui,sans-serif;
-  --cream:#fdf8ee;
-  --teal-tint:#e3f2f1;
-  --sage-tint:#e8f3ee;
-  --tang-tint:#fdeede;
-  --tang-deep:#d97a35;
-  --sage-deep:#357e71;
-  --shadow-float:0 18px 50px -18px rgba(1,32,78,.22);
-}
-
-/* ---------- Cinematic hero ---------- */
-.fam-hero{
-  position:relative;
-  margin-top:calc(-1 * var(--nav-h));
-  min-height:100svh;
-  display:flex;align-items:center;
-  background:#01204e url('family/assets/photos/family-beach.jpg') center 64% / cover no-repeat;
-  overflow:hidden;
-}
-.fam-hero::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    linear-gradient(78deg, rgba(1,16,42,.86) 0%, rgba(1,16,42,.55) 38%, rgba(1,22,52,.18) 66%, rgba(1,22,52,.08) 100%),
-    linear-gradient(180deg, rgba(1,16,42,.45) 0%, transparent 22%, transparent 62%, rgba(1,12,34,.55) 100%);
-}
-.fam-hero .container{position:relative;z-index:1;width:100%}
-.fam-hero-inner{max-width:840px;padding:150px 0 120px}
-.fam-hero .eyebrow{color:rgba(255,253,248,.85)}
-.fam-hero .eyebrow::before{background:var(--tangerine)}
-.fam-hero h1{
-  font-family:var(--fam-display);
-  font-size:clamp(2.9rem,5.3vw,4.2rem);
-  font-weight:600;line-height:1.03;letter-spacing:-.015em;
-  color:#fff;margin-top:18px;
-}
-.fam-hero h1 .keys{
-  background:linear-gradient(92deg,#faa968,#f6dcac);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:transparent;
-}
-.fam-hero .lede{color:rgba(255,253,248,.86);margin-top:22px;max-width:54ch}
-.fam-hero .btn-row{margin-top:34px}
-.fam-fine{
-  margin-top:18px;font-family:var(--font-mono);font-size:.76rem;
-  color:rgba(255,253,248,.72);line-height:1.7;max-width:52ch;
-}
-.fam-fine b{color:#f6dcac;font-weight:600}
-.fam-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.fam-chip{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-mono);font-size:.74rem;color:#fff;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  border-radius:999px;padding:7px 14px;
-}
-.fam-chip svg{width:13px;height:13px;color:#f6dcac}
-
-/* Family-styled buttons (pressed pills, /family/ DNA) */
-.btn-fam{
-  display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  font-family:var(--fam-display);font-weight:600;font-size:1.05rem;
-  padding:15px 30px;border-radius:999px;border:0;color:#fff;
-  background:var(--teal);box-shadow:0 4px 0 #015a63;
-  transition:transform .12s ease,box-shadow .12s ease,background .15s ease;
-  white-space:nowrap;
-}
-.btn-fam:hover{background:#039aaa;transform:translateY(-1px);box-shadow:0 5px 0 #015a63}
-.btn-fam:active{transform:translateY(3px);box-shadow:0 1px 0 #015a63}
-.btn-fam.sun{background:var(--tangerine);box-shadow:0 4px 0 var(--tang-deep)}
-.btn-fam.sun:hover{background:#f79d5e}
-.btn-fam.sun:active{box-shadow:0 1px 0 var(--tang-deep)}
-.btn-glass{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  font-family:var(--fam-display);font-weight:600;font-size:1.02rem;
-  padding:14px 26px;border-radius:999px;color:#fff;
-  background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.44);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  transition:background .15s,transform .12s;
-}
-.btn-glass:hover{background:rgba(255,255,255,.2);transform:translateY(-1px)}
-.btn-glass .play{
-  width:26px;height:26px;border-radius:50%;background:#fff;flex:none;
-  display:inline-flex;align-items:center;justify-content:center;
-}
-.btn-glass .play svg{width:10px;height:10px;color:var(--ink);margin-left:1.5px}
-.btn-glass .dur{font-family:var(--font-mono);font-size:.72rem;font-weight:400;opacity:.75}
-
-/* Floating film card, desktop only */
-.film-card{
-  position:absolute;right:44px;bottom:46px;z-index:2;
-  width:296px;border-radius:18px;overflow:hidden;cursor:pointer;
-  background:rgba(9,26,56,.5);border:1px solid rgba(255,255,255,.22);
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  box-shadow:0 24px 60px -22px rgba(0,8,24,.6);
-  transition:transform .18s ease,border-color .18s;
-  text-align:left;padding:0;
-}
-.film-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.42)}
-.film-card .thumb{position:relative;aspect-ratio:16/9;overflow:hidden}
-.film-card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.film-card .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(1,16,42,.35))}
-.film-card .thumb .play{
-  position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;
-  background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(0,10,30,.4);z-index:1;
-}
-.film-card .thumb .play svg{width:16px;height:16px;color:var(--ink);margin-left:2px}
-.film-card .cap{padding:12px 16px 14px;color:#fff}
-.film-card .cap b{display:block;font-family:var(--fam-display);font-weight:600;font-size:.95rem}
-.film-card .cap small{font-family:var(--font-mono);font-size:.7rem;color:rgba(255,255,255,.66)}
-@media (max-width:1150px){.film-card{display:none}}
-
-.scroll-cue{
-  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;
-  width:1.5px;height:36px;overflow:hidden;border-radius:2px;
-  background:rgba(255,255,255,.18);
-}
-.scroll-cue::after{
-  content:"";position:absolute;left:0;top:-40%;width:100%;height:40%;
-  background:#f6dcac;animation:cue 2.2s ease-in-out infinite;
-}
-@keyframes cue{0%{top:-40%}60%{top:100%}100%{top:100%}}
-@media (prefers-reduced-motion:reduce){.scroll-cue::after{animation:none}}
-
-/* ---------- Two doors ---------- */
-.door-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:8px}
-.door{
-  border-radius:26px;overflow:hidden;display:flex;flex-direction:column;
-  position:relative;min-height:640px;
-}
-.door-home{background:linear-gradient(180deg,#fdf4e2,var(--cream));border:1px solid var(--line)}
-.door-work{background:var(--ink);color:#fff}
-.door .shot{position:relative;height:264px;flex:none;overflow:hidden}
-.door-home .shot img{width:100%;height:100%;object-fit:cover;object-position:center 32%}
-.door-work .shot{background:linear-gradient(180deg,#0a2a5c,#071f45);padding:26px 30px 0}
-.door-work .shot img{
-  width:100%;height:calc(100% + 30px);object-fit:cover;object-position:left top;
-  background:#fff;
-  border-radius:12px 12px 0 0;box-shadow:0 18px 44px rgba(0,8,24,.5);
-  border:1px solid rgba(255,255,255,.12);border-bottom:0;
-}
-.door .tag{
-  position:absolute;top:18px;left:18px;z-index:1;
-  font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.05em;
-  padding:6px 13px;border-radius:999px;
-}
-.door-home .tag{background:#fff;color:var(--tang-deep);box-shadow:0 2px 8px rgba(1,32,78,.12)}
-.door-work .tag{background:rgba(2,18,44,.82);color:#fff;border:1px solid rgba(255,255,255,.3)}
-.door .body{padding:30px 34px 34px;display:flex;flex-direction:column;flex:1}
-.door-home h3{font-family:var(--fam-display);font-size:1.7rem;font-weight:600}
-.door-work h3{font-size:1.6rem;font-weight:500;letter-spacing:-.015em}
-.door .body > p{margin-top:10px;font-size:.98rem;line-height:1.6}
-.door-home .body > p{color:var(--text)}
-.door-work .body > p{color:#b9c4d6}
-.door ul{list-style:none;margin:20px 0 22px;display:flex;flex-direction:column;gap:11px}
-.door li{display:flex;gap:11px;font-size:.94rem;line-height:1.5;align-items:flex-start}
-.door li .tick{
-  width:20px;height:20px;border-radius:7px;flex:none;margin-top:1px;
-  display:inline-flex;align-items:center;justify-content:center;
-}
-.door li .tick svg{width:11px;height:11px}
-.door-home li .tick{background:var(--sage-tint);color:var(--sage-deep)}
-.door-work li .tick{background:rgba(255,255,255,.12);color:#8fd9c8}
-.door li b{font-weight:600}
-.door-work li{color:#dbe3ef}
-.door .ea{
-  font-family:var(--font-mono);font-size:.66rem;font-weight:600;color:var(--tang-deep);
-  background:var(--tang-tint);border-radius:6px;padding:2px 7px;margin-left:6px;
-  white-space:nowrap;position:relative;top:-1px;
-}
-.door .meta{
-  font-family:var(--font-mono);font-size:.74rem;line-height:1.7;
-  padding-top:18px;border-top:1px dashed var(--line);
-}
-.door-home .meta{color:var(--muted)}
-.door-home .meta b{color:var(--ink)}
-.door-work .meta{color:#8fa0bb;border-top-color:rgba(255,255,255,.16)}
-.door-work .meta b{color:#fff}
-.door .btn-row{margin-top:auto;padding-top:24px}
-.door-work .btn-white{background:#fff;color:var(--ink)}
-.door-work .btn-white:hover{background:#e9eef5}
-.door-work .link-arrow{color:#8fd9c8}
-@media (max-width:960px){
-  .door-grid{grid-template-columns:1fr}
-  .door{min-height:0}
-}
-
-/* ---------- Family showcase ---------- */
-.wash-cream{background:var(--cream)}
-.fam h2,.fam h3,.fam h4{font-family:var(--fam-display);font-weight:600}
-.fam .pillar{
-  background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 24px;
-  position:relative;
-}
-.fam .pillar .ico{
-  width:46px;height:46px;border-radius:14px;color:#fff;
-  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
-}
-.fam .pillar .ico svg{width:22px;height:22px}
-.fam .pillar h4{font-size:1.15rem}
-.fam .pillar p{margin-top:8px;font-size:.92rem;color:var(--text);line-height:1.55}
-.fam .soon-tag{
-  position:absolute;top:16px;right:16px;
-  font-family:var(--font-mono);font-size:.64rem;font-weight:600;color:var(--tang-deep);
-  background:var(--tang-tint);border-radius:6px;padding:3px 8px;
-}
-
-/* AI shelf */
-.pal-shelf{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:40px}
-.pal-card{
-  background:#fff;border:1px solid var(--line);border-radius:18px;
-  padding:18px 22px 15px;text-align:center;min-width:128px;
-  box-shadow:var(--shadow-card);
-}
-.pal-card .pal-tile{
-  width:44px;height:44px;margin:0 auto 10px;position:relative;
-  display:flex;align-items:center;justify-content:center;
-}
-.pal-card .pal-tile img,.pal-card .pal-tile > svg{width:38px;height:38px;object-fit:contain}
-.pal-card .pal-check{
-  position:absolute;right:-7px;bottom:-5px;width:19px;height:19px;border-radius:50%;
-  background:var(--sage);color:#fff;border:2.5px solid #fff;
-  display:flex;align-items:center;justify-content:center;
-}
-.pal-card .pal-check svg{width:9px;height:9px}
-.pal-card b{display:block;font-family:var(--fam-display);font-weight:600;font-size:.92rem;color:var(--ink)}
-.pal-card small{font-family:var(--font-mono);font-size:.66rem;color:var(--sage-deep)}
-.pal-card.pal-next{border-style:dashed;background:transparent;box-shadow:none}
-.pal-card.pal-next .pal-tile{color:var(--tang-deep)}
-.pal-card.pal-next small{color:var(--tang-deep)}
-.shelf-note{
-  text-align:center;margin-top:22px;font-family:var(--font-mono);
-  font-size:.76rem;color:var(--muted);
-}
-
-.fam .eyebrow.coral::before{background:var(--coral)}
-
-/* Family photo + HQ tease */
-.fam .deep .media img{border-radius:28px;box-shadow:var(--shadow-float);width:100%;object-fit:cover;aspect-ratio:4/3}
-.fam-links{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
-.fam-link{
-  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;
-  transition:transform .15s,box-shadow .15s;
-}
-.fam-link:hover{transform:translateY(-2px);box-shadow:var(--shadow-float)}
-.fam-link b{display:block;font-family:var(--fam-display);font-weight:600;font-size:1rem;color:var(--ink)}
-.fam-link small{display:block;margin-top:3px;font-size:.82rem;color:var(--muted);line-height:1.45}
-.fam-link .go{
-  display:inline-block;margin-top:10px;font-family:var(--font-mono);font-size:.72rem;
-  color:var(--teal-ink);
-}
-@media (max-width:960px){.fam-links{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:540px){.fam-links{grid-template-columns:1fr}}
-
-/* ---------- Film band ---------- */
-.film-band{background:var(--ink);position:relative;overflow:hidden}
-.film-band::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(42% 52% at 14% 8%, rgba(2,131,145,.22), transparent 70%),
-    radial-gradient(40% 48% at 88% 90%, rgba(240,145,77,.16), transparent 70%);
-}
-.film-band .container{position:relative}
-.film-band .eyebrow{color:rgba(255,253,248,.75)}
-.film-band .eyebrow::before{background:var(--tangerine)}
-.film-band h2{font-family:var(--fam-display);font-weight:600;color:#fff}
-.film-band .lede{color:#b9c4d6}
-.film-stage{
-  max-width:960px;margin:46px auto 0;position:relative;cursor:pointer;
-  border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.16);
-  box-shadow:0 40px 110px -30px rgba(0,8,24,.8);
-  padding:0;display:block;width:100%;background:none;
-}
-.film-stage img{width:100%;display:block}
-.film-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(1,16,42,.38))}
-.film-stage .play-big{
-  position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;z-index:1;
-  background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 44px rgba(0,10,30,.45);
-  transition:transform .16s ease;
-}
-.film-stage:hover .play-big{transform:scale(1.06)}
-.film-stage .play-big::before{
-  content:"";position:absolute;inset:-14px;border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.35);
-  animation:pulse 2.6s ease-out infinite;
-}
-@keyframes pulse{0%{transform:scale(.82);opacity:0}30%{opacity:1}100%{transform:scale(1.18);opacity:0}}
-@media (prefers-reduced-motion:reduce){.film-stage .play-big::before{animation:none}}
-.film-stage .play-big svg{width:28px;height:28px;color:var(--ink);margin-left:4px}
-.film-caption{
-  text-align:center;margin-top:20px;font-family:var(--font-mono);
-  font-size:.75rem;color:rgba(255,255,255,.55);
-}
-
-/* ---------- Film modal ---------- */
-.film-modal{
-  position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
-  padding:28px;background:rgba(1,10,28,.88);
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  opacity:0;visibility:hidden;transition:opacity .22s,visibility .22s;
-}
-.film-modal.show{opacity:1;visibility:visible}
-.film-shell{
-  width:min(1080px,94vw);position:relative;
-  transform:translateY(14px) scale(.98);transition:transform .26s cubic-bezier(.2,.8,.25,1);
-}
-.film-modal.show .film-shell{transform:translateY(0) scale(1)}
-.film-shell .label{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:12px;color:#fff;
-}
-.film-shell .label span{font-family:var(--font-mono);font-size:.74rem;color:rgba(255,255,255,.72)}
-.film-close{
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;
-  width:36px;height:36px;border-radius:50%;font-size:1.15rem;line-height:1;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.film-close:hover{background:rgba(255,255,255,.24)}
-.film-shell video{
-  width:100%;aspect-ratio:16/9;display:block;border-radius:18px;background:#000;
-  box-shadow:0 50px 140px -30px rgba(0,0,0,.9);
-}
-
-/* ---------- Business showcase ---------- */
-.biz-head .eyebrow::before{background:var(--teal)}
-.biz-cards .feature-card .ico{color:#fff}
-.biz-meta{
-  font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
-  text-align:center;margin-top:26px;
-}
-.industry-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
-.industry-pills a{
-  font-family:var(--font-mono);font-size:.78rem;color:var(--ink);
-  border:1px solid var(--line);border-radius:999px;padding:9px 18px;
-  transition:background .15s,border-color .15s;
-}
-.industry-pills a:hover{background:var(--panel);border-color:var(--faint)}
-
-/* ---------- CTA banners ---------- */
-.cta-banner.fam{
-  background:linear-gradient(135deg,#fdf1d9,var(--cream));
-  border:1px solid var(--line);
-}
-.cta-banner.fam h2{font-family:var(--fam-display);font-weight:600}
-
-/* ---------- Misc ---------- */
-@media (max-width:720px){
-  .fam-hero{background-position:60% 64%}
-  .fam-hero-inner{padding:132px 0 96px}
-  .fam-hero h1 br{display:none}
-  .door .body{padding:26px 24px 28px}
-}
-</style>
 </head>
 <body class="cinema">
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
 
 <div id="site-nav-slot"></div>
 
-<!-- ================= CINEMATIC HERO ================= -->
-<header class="fam-hero" aria-label="PrivacyPal Family">
-  <div class="container">
-    <div class="fam-hero-inner">
-      <div class="rbx-news-slot">
-        <a class="rbx-news" href="family/roblox.html">
-          <span class="rbx-news-tile"><svg class="rbx-mark" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg></span>
-          <span class="rbx-news-txt">
-            <span class="rbx-news-top"><span class="rbx-news-tag">NEW</span><b>Roblox support is here</b></span>
-            <small>Family now covers Roblox, right beside the AI they use.</small>
-          </span>
-          <span class="rbx-news-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<!-- ================= HERO · THREE LIVES, ONE FILTER =================
+     Three scenes (Family, Business, You) cross through navy behind one
+     headline. The console shows the Privacy Twin swap for each scene and
+     which pack is doing the work. Scenes 2 and 3 load after the first paint
+     (assets/home/home.js). Photos are stand-ins: see data-standin. -->
+<header class="oc-hero" id="oc-hero" aria-labelledby="oc-title">
+
+  <div class="oc-stage" aria-hidden="true">
+    <figure class="oc-shot s-family is-on" data-scene="0">
+      <picture>
+        <source media="(max-width: 760px)" type="image/webp" srcset="assets/home/scene-family-m.webp">
+        <source media="(max-width: 760px)" srcset="assets/home/scene-family-m.jpg">
+        <source media="(max-width: 980px)" type="image/webp" srcset="assets/home/scene-family-960.webp">
+        <source media="(max-width: 980px)" srcset="assets/home/scene-family-960.jpg">
+        <source type="image/webp" srcset="assets/home/scene-family-1600.webp">
+        <img src="assets/home/scene-family-1600.jpg" data-source="homework-boy.jpg" data-standin="assets/photos/hero-home.jpg" alt="" width="1600" height="1000" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+    <figure class="oc-shot s-business" data-scene="1">
+      <picture>
+        <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/home/scene-business-m.webp">
+        <source media="(max-width: 760px)" data-srcset="assets/home/scene-business-m.jpg">
+        <source media="(max-width: 980px)" type="image/webp" data-srcset="assets/home/scene-business-960.webp">
+        <source media="(max-width: 980px)" data-srcset="assets/home/scene-business-960.jpg">
+        <source type="image/webp" data-srcset="assets/home/scene-business-2000.webp">
+        <img data-src="assets/home/scene-business-2000.jpg" data-standin="assets/photos/hero-work.jpg" alt="" width="2000" height="1180" decoding="async">
+      </picture>
+    </figure>
+    <figure class="oc-shot s-you" data-scene="2">
+      <picture>
+        <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/home/scene-you-m.webp">
+        <source media="(max-width: 760px)" data-srcset="assets/home/scene-you-m.jpg">
+        <source media="(max-width: 980px)" type="image/webp" data-srcset="assets/home/scene-you-960.webp">
+        <source media="(max-width: 980px)" data-srcset="assets/home/scene-you-960.jpg">
+        <source type="image/webp" data-srcset="assets/home/scene-you-1600.webp">
+        <img data-src="assets/home/scene-you-1600.jpg" data-standin="assets/photos/hero-you.jpg" alt="" width="1600" height="1000" decoding="async">
+      </picture>
+    </figure>
+  </div>
+  <div class="oc-grade" aria-hidden="true"></div>
+
+  <div class="oc-in">
+    <div class="oc-copy">
+      <span class="eyebrow">One app · Every AI · Home and work</span>
+      <h1 id="oc-title">Protect <span class="oc-k is-on" data-k="0">your family</span>,<br class="oc-br"> <span class="oc-k" data-k="1">your business</span> and<br class="oc-br"> <span class="oc-k" data-k="2">yourself</span> from AI.</h1>
+      <p class="oc-lede">PrivacyPal is the filter between your data and every AI. On your device, it swaps names, numbers and secrets for Privacy Twins<span class="oc-long">, so ChatGPT, Claude and Gemini still help and your real data never reaches the AI provider</span>.</p>
+      <div class="btn-row oc-ctas">
+        <a class="btn btn-gold btn-lg" href="download.html" data-cta="download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
+          Download free
         </a>
+        <a class="btn btn-lg oc-glass" href="pricing.html">See plans</a>
       </div>
-      <span class="eyebrow">PrivacyPal Family · now on Mac &amp; Windows</span>
-      <h1>Their world is full <br>of AI. <span class="keys">You hold the keys.</span></h1>
-      <p class="lede">Your kids already talk to AI every day. PrivacyPal Family lets you choose the AI they use, protect who they are, and understand how it shapes them. All without reading a single private word.</p>
-      <div class="btn-row">
-        <a class="btn-fam" href="family/founding/index.html">Start your free trial</a>
-        <button class="btn-glass" type="button" data-film>
-          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          Watch the launch film <span class="dur">1:52</span>
+      <div class="oc-packline on-dark">
+        <ul class="oc-chips" aria-label="Packs and prices">
+          <li><a class="pack-chip personal" href="pricing.html#personal">Personal · Free</a></li>
+          <li><a class="pack-chip family" href="pricing.html#family">Family · $9.99/mo</a></li>
+          <li><a class="pack-chip business" href="pricing.html#business">Max · $34/user/mo</a></li>
+        </ul>
+        <p class="oc-fine">Personal is free on Mac and Windows · no card, no trial clock</p>
+      </div>
+
+      <div class="oc-nav">
+        <div class="oc-tabs" role="tablist" aria-label="Who PrivacyPal protects">
+          <button class="oc-tab is-on" type="button" role="tab" id="oc-t0" aria-controls="oc-p0" aria-selected="true">
+            <span class="oc-bar" aria-hidden="true"><i></i></span>
+            <img class="oc-th" src="assets/home/thumb-family.webp" data-source="homework-boy.jpg" data-standin="assets/photos/hero-home.jpg" alt="" width="40" height="40">
+            <span class="oc-tl"><b><span class="lg">Your family</span><span class="sh">Family</span></b><small><span class="lg">Family · </span>$9.99/mo</small></span>
+          </button>
+          <button class="oc-tab" type="button" role="tab" id="oc-t1" aria-controls="oc-p1" aria-selected="false" tabindex="-1">
+            <span class="oc-bar" aria-hidden="true"><i></i></span>
+            <img class="oc-th" src="assets/home/thumb-business.webp" data-standin="assets/photos/hero-work.jpg" alt="" width="40" height="40">
+            <span class="oc-tl"><b><span class="lg">Your business</span><span class="sh">Work</span></b><small><span class="lg">Max · </span>$34/user/mo</small></span>
+          </button>
+          <button class="oc-tab" type="button" role="tab" id="oc-t2" aria-controls="oc-p2" aria-selected="false" tabindex="-1">
+            <span class="oc-bar" aria-hidden="true"><i></i></span>
+            <img class="oc-th" src="assets/home/thumb-you.webp" data-standin="assets/photos/hero-you.jpg" alt="" width="40" height="40">
+            <span class="oc-tl"><b>You</b><small><span class="lg">Personal · </span>Free</small></span>
+          </button>
+        </div>
+        <button class="oc-pause" type="button" aria-label="Pause the scenes" aria-pressed="false">
+          <svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".8"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".8"/></svg>
+          <svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.6v8.8L10.4 6z"/></svg>
         </button>
       </div>
-      <p class="fam-fine">Founding Families get <b>50% off their first year</b> · $9.99 a month, up to 5 family members · 5-day free trial</p>
-      <div class="fam-chips">
-        <span class="fam-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on the device</span>
-        <span class="fam-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Zero-knowledge</span>
-        <span class="fam-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Signals, not transcripts</span>
-      </div>
+    </div>
+
+    <!-- Product UI, illustrative: the names and numbers below are invented examples -->
+    <div class="oc-side">
+      <!-- Roblox, new in the Family pack. Right column, top-aligned with the
+           tagline and directly above the console on desktop; after the CTAs on
+           phones (the side column stacks after the copy). The tagline stays the
+           first thing in the top left. The glyph is the tilted square used
+           across the site. -->
+      <a class="oc-rbx" href="family/roblox.html">
+        <span class="oc-rbx-tile" aria-hidden="true"><svg viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg></span>
+        <span class="oc-rbx-txt">
+          <span class="oc-rbx-top"><span class="oc-rbx-tag">New</span><b>Roblox protection for families</b></span>
+          <small>Chat, friends, voice and spending: your call, per child.</small>
+        </span>
+        <span class="oc-rbx-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <aside class="oc-console" aria-label="Example: PrivacyPal protecting a prompt">
+        <div class="oc-head">
+          <span class="app">PrivacyPal</span>
+          <span class="oc-live"><i aria-hidden="true"></i>Live protection</span>
+          <span class="oc-ex">Example</span>
+        </div>
+        <div class="oc-panels">
+
+          <div class="oc-panel is-on" id="oc-p0" role="tabpanel" aria-labelledby="oc-t0">
+            <div class="oc-ctx">
+              <span class="pack-chip family">Family pack</span>
+              <span class="oc-state"><span class="s1">Checking prompt</span><span class="s2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="n">2 Privacy Twins</span></span></span>
+            </div>
+            <div class="oc-prompt">
+              <span class="oc-to"><img src="assets/glyph-gemini.png" alt="" width="14" height="14">To Gemini · family laptop</span>
+              <p>Make up a story about me, <span class="tok"><span class="o">Mia Thompson</span><span class="t"><span class="sr"> becomes </span>Ava Richardson</span><i class="scan" aria-hidden="true"></i></span>, and my dog at <span class="tok" style="--d:.45s"><span class="o">14 Alder Lane</span><span class="t"><span class="sr"> becomes </span>22 Birch Lane</span><i class="scan" aria-hidden="true"></i></span>.</p>
+            </div>
+            <div class="oc-foot"><span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="ft"><b>Swapped on this device.</b> Her real name and address never reach Gemini.</span></div>
+          </div>
+
+          <div class="oc-panel" id="oc-p1" role="tabpanel" aria-labelledby="oc-t1" aria-hidden="true">
+            <div class="oc-ctx">
+              <span class="pack-chip business">Max pack</span>
+              <span class="oc-state"><span class="s1">Checking prompt</span><span class="s2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="n">2 Privacy Twins</span></span></span>
+            </div>
+            <div class="oc-prompt">
+              <span class="oc-to"><img src="assets/glyph-copilot.png" alt="" width="14" height="14">To Copilot · work laptop</span>
+              <p>Summarize 90 days of wires for <span class="tok"><span class="o">Dana Whitfield</span><span class="t"><span class="sr"> becomes </span>Grace Holloway</span><i class="scan" aria-hidden="true"></i></span>, account <span class="tok" style="--d:.45s"><span class="o">0047 8821 9360</span><span class="t"><span class="sr"> becomes </span>0093 4586 2737</span><i class="scan" aria-hidden="true"></i></span>.</p>
+            </div>
+            <div class="oc-foot"><span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="ft"><b>Swapped on this device.</b> The client's real name and account never reach Copilot.</span></div>
+          </div>
+
+          <div class="oc-panel" id="oc-p2" role="tabpanel" aria-labelledby="oc-t2" aria-hidden="true">
+            <div class="oc-ctx">
+              <span class="pack-chip personal">Personal · Free</span>
+              <span class="oc-state"><span class="s1">Checking prompt</span><span class="s2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="n">1 Privacy Twin</span></span></span>
+            </div>
+            <div class="oc-prompt">
+              <span class="oc-to"><img src="assets/glyph-chatgpt.png" alt="" width="14" height="14">To ChatGPT · your laptop</span>
+              <p>Write a dispute letter for the $412 charge on my card <span class="tok"><span class="o">4539 2210 8841 7720</span><span class="t"><span class="sr"> becomes </span>4716 0093 5512 3348</span><i class="scan" aria-hidden="true"></i></span>.</p>
+            </div>
+            <div class="oc-foot"><span class="lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="ft"><b>Swapped on this device.</b> Your real card number never reaches ChatGPT.</span></div>
+          </div>
+
+        </div>
+        <!-- The packs that stack in the one app; the scene's pack lights up (home.js) -->
+        <div class="oc-packs" role="img" aria-label="Your packs: Family, Max and Personal, all switched on in one app">
+          <div class="oc-packs-top"><span>Your packs</span><span>3 on · one app</span></div>
+          <div class="oc-packs-row">
+            <span class="oc-pk family is-on"><i class="sw"></i><b>Family</b><small>3 kids · Roblox</small></span>
+            <span class="oc-pk business"><i class="sw"></i><b>Max</b><small>Company license</small></span>
+            <span class="oc-pk personal"><i class="sw"></i><b>Personal</b><small>Free</small></span>
+          </div>
+        </div>
+      </aside>
+      <p class="oc-caption">Product UI · illustrative examples</p>
     </div>
   </div>
-  <button class="film-card" type="button" data-film aria-label="Watch the PrivacyPal Family launch film, 1 minute 52 seconds">
-    <span class="thumb">
-      <img src="assets/family-launch-card.jpg" alt="" loading="lazy">
-      <span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-    </span>
-    <span class="cap"><b>The launch film</b><small>PrivacyPal Family · 1:52</small></span>
-  </button>
-  <span class="scroll-cue" aria-hidden="true"></span>
 </header>
 
-<!-- ================= TWO DOORS ================= -->
-<section class="section" id="paths">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Two ways in</span>
-      <h2>Safe at home. Governed at work.</h2>
-      <p class="lede">One on-device privacy engine, two front doors. A family product parents hold the keys to, and a business line your CISO can greenlight. Pick your path.</p>
-    </div>
-    <div class="door-grid">
-
-      <div class="door door-home reveal reveal-delay-1">
-        <div class="shot">
-          <span class="tag">FOR HOME</span>
-          <img src="family/assets/photos/hero-dad-kids.jpg" alt="A dad laughing with his two young kids on his shoulders outside at golden hour">
-        </div>
-        <div class="body">
-          <h3>PrivacyPal Family</h3>
-          <p>Safe, private AI for the whole household. You approve the tools, their identity stays home, and you understand how AI shapes them. Guardrails, not surveillance.</p>
-          <ul>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Guardrails.</b> Approve, block and redirect the AI tools your kids use.</span></li>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Privacy Twins.</b> Their real name, school and address are swapped on the device.</span></li>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Family Memory.</b> See what AI remembers, erase it forever with one tap.</span></li>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Pal Agents.</b> Wellbeing signals and age-right answers.<span class="ea">EARLY ACCESS</span></span></li>
-          </ul>
-          <p class="meta"><b>$9.99 a month</b> · up to 5 family members · Mac &amp; Windows · 5-day free trial</p>
-          <div class="btn-row">
-            <a class="btn-fam" href="family/founding/index.html">Start your free trial</a>
-            <a class="link-arrow" href="family/index.html">Meet Family</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="door door-work reveal reveal-delay-2">
-        <div class="shot">
-          <span class="tag">FOR WORK</span>
-          <img src="assets/activity-feed-wide.png" alt="The PrivacyPal realtime activity feed showing protected prompts across Claude Code, Claude and ChatGPT">
-        </div>
-        <div class="body">
-          <h3>PrivacyPal for Business</h3>
-          <p>The on-device governance and enablement layer for AI at work. Real-time Privacy Twins protect IP and PII before anything reaches an LLM, across every AI app, copilot and agent.</p>
-          <ul>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Pro.</b> The individual seat, completely free: install once, secure every AI.</span></li>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Max.</b> IP Protection, Governance Policies, Private Memory and shadow-AI discovery, company wide.</span></li>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Cloud.</b> Sovereign deployment: your VPC, your keys, any LLM.</span></li>
-            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>SDK.</b> Agent-to-agent governance for developers, in two lines.</span></li>
-          </ul>
-          <p class="meta"><b>PII, HIPAA, PCI &amp; GDPR</b> classes out of the box · SSO · full audit trail</p>
-          <div class="btn-row">
-            <a class="btn btn-primary btn-white" href="#" data-cta="demo">Book a demo</a>
-            <a class="link-arrow" href="business.html">Explore for business</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAMILY SHOWCASE ================= -->
-<section class="section wash-cream fam" id="family">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow orange">For your family</span>
-      <h2>Effortless safety. So they are free to excel.</h2>
-      <p class="lede">Everything PrivacyPal builds for the world's most careful companies, re-imagined for the people you care about most. Four superpowers, one quiet app.</p>
-    </div>
-
-    <div class="card-grid cols-4">
-      <div class="pillar reveal reveal-delay-1">
-        <div class="ico" style="background:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
-        <h4>Guardrails</h4>
-        <p>You approve the AI tools your kids can use. Anything else is blocked and gently redirected to one you trust. Homework mode keeps school hours on task.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-1">
-        <div class="ico" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <h4>Privacy Twins</h4>
-        <p>The moment your child types their real name, school or address, a safe stand-in is swapped in on the device itself. Their identity never leaves your house.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 4.5-2 7H7c0-2.5-2-4-2-7a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></div>
-        <h4>Family Memory</h4>
-        <p>See what AI remembers about each child, in plain language. Keep the helpful parts, and erase anything forever with one tap. Erase means erase.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-3">
-        <span class="soon-tag">EARLY ACCESS</span>
-        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>Pal Agents</h4>
-        <p>On-device helpers that watch out for your child, not over them. The Wellbeing Signal spots mood shifts. Answer Guard keeps AI replies age-right.</p>
-      </div>
-    </div>
-
-    <div class="pal-shelf reveal" role="list" aria-label="AI apps PrivacyPal Family protects">
-      <div class="pal-card" role="listitem">
-        <span class="pal-tile"><img src="assets/glyph-chatgpt.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>ChatGPT</b><small>protected</small>
-      </div>
-      <div class="pal-card" role="listitem">
-        <span class="pal-tile"><img src="assets/glyph-claude.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Claude</b><small>protected</small>
-      </div>
-      <div class="pal-card" role="listitem">
-        <span class="pal-tile"><img src="assets/glyph-gemini.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Gemini</b><small>protected</small>
-      </div>
-      <div class="pal-card" role="listitem">
-        <span class="pal-tile"><img src="assets/glyph-copilot.png" alt="" loading="lazy"><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Copilot</b><small>protected</small>
-      </div>
-      <div class="pal-card" role="listitem">
-        <span class="pal-tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Grok</b><small>protected</small>
-      </div>
-      <div class="pal-card" role="listitem">
-        <span class="pal-tile"><svg viewBox="0 0 32 32" fill="none" stroke="#01204e" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M16 5v22"/><path d="M6.5 10.5l19 11"/><path d="M25.5 10.5l-19 11"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Perplexity</b><small>protected</small>
-      </div>
-      <div class="pal-card pal-rbx" role="listitem">
-        <span class="pal-new">NEW</span>
-        <span class="pal-tile"><svg class="rbx-mark" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg><span class="pal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span>
-        <b>Roblox</b><small>protected</small>
-      </div>
-      <div class="pal-card pal-next" role="listitem">
-        <span class="pal-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
-        <b>Whatever's next</b><small>covered on day one</small>
-      </div>
-    </div>
-    <p class="shelf-note reveal">Nothing to switch, nothing to ban. You approve the list in Parent HQ, and one Pal quietly guards every app on it. New: <a href="family/roblox.html" style="color:var(--teal-ink);text-decoration:underline">Roblox</a>, with its own switches for chat, friends and spending.</p>
-
-    <div class="twin-compare reveal" style="margin-top:64px">
-      <div class="twin-box before">
-        <h5><span class="dot"></span>01 · What your child types</h5>
-        "Write a story about me, <span class="red">Timmy Johnson</span>, who goes to <span class="red">Lincoln High School</span> in <span class="red">Austin, TX</span>."
-      </div>
-      <div class="twin-mid">
-        <div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      </div>
-      <div class="twin-box after">
-        <h5><span class="dot"></span>02 · What the AI receives</h5>
-        "Write a story about me, <span class="green">[Alex]</span>, who goes to <span class="green">[Washington High]</span> in <span class="green">[a sunny city]</span>."
-      </div>
-    </div>
-    <p class="shelf-note reveal" style="margin-top:20px">The same Privacy Twin technology enterprises pay for, working for your kid's homework. On the device, in milliseconds, before anything is sent.</p>
-
-    <div class="deep reveal" style="margin-top:76px">
-      <div>
-        <span class="eyebrow coral">Guardrails, not surveillance</span>
-        <h2 style="margin-top:12px">Signals, not transcripts</h2>
-        <p class="lede" style="margin-top:14px">Parent HQ shows you which tools they used, what got protected, and how they are doing. Never their words. Spyware makes kids hide; trust is the feature here.</p>
-        <div class="deep-list">
-          <div class="deep-item"><b>You see signals</b><p>Wellbeing trends, protected identity counts and tool activity, in realtime.</p></div>
-          <div class="deep-item"><b>They see what you see</b><p>Your child can open their own view anytime. Kids who know the deal don't need to hide.</p></div>
-          <div class="deep-item"><b>Feelings stay private</b><p>Transcripts are never shown, stored off-device, or sold. That is written into the product.</p></div>
-        </div>
-        <div class="btn-row">
-          <a class="btn-fam" href="family/parents.html">Tour Parent HQ</a>
-          <a class="link-arrow" href="family/promise.html">Read the Family Promise</a>
-        </div>
-      </div>
-      <div class="media"><img src="family/assets/photos/teens-sunset.jpg" alt="Three teenagers with their arms raised celebrating at sunset on a rooftop" loading="lazy"></div>
-    </div>
-
-    <div class="fam-links reveal">
-      <a class="fam-link" href="family/parents.html"><b>For parents</b><small>Parent HQ: realtime signals and one-tap control</small><span class="go">Take the tour →</span></a>
-      <a class="fam-link" href="family/kids.html"><b>For kids &amp; teens</b><small>Armor, not a leash. The deal, in their words</small><span class="go">See the deal →</span></a>
-      <a class="fam-link" href="family/promise.html"><b>The Family Promise</b><small>Five promises, each naming its mechanism</small><span class="go">Read it →</span></a>
-      <a class="fam-link" href="family/guidebook.html"><b>The Guidebook</b><small>The research behind raising AI-native kids</small><span class="go">Open it →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FILM BAND ================= -->
-<section class="section film-band" id="film">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow">The launch film</span>
-      <h2>Two minutes. The whole idea.</h2>
-      <p class="lede">Choose the AI they use. Protect who they are. Understand how it shapes them. Watch how a family holds the keys.</p>
-    </div>
-    <button class="film-stage reveal" type="button" data-film aria-label="Play the PrivacyPal Family launch film">
-      <img src="assets/family-launch-poster.jpg" alt="Still from the PrivacyPal Family launch film: They share more with AI than they share with you.">
-      <span class="play-big"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <p class="film-caption">PrivacyPal Family · Product launch film · 1:52 · sound on</p>
-  </div>
-</section>
-
-<!-- ================= BUSINESS SHOWCASE ================= -->
-<section class="section biz-head" id="business">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow">For your business</span>
-      <h2>Govern every AI at work. Without blocking a single user.</h2>
-      <p class="lede">Real-time Privacy Twins intercept sensitive IP and PII before they reach an LLM, across ChatGPT, Claude, Gemini, Copilot, Grok, Perplexity, Hermes Agent, Claude Code and every agent on every device.</p>
-    </div>
-  </div>
-
-  <div class="logos" aria-label="Trusted by" style="padding-top:0">
-    <div class="logos-label">Governing AI inside teams at</div>
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust" aria-label="Trusted by">
+  <div class="trust-in">
+    <p class="trust-label">Trusted by <span class="ul-gold">140+</span> companies and global banks</p>
     <div class="marquee">
       <div class="marquee-track">
-        <div class="marquee-item"><img src="assets/coreplus-logo.png" alt="CorePLUS Technologies"></div>
-        <div class="marquee-item"><img src="assets/peaq.png" alt="peaq" data-tone="faint"></div>
-        <div class="marquee-item"><img src="assets/496capital.svg" alt="Four Ninety Six Capital"></div>
-        <div class="marquee-item"><img src="assets/vodafone.png" alt="Vodafone"></div>
-        <div class="marquee-item"><img src="assets/fastweb.png" alt="Fastweb"></div>
-        <div class="marquee-item"><img src="assets/cyphlens.svg" alt="Cyphlens"></div>
-        <div class="marquee-item"><img src="assets/gorillabow.avif" alt="Gorilla Bow"></div>
-        <div class="marquee-item"><img src="assets/Purewater+Financial.webp" alt="Purewater Financial"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/coreplus-logo.png" alt=""></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/peaq.png" alt="" data-tone="faint"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/496capital.svg" alt=""></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/vodafone.png" alt=""></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/fastweb.png" alt=""></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/cyphlens.svg" alt=""></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/gorillabow.avif" alt=""></div>
-        <div class="marquee-item" aria-hidden="true"><img src="assets/Purewater+Financial.webp" alt=""></div>
+        <div class="marquee-item"><img src="assets/coreplus-logo.png" alt="CorePLUS Technologies" width="77" height="30"></div>
+        <div class="marquee-item"><img src="assets/peaq.png" alt="peaq" data-tone="faint" width="80" height="30"></div>
+        <div class="marquee-item"><img src="assets/496capital.svg" alt="Four Ninety Six Capital" width="242" height="30"></div>
+        <div class="marquee-item"><img src="assets/vodafone.png" alt="Vodafone" width="34" height="30"></div>
+        <div class="marquee-item"><img src="assets/fastweb.png" alt="Fastweb" width="133" height="30"></div>
+        <div class="marquee-item"><img src="assets/cyphlens.svg" alt="Cyphlens" width="108" height="30"></div>
+        <div class="marquee-item"><img src="assets/gorillabow.avif" alt="Gorilla Bow" width="111" height="30"></div>
+        <div class="marquee-item"><img src="assets/Purewater+Financial.webp" alt="Purewater Financial" width="86" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/coreplus-logo.png" alt="" width="77" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/peaq.png" alt="" data-tone="faint" width="80" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/496capital.svg" alt="" width="242" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/vodafone.png" alt="" width="34" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/fastweb.png" alt="" width="133" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/cyphlens.svg" alt="" width="108" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/gorillabow.avif" alt="" width="111" height="30"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="assets/Purewater+Financial.webp" alt="" width="86" height="30"></div>
       </div>
     </div>
   </div>
+</section>
 
+<!-- ================= ONE FILTER · THREE LIVES =================
+     One gold line (the PrivacyPal filter) sweeps across three lives at once;
+     each detail becomes its Privacy Twin where the line passes. Without
+     JavaScript or with reduced motion, the finished frame shows. Photos are
+     stand-ins: see data-standin. -->
+<section class="lf" id="one-filter" aria-labelledby="lf-title">
+  <div class="container-wide">
+    <div class="lf-head">
+      <div>
+        <span class="eyebrow">One filter</span>
+        <h2 id="lf-title">One filter.<br> Every part of your life.</h2>
+      </div>
+      <p class="lf-lede">Your kid's homework, your patients' records, your own card number. One PrivacyPal filter sits between each of them and every AI, and swaps each sensitive detail for a Privacy Twin before it is sent.</p>
+    </div>
+
+    <div class="lf-tri" id="lfTri">
+      <article class="lf-panel fam">
+        <picture>
+          <source type="image/webp" srcset="assets/home/life-family-780.webp">
+          <img src="assets/home/life-family-780.jpg" data-source="teens-sunset.jpg" data-standin="assets/photos/life-family.jpg" alt="Three teenage girls raising their arms at sunset" width="780" height="1040" loading="lazy" decoding="async">
+        </picture>
+        <div class="lf-lab"><small><i style="--d:var(--gold)"></i>Family pack</small><h3>Your family</h3></div>
+        <div class="lf-chip">
+          <div class="hd"><img src="assets/glyph-gemini.png" alt="" width="16" height="16">Gemini <span class="who">· homework help</span>
+            <span class="st"><i aria-hidden="true"></i><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="t1">Checking</span><span class="t2">Protected</span></span>
+          </div>
+          <p class="lf-q">I'm <span class="tok"><span class="o">Maya Chen</span><span class="t"><span class="sr"> becomes </span>Ella Brooks</span></span> and I go to <span class="tok"><span class="o">Lakeview Middle</span><span class="t"><span class="sr"> becomes </span>Westbrook Middle</span></span>. Help me plan my science fair project.</p>
+        </div>
+      </article>
+      <article class="lf-panel biz">
+        <picture>
+          <source type="image/webp" srcset="assets/home/life-business-780.webp">
+          <img src="assets/home/life-business-780.jpg" data-standin="assets/photos/life-business.jpg" alt="A clinician at her desk in a bright medical office" width="780" height="1040" loading="lazy" decoding="async">
+        </picture>
+        <div class="lf-lab"><small><i style="--d:#fff"></i>Max pack</small><h3>Your business</h3></div>
+        <div class="lf-chip">
+          <div class="hd"><img src="assets/glyph-claude.png" alt="" width="16" height="16">Claude <span class="who">· clinic desktop</span>
+            <span class="st"><i aria-hidden="true"></i><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="t1">Checking</span><span class="t2">Protected</span></span>
+          </div>
+          <p class="lf-q">Draft a discharge note for <span class="tok"><span class="o">Robert Alvarez</span><span class="t"><span class="sr"> becomes </span>Thomas Kendall</span></span>, born <span class="tok"><span class="o">04/12/1961</span><span class="t"><span class="sr"> becomes </span>09/27/1958</span></span>.</p>
+        </div>
+      </article>
+      <article class="lf-panel you">
+        <picture>
+          <source type="image/webp" srcset="assets/home/life-you-780.webp">
+          <img src="assets/home/life-you-780.jpg" data-standin="assets/photos/life-you.jpg" alt="A woman in a navy sweater explaining an idea" width="780" height="1040" loading="lazy" decoding="async">
+        </picture>
+        <div class="lf-lab"><small><i style="--d:var(--teal)"></i>Personal · free</small><h3>You</h3></div>
+        <div class="lf-chip">
+          <div class="hd"><img src="assets/glyph-chatgpt.png" alt="" width="16" height="16">ChatGPT <span class="who">· your laptop</span>
+            <span class="st"><i aria-hidden="true"></i><svg class="ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="t1">Checking</span><span class="t2">Protected</span></span>
+          </div>
+          <p class="lf-q">Is this charge on my card <span class="tok"><span class="o">4532 7781 0926 3318</span><span class="t"><span class="sr"> becomes </span>4916 2045 8873 1150</span></span> a scam?</p>
+        </div>
+      </article>
+      <span class="lf-filter" aria-hidden="true"><b>PrivacyPal filter</b></span>
+    </div>
+    <div class="lf-legend">
+      <span class="key">The PrivacyPal filter: real details become Privacy Twins on your device</span>
+      <span>Product UI · illustrative examples</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ONE APP, THREE PACKS ================= -->
+<section class="section packs" id="plans" aria-labelledby="packs-title">
   <div class="container">
-    <div class="card-grid cols-4 biz-cards" style="margin-top:44px">
+    <div class="section-head center reveal">
+      <span class="eyebrow">One app, three packs</span>
+      <h2 id="packs-title">Free for you. Add your family, your business, or both.</h2>
+      <p class="lede">Download PrivacyPal and Personal is on, free. The Family and Max packs switch on in the same app, and they stack.</p>
+    </div>
+
+    <div class="pack-grid">
+      <article class="pack-card personal reveal reveal-delay-1">
+        <div class="pack-head">
+          <div>
+            <h3 class="pack-name">Personal</h3>
+            <div class="pack-for">For you · included free</div>
+          </div>
+          <span class="pk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.9 3.9-6.3 7.5-6.3s6.7 2.4 7.5 6.3"/></svg></span>
+        </div>
+        <div class="pack-price"><span class="big">Free</span><small>no card, no trial clock, no expiry</small></div>
+        <p class="pack-desc">Your personal details stay yours in the AI chat apps you use every day.</p>
+        <ul>
+          <li>ChatGPT, Claude, Gemini, Grok and Perplexity web chat</li>
+          <li>Word and Excel attachments protected in place</li>
+          <li>Names, SSNs, account numbers, patient details and card data: PII, HIPAA, PCI and GDPR</li>
+          <li>Your last 24 hours of usage history</li>
+          <li>Mac (Apple Silicon) and Windows 11</li>
+        </ul>
+        <div class="pk-glyphs" role="img" aria-label="Works with ChatGPT, Claude, Gemini, Grok and Perplexity">
+          <span class="pk-gl-lbl">Works in</span>
+          <span class="pk-gl-row">
+            <span><img src="assets/glyph-chatgpt.png" alt="" width="16" height="16" loading="lazy"></span>
+            <span><img src="assets/glyph-claude.png" alt="" width="16" height="16" loading="lazy"></span>
+            <span><img src="assets/glyph-gemini.png" alt="" width="16" height="16" loading="lazy"></span>
+            <span><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg></span>
+            <span><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"><path d="M16 5v22"/><path d="M6.5 10.5l19 11"/><path d="M25.5 10.5l-19 11"/></svg></span>
+          </span>
+        </div>
+        <div class="pack-cta">
+          <a class="btn btn-primary" href="download.html" data-cta="download">Download free</a>
+          <div class="pack-fine">One individual account: your login, your devices</div>
+        </div>
+      </article>
+
+      <article class="pack-card family reveal reveal-delay-2">
+        <div class="pack-head">
+          <div>
+            <h3 class="pack-name">Family</h3>
+            <div class="pack-for">For parents · the whole household</div>
+          </div>
+          <span class="pk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span>
+        </div>
+        <div class="pack-price"><span class="big">$9.99</span><small>/month per household</small></div>
+        <p class="pack-desc">Guardrails for the AI your kids use and for games like Roblox, for up to 5 family members.</p>
+        <ul>
+          <li>You approve the AI tools and apps each child can use</li>
+          <li>Privacy Twins stand in for their real name, school and address</li>
+          <li>Parent HQ shows signals, not transcripts</li>
+          <li>The OpenAI and xAI APIs, protected for parents</li>
+          <li>Roblox switches for play, chat, friends, voice and spending, on the family Mac</li>
+          <li>Mac and Windows, plus iPhone, iPad and Android today, installed by invitation</li>
+        </ul>
+        <div class="pack-cta">
+          <a class="btn btn-primary" href="family/founding/index.html">Start Family free</a>
+          <div class="pack-fine">5-day free trial · 30-day money-back guarantee · cancel anytime</div>
+        </div>
+      </article>
+
+      <article class="pack-card business dark reveal reveal-delay-3">
+        <div class="pack-head">
+          <div>
+            <h3 class="pack-name">Max</h3>
+            <div class="pack-for">For teams and organizations</div>
+          </div>
+          <span class="pk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8.5 7h1.5M14 7h1.5M8.5 11h1.5M14 11h1.5M8.5 15h1.5M14 15h1.5"/><path d="M10.5 21v-3h3v3"/></svg></span>
+        </div>
+        <div class="pack-price"><span class="big">$34</span><small>/user/month</small></div>
+        <p class="pack-desc">Everything in Personal, plus privacy and governance for every AI at work.</p>
+        <ul>
+          <li>Claude Code, Cowork, Codex and Copilot, plus the OpenAI and xAI APIs</li>
+          <li>IP Protection that learns from Salesforce, Slack, Notion and more</li>
+          <li>Governance Policies and Private Memory on every device</li>
+          <li>Hosted Private MCP, shadow-AI discovery and on-device DSPM</li>
+          <li>SSO, team admin and full usage history</li>
+          <li>Mac, Windows and Linux, plus iPhone, iPad and Android today, installed by invitation</li>
+        </ul>
+        <div class="pack-cta">
+          <a class="btn btn-gold" href="pricing.html#business">Get Max</a>
+          <a class="btn pk-ghost" href="#" data-cta="demo">Talk to sales</a>
+          <div class="pack-fine">Volume pricing from 10 users · paid from day one · $17 per user per month at 1,000+ users, billed annually</div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Packs stack: the "Your packs" app window and the three ways a pack arrives -->
+    <div class="stack-row">
+      <figure class="stack-fig reveal">
+        <div class="stack-app" role="img" aria-label="Illustration: the PrivacyPal app with three packs switched on, Personal, Family and Max">
+          <div class="bar">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="title"><img class="pp-penguin" src="assets/brand/penguin.svg" alt="" width="18" height="18">PrivacyPal</span>
+            <span class="meta">Your packs</span>
+          </div>
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.9 3.9-6.3 7.5-6.3s6.7 2.4 7.5 6.3"/></svg></span>
+            <div><b>Personal</b><small>Included with your download</small></div>
+            <span class="toggle on"></span>
+          </div>
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span>
+            <div><b>Family</b><small>You subscribe · 3 kids · Roblox</small></div>
+            <span class="toggle on gold"></span>
+          </div>
+          <div class="row">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8.5 7h1.5M14 7h1.5M8.5 11h1.5M14 11h1.5M8.5 15h1.5M14 15h1.5"/></svg></span>
+            <div><b>Max</b><small>Company license · from your employer</small></div>
+            <span class="toggle on ink"></span>
+          </div>
+          <div class="stack-foot"><span>3 packs on · one app</span><span class="ok"><i></i>Protected</span></div>
+        </div>
+        <figcaption>Product UI · illustrative example</figcaption>
+      </figure>
+      <div class="stack-copy reveal reveal-delay-1">
+        <h3>Packs stack, whoever provides them.</h3>
+        <p>One person can hold Max from work and Family for their kids in the same app. A pack reaches your account one of three ways.</p>
+        <ol class="sources">
+          <li><span class="n">01</span><div><b>You subscribe</b><p>Add Family for your household or Max for your company from your account.</p></div></li>
+          <li><span class="n">02</span><div><b>Your employer provides it</b><p>Your company can add Max to your PrivacyPal account. Accept the invitation and its policies switch on.</p></div></li>
+          <li><span class="n">03</span><div><b>A partner provides it</b><p>Associations and other partners can provide Family or Max under their own license. It switches on the same way.</p></div></li>
+        </ol>
+        <p class="stack-id">One PrivacyPal account for you. Your kids keep their own protected profiles.</p>
+      </div>
+    </div>
+    <p class="fine-legal">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox.</p>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section how" id="how" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 id="how-title">Detect, swap, restore. On your device.</h2>
+      <p class="lede">Protection runs on your device, before a prompt or file reaches an AI provider. Sensitive details are swapped for Privacy Twins, realistic stand-ins, so the AI still works and the real data never reaches the AI provider.</p>
+    </div>
+
+    <ol class="how-flow">
+      <li class="how-step reveal reveal-delay-1">
+        <div class="how-top">
+          <span class="how-num">01</span>
+          <span class="how-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20.5 20.5l-4.8-4.8"/></svg></span>
+        </div>
+        <h3>Detect on your device</h3>
+        <p>The moment you type it, PrivacyPal finds the names, numbers and secrets in your prompt and the files you attach.</p>
+        <div class="how-box">
+          <span class="how-lbl"><i class="dot real"></i>You type</span>
+          <p>Draft a note to <mark class="real">Dana Whitfield</mark> confirming her <mark class="real">$48,200</mark> wire to account <mark class="real">0047 8821 9360</mark>.</p>
+        </div>
+      </li>
+      <li class="how-step reveal reveal-delay-2">
+        <div class="how-top">
+          <span class="how-num">02</span>
+          <span class="how-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span>
+        </div>
+        <h3>Swap for Privacy Twins</h3>
+        <p>Each detail is replaced by a realistic stand-in, so the AI has everything it needs to help. Only the twins reach the AI provider.</p>
+        <div class="how-box">
+          <span class="how-lbl"><i class="dot twin"></i>The AI receives</span>
+          <p>Draft a note to <mark class="twin">Grace Holloway</mark> confirming her <mark class="twin">$51,700</mark> wire to account <mark class="twin">0093 4586 2737</mark>.</p>
+        </div>
+      </li>
+      <li class="how-step reveal reveal-delay-3">
+        <div class="how-top">
+          <span class="how-num">03</span>
+          <span class="how-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4.5V9h4.5"/></svg></span>
+        </div>
+        <h3>Restore in the reply</h3>
+        <p>When the answer comes back, PrivacyPal puts the real values back on your device. Same answer, your real details.</p>
+        <div class="how-box">
+          <span class="how-lbl"><i class="dot back"></i>You read</span>
+          <p>Hi <mark class="back">Dana</mark>, your <mark class="back">$48,200</mark> wire to account <mark class="back">0047 8821 9360</mark> is confirmed and on its way.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="how-note reveal">Patent-pending Privacy Twins, in milliseconds, before anything is sent. <a class="link-arrow" href="privacy-twins.html">Why twins beat redaction</a></p>
+  </div>
+</section>
+
+<!-- ================= FOR FAMILIES ================= -->
+<section class="section fam" id="families" aria-labelledby="fam-title" data-pack="family">
+  <div class="container">
+    <div class="fam-grid">
+      <figure class="fam-photo reveal">
+        <picture>
+          <source type="image/webp" srcset="assets/home/families-880.webp">
+          <img src="assets/home/families-880.jpg" data-source="study-together.jpg" data-standin="assets/photos/pack-family.jpg" alt="A mother and her daughter doing homework together" width="880" height="1100" loading="lazy" decoding="async">
+        </picture>
+        <!-- Parent HQ, illustrative: names are invented examples -->
+        <div class="hq" aria-hidden="true">
+          <div class="hq-bar"><b>Parent HQ</b><span>Today</span></div>
+          <div class="hq-row">
+            <span class="av" style="--c:var(--gold)">M</span>
+            <div><b>Mia</b><small>Explorer · ChatGPT for homework</small></div>
+            <span class="hq-tag">2 details protected</span>
+          </div>
+          <div class="hq-row">
+            <span class="av" style="--c:var(--teal)">L</span>
+            <div><b>Leo</b><small>Navigator · Roblox play on, chat off</small></div>
+            <span class="hq-tag">Asked for chat</span>
+          </div>
+          <div class="hq-foot"><span class="dot-gold"></span>Signals, not transcripts</div>
+        </div>
+      </figure>
+
+      <div class="fam-copy">
+        <span class="eyebrow gold reveal">For families</span>
+        <h2 class="reveal">Guardrails for the AI your kids use.</h2>
+        <p class="lede reveal">Their world is full of AI. The Family pack lets you choose the AI they use, keeps who they are out of every conversation, and shows you how they are doing. You see signals, never their words.</p>
+        <ul class="fam-list">
+          <li class="reveal">
+            <span class="fl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <div><b>Guardrails, not surveillance</b><p>You approve the AI tools and apps each child can use. Anything else is redirected to a parent-approved alternative, and homework mode keeps school hours on task.</p></div>
+          </li>
+          <li class="reveal">
+            <span class="fl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span>
+            <div><b>Their real identity never reaches the AI</b><p>The moment your child types their real name, school or address, a Privacy Twin stands in on the device. The AI still helps.</p></div>
+          </li>
+          <li class="reveal">
+            <span class="fl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+            <div><b>Parent HQ: signals, not transcripts</b><p>Which tools they used, what got protected and how they are doing. Never their words. Your child can open their own view anytime, and both parents share one HQ.</p></div>
+          </li>
+          <li class="reveal">
+            <span class="fl-ico rbx" aria-hidden="true"><svg viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg></span>
+            <div><b>Roblox, right beside their AI <span class="badge-gold">New</span></b><p>Five switches per child in Parent HQ: play, chat, friend requests, voice and spending. Play starts on, everything social starts off, and your kid can ask for more. On the family Mac today.</p></div>
+          </li>
+        </ul>
+        <div class="btn-row fam-ctas reveal">
+          <a class="btn btn-primary btn-lg" href="family/founding/index.html">Start Family free</a>
+          <a class="link-arrow" href="family/index.html">Meet PrivacyPal for families</a>
+        </div>
+        <p class="fam-fine reveal">$9.99 a month for up to 5 family members · 5-day free trial · Founding Families pay $4.99 a month for the first year</p>
+      </div>
+    </div>
+
+    <div class="fam-shelf reveal">
+      <p class="fs-lbl" id="fs-lbl">Works with the AI and games they already use</p>
+      <ul class="fs-list" aria-labelledby="fs-lbl">
+        <li class="fs-chip"><img src="assets/glyph-chatgpt.png" alt="" width="18" height="18" loading="lazy">ChatGPT</li>
+        <li class="fs-chip"><img src="assets/glyph-claude.png" alt="" width="18" height="18" loading="lazy">Claude</li>
+        <li class="fs-chip"><img src="assets/glyph-gemini.png" alt="" width="18" height="18" loading="lazy">Gemini</li>
+        <li class="fs-chip"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M9.2 22.8a9.4 9.4 0 1 1 13.6 0"/><path d="M26.5 5.5 9.5 22.5"/></svg>Grok</li>
+        <li class="fs-chip"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" aria-hidden="true"><path d="M16 5v22"/><path d="M6.5 10.5l19 11"/><path d="M25.5 10.5l-19 11"/></svg>Perplexity</li>
+        <li><a class="fs-chip rbx" href="family/roblox.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg>Roblox</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROBLOX =================
+     New in the Family pack. Every line follows family/roblox.html and the
+     Roblox claims discipline in family/README.md: message checks run on the
+     family Mac, and Roblox is never twinned, so no Privacy Twin appears here.
+     The chat and Parent HQ panels are design previews, not Roblox's own
+     interface; the names in them are invented examples. -->
+<section class="rbx" id="roblox" aria-labelledby="rbx-title" data-pack="family">
+  <div class="container-wide">
+    <div class="rbx-stage">
+      <div class="rbx-top">
+        <div class="rbx-copy">
+          <span class="rbx-kicker reveal"><span class="rbx-tile" aria-hidden="true"><svg viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" transform="rotate(15 16 16)" d="M8.6 6.5h14.8c1.16 0 2.1.94 2.1 2.1v14.8c0 1.16-.94 2.1-2.1 2.1H8.6a2.1 2.1 0 0 1-2.1-2.1V8.6c0-1.16.94-2.1 2.1-2.1zM13.4 13.4v5.2h5.2v-5.2z"/></svg></span>Roblox · new in the Family pack</span>
+          <h2 id="rbx-title" class="reveal">Roblox, on your terms.</h2>
+          <p class="rbx-lede reveal">Roblox is where your kids play, chat and make friends, and where someone they have never met can message them directly. The Family pack hands you the keys: anything on your never-share list is held on the device before it sends, and you see signals, never their chats.</p>
+          <div class="btn-row rbx-ctas reveal">
+            <a class="btn btn-gold btn-lg" href="family/roblox.html">See Roblox protection</a>
+            <a class="btn btn-lg rbx-ghost" href="family/founding/index.html">Start Family free</a>
+          </div>
+          <p class="rbx-scope reveal">Roblox protection runs on the family Mac today. Windows is next. Included in the Family pack.</p>
+          <ul class="rbx-trust reveal">
+            <li>Their password stays theirs</li>
+            <li>Checked on the device</li>
+            <li>Signals, not chats</li>
+          </ul>
+        </div>
+
+        <figure class="rbx-fig reveal reveal-delay-1">
+          <div class="rbx-hq" role="img" aria-label="Design preview of the Parent HQ Roblox panel. Leo's five switches: play on; chat, friend requests, voice and spending off. One message held today, a school name, which Leo edited and sent again. Leo asked to turn on friend requests, waiting for a parent's answer.">
+            <div class="rh-bar"><span class="rh-t"><b>Parent HQ</b><span>Roblox</span></span><span class="rh-live"><i></i>The Rivera family</span></div>
+            <div class="rh-kid"><span class="av">L</span><div><b>Leo</b><small>Navigator · plays Roblox</small></div><span class="rh-cnt">1 of 5 on</span></div>
+            <ul class="rh-sw">
+              <li class="on"><span>Play</span><i></i></li>
+              <li><span>Chat</span><i></i></li>
+              <li><span>Friend requests</span><i></i></li>
+              <li><span>Voice</span><i></i></li>
+              <li><span>Spending</span><i></i></li>
+            </ul>
+            <div class="rh-cards">
+              <div class="rh-held"><span class="rh-lbl">Held today</span><b>1 message held</b><small>School name ×1. Leo edited it and sent again. No message text is shown or stored.</small></div>
+              <div class="rh-ask"><span class="rh-lbl">Waiting on you</span><b>Leo asked to turn on friend requests.</b><span class="rh-btns"><span class="ok">Approve</span><span>Not now</span></span></div>
+            </div>
+          </div>
+          <div class="rbx-chat" aria-hidden="true">
+            <div class="rc-bar"><b>Chat</b><small>Leo's side · family Mac</small></div>
+            <p class="rc-them"><span>Bl0ckBuilder_77</span>gg! that obby was so hard lol</p>
+            <p class="rc-me rc-plain">ikr, 3rd try</p>
+            <p class="rc-them"><span>Bl0ckBuilder_77</span>what school do u go to?</p>
+            <p class="rc-me">Oakridge Elementary, Ms Hale's class</p>
+            <div class="rc-note"><b>PrivacyPal · held on this Mac</b>That looks like your school's name. Edit it, then send. Nothing was shared.</div>
+          </div>
+          <figcaption>Design previews · illustrative examples</figcaption>
+        </figure>
+      </div>
+
+      <ol class="rbx-four">
+        <li class="reveal reveal-delay-1"><span class="n">01</span><h3>Private details, held before they send</h3><p>Messages, profile text and group posts are checked on the device. Anything on your never-share list, like a school, a street or a sibling's name, is held. Your kid sees why, edits it and sends again.</p></li>
+        <li class="reveal reveal-delay-2"><span class="n">02</span><h3>Chat, friends, voice and spending: your call</h3><p>Five switches per child in Parent HQ. Play starts on, everything social starts off, and your kid can ask for more. You decide.</p></li>
+        <li class="reveal reveal-delay-3"><span class="n">03</span><h3>Roblox's own settings, set and kept</h3><p>Setup walks you through Roblox's own parent settings, like chat inside games, and tells you if one of them changes.</p></li>
+        <li class="reveal reveal-delay-1"><span class="n">04</span><span class="ea">Early access</span><h3>Danger alerts, right away</h3><p>Grooming patterns, secrecy pressure and pushes to move to another app or meet up raise an alert to you right away, and your kid is told in the moment.</p></li>
+      </ol>
+
+      <div class="rbx-setup reveal">
+        <div class="rs-head"><h3>Set up Roblox in about five minutes</h3><p>Roblox has its own step in setup, right after the AI tool picker, for the kids who play.</p></div>
+        <ol class="rs-steps">
+          <li><span>1</span>Tell us who plays</li>
+          <li><span>2</span>Check Roblox's own settings</li>
+          <li><span>3</span>Pick what's on</li>
+          <li><span>4</span>See what's covered</li>
+        </ol>
+        <p class="rs-ok">Your OK comes first: with your consent during setup, PrivacyPal adjusts Roblox on the family Mac so it can check messages before they send. Gameplay is left alone.</p>
+      </div>
+    </div>
+    <p class="fine-legal">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox. The chat and Parent HQ panels are design previews, not Roblox's own interface.</p>
+  </div>
+</section>
+
+<!-- ================= FOR BUSINESS ================= -->
+<section class="section biz" id="business" aria-labelledby="biz-title">
+  <div class="container">
+    <div class="biz-top">
+      <div class="biz-copy">
+        <span class="eyebrow reveal">For business</span>
+        <h2 id="biz-title" class="reveal">Govern every AI at work.</h2>
+        <p class="lede reveal">The Max pack protects the agents, copilots and APIs your teams already run, at 20 people or 2,000. One policy plane for all of it turns whoever owns risk from blocker into enabler.</p>
+        <div class="btn-row reveal">
+          <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
+          <a class="btn btn-ghost btn-lg" href="business.html">PrivacyPal for business</a>
+        </div>
+        <p class="biz-fine reveal">$34 per user per month · volume pricing from 10 users · <a href="pricing.html#business">See Max pricing</a></p>
+      </div>
+
+      <div class="biz-cover reveal reveal-delay-1" role="group" aria-labelledby="cover-title">
+        <div class="bc-head">
+          <span class="bc-t" id="cover-title">Max pack coverage</span>
+          <span class="bc-s">Everything in Personal, plus</span>
+        </div>
+        <ul class="bc-list">
+          <li><span class="bc-g"><img src="assets/glyph-claude.png" alt="" width="18" height="18" loading="lazy"></span><div><b>Claude Code</b><small>Prompts and tool calls, before they leave the laptop</small></div></li>
+          <li><span class="bc-g"><img src="assets/glyph-claude.png" alt="" width="18" height="18" loading="lazy"></span><div><b>Claude Cowork</b><small>Typed messages and attachments</small></div></li>
+          <li><span class="bc-g"><img src="assets/glyph-chatgpt.png" alt="" width="18" height="18" loading="lazy"></span><div><b>OpenAI Codex</b><small>Prompts, file reads and command output</small></div></li>
+          <li><span class="bc-g"><img src="assets/glyph-copilot.png" alt="" width="18" height="18" loading="lazy"></span><div><b>Microsoft Copilot</b><small>Chat twinned, agent actions controlled</small></div></li>
+          <li><span class="bc-g t">API</span><div><b>OpenAI and xAI APIs</b><small>Prompts your apps and scripts send</small></div></li>
+          <li><span class="bc-g t">MCP</span><div><b>Private MCP</b><small>Internal tools over MCP, on a private host</small></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3 biz-feats">
       <div class="feature-card reveal reveal-delay-1">
-        <div class="ico" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-3.6 4-6 8-6s7.2 2.4 8 6"/></svg></div>
-        <h4>PrivacyPal Pro</h4>
-        <p>The individual seat, now completely free. Install once and every AI app one person touches is covered, desktop and browser. No card, no trial.</p>
-        <a class="link-arrow" href="privacypal-pro.html">Get Pro free</a>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="10" r="2.2"/></svg></div>
+        <h4>Shadow-AI discovery and on-device DSPM</h4>
+        <p>Every laptop becomes its own sensor: PrivacyPal finds sensitive IP, PII, PHI and PCI where it lives, and surfaces every unsanctioned AI tool.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-        <div class="ico" style="background:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></div>
-        <h4>PrivacyPal Max</h4>
-        <p>The whole company, at 20 people or 2,000. IP Protection, Governance Policies, Private Memory, and shadow-AI discovery.</p>
-        <a class="link-arrow" href="privacypal-max.html">Explore Max</a>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="ico" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 16a5 5 0 0 1 2-9.6A7 7 0 0 1 19 9.4 4.5 4.5 0 0 1 18 18H7a4 4 0 0 1-3-2z"/></svg></div>
-        <h4>PrivacyPal Cloud</h4>
-        <p>Sovereign deployment for the regulated enterprise. Your VPC, your keys, any LLM, with an air-gap option.</p>
-        <a class="link-arrow" href="privacypal-cloud.html">Explore Cloud</a>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.6 8.4-8 9-4.4-.6-8-4-8-9V7z"/><path d="M8.5 12h7M12 8.5v7"/></svg></div>
+        <h4>Governance Policies</h4>
+        <p>Policies enforced on the device: block models, gate access behind training, intercept and steer prompts, redact at the wire.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
-        <div class="ico" style="background:var(--tangerine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
-        <h4>PrivacyPal SDK</h4>
-        <p>Bring Privacy Twins to your own apps and agents. TypeScript and Python, built for MCP and multi-agent flows.</p>
-        <a class="link-arrow" href="developers.html">Explore the SDK</a>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-5 5.5-5s4.9 2 5.5 5"/><path d="M16 5.5h5M16 9h5M17.5 12.5H21"/></svg></div>
+        <h4>Admin and identity</h4>
+        <p>SSO sign-in, central seat management and org-wide policy, with every interception in one activity feed and full usage history.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6"/><path d="M5 12v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-6"/></svg></div>
+        <h4>IP Protection</h4>
+        <p>Connects to Salesforce, Slack, Notion, Workday and more, and learns what is sensitive where it actually lives.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5a6.5 6.5 0 0 1 6.5 6.5c0 2.8-1.8 4.2-1.8 6.6H7.3c0-2.4-1.8-3.8-1.8-6.6A6.5 6.5 0 0 1 12 2.5z"/><path d="M9 19h6M10 22h4"/></svg></div>
+        <h4>Private Memory</h4>
+        <p>One governed memory across every AI, with team and org scopes. Promotion to team memory is always explicit.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a5 5 0 0 1 2-9.6A7 7 0 0 1 19 9.4 4.5 4.5 0 0 1 18 18H7a4 4 0 0 1-3-2z"/></svg></div>
+        <h4>Deploy and build</h4>
+        <p><a href="privacypal-cloud.html">PrivacyPal Cloud</a> runs the same governance in your own VPC. The <a href="developers.html">PrivacyPal SDK</a> builds Privacy Twins into your software.</p>
       </div>
     </div>
 
-    <div class="stats reveal" style="margin-top:56px">
-      <div class="stat"><div class="n">10M<small>+</small></div><div class="l">Sensitive elements governed in real time across customer endpoints.</div></div>
-      <div class="stat"><div class="n">340<small>ms</small></div><div class="l">Average interception latency. Faster than a keystroke.</div></div>
-      <div class="stat"><div class="n">0<small>bytes</small></div><div class="l">Sensitive data sent to AI providers. Ever.</div></div>
-      <div class="stat"><div class="n">47<small>types</small></div><div class="l">PII, PHI, PCI &amp; IP classes governed out of the box.</div></div>
-    </div>
-
-    <div class="industry-pills reveal">
-      <a href="accounting.html">Accounting</a>
-      <a href="banking.html">Banking</a>
-      <a href="healthcare.html">Healthcare</a>
-      <a href="legal.html">Legal</a>
-      <a href="technology.html">Technology</a>
-    </div>
-    <p class="biz-meta reveal">Policy packs, detection types and audit posture per sector, from a 40-seat law firm to a 1,200-employee community bank.</p>
-
-    <div class="btn-row reveal" style="justify-content:center;margin-top:36px">
-      <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
-      <a class="btn btn-ghost btn-lg" href="business.html">Explore for business</a>
+    <div class="biz-ind reveal">
+      <span class="bi-lbl">By industry</span>
+      <div class="bi-row">
+        <a href="banking.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg>Banking</a>
+        <a href="legal.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/><path d="M19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></svg>Legal</a>
+        <a href="healthcare.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/><path d="M8 12h2.2l1.3-2.5 1.8 5 1.3-2.5H16"/></svg>Healthcare</a>
+        <a href="accounting.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 11h1M12 11h1M15.5 11h0M8.5 14.5h1M12 14.5h1M8.5 18h1M12 18h1M15.5 14.5V18"/></svg>Accounting</a>
+        <a href="technology.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 5l-3 14"/></svg>Technology</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= BRIDGE QUOTE ================= -->
-<section class="section" style="padding-top:24px">
+<!-- ================= THE LAUNCH FILM + PROOF (one navy chapter) ================= -->
+<section class="film-band" id="film" aria-labelledby="film-title">
   <div class="container">
-    <div class="bigquote reveal">
-      <blockquote>
-        We built PrivacyPal for the <b>loan officer</b> pasting a client file into ChatGPT. For the <b>family doctor</b> asking Claude about a prescription. For the <b>CISO</b> asked to greenlight AI without putting a lifetime of customer trust on the line. And now, for the <b>parent</b> whose kid tells an AI more than they tell anyone. AI isn't going anywhere. Neither is the trust you've spent a lifetime earning. We protect both.
-      </blockquote>
-      <div class="who">Jason, Shayra &amp; the PrivacyPal team</div>
+    <div class="section-head center reveal">
+      <span class="eyebrow gold">The launch film</span>
+      <h2 id="film-title">Eighty seconds. The whole idea.</h2>
+      <p class="lede">Choose the AI they use. Protect who they are. Understand how it shapes them. Watch how a family holds the keys.</p>
+    </div>
+    <button class="film-stage reveal" type="button" data-film aria-haspopup="dialog" aria-label="Play the PrivacyPal launch film, 1 minute 22 seconds">
+      <img src="assets/family-launch-poster.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+      <span class="play-big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    </button>
+    <p class="film-caption">PrivacyPal for families · The launch film · 1:22 · sound on</p>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="proof" id="proof" aria-labelledby="proof-title">
+  <div class="container">
+    <div class="proof-head reveal">
+      <h2 id="proof-title"><span class="pb">Built for companies and global banks.</span> <span class="pb">Working for your family.</span></h2>
+    </div>
+    <div class="proof-grid">
+      <div class="pf reveal reveal-delay-1"><div class="n">140+</div><p>companies run the same engine at work, and global banks trust it</p></div>
+      <div class="pf reveal reveal-delay-1"><div class="n words">Tens of millions</div><p>of sensitive data elements protected</p></div>
+      <div class="pf reveal reveal-delay-2"><div class="n">0<small>bytes</small></div><p>of sensitive data sent to AI providers. The swap happens on the device.</p></div>
+      <div class="pf nv reveal reveal-delay-3"><div class="n badge"><img src="nvidia-inception-program-badge-rgb-for-screen.png" alt="NVIDIA Inception Program" width="148" height="64" loading="lazy"></div><p>NVIDIA Inception member, optimizing on-device protection for edge AI hardware</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= CTA BANNERS ================= -->
-<section class="section-sm">
-  <div class="container cta-stack">
-    <div class="cta-banner fam reveal">
-      <span class="eyebrow orange" style="justify-content:center">Founding Families</span>
-      <h2 style="margin-top:14px">Hold the keys. Let them fly.</h2>
-      <p>PrivacyPal Family is live on Mac and Windows today. Founding Families get 50% off their entire first year and help shape the way families everywhere raise kids alongside AI.</p>
-      <div class="btn-row">
-        <a class="btn-fam sun" href="family/founding/index.html">Start your free trial</a>
-        <a class="btn btn-ghost btn-lg" href="family/index.html">Meet PrivacyPal Family</a>
+<!-- ================= ONE DOWNLOAD =================
+     The tiles carry data-dl: assets/v3.js fills every href from its DOWNLOADS
+     config on load (the fallback hrefs go to download.html), so no build URL
+     lives on this page. -->
+<section class="section dl" id="download" aria-labelledby="dl-title">
+  <div class="container">
+    <div class="dl-head reveal">
+      <div>
+        <span class="eyebrow">Download</span>
+        <h2 id="dl-title">One download. Every device you protect.</h2>
       </div>
+      <p class="lede">Install PrivacyPal on your Mac or Windows PC and Personal is on, free. With Family or Max, iPhone, iPad and Android are protected today too, installed by invitation, and Max adds the Linux headless agent.</p>
     </div>
-    <div class="cta-banner dark reveal">
-      <span class="eyebrow" style="justify-content:center;color:#b8b8b8">For the whole company</span>
-      <h2 style="margin-top:14px">Govern agents that understand, reason and act</h2>
-      <p>Max covers every employee you have, whether that is 12 or 1,200, with IP Protection, Governance Policies, Private Memory, shadow-AI discovery and volume pricing built in. Cloud runs the same governance sovereign, inside your own VPC.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
-        <a class="btn btn-ghost btn-lg" href="business.html">Explore for business</a>
+    <div class="platform-grid list-sm reveal">
+      <a class="platform" data-os="mac" data-dl="mac" href="download.html#mac" rel="noopener">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span class="os-name">Mac</span>
+        <span class="os-meta">Apple Silicon · macOS 13+</span>
+        <span class="os-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download .dmg</span>
+      </a>
+      <a class="platform" data-os="windows" data-dl="windows" href="download.html#windows" rel="noopener">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4.5L10.5 3.5V11H3V4.5ZM11.5 3.35L21 2V11H11.5V3.35ZM3 12H10.5V20.5L3 19.5V12ZM11.5 12H21V22L11.5 20.65V12Z"/></svg>
+        <span class="os-name">Windows</span>
+        <span class="os-meta">Windows 11 · 64-bit</span>
+        <span class="os-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Download .exe</span>
+      </a>
+      <div class="platform multi" data-os="linux">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.6"/><path d="m6.8 9.3 3.1 2.7-3.1 2.7M12.4 15.2h4.8"/></svg>
+        <span class="os-name">Linux</span>
+        <span class="os-meta">Max · headless agent CLI</span>
+        <span class="os-links">
+          <a data-dl="linux-x64" href="download.html#linux" rel="noopener" aria-label="Download the Linux agent for x86_64">x86_64</a>
+          <a data-dl="linux-arm64" href="download.html#linux" rel="noopener" aria-label="Download the Linux agent for aarch64">aarch64</a>
+        </span>
+      </div>
+      <a class="platform" data-os="ios" data-dl="ios" href="family/early-access.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.5" width="11.6" height="19" rx="2.8"/><path d="M10.6 5.4h2.8M10.8 18.5h2.4"/></svg>
+        <span class="os-name">iPhone and iPad</span>
+        <span class="os-meta">Protected today with Family or Max · install by invitation</span>
+        <span class="os-go">Request an invitation <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="platform" data-os="android" data-dl="android" href="family/early-access.html">
+        <svg class="os-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 17.5a7.4 7.4 0 0 1 14.8 0z"/><path d="m8.2 10.9-1.7-2.6M15.8 10.9l1.7-2.6"/><circle cx="9.3" cy="14.4" r=".55" fill="currentColor"/><circle cx="14.7" cy="14.4" r=".55" fill="currentColor"/></svg>
+        <span class="os-name">Android</span>
+        <span class="os-meta">Protected today with Family or Max · install by invitation</span>
+        <span class="os-go">Request an invitation <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+    <div class="dl-foot reveal">
+      <span class="df-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Signed and notarized: notarized by Apple, a trusted publisher on Windows</span>
+      <span class="df-item mono">winget install PrivacyPal.AI</span>
+      <a class="link-arrow" href="download.html">System requirements and install steps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIGN-OFF ================= -->
+<section class="section-sm signoff" aria-labelledby="so-title">
+  <div class="container">
+    <div class="so-card reveal">
+      <img class="so-penguin" src="assets/brand/penguin-guide.svg" alt="" width="132" height="132" loading="lazy">
+      <h2 id="so-title" class="so-title">We protect your data from AI, at home and at work.</h2>
+      <blockquote class="so-quote">
+        We built PrivacyPal for the <b>loan officer</b> pasting a client file into ChatGPT. For the <b>family doctor</b> asking Claude about a prescription. For the <b>CISO</b> asked to greenlight AI and keep a lifetime of customer trust intact. And for the <b>parent</b> whose kid tells an AI more than they tell anyone. AI is here to stay. So is the trust you've spent years earning. We protect both.
+      </blockquote>
+      <p class="so-who">Jason, Shayra and the PrivacyPal team</p>
+      <div class="btn-row so-ctas">
+        <a class="btn btn-primary btn-lg" href="download.html" data-cta="download">Download free</a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html">See plans</a>
+        <a class="link-arrow" href="#" data-cta="demo">Book a demo</a>
       </div>
     </div>
   </div>
@@ -761,49 +827,73 @@
 
 <!-- ================= FILM MODAL ================= -->
 <div class="film-modal" id="filmModal" aria-hidden="true">
-  <div class="film-shell" role="dialog" aria-modal="true" aria-label="PrivacyPal Family launch film">
+  <div class="film-shell" role="dialog" aria-modal="true" aria-label="The PrivacyPal launch film">
     <div class="label">
-      <span>PrivacyPal Family · The launch film · 1:52</span>
+      <span>PrivacyPal for families · The launch film · 1:22</span>
       <button class="film-close" type="button" aria-label="Close">&times;</button>
     </div>
     <video id="filmVideo" controls playsinline preload="none" poster="assets/family-launch-poster.jpg">
-      <source src="assets/family-launch-film.mp4" type="video/mp4">
-      Your browser does not support HTML video. <a href="assets/family-launch-film.mp4">Download the film</a> instead.
+      <source src="assets/home/launch-film.mp4" type="video/mp4">
+      Your browser does not support HTML video. <a href="assets/home/launch-film.mp4">Download the film</a> instead.
     </video>
   </div>
 </div>
 
+<script src="assets/home/home.js"></script>
 <script src="assets/v3.js"></script>
 <script>
-/* Film modal: opens from any [data-film] trigger, lazy-loads the video. */
+/* Film modal: opens from any [data-film] trigger, lazy-loads the video.
+   Focus moves into the dialog, stays there while it is open (Tab cycles
+   between its controls), and returns to the trigger before the dialog is
+   hidden again. While it is closed it is inert. */
 (function(){
   var modal = document.getElementById('filmModal');
   var video = document.getElementById('filmVideo');
   if (!modal || !video) return;
-  function open(e){
+  var shell = modal.querySelector('.film-shell');
+  var closeBtn = modal.querySelector('.film-close');
+  var lastFocus = null;
+  modal.inert = true;
+  function isOpen(){ return modal.classList.contains('show'); }
+  function open(e, trigger){
     if (e) e.preventDefault();
+    if (isOpen()) return;
+    lastFocus = trigger || document.activeElement;
+    modal.inert = false;
     modal.classList.add('show');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
+    if (closeBtn) { closeBtn.focus({ preventScroll:true }); if (document.activeElement !== closeBtn) setTimeout(function(){ if (isOpen()) closeBtn.focus({ preventScroll:true }); }, 60); }
     var p = video.play();
     if (p && p.catch) p.catch(function(){});
   }
   function close(){
-    if (!modal.classList.contains('show')) return;
+    if (!isOpen()) return;
+    video.pause();
+    if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll:true }); } catch (err) {} }
+    lastFocus = null;
     modal.classList.remove('show');
     modal.setAttribute('aria-hidden','true');
+    modal.inert = true;
     document.body.style.overflow = '';
-    video.pause();
   }
   document.addEventListener('click', function(e){
     var t = e.target.closest ? e.target.closest('[data-film]') : null;
-    if (t) { open(e); return; }
+    if (t) { open(e, t); return; }
     if (e.target === modal) { close(); return; }
     var x = e.target.closest ? e.target.closest('.film-close') : null;
     if (x) close();
   });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') close();
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key !== 'Tab') return;
+    var f = [].filter.call(shell.querySelectorAll('button, [href], video[controls], [tabindex]:not([tabindex="-1"])'), function(el){ return !el.disabled && el.getClientRects().length; });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (!shell.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+    else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 })();
 </script>

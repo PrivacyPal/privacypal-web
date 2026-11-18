@@ -3,30 +3,33 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>The Guidebook · PrivacyPal Family</title>
-<meta name="description" content="The research behind raising AI-native kids: four evidence-backed vulnerabilities, the frameworks PrivacyPal Family is designed to align with, how the wellbeing science works, and the playbook only a parent can run." />
-<link rel="icon" href="../assets/favicon.ico"/>
+<title>The Guidebook: raising AI-native kids · PrivacyPal</title>
+<meta name="description" content="The research behind raising AI-native kids: four evidence-backed vulnerabilities, the frameworks PrivacyPal for families is designed to align with, how the wellbeing science works, and the playbook only a parent can run." />
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="family.css"/>
 <link rel="stylesheet" href="../assets/family-chrome.css"/>
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="PrivacyPal Family" />
+<meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/family/guidebook.html" />
-<meta property="og:title" content="The Guidebook · PrivacyPal Family" />
-<meta property="og:description" content="The research behind raising AI-native kids: four evidence-backed vulnerabilities, the frameworks PrivacyPal Family is designed to align with, how the wellbeing science works, and the playbook only a parent can run." />
-<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta property="og:image:secure_url" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:title" content="The Guidebook · PrivacyPal for families" />
+<meta property="og:description" content="The research behind raising AI-native kids: four evidence-backed vulnerabilities, the frameworks PrivacyPal for families is designed to align with, how the wellbeing science works, and the playbook only a parent can run." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-family.png" />
+<meta property="og:image:secure_url" content="https://privacypal.ai/assets/brand/og/og-family.png" />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1214" />
-<meta property="og:image:height" content="658" />
-<meta property="og:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal for families. Their world is full of AI. You hold the keys." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Guidebook · PrivacyPal Family" />
+<meta name="twitter:title" content="The Guidebook · PrivacyPal for families" />
 <meta name="twitter:description" content="The research behind raising AI-native kids: the vulnerabilities, the frameworks, the wellbeing science, and the playbook." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
-<meta name="twitter:image:alt" content="PrivacyPal Family: Their world is full of AI. You hold the keys." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-family.png" />
+<meta name="twitter:image:alt" content="PrivacyPal for families. Their world is full of AI. You hold the keys." />
 <style>
 sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-left:2px}
 .footnotes{
@@ -58,13 +61,13 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
   margin-top:14px;font-family:var(--font-mono);font-size:.74rem;color:var(--teal-ink);
   background:var(--teal-tint);border-radius:10px;padding:9px 13px;display:inline-block;
 }
-.ea{font-family:var(--font-mono);font-size:.62rem;color:var(--tangerine-deep);font-weight:500}
+.ea{font-family:var(--font-mono);font-size:.62rem;color:var(--gold-ink);font-weight:500}
 .gb-stages{margin-top:16px;padding:0;display:flex;flex-direction:column;gap:8px}
 .gb-stages li{list-style:none;display:grid;grid-template-columns:92px 1fr;gap:12px;font-size:.95rem;line-height:1.55;color:var(--muted)}
 .gb-stages .st{font-family:var(--font-mono);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding-top:3px}
 .st.explorer{color:var(--sage-deep)}
 .st.navigator{color:var(--teal-ink)}
-.st.pilot{color:var(--tangerine-deep)}
+.st.pilot{color:var(--gold-ink)}
 .gb-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
 .see-label{font-family:var(--font-mono);font-size:.66rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-ink)}
 .see-list{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
@@ -90,7 +93,8 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
 <!-- End Meta Pixel Code -->
 <!-- Referral attribution: captures ?ref= (partner, reseller and creator codes)
      and forwards it to the Founding Families signup, alongside the promo code.
-     The Family sub-site does not load assets/v3.js, so each page loads this itself. -->
+     Loaded here in the head so it runs first; assets/v3.js (end of body)
+     finds window.PPReferral and skips loading a second copy. -->
 <script src="../assets/referral.js"></script>
 </head>
 <body>
@@ -103,7 +107,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
   <div class="container" style="max-width:880px;text-align:center">
     <span class="eyebrow sage" style="justify-content:center">The Guidebook</span>
     <h1 style="margin:18px 0 20px">The research behind <span class="hl-teal">raising AI-native kids.</span></h1>
-    <p class="lede" style="margin:0 auto"><b>TL;DR:</b> AI can genuinely enrich your kid's life, school, and growth. The risks are real and specific, and the published research names them. PrivacyPal Family is built on that research, and this page shows the receipts: every claim below carries its source.</p>
+    <p class="lede" style="margin:0 auto"><b>TL;DR:</b> AI can genuinely enrich your kid's life, school, and growth. The risks are real and specific, and the published research names them. PrivacyPal for families is built on that research, and this page shows the receipts: every claim below carries its source.</p>
   </div>
 </header>
 
@@ -155,43 +159,43 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">The standards</span>
-      <h2>The frameworks Family is designed to align with</h2>
-      <p class="lede">"Designed to align with" means exactly what it says: no badges claimed. For each framework below, what it asks for, and the named mechanism Family answers with.</p>
+      <h2>The frameworks PrivacyPal is designed to align with</h2>
+      <p class="lede">"Designed to align with" means exactly what it says: no badges claimed. For each framework below, what it asks for, and the named mechanism PrivacyPal answers with.</p>
     </div>
     <div class="gb-frames">
       <div class="gb-frame reveal">
         <h3>APA health advisories</h3>
-        <p>The American Psychological Association's two 2025 advisories ask for regular, clear reminders that the user is talking to nonhuman AI, minimal engagement-maximizing design for youth, no validation of maladaptive or delusional thoughts, and no AI simulating clinical care.<sup>1,11</sup> Family does the reminding on the child's own device: when attachment patterns rise, a gentle nudge says plainly that the AI is software and the people in their life want to hear from them. Nothing in Family simulates care or therapy; hard moments route toward humans.</p>
+        <p>The American Psychological Association's two 2025 advisories ask for regular, clear reminders that the user is talking to nonhuman AI, minimal engagement-maximizing design for youth, no validation of maladaptive or delusional thoughts, and no AI simulating clinical care.<sup>1,11</sup> PrivacyPal does the reminding on the child's own device: when attachment patterns rise, a gentle nudge says plainly that the AI is software and the people in their life want to hear from them. PrivacyPal leaves care and therapy to people: hard moments route toward humans.</p>
         <span class="mech">mechanism · anti-anthropomorphization nudges + crisis escalation to humans</span>
       </div>
       <div class="gb-frame reveal">
         <h3>American Academy of Pediatrics guidance</h3>
-        <p>The AAP tells families there is no guarantee that what a child shares with a chatbot stays confidential, warns that kids can mistake chatbots for true friends and pull away from real relationships, and asks for privacy defaults set to the most protective option.<sup>2,6</sup> Family answers with signals, never transcripts: parents see the emotional weather and safety categories, never the words, and the deeper analysis option ships off by default.</p>
+        <p>The AAP tells families there is no guarantee that what a child shares with a chatbot stays confidential, warns that kids can mistake chatbots for true friends and pull away from real relationships, and asks for privacy defaults set to the most protective option.<sup>2,6</sup> PrivacyPal answers with signals, never transcripts: parents see the emotional weather and safety categories, never the words, and the deeper analysis option ships off by default.</p>
         <span class="mech">mechanism · signals, never transcripts + most-protective defaults</span>
       </div>
       <div class="gb-frame reveal">
         <h3>UNICEF policy guidance on AI for children (2021 edition)</h3>
-        <p>UNICEF's child-rights framework sets nine requirements for AI that touches children, including privacy-by-design and safety-by-design, transparency children can understand, and protection from data exploitation and commercial profiling.<sup>12</sup> Family is built kid-visible: the kid app shows what parents see, in age-appropriate language, and there is nothing to profile, because scoring happens on the child's own device and your family is not the product.</p>
+        <p>UNICEF's child-rights framework sets nine requirements for AI that touches children, including privacy-by-design and safety-by-design, transparency children can understand, and protection from data exploitation and commercial profiling.<sup>12</sup> PrivacyPal is built kid-visible: the kid app shows what parents see, in age-appropriate language, and there is nothing to profile, because scoring happens on the child's own device and your family is not the product.</p>
         <span class="mech">mechanism · on-device scoring + kids see what parents see</span>
       </div>
       <div class="gb-frame reveal">
         <h3>The Jed Foundation</h3>
-        <p>JED asks the industry to prohibit features that simulate friendship, intimacy, or therapeutic care for youth, and to make a warm hand-off to human crisis services such as 988 and Crisis Text Line whenever distress appears.<sup>7,13</sup> Family simulates nothing and hands off exactly that way: a crisis signal shows the child a warm support card with the 988 Suicide and Crisis Lifeline and the Crisis Text Line, and alerts a parent at the same time.</p>
+        <p>JED asks the industry to prohibit features that simulate friendship, intimacy, or therapeutic care for youth, and to make a warm hand-off to human crisis services such as 988 and Crisis Text Line whenever distress appears.<sup>7,13</sup> PrivacyPal hands off exactly that way: a crisis signal shows the child a warm support card with the 988 Suicide and Crisis Lifeline and the Crisis Text Line, and alerts a parent at the same time.</p>
         <span class="mech">mechanism · crisis escalation to humans</span>
       </div>
       <div class="gb-frame reveal">
         <h3>IEEE 2089-2021 and 2089.1-2024</h3>
-        <p>IEEE 2089-2021 lays out processes for age-appropriate digital services built on the 5Rights principles: recognize that the user is a child, present age-appropriate information, and validate the design for each age.<sup>14</sup> IEEE 2089.1-2024 covers age assurance.<sup>15</sup> Family's stage ladder is the mechanism: Explorer, Navigator, and Pilot stages carry graduated permissions, age-tuned language, and age-tuned protection, set by the parent who knows the child.</p>
+        <p>IEEE 2089-2021 lays out processes for age-appropriate digital services built on the 5Rights principles: recognize that the user is a child, present age-appropriate information, and validate the design for each age.<sup>14</sup> IEEE 2089.1-2024 covers age assurance.<sup>15</sup> PrivacyPal's stage ladder is the mechanism: Explorer, Navigator, and Pilot stages carry graduated permissions, age-tuned language, and age-tuned protection, set by the parent who knows the child.</p>
         <span class="mech">mechanism · the stage ladder (Explorer · Navigator · Pilot)</span>
       </div>
       <div class="gb-frame reveal">
         <h3>IEEE P3462</h3>
-        <p>IEEE P3462, a draft recommended practice still in development, applies safety-by-design to generative models to prioritize child safety across the develop, deploy, and maintain lifecycle.<sup>16</sup> Family cannot change how the models themselves are built, but it designs to the same direction from the child's side: exploitation patterns are scored on the child's own device, and a flagged exchange is blocked right there.</p>
+        <p>IEEE P3462, a draft recommended practice still in development, applies safety-by-design to generative models to prioritize child safety across the develop, deploy, and maintain lifecycle.<sup>16</sup> PrivacyPal applies the same direction from the child's side of the conversation: exploitation patterns are scored on the child's own device, and a flagged exchange is blocked right there.</p>
         <span class="mech">mechanism · on-device exploitation detection</span>
       </div>
       <div class="gb-frame reveal">
         <h3>Thorn and All Tech Is Human</h3>
-        <p>Thorn's Safety by Design principles target the prevention of child sexual abuse across the develop, deploy, and maintain stages of generative AI.<sup>17</sup> Family works from the child's side of the conversation: it observes what happens on the child's own device, blocks a flagged exploitation exchange there with a warm, non-punitive page, and escalates to humans, a critical parent alert with the child told plainly. Family never suppresses or rewrites what an AI model says; its job is protecting the child's side of the exchange.</p>
+        <p>Thorn's Safety by Design principles target the prevention of child sexual abuse across the develop, deploy, and maintain stages of generative AI.<sup>17</sup> PrivacyPal works from the child's side of the conversation: it observes what happens on the child's own device, blocks a flagged exploitation exchange there with a warm, non-punitive page, and escalates to humans, a critical parent alert with the child told plainly. What an AI model says stays as the model said it; PrivacyPal's job is protecting the child's side of the exchange.</p>
         <span class="mech">mechanism · on-device blocking + escalation to humans</span>
       </div>
     </div>
@@ -203,7 +207,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Under the hood</span>
-      <h2>How Family's wellbeing science works</h2>
+      <h2>How the wellbeing science works</h2>
       <p class="lede">The Wellbeing Signal <span class="ea">early access</span> turns the research above into a daily practice. Here is the whole mechanism, in order.</p>
     </div>
     <div class="gb-frames">
@@ -214,7 +218,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
       </div>
       <div class="gb-frame reveal">
         <h3>Five safety signals, computed on their device</h3>
-        <p>Beyond the weather, Family watches for the research-backed patterns above. These are pattern-based safety signals scored on your kid's own device, and what gets recorded is categorical only: a category, a confidence tier, a count. Never words.</p>
+        <p>Beyond the weather, PrivacyPal watches for the research-backed patterns above. These are pattern-based safety signals scored on your kid's own device, and what gets recorded is categorical only: a category, a confidence tier, a count. Never words.</p>
         <ul class="see-list" style="margin-top:14px">
           <li>Crisis: signs a kid may be in real trouble, including the indirect phrasing keyword filters miss</li>
           <li>Attachment to the AI: treating a chatbot like a best friend, a confidant, or a partner</li>
@@ -252,7 +256,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
       </div>
       <div class="gb-frame reveal">
         <h3>The research registry</h3>
-        <p>Every tip and every signal in Family traces back to a research registry: the living link between the published work above and the guidance in the product. When the research moves, the registry moves, and the guidance follows. Registry version 1.0.0, last reviewed 2026-09-03.</p>
+        <p>Every tip and every signal in the Family pack traces back to a research registry: the living link between the published work above and the guidance in the product. When the research moves, the registry moves, and the guidance follows. Registry version 1.0.0, last reviewed 2026-09-03.</p>
         <span class="mech">mechanism · versioned research registry, quarterly review</span>
       </div>
     </div>
@@ -265,7 +269,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
     <div class="section-head center reveal">
       <span class="eyebrow">The trust architecture</span>
       <h2>Why kids can trust it is not spyware</h2>
-      <p class="lede">Monitoring that hides teaches kids to hide. Family's protection works because kids can check it.</p>
+      <p class="lede">Monitoring that hides teaches kids to hide. PrivacyPal's protection works because kids can check it.</p>
     </div>
     <div style="max-width:860px;margin:0 auto">
       <div class="deep-list reveal">
@@ -287,7 +291,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
         </div>
         <div class="deep-item">
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span><b>Raw transcripts never leave the device</b><p>Scoring happens on the machine in your house. With Deep Insights <span class="ea">early access</span> on, only the twin-protected version, the same version the AI tool receives, is read transiently, then discarded.</p></span>
+          <span><b>Scoring runs on your kid's device</b><p>Their raw words are scored on the machine in your house. With Deep Insights <span class="ea">early access</span> on, only the twin-protected version, the same version the AI tool receives, is read transiently, then discarded.</p></span>
         </div>
         <div class="deep-item">
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -305,7 +309,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
     <div class="section-head center reveal">
       <span class="eyebrow">The playbook</span>
       <h2>Raising AI-native kids: four moves</h2>
-      <p class="lede">Family nudges you toward these automatically, at the right moment, tuned to your kid's stage. The nudge is ours. The conversation is yours: no software can run these plays for you.</p>
+      <p class="lede">PrivacyPal nudges you toward these automatically, at the right moment, tuned to your kid's stage. The nudge is ours. The conversation is yours: no software can run these plays for you.</p>
     </div>
     <div class="gb-list">
       <div class="gb-item reveal">
@@ -318,7 +322,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
             <li><span class="st navigator">Navigator 10-13</span><span>Compare AI answers with what a friend, a teacher, or a parent would say, and talk about why they differ.</span></li>
             <li><span class="st pilot">Pilot 14-17</span><span>Discuss commercial incentives directly: engagement features exist to keep users talking. Pilots respect being treated as capable of that analysis.</span></li>
           </ul>
-          <span class="mech">family's part · the reality-check nudge appears when attachment patterns rise; the talk is yours</span>
+          <span class="mech">our part · the reality-check nudge appears when attachment patterns rise; the talk is yours</span>
         </div>
       </div>
       <div class="gb-item reveal">
@@ -331,7 +335,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
             <li><span class="st navigator">Navigator 10-13</span><span>A weekly low-stakes check-in beats an interrogation after an alert. Ask what the AI got wrong lately; it opens the door without pressure.</span></li>
             <li><span class="st pilot">Pilot 14-17</span><span>Say it once, plainly: if an AI is ever the only one who knows something is wrong, that is the moment to tell me. Then respect their privacy the rest of the time.</span></li>
           </ul>
-          <span class="mech">family's part · conversation-starter nudges when the weather shifts; the check-in is yours</span>
+          <span class="mech">our part · conversation-starter nudges when the weather shifts; the check-in is yours</span>
         </div>
       </div>
       <div class="gb-item reveal">
@@ -344,11 +348,11 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
             <li><span class="st navigator">Navigator 10-13</span><span>Agree on a devices-out-of-the-bedroom time together rather than imposing it silently.</span></li>
             <li><span class="st pilot">Pilot 14-17</span><span>Pilots set their own hours; share the pattern with them and let them draw the conclusion. The late-night share in their weekly weather is theirs to see too.</span></li>
           </ul>
-          <span class="mech">family's part · the late-night share shows up in the weekly weather, for you and for them; the agreement is yours</span>
+          <span class="mech">our part · the late-night share shows up in the weekly weather, for you and for them; the agreement is yours</span>
         </div>
       </div>
       <div class="gb-item reveal">
-        <div class="gnum" style="background:var(--tangerine)">4</div>
+        <div class="gnum" style="background:var(--gold);color:var(--ink)">4</div>
         <div>
           <h3>Practice doubting the confident answer</h3>
           <p>Treat AI output with the same skepticism you teach for unverified internet claims. Pick one confident AI answer a week and verify it against a real source, out loud, together.<sup>1,8,12</sup></p>
@@ -357,7 +361,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
             <li><span class="st navigator">Navigator 10-13</span><span>Homework is the natural place: one AI-assisted answer per assignment gets source-checked together.</span></li>
             <li><span class="st pilot">Pilot 14-17</span><span>Flip the roles: have them teach you how they verify what an AI tells them. Teaching it cements it.</span></li>
           </ul>
-          <span class="mech">family's part · cited tips arrive with the weekly digest; the practice is yours</span>
+          <span class="mech">our part · cited tips arrive with the weekly digest; the practice is yours</span>
         </div>
       </div>
     </div>
@@ -369,15 +373,15 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow coral">When it matters most</span>
-      <h2>What Family does in a crisis</h2>
-      <p class="lede">If the signals point to a crisis, Family does exactly this, in this order. No judgment calls, no surprises.</p>
+      <h2>What PrivacyPal does in a crisis</h2>
+      <p class="lede">If the signals point to a crisis, PrivacyPal does exactly this, in this order. No judgment calls, no surprises.</p>
     </div>
     <div class="gb-list">
       <div class="gb-item reveal">
         <div class="gnum" style="background:var(--ink)">1</div>
         <div>
-          <h3>It never blocks or interrupts your child</h3>
-          <p>Mid-crisis is the wrong moment for a wall. The conversation continues; the support arrives alongside it.</p>
+          <h3>Your child's conversation continues</h3>
+          <p>Mid-crisis is the moment to keep the door open, so support arrives right alongside the conversation.</p>
         </div>
       </div>
       <div class="gb-item reveal">
@@ -395,15 +399,15 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
         </div>
       </div>
       <div class="gb-item reveal">
-        <div class="gnum" style="background:var(--tangerine)">4</div>
+        <div class="gnum" style="background:var(--gold);color:var(--ink)">4</div>
         <div>
           <h3>You get an alert built for the next conversation</h3>
           <p>In Parent HQ, with a conversation opener, plus a best-effort email. The goal is never data; it is getting the right humans talking.</p>
         </div>
       </div>
     </div>
-    <p class="disclaimer">A safety signal, not clinical screening. Family does not diagnose and is not a substitute for professional care. If you are worried about your child, reach out to a professional. In an emergency, call or text 988.</p>
-    <p class="gb-close reveal">The design principle is The Jed Foundation's, and Family follows it end to end: software escalates to humans, always.<sup>7,13</sup> That crisis-routing pattern, score the risk and surface human help before more open dialogue, comes from the published framework literature.<sup>10</sup></p>
+    <p class="disclaimer">A safety signal, not clinical screening. PrivacyPal does not diagnose and is not a substitute for professional care. If you are worried about your child, reach out to a professional. In an emergency, call or text 988.</p>
+    <p class="gb-close reveal">The design principle is The Jed Foundation's, and PrivacyPal follows it end to end: software escalates to humans, always.<sup>7,13</sup> That crisis-routing pattern, score the risk and surface human help before more open dialogue, comes from the published framework literature.<sup>10</sup></p>
   </div>
 </section>
 
@@ -433,7 +437,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
       <p><b>15.</b> IEEE Online Age Verification Working Group · IEEE Standard for Online Age Verification (IEEE 2089.1-2024) · IEEE Standards Association · 2024 · <a href="https://standards.ieee.org/ieee/2089.1/10700/" target="_blank" rel="noopener">standards.ieee.org</a></p>
       <p><b>16.</b> IEEE SBD Working Group (Safety by Design for Generative Models to Prioritize Child Safety) · IEEE P3462: Recommended Practice for Using Safety by Design in Generative Models to Prioritize Child Safety (draft, active project) · IEEE Standards Association · 2024 · <a href="https://standards.ieee.org/ieee/3462/11584/" target="_blank" rel="noopener">standards.ieee.org</a></p>
       <p><b>17.</b> Thorn and All Tech Is Human · Safety by Design for Generative AI: Preventing Child Sexual Abuse · Thorn · 2024 · <a href="https://www.thorn.org/blog/generative-ai-principles/" target="_blank" rel="noopener">thorn.org</a></p>
-      <p class="rev">Registry version 1.0.0, last reviewed 2026-09-03 · every source above is drawn from PrivacyPal Family's research registry and verified against the publisher's own page, on a quarterly review cycle.</p>
+      <p class="rev">Registry version 1.0.0, last reviewed 2026-09-03 · every source above is drawn from PrivacyPal's research registry and verified against the publisher's own page, on a quarterly review cycle.</p>
     </div>
   </div>
 </section>
@@ -446,7 +450,7 @@ sup{font-family:var(--font-mono);font-size:.55em;font-weight:500;color:var(--mut
       <h2>Put the research to work</h2>
       <p>Everything on this page ships as everyday protection: twins on their device, weather in your pocket, nudges at the right moment. Hold the keys from day one.</p>
       <div class="btn-row">
-        <a class="btn btn-sun btn-lg" href="founding/index.html">Start your free trial</a>
+        <a class="btn btn-sun btn-lg" href="founding/index.html">Start Family free</a>
         <a class="btn btn-ghost btn-lg" style="background:transparent;color:#fff;border-color:#3d5578;box-shadow:0 3px 0 #3d5578" href="promise.html">Read the Family Promise</a>
       </div>
     </div>

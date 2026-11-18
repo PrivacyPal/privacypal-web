@@ -1,0 +1,121 @@
+/* ============================================================
+   PrivacyPal digital kit: shared styles for the Open Graph cards
+   (brand/og-templates/) and the social images (brand/social-templates/).
+   Rendered to PNG by scripts/brand/build-og.js.
+
+   Load order in every template:
+     1. ../../assets/v3.css   tokens, the Overused Grotesk face, gold utilities
+     2. IBM Plex Mono         Google Fonts
+     3. this file
+   Each template sets its own canvas size on .k-canvas and its own
+   html font-size (rem-based v3 components such as .pack-chip and
+   .badge-gold scale with it).
+
+   Gold rules (spec): one gold moment per surface, about 10% at most.
+   Gold text and the gold button only on navy or dark photography.
+   ============================================================ */
+
+html,body{margin:0;padding:0;background:var(--ink)}
+body{font-family:var(--font-primary);color:#fff;-webkit-font-smoothing:antialiased;overflow:hidden}
+
+.k-canvas{position:relative;overflow:hidden;background:var(--ink);color:#fff;isolation:isolate}
+
+/* ---------- Grounds ---------- */
+/* Navy: deep navy with a soft lift at the top right and a deeper floor at the bottom left. */
+.ground-navy{
+  background:
+    radial-gradient(70% 90% at 92% -10%, rgba(32,78,140,.55), rgba(32,78,140,0) 70%),
+    radial-gradient(60% 80% at -5% 110%, rgba(0,12,34,.75), rgba(0,12,34,0) 70%),
+    var(--ink);
+}
+/* Contour field: quiet concentric rings centered off the right edge (the protected field).
+   Sized and placed per template with --rings-x, --rings-y, --rings-size. */
+.k-rings{
+  position:absolute;z-index:-1;pointer-events:none;
+  left:var(--rings-x,78%);top:var(--rings-y,50%);
+  width:var(--rings-size,1100px);height:var(--rings-size,1100px);
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:repeating-radial-gradient(circle at center,
+    rgba(255,255,255,0) 0, rgba(255,255,255,0) calc(var(--ring-gap,46px) - 1.5px),
+    rgba(255,255,255,var(--ring-a,.055)) calc(var(--ring-gap,46px) - 1.5px), rgba(255,255,255,var(--ring-a,.055)) var(--ring-gap,46px));
+  -webkit-mask:radial-gradient(circle at center, #000 0, #000 38%, rgba(0,0,0,0) 70%);
+          mask:radial-gradient(circle at center, #000 0, #000 38%, rgba(0,0,0,0) 70%);
+}
+
+/* Photo ground: the photo fills the frame; a navy wash keeps the text side calm. */
+/* The photo can start part-way across (--photo-left) so faces and screens stay clear of the copy;
+   the wash fades from solid navy at the photo's left edge (--wash-solid) to clear (--wash-fade). */
+.k-photo{position:absolute;top:0;right:0;bottom:0;left:var(--photo-left,0);z-index:-2}
+.k-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.k-photo::after{content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg, rgba(1,32,78,1) 0%, rgba(1,32,78,.96) var(--wash-solid,0%), rgba(1,32,78,.5) calc((var(--wash-solid,0%) + var(--wash-fade,40%)) / 2), rgba(1,32,78,0) var(--wash-fade,40%)),
+    linear-gradient(0deg, rgba(1,24,60,.5) 0%, rgba(1,24,60,0) 34%);
+}
+/* Shallow depth of field for a stand-in whose screens are readable: a blurred copy of the photo,
+   masked to the side away from the subject. Marked data-standin-only, so the build drops it once
+   the commissioned photo (screens out of focus by brief) is delivered. */
+.k-photo img.k-soft{position:absolute;inset:0;width:100%;height:100%;filter:blur(var(--soft-blur,7px));
+  -webkit-mask:var(--soft-mask,linear-gradient(90deg,#000 0,#000 45%,rgba(0,0,0,0) 70%));
+          mask:var(--soft-mask,linear-gradient(90deg,#000 0,#000 45%,rgba(0,0,0,0) 70%))}
+.k-photo.k-grade img.k-soft{filter:saturate(.92) contrast(1.04) sepia(.08) blur(var(--soft-blur,7px))}
+/* A warm grade on stand-in photos so they sit in the brand light (warm highlights, navy shadows). */
+.k-photo.k-grade img{filter:saturate(.92) contrast(1.04) sepia(.08)}
+
+/* ---------- Type ---------- */
+.k-logo{display:block;height:var(--logo-h,42px);width:auto}
+.k-eyebrow{
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:var(--font-mono);font-weight:500;letter-spacing:.02em;
+  color:#b9c6dc;line-height:1.2;
+}
+.k-eyebrow::before{content:"";width:.5em;height:.5em;border-radius:2px;background:var(--teal);flex:none}
+.k-eyebrow.gold::before{background:var(--gold)}
+.k-h{font-weight:500;letter-spacing:-.034em;line-height:1.02;color:#fff;margin:0;text-wrap:balance}
+.k-sub{font-weight:400;letter-spacing:-.005em;line-height:1.4;color:#c9d4e6;margin:0;text-wrap:pretty}
+.k-mono{font-family:var(--font-mono);letter-spacing:.02em;color:#b9c6dc}
+.k-url{font-family:var(--font-mono);letter-spacing:.02em;color:#dfe7f3;font-weight:500}
+
+/* Gold underline stroke under a key phrase (navy grounds). */
+.k-ul{
+  text-decoration:underline;text-decoration-color:var(--gold);
+  text-decoration-thickness:.075em;text-underline-offset:.15em;text-decoration-skip-ink:none;
+}
+
+/* ---------- Small parts ---------- */
+.k-chips{display:flex;gap:.6em;flex-wrap:wrap}
+.k-chip{
+  display:inline-flex;align-items:center;gap:.55em;white-space:nowrap;
+  font-family:var(--font-mono);font-weight:500;letter-spacing:.02em;line-height:1.2;
+  color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;padding:.45em .95em;
+}
+.k-chip::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--chip-dot,var(--teal));flex:none}
+.k-chip.personal{--chip-dot:var(--teal)}
+.k-chip.family{--chip-dot:var(--gold)}
+.k-chip.business{--chip-dot:#fff}
+.k-chip small{font-size:inherit;color:#b9c6dc;font-weight:400}
+
+.k-badge{
+  display:inline-flex;align-items:center;font-family:var(--font-mono);font-weight:600;letter-spacing:.02em;
+  background:var(--gold);color:var(--ink);border-radius:999px;padding:.32em .8em;line-height:1.2;
+}
+.k-btn{
+  display:inline-flex;align-items:center;gap:.55em;font-weight:500;line-height:1;
+  background:var(--gold);color:var(--ink);border-radius:.6em;padding:.78em 1.25em;white-space:nowrap;
+}
+.k-btn svg{width:1em;height:1em}
+.k-btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.32)}
+
+.k-rule{height:1px;background:rgba(255,255,255,.14);border:0;margin:0}
+
+/* ---------- Open Graph card (1200 x 630) ---------- */
+.k-og{width:1200px;height:630px;box-sizing:border-box;padding:56px 72px 50px;display:flex;flex-direction:column}
+.k-og .k-logo{--logo-h:40px}
+.k-og-top{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.k-og-body{margin-top:auto}
+.k-og-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);
+}

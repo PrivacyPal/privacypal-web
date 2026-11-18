@@ -1,5 +1,6 @@
 /* ============================================================
-   Roblox in PrivacyPal Family: shared feature styles.
+   Roblox in PrivacyPal for families (the Family pack): shared
+   feature styles.
 
    Loaded by the root homepage (assets/roblox.css), every /family/
    page (../assets/roblox.css) and the Founding Families landing page
@@ -10,12 +11,14 @@
    #202227 / #272930, emphasis blue #335fff, success green #39c582,
    warning yellow #f2ba2a, alert red #df281f, content #f7f7f8 /
    #bcbec8. Roblox's own typeface (Builder Sans) is proprietary, so
-   these components keep the Family type: Fredoka, Overused Grotesk,
-   IBM Plex Mono.
+   these components keep the Family content type: Fredoka, Overused
+   Grotesk, IBM Plex Mono. Roblox's yellow (#f2ba2a) is Roblox's own
+   palette, used only inside Roblox illustrations; it is not Penguin
+   Gold and never stands in for it.
 
    Everything here is rbx- prefixed (plus .pal-rbx on the shared AI
    shelf), so nothing leaks into family.css or v3.css. Roblox is an
-   addition to Family, not its center: AI stays the lead story.
+   addition to the Family pack, not its center: AI stays the lead story.
    ============================================================ */
 
 :root{
@@ -65,21 +68,25 @@
   border:1px solid rgba(242,186,42,.38);border-radius:6px;padding:2px 7px;
   white-space:nowrap;
 }
+/* The primary action is a PrivacyPal action, so it wears PrivacyPal's
+   colours, never Roblox's: gold with navy text on the dark Roblox panels
+   (the gold-CTA-on-dark rule). Roblox blue stays inside illustrations. */
 .rbx-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   font-family:var(--rbx-display);font-weight:600;font-size:1.04rem;
-  padding:14px 28px;border-radius:999px;border:0;color:#fff;
-  background:var(--rbx-blue);box-shadow:0 4px 0 var(--rbx-blue-deep);
+  padding:14px 28px;border-radius:999px;border:0;color:var(--ink,#01204e);
+  background:var(--gold,#ffac33);box-shadow:0 4px 0 var(--gold-deep,#e8941a);
   transition:transform .12s ease,box-shadow .12s ease,background .15s ease;
   white-space:nowrap;text-decoration:none;
 }
-.rbx-btn:hover{background:#4a72ff;transform:translateY(-1px);box-shadow:0 5px 0 var(--rbx-blue-deep)}
-.rbx-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--rbx-blue-deep)}
+.rbx-btn:hover{background:#ffbd5c;transform:translateY(-1px);box-shadow:0 5px 0 var(--gold-deep,#e8941a)}
+.rbx-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold-deep,#e8941a)}
 .rbx-btn.ghost{
   background:transparent;color:#fff;
   border:1.5px solid rgba(255,255,255,.34);box-shadow:none;
 }
-.rbx-btn.ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
+.rbx-btn.ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6);box-shadow:none}
+.rbx-btn.ghost:active{box-shadow:none}
 .rbx-link{
   display:inline-flex;align-items:center;gap:7px;
   font-weight:600;font-size:.96rem;color:var(--rbx-blue-lt);text-decoration:none;
@@ -513,7 +520,7 @@
 @media (max-width:1000px){.rbx-steps{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.rbx-steps{grid-template-columns:1fr}}
 
-/* Coverage: stopped / your call / flagged, then the honest gaps */
+/* Coverage: stopped / your call / flagged (early access) */
 .rbx-cov{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .rbx-cov-col{border-radius:26px;padding:26px 24px;border:1px solid}
 .rbx-cov-col.stop{background:#e9f9f0;border-color:#b0f6d0}

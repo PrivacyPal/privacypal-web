@@ -4,18 +4,38 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>About · PrivacyPal</title>
-<meta name="description" content="PrivacyPal is the on-device governance and enablement layer for the Age of AI, building the first AI-native security agent for the emerging AI Operating System." />
-<link rel="icon" href="assets/favicon.ico"/>
+<meta name="description" content="PrivacyPal protects your data from AI, at home and at work. Protection runs on the device and swaps sensitive details for Privacy Twins before a prompt reaches an AI provider. The same technology protects 140+ companies and global banks." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
+<style>
+.about-packs{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px}
+.about-packs .lbl{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);margin-right:4px}
+.story-split{grid-template-columns:1.12fr .88fr}
+.about-shot{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-md);border:1px solid var(--line);background:var(--ink)}
+/* Stand-in crop: frames the speaker and the room. Drop the wrapper crop when the replacement photo lands. */
+.split .media .about-shot img{position:absolute;max-width:none;width:260.23%;height:auto;left:-160.23%;top:-52.73%;border:0;border-radius:0}
+.about-signoff{display:flex;justify-content:center;margin-bottom:6px}
+.about-signoff img{width:76px;height:76px}
+@media (max-width:1080px){.story-split{grid-template-columns:1fr}.story-split .media{max-width:520px}}
+@media (max-width:760px){.about-stats.stats{grid-template-columns:1fr}.about-stats .stat{border-right:0!important;border-bottom:1px solid var(--line)!important;padding:28px 8px}.about-stats .stat:last-child{border-bottom:0!important}}
+</style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/about.html" />
 <meta property="og:title" content="About · PrivacyPal" />
-<meta property="og:description" content="The governance & enablement layer for the Age of AI, building the first AI-native security agent for the emerging AI Operating System." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:description" content="We protect your data from AI, at home and at work. The same technology protects 140+ companies and global banks." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal: we protect your data from AI, at home and at work." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -29,24 +49,32 @@
 
 <header class="page-hero">
   <div class="container">
-    <span class="eyebrow">About PrivacyPal · the mission</span>
-    <h1>The governance &amp; enablement layer for the Age of AI.</h1>
-    <p class="lede">PrivacyPal exists so organizations can embrace AI without compromising their most sensitive assets. We're building the first AI-native security agent protecting a company's interests across the emerging AI Operating System: on-device, agent-aware, language-based by design. The CISO stops being the blocker. The business moves at AI speed.</p>
+    <span class="eyebrow gold">About PrivacyPal · the mission</span>
+    <h1>We protect your data from AI, at home and at work.</h1>
+    <p class="lede">PrivacyPal is the filter between your data and every AI. Protection runs on the device, before a prompt or file reaches an AI provider: sensitive details are swapped for Privacy Twins, realistic stand-ins, so the AI still works and your real data never reaches the provider. One app protects you, your family and your business, so people and companies can say yes to AI with confidence.</p>
+    <div class="about-packs">
+      <span class="lbl">One app · three packs</span>
+      <span class="pack-chip personal">Personal · free</span>
+      <span class="pack-chip family">Family</span>
+      <span class="pack-chip business">Max</span>
+    </div>
   </div>
 </header>
 
 <!-- STORY -->
 <section class="section">
   <div class="container">
-    <div class="split reveal">
+    <div class="split story-split reveal">
       <div>
         <span class="eyebrow">Our story</span>
         <h2>Built from both sides of the desk</h2>
         <p class="lede">Our co-founders spent a decade shipping AI systems at scale, and a decade before that pioneering regulated data and financial systems that now form the standards in their industries. They watched CISOs become the blocker by default, teams build shadow-AI workarounds to ship, and "secure" tools degrade UX so badly the team routed around them. They built PrivacyPal so security teams could finally say <b>yes</b>.</p>
-        <p style="margin-top:16px;color:var(--muted)">Today we govern tens of millions of sensitive elements across financial services, healthcare, legal, telecom and B2B technology, from a 40-seat firm to organizations with thousands of employees. The long-term vision: PrivacyPal as the first AI-native security agent for the AI Operating System.</p>
+        <p style="margin-top:16px;color:var(--muted);max-width:60ch">Today we protect tens of millions of sensitive elements across financial services, healthcare, legal, telecom and B2B technology, from a 40-seat firm to organizations with thousands of employees. The same engine now protects families at home: parents choose the AI their kids use, and their kids' real identity never reaches the AI provider. The long-term vision: PrivacyPal as the AI-native security agent for the AI Operating System.</p>
       </div>
       <div class="media">
-        <img src="assets/hero-shot-about.png" alt="The PrivacyPal team at Miami Launch Event" loading="lazy">
+        <div class="about-shot" data-standin="assets/hero-shot-about.png">
+          <img src="assets/hero-shot-about.png" alt="A PrivacyPal founder presenting on stage to a full room" loading="lazy" width="1145" height="1373">
+        </div>
       </div>
     </div>
   </div>
@@ -63,17 +91,17 @@
       <div class="feature-card reveal reveal-delay-1">
         <div class="section-num" style="color:var(--muted)">01</div>
         <h4>Enable, don't block</h4>
-        <p>The CISO becomes an enabler. AI velocity goes up. Sensitive data stays sovereign. If our product slows the team down, we've shipped the wrong thing.</p>
+        <p>The CISO becomes an enabler. AI velocity goes up. Sensitive data stays sovereign. Our product earns its place by keeping the team moving.</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <div class="section-num" style="color:var(--muted)">02</div>
-        <h4>AI-native, not bolted on</h4>
-        <p>Built from the ground up for how AI actually works: language, prompts, agents, MCP, edge models. Not legacy DLP wrapped in a new logo.</p>
+        <h4>AI-native from day one</h4>
+        <p>Built from the ground up for how AI actually works: language, prompts, agents, MCP and edge models. Every feature starts from the way people use AI today.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="section-num" style="color:var(--muted)">03</div>
-        <h4>Zero-knowledge by default</h4>
-        <p>We never see your unencrypted data. Privacy Twins preserve statistical bandwidth without surfacing the original. Trust is earned in architecture, not in a marketing page.</p>
+        <h4>On-device by default</h4>
+        <p>Protection runs on the device, before a prompt reaches an AI provider. Privacy Twins keep the statistical bandwidth the AI needs, and the real values never reach the provider. Trust is earned in the architecture.</p>
       </div>
     </div>
   </div>
@@ -88,10 +116,10 @@
     </div>
   </div>
   <div class="container" style="margin-top:40px">
-    <div class="stats cols-3 reveal">
-      <div class="stat"><div class="n">14M<small>+</small></div><div class="l">Sensitive elements protected across every plan tier.</div></div>
-      <div class="stat"><div class="n">130<small>+</small></div><div class="l">Companies trust PrivacyPal today.</div></div>
-      <div class="stat"><div class="n">Q3<small>'26</small></div><div class="l">Launched in Q3 2026. Built for what comes next.</div></div>
+    <div class="stats cols-3 about-stats reveal">
+      <div class="stat"><div class="n"><span class="ul-gold">140</span><small>+</small></div><div class="l">Companies protected by the same technology, alongside global banks.</div></div>
+      <div class="stat"><div class="n">0<small>bytes</small></div><div class="l">Of sensitive data sent to AI providers. Protection runs on the device.</div></div>
+      <div class="stat"><div class="n">1<small>app</small></div><div class="l">Personal, Family and Max switch on as packs inside the same app.</div></div>
     </div>
   </div>
 </section>
@@ -100,6 +128,7 @@
 <section class="section-sm">
   <div class="container cta-stack">
     <div class="cta-banner reveal">
+      <div class="about-signoff"><img src="assets/brand/penguin-guide.svg" alt="" width="76" height="76"></div>
       <span class="eyebrow" style="justify-content:center">Building the AI OS with us</span>
       <h2 style="margin-top:14px">Whether you're a CISO, a CDO, a developer or a builder</h2>
       <p>If you want to ship AI without putting a lifetime of customer trust on the line, we'd love to hear from you.</p>

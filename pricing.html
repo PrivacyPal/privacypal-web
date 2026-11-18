@@ -4,39 +4,287 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Pricing · PrivacyPal</title>
-<meta name="description" content="Enterprise-grade governance. Pro is completely free for individuals: no credit card, no trial. Max covers teams and organizations from $30/seat/mo annually, down to $17 at scale. Cloud custom. Cancel anytime." />
-<link rel="icon" href="assets/favicon.ico"/>
+<meta name="description" content="One app, three packs. Personal is free, with no card and no trial clock. Family is $9.99 a month per household. Max is $34 per user per month, or $30 billed annually, with volume pricing from 10 users." />
+<link rel="canonical" href="https://privacypal.ai/pricing.html"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
 <style>
-.price-card.dark .btn-primary{background:#fff;color:var(--ink)}
-.price-card.dark .btn-primary:hover{background:#e7e7e7}
-.price-card.dark li{color:#e4e4e4}
-.price-card.dark .amount-note a{color:#8fd9c8;border-bottom:1px solid rgba(143,217,200,.45)}
-.price-card.dark .amount-note a:hover{border-bottom-color:#8fd9c8}
-.scope-panel{display:flex;flex-direction:column;height:100%}
-.scope-panel .dots{display:flex;flex-wrap:wrap;gap:7px;max-width:180px;margin-bottom:22px}
-.scope-panel .dots i{width:13px;height:13px;border-radius:50%;background:var(--faint);opacity:.45;display:block}
-.scope-panel .dots i.on{background:var(--teal);opacity:1}
-.scope-panel h3{font-size:1.25rem;font-weight:500;letter-spacing:-.02em;margin-top:10px}
-.scope-panel ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:11px}
-.scope-panel li{font-size:.9rem;color:var(--text);line-height:1.55;padding-left:22px;position:relative}
-.scope-panel li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
-.scope-panel li.off::before{background:transparent;box-shadow:inset 0 0 0 1px var(--faint)}
-.scope-panel li b{color:var(--ink);font-weight:600}
+/* ---- Hero ---- */
+.pricing-hero{padding-bottom:56px}
+.pricing-hero h1{max-width:none;font-size:clamp(2.5rem,5vw,4rem)}
+.pricing-hero h1 .ln{display:block}
+.pricing-hero .lede{max-width:58ch}
+.hero-packs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.hero-packs a.pack-chip{padding:7px 14px;font-size:.78rem;transition:border-color .18s,box-shadow .18s}
+.hero-packs a.pack-chip:hover{border-color:var(--teal);box-shadow:var(--shadow-menu)}
+.hero-packs .pack-chip span{color:var(--muted)}
+.hero-proof{margin-top:22px;font-size:.95rem;font-weight:500;color:var(--ink);text-align:center}
+.hero-proof .shield{display:inline-block;width:18px;height:18px;color:var(--sage);vertical-align:-3px;margin-right:8px}
+
+/* ---- Pack cards (extends the shared .pack-card) ---- */
+.pack-ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none}
+.pack-ico svg{width:20px;height:20px}
+.pack-card.personal .pack-ico{background:rgba(2,131,145,.09);color:var(--teal-ink)}
+.pack-card.family .pack-ico{background:var(--gold-tint);color:var(--gold-ink)}
+.pack-card.business .pack-ico{background:rgba(255,255,255,.09);color:#fff}
+.pack-card.business.dark::before{display:none}
+.pack-card .pack-note{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);line-height:1.55;margin-top:-6px}
+.pack-card .pack-note b{color:var(--ink);font-weight:600}
+.pack-card.dark .pack-note{color:#aebbd3}
+.pack-card.dark .pack-note b{color:#fff}
+.pack-card .pack-note a{color:#8fd9c8;border-bottom:1px solid rgba(143,217,200,.4)}
+.pack-card .pack-note a:hover{border-bottom-color:#8fd9c8}
+.pack-card .pack-price .save{
+  font-family:var(--font-mono);font-size:.64rem;font-weight:600;border-radius:999px;padding:3px 8px;
+  background:rgba(255,255,255,.12);color:#8fd9c8;align-self:center;
+}
+.pack-offer{
+  display:flex;align-items:center;gap:10px;margin-top:-4px;
+  background:var(--gold-tint);border:1px solid var(--gold-soft);border-radius:12px;
+  padding:10px 13px;font-size:.84rem;line-height:1.4;color:var(--ink);transition:border-color .18s;
+}
+.pack-offer:hover{border-color:var(--gold)}
+.pack-offer b{font-weight:600}
+.pack-offer .arr{margin-left:auto;color:var(--gold-ink);transition:transform .18s}
+.pack-offer:hover .arr{transform:translateX(3px)}
+.pack-card .pack-cta .link-arrow{justify-content:center;font-size:.88rem}
+.pack-card.dark .pack-cta .link-arrow{color:#8fd9c8}
+.pack-card.dark .pack-more{color:#fff;border-bottom:1px solid rgba(255,255,255,.35);white-space:nowrap}
+.pack-card.dark .pack-more:hover{border-bottom-color:#fff}
+.pack-card.dark .pack-more::after{content:" →"}
+.pack-card.dark .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.pack-card.dark .btn-ghost:hover{border-color:#fff;color:#fff}
+.pack-card.dark .billing-toggle{display:flex;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+.pack-card.dark .billing-toggle button{flex:1 1 auto;justify-content:center;color:#aebbd3;cursor:pointer;padding:8px 12px}
+.billing-toggle .save-tag{white-space:nowrap}
+.pack-card.dark .billing-toggle button:hover{color:#fff}
+.pack-card.dark .billing-toggle button.active{background:#fff;color:var(--ink)}
+.pack-card.dark .billing-toggle .save-tag{background:rgba(77,163,148,.22);color:#8fd9c8}
+.pack-card.dark .billing-toggle button.active .save-tag{background:#dcefe9;color:var(--ok)}
+.billing-toggle button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pack-addon{display:flex;gap:11px;align-items:flex-start;background:var(--panel-2);border:1px dashed #d9d6c8;border-radius:12px;padding:12px 14px;font-size:.84rem;line-height:1.5;color:var(--muted)}
+.pack-addon b{color:var(--ink);font-weight:500}
+.pack-addon .plus{flex:none;width:20px;height:20px;border-radius:6px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--teal-ink);margin-top:1px}
+.pack-addon .plus svg{width:10px;height:10px}
+.pack-legal{margin-top:18px;text-align:center;font-family:var(--font-mono);font-size:.68rem;color:var(--muted);line-height:1.6}
+
+/* ---- Assurance strip ---- */
+.assure{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:56px}
+.assure > div{display:flex;gap:14px;align-items:flex-start;padding:26px 22px;border-right:1px solid var(--line)}
+.assure > div:last-child{border-right:0}
+.assure .a-ico{width:36px;height:36px;border-radius:10px;background:var(--panel);display:grid;place-items:center;color:var(--ink);flex:none}
+.assure .a-ico svg{width:18px;height:18px}
+.assure b{display:block;font-weight:500;font-size:.98rem;color:var(--ink);line-height:1.3}
+.assure p{font-size:.85rem;color:var(--muted);line-height:1.5;margin-top:4px}
+
+/* ---- Packs stack ---- */
+.stack-panel{background:var(--panel);border-radius:28px;padding:64px 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.stack-panel h2{margin-top:14px;max-width:16ch}
+.stack-panel .lede{margin-top:16px;font-size:1.05rem}
+.sources{margin-top:30px;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.src{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.src .n{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);height:28px;border:1px solid var(--line);border-radius:8px;background:#fff;display:grid;place-items:center}
+.src b{display:block;font-weight:500;font-size:1.02rem;color:var(--ink)}
+.src p{font-size:.92rem;color:var(--muted);line-height:1.55;margin-top:4px}
+.stack-demo{display:flex;flex-direction:column;align-items:center;gap:14px}
+.stack-demo .stack-app{width:100%}
+.stack-app .bar .title .pp-penguin{width:20px;height:20px;vertical-align:0}
+.stack-app .bar .meta{margin-left:auto;font-family:var(--font-mono);font-size:.68rem;color:var(--muted)}
+.stack-app .row .ico{color:var(--ink)}
+.stack-app .row.p-personal .ico{background:rgba(2,131,145,.09);color:var(--teal-ink)}
+.stack-app .row.p-family .ico{background:var(--gold-tint);color:var(--gold-ink)}
+.stack-app .row.p-business .ico{background:var(--ink);color:#fff}
+.stack-app .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 18px;background:var(--panel-2);border-top:1px solid var(--line-soft);font-family:var(--font-mono);font-size:.7rem;color:var(--muted)}
+.stack-app .foot .ok{display:inline-flex;align-items:center;gap:7px;color:var(--ok)}
+.stack-app .foot .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage)}
+.demo-caption{font-family:var(--font-mono);font-size:.7rem;color:var(--muted)}
+.stack-demo .toggle{transition:background .35s ease}
+.stack-demo .t2,.stack-demo .t2::after{transition-delay:.35s}
+.stack-demo .t3,.stack-demo .t3::after{transition-delay:.7s}
+@media (prefers-reduced-motion:no-preference){
+  .stack-demo.reveal:not(.in) .toggle.on{background:#d9dbe2}
+  .stack-demo.reveal:not(.in) .toggle.on::after{left:3px}
+}
+
+/* ---- Seat calculator additions ---- */
+.calc-billing{margin-top:18px}
+.calc-billing .billing-toggle button{cursor:pointer}
+.calc-billing .billing-toggle button.active{color:var(--ink)}
+
+/* ---- Deploy and build ---- */
+#deploy .section-head h2 .ln{display:block}
+.deploy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.deploy-card{display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 32px 30px}
+.deploy-card .kind{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.deploy-card .kind::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--ink)}
+.deploy-card h3{font-size:1.5rem;letter-spacing:-.015em}
+.deploy-card .tag{font-size:.98rem;color:var(--text);line-height:1.55;margin-top:-6px}
+.deploy-card .terms{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.deploy-card .terms .big{font-size:1.6rem;font-weight:500;letter-spacing:-.02em;line-height:1}
+.deploy-card .terms small{font-size:.85rem;color:var(--muted)}
+.ticks{list-style:none;display:grid;gap:9px;font-size:.92rem;color:var(--text)}
+.ticks li{position:relative;padding-left:24px;line-height:1.5}
+.ticks li::before{content:"";position:absolute;left:2px;top:.45em;width:11px;height:6px;border-left:2px solid var(--sage);border-bottom:2px solid var(--sage);transform:rotate(-45deg)}
+.sdk-code{background:var(--ink);border-radius:var(--r-md);padding:14px 16px;font-family:var(--font-mono);font-size:.78rem;line-height:1.8;color:#dbe3f0;overflow-x:auto;white-space:nowrap}
+.sdk-code .p{color:#7f90b0;user-select:none}
+.deploy-card .btn-row{margin-top:auto;padding-top:6px}
+
+/* ---- Compare table ---- */
+table.packs-compare{min-width:0}
+table.packs-compare th:first-child,table.packs-compare td:first-child{width:34%}
+table.packs-compare thead th{vertical-align:bottom}
+table.packs-compare thead th .pack-chip{text-transform:none;letter-spacing:.02em;font-size:.78rem}
+table.packs-compare thead th .hp{display:block;margin-top:8px;font-family:var(--font-primary);text-transform:none;letter-spacing:0;font-size:.95rem;font-weight:500;color:var(--ink)}
+table.packs-compare thead th .hp small{font-size:.78rem;color:var(--muted);font-weight:400}
+table.packs-compare tr.grp th{
+  font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;font-weight:500;
+  color:var(--teal-ink);background:var(--panel-2);padding:12px 20px;text-align:left;border-bottom:1px solid var(--line);
+}
+table.packs-compare td{vertical-align:top;color:var(--text)}
+table.packs-compare td:first-child{color:var(--ink)}
+table.packs-compare td.yes{font-size:1rem}
+table.packs-compare td.yes small,table.packs-compare td.no small{font-weight:400}
+.compare-note{margin-top:14px;font-family:var(--font-mono);font-size:.68rem;color:var(--muted);line-height:1.6}
+
+/* ---- FAQ ---- */
+.faq{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.faq-side{position:sticky;top:calc(var(--nav-h) + 32px)}
+.faq-side h2{margin-top:14px}
+.faq-side p{margin-top:16px;color:var(--muted);font-size:1rem;line-height:1.6;max-width:40ch}
+.faq-side .btn-row{margin-top:24px}
+.faq-list{border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 4px;font-size:1.08rem;font-weight:500;color:var(--ink);line-height:1.35;
+}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.faq-list summary .pm{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .2s,background .2s,border-color .2s}
+.faq-list summary .pm svg{width:12px;height:12px}
+.faq-list summary:hover .pm{border-color:var(--teal)}
+.faq-list details[open] summary .pm{transform:rotate(45deg);background:var(--ink);border-color:var(--ink);color:#fff}
+.faq-list .a{padding:0 48px 24px 4px;font-size:.98rem;color:var(--text);line-height:1.65}
+.faq-list .a p + p{margin-top:10px}
+.faq-list .a a{color:var(--teal-ink);text-decoration:underline;text-underline-offset:3px}
+
+/* ---- CTA band ---- */
+.cta-banner .fine-link{display:block;margin-top:18px;font-size:.9rem;color:#aebbd3}
+.cta-banner .fine-link a{color:#fff;border-bottom:1px solid rgba(255,255,255,.35)}
+.cta-banner .fine-link a:hover{border-bottom-color:#fff}
+
+/* ---- Responsive ---- */
+@media (max-width:1080px){
+  .stack-panel{grid-template-columns:1fr;padding:48px 40px;gap:40px}
+  .stack-panel h2{max-width:20ch}
+  .stack-demo .stack-app{max-width:480px}
+  .assure{grid-template-columns:repeat(2,1fr)}
+  .assure > div:nth-child(2){border-right:0}
+  .assure > div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .faq{grid-template-columns:1fr;gap:28px}
+  .faq-side{position:static}
+}
+@media (max-width:900px){
+  .pack-grid{max-width:560px;margin:0 auto}
+  .deploy-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .pricing-hero{padding:64px 0 40px}
+  .pricing-hero h1 .ln{display:inline}
+  .stack-panel{padding:36px 22px;border-radius:var(--r-lg)}
+  .deploy-card{padding:28px 22px 24px}
+  /* Compare table becomes one card per row: label, then the three packs */
+  table.packs-compare thead{display:none}
+  table.packs-compare,table.packs-compare tbody{display:block}
+  table.packs-compare tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
+  table.packs-compare tr:last-child{border-bottom:0}
+  table.packs-compare tr.grp{display:block}
+  table.packs-compare tr.grp th{display:block;width:auto}
+  table.packs-compare th,table.packs-compare td{border-bottom:0}
+  table.packs-compare td{padding:6px 12px 14px;font-size:.86rem}
+  table.packs-compare td:first-child{grid-column:1/-1;width:auto;padding:14px 12px 4px;font-weight:500}
+  table.packs-compare td:first-child small{font-weight:400}
+  table.packs-compare td:nth-child(n+2)::before{
+    display:block;margin-bottom:4px;font-family:var(--font-mono);font-size:.6rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+  }
+  table.packs-compare td:nth-child(2)::before{content:"Personal"}
+  table.packs-compare td:nth-child(3)::before{content:"Family"}
+  table.packs-compare td:nth-child(4)::before{content:"Max"}
+}
+@media (max-width:760px){
+  /* Volume table: tier, then monthly / annual / discount */
+  table.vol-table{min-width:0}
+  table.vol-table thead{display:none}
+  table.vol-table,table.vol-table tbody{display:block}
+  table.vol-table tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
+  table.vol-table tr:last-child{border-bottom:0}
+  table.vol-table td{border-bottom:0;padding:6px 14px 14px;font-size:.88rem}
+  table.vol-table td:first-child{grid-column:1/-1;padding:14px 14px 4px}
+  table.vol-table td:nth-child(n+2)::before{
+    display:block;margin-bottom:4px;font-family:var(--font-mono);font-size:.6rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+  }
+  table.vol-table td:nth-child(2)::before{content:"Monthly"}
+  table.vol-table td:nth-child(3)::before{content:"Annual"}
+  table.vol-table td:nth-child(4)::before{content:"Off list"}
+  table.vol-table tr.tier-on{box-shadow:inset 3px 0 0 var(--teal)}
+  table.vol-table tr.tier-on td:first-child{box-shadow:none}
+}
+@media (max-width:560px){
+  .hero-packs{gap:8px}
+  .hero-packs a.pack-chip{padding:6px 11px;font-size:.72rem}
+  .seat-metrics{grid-template-columns:1fr 1fr;gap:10px}
+  .seat-metric{padding:14px 14px}
+  .seat-metric .v{font-size:1.2rem}
+  .seat-metric .v small{margin-left:3px}
+  .assure{grid-template-columns:1fr}
+  .assure > div{border-right:0;border-bottom:1px solid var(--line);padding:20px 4px}
+  .assure > div:last-child{border-bottom:0}
+  .faq-list .a{padding-right:4px}
+}
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/pricing.html" />
 <meta property="og:title" content="Pricing · PrivacyPal" />
-<meta property="og:description" content="Pro is completely free for individuals: no credit card, no trial. Max covers teams and organizations from $30/seat/mo annually, with volume pricing down to $17. Cancel anytime." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:description" content="One app. Personal is free, with no card and no trial clock. Add Family for $9.99 a month per household, or Max from $34 per user per month, with volume pricing from 10 users." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-pricing.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal pricing: Personal free, Family $9.99 a month, Max $34 per user per month" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Pricing · PrivacyPal" />
-<meta name="twitter:description" content="Pro is free for individuals: no credit card, no trial. Max from $30/seat/mo annually with volume pricing to $17. Cloud custom." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:description" content="One app. Personal is free. Add Family for $9.99 a month per household, or Max from $34 per user per month, with volume pricing from 10 users." />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-pricing.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Can I have Family and Max together?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Packs stack in the one PrivacyPal app. Your company can provide Max for work while you add Family for your kids, and both run side by side. A parent can also add Max on top of Family on their own, to protect their work in Claude Code, Microsoft Copilot and every other Max surface. Each pack is paid for by whoever provides it."}},
+    {"@type": "Question", "name": "What does Personal cover?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Personal is free with every download: no card, no trial clock, no expiry. It protects you on ChatGPT, Claude, Gemini, Grok and Perplexity web chat, attachments included. Names, SSNs, account numbers, patient details and cardholder data are swapped for Privacy Twins on your device before a prompt reaches the AI. It runs on Mac and Windows, and your usage view shows the last 24 hours. Personal is an individual account: your login, your devices."}},
+    {"@type": "Question", "name": "Can my company add Max to my PrivacyPal account?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your company provisions Max licenses and invites you into its Max account. Accept the invitation and your company's protection and policies switch on in the PrivacyPal app you already use. If you hold a Family pack, it keeps running alongside Max. New to PrivacyPal? Download it and sign in with your work email. Your IT team may also send you the installer directly."}},
+    {"@type": "Question", "name": "Which packs include phones?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Phones come with the Family and Max packs. PrivacyPal protects iPhone, iPad and Android today with Family or Max, and you install it by invitation. Mac and Windows come with every pack, and Max adds the Linux headless agent for servers and WSL. With Family, Parent HQ runs on your phone too: the feed, guardrails, alerts and the never-share list."}},
+    {"@type": "Question", "name": "How does Max volume pricing work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Max is priced per user per month. The price per user drops at 10, 100 and 1,000 users, and the tier your user count falls in sets the price for every user. Tiers apply automatically at checkout and at renewal. Annual billing saves 12% at 1 to 9 users, rising to 23% at 1,000 users and above."}},
+    {"@type": "Question", "name": "How do I try PrivacyPal before buying Max?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Start on Personal: download PrivacyPal, free, and feel the engine on your own chats today. Max is paid from day one and switches on the moment your company needs protecting. For a larger rollout, book a demo and we will walk your team through it."}},
+    {"@type": "Question", "name": "What do Cloud and the SDK cost?",
+     "acceptedAnswer": {"@type": "Answer", "text": "PrivacyPal Cloud is a custom annual agreement, sized to your deployment. The SDK runs self-hosted against Cloud in your own VPC. Talk to sales and we will scope both with you."}}
+  ]
+}
+</script>
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -48,307 +296,442 @@
 
 <div id="site-nav-slot"></div>
 
-<!-- ================= PAGE HERO ================= -->
-<header class="page-hero center">
+<!-- ================= HERO ================= -->
+<header class="page-hero center pricing-hero">
   <div class="container">
-    <span class="eyebrow">Pricing · attainable governance</span>
-    <h1 style="max-width:22ch">Free for individuals. Priced for organizations.</h1>
-    <p class="lede">Pro is completely free for one person: no credit card, no trial clock, no expiry. Max covers the organization from day one and gets cheaper per seat as you grow. Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box.</p>
-    <div class="btn-row" style="margin-top:28px">
-      <div class="billing-toggle" id="billingToggle" role="tablist" aria-label="Billing period for Max">
-        <button type="button" role="tab" data-billing="monthly" aria-selected="false">Monthly</button>
-        <button type="button" role="tab" data-billing="annual" class="active" aria-selected="true">Annual <span class="save-tag">Save up to 23%</span></button>
-      </div>
-    </div>
+    <span class="eyebrow">Pricing · One PrivacyPal</span>
+    <h1><span class="ln">One app. <span class="mark-gold">Free</span> for you.</span> <span class="ln">Add your family or your business.</span></h1>
+    <p class="lede">Every PrivacyPal download starts with Personal, free: no card, no trial clock, no expiry. Family and Max are packs that switch on inside the same app, and they stack.</p>
+    <nav class="hero-packs" aria-label="Jump to a pack">
+      <a class="pack-chip personal" href="#personal">Personal <span>· Free</span></a>
+      <a class="pack-chip family" href="#family">Family <span>· $9.99/mo</span></a>
+      <a class="pack-chip business" href="#business">Max <span>· $34/user/mo</span></a>
+    </nav>
+    <p class="hero-proof"><svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>The same technology that protects 140+ companies and global banks.</p>
   </div>
 </header>
 
-<!-- ================= PRICING GRID ================= -->
-<section class="section-sm" style="padding-top:0">
+<!-- ================= THE THREE PACKS ================= -->
+<section class="section-sm" style="padding-top:8px" aria-label="Packs and prices">
   <div class="container">
-    <div class="pricing-grid">
-      <div class="price-card reveal reveal-delay-1">
-        <div class="plan">Pro <span class="price-badge">Individual</span></div>
-        <div class="price-desc">One person, fully covered on every AI app they touch.</div>
-        <div class="amount">
-          <span class="big">Free</span><small>for individuals · forever</small>
-        </div>
-        <div class="amount-note">No credit card. No trial clock. The full individual product, free.</div>
-        <div class="scope-note">
-          <span class="seats-glyph"><i></i><i class="off"></i><i class="off"></i></span>
+    <div class="pack-grid">
+
+      <!-- Personal -->
+      <article class="pack-card personal reveal reveal-delay-1" id="personal">
+        <div class="pack-head">
           <div>
-            <b>One seat, one human</b>
-            <p>Pro is an individual account: your login, your devices, your seat. No domain accounts, no shared seats. The moment a second person needs covering, you need Max.</p>
+            <h2 class="pack-name">Personal</h2>
+            <div class="pack-for">For individuals · included free</div>
+          </div>
+          <span class="pack-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.9 3.9-6.3 7.5-6.3s6.7 2.4 7.5 6.3"/></svg></span>
+        </div>
+        <div class="pack-price"><span class="big">Free</span><small>no card, no trial clock, no expiry</small></div>
+        <p class="pack-desc">Personal PII protection across the AI chat apps you use every day. Sensitive details are swapped for Privacy Twins on your device, so the AI still helps and your real data never reaches the AI provider.</p>
+        <ul>
+          <li>ChatGPT, Claude, Gemini, Grok and Perplexity web chat</li>
+          <li>Attachments included: Word and Excel files protected in place</li>
+          <li>Names, SSNs, account numbers, patient details and cardholder data: PII, HIPAA, PCI and GDPR</li>
+          <li>Your last 24 hours of usage history</li>
+          <li>Mac (Apple Silicon) and Windows 11</li>
+        </ul>
+        <div class="pack-addon">
+          <span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 1.5v9M1.5 6h9"/></svg></span>
+          <span><b>Add Family or Max any time.</b> They switch on in this same app, on top of Personal.</span>
+        </div>
+        <div class="pack-cta">
+          <a class="btn btn-primary" href="download.html" data-cta="download">Download free</a>
+          <a class="link-arrow" href="download.html">See every platform</a>
+          <div class="pack-fine">One individual account: your login, your devices</div>
+        </div>
+      </article>
+
+      <!-- Family -->
+      <article class="pack-card family reveal reveal-delay-2" id="family">
+        <div class="pack-head">
+          <div>
+            <h2 class="pack-name">Family</h2>
+            <div class="pack-for">For parents · the whole household</div>
+          </div>
+          <span class="pack-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span>
+        </div>
+        <div class="pack-price"><span class="big">$9.99</span><small>/month per household</small></div>
+        <a class="pack-offer" href="family/founding/index.html"><span><b>Founding Families:</b> $4.99/month for the first year, then $9.99</span><span class="arr" aria-hidden="true">→</span></a>
+        <p class="pack-desc">Guardrails for the AI your kids use and for games like Roblox, with their identity kept out of every AI conversation.</p>
+        <ul>
+          <li>Up to 5 family members, both parents in one Parent HQ that shows signals, not transcripts</li>
+          <li>Guardrails: you approve the AI tools and apps each child can use</li>
+          <li>Privacy Twins stand in for their real name, school and address</li>
+          <li>Family Memory: see what AI remembers, erase it with one tap</li>
+          <li>Roblox controls for play, chat, friends, voice and spending, on the family Mac</li>
+          <li>For parents: the OpenAI API and the xAI API, protected too</li>
+          <li>Mac and Windows, plus iPhone, iPad and Android, protected today: install by invitation</li>
+        </ul>
+        <div class="pack-cta">
+          <a class="btn btn-primary" href="family/founding/index.html">Start Family free</a>
+          <a class="link-arrow" href="family/index.html">Meet the Family pack</a>
+          <div class="pack-fine">5-day free trial · 30-day money-back guarantee · cancel anytime</div>
+        </div>
+      </article>
+
+      <!-- Max (internal class and id stay "business": other pages link to #business) -->
+      <article class="pack-card business dark reveal reveal-delay-3" id="business">
+        <div class="pack-head">
+          <div>
+            <h2 class="pack-name">Max</h2>
+            <div class="pack-for">For teams and organizations</div>
+          </div>
+          <span class="pack-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8.5 7h1.5M14 7h1.5M8.5 11h1.5M14 11h1.5M8.5 15h1.5M14 15h1.5"/><path d="M10.5 21v-3h3v3"/></svg></span>
+        </div>
+        <div class="billing-toggle" role="tablist" aria-label="Max billing period">
+          <button type="button" role="tab" data-billing="monthly" class="active" aria-selected="true">Monthly</button>
+          <button type="button" role="tab" data-billing="annual" aria-selected="false">Annual <span class="save-tag">Save up to 23%</span></button>
+        </div>
+        <div class="pack-price"><span class="big" data-price="max-unit">$34</span><small data-price="max-term">/user/month · billed monthly</small> <span class="save" data-price="max-save" hidden></span></div>
+        <div class="pack-note"><span data-price="max-note">Priced at <b>5 users</b> · volume pricing starts at 10 users</span> · <a href="#volume">Size it with the user slider</a></div>
+        <p class="pack-desc">Privacy and governance for every AI at work, on every device on your company domain. Paid from day one. <a class="pack-more" href="privacypal-max.html">Explore Max</a></p>
+        <ul>
+          <li>Everything in Personal, for every user</li>
+          <li>Agents and APIs: Claude Code, Cowork, Codex, Microsoft Copilot, OpenAI and xAI</li>
+          <li>IP Protection: Salesforce, Slack, Notion, Workday and more</li>
+          <li>Governance Policies, Shadow-AI discovery and on-device DSPM</li>
+          <li>Private Memory and hosted Private MCP for your teams</li>
+          <li>Domain accounts, team admin and full usage history</li>
+          <li>Mac, Windows and the Linux headless agent, plus iPhone, iPad and Android, protected today: install by invitation</li>
+        </ul>
+        <div class="pack-cta">
+          <a class="btn btn-gold" href="https://portal.privacypal.ai/signup">Buy Max</a>
+          <a class="link-arrow" href="#" data-cta="demo">Talk to sales</a>
+          <div class="pack-fine">Volume pricing from 10 users · cancel anytime from the portal</div>
+        </div>
+      </article>
+    </div>
+
+    <p class="pack-legal">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox.</p>
+
+    <div class="assure reveal">
+      <div>
+        <span class="a-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M1.5 20h21"/><path d="M9 11l2 2 4-4"/></svg></span>
+        <div><b>On your device</b><p>Protection runs before a prompt or file reaches an AI provider.</p></div>
+      </div>
+      <div>
+        <span class="a-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span>
+        <div><b>Patent-pending Privacy Twins</b><p>Realistic stand-ins, so the AI still works and the real data never reaches the AI provider.</p></div>
+      </div>
+      <div>
+        <span class="a-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="12" rx="6" ry="8.5"/><path d="M8.2 18.2L15.8 5.8"/></svg></span>
+        <div><b>0 bytes</b><p>of sensitive data sent to AI providers.</p></div>
+      </div>
+      <div>
+        <span class="a-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/></svg></span>
+        <div><b>NVIDIA Inception member</b><p>Optimizing on-device protection for edge AI hardware.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACKS STACK ================= -->
+<section class="section-sm" id="stack">
+  <div class="container">
+    <div class="stack-panel">
+      <div class="reveal">
+        <span class="eyebrow">Packs stack</span>
+        <h2>One app. Every pack you hold, side by side.</h2>
+        <p class="lede">Personal comes with every download. Family and Max switch on in the same app, whoever provides them, so one person can hold Max from work and Family for their kids at once. One PrivacyPal account for you; your kids keep their own protected profiles.</p>
+        <div class="sources">
+          <div class="src">
+            <span class="n">01</span>
+            <div><b>You subscribe</b><p>Add Family for your household or Max for your company from your account. Family starts with a 5-day free trial; Max is paid from day one.</p></div>
+          </div>
+          <div class="src">
+            <span class="n">02</span>
+            <div><b>Your company invites you</b><p>Your company provisions Max licenses and invites you into its Max account. Accept, and its protection and policies switch on in your PrivacyPal app, alongside your Family pack if you hold one.</p></div>
+          </div>
+          <div class="src">
+            <span class="n">03</span>
+            <div><b>A partner provides it</b><p>Companies, associations and partners can provide Family or Max under their own license. It switches on the same way, in the same app.</p></div>
           </div>
         </div>
-        <ul>
-          <li>Works across your entire Desktop and any Web Browser: ChatGPT, Claude, Gemini, Copilot, Grok</li>
-          <li>Real-time on-device interception across every AI app</li>
-          <li>Covers PII, HIPAA, PCI &amp; GDPR</li>
-          <li>SSO sign-in (Okta, Entra, Google Workspace)</li>
-          <li>Free, completely. <a href="privacypal-pro.html">Explore Pro</a></li>
-        </ul>
-        <a class="btn btn-primary" href="#" data-cta="download">Get Pro free</a>
       </div>
 
-      <div class="price-card dark reveal reveal-delay-2">
-        <div class="plan">Max <span class="price-badge">Teams &amp; organizations</span></div>
-        <div class="price-desc">For the whole company, at 20 people or 2,000. Paid from day one: the free way to try the engine is Pro.</div>
-        <div class="amount">
-          <span class="big" data-price="max-unit">$25</span><small data-price="max-term">/mo · per seat · billed $300/yr</small> <span class="save" data-price="max-save">Save 14%</span>
+      <figure class="stack-demo reveal reveal-delay-2">
+        <div class="stack-app" role="img" aria-label="Illustration of the PrivacyPal app with three packs switched on: Personal, Family and Max">
+          <div class="bar">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="title"><img class="pp-penguin" src="assets/brand/penguin.svg" alt="">PrivacyPal</span>
+            <span class="meta">Your packs</span>
+          </div>
+          <div class="row p-personal">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.9 3.9-6.3 7.5-6.3s6.7 2.4 7.5 6.3"/></svg></span>
+            <div><b>Personal</b><small>Included with your download</small></div>
+            <span class="toggle on t1"></span>
+          </div>
+          <div class="row p-family">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span>
+            <div><b>Family</b><small>You subscribe · 3 kids · Roblox</small></div>
+            <span class="toggle on gold t2"></span>
+          </div>
+          <div class="row p-business">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8.5 7h1.5M14 7h1.5M8.5 11h1.5M14 11h1.5M8.5 15h1.5M14 15h1.5"/></svg></span>
+            <div><b>Max</b><small>Company license · invited by your employer</small></div>
+            <span class="toggle on ink t3"></span>
+          </div>
+          <div class="foot"><span>3 packs on · one app</span><span class="ok">Protected</span></div>
         </div>
-        <div class="amount-note" data-price="max-note">Priced at <b>25 seats</b> · 10-99 seats · <b>17% off</b> the 1-9 seat rate</div>
-        <div class="amount-note"><a href="#volume">Size it with the seat slider</a></div>
-        <ul>
-          <li>Everything in Pro</li>
-          <li>Volume pricing built in: four tiers, applied automatically</li>
-          <li>Domain accounts: provision and de-provision centrally</li>
-          <li>IP Protection: Salesforce, Slack, Notion, SQL, Workday &amp; more</li>
-          <li>Governance Policies that travel with every employee</li>
-          <li>Private Memory: one governed memory across every AI</li>
-          <li>Agent governance for Claude Code, Copilot, Hermes Agent &amp; Private MCP</li>
-          <li>Shadow-AI discovery, interception &amp; on-device DSPM</li>
-        </ul>
-        <a class="btn btn-primary" href="privacypal-max.html">Explore Max</a>
-      </div>
-
-      <div class="price-card reveal reveal-delay-3">
-        <div class="plan">Cloud <span class="price-badge">Enterprise</span></div>
-        <div class="price-desc">Sovereign deployment + network DSPM, in your VPC.</div>
-        <div class="amount">
-          <span class="big">Custom</span><small>· annual</small>
-        </div>
-        <ul>
-          <li>Self-host on your cloud, on-prem or air-gapped</li>
-          <li>Network DSPM across databases &amp; data lakes</li>
-          <li>OpenAI / Anthropic / Google compatible gateway</li>
-          <li>Dedicated solution engineer · 24/7 support</li>
-        </ul>
-        <a class="btn btn-ghost" href="#" data-cta="demo">Talk to us</a>
-      </div>
+        <figcaption class="demo-caption">Product UI · illustrative example</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ================= FAMILY PLAN ================= -->
-<section class="section-sm" id="family" style="padding-top:14px">
+<!-- ================= MAX VOLUME PRICING ================= -->
+<section class="section-sm" id="volume">
   <div class="container">
-    <div class="panel reveal" style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:space-between">
-      <div style="max-width:600px">
-        <span class="eyebrow">For your home</span>
-        <h3 style="margin-top:12px">PrivacyPal Family &middot; $9.99 a month, the whole household</h3>
-        <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Pro and Max cover people at work. Family covers the people at home: up to 5 family members on Mac and Windows, with Guardrails over which AI your kids use, Privacy Twins keeping their identity out of it, and wellbeing signals instead of transcripts. New: <a href="family/roblox.html" style="text-decoration:underline">Roblox controls</a> for chat, friends and spending. Separate account, separate app, billed on its own. Founding Families get 50% off their first year.</p>
-        <p style="color:var(--muted);font-size:.88rem;margin-top:8px">5-day free trial &middot; 30-day money-back guarantee &middot; cancel anytime</p>
-      </div>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="family/founding/index.html">Start your free trial</a>
-        <a class="btn btn-ghost" href="family/index.html">Meet Family</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SEAT CALCULATOR ================= -->
-<section class="section-sm" id="volume" style="padding-top:14px">
-  <div class="container">
-    <div class="seat-calc reveal" data-seat-calc="25">
+    <div class="seat-calc reveal" data-seat-calc="5">
       <div class="seat-calc-top">
         <div>
-          <span class="eyebrow blue">Volume pricing · Max</span>
-          <h3>Move the slider. Watch the seat price fall.</h3>
-          <p>Max gets cheaper per seat as the rollout grows. Drag to your headcount and the numbers below update live, against whichever billing period you picked above.</p>
+          <span class="eyebrow">Max · volume pricing</span>
+          <h3>Move the slider. Watch the price per user fall.</h3>
+          <p>Max gets cheaper per user as your rollout grows. Drag to your headcount and every number below updates live.</p>
+          <div class="calc-billing">
+            <div class="billing-toggle" role="tablist" aria-label="Max billing period">
+              <button type="button" role="tab" data-billing="monthly" class="active" aria-selected="true">Monthly</button>
+              <button type="button" role="tab" data-billing="annual" aria-selected="false">Annual <span class="save-tag">Save up to 23%</span></button>
+            </div>
+          </div>
         </div>
         <div class="seat-calc-count">
-          <span class="n" data-calc="seats">25</span>
-          <span class="u" data-calc="seat-word">seats</span>
+          <span class="n" data-calc="seats">5</span>
+          <span class="u" data-calc="seat-word">users</span>
         </div>
       </div>
 
       <div class="seat-slider">
-        <input type="range" class="seat-range" min="0" max="39" step="1" value="12" aria-label="Number of Max seats">
+        <input type="range" class="seat-range" min="0" max="39" step="1" value="4" aria-label="Number of Max users">
         <div class="seat-tiers">
-          <button type="button" class="seat-tier" data-tier="0" style="--w:9"><b>1-9</b>seats</button>
-          <button type="button" class="seat-tier" data-tier="1" style="--w:11"><b>10-99</b>seats</button>
-          <button type="button" class="seat-tier" data-tier="2" style="--w:12"><b>100-999</b>seats</button>
-          <button type="button" class="seat-tier" data-tier="3" style="--w:8"><b>1000+</b>seats</button>
+          <button type="button" class="seat-tier" data-tier="0" style="--w:9"><b>1–9</b>users</button>
+          <button type="button" class="seat-tier" data-tier="1" style="--w:11"><b>10–99</b>users</button>
+          <button type="button" class="seat-tier" data-tier="2" style="--w:12"><b>100–999</b>users</button>
+          <button type="button" class="seat-tier" data-tier="3" style="--w:8"><b>1000+</b>users</button>
         </div>
       </div>
 
       <div class="seat-metrics">
         <div class="seat-metric">
-          <span class="k">Per seat</span>
-          <span class="v" data-calc="unit">$25<small>/seat/mo</small></span>
-          <span class="sub">PrivacyPal Max</span>
+          <span class="k">Per user</span>
+          <span class="v" data-calc="unit">$34<small>/user/mo</small></span>
+          <span class="sub">Max</span>
         </div>
         <div class="seat-metric accent">
-          <span class="k" data-calc="total-label">Billed annually</span>
-          <span class="v" data-calc="total">$7,500<small>/yr</small></span>
-          <span class="sub">Whole rollout, all seats</span>
+          <span class="k" data-calc="total-label">Billed monthly</span>
+          <span class="v" data-calc="total">$170<small>/mo</small></span>
+          <span class="sub">All users, whole rollout</span>
         </div>
         <div class="seat-metric">
           <span class="k">Your volume tier</span>
-          <span class="v" data-calc="tier">10-99 seats</span>
-          <span class="sub" data-calc="tier-sub">17% off the 1-9 seat rate</span>
+          <span class="v" data-calc="tier">1–9 users</span>
+          <span class="sub" data-calc="tier-sub">List price</span>
         </div>
         <div class="seat-metric">
-          <span class="k">Annual plan saves</span>
-          <span class="v" data-calc="save">$1,200<small>/yr</small></span>
+          <span class="k">Annual billing saves</span>
+          <span class="v" data-calc="save">$240<small>/yr</small></span>
           <span class="sub">vs paying monthly</span>
         </div>
       </div>
 
       <div class="seat-calc-foot">
         <span>Volume tiers apply automatically at checkout and at renewal.</span>
-        <span>A company domain runs on Max, across every user on it.</span>
-        <a class="link-arrow" href="#" data-cta="demo">Past 5,000 seats? Talk to us</a>
+        <span>A company domain with more than one user runs Max for every user on it.</span>
+        <a class="link-arrow" href="#" data-cta="demo">Past 5,000 users? Talk to us</a>
       </div>
     </div>
 
     <div class="table-wrap reveal" style="margin-top:20px">
-      <table class="compare">
+      <table class="compare vol-table">
         <thead>
           <tr>
-            <th style="width:38%">Max volume tier</th>
-            <th>Annual · per seat / mo</th>
-            <th>Monthly · per seat / mo</th>
-            <th>Off the 1-9 rate</th>
+            <th scope="col" style="width:36%">Max volume tier</th>
+            <th scope="col">Monthly · per user / mo</th>
+            <th scope="col">Annual · per user / mo</th>
+            <th scope="col">Off the 1–9 rate</th>
           </tr>
         </thead>
         <tbody>
-          <tr data-tier-row="0"><td><b>1-9 seats</b><small>Small teams and pilots</small></td><td><b>$30</b></td><td><b>$34</b></td><td>List price</td></tr>
-          <tr data-tier-row="1"><td><b>10-99 seats</b><small>Departments and growing firms</small></td><td><b>$25</b></td><td><b>$29</b></td><td>17% annual<small>15% monthly</small></td></tr>
-          <tr data-tier-row="2"><td><b>100-999 seats</b><small>Company-wide rollout</small></td><td><b>$21</b></td><td><b>$26</b></td><td>30% annual<small>24% monthly</small></td></tr>
-          <tr data-tier-row="3"><td><b>1000+ seats</b><small>Every employee, company-wide</small></td><td><b>$17</b></td><td><b>$22</b></td><td>43% annual<small>35% monthly</small></td></tr>
+          <tr data-tier-row="0" class="tier-on"><td><b>1–9 users</b><small>Small teams and practices</small></td><td><b>$34</b></td><td><b>$30</b><small>$360 per user, billed yearly</small></td><td>List price</td></tr>
+          <tr data-tier-row="1"><td><b>10–99 users</b><small>Departments and growing firms</small></td><td><b>$29</b></td><td><b>$25</b><small>$300 per user, billed yearly</small></td><td>15% monthly<small>17% annual</small></td></tr>
+          <tr data-tier-row="2"><td><b>100–999 users</b><small>Company-wide rollout</small></td><td><b>$26</b></td><td><b>$21</b><small>$252 per user, billed yearly</small></td><td>24% monthly<small>30% annual</small></td></tr>
+          <tr data-tier-row="3"><td><b>1000+ users</b><small>Every employee, company-wide</small></td><td><b>$22</b></td><td><b>$17</b><small>$204 per user, billed yearly</small></td><td>35% monthly<small>43% annual</small></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- ================= ACCOUNT SCOPE ================= -->
-<section class="section">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow" style="justify-content:center">Account scope</span>
-      <h2>Pro protects a person. Max protects an organization.</h2>
-      <p class="lede">The line between the two plans is not only a feature list. It is who the account belongs to.</p>
-    </div>
-    <div class="card-grid cols-2">
-      <div class="panel scope-panel reveal reveal-delay-1">
-        <div class="dots">
-          <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
-        <span class="eyebrow blue">Pro · individual</span>
-        <h3>One seat. One person. That is the whole design.</h3>
-        <ul>
-          <li><b>A single named individual.</b> Your login, your devices, your seat. Not a team seat, not a shared seat, not a seat that travels between people.</li>
-          <li class="off"><b>No domain accounts.</b> You cannot attach a company domain to Pro or provision colleagues under it.</li>
-          <li class="off"><b>Free means free.</b> No credit card, no trial that expires, no feature meter. Covering a team is not nine free Pros: a company domain runs on Max.</li>
-          <li><b>Everything an individual needs.</b> Real-time interception across every AI app on the machine, with PII, HIPAA, PCI and GDPR coverage. At no cost.</li>
-        </ul>
-      </div>
-      <div class="panel scope-panel reveal reveal-delay-2">
-        <div class="dots">
-          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
-          <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
-        </div>
-        <span class="eyebrow pink">Max · teams and organizations</span>
-        <h3>Built for the second seat, and the two-thousandth.</h3>
-        <ul>
-          <li><b>Paid from day one, self-serve.</b> Buy Max online and it bills from the first seat. For a larger rollout, sales can issue a company-wide evaluation against a trial code. Start free on Pro to feel the engine, then upgrade the moment the business needs protecting.</li>
-          <li><b>Domain accounts.</b> Attach your company domain, provision and de-provision centrally, keep one policy plane across the org.</li>
-          <li><b>Volume pricing built in.</b> Four tiers from 1-9 up to 1000+, applied automatically as the rollout grows.</li>
-          <li><b>One domain, one plan.</b> Any company domain with more than one user runs on Max, across every user on it. Pro cannot attach to a company domain at all.</li>
-          <li><b>Everything an organization needs.</b> IP Protection, Governance Policies, Private Memory, shadow-AI discovery, agent governance and Private MCP.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= COMPARE PLANS ================= -->
-<section class="section" style="padding-top:0">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Compare plans</span>
-      <h2>Every plan, side by side</h2>
-      <p class="lede">Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box.</p>
-    </div>
-    <div class="table-wrap reveal">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th style="width:40%">Capability</th>
-            <th>Pro</th>
-            <th>Max</th>
-            <th>Cloud</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Account scope<small>Who the account belongs to</small></td><td>One individual</td><td>The whole company, 2 seats to 2,000</td><td>The regulated enterprise</td></tr>
-          <tr><td>Company domain accounts<small>More than one user on a domain? The domain runs on Max</small></td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Volume pricing<small>Automatic tiers as seat count grows</small></td><td class="no">–</td><td class="yes">✓ 4 tiers</td><td>Custom</td></tr>
-          <tr><td>On-device Privacy Twins &amp; real-time interception</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Every major AI provider: ChatGPT, Claude, Gemini, Copilot, Grok</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Hermes Agent support</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Desktop &amp; web browser coverage</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Covers PII, HIPAA, PCI &amp; GDPR</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>SSO support</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>IP Protection: Salesforce, Slack, Notion, SQL, Workday &amp; more</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Governance Policies that travel with every employee</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Private Memory: team &amp; org scopes, fleet policies &amp; audit</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>On-device DSPM: every staff device</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Agent governance for Claude Code, Copilot, Hermes Agent &amp; Private MCP</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Shadow-AI discovery, org-wide AI policy &amp; interception</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
-          <tr><td>Self-host on your cloud, on-prem or air-gapped</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-          <tr><td>Network DSPM across databases &amp; data lakes</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-          <tr><td>OpenAI / Anthropic / Google compatible gateway</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-          <tr><td>Dedicated solution engineer · 24/7 support</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-          <tr><td>Pricing<br><span style="color:var(--muted);font-size:.8rem">Annual billing on Max saves up to 23%</span></td><td>Free<small>One person · no credit card, ever</small></td><td>$34 to $22/mo<small>$30 to $17/mo annual · by volume</small></td><td>Custom · annual</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ================= NOTES ================= -->
-<section class="section-sm" style="padding-top:0">
+<!-- ================= DEPLOY AND BUILD ================= -->
+<section class="section" id="deploy">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Good to know</span>
-      <h2>Simple terms, no surprises</h2>
+      <span class="eyebrow">Deploy and build</span>
+      <h2><span class="ln">Run it in your cloud.</span> <span class="ln">Build it into your code.</span></h2>
+      <p class="lede">Cloud and the SDK take Max further for the enterprise: the same engine deployed inside your VPC, or built into the software you ship.</p>
     </div>
-    <div class="card-grid cols-3">
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-        <h4>Cancel anytime</h4>
-        <p>No lock-in. Every plan ships with on-device Privacy Twins, real-time interception and every major AI provider out of the box.</p>
+    <div class="deploy-grid">
+      <article class="deploy-card reveal reveal-delay-1">
+        <span class="kind">Deploy</span>
+        <h3>PrivacyPal Cloud</h3>
+        <p class="tag">The sovereign AI governance plane. In your VPC. On your terms.</p>
+        <div class="terms"><span class="big">Custom</span><small>annual agreement</small></div>
+        <ul class="ticks">
+          <li>Self-host on AWS, Azure, GCP, bare metal or a single container, with an air-gapped option</li>
+          <li>OpenAI, Anthropic and Google compatible gateway: one base_url change, no code changes</li>
+          <li>Network DSPM across databases, data lakes, RAG, vector stores and agent memory</li>
+          <li>Dedicated solution engineer and 24/7 support</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#" data-cta="demo">Talk to sales</a>
+          <a class="link-arrow" href="privacypal-cloud.html">Explore Cloud</a>
+        </div>
+      </article>
+      <article class="deploy-card reveal reveal-delay-2">
+        <span class="kind">Build</span>
+        <h3>PrivacyPal SDK</h3>
+        <p class="tag">The secure entry point for AI agents to share data compliantly.</p>
+        <div class="terms"><span class="big">Custom</span><small>pricing on request</small></div>
+        <ul class="ticks">
+          <li>Encode sensitive data into Privacy Twins, share it with another agent, MCP server or API, decode the answer back</li>
+          <li>Node.js 18+ and Python 3.10+, plus a REST API for any JSON runtime</li>
+          <li>Runs self-hosted against PrivacyPal Cloud in your own VPC</li>
+          <li>Database scanning (DSPM) included</li>
+        </ul>
+        <div class="sdk-code" aria-label="Install commands"><span class="p">$ </span>npm install @privacypal/sdk<br><span class="p">$ </span>pip install privacypal-sdk</div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#" data-cta="demo">Talk to engineering</a>
+          <a class="link-arrow" href="developers.html">Explore the SDK</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARE PACKS ================= -->
+<section class="section" id="compare" style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Compare packs</span>
+      <h2>Three packs, side by side</h2>
+      <p class="lede">One engine runs under all three: protection on your device, before a prompt or file reaches an AI provider.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare packs-compare">
+        <thead>
+          <tr>
+            <th scope="col">What you get</th>
+            <th scope="col"><span class="pack-chip personal">Personal</span><span class="hp">Free</span></th>
+            <th scope="col"><span class="pack-chip family">Family</span><span class="hp">$9.99 <small>/month</small></span></th>
+            <th scope="col"><span class="pack-chip business">Max</span><span class="hp">$34 <small>/user/month</small></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="grp"><th colspan="4" scope="colgroup">Price and terms</th></tr>
+          <tr><td>Price</td><td>Free</td><td>$9.99/month per household<small>Founding Families: $4.99/month for the first year</small></td><td>$34/user/month<small>$30 billed annually · volume pricing from 10 users</small></td></tr>
+          <tr><td>Who it covers</td><td>One person: your login, your devices</td><td>Up to 5 family members, both parents in one Parent HQ</td><td>Every user on your company domain</td></tr>
+          <tr><td>Getting started</td><td>No card, no trial clock, no expiry</td><td>5-day free trial · 30-day money-back guarantee</td><td>Paid from day one</td></tr>
+          <tr><td>Cancel</td><td>Nothing to cancel</td><td>Anytime, from Parent HQ</td><td>Anytime, from the portal</td></tr>
+
+          <tr class="grp"><th colspan="4" scope="colgroup">Protection</th></tr>
+          <tr><td>On-device Privacy Twins (patent-pending)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>What gets swapped before it reaches the AI</td><td>Names, SSNs, account numbers, patient details, cardholder data</td><td>Your child's real name, school, address, phone number and health details</td><td>Everything in Personal, plus your company's sensitive IP through Connections</td></tr>
+
+          <tr class="grp"><th colspan="4" scope="colgroup">AI coverage</th></tr>
+          <tr><td>ChatGPT, Claude, Gemini, Grok and Perplexity</td><td class="yes">✓<small>Web chat, attachments included</small></td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Microsoft Copilot</td><td class="no">–</td><td class="no">–</td><td class="yes">✓<small>Chat and Copilot agents</small></td></tr>
+          <tr><td>Claude Code, Claude Cowork and OpenAI Codex</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>Hermes Agent<small>On its supported endpoints</small></td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>OpenAI and xAI API protection</td><td class="no">–</td><td class="yes">✓<small>For parents</small></td><td class="yes">✓</td></tr>
+          <tr><td>Hosted Private MCP</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+
+          <tr class="grp"><th colspan="4" scope="colgroup">For families</th></tr>
+          <tr><td>Guardrails<small>Approve each child's AI tools and apps, with homework mode</small></td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
+          <tr><td>Parent HQ<small>Signals, not transcripts, shared with a co-parent</small></td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
+          <tr><td>Never-share list</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
+          <tr><td>Family Memory with one-tap erase</td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
+          <tr><td>Age stages<small>Explorer 5–9, Navigator 10–13, Pilot 14–17</small></td><td class="no">–</td><td class="yes">✓</td><td class="no">–</td></tr>
+          <tr><td>Roblox controls<small>Play, chat, friend requests, voice, spending</small></td><td class="no">–</td><td class="yes">✓<small>On the family Mac</small></td><td class="no">–</td></tr>
+
+          <tr class="grp"><th colspan="4" scope="colgroup">For organizations</th></tr>
+          <tr><td>IP Protection (Connections)<small>Salesforce, Slack, Notion, Workday, Oracle, Google Drive and more</small></td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>Governance Policies on every device</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>Private Memory<small>Team and org scopes, Memory Guard and audit</small></td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>Shadow-AI discovery and on-device DSPM</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>Domain accounts, team seats and central admin</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+          <tr><td>API and developer keys</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+
+          <tr class="grp"><th colspan="4" scope="colgroup">Account</th></tr>
+          <tr><td>Usage history</td><td>Last 24 hours</td><td>Realtime feed and a Sunday digest in Parent HQ</td><td>Full history</td></tr>
+          <tr><td>Computers</td><td>Mac (Apple Silicon) and Windows 11</td><td>Mac (Apple Silicon) and Windows</td><td>Mac, Windows and the Linux headless agent<small>Linux for servers and WSL</small></td></tr>
+          <tr><td>Phones<small>iPhone, iPad and Android</small></td><td class="no">–</td><td class="yes">✓<small>Protected today<br>Install by invitation</small></td><td class="yes">✓<small>Protected today<br>Install by invitation</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">Protected today on iPhone, iPad and Android with Family or Max. Install by invitation. Cloud and the SDK are priced separately: see <a href="#deploy" style="text-decoration:underline">Deploy and build</a>.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq" style="padding-top:24px">
+  <div class="container faq">
+    <div class="faq-side reveal">
+      <span class="eyebrow">Questions</span>
+      <h2>Pricing, answered</h2>
+      <p>Still choosing between packs, or sizing Max for a larger rollout? A 20-minute call with our team gets you a straight answer.</p>
+      <div class="btn-row">
+        <a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>
       </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-        <h4>Pro is free. Completely.</h4>
-        <p>The full individual product, at no cost: no credit card, no trial that runs out, nothing to cancel. Install once and every AI app on your machine is governed.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
-        <h4>Start free. Scale to the org.</h4>
-        <p>Pro covers you as an individual, free. When a second person needs covering, or the business itself needs protecting, Max takes over: a paid plan from day one, with volume pricing built in.</p>
-      </div>
+    </div>
+    <div class="faq-list reveal reveal-delay-1">
+      <details open>
+        <summary>Can I have Family and Max together?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>Yes. Packs stack in the one PrivacyPal app. Your company can provide Max for work while you add Family for your kids, and both run side by side.</p><p>A parent can also add Max on top of Family on their own, to protect their work in Claude Code, Microsoft Copilot and every other Max surface. Each pack is paid for by whoever provides it.</p></div>
+      </details>
+      <details>
+        <summary>What does Personal cover?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>Personal is free with every download: no card, no trial clock, no expiry. It protects you on ChatGPT, Claude, Gemini, Grok and Perplexity web chat, attachments included. Names, SSNs, account numbers, patient details and cardholder data are swapped for Privacy Twins on your device before a prompt reaches the AI.</p><p>It runs on Mac and Windows, and your usage view shows the last 24 hours. Personal is an individual account: your login, your devices.</p></div>
+      </details>
+      <details>
+        <summary>Can my company add Max to my PrivacyPal account?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>Yes. Your company provisions Max licenses and invites you into its Max account. Accept the invitation and your company's protection and policies switch on in the PrivacyPal app you already use. If you hold a Family pack, it keeps running alongside Max.</p><p>New to PrivacyPal? <a href="download.html" data-cta="download">Download it</a> and sign in with your work email. Your IT team may also send you the installer directly.</p></div>
+      </details>
+      <details>
+        <summary>Which packs include phones?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>Phones come with the Family and Max packs. PrivacyPal protects iPhone, iPad and Android today with Family or Max, and you install it by invitation. Mac and Windows come with every pack, and Max adds the Linux headless agent for servers and WSL.</p><p>With Family, Parent HQ runs on your phone too: the feed, guardrails, alerts and the never-share list. <a href="download.html">See every platform</a>.</p></div>
+      </details>
+      <details>
+        <summary>How does Max volume pricing work?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>Max is priced per user per month. The price per user drops at 10, 100 and 1,000 users, and the tier your user count falls in sets the price for every user. Tiers apply automatically at checkout and at renewal.</p><p>Annual billing saves 12% at 1–9 users, rising to 23% at 1000+. <a href="#volume">Try the user slider</a>.</p></div>
+      </details>
+      <details>
+        <summary>How do I try PrivacyPal before buying Max?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>Start on Personal: download PrivacyPal, free, and feel the engine on your own chats today. Max is paid from day one and switches on the moment your company needs protecting. For a larger rollout, <a href="#" data-cta="demo">book a demo</a> and we will walk your team through it.</p></div>
+      </details>
+      <details>
+        <summary>What do Cloud and the SDK cost?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a"><p>PrivacyPal Cloud is a custom annual agreement, sized to your deployment. The SDK runs self-hosted against Cloud in your own VPC. <a href="#" data-cta="demo">Talk to sales</a> and we will scope both with you.</p></div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- ================= CTA ================= -->
-<section class="section-sm">
+<section class="section-sm" style="padding-top:0">
   <div class="container cta-stack">
-    <div class="cta-banner reveal">
-      <span class="eyebrow" style="justify-content:center">Get started</span>
-      <h2 style="margin-top:14px">Cover yourself today, free. Cover the org this quarter.</h2>
-      <p>Install once. Run silently. Get total governance across every AI app, copilot and agent you touch: free for one person on Pro, or from $30/seat/mo for the whole organization on Max, billed annually.</p>
+    <div class="cta-banner dark reveal">
+      <span class="eyebrow gold" style="justify-content:center;color:#aebbd3">Get started</span>
+      <h2 style="margin-top:14px">Start free today. Add a pack when you need it.</h2>
+      <p>Download PrivacyPal and Personal is on, free. Add Family for your kids or bring Max to work, in the same app.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="download">Get Pro free for Mac &amp; Windows</a>
-        <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Book a demo</a>
+        <a class="btn btn-gold btn-lg" href="download.html" data-cta="download">Download free</a>
+        <a class="btn btn-ghost btn-lg" href="#" data-cta="demo">Talk to sales</a>
       </div>
+      <span class="fine-link">Setting up your household? <a href="family/founding/index.html">Start Family free</a></span>
     </div>
   </div>
 </section>

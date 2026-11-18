@@ -1,7 +1,7 @@
 /* PrivacyPal Webinars: page logic for the live demo pages.
      /webinars/                hub: both standing series and their next session
-     /webinars/business/       PrivacyPal for Business live group demo (Tue + Thu, 12:00 ET)
-     /webinars/family/         PrivacyPal Family live demo (Tue + Thu, 1:00 PM ET)
+     /webinars/business/       PrivacyPal for business: live group demo (Tue + Thu, 12:00 ET)
+     /webinars/family/         PrivacyPal for families: live demo (Tue + Thu, 1:00 PM ET)
      /webinars/watch.html      live room, opened from each registrant's personal link
      /webinars/cancel.html     cancel a registration
    <body data-wb="hub|series|watch|cancel" data-series="business|family" data-wb-base="./|../">
@@ -417,8 +417,8 @@
         if (!r.ok) {
           // a registration seconds old can be newer than the server's snapshot: retry once
           if (r.error === 'not_registered' && !retried && token) { retried = true; return new Promise(function (ok) { setTimeout(ok, 11000); }).then(load); }
-          if (r.error === 'cancelled') return message('Registration cancelled', w.title, 'This registration was cancelled. ' + (nextLine() || ''), 'Pick another date', reg);
-          if (r.error === 'session_cancelled') return message('Session cancelled', w.title, 'This session was cancelled. ' + (nextLine() || 'We run it every week.'), 'Save a seat at the next one', token ? seriesUrl(sid, '?r=' + encodeURIComponent(token)) : reg);
+          if (r.error === 'cancelled') return message('Registration canceled', w.title, 'This registration was canceled. ' + (nextLine() || ''), 'Pick another date', reg);
+          if (r.error === 'session_cancelled') return message('Session canceled', w.title, 'This session was canceled. ' + (nextLine() || 'We run it every week.'), 'Save a seat at the next one', token ? seriesUrl(sid, '?r=' + encodeURIComponent(token)) : reg);
           return message('Registered guests only', w.title, 'The live room opens with the personal link in your calendar invite. Not registered yet? It takes ten seconds.', 'Register free', reg);
         }
         show($('#wr-msg'), false);
@@ -465,12 +465,12 @@
     }
     btn.addEventListener('click', function () {
       btn.disabled = true;
-      btn.textContent = 'Cancelling\u2026';
+      btn.textContent = 'Canceling\u2026';
       postForm(API + '/webinar-cancel', { r: token }).then(function (res) {
         show($('#wc-ask'), false);
         if (res && res.ok) {
-          $('#wc-done-title').textContent = res.already ? 'Already cancelled' : 'Registration cancelled';
-          var t = res.already ? 'This registration was already cancelled.' : 'You will get one last email that removes the session from your calendar.';
+          $('#wc-done-title').textContent = res.already ? 'Already canceled' : 'Registration canceled';
+          var t = res.already ? 'This registration was already canceled.' : 'You will get one last email that removes the session from your calendar.';
           if (res.next) t += ' The next session is ' + fmt(res.next.start, VIEWER_TZ, { weekday: 'long', month: 'long', day: 'numeric' }) + ' at ' + timeIn(res.next.start, VIEWER_TZ) + '.';
           $('#wc-done-text').textContent = t;
           var again = $('#wc-again');

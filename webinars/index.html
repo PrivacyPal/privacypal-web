@@ -4,15 +4,18 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Live demos · PrivacyPal</title>
-<meta name="description" content="Free live group demos of PrivacyPal, twice a week: PrivacyPal for Business on Tuesdays and Thursdays at noon ET, PrivacyPal Family at 1 PM ET." />
+<meta name="description" content="Free live group demos of PrivacyPal, twice a week: PrivacyPal for business on Tuesdays and Thursdays at noon ET, PrivacyPal for families at 1 PM ET." />
 <!-- Live demo hub. Both standing series and their next session come from the
      "PrivacyPal Webinars" sheet through n8n (see webinars/README.md). The day and
      time text below is the fallback; webinars.js replaces it with the Series rows. -->
 <link rel="canonical" href="https://privacypal.ai/webinars/"/>
-<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://automate.privacypal.ai" crossorigin>
 <link rel="stylesheet" href="../assets/v3.css"/>
 <link rel="stylesheet" href="webinars.css"/>
@@ -20,11 +23,14 @@
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/webinars/" />
 <meta property="og:title" content="Live demos · PrivacyPal" />
-<meta property="og:description" content="Free live group demos, twice a week: PrivacyPal for Business and PrivacyPal Family." />
-<meta property="og:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta property="og:description" content="Free live group demos, twice a week: PrivacyPal for business and PrivacyPal for families." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal: we protect your data from AI, at home and at work." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Live demos · PrivacyPal" />
-<meta name="twitter:image" content="https://privacypal.ai/assets/family-home-thumb.png" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
 <!-- Google tag (gtag.js) -->
 <script src="../assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -42,14 +48,17 @@
       <div class="section-head" style="margin-bottom:40px">
         <span class="wb-badge">Live demos</span>
         <h1 style="max-width:20ch">See PrivacyPal live, twice a week</h1>
-        <p class="lede">Free live group demos, streamed on YouTube with time for your questions. Pick the one that fits: AI governance for your company, or AI safety for your family.</p>
+        <p class="lede">Free live group demos, streamed on YouTube with time for your questions. PrivacyPal protects your data from AI, at home and at work: pick the demo that fits you.</p>
       </div>
 
       <div class="wb-doors">
         <a class="wb-door" href="business/" data-door="business">
           <div class="ph" style="background-image:url('../assets/hero-shot-technology.png');background-position:center 20%"></div>
           <div class="bd">
-            <span class="eyebrow blue">For Business</span>
+            <div class="wb-door-top">
+              <span class="eyebrow">PrivacyPal for business</span>
+              <span class="wb-packs"><span class="pack-chip personal">Personal</span><span class="pack-chip business">Max</span></span>
+            </div>
             <h2>Govern every AI at work</h2>
             <p>Watch PrivacyPal catch a prompt full of sensitive data, swap in a Privacy Twin on the device before it leaves the machine, and log it for your CISO.</p>
             <span class="when" data-sched>Tuesdays and Thursdays at 12:00 PM ET</span>
@@ -57,15 +66,18 @@
             <span class="btn btn-primary">Save a seat</span>
           </div>
         </a>
-        <a class="wb-door fam" href="family/" data-door="family">
-          <div class="ph" style="background-image:url('../family/assets/photos/hero-dad-kids.jpg')"></div>
+        <a class="wb-door" href="family/" data-door="family">
+          <div class="ph" style="background-image:url('../family/assets/photos/study-together.jpg');background-position:center 30%" data-standin="assets/photos/pack-family.jpg"></div>
           <div class="bd">
-            <span class="eyebrow orange">PrivacyPal Family</span>
+            <div class="wb-door-top">
+              <span class="eyebrow gold">PrivacyPal for families</span>
+              <span class="wb-packs"><span class="pack-chip family">Family</span></span>
+            </div>
             <h2>Their world is full of AI. You hold the keys.</h2>
-            <p>See how parents choose the AI their kids use, keep their identity at home, and get signals, not transcripts.</p>
+            <p>See how parents choose the AI their kids use, keep their real identity away from AI providers, and get signals, not transcripts.</p>
             <span class="when" data-sched>Tuesdays and Thursdays at 1:00 PM ET</span>
             <span class="when" data-next hidden></span>
-            <span class="btn btn-primary" style="background:#d97a35">Save a seat</span>
+            <span class="btn btn-primary">Save a seat</span>
           </div>
         </a>
       </div>

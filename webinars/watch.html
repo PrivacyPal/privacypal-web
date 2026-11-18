@@ -9,13 +9,25 @@
      watch.html?s=<session id>&r=<registration token> (older links used ?w=, still accepted). The YouTube id comes from
      /webhook/webinar-join for a registered token only. Never indexed. -->
 <meta name="robots" content="noindex,nofollow"/>
-<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://automate.privacypal.ai" crossorigin>
 <link rel="stylesheet" href="../assets/v3.css"/>
 <link rel="stylesheet" href="webinars.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:title" content="Live room · PrivacyPal" />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal: we protect your data from AI, at home and at work." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png" />
 <!-- Google tag (gtag.js) -->
 <script src="../assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -32,6 +44,7 @@
 
     <div id="wr-msg" hidden>
       <div class="wb-empty">
+        <img class="wb-guide" src="../assets/brand/penguin-guide.svg" alt="" width="96" height="96">
         <span class="eyebrow">Live room</span>
         <h1></h1>
         <p class="lede"></p>
@@ -58,20 +71,20 @@
 
       <div class="wr-cta" data-cta-series="business" hidden>
         <div>
-          <span class="eyebrow blue">PrivacyPal for Business</span>
-          <h3>Govern every AI. Without blocking a single user.</h3>
-          <p>PrivacyPal Pro is completely free for individuals: install once and every AI app on your machine is governed. When the whole company needs covering, that is Max.</p>
+          <span class="eyebrow blue">PrivacyPal for business</span>
+          <h3>Govern every AI at work, and keep your team moving.</h3>
+          <p>Personal is included free with every download of PrivacyPal. When the whole company needs covering, the Max pack adds agents and copilots, admin and one policy across every seat.</p>
         </div>
         <div class="btn-row">
           <a class="btn btn-primary" href="#" data-cta="demo">Book a 1:1 demo</a>
-          <a class="btn btn-ghost" href="../privacypal-pro.html">Get Pro free</a>
+          <a class="btn btn-ghost" href="../download.html" data-cta="download">Download free</a>
         </div>
       </div>
       <div class="wr-cta" data-cta-series="family" hidden>
         <div>
-          <span class="eyebrow orange">PrivacyPal Family</span>
+          <span class="eyebrow gold">PrivacyPal for families</span>
           <h3>Their world is full of AI. You hold the keys.</h3>
-          <p>Choose the AI your kids use, keep their identity at home, and see how AI shows up in their day. Mac and Windows, up to 5 family members.</p>
+          <p>With the Family pack you choose the AI your kids use, keep their real identity away from AI providers, and see how AI shows up in their day. $9.99 a month for up to 5 family members, on Mac and Windows. Protected today on iPhone, iPad and Android with Family or Max. Install by invitation.</p>
         </div>
         <div class="btn-row">
           <a class="btn btn-primary" href="../family/founding/">See Founding Families</a>

@@ -1,31 +1,41 @@
 /* =========================================================
-   PrivacyPal — pricing engine
-   Drives the billing toggle, the Max seat slider (volume
-   pricing) and every Max price readout on pricing.html and
-   privacypal-max.html. No dependencies.
+   PrivacyPal: pricing engine
+   Drives the billing toggle, the Max user slider (volume
+   pricing) and every Max price readout on pricing.html,
+   and on any page that carries the markup contract below.
+   No dependencies.
 
-   Pro is free for individuals: it has no price book and no
-   readouts here. Its "Free" copy is hardcoded in the HTML.
+   Personal is free and Family is a flat $9.99 a month per
+   household: neither has a price book here. Their copy is
+   hardcoded in the HTML. The billing toggle affects Max
+   only.
 
-   Markup contract
+   Markup contract (internal names; keep them exactly, other
+   markup depends on them)
    ---------------
    Billing toggle : .billing-toggle > button[data-billing="monthly|annual"]
-   Max readouts   : [data-price="max-unit|max-term|max-save|max-note"]
+                    (every toggle on the page stays in sync; the
+                    one marked .active in the HTML sets the default)
+   Price readouts : [data-price="max-unit|max-term|max-save|max-note"]
    Calculator     : [data-seat-calc] wrapping input.seat-range and
-                    [data-calc="seats|unit|total|total-label|tier|save"]
+                    [data-calc="seats|seat-word|unit|total|total-label|tier|tier-sub|save"]
    Tier legend    : button.seat-tier[data-tier="0..3"]
    Tier table     : tr[data-tier-row="0..3"]
    ========================================================= */
 (function () {
   'use strict';
 
-  /* ---------- The price book (single source of truth) ---------- */
+  /* ---------- The Max price book (single source of truth) ----------
+     Per user per month. Whole-count volume tiers: the tier a company's
+     user count falls in sets the price for every user. max-offer.html
+     carries a copy of these four bands and must stay in step. */
   var MAX_TIERS = [
-    { min: 1,    max: 9,        label: '1-9 seats',     monthly: 34, annual: 30 },
-    { min: 10,   max: 99,       label: '10-99 seats',   monthly: 29, annual: 25 },
-    { min: 100,  max: 999,      label: '100-999 seats', monthly: 26, annual: 21 },
-    { min: 1000, max: Infinity, label: '1000+ seats',   monthly: 22, annual: 17 }
+    { min: 1,    max: 9,        label: '1\u20139 users',     monthly: 34, annual: 30 },
+    { min: 10,   max: 99,       label: '10\u201399 users',   monthly: 29, annual: 25 },
+    { min: 100,  max: 999,      label: '100\u2013999 users', monthly: 26, annual: 21 },
+    { min: 1000, max: Infinity, label: '1000+ users',        monthly: 22, annual: 17 }
   ];
+  var LIST_RATE_LABEL = 'the 1\u20139 user rate';
 
   /* Slider stops: dense where teams actually buy, sparse at the top end. */
   var STOPS = [
@@ -84,15 +94,15 @@
 
     setText('max-unit', money(unit));
     setText('max-term', annual
-      ? '/mo · per seat · billed ' + money(unit * 12) + '/yr'
-      : '/mo · per seat · billed monthly');
+      ? '/user/month · billed yearly, ' + money(unit * 12) + ' per user'
+      : '/user/month · billed monthly');
     setText('max-save', annual ? 'Save ' + savePct(tier.monthly, tier.annual) + '%' : '');
     $all('[data-price="max-save"]').forEach(function (el) { el.hidden = !annual; });
 
     var off = Math.round((list[annual ? 'annual' : 'monthly'] - unit) / list[annual ? 'annual' : 'monthly'] * 100);
     setText('max-note', tier === list
-      ? 'Priced at <b>' + count(state.seats) + (state.seats === 1 ? ' seat</b>' : ' seats</b>') + ' · volume pricing starts at 10 seats'
-      : 'Priced at <b>' + count(state.seats) + ' seats</b> · ' + tier.label + ' · <b>' + off + '% off</b> the 1-9 seat rate');
+      ? 'Priced at <b>' + count(state.seats) + (state.seats === 1 ? ' user</b>' : ' users</b>') + ' · volume pricing starts at 10 users'
+      : 'Priced at <b>' + count(state.seats) + ' users</b> · ' + tier.label + ' · <b>' + off + '% off</b> ' + LIST_RATE_LABEL);
   }
 
   function renderCalc() {
@@ -105,14 +115,14 @@
 
     $all('[data-seat-calc]').forEach(function (root) {
       setCalc('seats', count(state.seats), root);
-      setCalc('seat-word', state.seats === 1 ? 'seat' : 'seats', root);
-      setCalc('unit', money(unit) + '<small>/seat/mo</small>', root);
+      setCalc('seat-word', state.seats === 1 ? 'user' : 'users', root);
+      setCalc('unit', money(unit) + '<small>/user/mo</small>', root);
       setCalc('total-label', annual ? 'Billed annually' : 'Billed monthly', root);
       setCalc('total', annual
         ? moneyRound(unit * 12 * state.seats) + '<small>/yr</small>'
         : moneyRound(unit * state.seats) + '<small>/mo</small>', root);
       setCalc('tier', tier.label, root);
-      setCalc('tier-sub', off > 0 ? off + '% off the 1-9 seat rate' : 'List price', root);
+      setCalc('tier-sub', off > 0 ? off + '% off ' + LIST_RATE_LABEL : 'List price', root);
       setCalc('save', moneyRound((tier.monthly - tier.annual) * 12 * state.seats) + '<small>/yr</small>', root);
 
       var input = root.querySelector('input.seat-range');
@@ -120,7 +130,7 @@
         var idx = Number(input.value);
         var pct = STOPS.length > 1 ? (idx / (STOPS.length - 1)) * 100 : 0;
         input.style.setProperty('--fill', pct.toFixed(2) + '%');
-        input.setAttribute('aria-valuetext', count(state.seats) + (state.seats === 1 ? ' seat' : ' seats'));
+        input.setAttribute('aria-valuetext', count(state.seats) + (state.seats === 1 ? ' user' : ' users'));
       }
 
       $all('.seat-tier', root).forEach(function (btn) {
@@ -159,7 +169,7 @@
       input.step = 1;
       input.value = nearestStopIndex(Number(root.dataset.seatCalc) || state.seats);
       state.seats = STOPS[Number(input.value)];
-      input.setAttribute('aria-label', 'Number of Max seats');
+      input.setAttribute('aria-label', 'Number of Max users');
 
       input.addEventListener('input', function () {
         state.seats = STOPS[Number(input.value)];

@@ -49,7 +49,7 @@
   }
   function authorOf(data, a){
     return (data._authors || (data._authors = authorsById(data)))[a.author] || {
-      id: a.author, name: a.author || 'PrivacyPal', role: '', avatar: 'assets/logo-color.png'
+      id: a.author, name: a.author || 'PrivacyPal', role: '', avatar: 'assets/brand/png/avatar-400.png'
     };
   }
 

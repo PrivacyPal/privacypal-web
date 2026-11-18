@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PrivacyPal brochure · At home and at work · PrivacyPal</title>
+<meta name="description" content="We protect your data from AI, at home and at work. One app with three packs: Personal (free), Family ($9.99 a month) and Max ($34 per user per month), built on patent-pending Privacy Twins."/>
+<!-- Print collateral source, not a site page: kept out of search and the sitemap. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="PrivacyPal"/>
+<meta property="og:title" content="PrivacyPal brochure · At home and at work"/>
+<meta property="og:description" content="We protect your data from AI, at home and at work. One app, three packs: Personal, Family and Max."/>
+<meta property="og:url" content="https://privacypal.ai/brand/collateral/brochure.html"/>
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-default.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="PrivacyPal brochure · At home and at work"/>
+<meta name="twitter:description" content="We protect your data from AI, at home and at work. One app, three packs: Personal, Family and Max."/>
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-default.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="collateral.css"/>
+<!--
+  BROCHURE TEMPLATE · 8 US Letter pages
+  Source for brand/collateral/pdf/brochure.pdf (and pdf/brochure.png, the cover).
+  Rebuild: ~/.nvm/versions/node/v20.20.2/bin/node scripts/brand/build-collateral.js brochure
+
+  How to edit
+  1. Each page is one <section class="sheet">, marked PAGE 1 to PAGE 8 below.
+     A sheet never grows: if new copy is longer, the build reports the element
+     that crosses the 0.5 in safe margin. Shorten the copy rather than shrink type.
+  2. To make a variant (an industry, an event), copy this file to a new name in
+     brand/collateral/; the build picks up every .html file there.
+  3. Photos: every stand-in <img> carries data-standin="<final file>". The build
+     uses the final file as soon as it exists at that path. To change a crop,
+     edit the inline object-position on the <img>.
+  4. Copy rules: prices, features and proof come from the product facts sheet
+     only. No em dashes. Say what PrivacyPal does. Allowed proof: 140+ companies,
+     global banks (never named), tens of millions of protected data elements,
+     NVIDIA Inception member, 0 bytes of sensitive data sent to AI providers,
+     patent-pending Privacy Twins. The build checks the text for banned terms.
+  5. Gold stays an accent: one gold moment per section.
+  Components and tokens: collateral.css.
+-->
+</head>
+<body>
+<div class="screen-bar"><b>PrivacyPal brochure · Template</b><span>US Letter · 8 pages · <a href="pdf/brochure.pdf">Open the PDF</a></span></div>
+<main class="doc">
+
+<!-- =====================================================================
+     PAGE 1 · COVER
+     Swap: the photo (data-standin), the headline (.display), the key line (.lede),
+     the chips and the contents line. Keep .cover-key where it is: it sits in
+     the LinkedIn thumbnail band (see .cover-key in collateral.css).
+     Stand-in (Family casting rule, ages 7 to 17): teens-sunset.jpg, set full
+     width in the lower half of the cover by the img[src$="teens-sunset.jpg"]
+     rule in collateral.css. The final portrait file uses the default cover crop.
+     ===================================================================== -->
+<section class="sheet cover-page" aria-label="Cover">
+  <div class="photo cover-photo">
+    <img src="../../family/assets/photos/teens-sunset.jpg" data-standin="assets/photos/cover-brochure-portrait.jpg" alt="Three teenagers wave at the sunset from a rooftop">
+    <div class="scrim"></div>
+    <div class="over on-dark">
+      <div class="cover-top">
+        <span class="label">Brochure · 2026</span>
+        <span class="label">privacypal.ai</span>
+      </div>
+      <div class="cover-key">
+        <img class="logo" src="../../assets/brand/logo-white.svg" alt="PrivacyPal">
+        <h1 class="display">We protect your data<br>from AI, at home<br>and <span class="ul-gold">at work.</span></h1>
+        <p class="lede">One app protects you, your family and your business. The same technology that protects 140+ companies and global banks.</p>
+        <div class="chip-row">
+          <span class="chip personal">Personal · Free</span>
+          <span class="chip family">Family · $9.99/mo</span>
+          <span class="chip business">Max · $34/user/mo</span>
+        </div>
+      </div>
+      <div class="cover-foot">
+        <div class="toc">
+          <span><b>02</b>One platform</span>
+          <span><b>03</b>How it works</span>
+          <span><b>04</b>Personal</span>
+          <span><b>05</b>Family</span>
+          <span><b>06</b>Max</span>
+          <span><b>07</b>Proof and security</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PAGE 2 · ONE PLATFORM
+     Swap: the page head, the stack-app rows (illustrative), the three doors
+     (photo, price, one line each) and the four shared points.
+     ===================================================================== -->
+<section class="sheet" aria-label="One platform">
+  <header class="run">
+    <img class="logo" src="../../assets/brand/logo.svg" alt="PrivacyPal">
+    <span class="label">One platform</span>
+  </header>
+
+  <div class="hero-row" style="grid-template-columns:minmax(0,1fr) 2.8in;align-items:start">
+    <div class="page-head" style="margin-bottom:0">
+      <span class="eyebrow gold">One PrivacyPal</span>
+      <h2 class="h2">One filter for every<br>part of your life.</h2>
+      <p class="lede">PrivacyPal is the filter between your data and every AI, at home and at work. Download it once and Personal is included free. Add the Family pack for your kids or the Max pack for your work, by subscription or through your company's license, and the same app switches the features on.</p>
+      <div class="card gold" style="margin-top:.18in">
+        <p class="small"><b>Packs stack.</b> Your company can invite you into its Max account under a license it provisions, and it sits next to your own Family pack in the same app.</p>
+      </div>
+    </div>
+    <div class="stack-app" role="img" aria-label="Illustration: the PrivacyPal app with the Personal, Family and Max packs switched on" style="margin-top:.06in">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="title"><img src="../../assets/brand/penguin.svg" alt="">Your packs</span></div>
+      <div class="row">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c.7-3.9 3.7-6.3 7.5-6.3s6.8 2.4 7.5 6.3"/></svg></span>
+        <div><b>Personal</b><small>Included free · you</small></div>
+        <span class="toggle on"></span>
+      </div>
+      <div class="row">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></span>
+        <div><b>Family</b><small>3 kids · Roblox on the Mac</small></div>
+        <span class="toggle on gold"></span>
+      </div>
+      <div class="row">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3.5 12.5h17"/></svg></span>
+        <div><b>Max</b><small>Company license</small></div>
+        <span class="toggle on ink"></span>
+      </div>
+      <div class="foot"><span class="label">3 packs on · one app</span><span class="label">Illustrative</span></div>
+    </div>
+  </div>
+
+  <div class="doors" style="margin-top:.3in">
+    <article class="door personal">
+      <div class="photo" style="height:3.05in">
+        <img src="../../assets/hero-shot-accounting.png" data-standin="assets/photos/hero-you.jpg" alt="A woman works at her desk" style="object-position:50% 55%;transform:scale(2.2);transform-origin:99% 47%">
+        <img class="soft" src="../../assets/hero-shot-accounting.png" data-standin-only="assets/photos/hero-you.jpg" alt="" style="object-position:50% 55%;transform:scale(2.2);transform-origin:99% 47%;--soft-mask:linear-gradient(90deg,#000 0,#000 68.4%,rgba(0,0,0,0) 70.2%);--soft-clip:inset(24% 29.5% 28% 52.5%)">
+        <div class="scrim"></div>
+        <div class="over on-dark"><span class="who">You</span><span class="chip personal">Personal</span></div>
+      </div>
+      <div class="txt">
+        <div class="price"><span class="big">Free</span><small>for individuals</small></div>
+        <p class="small">Five AI chat apps protected on your device, attachments included.</p>
+      </div>
+    </article>
+    <article class="door family">
+      <div class="photo" style="height:3.05in">
+        <img src="../../family/assets/photos/homework-boy.jpg" data-standin="assets/photos/hero-home.jpg" alt="A boy does his homework at the kitchen table" style="object-position:10% 50%">
+        <div class="scrim"></div>
+        <div class="over on-dark"><span class="who">Your family</span><span class="chip family">Family</span></div>
+      </div>
+      <div class="txt">
+        <div class="price"><span class="big">$9.99</span><small>/month per household</small></div>
+        <p class="small">Guardrails for the AI your kids use, and Roblox on the family Mac.</p>
+      </div>
+    </article>
+    <article class="door business">
+      <div class="photo" style="height:3.05in">
+        <img src="../../assets/hero-shot-banking.png" data-standin="assets/photos/hero-work.jpg" alt="Analysts at work on a trading floor" style="object-position:50% 70%">
+        <div class="scrim"></div>
+        <div class="over on-dark"><span class="who">Your business</span><span class="chip business">Max</span></div>
+      </div>
+      <div class="txt">
+        <div class="price"><span class="big">$34</span><small>/user/month</small></div>
+        <p class="small">Governance for every AI at work, from chat to coding agents.</p>
+      </div>
+    </article>
+  </div>
+
+  <div style="margin-top:auto">
+    <div class="sec-head"><span class="label">What every pack shares</span></div>
+    <div class="grid-4">
+      <div><b>On your device</b><p class="small" style="margin-top:3pt">Protection runs before a prompt or file reaches an AI provider.</p></div>
+      <div><b>Privacy Twins</b><p class="small" style="margin-top:3pt">Realistic stand-ins keep the AI useful. The real values never reach the AI provider.</p></div>
+      <div><b>One download</b><p class="small" style="margin-top:3pt">Mac and Windows with every pack. Phones come with the Family and Max packs.</p></div>
+      <div><b>Packs switch on</b><p class="small" style="margin-top:3pt">Personal never expires. Add a pack when your life or work needs it.</p></div>
+    </div>
+  </div>
+
+  <footer class="folio" style="margin-top:.34in"><span class="label"><b>PrivacyPal</b> · At home and at work</span><span class="label">02</span></footer>
+</section>
+
+<!-- =====================================================================
+     PAGE 3 · HOW IT WORKS
+     Swap: the example sentences in .twin-flow (keep them clearly illustrative:
+     invented names and numbers only), the steps and the three notes.
+     ===================================================================== -->
+<section class="sheet" aria-label="How it works">
+  <header class="run">
+    <img class="logo" src="../../assets/brand/logo.svg" alt="PrivacyPal">
+    <span class="label">How it works</span>
+  </header>
+
+  <div class="page-head">
+    <span class="eyebrow">How it works</span>
+    <h2 class="h2">The moment you type it, we protect it.</h2>
+    <p class="lede">Protection runs on the device, before a prompt or file is sent. Sensitive details are swapped for Privacy Twins, realistic stand-ins, so the AI still works and the real data never reaches the AI provider.</p>
+  </div>
+
+  <div class="navy on-dark" style="padding:.24in .26in .26in;flex:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.16in">
+      <span class="label">One prompt, start to finish</span>
+      <span class="label">Illustrative example</span>
+    </div>
+    <div class="twin-flow">
+      <div class="twin-card">
+        <span class="label">What you type</span>
+        <p>Draft a renewal letter for <span class="tok real">Maria Alvarez</span>, policy <span class="tok real">4471-2290</span>, at <span class="tok real">14 Harbor Lane</span>.</p>
+      </div>
+      <div class="filter-line"><span>PrivacyPal filter</span></div>
+      <div class="twin-card sent">
+        <span class="label">What the AI receives</span>
+        <p>Draft a renewal letter for <span class="tok twin">Dana Whitfield</span>, policy <span class="tok twin">7730-5512</span>, at <span class="tok twin">88 Cedar Court</span>.</p>
+      </div>
+      <div class="flow-arrow"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="twin-card">
+        <span class="label">What you get back</span>
+        <p>Dear <span class="tok back">Maria Alvarez</span>, thank you for renewing policy <span class="tok back">4471-2290</span> for <span class="tok back">14 Harbor Lane</span>.</p>
+      </div>
+    </div>
+    <p style="margin-top:.16in;font-size:9pt;color:var(--on-navy)"><span class="text-gold" style="font-weight:600">0 bytes</span> of sensitive data sent to AI providers. The twins go out; your real values come back in, on your device.</p>
+  </div>
+
+  <div class="steps" style="margin-top:.3in">
+    <div class="step">
+      <span class="n">01 · You type</span>
+      <b>Ask AI the way you always do</b>
+      <p>Write to ChatGPT, Claude or Gemini and attach the file. Your tools and habits stay the same.</p>
+    </div>
+    <div class="step filter">
+      <span class="n">02 · PrivacyPal swaps</span>
+      <b>Privacy Twins, on your device</b>
+      <p>Names, account numbers, health details and secrets become realistic stand-ins before anything is sent.</p>
+    </div>
+    <div class="step">
+      <span class="n">03 · You get the real answer</span>
+      <b>Same answer, real details</b>
+      <p>The AI answers the twins. PrivacyPal stitches the real values back into the answer, on your device.</p>
+    </div>
+  </div>
+
+  <!-- AI shelf: chat apps come with every pack; the OpenAI and xAI APIs with
+       Family (for parents) and Max; Copilot and the coding agents with Max only. -->
+  <div style="margin-top:.3in;flex:none">
+    <div class="sec-head"><span class="label">Works with the AI you already use</span></div>
+    <div class="ai-shelf" style="grid-template-columns:1.3in minmax(0,1fr);gap:.11in .18in">
+      <span class="label">Chat apps</span>
+      <div class="marks">
+        <img src="../../assets/chatgpt.png" alt="ChatGPT" style="--h:21pt">
+        <img src="../../assets/claude.png" alt="Claude" style="--h:16pt">
+        <img src="../../assets/gemini.png" alt="Gemini" style="--h:17pt">
+        <span class="name">Grok</span>
+        <span class="name">Perplexity</span>
+      </div>
+      <span class="row-rule"></span>
+      <span class="label">Family and Max add</span>
+      <div class="marks" style="gap:.18in;flex-wrap:nowrap">
+        <div class="tags"><span class="tag">OpenAI API</span><span class="tag">xAI API</span></div>
+        <span class="small" style="color:var(--muted)">With Family, for parents. With Max, for every seat at work.</span>
+      </div>
+      <span class="row-rule"></span>
+      <span class="label">Max adds</span>
+      <div class="marks" style="gap:.18in;flex-wrap:nowrap">
+        <img src="../../assets/copilot.webp" alt="Microsoft Copilot" style="--h:19pt">
+        <div class="tags"><span class="tag">Claude Code</span><span class="tag">Claude Cowork</span><span class="tag">OpenAI Codex</span><span class="tag">Grok Bot</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:auto">
+    <div class="card">
+      <span class="label">Why twins, not redaction</span>
+      <p class="small" style="margin-top:6pt">Redaction and masking blind the AI and break the experience. Privacy Twins preserve what the model needs, so answers stay useful.</p>
+    </div>
+    <div class="card">
+      <span class="label">What is protected</span>
+      <p class="small" style="margin-top:6pt">What you send to the model: the prompt and the files you attach. Personal data, client data, health and card details.</p>
+    </div>
+    <div class="card">
+      <span class="label">Patent-pending</span>
+      <p class="small" style="margin-top:6pt">Built on patent-pending Privacy Twins: the same engine runs in Personal, Family and Max.</p>
+    </div>
+  </div>
+
+  <footer class="folio" style="margin-top:.3in"><span class="label"><b>PrivacyPal</b> · At home and at work</span><span class="label">03</span></footer>
+</section>
+
+<!-- =====================================================================
+     PAGE 4 · PERSONAL
+     Swap: the photo, the eight features (two per row) and the CTA row.
+     ===================================================================== -->
+<section class="sheet" aria-label="Personal">
+  <header class="run">
+    <img class="logo" src="../../assets/brand/logo.svg" alt="PrivacyPal">
+    <span class="label">Personal</span>
+  </header>
+
+  <!-- Stand-in: the "You" photo from page 2 (study-together.jpg is the Family stand-in
+       on page 5). img.soft blurs its readable monitors until the final photo exists. -->
+  <div class="photo fade band-photo" style="--photo-w:56%;height:3.55in">
+    <img src="../../assets/hero-shot-accounting.png" data-standin="assets/photos/pack-personal.jpg" alt="A woman works through a document at her desk" style="object-position:50% 62%;transform:scale(1.9);transform-origin:96% 52%">
+    <img class="soft" src="../../assets/hero-shot-accounting.png" data-standin-only="assets/photos/pack-personal.jpg" alt="" style="object-position:50% 62%;transform:scale(1.9);transform-origin:96% 52%;--soft-mask:linear-gradient(90deg,#000 0,#000 65.9%,rgba(0,0,0,0) 67.5%);--soft-clip:inset(23% 32% 21% 44%)">
+    <div class="scrim"></div>
+    <div class="over on-dark">
+      <span class="chip personal" style="align-self:flex-start">Personal · Free</span>
+      <div>
+        <span class="eyebrow gold">For you</span>
+        <h2 class="h2">Free protection for everything you ask AI.</h2>
+        <p class="lede">Included with every download of PrivacyPal. No credit card, no trial clock, no expiry.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:.28in;flex:none">
+    <div class="sec-head"><span class="label">What Personal covers</span></div>
+    <ul class="feats">
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M20.5 12a8 8 0 0 1-11.7 7.1L4 20.5l1.3-4.4A8 8 0 1 1 20.5 12z"/></svg></span>
+        <div><b>Five AI chat apps</b><p>ChatGPT, Claude, Gemini, Grok and Perplexity on the web.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M14 3.5H7A2.5 2.5 0 0 0 4.5 6v12A2.5 2.5 0 0 0 7 20.5h10a2.5 2.5 0 0 0 2.5-2.5V9z"/><path d="M14 3.5V9h5.5M8.5 13h7M8.5 16.5h5"/></svg></span>
+        <div><b>Files included</b><p>Word and Excel files you attach to a chat are protected in place.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.5-1.6 1.7-2.4 3.2-2.4s2.7.8 3.2 2.4M14.5 10h4M14.5 13.5h3"/></svg></span>
+        <div><b>PII, HIPAA, PCI and GDPR</b><p>Names, SSNs, account numbers, patient details, cardholder and EU personal data.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span>
+        <div><b>Answers that still work</b><p>Realistic stand-ins keep what the AI needs, so the answer stays useful.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+        <div><b>See what was protected</b><p>Your last 24 hours of protection, at a glance.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/></svg></span>
+        <div><b>Ready in about 20 minutes</b><p>No infrastructure, no learning curve. Your AI tools stay as they are.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.6 2.6 4.9-5"/></svg></span>
+        <div><b>Signed and notarized</b><p>Notarized by Apple. A trusted publisher on Windows.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="5" rx="1.6"/><rect x="4" y="10.5" width="16" height="5" rx="1.6"/><rect x="4" y="17" width="16" height="3.5" rx="1.4"/></svg></span>
+        <div><b>Packs stack</b><p>Add Family for your kids. Your company can invite you into its Max account.</p></div>
+      </li>
+    </ul>
+    <div class="specs three">
+      <div><span class="label">What is protected</span><p>What you send to the AI: the prompt and the files you attach.</p></div>
+      <div><span class="label">Your account</span><p>One named person, their login and their own devices.</p></div>
+      <div><span class="label">Platforms</span><p>Mac (Apple Silicon, macOS 13+) and Windows 11. Phones come with the Family and Max packs.</p></div>
+    </div>
+  </div>
+
+  <div class="cta-row" style="margin-top:auto">
+    <div>
+      <div class="amount"><span class="big">Free</span><small>Personal, for individuals</small></div>
+      <p>No credit card, no trial clock, no expiry.</p>
+    </div>
+    <div>
+      <span class="label">Add a pack anytime</span>
+      <p>Family $9.99/month per household. Max $34/user/month. Same app.</p>
+    </div>
+    <div class="go">
+      <a class="cta-pill teal" href="https://privacypal.ai/download">Download free</a>
+      <a class="url" href="https://privacypal.ai/download">privacypal.ai/download</a>
+    </div>
+  </div>
+
+  <footer class="folio" style="margin-top:.2in"><span class="label"><b>PrivacyPal</b> · At home and at work</span><span class="label">04</span></footer>
+</section>
+
+<!-- =====================================================================
+     PAGE 5 · FAMILY
+     Swap: the photo, the eight features, the spec row and the CTA row.
+     Keep the Roblox trademark line whenever Roblox appears.
+     ===================================================================== -->
+<section class="sheet" aria-label="Family">
+  <header class="run">
+    <img class="logo" src="../../assets/brand/logo.svg" alt="PrivacyPal">
+    <span class="label">Family</span>
+  </header>
+
+  <!-- Band height 2.6in keeps the stand-in's daughter clear of the headline. -->
+  <div class="photo fade band-photo" style="height:2.6in">
+    <img src="../../family/assets/photos/study-together.jpg" data-standin="assets/photos/pack-family.jpg" alt="A mother and her daughter work through homework together" style="object-position:100% 40%">
+    <div class="scrim"></div>
+    <div class="over on-dark">
+      <span class="chip family" style="align-self:flex-start">Family · $9.99/mo</span>
+      <div>
+        <span class="eyebrow gold">For your family</span>
+        <h2 class="h2">Their world is full of AI. You hold the keys.</h2>
+        <p class="lede">Choose the AI your kids use, protect who they are and see how they are doing. Guardrails, not surveillance.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:.28in;flex:none">
+    <div class="sec-head"><span class="label">What the Family pack does</span></div>
+    <ul class="feats">
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg></span>
+        <div><b>Guardrails</b><p>You approve the AI and apps they use. Homework mode keeps school on task.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span>
+        <div><b>Privacy Twins for kids</b><p>Their real name, school or address is swapped on the device, in milliseconds.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="4.5" y="3.5" width="15" height="17" rx="2.5"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg></span>
+        <div><b>The never-share list</b><p>Add their address and school once. PrivacyPal keeps them out of every AI chat.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></span>
+        <div><b>Parent HQ</b><p>Which AI they use, whether their identity is safe, how they are doing.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg></span>
+        <div><b>Signals, not transcripts</b><p>You see tools, protections and wellbeing. Your kids see the same view.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6M4.5 12v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6"/></svg></span>
+        <div><b>Family Memory</b><p>See what AI remembers about each child. Erase anything with one tap.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M12 20.5V12"/><path d="M12 12c0-4.2 3-6.5 7.5-6.5 0 4.2-3 6.5-7.5 6.5zM12 14.5c0-3.4-2.6-5.5-6.5-5.5 0 3.4 2.6 5.5 6.5 5.5z"/></svg></span>
+        <div><b>Grows up with them</b><p>Explorer 5–9, Navigator 10–13, Pilot 14–17. At 18, every key is theirs.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M7.2 8h9.6a4.4 4.4 0 0 1 4.3 5.4l-.7 3.1a2.3 2.3 0 0 1-3.9 1.1L14.4 16H9.6l-2.1 1.6a2.3 2.3 0 0 1-3.9-1.1l-.7-3.1A4.4 4.4 0 0 1 7.2 8z"/><path d="M8 10.8v3M6.5 12.3h3"/><path d="M15.8 12.3h.01M17.6 12.3h.01"/></svg></span>
+        <div><b>Roblox, on the family Mac</b><p>Five switches per child: play, chat, friend requests, voice, spending.</p></div>
+      </li>
+    </ul>
+    <div class="specs three">
+      <div><span class="label">Works with</span><p>ChatGPT, Claude, Gemini, Grok and Perplexity. For parents, the OpenAI and xAI APIs too.</p></div>
+      <div><span class="label">Devices</span><p>Mac and Windows. Protected today on iPhone, iPad and Android with Family or Max. Install by invitation.</p></div>
+      <div><span class="label">Early access</span><p>Pal Agents: Wellbeing Signal and Answer Guard.</p></div>
+    </div>
+    <div class="specs three" style="margin-top:.12in">
+      <div><span class="label">Your account</span><p>One PrivacyPal account for you. Your kids keep their own protected profiles.</p></div>
+      <div><span class="label">At work too</span><p>Copilot and Claude Code come with Max, from your company or on top of Family.</p></div>
+      <div><span class="label">Parent HQ</span><p>Both parents share one Parent HQ. Set up and pay on the web.</p></div>
+    </div>
+  </div>
+
+  <div class="cta-row" style="margin-top:auto">
+    <div>
+      <div class="amount"><span class="big">$9.99</span><small>/month per household</small></div>
+      <p>Up to 5 family members. 5-day free trial, 30-day money-back guarantee, cancel anytime.</p>
+    </div>
+    <div>
+      <span class="label">Live family demo</span>
+      <p>Tuesdays and Thursdays, 1:00 PM ET. privacypal.ai/webinars/family</p>
+    </div>
+    <div class="go">
+      <a class="cta-pill teal" href="https://privacypal.ai/family">Start Family free</a>
+      <a class="url" href="https://privacypal.ai/family">privacypal.ai/family</a>
+    </div>
+  </div>
+
+  <p class="fine" style="margin-top:.12in">Roblox is a trademark of Roblox Corporation. PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox.</p>
+  <footer class="folio" style="margin-top:.12in"><span class="label"><b>PrivacyPal</b> · At home and at work</span><span class="label">05</span></footer>
+</section>
+
+<!-- =====================================================================
+     PAGE 6 · MAX, FOR BUSINESS (with Cloud and SDK)
+     Swap: the photo, the features, the volume table (mirror assets/pricing.js),
+     the Deploy and Build cards and the CTA row.
+     ===================================================================== -->
+<section class="sheet" aria-label="Max, for business">
+  <header class="run">
+    <img class="logo" src="../../assets/brand/logo.svg" alt="PrivacyPal">
+    <span class="label">Max · For business</span>
+  </header>
+
+  <div class="photo fade band-photo" style="height:2.55in;--over-w:4.1in">
+    <img src="../../partners/max-hero.jpg" data-standin="assets/photos/pack-business.jpg" alt="Colleagues plan together at a whiteboard" style="object-position:50% 60%;transform:scale(1.3);transform-origin:100% 100%">
+    <div class="scrim"></div>
+    <div class="over on-dark">
+      <span class="chip business" style="align-self:flex-start">Max · $34/user/mo</span>
+      <div>
+        <span class="eyebrow gold">For your business</span>
+        <h2 class="h2">The governance layer for every AI at work.</h2>
+        <p class="lede">Twenty people or two thousand, the install is the same.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:.26in;flex:none">
+    <div class="sec-head"><span class="label">Everything in Personal, plus</span></div>
+    <ul class="feats">
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="m7.5 9.5 3 2.5-3 2.5M12.5 15h4"/></svg></span>
+        <div><b>Agents and copilots</b><p>Claude Code, Claude Cowork, OpenAI Codex, Copilot and its agents, Grok Bot.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M9 3.5v5M15 3.5v5M6.5 8.5h11V11a5.5 5.5 0 0 1-11 0zM12 16.5v4"/></svg></span>
+        <div><b>IP Protection</b><p>Learns what is sensitive in Salesforce, Slack, Workday, Oracle, Notion and Drive.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M14 3.5H7A2.5 2.5 0 0 0 4.5 6v12A2.5 2.5 0 0 0 7 20.5h10a2.5 2.5 0 0 0 2.5-2.5V9z"/><path d="M14 3.5V9h5.5"/><path d="m8.8 14.2 2.2 2.2 4-4"/></svg></span>
+        <div><b>Governance Policies</b><p>Intent Detection, Prompt Injection Guard, Legal and Financial Enrichment.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l5-5"/></svg></span>
+        <div><b>Shadow-AI discovery</b><p>Every laptop becomes its own sensor and surfaces unsanctioned AI tools.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6M4.5 12v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6"/></svg></span>
+        <div><b>Private Memory and MCP</b><p>One governed memory across every AI, and a hosted Private MCP.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.5-3.2 3-5.2 6-5.2s5.5 2 6 5.2"/><path d="M15.5 5.6a3.2 3.2 0 0 1 0 5.8M17.6 14.6c1.8.7 3 2.4 3.4 4.9"/></svg></span>
+        <div><b>Admin, invites, full history</b><p>Team seats, SSO, one activity feed, full history. Invite staff already on Personal or Family.</p></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="grid-2" style="margin-top:.26in;flex:none;grid-template-columns:3.05in minmax(0,1fr);align-items:start">
+    <div class="price-card business">
+      <span class="label">Max · per user per month</span>
+      <table class="tiers">
+        <thead><tr><th>Users</th><th>Monthly</th><th>Annual</th></tr></thead>
+        <tbody>
+          <tr><td>1–9</td><td><b>$34</b></td><td><b>$30</b></td></tr>
+          <tr><td>10–99</td><td><b>$29</b></td><td><b>$25</b></td></tr>
+          <tr><td>100–999</td><td><b>$26</b></td><td><b>$21</b></td></tr>
+          <tr><td>1000+</td><td><b>$22</b></td><td><b>$17</b></td></tr>
+        </tbody>
+      </table>
+      <p class="small">Volume pricing applies automatically. Save up to 23% with annual billing.</p>
+    </div>
+    <div style="display:grid;gap:.14in">
+      <div class="card white">
+        <span class="label">Deploy · PrivacyPal Cloud</span>
+        <p class="small" style="margin-top:5pt">The sovereign deployment, in your VPC: AWS, Azure, GCP, bare metal or a single container, with an air-gapped option. One base_url change, no code changes. Custom annual pricing.</p>
+      </div>
+      <div class="card white">
+        <span class="label">Build · PrivacyPal SDK</span>
+        <p class="small" style="margin-top:5pt">Privacy Twins inside your own software: encode, share with another agent or API, decode. Node.js and Python, plus a REST API.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-row" style="margin-top:auto;grid-template-columns:minmax(0,1fr) auto">
+    <div>
+      <span class="label">Live demo</span>
+      <p>Every Tuesday and Thursday at noon ET: privacypal.ai/webinars/business. Book a demo: sales@privacypal.ai</p>
+    </div>
+    <div class="go">
+      <a class="cta-pill teal" href="https://privacypal.ai/business">Get Max</a>
+      <a class="url" href="https://privacypal.ai/business">privacypal.ai/business</a>
+    </div>
+  </div>
+
+  <footer class="folio" style="margin-top:.2in"><span class="label"><b>PrivacyPal</b> · At home and at work</span><span class="label">06</span></footer>
+</section>
+
+<!-- =====================================================================
+     PAGE 7 · PROOF, PLATFORMS AND SECURITY
+     Swap: the proof figures (allowed figures only, see the note at the top),
+     the platform tiles and the six security points.
+     ===================================================================== -->
+<section class="sheet" aria-label="Proof, platforms and security">
+  <header class="run">
+    <img class="logo" src="../../assets/brand/logo.svg" alt="PrivacyPal">
+    <span class="label">Proof, platforms and security</span>
+  </header>
+
+  <div class="navy on-dark" style="padding:.3in .3in .28in;flex:none">
+    <span class="eyebrow gold">Proof</span>
+    <h2 class="h2" style="margin-top:8pt;max-width:5.6in">The same technology that protects 140+ companies and global banks.</h2>
+    <div class="grid-4" style="margin-top:.28in">
+      <div class="stat"><div class="n">140+</div><div class="l">Companies run PrivacyPal at work</div></div>
+      <div class="stat"><div class="n words">Tens of<br>millions</div><div class="l">Of protected data elements</div></div>
+      <div class="stat"><div class="n">0 bytes</div><div class="l">Of sensitive data sent to AI providers</div></div>
+      <div class="stat"><div class="n words">Inception</div><div class="l">NVIDIA Inception member, optimizing on-device protection</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:.26in;flex:none">
+    <div class="sec-head"><span class="label">One download · every platform</span></div>
+    <div class="platforms">
+      <div class="plat">
+        <svg class="i" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2.5 19h19"/></svg>
+        <b>Mac</b><span>Apple Silicon, macOS 13 and later</span><span class="badge">Every pack</span>
+      </div>
+      <div class="plat">
+        <svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8.5 20.5h7M12 17v3.5"/></svg>
+        <b>Windows</b><span>Windows 11, 64-bit installer</span><span class="badge">Every pack</span>
+      </div>
+      <div class="plat">
+        <svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="m7.5 9.5 3 2.5-3 2.5M12.5 15h4"/></svg>
+        <b>Linux</b><span>Headless agent for Ubuntu, Fedora and WSL</span><span class="badge">Max</span>
+      </div>
+      <div class="plat">
+        <svg class="i" viewBox="0 0 24 24"><rect x="4.5" y="2.5" width="15" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg>
+        <b>iPhone and iPad</b><span>Protected today. Install by invitation</span><span class="badge invite">Family or Max</span>
+      </div>
+      <div class="plat">
+        <svg class="i" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M6.5 6h11M6.5 18h11"/></svg>
+        <b>Android</b><span>Protected today. Install by invitation</span><span class="badge invite">Family or Max</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:.26in;flex:none">
+    <div class="sec-head"><span class="label">Security and trust</span></div>
+    <ul class="feats" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:.2in .22in">
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span>
+        <div><b>Patent-pending twins</b><p>Realistic stand-ins keep AI useful. Real values never reach the AI provider.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.6 2.6 4.9-5"/></svg></span>
+        <div><b>Signed and notarized</b><p>Notarized by Apple. A trusted publisher on Windows.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg></span>
+        <div><b>Signals, not transcripts</b><p>Parents see which tools, what got protected and how kids are doing.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13M10 11v5M14 11v5"/></svg></span>
+        <div><b>Erase means erase</b><p>Family Memory erasure is immediate, even for work in flight.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.5-3.2 3-5.2 6-5.2s5.5 2 6 5.2"/><path d="M15.5 5.6a3.2 3.2 0 0 1 0 5.8M17.6 14.6c1.8.7 3 2.4 3.4 4.9"/></svg></span>
+        <div><b>Central control at work</b><p>Org-wide policy, and every interception in one activity feed.</p></div>
+      </li>
+      <li class="feat">
+        <span class="ico"><svg class="i" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><path d="m11 12.5 8.5-8.5M16.5 7l2.5 2.5M14.2 9.3l2 2"/></svg></span>
+        <div><b>Kids sign in simply</b><p>A household code and their own short code. No email needed.</p></div>
+      </li>
+    </ul>
+  </div>
+
+  <div style="margin-top:.26in;flex:none">
+    <div class="sec-head"><span class="label">Questions security teams ask</span></div>
+    <div class="qa">
+      <div class="card"><b>Where does protection run?</b><p>On the device, before a prompt or file reaches an AI provider. Your AI tools stay as they are.</p></div>
+      <div class="card"><b>What does the AI provider receive?</b><p>Privacy Twins: realistic stand-ins for names, numbers and secrets. 0 bytes of the sensitive data itself.</p></div>
+      <div class="card"><b>What exactly is protected?</b><p>What you send to the model: the prompt and the files you attach, in chat apps, copilots and agents.</p></div>
+      <div class="card"><b>Can it run in our own cloud?</b><p>Yes. PrivacyPal Cloud runs in your VPC on AWS, Azure, GCP or bare metal, or air-gapped. Findings stay in your tenancy.</p></div>
+    </div>
+  </div>
+
+  <footer class="folio" style="margin-top:auto"><span class="label"><b>PrivacyPal</b> · At home and at work</span><span class="label">07</span></footer>
+</section>
+
+<!-- =====================================================================
+     PAGE 8 · BACK COVER
+     Swap: the sign-off, the contact grid and the address (the address must
+     match the site footer in assets/v3.js and contact.html).
+     ===================================================================== -->
+<section class="sheet back-page" aria-label="Back cover">
+  <div class="navy back-panel on-dark" style="border-radius:18pt">
+    <img class="logo" src="../../assets/brand/logo-white.svg" alt="PrivacyPal">
+
+    <div class="back-hero">
+      <div class="guide-wrap"><img class="guide" src="../../assets/brand/penguin-guide-dark.svg" alt=""></div>
+      <div>
+        <h2 class="display">Download PrivacyPal free.</h2>
+        <p class="lede">Personal is included. Add the Family pack or the Max pack when you need them, in the same app.</p>
+        <div class="cta">
+          <a class="cta-pill" href="https://privacypal.ai/download">Download free</a>
+          <a class="url" href="https://privacypal.ai/download">privacypal.ai/download</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-grid">
+      <div><span class="label">Sales</span><a href="mailto:sales@privacypal.ai">sales@privacypal.ai</a></div>
+      <div><span class="label">Support</span><a href="mailto:support@privacypal.ai">support@privacypal.ai</a></div>
+      <div><span class="label">Press</span><a href="mailto:press@privacypal.ai">press@privacypal.ai</a></div>
+      <div><span class="label">Everything else</span><a href="mailto:hello@privacypal.ai">hello@privacypal.ai</a></div>
+      <div><span class="label">Plans</span><p>privacypal.ai/pricing</p></div>
+      <div><span class="label">For families</span><p>privacypal.ai/family</p></div>
+      <div><span class="label">For business</span><p>privacypal.ai/business</p></div>
+      <div><span class="label">Live demos</span><p>privacypal.ai/webinars<br><span>Tue and Thu</span></p></div>
+    </div>
+
+    <div class="back-meta">
+      <address>
+        <svg class="i" viewBox="0 0 24 24"><path d="M19.5 10.4c0 5.6-7.5 11.1-7.5 11.1s-7.5-5.5-7.5-11.1a7.5 7.5 0 0 1 15 0z"/><circle cx="12" cy="10.4" r="2.6"/></svg>
+        <span><b>PrivacyPal</b><br>1601 Belvedere Rd, Suite E-300<br>West Palm Beach, FL 33406<br>United States</span>
+      </address>
+      <p class="fine">© 2026 PrivacyPal. Privacy Twins is patent-pending. Roblox is a trademark of Roblox Corporation; PrivacyPal is not affiliated with, sponsored by or endorsed by Roblox. Other product names are trademarks of their respective owners. Penguin emoji: Twemoji, &copy;&nbsp;Twitter, Inc. and other contributors, CC&nbsp;BY&nbsp;4.0.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+/* Screen preview only: scale each Letter sheet to narrow screens. Print and the PDF ignore it. */
+(function(){function fit(){var w=document.documentElement.clientWidth;document.documentElement.style.setProperty('--fit',Math.min(1,(w-32)/816).toFixed(4));}fit();addEventListener('resize',fit);})();
+</script>
+</body>
+</html>

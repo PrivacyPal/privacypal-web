@@ -3,27 +3,35 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>PrivacyPal Cloud: the enterprise tier, sovereign AI gateway + network DSPM</title>
-<meta name="description" content="The sovereign enterprise tier. Self-hosted AI governance gateway plus the first network-grade DSPM purpose-built for the AI data layer. Lives in your VPC. Air-gap ready. Zero-knowledge." />
-<link rel="icon" href="assets/favicon.ico"/>
+<title>PrivacyPal Cloud: sovereign deployment in your VPC · PrivacyPal</title>
+<meta name="description" content="Deploy PrivacyPal in your own cloud. A self-hosted AI governance gateway plus a network-grade DSPM purpose-built for the AI data layer. Lives in your VPC. Air-gap ready. Zero-knowledge." />
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/v3.css"/>
 <style>
 .cloud-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.cloud-hero-grid > *{min-width:0}
+.pack-note{margin-top:20px;font-size:.9rem;color:var(--muted);line-height:2}
+.pack-note .pack-chip{margin:0 3px 0 0;vertical-align:1px}
 @media (max-width:900px){.cloud-hero-grid{grid-template-columns:1fr;gap:36px}}
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PrivacyPal" />
 <meta property="og:url" content="https://privacypal.ai/privacypal-cloud.html" />
-<meta property="og:title" content="PrivacyPal Cloud: Sovereign AI gateway + network DSPM" />
-<meta property="og:description" content="The sovereign enterprise tier. Self-hosted AI governance gateway plus the first network-grade DSPM purpose-built for the AI data layer. Lives entirely in your VPC. Air-gap ready. Zero-knowledge by design." />
-<meta property="og:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta property="og:title" content="PrivacyPal Cloud: sovereign AI gateway + network DSPM" />
+<meta property="og:description" content="Deploy PrivacyPal in your own cloud. A self-hosted AI governance gateway plus a network-grade DSPM purpose-built for the AI data layer. Lives entirely in your VPC. Air-gap ready. Zero-knowledge by design." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="PrivacyPal Cloud: Sovereign AI gateway + network DSPM" />
+<meta name="twitter:title" content="PrivacyPal Cloud: sovereign AI gateway + network DSPM" />
 <meta name="twitter:description" content="Self-hosted AI governance gateway plus network-grade DSPM for the AI data layer. Your VPC. Air-gap ready. Zero-knowledge by design." />
-<meta name="twitter:image" content="https://privacypal.ai/assets/logo-color.png" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-business.png" />
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -40,13 +48,14 @@
   <div class="container">
     <div class="cloud-hero-grid">
       <div>
-        <span class="eyebrow orange">PrivacyPal Cloud · The enterprise tier</span>
+        <span class="eyebrow blue">PrivacyPal Cloud · Deploy</span>
         <h1 style="max-width:18ch">The sovereign AI governance plane. In your VPC. On your terms.</h1>
-        <p class="lede">Cloud is our enterprise tier, for regulated organizations that answer to a hard data-sovereignty requirement. A self-hosted AI governance gateway plus the first network-grade DSPM built for the AI data layer, across databases, lakes, RAG, vector and agent memory. Lives in your VPC. Air-gap ready. Zero-knowledge by design. If you want company-wide governance without self-hosting anything, that is <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">Max</a>.</p>
+        <p class="lede">Cloud is how an enterprise deploys PrivacyPal in its own cloud, for regulated organizations that answer to a hard data-sovereignty requirement. A self-hosted AI governance gateway plus a network-grade DSPM built for the AI data layer, across databases, lakes, RAG, vector and agent memory. Lives in your VPC. Air-gap ready. Zero-knowledge by design. If you want company-wide governance without self-hosting anything, that is the <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">Max pack</a>.</p>
         <div class="btn-row">
           <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
           <a class="btn btn-ghost btn-lg" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">View docs</a>
         </div>
+        <p class="pack-note"><span class="pack-chip business">Max</span> Deploy option · custom annual pricing</p>
       </div>
       <div class="reveal">
         <div class="code-multi"><span class="c"># Install on any desktop or server in your network</span>
@@ -59,7 +68,7 @@
 <span class="s">✓ Gateway running on 127.0.0.1:7878</span>
 <span class="s">✓ Watching 4 local AI processes</span>
 <span class="s">✓ Routing through privacypal.yourco.internal</span>
-<span class="s">✓ 0 prompts left this network</span></div>
+<span class="s">✓ 0 bytes of sensitive data sent to AI providers</span></div>
       </div>
     </div>
   </div>
@@ -91,7 +100,7 @@
       <div class="feature-card reveal reveal-delay-2">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
         <h4>Provider-agnostic gateway</h4>
-        <p>OpenAI / Anthropic / Google compatible. Route to GPT, Claude, Gemini, Grok, Hermes, Mistral, Llama or your own fine-tune. Switch per request.</p>
+        <p>OpenAI / Anthropic / Google compatible: one base_url change. Route to GPT, Claude, Gemini, Mistral, Llama or your own fine-tune. Switch per request.</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
@@ -113,13 +122,13 @@
     <div class="section-head reveal">
       <span class="eyebrow orange">Included with Cloud · Network DSPM</span>
       <h2>A full network-grade DSPM stack. Purpose-built for the AI data layer.</h2>
-      <p class="lede">Cloud doesn't just protect AI traffic in motion. The same install gives you continuous discovery, classification, risk prioritization and remediation across every data store that feeds your models: databases, lakes, RAG pipelines, vector stores, agent memory. Pair it with <a href="privacypal-max.html" style="color:var(--ink);text-decoration:underline">Max's on-device DSPM</a> and you have governance across the entire data surface: endpoints to enterprise data plane.</p>
+      <p class="lede">Cloud doesn't just protect AI traffic in motion. The same install gives you continuous discovery, classification, risk prioritization and remediation across every data store that feeds your models: databases, lakes, RAG pipelines, vector stores, agent memory. Pair it with the <a href="ai-dspm.html" style="color:var(--ink);text-decoration:underline">on-device DSPM in the Max pack</a> and you have governance across the entire data surface: endpoints to enterprise data plane.</p>
     </div>
     <div class="card-grid cols-3">
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
         <h4>Agentless discovery</h4>
-        <p>Connect a data store and it's in the scan queue. SQL Server, PostgreSQL, MongoDB, Supabase, Drive, OneDrive, Dropbox, object storage: read in place, no agents, no re-architecture, no performance hit.</p>
+        <p>Connect a data store and it's in the scan queue. SQL Server, PostgreSQL, MongoDB, cloud and object storage: read in place, no agents, no re-architecture, no performance hit.</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2.5"/><path d="M8 6h8M8 18h8M6 8v8M18 8v8"/></svg></div>
@@ -144,7 +153,7 @@
       <div class="feature-card reveal reveal-delay-3">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M8 13h8M8 16h5"/></svg></div>
         <h4>Sovereign by design</h4>
-        <p>Scans run inside your network, against the same gateway already protecting your AI traffic. Findings, classifications, and remediation actions never leave your tenancy.</p>
+        <p>Scans run inside your network, against the same gateway already protecting your AI traffic. Findings, classifications, and remediation actions stay inside your tenancy.</p>
       </div>
     </div>
   </div>
@@ -154,8 +163,8 @@
 <section class="section-sm" style="padding-top:0">
   <div class="container">
     <div class="bigquote reveal">
-      <blockquote>We shipped an AI assistant on patient records in <b>six weeks</b>. Legal signed it in <b>two days</b>. That's PrivacyPal Cloud.</blockquote>
-      <div class="who">CTO, healthcare SaaS · Series B</div>
+      <blockquote>The same technology that protects <b>140+ companies</b> and global banks, deployed inside <b>your own cloud</b>.</blockquote>
+      <div class="who">PrivacyPal Cloud · AWS, Azure, GCP, bare metal or a single container</div>
     </div>
   </div>
 </section>
@@ -168,7 +177,7 @@
       <h2 style="margin-top:14px">Your VPC. Your keys. Your governance.</h2>
       <p>Stop choosing between AI velocity and data sovereignty. PrivacyPal Cloud lets you ship AI features your security team reviews in days, not quarters. Install once. Run sovereign.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="#" data-cta="demo">Book a demo</a>
+        <a class="btn btn-gold btn-lg" href="#" data-cta="demo">Book a demo</a>
         <a class="btn btn-ghost btn-lg" href="https://privacypal.ai/documentation/sdk/" target="_blank" rel="noopener">View docs</a>
       </div>
     </div>

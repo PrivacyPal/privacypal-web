@@ -2,8 +2,9 @@
    (business/, family/), the live room (watch.html) and the cancel page.
    Loads after assets/v3.css and uses only its tokens. Data comes from the
    n8n webhooks via webinars.js; see webinars/README.md.
-   body.wb-family borrows Family DNA (Fredoka headings, warm accents) the way
-   the homepage does; the shared nav and footer stay corporate. */
+   One brand: both series use the corporate system. body.wb-family only adds
+   a warmer hero wash and Penguin Gold accents (the Family pack colour);
+   buttons and the selected date stay Signal Teal, as on every light page. */
 
 [hidden]{display:none !important}
 
@@ -19,10 +20,11 @@
 .wb-hero .lede{margin-top:20px}
 .wb-badge{
   display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.75rem;
-  padding:5px 10px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line);
+  padding:5px 10px;border-radius:999px;background:#fff;color:var(--ink);border:1px solid var(--line);
 }
+.wb-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}
 .wb-badge.live{background:#fdecec;color:#b3313a;border-color:#f6caca}
-.wb-badge.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#d54751;animation:wbPulse 1.4s infinite}
+.wb-badge.live::before{background:#d54751;animation:wbPulse 1.4s infinite}
 @keyframes wbPulse{0%,100%{opacity:1}50%{opacity:.25}}
 .wb-sched{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;color:var(--ink);font-size:.98rem}
 .wb-sched > span{display:inline-flex;align-items:center;gap:8px}
@@ -75,6 +77,8 @@
 .wb-door:hover{border-color:var(--teal);transform:translateY(-2px)}
 .wb-door .ph{aspect-ratio:16/8;background:var(--panel) center/cover no-repeat}
 .wb-door .bd{padding:28px;display:flex;flex-direction:column;gap:12px;flex:1}
+.wb-door-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.wb-packs{display:inline-flex;gap:6px;flex-wrap:wrap}
 .wb-door h2{font-size:1.7rem}
 .wb-door p{color:var(--muted);line-height:1.55}
 .wb-door .when{font-family:var(--font-mono);font-size:.8rem;color:var(--ink);background:var(--panel);border-radius:8px;padding:8px 10px;align-self:flex-start}
@@ -90,24 +94,20 @@
 .wb-faq p{color:var(--muted);margin-top:10px;line-height:1.6}
 
 .wb-empty{max-width:620px;margin:0 auto;text-align:center;padding:40px 0 20px}
+.wb-guide{width:96px;height:96px;margin:0 auto 18px}
+.cta-banner .wb-guide{width:72px;height:72px;margin-bottom:10px}
 .wb-empty h1{margin:18px auto 0;max-width:20ch}
 .wb-empty .lede{margin:18px auto 0}
 .wb-empty .btn-row{justify-content:center;margin-top:28px}
 .wb-skel{background:linear-gradient(90deg,var(--panel),#fbfaf6,var(--panel));background-size:200% 100%;animation:wbSkel 1.4s infinite;border-radius:10px}
 @keyframes wbSkel{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-/* ---------- Family theme ---------- */
+/* ---------- Family series accents ---------- */
 .wb-family .wb-hero::before{
-  background:radial-gradient(60% 70% at 85% 10%, rgba(250,169,104,.28), transparent 70%),
-             radial-gradient(55% 60% at 5% 90%, rgba(246,220,172,.5), transparent 70%);
+  background:radial-gradient(60% 70% at 85% 10%, rgba(255,244,224,.95), transparent 70%),
+             radial-gradient(55% 60% at 5% 90%, rgba(246,220,172,.35), transparent 70%);
 }
-.wb-family main h1,.wb-family main h2,.wb-family main h3,.wb-family main h4,.wb-door.fam h2{font-family:'Fredoka','Overused Grotesk',system-ui,sans-serif;font-weight:600;letter-spacing:-.01em}
-.wb-family main .btn-primary{background:#d97a35}
-.wb-family main .btn-primary:hover{background:#c2672a}
-.wb-family .wb-chip.on{border-color:#d97a35;background:#fdeede;box-shadow:inset 0 0 0 1px #d97a35}
-.wb-family .wb-chip:hover{border-color:#d97a35}
-.wb-family .wb-sched svg{color:#d97a35}
-.wb-family .wb-check input{accent-color:#d97a35}
+.ico.wb-gold{background:var(--gold-tint);border-color:var(--gold-soft);color:var(--gold-ink)}
 .wb-photo{border-radius:var(--r-lg);overflow:hidden;margin-top:30px;aspect-ratio:16/9;background:var(--panel) center/cover no-repeat;border:1px solid var(--line)}
 
 /* ---------- live room ---------- */
@@ -129,6 +129,10 @@
 .wr-wait .count{font-size:clamp(2rem,5vw,3.4rem);font-weight:500;letter-spacing:-.02em;margin-top:10px}
 .wr-wait p{color:rgba(255,255,255,.75);max-width:44ch;margin-top:12px;line-height:1.5}
 .wr-wait .eyebrow{color:rgba(255,255,255,.7)}
+.wr-wait .eyebrow::before{background:var(--gold)}
+/* the guide penguin hosts the waiting, ended and external-stream screens */
+.wr-wait::before{content:"";width:84px;height:84px;margin-bottom:16px;background:url('../assets/brand/penguin-guide-dark.svg') center/contain no-repeat;flex:none}
+@media (max-width:620px){.wr-wait{padding:14px 18px}.wr-wait::before{display:none}.wr-wait .count{font-size:1.9rem;margin-top:4px}.wr-wait p{font-size:.84rem;line-height:1.4;margin-top:6px}.wr-wait .btn{margin-top:10px}}
 .wr-wait .btn{margin-top:18px}
 .wr-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
 .wr-note{color:var(--muted);font-size:.88rem}
