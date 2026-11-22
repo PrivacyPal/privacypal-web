@@ -160,3 +160,9 @@
   .wb-card{padding:22px}
   .wb-sessions{grid-template-columns:1fr 1fr}
 }
+
+/* "check your inbox" after a form sign-up, and the confirm page (verify.html) */
+.wb-inbox .tick{background:var(--gold-tint);color:var(--gold-ink)}
+.wb-inbox .eyebrow{display:flex;margin-bottom:8px}
+.wb-inbox-when{background:var(--panel);border-radius:var(--r-md);padding:12px 14px;font-weight:600;color:var(--ink) !important}
+.wv-when{margin-top:18px;background:var(--panel);border-radius:var(--r-md);padding:12px 14px;font-weight:600;color:var(--ink)}

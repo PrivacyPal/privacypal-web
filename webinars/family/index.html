@@ -66,7 +66,7 @@
           <form class="form" id="wb-form" method="post" action="https://automate.privacypal.ai/webhook/webinar-register" novalidate>
             <div>
               <h3 id="wb-card-title">Save your seat</h3>
-              <p class="sub">Pick a date. Your calendar invite arrives in seconds.</p>
+              <p class="sub">Pick a date, then confirm your email. Your calendar invite follows straight after.</p>
             </div>
             <div>
               <div class="wb-step">01 · Pick a date (shown in your time)</div>
@@ -90,7 +90,7 @@
             <label class="wb-check" data-form-field><input type="checkbox" name="marketing" value="yes"/> <span>Also send me PrivacyPal news and offers for families now and then.</span></label>
             <div class="wb-error" id="wb-error" role="alert"></div>
             <button class="btn btn-primary btn-lg" type="submit" id="wb-submit" disabled>Register free</button>
-            <p class="wb-fine">We use your details to send this session&rsquo;s calendar invite, reminders and follow-up. News and offers only if you opt in. <a href="../../privacy-policy.html">Privacy policy</a>.</p>
+            <p class="wb-fine">We email you once to confirm your address, then send this session&rsquo;s calendar invite, reminders and follow-up. News and offers only if you opt in. <a href="../../privacy-policy.html">Privacy policy</a>.</p>
           </form>
 
           <div class="wb-done" id="wb-done" hidden>
@@ -104,6 +104,15 @@
               <a class="btn btn-ghost btn-sm" id="wb-cal-ics" href="#">Apple / .ics</a>
             </div>
             <a class="link-arrow" id="wb-room-link" href="#">Your live room link</a>
+          </div>
+
+          <div class="wb-done wb-inbox" id="wb-inbox" hidden>
+            <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div>
+            <span class="eyebrow gold">One step left</span>
+            <h3 id="wb-inbox-title">Check your inbox</h3>
+            <p id="wb-inbox-text">We sent you a confirmation email. Press <b>Confirm my seat</b> in it and your calendar invite follows straight after.</p>
+            <p class="wb-inbox-when" id="wb-inbox-when" hidden></p>
+            <p class="wb-fine">Nothing after a few minutes? Check your spam folder, or <button type="button" class="wb-linkbtn" id="wb-inbox-retry">use a different email</button>.</p>
           </div>
           <noscript><p class="wb-fine" style="margin-top:14px">This page needs JavaScript. Email <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a> and we will register you by hand.</p></noscript>
         </div>

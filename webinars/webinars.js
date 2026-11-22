@@ -4,7 +4,8 @@
      /webinars/family/         PrivacyPal for families: live demo (Tue + Thu, 1:00 PM ET)
      /webinars/watch.html      live room, opened from each registrant's personal link
      /webinars/cancel.html     cancel a registration
-   <body data-wb="hub|series|watch|cancel" data-series="business|family" data-wb-base="./|../">
+     /webinars/verify.html     confirm the email address of a sign-up (link in the confirmation email)
+   <body data-wb="hub|series|watch|cancel|verify" data-series="business|family" data-wb-base="./|../">
    data-wb-base is the path from the page to the /webinars/ folder.
 
    Everything dynamic comes from n8n at automate.privacypal.ai (source:
@@ -14,6 +15,9 @@
 
      GET  /webhook/webinars[?series=&s=]         series with their upcoming sessions
      POST /webhook/webinar-register               form-encoded: s + details, or s + r (one-click rebook)
+                                                  details: { ok, check: 'verify'|'invite', session }, never a token;
+                                                  rebook: { ok, token, watchUrl, session }
+     POST /webhook/webinar-verify                 r=<token>: confirms the address and sends the invite
      GET  /webhook/webinar-join?s=<id>&r=<tok>    stream link for a registered token
      POST /webhook/webinar-cancel                 r=<token>
 
@@ -237,6 +241,36 @@
       if (live) setTimeout(function () { location.href = res.watchUrl; }, 1500);
     }
 
+    /* A form sign-up: the address is confirmed by email before the invite goes out. */
+    function inboxState(res, email) {
+      show(form, false);
+      show($('#wb-done'), false);
+      var box = $('#wb-inbox');
+      show(box, true);
+      if (box.getBoundingClientRect().top < 80) box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var t = $('#wb-inbox-text');
+      t.textContent = '';
+      var to = email ? el('b', null, email) : null;
+      if (res.check === 'invite') {
+        $('#wb-inbox-title').textContent = 'You\u2019re already registered';
+        t.appendChild(document.createTextNode('This email already has a seat on this date. ' + (res.emailSent === false ? 'Your calendar invite is on its way again' : 'We sent your calendar invite again') + (to ? ' to ' : '')));
+        if (to) t.appendChild(to);
+        t.appendChild(document.createTextNode('.'));
+      } else {
+        $('#wb-inbox-title').textContent = 'Check your inbox';
+        t.appendChild(document.createTextNode(res.emailSent === false ? 'Your confirmation email is running a little late and arrives within a few minutes' : 'We sent a confirmation email'));
+        if (to) { t.appendChild(document.createTextNode(' to ')); t.appendChild(to); }
+        t.appendChild(document.createTextNode('. Press '));
+        t.appendChild(el('b', null, 'Confirm my seat'));
+        t.appendChild(document.createTextNode(' in it and your calendar invite with your personal join link follows straight after.'));
+      }
+      var when = $('#wb-inbox-when');
+      if (res.session && res.session.start) {
+        when.textContent = fmt(res.session.start, VIEWER_TZ, { weekday: 'long', month: 'long', day: 'numeric' }) + ' at ' + timeIn(res.session.start, VIEWER_TZ);
+        show(when, true);
+      }
+    }
+
     var MESSAGES = {
       email: 'Check your email address.',
       first_name: 'Add your first name, letters only.',
@@ -265,6 +299,12 @@
         if (ref) data.ref = ref;
       }
       postForm(API + '/webinar-register', data).then(function (res) {
+        if (res && res.ok && res.check && res.session) {
+          inboxState(res, data.email || '');
+          track('sign_up', { method: 'webinar', series: SERIES, session_id: res.session.id, rebook: false, check: res.check });
+          pixel('CompleteRegistration', { content_name: res.session.title, content_category: SERIES });
+          return;
+        }
         if (res && res.ok && res.token && res.session) {
           doneState(res, rebook ? '' : data.first_name);
           track('sign_up', { method: 'webinar', series: SERIES, session_id: res.session.id, rebook: !!rebook });
@@ -281,11 +321,24 @@
         btn.textContent = label;
       });
     });
+    var retry = $('#wb-inbox-retry');
+    if (retry) retry.addEventListener('click', function () {
+      show($('#wb-inbox'), false);
+      show(form, true);
+      setMode(false);
+      if (selected) select(selected.id);
+      var btn = $('#wb-submit');
+      btn.disabled = !selected;
+      var em = $('#wb-email');
+      if (em) { em.value = ''; em.focus(); }
+    });
     var other = $('#wb-not-me');
     if (other) other.addEventListener('click', function () { setMode(false); select(selected ? selected.id : ''); });
 
     setMode(!!rebook);
-    if (param('registered') === '1') { show(form, false); show($('#wb-done'), true); show($('#wb-cal-wrap'), false); show($('#wb-room-link'), false); $('#wb-done-mail').textContent = 'Your calendar invite is on its way from ops@privacypal.ai.'; }
+    var checkParam = param('check');
+    if (checkParam === 'verify' || checkParam === 'invite') inboxState({ check: checkParam }, '');
+    else if (param('registered') === '1') { show(form, false); show($('#wb-done'), true); show($('#wb-cal-wrap'), false); show($('#wb-room-link'), false); $('#wb-done-mail').textContent = 'Your calendar invite is on its way from ops@privacypal.ai.'; }
 
     catalog('series=' + encodeURIComponent(SERIES) + (wantS ? '&s=' + encodeURIComponent(wantS) : '')).then(function (cat) {
       root.classList.remove('loading');
@@ -417,6 +470,7 @@
         if (!r.ok) {
           // a registration seconds old can be newer than the server's snapshot: retry once
           if (r.error === 'not_registered' && !retried && token) { retried = true; return new Promise(function (ok) { setTimeout(ok, 11000); }).then(load); }
+          if (r.error === 'not_verified') return message('One step left', w.title, 'Confirm your email first: press Confirm my seat in the email we sent you, and this room opens with your calendar invite.', '', '');
           if (r.error === 'cancelled') return message('Registration canceled', w.title, 'This registration was canceled. ' + (nextLine() || ''), 'Pick another date', reg);
           if (r.error === 'session_cancelled') return message('Session canceled', w.title, 'This session was canceled. ' + (nextLine() || 'We run it every week.'), 'Save a seat at the next one', token ? seriesUrl(sid, '?r=' + encodeURIComponent(token)) : reg);
           return message('Registered guests only', w.title, 'The live room opens with the personal link in your calendar invite. Not registered yet? It takes ten seconds.', 'Register free', reg);
@@ -490,8 +544,82 @@
     });
   }
 
+  /* =============================================================== VERIFY */
+  /* The confirmation email links here with the registration token. Confirming takes
+     a button press (a POST), so a mail scanner that opens the link confirms nobody. */
+  function verify() {
+    var token = param('r');
+    var btn = $('#wv-confirm');
+    var out = $('#wv-result');
+    function fail(text) { show($('#wv-ask'), false); out.textContent = text; show(out, true); }
+    if (!token) { fail('This link is incomplete. Open the Confirm my seat button in your confirmation email.'); return; }
+    function nextLine(res) {
+      return res && res.next ? ' The next session is ' + fmt(res.next.start, VIEWER_TZ, { weekday: 'long', month: 'long', day: 'numeric' }) + ' at ' + timeIn(res.next.start, VIEWER_TZ) + '.' : '';
+    }
+    function done(res) {
+      show($('#wv-ask'), false);
+      var w = res.session;
+      var live = liveState(w) === 'live';
+      $('#wv-done-title').textContent = res.already ? 'You\u2019re already confirmed' : 'You\u2019re in.';
+      $('#wv-done-when').textContent = fmt(w.start, VIEWER_TZ, { weekday: 'long', month: 'long', day: 'numeric' }) + ' at ' + timeIn(w.start, VIEWER_TZ);
+      $('#wv-done-title-sub').textContent = w.title;
+      $('#wv-done-mail').textContent = live
+        ? 'We are live right now. Your room is open, and your calendar invite with the same link is on its way.'
+        : res.already
+          ? 'Your seat is confirmed and your calendar invite is in your inbox. You can also add the session yourself:'
+          : res.inviteSent === false
+            ? 'Your seat is confirmed. Your calendar invite is running a little late and arrives within a few minutes. You can also add it yourself:'
+            : 'Your calendar invite is on its way from ops@privacypal.ai. Accept it and your personal join link lands in your calendar. You can also add it yourself:';
+      var links = calendarLinks(w, res.token, res.watchUrl);
+      $('#wv-cal-google').href = links.google;
+      $('#wv-cal-outlook').href = links.outlook;
+      $('#wv-cal-ics').href = links.ics;
+      $('#wv-cal-ics').setAttribute('download', w.id + '.ics');
+      show($('#wv-cal-wrap'), !live);
+      var room = $('#wv-room-link');
+      room.href = res.watchUrl;
+      room.textContent = live ? 'Open the live room now' : 'Your live room link';
+      room.className = live ? 'btn btn-primary' : 'link-arrow';
+      show($('#wv-done'), true);
+      if (!res.already) track('webinar_verified', { series: w.series, session_id: w.id });
+      if (live) setTimeout(function () { location.href = res.watchUrl; }, 1500);
+    }
+    function closed(res) {
+      show($('#wv-ask'), false);
+      var cancelled = res.error === 'cancelled';
+      $('#wv-closed-title').textContent = cancelled ? 'This registration was canceled' : 'That date has closed';
+      $('#wv-closed-text').textContent = (cancelled
+        ? 'This sign-up was canceled, so there is nothing to confirm.'
+        : 'Your email is confirmed, but registration for that date has closed.') + (nextLine(res) || ' New dates go up every week.');
+      var a = $('#wv-closed-next');
+      if (res.series) {
+        // a confirmed address rebooks in one click; a canceled sign-up picks a date and fills in the form
+        a.href = seriesUrl(res.series, !cancelled && res.next ? '?r=' + encodeURIComponent(token) + '&s=' + encodeURIComponent(res.next.id) : '');
+        a.textContent = !cancelled && res.next ? 'Save my seat at the next one' : 'Pick another date';
+        show(a, true);
+      }
+      show($('#wv-closed'), true);
+    }
+    btn.addEventListener('click', function () {
+      btn.disabled = true;
+      btn.textContent = 'Confirming\u2026';
+      postForm(API + '/webinar-verify', { r: token }).then(function (res) {
+        if (res && res.ok && res.token && res.session) return done(res);
+        if (res && (res.error === 'closed' || res.error === 'cancelled')) return closed(res);
+        if (res && (res.error === 'not_found' || res.error === 'token')) return fail('We could not find this sign-up. It may be from an older email: register again from the live demo page and use the newest email.');
+        throw new Error((res && res.error) || 'unknown');
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Confirm my seat';
+        out.textContent = 'Something went wrong on our side. Press the button again in a minute, or email hi@privacypal.ai and we will add you by hand.';
+        show(out, true);
+      });
+    });
+  }
+
   if (PAGE === 'hub') hub();
   else if (PAGE === 'series') series();
   else if (PAGE === 'watch') watch();
   else if (PAGE === 'cancel') cancel();
+  else if (PAGE === 'verify') verify();
 })();
