@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated": "2026-09-23",
+    "updated": "2026-11-21",
     "pressEmail": "press@privacypal.ai"
   },
   "categories": [
@@ -35,11 +35,295 @@
   ],
   "articles": [
     {
+      "id": "one-privacypal-2-0",
+      "title": "PrivacyPal 2.0 brings work and home into one app, with packs that stack",
+      "category": "press-release",
+      "date": "2026-11-21",
+      "featured": true,
+      "author": "PrivacyPal Newsroom",
+      "readTime": "7 min read",
+      "thumb": "news/images/one-privacypal-2-0.jpg",
+      "hero": "news/images/one-privacypal-2-0.jpg",
+      "excerpt": "One app per platform and one PrivacyPal account. Personal is free with every download, and the Family and Max packs switch on in the same app, side by side, on the same computer.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "WEST PALM BEACH, FL, November 21, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today announced PrivacyPal 2.0, which brings the Company’s protection for individuals, households and organizations into one app on Windows, macOS and Linux, with one PrivacyPal app each for iPhone and iPad and for Android. Every download starts with Personal, free, on one PrivacyPal account. The Family pack and the Max pack switch on inside the same app and stack, so a parent can hold Max from an employer and Family for their children on the same computer."
+        },
+        {
+          "type": "h2",
+          "text": "Two Apps Were One Too Many"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal previously shipped its household protection as a separate desktop app. A parent who used PrivacyPal at work and for their children at home needed both, and the two could not share a Mac: each routes AI traffic through the computer’s system proxy setting, and whichever app started second took it over. Fixes to the protection engine were applied twice, once per app, and sometimes reached households a release later."
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal 2.0 replaces both apps with one, built on one engine. Every protection fix now reaches individuals, families and teams in the same release."
+        },
+        {
+          "type": "h2",
+          "text": "How It Works"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Download and sign in. Every PrivacyPal account starts with Personal, free, with no card, no trial clock and no expiry.",
+            "Say who uses the computer. On first run the app asks whether the computer belongs to the user, to a child, or to the whole family. A child’s computer and a shared family computer join the household with the Family pack. A parent’s own computer stays theirs.",
+            "Add packs as they are needed. The Family pack comes from a parent’s own subscription or from a partner that provides it. The Max pack comes from a person’s own subscription or from an employer that invites them into its Max account.",
+            "Protection follows the packs. When a pack starts or ends, the app applies the change at its next account check, with nothing to reinstall."
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "What Each Pack Protects"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Personal (free). ChatGPT, Claude, Gemini, Grok and Perplexity web chat, attachments included, on Mac and Windows.",
+            "Family ($9.99 a month per household). Guardrails for each child’s AI tools, Parent HQ, Family Memory with one-tap erase, and protection on household Windows and Mac computers and phones. For parents, the OpenAI API and the xAI API are protected too.",
+            "Max ($34 per user per month at one to nine users). Everything in Personal, plus Claude Code, Claude Cowork, Codex, Microsoft Copilot, Hermes Agent and the OpenAI and xAI APIs; Connections, hosted Private MCP and developer keys; team seats and central admin; PrivacyPal for Linux; and phones."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Under every pack, protection runs on the device, before a prompt or file reaches an AI provider. Sensitive details are swapped for patent-pending Privacy Twins, realistic stand-ins, so the AI still works and the real data never reaches the AI provider. The real values are restored in the reply the user reads."
+        },
+        {
+          "type": "h2",
+          "text": "Built for the Household Computer"
+        },
+        {
+          "type": "p",
+          "text": "Children keep their own protected profiles, held in the household’s own service and apart from any PrivacyPal account, so nothing about a child enters the account a parent uses at work. On a household computer, the rules lean toward the child:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Positive proof for adult use. When a household computer’s state is unclear, such as a missing or damaged settings file or a disagreement with the household service, PrivacyPal treats it as a child’s computer.",
+            "A fresh sign-in to unlock. A parent unlocks adult use on a child’s or shared computer with a fresh sign-in to their PrivacyPal account. A saved session never unlocks it.",
+            "Nothing adult left on disk. On a shared family computer, the parent’s session is held in memory only and ends when a child takes over, the screen locks, the computer sleeps or the app quits.",
+            "Signals, not transcripts. Parent HQ shows which tools were used, how much and whether a guardrail fired. It does not show what a child wrote.",
+            "Work stays out of home. A company that provides Max sees its seat data and never a member’s Family pack, household or household activity. A parent’s own AI use on household computers runs through the household’s protection, outside the employer’s account."
+          ]
+        },
+        {
+          "type": "quote",
+          "text": "A parent should be able to set this up at the kitchen table. You choose who uses the computer, your child signs in with the family code, and Parent HQ shows you how it is going without you reading a word they wrote. One app makes that simple for the whole house.",
+          "cite": "Shayra Antia, Cofounder and COO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "For Organizations"
+        },
+        {
+          "type": "p",
+          "text": "With PrivacyPal 2.0, a seat that becomes Max gets its Max protections switched on at once, at their default settings. Claude Code stays off until the user switches it on, because switching it on reconfigures the Claude Code command line. Companies can invite people who already use PrivacyPal, Family pack holders included, into their Max account under a license the company provisions. The company’s seat stacks with the person’s own packs, and leaving the company removes only that seat."
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal for Linux, the headless agent for command-line AI agents on servers and WSL, is part of the Max pack and moves to version 2.0 with the desktop apps."
+        },
+        {
+          "type": "quote",
+          "text": "People told us they want protection that follows them, not the product they happened to buy first. So there is one app now. You download PrivacyPal, you are protected for free, and every pack you add, paid by you or by your employer, switches on in the same place. Your kids keep their own profiles. Your employer never sees your household. That separation is built into how the system routes your data, not written into a policy.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "Phones"
+        },
+        {
+          "type": "p",
+          "text": "On iPhone, iPad and Android, PrivacyPal is one app per platform. Phones are protected with the Family pack or the Max pack and install by invitation through Apple TestFlight and Google Play testing. A child’s phone joins the household with the household code and the child’s member code. The one-app builds for iPhone, iPad and Android are available today."
+        },
+        {
+          "type": "h2",
+          "text": "Pricing and Availability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "PrivacyPal 2.0 for Windows 11 and for macOS on Apple Silicon is available today at privacypal.ai, and as an update from the PrivacyPal menu on earlier versions.",
+            "PrivacyPal for Linux 2.0, for x86_64 and aarch64, is available to Max pack holders from their account page.",
+            "Personal: free, with no card, no trial clock and no expiry.",
+            "Family pack: $9.99 per month per household, for up to 5 family members on unlimited devices, with a 5-day free trial and a 30-day money-back guarantee. Founding Families receive the Family pack at $4.99 per month for the first year.",
+            "Max pack: $34 per user per month at one to nine users ($30 billed annually), with volume pricing from ten users. Paid from day one.",
+            "iPhone, iPad and Android: protected with the Family pack or the Max pack, installed by invitation.",
+            "Existing subscriptions and prices are unchanged."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Download PrivacyPal free at privacypal.ai. Add the pack your household or your team needs."
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Media Contact"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal Newsroom, press@privacypal.ai"
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
+      "id": "privacy-penguin-brand",
+      "title": "PrivacyPal introduces the Privacy Penguin: one product, one name, one mark",
+      "category": "press-release",
+      "date": "2026-11-21",
+      "featured": false,
+      "author": "PrivacyPal Newsroom",
+      "readTime": "5 min read",
+      "thumb": "news/images/privacy-penguin-brand.jpg",
+      "hero": "news/images/privacy-penguin-brand.jpg",
+      "excerpt": "The new logo is the penguin emoji itself, unaltered, so anyone can type it. Behind it sits a simpler line-up: one product called PrivacyPal, one download, and three packs that stack.",
+      "body": [
+        {
+          "type": "kicker",
+          "text": "For immediate release"
+        },
+        {
+          "type": "p",
+          "text": "WEST PALM BEACH, FL, November 21, 2026: PrivacyPal LLC (“PrivacyPal” or the “Company”), the premier on-device governance and security infrastructure for artificial intelligence, today introduced the Privacy Penguin, the Company’s new brand. The logo mark is the penguin emoji as drawn by Twemoji, used exactly as published and set beside the PrivacyPal word mark. The brand arrives with a simpler line-up: one product, PrivacyPal, with three packs that switch on inside the same app. Personal is free with every download, the Family pack is $9.99 a month per household, and the Max pack is $34 per user per month for teams of one to nine, with volume pricing from ten users."
+        },
+        {
+          "type": "h2",
+          "text": "One Product, One Name"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal previously sold the same protection engine under separate product names for individuals, organizations and households, and households ran a separate app. The new brand retires the separate names. There is one product, PrivacyPal, and one download per platform. Everything a person buys or is given is a pack that switches on inside the same app."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Personal. Free for every individual and included with every download: no card, no trial clock and no expiry. It protects ChatGPT, Claude, Gemini, Grok and Perplexity web chat, attachments included, on Mac and Windows.",
+            "Family. $9.99 a month per household, with a 5-day free trial. Guardrails for the AI tools children use, Parent HQ for parents, and protection on household computers and phones.",
+            "Max. $34 per user per month at one to nine users, with volume pricing from ten users. Protection and governance for every AI at work, including Claude Code, Microsoft Copilot, agents and APIs.",
+            "Packs stack. One person can hold Max from an employer and Family for their children in the same app."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal Cloud and PrivacyPal SDK keep their names as the deploy and build options of PrivacyPal for business, beside the Max pack."
+        },
+        {
+          "type": "h2",
+          "text": "Why a Penguin"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal stands between a person’s data and every AI they use. The character in front of it had to look calm under pressure, trustworthy in a boardroom and friendly at a kitchen table. A penguin is all three. It already wears the uniform, dark and white and buttoned up, and it looks the same in a bank’s security review as it does on a nine-year-old’s tablet."
+        },
+        {
+          "type": "p",
+          "text": "It also does the job the product does. An emperor penguin keeps its egg on its feet through the depth of the Antarctic winter: quiet, patient protection of the thing that matters. And it is already on every keyboard. In a post, a bio or a chat, “🐧 PrivacyPal” says who the Company is in one character and a name."
+        },
+        {
+          "type": "h2",
+          "text": "The Mark Is the Emoji"
+        },
+        {
+          "type": "p",
+          "text": "The PrivacyPal mark is the penguin emoji, U+1F427, as drawn by Twemoji version 17.0.3, used unaltered. Twemoji is Copyright Twitter, Inc. and other contributors and is licensed under CC BY 4.0, and PrivacyPal credits the artwork wherever the penguin is published: in the website footer, in the brand guidelines and in the About screen of the PrivacyPal apps. On PrivacyPal’s own pages, and on platforms that draw emoji with Twemoji, a typed penguin and the logo are the same drawing."
+        },
+        {
+          "type": "p",
+          "text": "The emoji artwork is available to anyone under the same license. What identifies the Company is the “🐧 PrivacyPal” lockup and the PrivacyPal word mark."
+        },
+        {
+          "type": "h2",
+          "text": "The System Around It"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Color. Deep Navy (#01204E) carries the words, Signal Teal (#028391) marks everything a person can act on, and Penguin Gold (#FFAC33), the exact color of the penguin’s beak and feet, is a slight accent used on about a tenth of any surface at most.",
+            "Type. The word mark is outlined from Overused Grotesk at weight 600, the typeface that also sets the website’s headlines and body. IBM Plex Mono sets labels and measures.",
+            "Voice. “We protect your data from AI, at home and at work.” PrivacyPal copy leads with the point, names the mechanism in one clause and speaks to one person.",
+            "Guidelines. The brand guidelines, the logo files and a brand pack for partners and press are at privacypal.ai/brand."
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "The Same Engine Underneath"
+        },
+        {
+          "type": "p",
+          "text": "The protection under the new brand is the engine PrivacyPal customers already run. Protection runs on the device, before a prompt or file reaches an AI provider. Sensitive details are swapped for patent-pending Privacy Twins, realistic stand-ins that keep a request’s meaning intact, so the AI still works and the real data never reaches the AI provider. The real values are restored in the reply the user reads. Existing prices and subscriptions continue as they are."
+        },
+        {
+          "type": "quote",
+          "text": "A penguin stands out in the cold so the thing it cares about does not have to. That is our job between your data and every AI. We made the logo something you can type, because protection should be that easy to find: one character, one name, one app. Your family and your business get the same engine, and now they get the same face.",
+          "cite": "Jason Melo, CEO of PrivacyPal"
+        },
+        {
+          "type": "h2",
+          "text": "Availability"
+        },
+        {
+          "type": "p",
+          "text": "The Privacy Penguin launches on November 21, 2026, on privacypal.ai and in the PrivacyPal apps, which take on the penguin with PrivacyPal 2.0, the one-app release for Windows, macOS and Linux, announced separately today."
+        },
+        {
+          "type": "p",
+          "text": "See the brand at privacypal.ai/brand. Download PrivacyPal free at privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "About PrivacyPal LLC"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal is the leading on-device governance and enablement layer engineered for the Age of AI. Utilizing real-time data interception, granular prompt-level DSPM, and a strict zero-knowledge architecture, PrivacyPal empowers global organizations to govern every AI interaction seamlessly. The PrivacyPal ecosystem provides seamless integration across macOS, Windows, iOS, Android, and web environments, ensuring total digital sovereignty and regulatory compliance. For more information, please visit https://privacypal.ai."
+        },
+        {
+          "type": "h2",
+          "text": "Media Contact"
+        },
+        {
+          "type": "p",
+          "text": "PrivacyPal Newsroom, press@privacypal.ai"
+        },
+        {
+          "type": "h2",
+          "text": "Forward-Looking Statements"
+        },
+        {
+          "type": "p",
+          "text": "This press release contains “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words such as: “anticipate,” “intend,” “plan,” “believe,” “project,” “estimate,” “expect,” “strategy,” “future,” “likely,” “may,” “should,” “will,” and similar references to future periods. Forward-looking statements are neither historical facts nor assurances of future performance. Instead, they are based only on the Company’s current beliefs, expectations, and assumptions regarding the future of its business, future plans and strategies, projections, anticipated events and trends, the economy, and other future conditions. Because forward-looking statements relate to the future, they are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the Company’s control. Actual results and financial conditions may differ materially from those indicated in the forward-looking statements. Forward-looking statements contained in this announcement are made as of this date, and the Company undertakes no duty to update such information except as required under applicable law."
+        }
+      ]
+    },
+    {
       "id": "family-launch",
       "title": "PrivacyPal launches Family: guardrails for the AI kids already use",
       "category": "press-release",
       "date": "2026-09-21",
-      "featured": true,
+      "featured": false,
       "author": "PrivacyPal Newsroom",
       "readTime": "5 min read",
       "thumb": "news/images/family-launch.jpg",

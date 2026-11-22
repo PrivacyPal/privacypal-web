@@ -347,7 +347,8 @@ the transition to the unified app, `FAMILY_SEPARATE_APP: true` sends Mac and Win
 the Family portal's download routes in a Family context (a `/family/` page,
 `webinars/family/`, `download.html?pack=family`, or a trigger marked
 `data-pack="family"` / `data-cta="family-download"`) and to the PrivacyPal builds
-everywhere else. Set it to `false` when the unified builds publish. Page scripts can read
+everywhere else. It is `false` since the unified 2.0.0 builds (2026-11-21), so every context
+gets the same builds. Page scripts can read
 `window.PPDownloads` (`version`, `device`, `familySeparateApp`, `hrefFor(key, family)`).
 
 ## Icons

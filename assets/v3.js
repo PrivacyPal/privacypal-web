@@ -50,25 +50,28 @@
      /download/macos both 302 to the same Apple Silicon .dmg (the portal's own
      chooser uses macos-arm64), /download/windows 302s to the .exe, and
      /download is the portal's OS-sniffing chooser page.
+     PrivacyPal 2.0.0 (2026-11-21) is the unified app, so FAMILY_SEPARATE_APP
+     is false: every context gets the same builds. The family routes stay
+     below for reference only.
      ===================================================================== */
   var DOWNLOADS = {
-    version: '1.9.74',
+    version: '2.0.0',
     mac: {
-      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-1.9.74-arm64.dmg'
+      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-2.0.0-arm64.dmg'
     },
     windows: {
-      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-1.9.74.exe',
+      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-2.0.0.exe',
       winget: 'winget install PrivacyPal.AI'
     },
     linux: {
-      version: '1.9.74',
-      x64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.74-linux-x86_64.tar.gz',
-      arm64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-1.9.74-linux-aarch64.tar.gz'
+      version: '2.0.0',
+      x64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.0-linux-x86_64.tar.gz',
+      arm64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.0-linux-aarch64.tar.gz'
     },
     ios: { url: 'family/early-access.html' },
     android: { url: 'family/early-access.html' },
 
-    FAMILY_SEPARATE_APP: true,
+    FAMILY_SEPARATE_APP: false,
     family: {
       mac: 'https://family.privacypal.ai/download/macos-arm64',
       windows: 'https://family.privacypal.ai/download/windows',
