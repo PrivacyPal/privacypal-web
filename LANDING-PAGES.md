@@ -60,8 +60,8 @@ v3.js finds no slots, so it injects no nav or footer. It does inject and bind:
 - `data-cta="download"` (also `href="#download"`): the one download modal (Mac and Windows for
   everyone; iPhone, iPad and Android with the Family or Max pack, protected today and installed
   by invitation; the Linux headless agent with the Max pack). Give every download link
-  `href="download.html"` as well, so it still works without JavaScript. Add `data-pack="family"`
-  on a Family page or trigger so the modal serves the Family build.
+  `href="download.html"` as well, so it still works without JavaScript. Family pages use the
+  same modal and the same builds: there is no separate Family download.
 - Build URLs live only in the `DOWNLOADS` config at the top of v3.js. Page code never contains
   a build URL, a version number or a store link.
 - `.reveal` (+ `reveal-delay-1|2|3`): fade-up on scroll. Add class `in` to anything above the
