@@ -209,9 +209,8 @@ Rules:
    - Demo: `<a class="btn btn-ghost" href="#" data-cta="demo">Book a demo</a>`.
    - Download: `<a class="btn btn-primary" href="download.html" data-cta="download">Download free</a>`.
      Every `data-cta="download"` and `data-cta="family-download"` opens the same single
-     download modal; a modified click (new tab) follows the `download.html` href.
-     `data-cta="family-download"`, or `data-pack="family"` on the trigger or an ancestor,
-     sets the Family context (see Downloads below).
+     download modal, with the same builds; a modified click (new tab) follows the
+     `download.html` href.
    - **Never hardcode a build URL.** Download URLs live in exactly one place, the
      `DOWNLOADS` config at the top of `assets/v3.js`.
    - Family "start your trial" CTAs go to `family/founding/` (the coded Founding Families
@@ -342,14 +341,12 @@ invitation (through Apple TestFlight and Google Play testing): there is no publi
 Store or Google Play listing yet, so no store badges and no store URLs anywhere.
 
 `DOWNLOADS` at the top of `assets/v3.js` is the only place build URLs live. On a release,
-update the version in its URLs and `version` (Linux has its own `linux.version`). During
-the transition to the unified app, `FAMILY_SEPARATE_APP: true` sends Mac and Windows to
-the Family portal's download routes in a Family context (a `/family/` page,
-`webinars/family/`, `download.html?pack=family`, or a trigger marked
-`data-pack="family"` / `data-cta="family-download"`) and to the PrivacyPal builds
-everywhere else. It is `false` since the unified 2.0.0 builds (2026-11-21), so every context
-gets the same builds. Page scripts can read
-`window.PPDownloads` (`version`, `device`, `familySeparateApp`, `hrefFor(key, family)`).
+update the version in its URLs and `version` (Linux has its own `linux.version`).
+**There is no separate Family download.** One PrivacyPal: the Family pack switches on
+inside the same app, so every page and trigger (the `/family/` pages,
+`data-cta="family-download"`, `data-pack="family"`) gets the same builds. Never link to a
+Family-only installer or the Family portal's download routes. Page scripts can read
+`window.PPDownloads` (`version`, `device`, `hrefFor(key)`).
 
 ## Icons
 

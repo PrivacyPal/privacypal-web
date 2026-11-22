@@ -33,7 +33,7 @@ The website at https://privacypal.ai. One product, **PrivacyPal**, with the Pers
   top of `assets/v3.js`. Pages never hardcode a build URL; they use
   `data-cta="download"` or link to `download.html`, the canonical download page
   (`install.html` and `desktop.html` point to it). The config's comment explains a
-  release bump and the `FAMILY_SEPARATE_APP` transition flag.
+  release bump. There is no separate Family download: every page gets the same builds.
 - `assets/family-chrome.css` mirrors the chrome sections of `v3.css` for the `/family/`
   sub-site; change both in the same commit.
 - `assets/blog.js`, `news.js`, `careers.js`, `events.js` render their pages from

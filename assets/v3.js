@@ -37,22 +37,10 @@
      so old links still work). Phone copy says "Protected today with Family
      or Max · install by invitation".
 
-     The transition (FAMILY_SEPARATE_APP). Until the unified app ships, Family
-     households install the Family build from the Family portal. The site still
-     shows ONE download experience everywhere; only the hrefs change. In a
-     Family context (a /family/ page, /webinars/family/, download.html?pack=family,
-     or a trigger marked data-pack="family" or data-cta="family-download") the
-     Mac and Windows tiles point at the portal routes below, which 302 to the
-     newest Family build read live from its update feed (no version here).
-     Everywhere else they point at the PrivacyPal builds above. When the unified
-     builds publish, set FAMILY_SEPARATE_APP to false and every context gets
-     the same builds. Routes checked 2026-11-17: /download/macos-arm64 and
-     /download/macos both 302 to the same Apple Silicon .dmg (the portal's own
-     chooser uses macos-arm64), /download/windows 302s to the .exe, and
-     /download is the portal's OS-sniffing chooser page.
-     PrivacyPal 2.0.0 (2026-11-21) is the unified app, so FAMILY_SEPARATE_APP
-     is false: every context gets the same builds. The family routes stay
-     below for reference only.
+     One PrivacyPal, one download (2.0.0, 2026-11-21). There is no separate
+     Family download: the Family pack switches on inside the same app, so every
+     page and every trigger (data-cta="family-download" and data-pack="family"
+     included) gets the same builds below.
      ===================================================================== */
   var DOWNLOADS = {
     version: '2.0.0',
@@ -69,14 +57,7 @@
       arm64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.0-linux-aarch64.tar.gz'
     },
     ios: { url: 'family/early-access.html' },
-    android: { url: 'family/early-access.html' },
-
-    FAMILY_SEPARATE_APP: false,
-    family: {
-      mac: 'https://family.privacypal.ai/download/macos-arm64',
-      windows: 'https://family.privacypal.ai/download/windows',
-      chooser: 'https://family.privacypal.ai/download'
-    }
+    android: { url: 'family/early-access.html' }
   };
 
   /* Root prefix: pages in subdirectories (e.g. /family/) load this file as
@@ -143,7 +124,6 @@
      .pack-chip.business) stay as they are.
 
      The portal links are safe to use directly: none of them needs a code.
-       /download routes   see DOWNLOADS.family above
        /login             Parent HQ, for families who already have an account */
   var FAMILY_PORTAL = 'https://family.privacypal.ai';
   var FAMILY_OFFER = 'family/founding/index.html';
@@ -152,12 +132,8 @@
   var DOCS_URL = 'https://privacypal.ai/documentation/sdk/';
 
   /* True on /family/* and on /webinars/family/ (the path contains /family/).
-     Drives the announce bar and the download context. family/founding/ does not load this file. */
+     Drives the announce bar. family/founding/ does not load this file. */
   var IS_FAMILY = /(^|\/)family\//.test(location.pathname);
-  var PAGE_PACK = (function(){
-    var m = /[?&]pack=([a-z]+)/i.exec(location.search || '');
-    return m ? m[1].toLowerCase() : '';
-  })();
 
   /* Social profiles: update these when handles are confirmed. */
   var SOCIAL = {
@@ -216,22 +192,11 @@
     return os;
   }
 
-  /* Family context: a data-pack on the trigger (or an ancestor) decides;
-     data-cta="family-download" means Family; otherwise the page decides. */
-  function isFamilyContext(el){
-    var scoped = el && el.closest ? el.closest('[data-pack]') : null;
-    if (scoped) return scoped.getAttribute('data-pack') === 'family';
-    if (el && el.closest && el.closest('[data-cta="family-download"], a[href="#family-download"]')) return true;
-    if (PAGE_PACK) return PAGE_PACK === 'family';
-    return IS_FAMILY;
-  }
-
-  function hrefFor(key, family){
-    var fam = family && DOWNLOADS.FAMILY_SEPARATE_APP;
+  function hrefFor(key){
     switch (key) {
-      case 'mac':         return fam ? DOWNLOADS.family.mac : DOWNLOADS.mac.url;
+      case 'mac':         return DOWNLOADS.mac.url;
       case 'windows':
-      case 'win':         return fam ? DOWNLOADS.family.windows : DOWNLOADS.windows.url;
+      case 'win':         return DOWNLOADS.windows.url;
       case 'linux':
       case 'linux-x64':   return DOWNLOADS.linux.x64;
       case 'linux-arm64': return DOWNLOADS.linux.arm64;
@@ -255,32 +220,30 @@
   /* Fill every [data-dl] link inside root from DOWNLOADS, mark the visitor's
      platform, and fill version and file name labels. Runs on page load (for
      download.html and any page with platform tiles) and again each time the
-     modal opens (with the trigger's Family context). */
-  function hydrate(root, familyOverride){
+     modal opens. */
+  function hydrate(root){
     if (!root) return;
-    var famFor = function(el){ return familyOverride === undefined ? isFamilyContext(el) : familyOverride; };
     root.querySelectorAll('[data-dl]').forEach(function(a){
       var key = a.getAttribute('data-dl');
-      var fam = famFor(a);
       if (key === 'auto') {
         if (!DEVICE) return;
-        a.setAttribute('href', hrefFor(DEVICE === 'linux' ? 'linux-x64' : DEVICE, fam));
+        a.setAttribute('href', hrefFor(DEVICE === 'linux' ? 'linux-x64' : DEVICE));
         var lbl = a.querySelector('[data-dl-label]');
         if (lbl) lbl.textContent = AUTO_LABEL[DEVICE];
         a.setAttribute('data-os', DEVICE);
         return;
       }
-      var url = hrefFor(key, fam);
+      var url = hrefFor(key);
       if (url) a.setAttribute('href', url);
     });
     root.querySelectorAll('[data-dl-file]').forEach(function(el){
       var key = el.getAttribute('data-dl-file');
-      el.textContent = fileOf(hrefFor(key, false));
+      el.textContent = fileOf(hrefFor(key));
     });
     /* command lines: data-dl-cmd="curl -LO {linux-x64}" fills the element's
        text, and its copy button's data-cli-copy, with the resolved URLs */
     root.querySelectorAll('[data-dl-cmd]').forEach(function(el){
-      var cmd = el.getAttribute('data-dl-cmd').replace(/\{([a-z0-9-]+)\}/g, function(_, k){ return hrefFor(k, false); });
+      var cmd = el.getAttribute('data-dl-cmd').replace(/\{([a-z0-9-]+)\}/g, function(_, k){ return hrefFor(k); });
       var out = el.querySelector('[data-dl-cmd-text]') || el;
       out.textContent = cmd;
       var copy = el.querySelector('[data-cli-copy]');
@@ -288,9 +251,8 @@
     });
     root.querySelectorAll('[data-dl-version]').forEach(function(el){
       var which = el.getAttribute('data-dl-version');
-      var fam = famFor(el) && DOWNLOADS.FAMILY_SEPARATE_APP;
       if (which === 'linux') el.textContent = (el.getAttribute('data-dl-prefix') || '') + DOWNLOADS.linux.version;
-      else el.textContent = fam ? 'Latest release' : 'Version ' + DOWNLOADS.version;
+      else el.textContent = 'Version ' + DOWNLOADS.version;
     });
     if (DEVICE) {
       root.querySelectorAll('.platform[data-os]').forEach(function(t){
@@ -663,8 +625,7 @@
     '</div>' +
   '</div>' +
   /* The one download modal. data-cta="download" and data-cta="family-download"
-     both open it; the trigger's context decides the Mac and Windows hrefs
-     (see DOWNLOADS). The look is identical in every context. */
+     both open it, with the same builds (see DOWNLOADS). */
   '<div class="pp-modal" id="ppDownloadModal" aria-hidden="true">' +
     '<div class="pp-modal-card dl" role="dialog" aria-modal="true" aria-labelledby="ppDlTitle">' +
       '<div class="pp-modal-head">' +
@@ -1022,29 +983,27 @@
     if (back && back.focus) { try { back.focus({ preventScroll:true }); } catch (err) {} }
     lastFocus = null;
   }
-  /* The one download modal. `trigger` is the clicked element (or nothing);
-     `family` forces the Family context when true. */
-  function openDownload(trigger, family){
+  /* The one download modal: the same builds from every trigger. */
+  function openDownload(){
     var m = document.getElementById('ppDownloadModal');
-    hydrate(m, family === true ? true : isFamilyContext(trigger));
+    hydrate(m);
     openModal('ppDownloadModal');
   }
 
   /* Globals kept for compatibility with older inline handlers: both download
-     openers now open the same modal; the Family one sets the Family context. */
+     openers open the same modal with the same builds. */
   window.openDemoModal = function(e){ if(e && e.preventDefault) e.preventDefault(); openModal('ppDemoModal'); };
   window.closeDemoModal = function(){ closeModal('ppDemoModal'); };
-  window.openDownloadModal = function(e){ if(e && e.preventDefault) e.preventDefault(); openDownload(e && e.currentTarget); };
+  window.openDownloadModal = function(e){ if(e && e.preventDefault) e.preventDefault(); openDownload(); };
   window.closeDownloadModal = function(){ closeModal('ppDownloadModal'); };
-  window.openFamilyDownloadModal = function(e){ if(e && e.preventDefault) e.preventDefault(); openDownload(e && e.currentTarget, true); };
+  window.openFamilyDownloadModal = function(e){ if(e && e.preventDefault) e.preventDefault(); openDownload(); };
   window.closeFamilyDownloadModal = function(){ closeModal('ppDownloadModal'); };
 
   /* Read-only view of the download config for page scripts. */
   window.PPDownloads = {
     version: DOWNLOADS.version,
     device: DEVICE,
-    familySeparateApp: DOWNLOADS.FAMILY_SEPARATE_APP,
-    hrefFor: function(key, family){ return hrefFor(key, !!family); }
+    hrefFor: function(key){ return hrefFor(key); }
   };
 
   document.addEventListener('click', function(e){
@@ -1106,7 +1065,7 @@
     if (dl) {
       if (modified(e, dl)) return;
       e.preventDefault();
-      openDownload(dl);
+      openDownload();
     }
   });
 

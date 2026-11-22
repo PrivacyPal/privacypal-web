@@ -78,16 +78,12 @@ ads say 12. That extra month is deliberate. Marketing stays at 12 months.
 
 ### One download
 
-The site presents one download experience. Page code never hardcodes a build URL:
-download buttons use `data-cta="family-download"` and `data-pack="family"` with
-`href="../download.html?pack=family"` as the no-JS fallback, and `assets/v3.js`
-opens the one shared download modal. A trigger for a team on Max on a /family/ page
-carries `data-pack="business"` (the internal name for the Max pack) so it leaves the
-Family context. During the transition, v3.js points Mac and Windows at the
-Family portal routes in a Family context (any `/family/` page, or a trigger marked
-`data-pack="family"`) and at the PrivacyPal builds everywhere else; one flag in its
-`DOWNLOADS` config switches both to the unified builds when they publish. Download
-URLs live only in that config. Parent HQ sign-in (`family.privacypal.ai/login`)
+One PrivacyPal, one download: there is no separate Family download. Page code never
+hardcodes a build URL: download buttons on /family/ pages are the same as everywhere else,
+`data-cta="download"` with `href="../download.html"` as the no-JS fallback, and
+`assets/v3.js` opens the one shared download modal with the same builds. The Family pack
+switches on inside that app. Download URLs live only in the `DOWNLOADS` config in
+v3.js. Parent HQ sign-in (`family.privacypal.ai/login`)
 needs no code and is linked directly.
 
 ## Pages
