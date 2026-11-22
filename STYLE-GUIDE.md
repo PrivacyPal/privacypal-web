@@ -286,14 +286,14 @@ The Operator: lead with the point, name the mechanism in one clause, talk to one
 never "load-bearing", never name a competitor.
 
 - Core line: "We protect your data from AI, at home and at work."
-- Proof line: "The same technology that protects 140+ companies and global banks."
+- Proof line: "The same technology that protects 140+ companies."
 - Mechanism: "Protection runs on the device, before a prompt or file reaches an AI
   provider. Sensitive details are swapped for Privacy Twins, realistic stand-ins, so the
   AI still works and the real data never reaches the AI provider." Avoid absolute
   wording such as "the real data never leaves" or "100% on-device"; "never reaches the
   AI provider" is the form to use.
-- Approved proof: 140+ companies; tens of millions of protected data elements; trusted by
-  global banks (name no bank); NVIDIA Inception member; 0 bytes of sensitive data sent to
+- Approved proof: 140+ companies; tens of millions of protected data elements;
+  NVIDIA Inception member; 0 bytes of sensitive data sent to
   AI providers (a mechanism statement); patent-pending Privacy Twins. Any other number
   needs a source before it ships. Never "hundreds of companies", 340ms latency or 47 data
   types, and never invent a testimonial, customer or stat.

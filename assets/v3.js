@@ -539,7 +539,7 @@
         '<div class="footer-brand">' +
           '<a class="foot-logo" href="index.html" aria-label="PrivacyPal home"><img src="assets/brand/logo.svg" alt="PrivacyPal" width="157" height="30" loading="lazy"></a>' +
           '<p class="footer-tag">We protect your data from AI, at home and at work.</p>' +
-          '<p class="footer-proof">The same technology that protects 140+ companies and global banks.</p>' +
+          '<p class="footer-proof">The same technology that protects 140+ companies.</p>' +
           '<div class="footer-news">' +
             '<h5>The Privacy Log, weekly</h5>' +
             '<form action="mailto:hello@privacypal.ai" method="get" data-newsletter>' +

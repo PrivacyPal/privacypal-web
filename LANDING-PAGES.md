@@ -200,9 +200,9 @@ labels and notes. Headlines weight 500, sentence case, tight tracking.
 
 **Approved figures and proof (use these words):**
 
-- "The same technology that protects 140+ companies and global banks."
-- "140+ companies"; "Tens of millions of sensitive details protected"; "trusted by global banks"
-  (never name a bank); "NVIDIA Inception member"; "0 bytes of sensitive data sent to AI
+- "The same technology that protects 140+ companies."
+- "140+ companies"; "Tens of millions of sensitive details protected";
+  "NVIDIA Inception member"; "0 bytes of sensitive data sent to AI
   providers"; "patent-pending Privacy Twins".
 - Prices: Personal free (no card, no trial clock, no expiry). Family $9.99 a month, up to 5
   family members, 5-day free trial, 30-day money-back guarantee. Max per user per month:

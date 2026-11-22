@@ -145,8 +145,8 @@ needs no code and is linked directly.
   Family shelf, card and list.
 - Where identity is concerned, write "never reaches the AI provider" (or "never
   reached ChatGPT"), never that it "never leaves" the house or the device.
-- Proof line, exact: "The same technology that protects 140+ companies and global
-  banks." Never a vaguer company count, never a named bank, never a latency figure.
+- Proof line, exact: "The same technology that protects 140+ companies."
+  Never a vaguer company count, never a latency figure.
 - Private Memory claims: mechanisms and "internal benchmark" phrasing only, **no
   bare accuracy percentages**, no vendor comparisons.
 - **Social media sharing protection is deferred:** do not add social-sharing claims.
