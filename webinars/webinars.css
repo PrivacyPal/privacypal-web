@@ -166,3 +166,222 @@
 .wb-inbox .eyebrow{display:flex;margin-bottom:8px}
 .wb-inbox-when{background:var(--panel);border-radius:var(--r-md);padding:12px 14px;font-weight:600;color:var(--ink) !important}
 .wv-when{margin-top:18px;background:var(--panel);border-radius:var(--r-md);padding:12px 14px;font-weight:600;color:var(--ink)}
+
+/* =====================================================================
+   PrivacyPal Live: the event page (live/index.html, data-wb="event").
+   One page renders every ad-hoc webinar, in-person and hybrid event from
+   the API. The hero is a photo preset chosen in the Studio: the emperor
+   penguin on the sea ice (light, navy type in the open ice on the left)
+   or a home-page scene (dark, white type on the navy third: tone-dark).
+   ===================================================================== */
+.ev-preview-bar{background:var(--gold-tint);color:var(--gold-ink);font-family:var(--font-mono);font-size:.8rem;text-align:center;padding:9px 16px;border-bottom:1px solid var(--gold-soft)}
+
+.ev-hero{position:relative;min-height:clamp(540px,66vh,700px);display:flex;align-items:center;overflow:hidden;background:#e8edf3;isolation:isolate}
+.ev-hero-media{position:absolute;inset:0;z-index:-2;display:block}
+.ev-hero-media img{width:100%;height:100%;object-fit:cover;object-position:72% 58%;display:block}
+.ev-hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(247,249,252,.95) 0%,rgba(247,249,252,.86) 32%,rgba(247,249,252,.35) 54%,rgba(247,249,252,0) 68%);
+}
+.ev-hero-inner{width:100%;padding-top:64px;padding-bottom:104px}
+.ev-hero-copy{max-width:640px}
+.ev-badges{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ev-chip{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:.75rem;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.8);color:var(--ink);border:1px solid var(--line)}
+.ev-hero h1{font-size:clamp(2.3rem,4.5vw,3.7rem);margin-top:20px;max-width:17ch;letter-spacing:-.025em;line-height:1.04}
+.ev-hero .lede{margin-top:18px;color:var(--text);max-width:52ch}
+.ev-when{margin-top:24px;font-weight:500;color:var(--ink);font-size:1.08rem;line-height:1.4}
+.ev-when small{display:block;font-weight:400;color:var(--muted);font-size:.9rem;margin-top:3px}
+.ev-hero-cta{margin-top:28px}
+.ev-share-btn svg{width:18px;height:18px}
+.ev-countdown{margin-top:22px;display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:14px;padding:10px 16px;box-shadow:var(--shadow-card)}
+.ev-countdown .lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.ev-count{display:inline-flex;gap:12px;font-variant-numeric:tabular-nums}
+.ev-count span{display:inline-flex;align-items:baseline;gap:3px}
+.ev-count b{font-weight:600;color:var(--ink);font-size:1.25rem;letter-spacing:-.01em}
+.ev-count small{font-size:.72rem;color:var(--muted)}
+.ev-countdown.live{background:#fdecec;border-color:#f6caca}
+.ev-countdown.live .lbl{color:#b3313a}
+
+/* dark presets: white type on the photo's navy third, the gold button */
+.ev-hero.tone-dark{background:var(--ink)}
+.ev-hero.tone-dark .ev-hero-media img{object-position:68% 50%}
+.ev-hero.tone-dark::after{background:linear-gradient(90deg,rgba(1,32,78,.94) 0%,rgba(1,32,78,.82) 34%,rgba(1,32,78,.25) 62%,rgba(1,32,78,0) 76%)}
+.ev-hero.tone-dark h1,.ev-hero.tone-dark .ev-when{color:#fff}
+.ev-hero.tone-dark .lede{color:rgba(255,255,255,.84)}
+.ev-hero.tone-dark .ev-when small{color:rgba(255,255,255,.72)}
+.ev-hero.tone-dark .ev-chip{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.28)}
+.ev-hero.tone-dark .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.ev-hero.tone-dark .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.ev-hero.tone-dark .ev-countdown{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)}
+.ev-hero.tone-dark .ev-count b{color:#fff}
+.ev-hero.tone-dark .ev-count small,.ev-hero.tone-dark .ev-countdown .lbl{color:rgba(255,255,255,.7)}
+
+/* the details bar, lifted onto the hero */
+.ev-facts-wrap{position:relative;margin-top:-58px;z-index:2}
+.ev-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-pop);margin:0;overflow:hidden}
+.ev-fact{padding:20px 24px;border-left:1px solid var(--line-soft);min-width:0}
+.ev-fact:first-child{border-left:0}
+.ev-fact dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.ev-fact dt svg{width:16px;height:16px;color:var(--teal);flex:none}
+.ev-fact dd{margin:8px 0 0;font-weight:500;color:var(--ink);font-size:1.02rem;line-height:1.35;overflow-wrap:anywhere}
+.ev-fact dd small{display:block;color:var(--muted);font-weight:400;font-size:.84rem;margin-top:3px}
+.ev-fact dd a{color:var(--teal-ink)}
+
+.ev-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:64px;align-items:start;padding-top:60px;padding-bottom:24px}
+.ev-side{position:sticky;top:calc(var(--nav-h) + 20px);display:flex;flex-direction:column;gap:14px}
+.ev-sec{padding-bottom:44px;margin-bottom:44px;border-bottom:1px solid var(--line-soft)}
+.ev-sec:last-child{border-bottom:0;margin-bottom:0}
+.ev-sec h2{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:14px}
+.ev-prose{margin-top:6px}
+.ev-prose p{font-size:1.06rem;line-height:1.72;color:var(--text);margin-top:14px;max-width:66ch}
+.ev-prose p:first-child{font-size:1.28rem;line-height:1.5;color:var(--ink);letter-spacing:-.01em}
+.ev-prose ul{margin:14px 0 0;padding-left:1.2em;color:var(--text);line-height:1.7}
+.ev-prose b{color:var(--ink);font-weight:600}
+
+.ev-learn{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;counter-reset:learn}
+.ev-learn li{counter-increment:learn;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;background:var(--panel);border-radius:var(--r-md);padding:14px 18px;color:var(--ink);font-size:1.02rem;line-height:1.5}
+.ev-learn li::before{content:counter(learn,decimal-leading-zero);font-family:var(--font-mono);font-size:.78rem;color:var(--teal-ink);background:#fff;border:1px solid var(--line);border-radius:8px;height:30px;display:flex;align-items:center;justify-content:center}
+
+.ev-people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.ev-people.one{grid-template-columns:1fr}
+.ev-person{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:18px}
+.ev-avatar{width:80px;height:80px;border-radius:18px;flex:none;object-fit:cover;background:var(--panel)}
+.ev-avatar.initials{display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:600;font-size:1.35rem;letter-spacing:.02em}
+.ev-person .role{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-ink);background:var(--gold-tint);padding:2px 7px;border-radius:6px;display:inline-block}
+.ev-person h4{font-size:1.1rem;margin-top:6px}
+.ev-person .org{color:var(--muted);font-size:.9rem;margin-top:2px;line-height:1.4}
+.ev-person .bio{color:var(--text);font-size:.92rem;line-height:1.6;margin-top:10px}
+.ev-person .li{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:.85rem;color:var(--teal-ink)}
+.ev-person .li svg{width:14px;height:14px}
+
+.ev-agenda{list-style:none;padding:0;margin:20px 0 0 6px;border-left:2px solid var(--line)}
+.ev-agenda li{position:relative;padding:0 0 18px 24px;display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:baseline}
+.ev-agenda li:last-child{padding-bottom:2px}
+.ev-agenda li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--teal)}
+.ev-agenda li.no-time{grid-template-columns:1fr}
+.ev-agenda .at{font-family:var(--font-mono);font-size:.85rem;color:var(--teal-ink)}
+.ev-agenda .item{color:var(--ink);line-height:1.5}
+
+.ev-venue{margin-top:18px;display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.ev-venue .v-main{padding:24px;background:#fff}
+.ev-venue .v-side{padding:24px;background:var(--panel);display:flex;flex-direction:column;gap:14px}
+.ev-venue h3{font-size:1.3rem}
+.ev-venue .addr{color:var(--text);margin-top:8px;line-height:1.55}
+.ev-venue .lbl{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);display:block;margin-bottom:4px}
+.ev-venue .v-side p{color:var(--text);font-size:.94rem;line-height:1.55}
+.ev-venue .btn{margin-top:16px}
+.ev-who{margin-top:14px;font-size:1.06rem;line-height:1.7;color:var(--text);max-width:66ch}
+.ev-faq{margin-top:12px}
+
+.ev-card{padding:28px}
+.ev-card .form{gap:14px}
+.ev-attend{border:0;padding:0;margin:0;min-width:0}
+.ev-attend legend{padding:0}
+.ev-attend-opts{display:grid;gap:8px}
+/* .form label (v3.css) is display:block at higher specificity, so these name the form too */
+.ev-card .form label.ev-opt{display:grid}
+.ev-card .form label.wb-check{display:flex;margin:0}
+.ev-card .form .ev-opt input{width:18px;height:18px;padding:0;border:0;border-radius:50%;margin:0}
+.ev-opt{display:grid;grid-template-columns:20px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:var(--r-md);padding:12px 14px;background:#fff;cursor:pointer;margin:0 !important;font-weight:400 !important;transition:border-color .15s,background .15s}
+.ev-opt:hover{border-color:var(--teal)}
+.ev-opt input{accent-color:var(--teal);width:18px !important;height:18px;margin:0;padding:0}
+.ev-opt b{display:block;font-weight:500;color:var(--ink);font-size:.97rem}
+.ev-opt small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px;line-height:1.35}
+.ev-opt .seats{font-family:var(--font-mono);font-size:.68rem;color:var(--gold-ink);background:var(--gold-tint);border-radius:6px;padding:3px 7px;white-space:nowrap}
+.ev-opt .seats.full{color:#9c2a33;background:#fdf0f0}
+.ev-opt.on{border-color:var(--teal);background:rgba(2,131,145,.05);box-shadow:inset 0 0 0 1px var(--teal)}
+.ev-fields{display:flex;flex-direction:column;gap:14px}
+.ev-fields:empty{display:none}
+.ev-fields .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ev-card .form textarea{min-height:76px}
+.ev-card .opt{color:var(--muted);font-weight:400}
+.ev-closed h3{margin-top:12px;font-size:1.35rem}
+.ev-closed p{color:var(--text);margin-top:10px;line-height:1.55}
+.ev-closed .btn{margin-top:18px}
+
+.ev-share-card{background:var(--panel);border-radius:var(--r-lg);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ev-share-card .lbl{font-family:var(--font-mono);font-size:.75rem;color:var(--muted)}
+.ev-share-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ev-share-ico{width:38px;height:38px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);color:var(--ink);padding:0;cursor:pointer}
+.ev-share-ico:hover{border-color:var(--teal);color:var(--teal-ink)}
+.ev-share-ico svg{width:17px;height:17px}
+.ev-copied{font-size:.8rem;color:var(--ok);margin-left:4px}
+
+.ev-replay{margin-top:18px;position:relative;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;background:var(--ink)}
+.ev-replay iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ev-bottom .ev-ghost-dark{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.ev-bottom .ev-ghost-dark:hover{border-color:var(--gold);color:var(--gold)}
+
+#ev-root.missing > :not(#ev-missing):not(.ev-preview-bar){display:none !important}
+.ev-missing{padding:64px 0 24px}
+#ev-root.loading .ev-hero-copy .lede:empty{display:none}
+
+@media (max-width:1080px){.ev-grid{grid-template-columns:minmax(0,1fr) 360px;gap:40px}}
+@media (max-width:900px){
+  /* the photo gets its own band, so the penguin (or the scene) is never under the type */
+  .ev-hero{min-height:0;display:block;background:#f7f9fc}
+  .ev-hero-media{position:relative;height:clamp(260px,62vw,420px)}
+  .ev-hero-media img{object-position:84% 78%}
+  .ev-hero.tone-dark .ev-hero-media img{object-position:70% 50%}
+  .ev-hero::after{inset:auto 0 0 0;height:clamp(260px,62vw,420px);top:0;background:linear-gradient(180deg,rgba(247,249,252,0) 62%,rgba(247,249,252,1) 100%)}
+  .ev-hero.tone-dark::after{background:linear-gradient(180deg,rgba(1,32,78,0) 62%,rgba(1,32,78,1) 100%)}
+  .ev-hero-inner{padding-top:4px;padding-bottom:84px}
+  .ev-grid{grid-template-columns:1fr;gap:32px;padding-top:28px}
+  .ev-side{position:static;order:-1}
+  .ev-facts{grid-template-columns:1fr 1fr}
+  .ev-fact:nth-child(3){border-left:0}
+  .ev-fact:nth-child(n+3){border-top:1px solid var(--line-soft)}
+  .ev-people{grid-template-columns:1fr}
+  .ev-venue{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .ev-hero-inner{padding-bottom:76px}
+  .ev-hero h1{font-size:2.1rem}
+  .ev-facts-wrap{margin-top:-46px}
+  .ev-fact{padding:14px 16px}
+  .ev-fact dd{font-size:.95rem}
+  .ev-card{padding:22px}
+  .ev-sec{padding-bottom:32px;margin-bottom:32px}
+  .ev-hero-cta .btn{flex:1 1 auto}
+  .ev-agenda li{grid-template-columns:1fr;gap:2px}
+  .ev-fields .row{grid-template-columns:1fr}
+  .ev-count{gap:9px}
+}
+
+/* =====================================================================
+   The live room for an event: a theater stage (watch.html, body.wr-theater).
+   The standing series keep the light room above.
+   ===================================================================== */
+.wr-theater main.wr{background:radial-gradient(60% 50% at 50% 0%,rgba(2,131,145,.22),transparent 70%),var(--ink);color:#fff;padding:32px 0 64px}
+.wr-theater .wr-head h1{color:#fff}
+.wr-theater .wr-head .meta,.wr-theater .wr-note{color:rgba(255,255,255,.68)}
+.wr-theater .wb-badge{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)}
+.wr-theater .wb-badge.live{background:#d54751;color:#fff;border-color:#d54751}
+.wr-theater .wb-badge.live::before{background:#fff}
+.wr-theater .wr-video{border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 120px -40px rgba(0,0,0,.6)}
+.wr-theater .wr-chat{background:#0b1b33;border-color:rgba(255,255,255,.12)}
+.wr-theater .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.wr-theater .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.wr-theater .wr-cta{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.wr-theater .wr-cta h3{color:#fff}
+.wr-theater .wr-cta p{color:rgba(255,255,255,.72)}
+.wr-theater .wr-cta .eyebrow{color:rgba(255,255,255,.7)}
+.wr-theater .wr-cta .btn-primary{background:var(--gold);color:var(--ink)}
+.wr-theater .wb-empty h1{color:#fff}
+.wr-theater .wb-empty .lede{color:rgba(255,255,255,.75)}
+.wr-ev{margin-top:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+.wr-ev-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:24px}
+.wr-ev-card .eyebrow{color:rgba(255,255,255,.7)}
+.wr-ev-people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+.wr-ev-person{display:flex;gap:12px;align-items:center}
+.wr-ev-person .ev-avatar{width:52px;height:52px;border-radius:14px}
+.wr-ev-person .ev-avatar.initials{background:rgba(255,255,255,.12);font-size:1rem}
+.wr-ev-person b{display:block;font-weight:500;color:#fff}
+.wr-ev-person small{display:block;color:rgba(255,255,255,.65);font-size:.82rem;line-height:1.35}
+.wr-ev-agenda{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.wr-ev-agenda li{display:grid;grid-template-columns:70px 1fr;gap:10px;color:rgba(255,255,255,.88);font-size:.95rem}
+.wr-ev-agenda .at{font-family:var(--font-mono);font-size:.8rem;color:var(--gold)}
+.wr-ev-venue{margin-top:14px;color:rgba(255,255,255,.85);line-height:1.55}
+.wr-ev-venue b{color:#fff;font-weight:500}
+.wr-ev-venue a{color:var(--gold)}
+@media (max-width:900px){.wr-ev{grid-template-columns:1fr}}
