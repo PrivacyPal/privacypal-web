@@ -37,24 +37,24 @@
      so old links still work). Phone copy says "Protected today with Family
      or Max · install by invitation".
 
-     One PrivacyPal, one download (2.0.1, 2026-11-22). There is no separate
+     One PrivacyPal, one download (2.0.2, 2026-11-24). There is no separate
      Family download: the Family pack switches on inside the same app, so every
      page and every trigger (data-cta="family-download" and data-pack="family"
      included) gets the same builds below.
      ===================================================================== */
   var DOWNLOADS = {
-    version: '2.0.1',
+    version: '2.0.2',
     mac: {
-      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-2.0.1-arm64.dmg'
+      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/macos/PrivacyPal-2.0.2-arm64.dmg'
     },
     windows: {
-      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-2.0.1.exe',
+      url: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/windows/PrivacyPal-Setup-2.0.2.exe',
       winget: 'winget install PrivacyPal.AI'
     },
     linux: {
-      version: '2.0.1',
-      x64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.1-linux-x86_64.tar.gz',
-      arm64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.1-linux-aarch64.tar.gz'
+      version: '2.0.2',
+      x64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.2-linux-x86_64.tar.gz',
+      arm64: 'https://privacypal-production-desktop-596719033801.s3.us-east-1.amazonaws.com/proxy/linux/cloud/privacypal-agent-2.0.2-linux-aarch64.tar.gz'
     },
     ios: { url: 'family/early-access.html' },
     android: { url: 'family/early-access.html' }
