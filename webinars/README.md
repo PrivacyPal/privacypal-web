@@ -20,3 +20,18 @@ Two standing series of free live group demos: **PrivacyPal for business: live gr
 - Conversion events on registration: GA4 `sign_up` (method `webinar`, with series, session id and `check`) and Meta Pixel `CompleteRegistration`, both when the form is accepted, as before. GA4 `webinar_verified` fires when a sign-up confirms on `verify.html` (often in a different browser, from the mail app), so the share of sign-ups that confirm is `webinar_verified` over `sign_up`.
 - The hub and both series pages are indexable and in `sitemap.xml`; `watch.html`, `cancel.html` and `verify.html` stay `noindex,nofollow`.
 - Local testing calls the live n8n endpoints (CORS allows `http://localhost:8000`), so a registration made locally is a real registration.
+
+## Events: PrivacyPal Live and the Studio (since 2026-11-23)
+
+Ad-hoc webinars, in-person and hybrid events, beside the two standing series. Admins create them in the **Studio at https://webinar.privacypal.ai**, which is not part of this site: its source is `~/dev/PrivacyPal/privacypal-web-properties/sites/webinar/` (private), served from S3 and CloudFront in the PrivacyPal AWS account. Each event gets its own page here, registration with email confirmation, calendar invites, reminders, a live room tied to its own YouTube stream, follow-ups, and on-demand access to the recording. **Nothing on this site links to events or the Studio**: event pages are shared by link, are `noindex,nofollow` and stay out of `sitemap.xml`.
+
+| Page | URL | Purpose |
+|---|---|---|
+| `../live/index.html` | `/live/?e=<event id>` | The event page: hero photo, badges (format, audience, topic), countdown, details bar, about, take-aways, speakers, agenda, venue, FAQ written from the event's settings, and the sticky registration card. A hybrid event asks how each person joins (in person, online, or both) and asks only the questions the event set for that choice. `?preview=<id>` renders a Studio preview (kept two hours on the server, fetched from the Admin webhook). Share card: `assets/brand/og/og-live.png` |
+| `../live/assets/` | | The emperor penguin hero (WebP 2000 and 1000, JPEG 1400) and the team's square headshots the Studio offers for speakers. The Studio's build copies them, so keep the paths |
+| `watch.html` | as before | For an event: a dark theater stage, who is on stage, the agenda, the venue for people with a seat, the event's next step; the recording plays here after the end for registrants |
+| `verify.html`, `cancel.html` | as before | Word the result for events: seat confirmed, waitlist, request received, recording ready; link back to the event page |
+
+**Hybrid seats.** A seat in the room is given only when the person confirms their email, so a fake address never holds one. First come up to capacity, then a waitlist that moves up on its own when someone cancels or is declined; or "we approve each seat", decided in the Studio. People with a seat get a calendar entry at the venue from doors open to the end of the in-person program; people online get their live room. Guests per sign-up, doors open and the in-room program after the stream are per event.
+
+`webinars.js` drives the event page too (`data-wb="event"`); `webinars.css` holds its styles and the theater room. The engine, the Studio's security and the operator runbook: `PrivacyPal-GTM-System/WEBINARS/README.md`. For local work, `PrivacyPal-GTM-System/WEBINARS/tools/local-api.js` serves this site and the Studio (at `/studio/`) and stands in for every webhook with an in-memory sheet and an outbox; on `localhost` only, `localStorage['pp-webinar-api']` points the pages at it.

@@ -135,6 +135,8 @@ This site is configured for GitHub Pages with custom domain:
 - `about.html`, `contact.html`, `developers.html`: main pages
 - `privacy-policy.html`, `terms-of-service.html`: legal
 - `404.html`: custom 404 page
+- `webinars/`: the standing live demo series and the shared live room, confirm and cancel pages (`webinars/README.md`)
+- `live/`: PrivacyPal Live event pages (`/live/?e=<id>`) for ad-hoc webinars, in-person and hybrid events. Link-only and `noindex`; events are created in the Studio at webinar.privacypal.ai, which is not part of this repository
 - `brand/`: brand guidelines, collateral and templates (internal, `noindex`)
 - `CNAME`: custom domain (privacypal.ai) for GitHub Pages
 - `robots.txt`: SEO

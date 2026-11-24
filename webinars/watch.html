@@ -69,6 +69,27 @@
         <span class="wr-note">Trouble with the player? Reload the page, or open the stream on YouTube.</span>
       </div>
 
+      <!-- events: who is on stage, the run of show, the venue for people in the room, and the event's next step -->
+      <div class="wr-ev" id="wr-ev" hidden>
+        <div class="wr-ev-card" id="wr-ev-people-card" hidden><span class="eyebrow">On stage</span><div class="wr-ev-people" id="wr-ev-people"></div></div>
+        <div class="wr-ev-card" id="wr-ev-side-card" hidden>
+          <span class="eyebrow" id="wr-ev-side-label">Agenda</span>
+          <ol class="wr-ev-agenda" id="wr-ev-agenda"></ol>
+          <div class="wr-ev-venue" id="wr-ev-venue" hidden></div>
+        </div>
+      </div>
+      <div class="wr-cta" id="wr-ev-cta" hidden>
+        <div>
+          <span class="eyebrow gold" id="wr-ev-cta-eyebrow">Your next step</span>
+          <h3 id="wr-ev-cta-title"></h3>
+          <p id="wr-ev-cta-text"></p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" id="wr-ev-cta-primary" href="#" hidden></a>
+          <a class="btn btn-ghost" href="../download.html" data-cta="download">Download free</a>
+        </div>
+      </div>
+
       <div class="wr-cta" data-cta-series="business" hidden>
         <div>
           <span class="eyebrow blue">PrivacyPal for business</span>

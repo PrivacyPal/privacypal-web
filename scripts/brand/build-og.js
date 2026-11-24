@@ -8,7 +8,7 @@
     brand/slides/index.html         16:9 slide template (1920x1080 per slide)
 
   Outputs:
-    assets/brand/og/og-{default,home,personal,family,business,pricing,download}.png   (each under 300 KB)
+    assets/brand/og/og-{default,home,personal,family,business,pricing,download,live}.png   (each under 300 KB)
     assets/brand/social/linkedin-banner-1128x191.png (and linkedin-banner-2256x382.png, the same at 2x)
     assets/brand/social/x-header-1500x500.png
     assets/brand/social/youtube-banner-2560x1440.png
@@ -54,6 +54,7 @@ const JOBS = [
   { group: 'og', name: 'og-business', tpl: 'brand/og-templates/og-business.html', out: `${OG}/og-business.png`, w: 1200, h: 630, budget: 295 * KB },
   { group: 'og', name: 'og-pricing', tpl: 'brand/og-templates/og-pricing.html', out: `${OG}/og-pricing.png`, w: 1200, h: 630, budget: 295 * KB },
   { group: 'og', name: 'og-download', tpl: 'brand/og-templates/og-download.html', out: `${OG}/og-download.png`, w: 1200, h: 630, budget: 295 * KB },
+  { group: 'og', name: 'og-live', tpl: 'brand/og-templates/og-live.html', out: `${OG}/og-live.png`, w: 1200, h: 630, budget: 295 * KB },
 
   { group: 'social', name: 'linkedin-banner', tpl: 'brand/social-templates/linkedin-banner.html', out: `${SOCIAL}/linkedin-banner-1128x191.png`, w: 1128, h: 191, budget: 2048 * KB, scale: 2, outScale: 1 },
   { group: 'social', name: 'linkedin-banner-2x', tpl: 'brand/social-templates/linkedin-banner.html', out: `${SOCIAL}/linkedin-banner-2256x382.png`, w: 1128, h: 191, budget: 2048 * KB, scale: 2 },

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PrivacyPal Live · PrivacyPal</title>
+<meta name="description" content="Live webinars and events from PrivacyPal: on AI, privacy and the work that depends on both." />
+<!-- PrivacyPal Live: one page for every ad-hoc webinar, in-person and hybrid event.
+     live/?e=<event id> renders that event from GET /webhook/webinars?e=<id> (n8n,
+     PrivacyPal-GTM-System/WEBINARS). Events are created in the Studio
+     (webinar.privacypal.ai), never linked from the site, and shared by link only, so the
+     page stays out of search. ?preview=<id> renders a preview from the Studio
+     (webinar.privacypal.ai), fetched from the server and valid two hours. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../assets/favicon.ico" sizes="any"/>
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<meta name="theme-color" content="#01204E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://automate.privacypal.ai" crossorigin>
+<link rel="preload" as="image" href="assets/emperor-2000.webp" type="image/webp" media="(min-width: 700px)">
+<link rel="stylesheet" href="../assets/v3.css"/>
+<link rel="stylesheet" href="../webinars/webinars.css"/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PrivacyPal" />
+<meta property="og:url" content="https://privacypal.ai/live/" />
+<meta property="og:title" content="PrivacyPal Live: you're invited" />
+<meta property="og:description" content="A live session from PrivacyPal on AI, privacy and the work that depends on both. Free to join." />
+<meta property="og:image" content="https://privacypal.ai/assets/brand/og/og-live.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PrivacyPal Live: an emperor penguin on the sea ice beside the words You're invited." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PrivacyPal Live: you're invited" />
+<meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-live.png" />
+<!-- Google tag (gtag.js) -->
+<script src="../assets/google-tag.js"></script>
+<!-- Meta Pixel Code -->
+<script src="../assets/meta-pixel.js"></script>
+<!-- End Meta Pixel Code -->
+</head>
+<body data-wb="event" data-wb-base="../webinars/" class="ev-body">
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1308351507879059&amp;ev=PageView&amp;noscript=1" alt=""/></noscript>
+
+<div id="site-nav-slot"></div>
+
+<main id="ev-root" class="loading">
+  <div class="ev-preview-bar" id="ev-preview" hidden>Preview from the Studio. Registration is switched off on this page.</div>
+
+  <header class="ev-hero" id="ev-hero">
+    <picture class="ev-hero-media" id="ev-hero-media">
+      <source id="ev-hero-src-wide" media="(min-width: 700px)" srcset="assets/emperor-2000.webp" type="image/webp">
+      <source id="ev-hero-src-narrow" srcset="assets/emperor-1000.webp" type="image/webp">
+      <img id="ev-hero-img" src="assets/emperor-1400.jpg" alt="" width="1800" height="1200" decoding="async">
+    </picture>
+    <div class="container ev-hero-inner">
+      <div class="ev-hero-copy">
+        <div class="ev-badges">
+          <span class="wb-badge" id="ev-badge">PrivacyPal Live</span>
+          <span class="ev-chip" id="ev-audience" hidden></span>
+          <span class="ev-chip" id="ev-topic" hidden></span>
+        </div>
+        <h1 id="ev-title"><span class="wb-skel" style="display:block;height:1.05em;width:16ch;max-width:80vw"></span><span class="wb-skel" style="display:block;height:1.05em;width:11ch;margin-top:10px"></span></h1>
+        <p class="lede" id="ev-subtitle"></p>
+        <p class="ev-when" id="ev-when"></p>
+        <div class="ev-countdown" id="ev-countdown" hidden aria-live="off">
+          <span class="lbl" id="ev-count-lbl">Starts in</span>
+          <span class="ev-count" id="ev-count"></span>
+        </div>
+        <div class="btn-row ev-hero-cta">
+          <a class="btn btn-primary btn-lg" href="#ev-register" id="ev-cta">Register free</a>
+          <button class="btn btn-ghost btn-lg ev-share-btn" type="button" id="ev-share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="container ev-facts-wrap" aria-label="Event details">
+    <dl class="ev-facts" id="ev-facts">
+      <div class="ev-fact"><dt>Date</dt><dd><span class="wb-skel" style="display:block;height:1.2em;width:12ch"></span></dd></div>
+      <div class="ev-fact"><dt>Time</dt><dd><span class="wb-skel" style="display:block;height:1.2em;width:9ch"></span></dd></div>
+      <div class="ev-fact"><dt>Length</dt><dd><span class="wb-skel" style="display:block;height:1.2em;width:7ch"></span></dd></div>
+      <div class="ev-fact"><dt>Where</dt><dd><span class="wb-skel" style="display:block;height:1.2em;width:12ch"></span></dd></div>
+    </dl>
+  </section>
+
+  <div class="container ev-grid">
+    <article class="ev-main">
+      <section class="ev-sec" id="ev-replay-wrap" hidden>
+        <span class="eyebrow gold">On demand</span>
+        <h2>Watch the recording</h2>
+        <div class="ev-replay" id="ev-replay"></div>
+      </section>
+
+      <section class="ev-sec" id="ev-about-wrap">
+        <span class="eyebrow" id="ev-about-label">About this session</span>
+        <div class="ev-prose" id="ev-desc">
+          <span class="wb-skel" style="display:block;height:1em;margin-top:18px"></span>
+          <span class="wb-skel" style="display:block;height:1em;margin-top:10px;width:92%"></span>
+          <span class="wb-skel" style="display:block;height:1em;margin-top:10px;width:70%"></span>
+        </div>
+      </section>
+
+      <section class="ev-sec" id="ev-learn-wrap" hidden>
+        <span class="eyebrow blue">What you will take away</span>
+        <ol class="ev-learn" id="ev-learn"></ol>
+      </section>
+
+      <section class="ev-sec" id="ev-people-wrap" hidden>
+        <span class="eyebrow" id="ev-people-label">Speakers</span>
+        <div class="ev-people" id="ev-people"></div>
+      </section>
+
+      <section class="ev-sec" id="ev-agenda-wrap" hidden>
+        <span class="eyebrow">Agenda</span>
+        <ol class="ev-agenda" id="ev-agenda"></ol>
+      </section>
+
+      <section class="ev-sec" id="ev-venue-wrap" hidden>
+        <span class="eyebrow gold">The venue</span>
+        <div class="ev-venue" id="ev-venue"></div>
+      </section>
+
+      <section class="ev-sec" id="ev-who-wrap" hidden>
+        <span class="eyebrow">Who it is for</span>
+        <p class="ev-who" id="ev-who"></p>
+      </section>
+
+      <section class="ev-sec" id="ev-faq-wrap">
+        <span class="eyebrow">Before you join</span>
+        <div class="wb-faq ev-faq" id="ev-faq"></div>
+      </section>
+    </article>
+
+    <aside class="ev-side">
+      <div class="wb-card ev-card" id="ev-register">
+        <form class="form" id="ev-form" novalidate>
+          <div>
+            <h3 id="ev-card-title">Register free</h3>
+            <p class="sub" id="ev-card-sub">Confirm your email and your calendar invite follows straight after.</p>
+          </div>
+
+          <fieldset class="ev-attend" id="ev-attend" hidden>
+            <legend class="wb-step">01 · How will you join?</legend>
+            <div class="ev-attend-opts" id="ev-attend-opts"></div>
+          </fieldset>
+
+          <div class="wb-step" id="ev-step-details" hidden>02 · Your details</div>
+          <div class="row">
+            <div><label for="ev-first">First name</label><input id="ev-first" name="first_name" autocomplete="given-name" required maxlength="40"/></div>
+            <div><label for="ev-last">Last name</label><input id="ev-last" name="last_name" autocomplete="family-name" maxlength="40"/></div>
+          </div>
+          <div><label for="ev-email" id="ev-email-label">Email</label><input id="ev-email" name="email" type="email" autocomplete="email" required maxlength="254"/></div>
+          <div id="ev-fields" class="ev-fields"></div>
+          <div class="ev-guests" id="ev-guests-wrap" hidden>
+            <label for="ev-guests">Bringing a guest?</label>
+            <select id="ev-guests" name="guests"></select>
+          </div>
+          <div class="wb-hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
+          <label class="wb-check" id="ev-marketing-wrap"><input type="checkbox" name="marketing" value="yes"/> <span>Also send me PrivacyPal news and offers now and then.</span></label>
+          <p class="wb-fine ev-photo-note" id="ev-photo-note" hidden>We photograph and film the in-person program for PrivacyPal&rsquo;s own channels. Tell the team at the door if you prefer to stay out of shot.</p>
+          <div class="wb-error" id="ev-error" role="alert"></div>
+          <button class="btn btn-primary btn-lg" type="submit" id="ev-submit" disabled>Register free</button>
+          <p class="wb-fine">We email you once to confirm your address, then send your calendar invite, reminders and a follow-up. News and offers only if you opt in. <a href="../privacy-policy.html">Privacy policy</a>.</p>
+        </form>
+
+        <div class="wb-done wb-inbox" id="ev-inbox" hidden>
+          <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div>
+          <span class="eyebrow gold">One step left</span>
+          <h3 id="ev-inbox-title">Check your inbox</h3>
+          <p id="ev-inbox-text"></p>
+          <p class="wb-inbox-when" id="ev-inbox-when" hidden></p>
+          <p class="wb-fine">Nothing after a few minutes? Check your spam folder, or <button type="button" class="wb-linkbtn" id="ev-inbox-retry">use a different email</button>.</p>
+        </div>
+
+        <div class="ev-closed" id="ev-closed" hidden>
+          <span class="eyebrow" id="ev-closed-eyebrow">Registration</span>
+          <h3 id="ev-closed-title"></h3>
+          <p id="ev-closed-text"></p>
+          <a class="btn btn-primary" id="ev-closed-cta" href="#" hidden></a>
+        </div>
+        <noscript><p class="wb-fine" style="margin-top:14px">This page needs JavaScript. Email <a href="mailto:hi@privacypal.ai">hi@privacypal.ai</a> and we will register you by hand.</p></noscript>
+      </div>
+
+      <div class="ev-share-card" id="ev-share-card">
+        <span class="lbl">Share this event</span>
+        <div class="ev-share-row">
+          <a class="ev-share-ico" id="ev-share-li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a class="ev-share-ico" id="ev-share-x" href="#" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></a>
+          <a class="ev-share-ico" id="ev-share-mail" href="#" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+          <button class="ev-share-ico" type="button" id="ev-share-copy" aria-label="Copy the link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+          <span class="ev-copied" id="ev-copied" hidden>Link copied</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="section-sm">
+    <div class="container cta-stack">
+      <div class="cta-banner dark ev-bottom" id="ev-bottom">
+        <h2 id="ev-bottom-title">We protect your data from AI, at home and at work.</h2>
+        <p id="ev-bottom-text">Protection runs on the device, before a prompt or file reaches an AI provider. Download PrivacyPal and Personal is included free.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-gold" id="ev-bottom-primary" href="#ev-register">Register free</a>
+          <a class="btn btn-ghost ev-ghost-dark" id="ev-bottom-secondary" href="../download.html" data-cta="download">Download free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ev-missing" id="ev-missing" hidden>
+    <div class="wb-empty">
+      <img class="wb-guide" src="../assets/brand/penguin.svg" alt="" width="96" height="96">
+      <span class="eyebrow">PrivacyPal Live</span>
+      <h1 id="ev-missing-title">We could not find this event</h1>
+      <p class="lede" id="ev-missing-text">The link may be incomplete. Open the link from your invitation again, or see our standing live demos.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="../webinars/">See live demos</a></div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer-slot"></div>
+<script src="../assets/v3.js"></script>
+<script src="../webinars/webinars.js"></script>
+</body>
+</html>
