@@ -118,6 +118,16 @@ node scripts/brand/legacy-logos.js --logos-only                   # or --pack-on
   Python 3 with Pillow and NumPy, OpenCV for one stand-in, and `cwebp`. Preview with
   `--out <folder>` before writing into `assets/home/`; the header of `home_common.py`
   explains how to swap in a final photo.
+- **Homepage customer stories:** the 3-up under the logo marquee and its video modal
+  (`.tm-*` in `assets/home/home.css`, behavior in `assets/home/stories.js`). Each story is
+  one `.tm-card` in `index.html` whose `data-*` attributes (name, title, company, video,
+  poster, duration) drive the modal too. `scripts/home/home_stories.py` builds the files in
+  `assets/testimonials/` from one folder per person (default `~/Desktop/testimonials`): the
+  720x1280 video, its poster, a silent 4:5 hover loop and the 4:5 cover crops (which start
+  below the retired logo on the October covers). It needs `ffmpeg` and Pillow. A link to
+  `https://privacypal.ai/?testimonial=<slug>` opens that story on arrival and plays it
+  (muted with "Tap for sound" where the browser refuses sound without a tap); the slugs are
+  `vivek-laungani`, `jordan-serlin` and `keyonna-taylor`, in page order.
 
 ## GitHub Pages setup
 

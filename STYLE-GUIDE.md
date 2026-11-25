@@ -329,6 +329,7 @@ never "load-bearing", never name a competitor.
 | Tables | `table-wrap` > `table.compare` (`td.yes` / `td.no`) |
 | Pills | `pill-row` > `pill` |
 | Marquee | see index.html logos section |
+| Customer stories | homepage only: `.tm-grid` > `.tm-card[data-story]` (`.tm-media` with the 4:5 cover, `.tm-prev` hover loop, `.tm-play` pill; `.tm-who` with `.tm-name > button.tm-open`, `.tm-role` and the company logo `img.tm-co`) and the `#tmModal` video modal. Names, titles and quotes come from the person's own recording and release; never draft them. See `README.md`, Homepage customer stories |
 | Reveal animation | add `reveal` (+ `reveal-delay-1|2|3`) to blocks; v3.js observes them |
 
 ## Downloads
