@@ -33,6 +33,14 @@
 <meta name="twitter:title" content="PrivacyPal: protect your family, your business and yourself from AI" />
 <meta name="twitter:description" content="One app between your data and every AI. Personal is free; add the Family or Max pack. The same technology that protects 140+ companies." />
 <meta name="twitter:image" content="https://privacypal.ai/assets/brand/og/og-home.png" />
+<!-- The customer stories under the logo marquee, for video search -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"PrivacyPal customer stories","itemListElement":[
+{"@type":"ListItem","position":1,"item":{"@type":"VideoObject","name":"Vivek Laungani, CEO, Purewater Financial, on PrivacyPal","description":"Vivek Laungani, CEO of Purewater Financial, on AI, client data and PrivacyPal.","thumbnailUrl":"https://privacypal.ai/assets/testimonials/vivek-laungani-cover-960.jpg","contentUrl":"https://privacypal.ai/assets/testimonials/vivek-laungani.mp4","url":"https://privacypal.ai/?testimonial=vivek-laungani","uploadDate":"2026-11-24","duration":"PT27S"}},
+{"@type":"ListItem","position":2,"item":{"@type":"VideoObject","name":"Jordan Serlin, Senior Advisor, PrivacyPal","description":"Jordan Serlin, Senior Advisor to PrivacyPal, on an AI agent, a brokerage account and PrivacyPal.","thumbnailUrl":"https://privacypal.ai/assets/testimonials/jordan-serlin-cover-960.jpg","contentUrl":"https://privacypal.ai/assets/testimonials/jordan-serlin.mp4","url":"https://privacypal.ai/?testimonial=jordan-serlin","uploadDate":"2026-11-24","duration":"PT2M40S"}},
+{"@type":"ListItem","position":3,"item":{"@type":"VideoObject","name":"Keyonna Taylor, CEO, Key Focus Group, on PrivacyPal","description":"Keyonna Taylor, CEO of Key Focus Group, on AI, customer data and PrivacyPal.","thumbnailUrl":"https://privacypal.ai/assets/testimonials/keyonna-taylor-cover-960.jpg","contentUrl":"https://privacypal.ai/assets/testimonials/keyonna-taylor.mp4","url":"https://privacypal.ai/?testimonial=keyonna-taylor","uploadDate":"2026-11-24","duration":"PT35S"}}
+]}
+</script>
 <!-- Google tag (gtag.js) -->
 <script src="assets/google-tag.js"></script>
 <!-- Meta Pixel Code -->
@@ -206,8 +214,13 @@
   </div>
 </header>
 
-<!-- ================= TRUST STRIP ================= -->
-<section class="trust" aria-label="Trusted by">
+<!-- ================= TRUST STRIP + CUSTOMER STORIES =================
+     The logo marquee, then three stories on video. Hovering a cover plays a
+     silent loop of the video on it; selecting a card opens the story in the
+     video modal (#tmModal, assets/home/stories.js). A link to
+     /?testimonial=<slug> opens that story's modal on arrival and starts it.
+     Media is built by scripts/home/home_stories.py into assets/testimonials/. -->
+<section class="trust" id="stories" aria-label="Trusted by 140+ companies, in their words">
   <div class="trust-in">
     <p class="trust-label">Trusted by <span class="ul-gold">140+</span> companies</p>
     <div class="marquee">
@@ -229,6 +242,75 @@
         <div class="marquee-item" aria-hidden="true"><img src="assets/gorillabow.avif" alt="" width="111" height="30"></div>
         <div class="marquee-item" aria-hidden="true"><img src="assets/Purewater+Financial.webp" alt="" width="86" height="30"></div>
       </div>
+    </div>
+  </div>
+
+  <div class="tm">
+    <div class="tm-head reveal">
+      <div>
+        <span class="eyebrow gold">In their words</span>
+        <h2 id="tm-title">Hear it from the leaders who use it.</h2>
+      </div>
+      <p class="tm-lede">Customer data, client files, brokerage accounts. Three leaders on putting AI to work and keeping their data in their hands.</p>
+    </div>
+
+    <div class="tm-grid" role="list" aria-labelledby="tm-title">
+      <article class="tm-card reveal reveal-delay-1" role="listitem" data-story="vivek-laungani" data-kind="Customer story" data-name="Vivek Laungani" data-role="CEO, Purewater Financial" data-company="Purewater Financial" data-video="assets/testimonials/vivek-laungani.mp4" data-poster="assets/testimonials/vivek-laungani-poster.jpg" data-duration="0:27">
+        <div class="tm-media">
+          <picture>
+            <source type="image/webp" srcset="assets/testimonials/vivek-laungani-cover-480.webp 480w, assets/testimonials/vivek-laungani-cover-960.webp 960w" sizes="(max-width: 760px) 80vw, 420px">
+            <img src="assets/testimonials/vivek-laungani-cover-960.jpg" srcset="assets/testimonials/vivek-laungani-cover-480.jpg 480w, assets/testimonials/vivek-laungani-cover-960.jpg 960w" sizes="(max-width: 760px) 80vw, 420px" alt="Cover: Client data into ChatGPT?" width="960" height="1200" loading="lazy" decoding="async">
+          </picture>
+          <video class="tm-prev" muted loop playsinline preload="none" data-src="assets/testimonials/vivek-laungani-preview.mp4" aria-hidden="true" tabindex="-1"></video>
+          <span class="tm-bar" aria-hidden="true"><i></i></span>
+          <span class="tm-play" aria-hidden="true"><span class="tm-play-i"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span class="tm-play-t">Watch</span><span class="tm-dur">0:27</span></span>
+        </div>
+        <div class="tm-who">
+          <div class="tm-id">
+            <h3 class="tm-name"><button class="tm-open" type="button" aria-haspopup="dialog" aria-label="Watch Vivek Laungani, CEO, Purewater Financial. Video, 27 seconds.">Vivek Laungani</button></h3>
+            <p class="tm-role">CEO, Purewater Financial</p>
+          </div>
+          <img class="tm-co is-wide" src="assets/Purewater+Financial.webp" alt="Purewater Financial" width="1000" height="350" loading="lazy" decoding="async">
+        </div>
+      </article>
+
+      <article class="tm-card reveal reveal-delay-2" role="listitem" data-story="jordan-serlin" data-kind="Advisor story" data-name="Jordan Serlin" data-role="Senior Advisor, PrivacyPal" data-company="PrivacyPal" data-video="assets/testimonials/jordan-serlin.mp4" data-poster="assets/testimonials/jordan-serlin-poster.jpg" data-duration="2:40">
+        <div class="tm-media">
+          <picture>
+            <source type="image/webp" srcset="assets/testimonials/jordan-serlin-cover-480.webp 480w, assets/testimonials/jordan-serlin-cover-960.webp 960w" sizes="(max-width: 760px) 80vw, 420px">
+            <img src="assets/testimonials/jordan-serlin-cover-960.jpg" srcset="assets/testimonials/jordan-serlin-cover-480.jpg 480w, assets/testimonials/jordan-serlin-cover-960.jpg 960w" sizes="(max-width: 760px) 80vw, 420px" alt="Cover: &ldquo;PrivacyPal actually just saved me tens of thousands of dollars.&rdquo;" width="960" height="1200" loading="lazy" decoding="async">
+          </picture>
+          <video class="tm-prev" muted loop playsinline preload="none" data-src="assets/testimonials/jordan-serlin-preview.mp4" aria-hidden="true" tabindex="-1"></video>
+          <span class="tm-bar" aria-hidden="true"><i></i></span>
+          <span class="tm-play" aria-hidden="true"><span class="tm-play-i"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span class="tm-play-t">Watch</span><span class="tm-dur">2:40</span></span>
+        </div>
+        <div class="tm-who">
+          <div class="tm-id">
+            <h3 class="tm-name"><button class="tm-open" type="button" aria-haspopup="dialog" aria-label="Watch Jordan Serlin, Senior Advisor, PrivacyPal. Video, 2 minutes 40 seconds.">Jordan Serlin</button></h3>
+            <p class="tm-role">Senior Advisor, PrivacyPal</p>
+          </div>
+          <img class="tm-co is-pp" src="assets/brand/logo.svg" alt="PrivacyPal" width="124" height="25" loading="lazy" decoding="async">
+        </div>
+      </article>
+
+      <article class="tm-card reveal reveal-delay-3" role="listitem" data-story="keyonna-taylor" data-kind="Customer story" data-name="Keyonna Taylor" data-role="CEO, Key Focus Group" data-company="Key Focus Group" data-video="assets/testimonials/keyonna-taylor.mp4" data-poster="assets/testimonials/keyonna-taylor-poster.jpg" data-duration="0:35">
+        <div class="tm-media">
+          <picture>
+            <source type="image/webp" srcset="assets/testimonials/keyonna-taylor-cover-480.webp 480w, assets/testimonials/keyonna-taylor-cover-960.webp 960w" sizes="(max-width: 760px) 80vw, 420px">
+            <img src="assets/testimonials/keyonna-taylor-cover-960.jpg" srcset="assets/testimonials/keyonna-taylor-cover-480.jpg 480w, assets/testimonials/keyonna-taylor-cover-960.jpg 960w" sizes="(max-width: 760px) 80vw, 420px" alt="Cover: &ldquo;&hellip;you cannot build trust on assurances alone.&rdquo;" width="960" height="1200" loading="lazy" decoding="async">
+          </picture>
+          <video class="tm-prev" muted loop playsinline preload="none" data-src="assets/testimonials/keyonna-taylor-preview.mp4" aria-hidden="true" tabindex="-1"></video>
+          <span class="tm-bar" aria-hidden="true"><i></i></span>
+          <span class="tm-play" aria-hidden="true"><span class="tm-play-i"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span class="tm-play-t">Watch</span><span class="tm-dur">0:35</span></span>
+        </div>
+        <div class="tm-who">
+          <div class="tm-id">
+            <h3 class="tm-name"><button class="tm-open" type="button" aria-haspopup="dialog" aria-label="Watch Keyonna Taylor, CEO, Key Focus Group. Video, 35 seconds.">Keyonna Taylor</button></h3>
+            <p class="tm-role">CEO, Key Focus Group</p>
+          </div>
+          <img class="tm-co" src="assets/keyfocus.png" alt="Key Focus Group" width="661" height="260" loading="lazy" decoding="async">
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -839,8 +921,63 @@
   </div>
 </div>
 
+<!-- ================= CUSTOMER STORY MODAL =================
+     Filled and driven by assets/home/stories.js from the .tm-card data. -->
+<div class="tm-modal" id="tmModal" aria-hidden="true">
+  <div class="tm-shell" role="dialog" aria-modal="true" aria-labelledby="tmName" aria-describedby="tmRole" tabindex="-1">
+    <div class="tm-top">
+      <img class="tm-brand" src="assets/brand/logo-white.svg" alt="PrivacyPal" width="140" height="28">
+      <button class="tm-x" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+
+    <div class="tm-player is-wait" id="tmPlayer">
+      <video id="tmVideo" playsinline preload="none"></video>
+      <button class="tm-hit" type="button" tabindex="-1" aria-hidden="true"></button>
+      <span class="tm-spin" aria-hidden="true"></span>
+      <span class="tm-big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+      <button class="tm-sound" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>Tap for sound</button>
+      <div class="tm-ctl">
+        <button class="tm-c tm-pp" type="button" aria-label="Pause">
+          <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="3.8" height="14" rx="1.2"/><rect x="13.7" y="5" width="3.8" height="14" rx="1.2"/></svg>
+          <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+        </button>
+        <span class="tm-time"><span id="tmCur">0:00</span><span class="sep"> / </span><span id="tmDur">0:00</span></span>
+        <div class="tm-seek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00"><span class="tm-track"><span class="tm-fill"></span></span><span class="tm-knob"></span></div>
+        <button class="tm-c tm-mute" type="button" aria-label="Mute">
+          <svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          <svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        </button>
+        <button class="tm-c tm-fs" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+      </div>
+      <div class="tm-end" hidden>
+        <button class="tm-replay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Watch again</button>
+        <button class="tm-next" type="button"><span class="lbl">Next story</span><b class="who"></b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="tm-panel">
+      <span class="eyebrow gold tm-kind">Customer story</span>
+      <h2 class="tm-n" id="tmName"></h2>
+      <div class="tm-r-row">
+        <p class="tm-r" id="tmRole"></p>
+        <span class="tm-chip"><img alt="" width="130" height="34"></span>
+      </div>
+      <div class="tm-more">
+        <p class="tm-more-h">More stories</p>
+        <ul class="tm-list"></ul>
+      </div>
+      <div class="tm-acts">
+        <a class="btn btn-gold" href="download.html" data-cta="download">Download free</a>
+        <a class="tm-demo link-arrow" href="#" data-cta="demo">Book a demo</a>
+      </div>
+      <button class="tm-copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span>Copy link to this story</span></button>
+    </div>
+  </div>
+</div>
+
 <script src="assets/home/home.js"></script>
 <script src="assets/v3.js"></script>
+<script src="assets/home/stories.js"></script>
 <script>
 /* Film modal: opens from any [data-film] trigger, lazy-loads the video.
    Focus moves into the dialog, stays there while it is open (Tab cycles
