@@ -30,12 +30,22 @@
   var canHover = mq('(hover: hover) and (pointer: fine)');
 
   function track(name, params){ try { if (typeof window.gtag === 'function') window.gtag('event', name, params); } catch (e) {} }
-  function fmt(t){
-    t = Math.max(0, Math.floor(t || 0));
+  /* elapsed time counts down to the second; a length rounds, as on the cards */
+  function fmt(t, round){
+    t = Math.max(0, (round ? Math.round : Math.floor)(t || 0));
     return Math.floor(t / 60) + ':' + ('0' + (t % 60)).slice(-2);
   }
 
   /* ---------------- the stories, read from the cards ---------------- */
+  /* data-chapters: a story told in several reels, joined into one video;
+     [{"t": start in seconds, "title": "..."}] in playing order */
+  function parseChapters(raw){
+    if (!raw) return [];
+    try {
+      var c = JSON.parse(raw);
+      return Array.isArray(c) ? c.filter(function(x){ return x && typeof x.t === 'number' && x.title; }) : [];
+    } catch (e) { return []; }
+  }
   var stories = cards.map(function(card){
     var d = card.dataset;
     var co = card.querySelector('.tm-co');
@@ -45,6 +55,7 @@
       company: d.company, video: d.video, poster: d.poster, duration: d.duration,
       logo: co ? { src: co.getAttribute('src'), alt: co.getAttribute('alt') || '', wide: co.classList.contains('is-wide') } : null,
       thumb: img ? img.getAttribute('src').replace(/-960\.jpg$/, '-480.jpg') : '',
+      chapters: parseChapters(d.chapters),
       own: d.company === 'PrivacyPal'
     };
   });
@@ -193,6 +204,10 @@
   var list = modal.querySelector('.tm-list');
   var copyBtn = modal.querySelector('.tm-copy');
   var copyLbl = copyBtn ? copyBtn.querySelector('span') : null;
+  var partsBox = modal.querySelector('.tm-parts-box');
+  var partsList = modal.querySelector('.tm-parts');
+  var marks = modal.querySelector('.tm-marks');
+  var curPart = -1;
 
   var cur = null, lastFocus = null, idleT = null, raf = null, dragging = false, lastSec = -1, tapRevealed = false;
   /* null until the visitor chooses; then their choice holds from story to story */
@@ -228,11 +243,66 @@
       b.appendChild(im); b.appendChild(t); b.appendChild(d);
       li.appendChild(b); list.appendChild(li);
     });
+    fillParts(s);
     var n = nextOf(s);
     nextBtn.querySelector('.who').textContent = n.name;
     nextBtn.setAttribute('aria-label', 'Next story: ' + n.name);
     durEl.textContent = s.duration || '0:00';
     curEl.textContent = '0:00';
+  }
+
+  /* the part list and the track's chapter marks; marks need the duration */
+  function fillParts(s){
+    curPart = -1;
+    if (marks) marks.innerHTML = '';
+    if (!partsBox || !partsList) return;
+    partsList.innerHTML = '';
+    var c = s.chapters;
+    partsBox.hidden = c.length < 2;
+    if (c.length < 2) return;
+    c.forEach(function(ch, i){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'tm-part'; b.setAttribute('data-part', String(i));
+      b.setAttribute('aria-label', 'Part ' + (i + 1) + ' of ' + c.length + ': ' + ch.title);
+      var n = document.createElement('span'); n.className = 'n'; n.textContent = String(i + 1);
+      var tt = document.createElement('span'); tt.className = 'tt'; tt.textContent = ch.title;
+      var d = document.createElement('span'); d.className = 'd';
+      b.appendChild(n); b.appendChild(tt); b.appendChild(d);
+      li.appendChild(b); partsList.appendChild(li);
+    });
+    /* lengths and marks follow on loadedmetadata, from this story's own video */
+  }
+  function partLengths(){
+    if (!cur || cur.chapters.length < 2) return;
+    var c = cur.chapters, total = video.duration || 0;
+    [].forEach.call(partsList.querySelectorAll('.tm-part'), function(b, i){
+      var end = i + 1 < c.length ? c[i + 1].t : total;
+      b.querySelector('.d').textContent = end > c[i].t ? fmt(end - c[i].t, true) : '';
+    });
+    if (marks && total && !marks.childNodes.length) {
+      c.forEach(function(ch, i){
+        if (!i) return;
+        var m = document.createElement('i');
+        m.style.left = (ch.t / total * 100) + '%';
+        marks.appendChild(m);
+      });
+    }
+  }
+  function partAt(t){
+    var c = cur ? cur.chapters : [], k = -1;
+    for (var i = 0; i < c.length; i++) if (t >= c[i].t - .05) k = i;
+    return k;
+  }
+  function syncPart(t){
+    if (!cur || cur.chapters.length < 2) return;
+    var k = partAt(t);
+    if (k === curPart) return;
+    curPart = k;
+    [].forEach.call(partsList.querySelectorAll('.tm-part'), function(b, i){
+      b.classList.toggle('is-on', i === k);
+      if (i === k) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+    });
   }
 
   function syncState(){
@@ -250,13 +320,14 @@
     fill.style.transform = 'scaleX(' + r + ')';
     knob.style.left = (r * 100) + '%';
     curEl.textContent = fmt(t);
-    if (d) durEl.textContent = fmt(d);
+    if (d) durEl.textContent = fmt(d, true);
+    syncPart(t);
     var sec = Math.floor(t) + Math.round(d) * 1000;
     if (sec === lastSec) return;   /* the slider's values change once a second, not every frame */
     lastSec = sec;
     seek.setAttribute('aria-valuemax', String(Math.round(d)));
     seek.setAttribute('aria-valuenow', String(Math.floor(t)));
-    seek.setAttribute('aria-valuetext', fmt(t) + ' of ' + fmt(d));
+    seek.setAttribute('aria-valuetext', fmt(t) + ' of ' + fmt(d, true));
   }
   function loop(){ drawTime(); raf = requestAnimationFrame(loop); }
 
@@ -459,7 +530,7 @@
   video.addEventListener('play', function(){ syncState(); wake(); });
   video.addEventListener('pause', function(){ syncState(); player.classList.remove('idle'); });
   video.addEventListener('volumechange', syncState);
-  video.addEventListener('loadedmetadata', drawTime);
+  video.addEventListener('loadedmetadata', function(){ partLengths(); drawTime(); });
   video.addEventListener('ended', function(){
     player.classList.add('is-ended');
     player.classList.remove('idle');
@@ -474,6 +545,15 @@
     video.currentTime = 0; attempt(); wake();
   });
   nextBtn.addEventListener('click', function(){ if (cur) load(nextOf(cur), 'next'); });
+  if (partsList) partsList.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('[data-part]') : null;
+    if (!b || !cur) return;
+    var ch = cur.chapters[+b.getAttribute('data-part')];
+    if (!ch) return;
+    seekTo(ch.t + .01);
+    if (video.paused) attempt();
+    wake();
+  });
   list.addEventListener('click', function(e){
     var b = e.target.closest ? e.target.closest('[data-go]') : null;
     if (b) { load(find(b.getAttribute('data-go')), 'more'); try { shell.focus({ preventScroll: true }); } catch (err) {} }
