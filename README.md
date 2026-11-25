@@ -124,7 +124,10 @@ node scripts/brand/legacy-logos.js --logos-only                   # or --pack-on
   poster, duration) drive the modal too. `scripts/home/home_stories.py` builds the files in
   `assets/testimonials/` from one folder per person (default `~/Desktop/testimonials`): the
   720x1280 video, its poster, a silent 4:5 hover loop and the 4:5 cover crops (which start
-  below the retired logo on the October covers). It needs `ffmpeg` and Pillow. A link to
+  below the retired logo on the October covers). It needs `ffmpeg` and Pillow. A story told
+  in several reels (Vivek's and Keyonna's, three each) is joined into one video in playing
+  order; the script prints each reel's start time for the card's `data-chapters`, which
+  drives the part list in the modal and the marks on its progress bar. A link to
   `https://privacypal.ai/?testimonial=<slug>` opens that story on arrival and plays it
   (muted with "Tap for sound" where the browser refuses sound without a tap); the slugs are
   `vivek-laungani`, `jordan-serlin` and `keyonna-taylor`, in page order.
