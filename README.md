@@ -124,7 +124,10 @@ node scripts/brand/legacy-logos.js --logos-only                   # or --pack-on
   poster, duration) drive the modal too. `scripts/home/home_stories.py` builds the files in
   `assets/testimonials/` from one folder per person (default `~/Desktop/testimonials`): the
   720x1280 video, its poster, a silent 4:5 hover loop and the 4:5 cover crops (which start
-  below the retired logo on the October covers). It needs `ffmpeg` and Pillow. A story told
+  below the retired logo on the October covers). Vivek's and Keyonna's covers have a coral
+  ground in the source art; the build recolors it to the brand navy (`cover_ink` in the
+  script, `scripts/home/cover_recolor.py`), keeping the white headline, the arcs and the
+  shadows, and leaving the photo as it is. It needs `ffmpeg`, Pillow and NumPy. A story told
   in several reels (Vivek's and Keyonna's, three each) is joined into one video in playing
   order; the script prints each reel's start time for the card's `data-chapters`, which
   drives the part list in the modal and the marks on its progress bar. A link to

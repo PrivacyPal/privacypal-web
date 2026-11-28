@@ -12,7 +12,9 @@ For each story it writes into assets/testimonials/:
   <slug>-preview.mp4       the silent hover loop on the card: a 4:5 window of
                            the video, 576x720, a few seconds where they speak
   <slug>-cover-{480,960}   the cover art cropped to the card's 4:5, WebP and
-                           progressive JPEG
+                           progressive JPEG. With "cover_ink", the cover's coral
+                           ground is first recolored to that brand ink
+                           (cover_recolor.py); the source file is not changed
 
 The cover art and reels are 1080x1920 (9:16). The 4:5 crops start below the
 top band, where the October covers carry the retired PrivacyPal mark, so the
@@ -34,6 +36,9 @@ import sys
 
 from PIL import Image
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cover_recolor import recolor  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # cover_y / preview_y: top of the 1080x1350 (4:5) window in the 1080x1920 frame.
@@ -48,6 +53,7 @@ STORIES = {
             ("Reel 3 Scale It 9x16.mp4", "Scale it"),
         ],
         "cover": "Cover 2 Assurances Alone.jpg",
+        "cover_ink": "navy",   # the coral ground recolored to the brand navy
         "cover_y": 340,
         "preview": (0.4, 7.0),   # "AI allows us to work faster. However, the manual input..."
         "preview_y": 420,
@@ -60,6 +66,7 @@ STORIES = {
             ("Reel 3 Believe It 9x16.mp4", "Believe it"),
         ],
         "cover": "Cover 1 The Easiest Answer.jpg",
+        "cover_ink": "navy",
         "cover_y": 340,
         "preview": (0.0, 7.0),   # "Just being able to, for example, dump your client's data into ChatGPT"
         "preview_y": 250,
@@ -139,6 +146,8 @@ def build(slug, src, out, only):
         img = Image.open(cover).convert("RGB")
         if img.size != (1080, 1920):
             img = img.resize((1080, 1920), Image.LANCZOS)
+        if s.get("cover_ink"):
+            img = recolor(img, s["cover_ink"])
         y = s["cover_y"]
         crop = img.crop((0, y, 1080, y + 1350))
         for w in (960, 480):
